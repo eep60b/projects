@@ -11,11 +11,14 @@ public class FXMLController implements Initializable
 {
 
   @FXML
-  private TreeView<String> lifePlantsTreeView;
+  private TreeView<String> livePlantsTreeView;
+  
   @FXML
   private TreeView<String> achievedPlantsTreeView;
+  
   @FXML
   private TreeView<String> locationsTreeView;
+  
   @FXML
   private TreeView<String> logsTreeView;
 
@@ -29,7 +32,7 @@ public class FXMLController implements Initializable
   public void loadTreeItems(String... rootItems)
   {
 
-    lifePlantsTreeView = new TreeView<>();
+    //DO NUT do this here: livePlantsTreeView = new TreeView<>();
     TreeItem<String> root = new TreeItem<>("All plants");
     root.setExpanded(true);
     for (String itemString : rootItems)
@@ -37,6 +40,6 @@ public class FXMLController implements Initializable
       root.getChildren().add(new TreeItem<>(itemString));
     }
 
-    lifePlantsTreeView.setRoot(root);
+    livePlantsTreeView.setRoot(root);
   }
 }

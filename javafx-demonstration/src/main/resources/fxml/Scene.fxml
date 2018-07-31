@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="903.0" prefWidth="1291.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.FXMLController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -45,20 +45,24 @@
       </HBox>
    </bottom>
    <center>
-      <SplitPane dividerPositions="0.3010033444816054, 0.9381270903010034" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.29274292742927427, 0.9384993849938499" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
             <TabPane tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Plants">
                      <content>
-                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                        <SplitPane id="liveplants-splitpane" dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                            <items>
-                              <TreeView prefHeight="143.0" prefWidth="184.0" />
+                              <TreeView id="plants-treeview" fx:id="livePlantsTreeView" prefHeight="143.0" prefWidth="184.0" />
                               <TitledPane animated="false" text="Achieved Plants">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TreeView layoutX="-36.0" layoutY="-63.0" />
+                                          <ScrollPane layoutX="10.0" layoutY="10.0" opacity="0.0" prefHeight="180.0" prefViewportHeight="160.8000030517578" prefViewportWidth="213.8000030517578" prefWidth="372.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <content>
+                                                <TreeView layoutX="-36.0" layoutY="-63.0" opacity="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </content>
+                                          </ScrollPane>
                                        </children>
                                     </AnchorPane>
                                 </content>
