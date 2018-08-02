@@ -41,5 +41,6 @@ public class FXMLController implements Initializable
     }
 
     livePlantsTreeView.setRoot(root);
+    livePlantsTreeView.setShowRoot(false);
   }
 }

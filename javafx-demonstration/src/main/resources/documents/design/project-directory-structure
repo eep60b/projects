@@ -1,0 +1,13 @@
+[project name]
+                [logs]
+                [data]
+                      [derby]
+                      [imgs]
+                            [plants]
+                                      [strawberries]
+                                        .......
+                            [locations]
+                            [others]
+                                       
+                [config]
+                .......

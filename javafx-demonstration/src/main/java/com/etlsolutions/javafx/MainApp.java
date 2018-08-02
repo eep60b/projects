@@ -1,11 +1,13 @@
 package com.etlsolutions.javafx;
 
+import com.etlsolutions.javafx.system.ConfigurationUtils;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 
 
 public class MainApp extends Application {
@@ -31,7 +33,12 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+      try {
+        ConfigurationUtils.initRepository(args);
         launch(args);
+      } catch (Throwable th) {        
+        Logger.getLogger(MainApp.class).error(th);
+        System.exit(-1);
+      }
     }
-
 }

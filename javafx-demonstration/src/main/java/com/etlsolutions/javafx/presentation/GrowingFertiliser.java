@@ -9,9 +9,15 @@ import java.util.Date;
 public abstract class GrowingFertiliser
 {
   private String name;
-  private String manufacturer;
-  private Date date;
-  private String density;
+  private String manufacturer = "Not specified";
+  private String description;
+  private String shop = "Not specified";
+  private String price = "Not specified";
+  private String[] webLinks = {};
+  private Date datePurchased;
+  private double suggestedUsageAmount;
+  private String usageUom;
+  private double ph;
   private double nitrogen;
   private double potasium;
   private double p;
