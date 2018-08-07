@@ -6,9 +6,11 @@ import java.util.Date;
  *
  * @author zc
  */
-public class Flowering {
+public class FlowerSet {
   
+  private int id;
   private Date start = new Date();
   private Date finish;
-  private int NumberPerPlant = -1;  
+  private int numberPerPlant = -1;  
+  private String[] imgLinks;
 }

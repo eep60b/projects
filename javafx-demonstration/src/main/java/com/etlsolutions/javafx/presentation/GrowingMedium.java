@@ -15,6 +15,7 @@ public class GrowingMedium
   private double waterPercentage;
   private double organicPercentage;
   private boolean initialFertilised = true;
-  private String[] imgLinks;
-  private String selectedImgLink;
+  private String[] imgLinks = {};
+  private String[] imgInfos = {};
+  private int selectedImgLink;
 }

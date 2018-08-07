@@ -9,11 +9,10 @@ import java.util.List;
 public class PlantsItem implements Item {
 
   private final int id;
-  private String name;
+  private String title;
   private PlantVariety variety;
   private PlantsQuantity quantity;
-  private GrowingDetails growingDetails;
-  private List<LogItem> logs;
+  private GrowingDetail growingDetails;
   private String selectedImgLink;
   private List<String> imgLinks;
 
@@ -23,7 +22,7 @@ public class PlantsItem implements Item {
 
   @Override
   public String toString() {
-    return name;
+    return title;
   }
 
   @Override

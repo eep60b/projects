@@ -6,7 +6,7 @@ import java.util.Date;
  *
  * @author zc
  */
-public class GrowingFertiliserUsage
+public class FertiliserUsage
 {
   private int id;
   private String title;

@@ -6,5 +6,8 @@ package com.etlsolutions.javafx.presentation;
  * @author zc
  */
 public class LocationGroupItem {
-
+  
+  private int id;
+  private String title;
+  private String description;
 }

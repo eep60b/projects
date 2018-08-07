@@ -12,5 +12,6 @@ public class GrowingIssue
   private String solution;
   private String effectiveness;
   private String[] imgLinks = {};
-  private String selectedIngLink;
+  private String[] imgInfos = {};
+  private int selectedIngLink;
 }
