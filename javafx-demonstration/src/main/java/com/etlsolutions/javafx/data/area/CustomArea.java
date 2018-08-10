@@ -1,0 +1,9 @@
+package com.etlsolutions.javafx.data.area;
+
+/**
+ *
+ * @author zc
+ */
+public class CustomArea extends Area {
+  
+}
