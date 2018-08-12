@@ -1,14 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.data.log;
+
+import com.etlsolutions.javafx.data.DataUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author zc
  */
-public class Tasks {
+public class Tasks  extends DataUnit {
   
+    public static final String TASKS_PROPERTY = "com.etlsolutions.javafx.data.log.Tests.TASKS_PROPERTY";
+    public List<Tasks> tasks = new ArrayList<>();
+
+    public Tasks() {
+        super.setTitle("Tasks");
+    }
+
+    public List<Tasks> getTasks() {
+        return new ArrayList<>(tasks);
+    }
+
+    public void setTasks(List<Tasks> tests) {
+        this.tasks = new ArrayList<>(tests);
+        fireChange(TASKS_PROPERTY);
+    }
 }

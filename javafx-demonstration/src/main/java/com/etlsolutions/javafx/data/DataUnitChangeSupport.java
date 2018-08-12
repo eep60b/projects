@@ -12,44 +12,48 @@ import java.util.Set;
  */
 public final class DataUnitChangeSupport {
 
-  private final Map<String, Set<DataUnitChangeListener>> map = new HashMap<>();
+    private final Map<String, Set<DataUnitChangeListener>> map = new HashMap<>();
 
-  public synchronized void addListener(String property, DataUnitChangeListener listener) {
+    public synchronized boolean addListener(String property, DataUnitChangeListener listener) {
 
-    Set<DataUnitChangeListener> listeners = map.get(property);
-    if (listeners == null) {
-      listeners = new HashSet<>();
-      map.put(property, listeners);
-    }
-    listeners.add(listener);
-  }
+        if (listener == null) {
+            return false;
+        }
 
-  public synchronized void fireChange(String property) {
-
-    Set<DataUnitChangeListener> listeners = map.get(property);
-
-    if (listeners == null) {
-      return;
+        Set<DataUnitChangeListener> listeners = map.get(property);
+        if (listeners == null) {
+            listeners = new HashSet<>();
+            map.put(property, listeners);
+        }
+        return listeners.add(listener);
     }
 
-    for (DataUnitChangeListener listener : listeners) {
-      listener.change();
+    public synchronized void fireChange(String property) {
+
+        Set<DataUnitChangeListener> listeners = map.get(property);
+
+        if (listeners == null) {
+            return;
+        }
+
+        for (DataUnitChangeListener listener : listeners) {
+            listener.change();
+        }
     }
-  }
 
-  public synchronized void fireChange(String property, Object oldVaue, Object newValue) {
+    public synchronized void fireChange(String property, Object oldVaue, Object newValue) {
 
-    if (Objects.equals(oldVaue, newValue)) {
-      return;
+        if (Objects.equals(oldVaue, newValue)) {
+            return;
+        }
+
+        fireChange(property);
     }
 
-    fireChange(property);
-  }
-  
-  public synchronized void fireChange() {
+    public synchronized void fireChange() {
 
-    for(String property : map.keySet()) {
-      fireChange(property);
+        for (String property : map.keySet()) {
+            fireChange(property);
+        }
     }
-  }  
 }
