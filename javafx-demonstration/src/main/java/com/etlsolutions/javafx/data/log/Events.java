@@ -4,8 +4,8 @@ import com.etlsolutions.javafx.data.DataUnit;
 
 /**
  *
- * @author zc
+ * @author Zhipeng
  */
-public class LogGroup extends DataUnit {
-  
+public class Events extends DataUnit{
+    
 }

@@ -9,6 +9,6 @@ package com.etlsolutions.javafx.data.log;
  *
  * @author zc
  */
-public class Issues {
+public class Issues extends LogGroup {
   
 }
