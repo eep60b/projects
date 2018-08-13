@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.etlsolutions.javafx.data.log;
+package com.etlsolutions.javafx.data.log.task;
 
 /**
  *
  * @author zc
  */
-public class Task {
+public class CustomTask {
   
 }

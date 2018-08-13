@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -9,13 +10,25 @@ import java.util.Date;
  */
 public class Log extends DataUnit {
   
-  private Date time;
+  public static final String TIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.TIME_PROPERTY";
+  
+  private final Calendar calendar = Calendar.getInstance();
 
   public Date getTime() {
-    return time;
+    return calendar.getTime();
   }
 
   public void setTime(Date time) {
-    this.time = time;
+    Date oldValue = calendar.getTime();
+    calendar.setTime(time);
+    fireChange(TIME_PROPERTY, oldValue, time);
+  }
+  
+  public int getYear() {
+    return calendar.get(Calendar.YEAR);
+  }
+  
+  public int getMonth() {
+    return calendar.get(Calendar.MONTH);
   }
 }

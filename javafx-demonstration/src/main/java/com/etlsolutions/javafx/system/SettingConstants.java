@@ -30,5 +30,14 @@ public class SettingConstants {
    */
   public static final String FILE_NAME_SEPERATOR = "_";
 
+  /**
+   * This extension is used for all JSON file in this application. The system should NOT de-serialise any file without this extension.
+   */
   public static final String JSON_FILE_EXTENSION = ".json";
+  
+  /**
+   * ********************************* Default values *************************
+   * 
+   */
+
 }

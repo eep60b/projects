@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.data.log;
+package com.etlsolutions.javafx.data.log.task;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import java.util.ArrayList;

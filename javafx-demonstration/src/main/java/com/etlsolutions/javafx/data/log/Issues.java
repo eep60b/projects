@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.data.log;
+
+import java.util.ResourceBundle;
 
 /**
  *
  * @author zc
  */
 public class Issues extends LogGroup {
+
+  public Issues() {
+    super.setTitle(ResourceBundle.getBundle("bundle/").getString("com.etlsolutions.javafx.data.log.Issues.Title"));  
+  }
   
 }

@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.data.plant;
+package com.etlsolutions.javafx.data.log.task;
 
 import java.util.Date;
 
