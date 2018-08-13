@@ -1,4 +1,6 @@
-package com.etlsolutions.javafx.data.plant;
+package com.etlsolutions.javafx.data.log.task;
+
+import com.etlsolutions.javafx.data.log.task.GrowingFertiliser;
 
 /**
  *

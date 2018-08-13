@@ -6,6 +6,6 @@ import com.etlsolutions.javafx.data.log.Log;
  *
  * @author zc
  */
-public class CustomTask extends Log {
+public class PruningTask extends Log {
   
 }

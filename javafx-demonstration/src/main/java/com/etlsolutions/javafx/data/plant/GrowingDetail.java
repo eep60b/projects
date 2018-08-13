@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.plant;
 
+import com.etlsolutions.javafx.data.log.task.PlantThinningTasks;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
-import com.etlsolutions.javafx.data.log.task.Watering;
+import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.log.task.HarvestingTask;
 import com.etlsolutions.javafx.data.log.task.FertilisationTask;
 import com.etlsolutions.javafx.data.log.event.FruitingEvent;
@@ -24,9 +25,9 @@ public class GrowingDetail {
   private GrowingTermination growingTermination;
   private GrowingMedium growingMedium;  
   private List<TransplantTask> transplants = new ArrayList<>();
-  private List<PlantThinning> plantThinnings = new ArrayList<>();
-  private List<Watering> waterings = new ArrayList<>();
-  private List<FertilisationTask> fertiliserUsage;
+  private List<PlantThinningTasks> plantThinnings = new ArrayList<>();
+  private List<WateringTask> waterings = new ArrayList<>();
+  private List<FertilisationTask> fertilisationTasks;
   private List<FloweringEvent> flowerings = new ArrayList<>();
   private List<FruitingEvent> fruitings = new ArrayList<>();
   private List<HarvestingTask> harvests = new ArrayList<>();  

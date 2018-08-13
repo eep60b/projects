@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.plant;
 
-import java.util.List;
 import com.etlsolutions.javafx.data.DataUnit;
 
 /**
@@ -11,10 +10,33 @@ import com.etlsolutions.javafx.data.DataUnit;
  */
 public class Plants extends DataUnit {
 
+  public static final String PROPERTY = "com.etlsolutions.javafx.data.plant.Plants.PROPERTY";
+  
   private PlantVariety variety;
   private PlantsQuantity quantity;
   private GrowingDetail growingDetails;
-  private String selectedImgLink;
-  private List<String> imgLinks;
 
+  public PlantVariety getVariety() {
+    return variety;
+  }
+
+  public void setVariety(PlantVariety variety) {
+    this.variety = variety;
+  }
+
+  public PlantsQuantity getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(PlantsQuantity quantity) {
+    this.quantity = quantity;
+  }
+
+  public GrowingDetail getGrowingDetails() {
+    return growingDetails;
+  }
+
+  public void setGrowingDetails(GrowingDetail growingDetails) {
+    this.growingDetails = growingDetails;
+  }  
 }
