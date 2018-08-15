@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +11,25 @@ import java.util.List;
  */
 public class AreaRoot extends DataUnit {
 
+  @JsonIgnore
+  public static final String GARDENAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.GARDENAREA_PROPERTY";
+  @JsonIgnore
+  public static final String INDOORAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.INDOORAREA_PROPERTY";
+  @JsonIgnore
+  public static final String PATIOREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.PATIOREA_PROPERTY";
+  @JsonIgnore
+  public static final String BALCONYAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.BALCONYAREA_PROPERTY";
+  @JsonIgnore
+  public static final String ALLOTMENTAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.ALLOTMENTAREA_PROPERTY";
+  @JsonIgnore
+  public static final String CUSTOMAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.CUSTOMAREA_PROPERTY";
+
   private List<GardenArea> gardenAreas;
   private List<IndoorArea> indoorAreas;
   private List<PatioArea> patioAreas;
   private List<BalconyArea> balconyAreas;
   private List<AllotmentArea> allotmentAreas;
   private List<CustomArea> customAreas;
-  
-  public AreaRoot() {
-  }
 
   public List<GardenArea> getGardenAreas() {
     return gardenAreas;
@@ -67,7 +78,7 @@ public class AreaRoot extends DataUnit {
   public void setCustomAreas(List<CustomArea> customAreas) {
     this.customAreas = customAreas;
   }
-  
+
   @Override
   public AreaRoot createInitialisedInstance() {
     AreaRoot a = new AreaRoot();
@@ -78,5 +89,5 @@ public class AreaRoot extends DataUnit {
     a.setIndoorAreas(new ArrayList<IndoorArea>());
     a.setPatioAreas(new ArrayList<PatioArea>());
     return a;
-  }  
+  }
 }

@@ -9,7 +9,7 @@ import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
  *
  * @author zc
  */
-public class LogRoot extends DataUnit {
+public class LogGroupRoot extends DataUnit {
   
    private final Events events = new Events();
    private final Issues issues = new Issues();

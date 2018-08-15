@@ -18,7 +18,8 @@ public class DataUnitIdRegistry {
   }
   
   public static int createNewId() {
-    int newId = IDS.last() + 1;
+    
+    int newId = IDS.isEmpty() ? 1 : IDS.last() + 1;
     IDS.add(newId);
     return newId;
   }

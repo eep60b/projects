@@ -10,7 +10,7 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.Log;
-import com.etlsolutions.javafx.data.log.LogRoot;
+import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsRoot;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public final class ProjectManager {
   private final Map<Integer, Location> locationMap = new HashMap<>();
   private final PlantsRoot plantsRoot = new PlantsRoot();
   private final Map<Integer, Plants> plantsMap = new HashMap<>();
-  private final LogRoot logRoot = new LogRoot();
+  private final LogGroupRoot logRoot = new LogGroupRoot();
   private final Map<Integer, Log> logMap = new HashMap<>();
 
   private ProjectManager() {
