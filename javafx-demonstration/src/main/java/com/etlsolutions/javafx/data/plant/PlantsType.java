@@ -7,40 +7,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The PlantsType class represents a plant type which loosely corresponding to the plant species. As the plant species is not restrictively used by shops and gardeners, Examples: Strawberry,
- * Squash, Bean, Pea etc.
+ * The PlantsType class represents a plant type which loosely corresponding to
+ * the plant species. As the plant species is not restrictively used by shops
+ * and gardeners, Examples: Strawberry, Squash, Bean, Pea etc.
  *
  * @author zc
  */
 public class PlantsType extends DataUnit {
 
-  @JsonIgnore  
-  public static final String PLANTS_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.PLANTS_PROPERTY";
-  
-  private List<Plants> plantsList;
+    @JsonIgnore
+    public static final String PLANTS_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.PLANTS_PROPERTY";
 
- 
-          
-  public List<Plants> getPlantses() {
-    return new ArrayList<>(plantsList);
-  }
-  
-  public boolean addPlants(Plants plants) {
-    boolean added = plantsList.add(plants);
-    fireChange(PLANTS_PROPERTY, false, added);
-    return added;
-  }
-  
-  public boolean removePlants(Plants plants) {
-    boolean removed = plantsList.add(plants);
-    fireChange(PLANTS_PROPERTY, false, removed);
-    return removed;
-  }  
+    private List<Plants> plantsList;
 
-  @Override
-  public DataUnit createInitialisedInstance() {
+    public List<Plants> getPlantses() {
+        return new ArrayList<>(plantsList);
+    }
+
+    public void setPlantsList(List<Plants> plantsList) {
+        this.plantsList = new ArrayList<>(plantsList);
+        fireChange(PLANTS_PROPERTY);
+    }
+
+    public boolean addPlants(Plants plants) {
+        boolean added = plantsList.add(plants);
+        fireChange(PLANTS_PROPERTY, false, added);
+        return added;
+    }
+
+    public boolean removePlants(Plants plants) {
+        boolean removed = plantsList.add(plants);
+        fireChange(PLANTS_PROPERTY, false, removed);
+        return removed;
+    }
+
+    @Override
+    public DataUnit createInitialisedInstance() {
         plantsList = new ArrayList<>();
-    setTitle(BUNDLE.getString(DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY));
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
+        setTitle(BUNDLE.getString(DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY));
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

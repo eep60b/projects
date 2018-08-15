@@ -28,9 +28,9 @@ public abstract class DataUnit {
 
   private int id;
   private boolean isIdSet;
-  private String title = "Untitled";
-  private String information = "";
-  private List<ImgLink> imgLinks = new ArrayList<>();
+  private String title;
+  private String information;
+  private List<ImgLink> imgLinks;
   private int selectedImgLinkIndex;
   private String logoPath;
 
