@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.DataUnitIdRegistry;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,11 @@ import java.util.List;
  */
 public class LogYear extends DataUnit {
 
+  @JsonIgnore
   public static final String LOGS_PROPERTY = "com.etlsolutions.javafx.data.log.LogYear.LOGS_PROPERTY";
+  @JsonIgnore
   public static final String YEAR_PROPERTY = "com.etlsolutions.javafx.data.log.LogYear.YEAR_PROPERTY";
+  @JsonIgnore
   public static final String MONTHS_PROPERTY = "com.etlsolutions.javafx.data.log.LogYear.MONTHS_PROPERTY";
 
   private int year;
@@ -98,11 +102,11 @@ public class LogYear extends DataUnit {
   }
 
   boolean removeLog(Log log) {
-    for (int i = 0; i< months.size(); i++) {
+    for (int i = 0; i < months.size(); i++) {
       LogMonth l = months.get(i);
       if (l.contains(log)) {
         boolean success = l.removeLog(log);
-        if(l.isEmpty()) {
+        if (l.isEmpty()) {
           months.remove(l);
         }
         fireChange(LOGS_PROPERTY);
@@ -114,7 +118,7 @@ public class LogYear extends DataUnit {
   }
 
   public boolean contains(Log log) {
-    
+
     for (LogMonth l : months) {
       if (l.contains(log)) {
         return true;
@@ -125,5 +129,10 @@ public class LogYear extends DataUnit {
 
   boolean isEmpty() {
     return months.isEmpty();
+  }
+
+  @Override
+  public DataUnit createInitialisedInstance() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 }

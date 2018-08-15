@@ -1,15 +1,22 @@
 package com.etlsolutions.javafx.data.plant;
 
+import com.etlsolutions.javafx.data.DataUnitPart;
+import java.util.List;
+
 /**
  *
  * @author zc
  */
-public class PlantVariety
-{
-  private String name = "Not specified";
-  private String[] aliases;
+public class PlantVariety extends DataUnitPart {
+  
+  private String title;
+  private List<String> aliases;
   private String latinName = "Not specified";
-  private String description = "";
-  private String[] imgLinks;
-  private String selectedImgLink;
+
+  @Override
+  public PlantVariety createInitialisedInstance() {
+    PlantVariety v = new PlantVariety();
+    latinName = "Not specified";
+    return v;
+  }
 }

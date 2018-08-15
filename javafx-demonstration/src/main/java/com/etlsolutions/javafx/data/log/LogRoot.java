@@ -41,4 +41,9 @@ public class LogRoot extends DataUnit {
   public WeatherRecords getWeatherRecords() {
     return weatherRecords;
   }
+
+  @Override
+  public DataUnit createInitialisedInstance() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

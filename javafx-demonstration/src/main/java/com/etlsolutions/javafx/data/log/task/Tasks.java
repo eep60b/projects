@@ -25,4 +25,9 @@ public class Tasks  extends DataUnit {
         this.tasks = new ArrayList<>(tests);
         fireChange(TASKS_PROPERTY);
     }
+
+  @Override
+  public DataUnit createInitialisedInstance() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

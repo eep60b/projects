@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import static com.etlsolutions.javafx.system.SettingConstants.DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +14,13 @@ import java.util.List;
  */
 public class PlantsType extends DataUnit {
 
+  @JsonIgnore  
   public static final String PLANTS_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.PLANTS_PROPERTY";
   
-  private final List<Plants> plantsList = new ArrayList<>();
+  private List<Plants> plantsList;
 
+ 
+          
   public List<Plants> getPlantses() {
     return new ArrayList<>(plantsList);
   }
@@ -31,4 +36,11 @@ public class PlantsType extends DataUnit {
     fireChange(PLANTS_PROPERTY, false, removed);
     return removed;
   }  
+
+  @Override
+  public DataUnit createInitialisedInstance() {
+        plantsList = new ArrayList<>();
+    setTitle(BUNDLE.getString(DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY));
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

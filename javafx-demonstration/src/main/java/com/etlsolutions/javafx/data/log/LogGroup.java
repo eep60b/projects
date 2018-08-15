@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.DataUnitIdRegistry;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,11 @@ import java.util.List;
  */
 public class LogGroup extends DataUnit {
 
+  @JsonIgnore
   public static final String LOGS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.LOGS_PROPERTY";
+  @JsonIgnore
   public static final String YEARS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.YEARS_PROPERTY";
+  
   private final List<LogYear> years = new ArrayList<>();
   private final List<Log> cache = new ArrayList<>();
 
@@ -60,13 +64,18 @@ public class LogGroup extends DataUnit {
     cache.add(log);
     fireChange(LOGS_PROPERTY);
   }
-  
+
   private void removeLogFromCache(Log log) {
     cache.remove(log);
     fireChange(LOGS_PROPERTY);
   }
-  
+
   public List<Log> getLogs() {
     return new ArrayList<>(cache);
+  }
+
+  @Override
+  public DataUnit createInitialisedInstance() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 }

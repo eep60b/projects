@@ -4,18 +4,52 @@ package com.etlsolutions.javafx.data;
  *
  * @author zc
  */
-public class ImgLink {
+public class ImgLink extends DataUnitPart {
   
   private int id;
+  private boolean isIdSet;  
   private String link;
   private String information;
 
-  public int getId() {
+  public ImgLink() {
+  }
+
+  @Override
+  public ImgLink createInitialisedInstance() {
+    ImgLink imgLink = new ImgLink();
+    imgLink.setId(DataUnitIdRegistry.createNewId());
+    imgLink.setInformation("Not specified.");    
+    return imgLink;
+  }
+  
+  /**
+   * Get the ID for this data unit.
+   *
+   * @return the ID number.
+   * @throws IllegalStateException if the ID has not been set.
+   */
+  public final int getId() {
+
+    if (!isIdSet) {
+      throw new IllegalStateException("The ID has not been set.");
+    }
+
     return id;
   }
 
-  public void setId(int id) {
-    this.id = id;
+  /**
+   * Set the ID for this data unit. The ID can ONLY be set once. This method can ONLY be called once.
+   *
+   * @param id - The ID number.
+   * @throws IllegalStateException if this method is called second time.
+   */
+  public final void setId(int id) {
+    if (!isIdSet) {
+      this.id = id;
+      isIdSet = true;
+      return;
+    }
+    throw new IllegalStateException("The ID has already been set.");
   }
   
   public String getLink() {

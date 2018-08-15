@@ -1,8 +1,10 @@
 package com.etlsolutions.javafx.data;
 
+import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_PATH;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * The DataUnit class represents objects which are data units. The the ID for this data unit. Keep the implementation as simple as possible so they can be serialised easily.
@@ -21,6 +23,8 @@ public abstract class DataUnit {
   public static final String SELECTED_ING_LINK_INDEX_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.SELECTED_ING_LINK_INDEX_PROPERTY";
   @JsonIgnore
   public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.LOGO_PATH_PROPERTY";
+  @JsonIgnore
+  public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_PATH);      
 
   private int id;
   private boolean isIdSet;
@@ -33,13 +37,20 @@ public abstract class DataUnit {
   @JsonIgnore
   private final DataUnitChangeSupport support = new DataUnitChangeSupport();
 
+  
+  public abstract DataUnit createInitialisedInstance();
+  
+  public final void init() {    
+    setId(DataUnitIdRegistry.createNewId());
+  }
+  
   /**
    * Get the ID for this data unit.
    *
    * @return the ID number.
    * @throws IllegalStateException if the ID has not been set.
    */
-  public int getId() {
+  public final int getId() {
 
     if (!isIdSet) {
       throw new IllegalStateException("The ID has not been set.");
@@ -54,7 +65,7 @@ public abstract class DataUnit {
    * @param id - The ID number.
    * @throws IllegalStateException if this method is called second time.
    */
-  public void setId(int id) {
+  public final void setId(int id) {
     if (!isIdSet) {
       this.id = id;
       isIdSet = true;

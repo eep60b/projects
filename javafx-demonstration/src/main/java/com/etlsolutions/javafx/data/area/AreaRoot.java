@@ -10,15 +10,14 @@ import java.util.List;
  */
 public class AreaRoot extends DataUnit {
 
-  private List<GardenArea> gardenAreas = new ArrayList<>();
-  private List<IndoorArea> indoorAreas = new ArrayList<>();
-  private List<PatioArea> patioAreas = new ArrayList<>();
-  private List<BalconyArea> balconyAreas = new ArrayList<>();
-  private List<AllotmentArea> allotmentAreas = new ArrayList<>();
-  private List<CustomArea> customAreas = new ArrayList<>();
+  private List<GardenArea> gardenAreas;
+  private List<IndoorArea> indoorAreas;
+  private List<PatioArea> patioAreas;
+  private List<BalconyArea> balconyAreas;
+  private List<AllotmentArea> allotmentAreas;
+  private List<CustomArea> customAreas;
   
   public AreaRoot() {
-    super.setTitle("AreaRoot");
   }
 
   public List<GardenArea> getGardenAreas() {
@@ -69,5 +68,15 @@ public class AreaRoot extends DataUnit {
     this.customAreas = customAreas;
   }
   
-  
+  @Override
+  public AreaRoot createInitialisedInstance() {
+    AreaRoot a = new AreaRoot();
+    a.setAllotmentAreas(new ArrayList<AllotmentArea>());
+    a.setBalconyAreas(new ArrayList<BalconyArea>());
+    a.setCustomAreas(new ArrayList<CustomArea>());
+    a.setGardenAreas(new ArrayList<GardenArea>());
+    a.setIndoorAreas(new ArrayList<IndoorArea>());
+    a.setPatioAreas(new ArrayList<PatioArea>());
+    return a;
+  }  
 }

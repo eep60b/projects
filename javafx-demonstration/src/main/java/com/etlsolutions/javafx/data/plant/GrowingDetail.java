@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
+import com.etlsolutions.javafx.data.DataUnitPart;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTasks;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
@@ -17,9 +18,8 @@ import java.util.List;
  *
  * @author zc
  */
-public class GrowingDetail {
+public class GrowingDetail extends DataUnitPart {
 
-  private String description;
   private boolean isAlive = true;
   private GrowingStartPoint startPoint;  
   private GrowingTermination growingTermination;
@@ -33,4 +33,15 @@ public class GrowingDetail {
   private List<HarvestingTask> harvests = new ArrayList<>();  
   private List<GrowingIssue> growingIssues = new ArrayList<>();  
   private List<GrowingObservation> growingObervations = new ArrayList<>();
+  
+  @Override
+  public GrowingDetail createInitialisedInstance() {
+    GrowingDetail d = new GrowingDetail();
+    isAlive = true;
+    startPoint = new GrowingStartPoint();
+    startPoint.createInitialisedInstance();
+    growingTermination = new GrowingTermination();
+    growingTermination.createInitialisedInstance();
+    return d;
+  }
 }

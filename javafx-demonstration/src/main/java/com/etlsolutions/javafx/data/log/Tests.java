@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.log;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,9 @@ import java.util.List;
  */
 public class Tests extends LogGroup {
   
+    @JsonIgnore
     public static final String TESTS_PROPERTY = "com.etlsolutions.javafx.data.log.Tests.TESTS_PROPERTY";
+    
     public List<Test> tests = new ArrayList<>();
 
     public Tests() {
