@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx;
 
+import com.etlsolutions.javafx.system.ProjectManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -9,7 +10,6 @@ import javafx.scene.control.TreeView;
 
 public class FXMLController implements Initializable
 {
-
   @FXML
   private TreeView<String> livePlantsTreeView;
   
@@ -22,9 +22,13 @@ public class FXMLController implements Initializable
   @FXML
   private TreeView<String> logsTreeView;
 
+  private final ProjectManager projectManager = ProjectManager.getInstance();  
+  
   @Override
   public void initialize(URL url, ResourceBundle rb)
   {
+    
+    
     loadTreeItems("initial 1", "initial 2", "initial 3");
   }
 

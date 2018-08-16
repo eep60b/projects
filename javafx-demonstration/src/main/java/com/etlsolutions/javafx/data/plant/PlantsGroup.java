@@ -40,9 +40,4 @@ public class PlantsGroup extends DataUnit {
         fireChange(PLANTS_TYPES_PROPERTY, false, success);
         return success;
     }
-
-    @Override
-    public DataUnit createInitialisedInstance() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

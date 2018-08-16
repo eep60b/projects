@@ -73,9 +73,4 @@ public class LogGroup extends DataUnit {
   public List<Log> getLogs() {
     return new ArrayList<>(cache);
   }
-
-  @Override
-  public DataUnit createInitialisedInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
 }

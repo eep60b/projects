@@ -66,9 +66,4 @@ public class LogMonth extends DataUnit {
   boolean isEmpty() {
     return logs.isEmpty();
   }
-
-  @Override
-  public DataUnit createInitialisedInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
 }

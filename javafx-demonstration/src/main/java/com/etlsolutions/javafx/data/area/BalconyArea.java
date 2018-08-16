@@ -12,16 +12,6 @@ import java.util.List;
 public class BalconyArea extends Area {
 
   private List<Container> containers; 
-  
-  @Override
-  public BalconyArea createInitialisedInstance() {
-    BalconyArea a = new BalconyArea();
-    a.init();
-    a.setTitle("Untitled");
-    a.setImgLinks(new ArrayList<ImgLink>());
-    a.setContainers(new ArrayList<Container>());
-    return a;
-  }
 
   public List<Container> getContainers() {
     return new ArrayList<>(containers);

@@ -36,9 +36,6 @@ public abstract class DataUnit {
 
   @JsonIgnore
   private final DataUnitChangeSupport support = new DataUnitChangeSupport();
-
-  
-  public abstract DataUnit createInitialisedInstance();
   
   public final void init() {    
     setId(DataUnitIdRegistry.createNewId());

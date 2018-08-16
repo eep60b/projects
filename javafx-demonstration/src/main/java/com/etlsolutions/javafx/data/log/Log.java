@@ -34,9 +34,4 @@ public class Log extends DataUnit {
   public int getMonth() {
     return calendar.get(Calendar.MONTH);
   }
-
-  @Override
-  public DataUnit createInitialisedInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
 }

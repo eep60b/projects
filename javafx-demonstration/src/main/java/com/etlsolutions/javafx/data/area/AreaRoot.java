@@ -78,16 +78,4 @@ public class AreaRoot extends DataUnit {
   public void setCustomAreas(List<CustomArea> customAreas) {
     this.customAreas = customAreas;
   }
-
-  @Override
-  public AreaRoot createInitialisedInstance() {
-    AreaRoot a = new AreaRoot();
-    a.setAllotmentAreas(new ArrayList<AllotmentArea>());
-    a.setBalconyAreas(new ArrayList<BalconyArea>());
-    a.setCustomAreas(new ArrayList<CustomArea>());
-    a.setGardenAreas(new ArrayList<GardenArea>());
-    a.setIndoorAreas(new ArrayList<IndoorArea>());
-    a.setPatioAreas(new ArrayList<PatioArea>());
-    return a;
-  }
 }

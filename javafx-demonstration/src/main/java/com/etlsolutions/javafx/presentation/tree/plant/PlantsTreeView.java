@@ -9,8 +9,10 @@ import javafx.scene.control.TreeView;
  */
 public class PlantsTreeView extends TreeView<DataUnit> {
 
+  private final PlantsGroupRootTreeItem root = new PlantsGroupRootTreeItem();
+  
   public PlantsTreeView() { 
-    super.setRoot(new PlantsGroupRootTreeItem());
+    super.setRoot(root);
     super.setShowRoot(false);
   }
   

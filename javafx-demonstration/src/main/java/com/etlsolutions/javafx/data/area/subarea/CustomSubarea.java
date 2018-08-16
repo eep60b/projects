@@ -19,11 +19,5 @@ public class CustomSubarea extends Subarea {
 
   public void setLocations(List<CustomLocation> locations) {
     this.locations = new ArrayList<>(locations);
-  }
-
-  @Override
-  public DataUnit createInitialisedInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-         
+  }         
 }

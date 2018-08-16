@@ -21,8 +21,4 @@ public class ContainerSet extends Subarea {
     this.containers = new ArrayList<>(containers);
   }
 
-  @Override
-  public DataUnit createInitialisedInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
 }

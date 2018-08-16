@@ -40,11 +40,4 @@ public class PlantsType extends DataUnit {
         fireChange(PLANTS_PROPERTY, false, removed);
         return removed;
     }
-
-    @Override
-    public DataUnit createInitialisedInstance() {
-        plantsList = new ArrayList<>();
-        setTitle(BUNDLE.getString(DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY));
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

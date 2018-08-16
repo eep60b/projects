@@ -24,15 +24,15 @@ public class GrowingDetail extends DataUnitPart {
   private GrowingStartPoint startPoint;  
   private GrowingTermination growingTermination;
   private GrowingMedium growingMedium;  
-  private List<TransplantTask> transplants = new ArrayList<>();
-  private List<PlantThinningTasks> plantThinnings = new ArrayList<>();
-  private List<WateringTask> waterings = new ArrayList<>();
+  private List<TransplantTask> transplants;
+  private List<PlantThinningTasks> plantThinnings;
+  private List<WateringTask> waterings;
   private List<FertilisationTask> fertilisationTasks;
-  private List<FloweringEvent> flowerings = new ArrayList<>();
-  private List<FruitingEvent> fruitings = new ArrayList<>();
-  private List<HarvestingTask> harvests = new ArrayList<>();  
-  private List<GrowingIssue> growingIssues = new ArrayList<>();  
-  private List<GrowingObservation> growingObervations = new ArrayList<>();
+  private List<FloweringEvent> flowerings;
+  private List<FruitingEvent> fruitings;
+  private List<HarvestingTask> harvests;  
+  private List<GrowingIssue> growingIssues;  
+  private List<GrowingObservation> growingObervations;
   
   @Override
   public GrowingDetail createInitialisedInstance() {

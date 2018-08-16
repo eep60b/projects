@@ -23,11 +23,5 @@ public class PlantBedLocation extends Location {
   public List<String> getDefaultReferentialPositions() {
     return Arrays.asList("central", "northeast corner", "northwest corner", "southeast corner", "southwest corner");
   }
-
-  @Override
-  public DataUnit createInitialisedInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-  
   
 }

@@ -51,12 +51,4 @@ public class Plants extends DataUnit {
     this.growingDetails = growingDetails;
     fireChange(TITLE_PROPERTY, oldValue, this.growingDetails);
   }  
-
-  @Override
-  public DataUnit createInitialisedInstance() {
-        variety = new PlantVariety();
-    quantity = new PlantsQuantity();
-    growingDetails = new GrowingDetail();
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
 }

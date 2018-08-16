@@ -26,8 +26,4 @@ public class Tasks  extends DataUnit {
         fireChange(TASKS_PROPERTY);
     }
 
-  @Override
-  public DataUnit createInitialisedInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
 }

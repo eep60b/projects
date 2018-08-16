@@ -14,16 +14,6 @@ public class CustomArea extends Area {
 
   private List<Subarea> subareas;
 
-  @Override
-  public DataUnit createInitialisedInstance() {
-    CustomArea a = new CustomArea();
-    a.init();
-    a.setTitle("Untitled");
-    a.setImgLinks(new ArrayList<ImgLink>());
-    a.setSubareas(new ArrayList<Subarea>());
-    return a;
-  }
-
   public List<Subarea> getSubareas() {
     return new ArrayList<>(subareas);
   }

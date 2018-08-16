@@ -38,18 +38,13 @@ public class AllotmentArea extends Area {
   public AllotmentArea() {
   }
 
-  private AllotmentArea(double length, double width, String uom, List<PlantBed> plantBeds, List<PlantBedBorder> borders, List<Greenhouse> greenhouses) {
+  AllotmentArea(double length, double width, String uom, List<PlantBed> plantBeds, List<PlantBedBorder> borders, List<Greenhouse> greenhouses) {
     this.length = length;
     this.width = width;
     this.uom = uom;
     this.plantBeds = plantBeds;
     this.borders = borders;
     this.greenhouses = greenhouses;
-  }
-
-  @Override
-  public DataUnit createInitialisedInstance() {
-    return new AllotmentArea(10, 5, "meter", new ArrayList<PlantBed>(), new ArrayList<PlantBedBorder>(), new ArrayList<Greenhouse>());
   }
 
   public double getLength() {
