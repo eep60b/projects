@@ -6,105 +6,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="903.0" prefWidth="1291.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.FXMLController">
-   <top>
-      <VBox BorderPane.alignment="CENTER">
-         <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                        <MenuItem mnemonicParsing="false" text="New Project" />
-                        <MenuItem mnemonicParsing="false" text="Open Project" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save as" />
-                    <MenuItem mnemonicParsing="false" text="Exit" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="View">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Insert">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Tools">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <ToolBar>
-              <items>
-                <Button mnemonicParsing="false" text="Button" />
-              </items>
-            </ToolBar>
-         </children>
-      </VBox>
-   </top>
-   <bottom>
-      <HBox BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Developed and maintained by ETL" />
-         </children>
-      </HBox>
-   </bottom>
-   <center>
-      <SplitPane dividerPositions="0.29274292742927427, 0.9384993849938499" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <items>
-            <TabPane tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab text="Plants">
-                     <content>
-                        <SplitPane id="liveplants-splitpane" dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
-                           <items>
-                              <TreeView id="plants-treeview" fx:id="livePlantsTreeView" prefHeight="143.0" prefWidth="184.0" />
-                              <TitledPane animated="false" text="Achieved Plants">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane layoutX="10.0" layoutY="10.0" opacity="0.0" prefHeight="180.0" prefViewportHeight="160.8000030517578" prefViewportWidth="213.8000030517578" prefWidth="372.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <content>
-                                                <TreeView layoutX="-36.0" layoutY="-63.0" opacity="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                             </content>
-                                          </ScrollPane>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </TitledPane>
-                           </items>
-                        </SplitPane>
-                     </content>
-                </Tab>
-                <Tab text="Locations">
-                     <content>
-                        <TreeView prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                </Tab>
-                  <Tab text="Logs">
-                     <content>
-                        <TreeView prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-        </items>
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <fx:include source="Menus.fxml" />
+      <SplitPane dividerPositions="0.2509090909090909, 0.8812121212121212" prefHeight="554.0" prefWidth="827.0" VBox.vgrow="ALWAYS">
+         <items>
+            <fx:include source="ViewTabs.fxml" />
+            <fx:include source="Editor.fxml" />
+            <fx:include source="Property.fxml" />
+         </items>
       </SplitPane>
-   </center>
-</BorderPane>
+      <fx:include source="Footer.fxml" />
+   </children>
+</VBox>
