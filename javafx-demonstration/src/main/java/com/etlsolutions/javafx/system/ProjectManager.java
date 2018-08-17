@@ -7,11 +7,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.Log;
+import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.plant.Plants;
+import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantsGroupRoot;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,72 +26,71 @@ import java.util.Map;
  */
 public final class ProjectManager {
 
-  private static final ProjectManager INSTANCE = new ProjectManager();
+    private static final ProjectManager INSTANCE = new ProjectManager();
 
-  private final ObjectMapper mapper = new ObjectMapper();
-  private ProjectConfiguration configuration;
-  private AreaRoot areaRoot;
-  private final Map<Integer, Location> locationMap = new HashMap<>();
-  private PlantsGroupRoot plantsGroupRoot;
-  private final Map<Integer, Plants> plantsMap = new HashMap<>();
-  private LogGroupRoot logRoot;
-  private final Map<Integer, Log> logMap = new HashMap<>();
+    private final ObjectMapper mapper = new ObjectMapper();
+    private ProjectConfiguration configuration;
 
-  private ProjectManager() {
-  }
 
-  public static ProjectManager getInstance() {
-    return INSTANCE;
-  }
-
-  public ProjectConfiguration loadProject(String projectPath) throws IOException {
-    configuration = new ProjectConfiguration();
-    File file = new File(projectPath);
-    configuration.setParentPath(file.getParent());
-    configuration.setName(file.getName());
-    File jsonDataDir = new File(configuration.getJsonDataPath());
-    List<File> jsonFiles = new ArrayList<>();
-    
-    for(File child : file.listFiles()) {
-      if(child.getName().endsWith(JSON_FILE_EXTENSION)) {
-        
-      }
+    private ProjectManager() {
     }
-    
-    return configuration;
-  }
-  
-  public ProjectConfiguration createProject(String parentPath, String name) throws IOException {
-   
-    configuration = new ProjectConfiguration();
-    configuration.setParentPath(parentPath);
-    configuration.setName(name);
-    File file =  new File(configuration.getProjectPath());
-    boolean success =file.mkdirs();
-    
-    if(!success) {
-      throw new IOException("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
+
+    public static ProjectManager getInstance() {
+        return INSTANCE;
     }
-    
-    return configuration;
-  }
 
-  public ProjectConfiguration getProject() {
-    return configuration;
-  }
+    public ProjectConfiguration createPorject(String parentPath, String projectName) {
+        configuration = new ProjectConfiguration();
+        configuration.setParentPath(parentPath);
+        configuration.setName(projectName);
+        configuration.setAreaRoot(AreaFactory.createAreaRoot());
+        configuration.setPlantsGroupRoot(PlantsFactory.createPlantsGroupRoot());
+        configuration.setLogRoot(LogFactory.createLogGroupRoot());
+        return configuration;
+    }
 
-  public void deleteProject(ProjectConfiguration configuration) {
-    configuration = null;
-  }
+    public ProjectConfiguration loadProject(String projectPath) throws IOException {
+        configuration = new ProjectConfiguration();
+        File file = new File(projectPath);
+        configuration.setParentPath(file.getParent());
+        configuration.setName(file.getName());
+        File jsonDataDir = new File(configuration.getJsonDataPath());
+        List<File> jsonFiles = new ArrayList<>();
 
-  public void saveItem(DataUnit item) throws IOException {
+        for (File child : file.listFiles()) {
+            if (child.getName().endsWith(JSON_FILE_EXTENSION)) {
 
-    mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + item.getClass().getSimpleName() + FILE_NAME_SEPERATOR + item.getId() + JSON_FILE_EXTENSION), item);
-  }
-  
-  public int createNewItemId() {
-    int newId = configuration.getNextItemId();
-    configuration.setNextItemId(newId + 1);
-    return newId;
-  }
+            }
+        }
+
+        return configuration;
+    }
+
+    public ProjectConfiguration createProject(String parentPath, String name) throws IOException {
+
+        configuration = new ProjectConfiguration();
+        configuration.setParentPath(parentPath);
+        configuration.setName(name);
+        File file = new File(configuration.getProjectPath());
+        boolean success = file.mkdirs();
+
+        if (!success) {
+            throw new IOException("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
+        }
+
+        return configuration;
+    }
+
+    public ProjectConfiguration getProject() {
+        return configuration;
+    }
+
+    public void deleteProject(ProjectConfiguration configuration) {
+        configuration = null;
+    }
+
+    public void saveItem(DataUnit item) throws IOException {
+
+        mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + item.getClass().getSimpleName() + FILE_NAME_SEPERATOR + item.getId() + JSON_FILE_EXTENSION), item);
+    }
 }

@@ -10,6 +10,6 @@ import java.util.ResourceBundle;
 public class Events extends LogGroup {
 
   public Events() {
-    super.setTitle(ResourceBundle.getBundle("bundle").getString("com.etlsolutions.javafx.data.log.event.Events.Title"));
+    super.setTitle(ResourceBundle.getBundle("bundle/allBundles").getString("com.etlsolutions.javafx.data.log.event.Events.Title"));
   }
 }

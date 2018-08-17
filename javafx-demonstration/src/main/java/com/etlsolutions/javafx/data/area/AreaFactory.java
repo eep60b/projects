@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImgLink;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
