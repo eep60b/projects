@@ -8,16 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.area.AreaFactory;
-import com.etlsolutions.javafx.data.area.AreaRoot;
-import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.LogFactory;
-import com.etlsolutions.javafx.data.log.LogGroupRoot;
-import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
-import com.etlsolutions.javafx.data.plant.PlantsGroupRoot;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Properties;
 
 /**
  * ProjectManager ONLY manage the currently-opened project.
@@ -39,13 +32,25 @@ public final class ProjectManager {
         return INSTANCE;
     }
 
+    void init(Properties properties) throws IOException {
+        configuration = new ProjectConfiguration();
+        String path = properties.getProperty(CURRENT_RPOJECT_PATH_KEY);
+        if(path != null) {
+            File directory = new File(path);
+            if(directory.isDirectory()){
+                loadProject(path);
+            }
+        } 
+        
+    }    
+    
     public ProjectConfiguration createPorject(String parentPath, String projectName) {
         configuration = new ProjectConfiguration();
         configuration.setParentPath(parentPath);
         configuration.setName(projectName);
         configuration.setAreaRoot(AreaFactory.createAreaRoot());
         configuration.setPlantsGroupRoot(PlantsFactory.createPlantsGroupRoot());
-        configuration.setLogRoot(LogFactory.createLogGroupRoot());
+        configuration.setLogGroupRoot(LogFactory.createLogGroupRoot());
         return configuration;
     }
 
@@ -93,4 +98,6 @@ public final class ProjectManager {
 
         mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + item.getClass().getSimpleName() + FILE_NAME_SEPERATOR + item.getId() + JSON_FILE_EXTENSION), item);
     }
+
+
 }

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx;
 
-import com.etlsolutions.javafx.system.ConfigurationUtils;
+import com.etlsolutions.javafx.system.RepositoryUtils;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
+import static javafx.application.Application.launch;
 
 /**
  * The MainApp class contains methods to start the application.
@@ -45,7 +46,7 @@ public class MainApp extends Application {
      */
     public static void main(String[] args) {
         try {
-            ConfigurationUtils.initRepository(args);
+            RepositoryUtils.initRepository(args);
             launch(args);
         } catch (Throwable th) {
             Logger.getLogger(MainApp.class).error(th);

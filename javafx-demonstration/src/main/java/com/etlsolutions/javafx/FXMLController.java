@@ -19,8 +19,7 @@ public class FXMLController implements Initializable
   @FXML
   private TreeView<String> locationsTreeView;
   
-  @FXML
-  private TreeView<String> logsTreeView;
+
 
   private final ProjectManager projectManager = ProjectManager.getInstance();  
   

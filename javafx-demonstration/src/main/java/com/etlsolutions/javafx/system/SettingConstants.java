@@ -18,6 +18,8 @@ public class SettingConstants {
   
   public static final String DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY = "com.etlsolutions.javafx.data.common.untitled";
 
+  public static final String CURRENT_RPOJECT_PATH_KEY = "current.project.path";
+  
   /**
    * **************************** Constants ************************************
    */
@@ -26,7 +28,12 @@ public class SettingConstants {
    * default import path.
    */
   public static final String REPOSITORY_LOCATION = System.getProperty("user.home") + File.separator + ".gardenwise";
-
+  
+  /**
+   * The path to find the configuration file for projects.
+   */
+  public static final String REPOSITORY_CONFIG_FILE_PATH = REPOSITORY_LOCATION + File.separator + "config.properties";
+  
   public static final String BUNDLE_PATH = "bundle/allBundles";
   
   /**

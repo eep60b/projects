@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.log.task;
 
-import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.log.LogGroup;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author zc
  */
-public class Tasks  extends DataUnit {
+public class Tasks  extends LogGroup {
   
     public static final String TASKS_PROPERTY = "com.etlsolutions.javafx.data.log.Tests.TASKS_PROPERTY";
     public List<Tasks> tasks = new ArrayList<>();

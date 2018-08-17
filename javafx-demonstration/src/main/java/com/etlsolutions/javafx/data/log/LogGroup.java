@@ -17,8 +17,8 @@ public class LogGroup extends DataUnit {
   @JsonIgnore
   public static final String YEARS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.YEARS_PROPERTY";
   
-  private final List<LogYear> years = new ArrayList<>();
-  private final List<Log> cache = new ArrayList<>();
+  private  List<LogYear> years;
+  private  List<Log> cache;
 
   public List<LogYear> getYears() {
     return new ArrayList<>(years);

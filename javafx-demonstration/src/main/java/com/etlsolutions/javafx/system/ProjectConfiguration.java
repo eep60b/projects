@@ -1,15 +1,10 @@
 package com.etlsolutions.javafx.system;
 
 import com.etlsolutions.javafx.data.area.AreaRoot;
-import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
-import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsGroupRoot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * The ProjectConfiguration class contains all the information about a project to run the application.
@@ -25,8 +20,8 @@ public class ProjectConfiguration {
     private boolean encrypted;
     private AreaRoot areaRoot;
     private PlantsGroupRoot plantsGroupRoot;
-    private LogGroupRoot logRoot;
-
+    private LogGroupRoot logGroupRoot;
+        
     public String getName() {
         return name;
     }
@@ -83,11 +78,11 @@ public class ProjectConfiguration {
         this.plantsGroupRoot = plantsGroupRoot;
     }
 
-    public LogGroupRoot getLogRoot() {
-        return logRoot;
+    public LogGroupRoot getLogGroupRoot() {
+        return logGroupRoot;
     }
 
-    public void setLogRoot(LogGroupRoot logRoot) {
-        this.logRoot = logRoot;
+    public void setLogGroupRoot(LogGroupRoot logGroupRoot) {
+        this.logGroupRoot = logGroupRoot;
     }    
 }
