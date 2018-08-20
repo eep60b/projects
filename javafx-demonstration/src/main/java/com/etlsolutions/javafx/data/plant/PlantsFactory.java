@@ -14,7 +14,7 @@ public class PlantsFactory {
   public static PlantsGroupRoot createPlantsGroupRoot() {
     PlantsGroupRoot r = new PlantsGroupRoot();
     r.setId(DataUnitIdRegistry.createNewId());
-    String[] defaultTitles = BUNDLE.getStringArray("com.etlsolutions.javafx.data.plant.PlantsGroupRoot.defaultPlantsGroups.Titles");
+    String[] defaultTitles = BUNDLE.getString("com.etlsolutions.javafx.data.plant.PlantsGroupRoot.defaultPlantsGroups.Titles").split(",");
     List<PlantsGroup> groups = new ArrayList<>();
     for(String title : defaultTitles) {
       PlantsGroup group = createPlantsGroup(title);

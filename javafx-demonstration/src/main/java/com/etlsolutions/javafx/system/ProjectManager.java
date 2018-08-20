@@ -11,6 +11,7 @@ import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import java.util.Properties;
+import javax.imageio.IIOException;
 
 /**
  * ProjectManager ONLY manage the currently-opened project.
@@ -24,7 +25,6 @@ public final class ProjectManager {
     private final ObjectMapper mapper = new ObjectMapper();
     private ProjectConfiguration configuration;
 
-
     private ProjectManager() {
     }
 
@@ -33,29 +33,44 @@ public final class ProjectManager {
     }
 
     void init(Properties properties) throws IOException {
+
         configuration = new ProjectConfiguration();
         String path = properties.getProperty(CURRENT_RPOJECT_PATH_KEY);
-        if(path != null) {
+        if (path != null) {
             File directory = new File(path);
-            if(directory.isDirectory()){
+            if (directory.isDirectory()) {
                 loadProject(path);
+                return;
             }
-        } 
-        
-    }    
-    
-    public ProjectConfiguration createPorject(String parentPath, String projectName) {
-        configuration = new ProjectConfiguration();
-        configuration.setParentPath(parentPath);
-        configuration.setName(projectName);
+
+            if (directory.isFile()) {
+                throw new IIOException("The specified path is already used by a file.");
+            }
+
+            File projectDirectory = new File(path);
+
+            if (!projectDirectory.mkdirs()) {
+                throw new IIOException("Failed to create directory.");
+            }
+
+            configuration.setParentPath(projectDirectory.getParent());
+            configuration.setName(projectDirectory.getName());
+        }
         configuration.setAreaRoot(AreaFactory.createAreaRoot());
         configuration.setPlantsGroupRoot(PlantsFactory.createPlantsGroupRoot());
         configuration.setLogGroupRoot(LogFactory.createLogGroupRoot());
+    }
+
+    public ProjectConfiguration createPorject(String parentPath, String projectName) {
+
+        configuration.setParentPath(parentPath);
+        configuration.setName(projectName);
+
         return configuration;
     }
 
     public ProjectConfiguration loadProject(String projectPath) throws IOException {
-        configuration = new ProjectConfiguration();
+
         File file = new File(projectPath);
         configuration.setParentPath(file.getParent());
         configuration.setName(file.getName());
@@ -98,6 +113,5 @@ public final class ProjectManager {
 
         mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + item.getClass().getSimpleName() + FILE_NAME_SEPERATOR + item.getId() + JSON_FILE_EXTENSION), item);
     }
-
 
 }

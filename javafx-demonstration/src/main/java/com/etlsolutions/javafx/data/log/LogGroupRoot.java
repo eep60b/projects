@@ -11,34 +11,67 @@ import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
  */
 public class LogGroupRoot extends DataUnit {
   
-   private final Events events = new Events();
-   private final Issues issues = new Issues();
-   private final Notes notes = new Notes();
-   private final Tasks tasks = new Tasks();
-   private final Tests tests = new Tests();
-   private final WeatherRecords weatherRecords = new WeatherRecords();
+   private Events events;
+   private Issues issues;
+   private Notes notes;
+   private References references;
+   private Tasks tasks;
+   private Tests tests;
+   private WeatherRecords weatherRecords;
 
-  public Events getEvents() {
-    return events;
-  }
+    public Events getEvents() {
+        return events;
+    }
 
-  public Issues getIssues() {
-    return issues;
-  }
+    public void setEvents(Events events) {
+        this.events = events;
+    }
 
-  public Notes getNotes() {
-    return notes;
-  }
+    public Issues getIssues() {
+        return issues;
+    }
 
-  public Tasks getTasks() {
-    return tasks;
-  }
+    public void setIssues(Issues issues) {
+        this.issues = issues;
+    }
 
-  public Tests getTests() {
-    return tests;
-  }
+    public Notes getNotes() {
+        return notes;
+    }
 
-  public WeatherRecords getWeatherRecords() {
-    return weatherRecords;
-  }
+    public void setNotes(Notes notes) {
+        this.notes = notes;
+    }
+
+    public References getReferences() {
+        return references;
+    }
+
+    public void setReferences(References references) {
+        this.references = references;
+    }
+
+    public Tasks getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(Tasks tasks) {
+        this.tasks = tasks;
+    }
+
+    public Tests getTests() {
+        return tests;
+    }
+
+    public void setTests(Tests tests) {
+        this.tests = tests;
+    }
+
+    public WeatherRecords getWeatherRecords() {
+        return weatherRecords;
+    }
+
+    public void setWeatherRecords(WeatherRecords weatherRecords) {
+        this.weatherRecords = weatherRecords;
+    }
 }

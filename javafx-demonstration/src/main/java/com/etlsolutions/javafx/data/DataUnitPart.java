@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data;
 
-import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_PATH;
+import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ResourceBundle;
 
@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public abstract class DataUnitPart {
 
   @JsonIgnore
-  public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_PATH);      
+  public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(DATAUNIT_BUNDLE_PATH);      
   
   @JsonIgnore
   private final DataUnitChangeSupport support = new DataUnitChangeSupport();

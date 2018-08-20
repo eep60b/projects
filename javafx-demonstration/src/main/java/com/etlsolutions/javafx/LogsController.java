@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.presentation.tree.log.LogGroupRootTreeItem;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.net.URL;
@@ -26,7 +27,12 @@ public class LogsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {    
-   //    logsTreeView.setRoot(new LogGroupRootTreeItem(ProjectManager.getInstance().getProject().getLogGroupRoot()));
+        LogGroupRoot r = ProjectManager.getInstance().getProject().getLogGroupRoot();
+        
+        
+        
+        
+       logsTreeView.setRoot(new LogGroupRootTreeItem(ProjectManager.getInstance().getProject().getLogGroupRoot()));
     }
 
 }

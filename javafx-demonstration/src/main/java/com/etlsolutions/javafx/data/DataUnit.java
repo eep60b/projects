@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data;
 
-import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_PATH;
+import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public abstract class DataUnit {
   @JsonIgnore
   public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.LOGO_PATH_PROPERTY";
   @JsonIgnore
-  public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_PATH);      
+  public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(DATAUNIT_BUNDLE_PATH);      
 
   private int id;
   private boolean isIdSet;

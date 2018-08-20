@@ -17,12 +17,41 @@ public class LogGroup extends DataUnit {
   @JsonIgnore
   public static final String YEARS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.YEARS_PROPERTY";
   
+  @JsonIgnore  
+  private  final List<Log> cache = new ArrayList<>();
+  
   private  List<LogYear> years;
-  private  List<Log> cache;
 
   public List<LogYear> getYears() {
     return new ArrayList<>(years);
   }
+
+    public void setYears(List<LogYear> years) {
+        this.years = new ArrayList<>(years);
+        for(LogYear year : this.years) {
+            addYear(year);
+        }
+        
+        fireChange(YEARS_PROPERTY);
+    }
+    
+    public boolean addYear(LogYear year) {
+        boolean success = years.add(year);
+        if(success) {
+            for (LogMonth month : year.getMonths()) {
+                cache.addAll(month.getLogs());
+            }
+        }
+        
+        fireChange(YEARS_PROPERTY, false, success);
+        return success;
+    }
+    
+    public boolean removeYear(LogYear year) {
+        boolean success = years.remove(year);
+        fireChange(YEARS_PROPERTY, false, success);
+        return success;
+    }    
 
   public boolean addLog(Log log) {
     int year = log.getYear();
