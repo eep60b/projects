@@ -15,13 +15,6 @@ public class GrowingTermination extends DataUnitPart {
   private String reason; //Harvested. destroied by disease, insecte, cold weather, hot weather, droupht, tater log, high wind, over-fertiliser.
   private Date time;
 
-  @Override
-  public GrowingTermination createInitialisedInstance() {
-    GrowingTermination t = new GrowingTermination();
-    reason = "Not specified";
-    time = new Date();
-    return t;
-  }
 
   public String getReason() {
     return reason;

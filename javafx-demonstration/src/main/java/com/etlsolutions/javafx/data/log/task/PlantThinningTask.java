@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.data.log.Log;
  *
  * @author zc
  */
-public class PlantThinningTasks extends Log {
+public class PlantThinningTask extends Log {
   
   private int totalPlants;
   private int raminingPlants;

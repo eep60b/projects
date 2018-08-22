@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.ImgLink;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.PlantBedBorder;
@@ -32,18 +32,16 @@ public final class AreaFactory {
   
   public static BalconyArea createBalconyArea() {
     BalconyArea a = new BalconyArea();
-    a.init();
     a.setTitle("Untitled");
-    a.setImgLinks(new ArrayList<ImgLink>());
+    a.setImgLinks(new ArrayList<ImageLink>());
     a.setContainers(new ArrayList<Container>());
     return a;
   }  
   
   public static CustomArea createCustomArea() {
     CustomArea a = new CustomArea();
-    a.init();
     a.setTitle("Untitled");
-    a.setImgLinks(new ArrayList<ImgLink>());
+    a.setImgLinks(new ArrayList<ImageLink>());
     a.setSubareas(new ArrayList<Subarea>());
     return a;
   }  

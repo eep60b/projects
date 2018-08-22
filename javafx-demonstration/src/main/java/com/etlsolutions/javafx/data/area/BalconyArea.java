@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.ImgLink;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import java.util.ArrayList;
 import java.util.List;

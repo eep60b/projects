@@ -30,17 +30,13 @@ public abstract class DataUnit {
   private boolean isIdSet;
   private String title;
   private String information;
-  private List<ImgLink> imgLinks;
+  private List<ImageLink> imgLinks;
   private int selectedImgLinkIndex;
   private String logoPath;
 
   @JsonIgnore
   private final DataUnitChangeSupport support = new DataUnitChangeSupport();
-  
-  public final void init() {    
-    setId(DataUnitIdRegistry.createNewId());
-  }
-  
+    
   /**
    * Get the ID for this data unit.
    *
@@ -111,21 +107,21 @@ public abstract class DataUnit {
     fireChange(INFORMATION_PROPERTY, olveValue, this.information);
   }
 
-  public List<ImgLink> getImgLinks() {
+  public List<ImageLink> getImgLinks() {
     return new ArrayList<>(imgLinks);
   }
 
-  public void setImgLinks(List<ImgLink> imgLinks) {
+  public void setImgLinks(List<ImageLink> imgLinks) {
     this.imgLinks = new ArrayList<>(imgLinks);
     fireChange(IMG_LINKS_PROPERTY);
   }
 
-  public void addImgLinks(ImgLink imgLink) {
+  public void addImgLinks(ImageLink imgLink) {
     imgLinks.add(imgLink);
     fireChange(IMG_LINKS_PROPERTY);
   }
 
-  public void removeImgLinks(ImgLink imgLink) {
+  public void removeImgLinks(ImageLink imgLink) {
     imgLinks.remove(imgLink);
     fireChange(IMG_LINKS_PROPERTY);
   }

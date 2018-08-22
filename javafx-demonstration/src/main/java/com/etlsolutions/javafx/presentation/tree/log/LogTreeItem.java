@@ -5,13 +5,13 @@ import com.etlsolutions.javafx.data.log.Log;
 import javafx.scene.control.TreeItem;
 
 /**
- *
+ * 
  * @author zc
  */
-public class LogTreeItem extends TreeItem<DataUnit>{
-    
+public class LogTreeItem extends TreeItem<DataUnit> {
+
     public LogTreeItem(Log model) {
         super(model);
-        
-    }    
+
+    }
 }

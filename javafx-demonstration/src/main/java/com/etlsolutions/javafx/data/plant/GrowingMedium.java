@@ -2,11 +2,6 @@ package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnitPart;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  *
@@ -33,28 +28,6 @@ public class GrowingMedium extends DataUnitPart {
   @JsonIgnore
   public static final String FERTILISED_PROPERTY = "com.etlsolutions.javafx.data.plant.GrowingMedium.FERTILISED_PROPERTY";
 
-  
-  @JsonIgnore
-  private static final Map<String, double[]> DEFAULT_VALUES = new HashMap<>();
-  @JsonIgnore
-  private static final List<String> DEFAULT_TITLES = new ArrayList<>();
-
-  static {
-    DEFAULT_VALUES.put("Loam", new double[]{28, 28, 14, 20, 0, 10, 7.0});
-    DEFAULT_VALUES.put("Sandy soil", new double[]{50, 35, 5, 5, 0, 5, 6.5});
-    DEFAULT_VALUES.put("Silt soil", new double[]{25, 50, 5, 10, 0, 10, 6.8});
-    DEFAULT_VALUES.put("Peat soi", new double[]{10, 10, 5, 50, 0, 25, 6.3});
-    DEFAULT_VALUES.put("Clay soil (light)", new double[]{15, 15, 45, 15, 0, 10, 7.0});
-    DEFAULT_VALUES.put("Clay soil (heavy)", new double[]{10, 10, 60, 10, 0, 10, 7.0});
-    DEFAULT_VALUES.put("Chalky soil", new double[]{28, 28, 14, 10, 20, 10, 7.0});
-    DEFAULT_VALUES.put("Multipurpose compost", new double[]{0, 0, 0, 80, 0, 20, 7.0});
-    DEFAULT_VALUES.put("Ericaceous compost", new double[]{0, 0, 0, 80, 0, 20, 5.2});
-    DEFAULT_VALUES.put("Stony soil", new double[]{30, 10, 0, 5, 50, 5, 7.0});
-    DEFAULT_VALUES.put("Plant liquid culture", new double[]{0, 0, 0, 0, 0, 100, 15});
-    DEFAULT_TITLES.addAll(DEFAULT_VALUES.keySet());
-    Collections.sort(DEFAULT_TITLES);
-  }
-
   private String title;
   private double sandPercentage;
   private double siltPercentage;
@@ -68,7 +41,7 @@ public class GrowingMedium extends DataUnitPart {
   public GrowingMedium() {
   }
 
-  public GrowingMedium(String title, double[] compositions, boolean fertilised) {
+  GrowingMedium(String title, double[] compositions, boolean fertilised) {
     this.title = title;
     int i = 0;
     sandPercentage = compositions[i];
@@ -79,22 +52,6 @@ public class GrowingMedium extends DataUnitPart {
     waterPercentage = compositions[i++];
     ph = compositions[i++];
     this.fertilised = fertilised;
-  }
-
-  @Override
-  public GrowingMedium createInitialisedInstance() {
-    
-    GrowingMedium m = new GrowingMedium();
-    return m;
-  }
-
-  public static List<String> getDefaultKeys() {
-    return new ArrayList<>(DEFAULT_TITLES);
-  }
-
-  public static GrowingMedium getInstance(String title) {
-    double[] values = DEFAULT_VALUES.get(title);
-    return values == null ? new GrowingMedium(title, DEFAULT_VALUES.get(DEFAULT_TITLES.get(0)), true) : new GrowingMedium(title, values, true);
   }
 
   public String getTitle() {

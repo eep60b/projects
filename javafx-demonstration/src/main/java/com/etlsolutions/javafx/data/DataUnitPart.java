@@ -17,8 +17,6 @@ public abstract class DataUnitPart {
   private final DataUnitChangeSupport support = new DataUnitChangeSupport();
   
   
-  public abstract DataUnitPart createInitialisedInstance();
-  
   public boolean addListener(String property, DataUnitChangeListener listener) {
     return support.addListener(property, listener);
   }
