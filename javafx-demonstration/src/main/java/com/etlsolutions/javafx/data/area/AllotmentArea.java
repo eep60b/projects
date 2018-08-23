@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.PlantBedBorder;
 import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
-import com.etlsolutions.javafx.data.area.subarea.Subarea;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class AllotmentArea extends Area {
     @JsonIgnore
     public static final String GREENHOUSES_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.GREENHOUSES_PROPERTY";
     @JsonIgnore
-    public static final String SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.SUBAREAS_PROPERTY";    
+    public static final String CUSTOM_SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.CUSTOM_SUBAREAS_PROPERTY";    
     
 
     private double length;
@@ -41,12 +41,12 @@ public class AllotmentArea extends Area {
     private List<RaisedPlantBed> raisedPlantBeds;
     private List<PlantBedBorder> borders;
     private List<Greenhouse> greenhouses;
-    private List<Subarea> subareas;
+    private List<CustomSubarea> customSubareas;
     
     public AllotmentArea() {
     }
 
-    AllotmentArea(double length, double width, String uom, List<PlantBed> plantBeds, List<RaisedPlantBed> raisedPlantBeds, List<PlantBedBorder> borders, List<Greenhouse> greenhouses, List<Subarea> subareas) {
+    AllotmentArea(double length, double width, String uom, List<PlantBed> plantBeds, List<RaisedPlantBed> raisedPlantBeds, List<PlantBedBorder> borders, List<Greenhouse> greenhouses, List<CustomSubarea> subareas) {
         this.length = length;
         this.width = width;
         this.uom = uom;
@@ -54,7 +54,7 @@ public class AllotmentArea extends Area {
         this.raisedPlantBeds = raisedPlantBeds;
         this.borders = borders;
         this.greenhouses = greenhouses;
-        this.subareas = subareas;
+        this.customSubareas = subareas;
     }
 
 
@@ -167,29 +167,29 @@ public class AllotmentArea extends Area {
         fireChange(RAISED_PLANT_BEDS_PROPERTY, false, removed);
         return removed;
     }
-   public List<Subarea> getSubareas() {
-        return new ArrayList<>(subareas);
+   public List<CustomSubarea> getSubareas() {
+        return new ArrayList<>(customSubareas);
     }
 
-    public void setSubareas(List<Subarea> subareas) {
-        this.subareas = new ArrayList<>(subareas);
-        fireChange(SUBAREAS_PROPERTY);
+    public void setSubareas(List<CustomSubarea> subareas) {
+        this.customSubareas = new ArrayList<>(subareas);
+        fireChange(CUSTOM_SUBAREAS_PROPERTY);
     }
 
-    public boolean addSubarea(Subarea subarea) {
-        boolean added = subareas.add(subarea);
-        fireChange(SUBAREAS_PROPERTY, false, added);
+    public boolean addSubarea(CustomSubarea subarea) {
+        boolean added = customSubareas.add(subarea);
+        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, added);
         return added;
     }
 
-    public boolean removeSubarea(Subarea subarea) {
-        boolean removed = subareas.remove(subarea);
-        fireChange(SUBAREAS_PROPERTY, false, removed);
+    public boolean removeSubarea(CustomSubarea subarea) {
+        boolean removed = customSubareas.remove(subarea);
+        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, removed);
         return removed;
     }
        
     @Override
     public boolean isEmpty() {
-        return greenhouses.isEmpty() && plantBeds.isEmpty() && raisedPlantBeds.isEmpty() && borders.isEmpty() && subareas.isEmpty();
+        return greenhouses.isEmpty() && plantBeds.isEmpty() && raisedPlantBeds.isEmpty() && borders.isEmpty() && customSubareas.isEmpty();
     }
 }

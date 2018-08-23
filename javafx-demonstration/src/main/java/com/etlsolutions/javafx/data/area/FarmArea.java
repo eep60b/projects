@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.PlantBedBorder;
-import com.etlsolutions.javafx.data.area.subarea.Subarea;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,11 @@ public class FarmArea extends Area {
     @JsonIgnore
     public static final String BORDERS_PROPERTY = "com.etlsolutions.javafx.data.area.FarmArea.BORDERS_PROPERTY";
     @JsonIgnore
-    public static final String SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.FarmArea.SUBAREAS_PROPERTY";
+    public static final String CUSTOM_SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.FarmArea.CUSTOM_SUBAREAS_PROPERTY";
     
     private List<PlantBed> plantBeds;
     private List<PlantBedBorder> borders;
-    private List<Subarea> subareas;
+    private List<CustomSubarea> customSubareas;
     
     public List<PlantBed> getPlantBeds() {
         return new ArrayList<>(plantBeds);
@@ -66,29 +66,29 @@ public class FarmArea extends Area {
         return removed;
     }
 
-    public List<Subarea> getSubareas() {
-        return new ArrayList<>(subareas);
+    public List<CustomSubarea> getCustomSubareas() {
+        return new ArrayList<>(customSubareas);
     }
 
-    public void setSubareas(List<Subarea> subareas) {
-        this.subareas = new ArrayList<>(subareas);
-        fireChange(SUBAREAS_PROPERTY);
+    public void setCustomSubareas(List<CustomSubarea> customSubareas) {
+        this.customSubareas = new ArrayList<>(customSubareas);
+        fireChange(CUSTOM_SUBAREAS_PROPERTY);
     }
 
-    public boolean addSubarea(Subarea subarea) {
-        boolean added = subareas.add(subarea);
-        fireChange(SUBAREAS_PROPERTY, false, added);
+    public boolean addSubarea(CustomSubarea subarea) {
+        boolean added = customSubareas.add(subarea);
+        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, added);
         return added;
     }
 
-    public boolean removeSubarea(Subarea subarea) {
-        boolean removed = subareas.remove(subarea);
-        fireChange(SUBAREAS_PROPERTY, false, removed);
+    public boolean removeSubarea(CustomSubarea subarea) {
+        boolean removed = customSubareas.remove(subarea);
+        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, removed);
         return removed;
     }
    
     @Override
     public boolean isEmpty() {
-        return plantBeds.isEmpty() && borders.isEmpty() && subareas.isEmpty();
+        return plantBeds.isEmpty() && borders.isEmpty() && customSubareas.isEmpty();
     }
 }

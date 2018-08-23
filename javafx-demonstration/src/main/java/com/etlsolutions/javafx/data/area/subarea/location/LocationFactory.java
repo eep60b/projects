@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 /**
@@ -10,5 +5,17 @@ package com.etlsolutions.javafx.data.area.subarea.location;
  * @author zc
  */
 public class LocationFactory {
-  
+
+    public static BorderLocation createBorderLocation(){
+        
+        BorderLocation l = new BorderLocation();
+        
+        return l;
+    }
+    
+    public static Container createContainer() {
+        Container c = new Container();
+        
+        return c;
+    }
 }

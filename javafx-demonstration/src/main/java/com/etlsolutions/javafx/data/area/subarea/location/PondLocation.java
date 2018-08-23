@@ -6,10 +6,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  *
  * @author zc
  */
-public class CustomLocation extends Location {
+public class PondLocation extends Location {
     
     @JsonIgnore
-    public static final String DIRECTION_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.CustomLocation.REFERENCE_POINT_PROPERTY";
+    public static final String DIRECTION_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.PondLocation.REFERENCE_POINT_PROPERTY";
     
     private String direction;
 

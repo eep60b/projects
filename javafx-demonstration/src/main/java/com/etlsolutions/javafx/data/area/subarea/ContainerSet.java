@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +10,35 @@ import java.util.List;
  * @author zc
  */
 public class ContainerSet extends Subarea {
-  
-  private List<Container> containers = new ArrayList<>();
 
-  public List<Container> getContainers() {
-    return new ArrayList<>(containers);
-  }
+    @JsonIgnore
+    public static final String CONTAINERS_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.ContainerSet.CONTAINERS_PROPERTY";
 
-  public void setContainers(List<Container> containers) {
-    this.containers = new ArrayList<>(containers);
-  }
+    private List<Container> containers;
 
+    public List<Container> getContainers() {
+        return new ArrayList<>(containers);
+    }
+
+    public void setContainers(List<Container> containers) {
+        this.containers = new ArrayList<>(containers);
+        fireChange(CONTAINERS_PROPERTY);
+    }
+
+    public boolean addContainer(Container container) {
+        boolean added = containers.add(container);
+        fireChange(CONTAINERS_PROPERTY, false, added);
+        return added;
+    }
+
+    public boolean removeContainer(Container container) {
+        boolean removed = containers.remove(container);
+        fireChange(CONTAINERS_PROPERTY, false, removed);
+        return removed;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return containers.isEmpty();
+    }
 }
