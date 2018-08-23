@@ -11,15 +11,15 @@ import javafx.scene.control.TreeItem;
  */
 public class LogGroupRootTreeItem extends TreeItem<DataUnit> {
 
-    public LogGroupRootTreeItem(LogGroupRoot value) {
-        super(value);
+    public LogGroupRootTreeItem(LogGroupRoot model) {
+        super(model);
         List<TreeItem<DataUnit>> children = getChildren();
-        children.add(new LogGroupTreeItem(value.getEvents()));
-        children.add(new LogGroupTreeItem(value.getIssues()));
-        children.add(new LogGroupTreeItem(value.getNotes()));
-        children.add(new LogGroupTreeItem(value.getTasks()));
-        children.add(new LogGroupTreeItem(value.getTests()));
-        children.add(new LogGroupTreeItem(value.getWeatherRecords()));
+        children.add(new LogGroupTreeItem(model.getEvents()));
+        children.add(new LogGroupTreeItem(model.getIssues()));
+        children.add(new LogGroupTreeItem(model.getNotes()));
+        children.add(new LogGroupTreeItem(model.getTasks()));
+        children.add(new LogGroupTreeItem(model.getTests()));
+        children.add(new LogGroupTreeItem(model.getWeatherRecords()));
 
     }
 }

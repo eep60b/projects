@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.area.subarea.location.CustomLocation;
 import java.util.ArrayList;
 import java.util.List;

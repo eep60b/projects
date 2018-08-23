@@ -1,5 +1,9 @@
 package com.etlsolutions.javafx;
 
+import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.plant.PlantsGroupRoot;
+import com.etlsolutions.javafx.presentation.tree.plant.PlantsGroupRootTreeItem;
+import com.etlsolutions.javafx.system.ProjectManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,7 +19,7 @@ import javafx.scene.control.TreeView;
 public class LivePlantsController implements Initializable {
 
     @FXML
-    private TreeView<String> livePlantsTreeView;
+    private TreeView<DataUnit> livePlantsTreeView;
 
     /**
      * Initializes the controller class.
@@ -24,20 +28,8 @@ public class LivePlantsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadTreeItems("initial 1", "initial 2", "initial 3");
-    }
-
-    // loads some strings into the tree in the application UI.
-    public void loadTreeItems(String... rootItems) {
-
-        //DO NUT do this here: livePlantsTreeView = new TreeView<>();
-        TreeItem<String> root = new TreeItem<>("All plants");
-        root.setExpanded(true);
-        for (String itemString : rootItems) {
-            root.getChildren().add(new TreeItem<>(itemString));
-        }
-
-        livePlantsTreeView.setRoot(root);
-        livePlantsTreeView.setShowRoot(false);
+        PlantsGroupRoot r = ProjectManager.getInstance().getProject().getPlantsGroupRoot();
+        
+        livePlantsTreeView.setRoot(new PlantsGroupRootTreeItem(r));
     }
 }

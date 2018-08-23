@@ -17,6 +17,8 @@ public abstract class Area extends DataUnit {
   private double longitude;
   private double latitude;
 
+  public abstract boolean isEmpty();
+  
   public double getLongitude() {
     return longitude;
   }

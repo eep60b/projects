@@ -32,7 +32,7 @@ public class LogsController implements Initializable {
         
         
         
-       logsTreeView.setRoot(new LogGroupRootTreeItem(ProjectManager.getInstance().getProject().getLogGroupRoot()));
+       logsTreeView.setRoot(new LogGroupRootTreeItem(r));
     }
 
 }

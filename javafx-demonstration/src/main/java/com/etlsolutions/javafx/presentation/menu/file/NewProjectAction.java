@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu;
+package com.etlsolutions.javafx.presentation.menu.file;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
