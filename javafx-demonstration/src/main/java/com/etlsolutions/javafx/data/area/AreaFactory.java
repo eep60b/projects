@@ -24,6 +24,7 @@ public final class AreaFactory {
         a.setCustomAreas(new ArrayList<CustomArea>());
         a.setGardenAreas(new ArrayList<GardenArea>());
         a.setIndoorAreas(new ArrayList<IndoorArea>());
+        a.setFarmAreas(new ArrayList<FarmArea>());
         a.setPatioAreas(new ArrayList<PatioArea>());
         return a;
     }
