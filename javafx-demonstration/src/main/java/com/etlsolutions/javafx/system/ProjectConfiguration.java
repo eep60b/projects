@@ -85,4 +85,8 @@ public class ProjectConfiguration {
     public void setLogGroupRoot(LogGroupRoot logGroupRoot) {
         this.logGroupRoot = logGroupRoot;
     }    
+
+    public boolean isModified() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

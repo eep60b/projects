@@ -32,7 +32,7 @@
                         <MenuItem mnemonicParsing="false" text="Exit" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
+                <Menu mnemonicParsing="false" text="Add">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Add Plants" />
                         <MenuItem mnemonicParsing="false" text="Add Location" />
@@ -41,16 +41,54 @@
                         <MenuItem mnemonicParsing="false" text="Delete" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" text="Undo" />
+                        <MenuItem mnemonicParsing="false" text="Redo" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Cut" />
+                        <MenuItem mnemonicParsing="false" text="Copy" />
+                        <MenuItem mnemonicParsing="false" text="Paste" />
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Select All" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="View">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Zoom in" />
+                        <MenuItem mnemonicParsing="false" text="Zoom out" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Reset" />
+                        <MenuItem mnemonicParsing="false" text="Hide toolbar" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Tools">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Options" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Help contents" />
+                        <MenuItem mnemonicParsing="false" text="Frequently Ask Questions" />
+                        <MenuItem mnemonicParsing="false" text="Contacts" />
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
               </menus>
             </MenuBar>
-            <ToolBar>
+            <ToolBar prefHeight="35.0" prefWidth="613.0">
               <items>
-                <Button mnemonicParsing="false" text="Button" />
+                <Button mnemonicParsing="false" text="New" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Open" />
+                  <Button layoutX="54.0" layoutY="10.0" mnemonicParsing="false" text="Save" />
+                  <Button layoutX="98.0" layoutY="10.0" mnemonicParsing="false" text="Delete" />
+                  <Button layoutX="142.0" layoutY="10.0" mnemonicParsing="false" text="Cut" />
+                  <Button layoutX="186.0" layoutY="10.0" mnemonicParsing="false" text="Copy" />
+                  <Button layoutX="204.0" layoutY="10.0" mnemonicParsing="false" text="Paste" />
+                  <TextField />
+                  <Button mnemonicParsing="false" text="Search" />
               </items>
             </ToolBar>
          </children>
