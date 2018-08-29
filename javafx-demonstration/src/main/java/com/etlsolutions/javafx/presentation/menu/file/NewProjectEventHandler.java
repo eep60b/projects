@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.menu.file;
 
-import com.etlsolutions.javafx.MainApp;
 import java.io.IOException;
 import java.util.logging.Level;
 import javafx.event.ActionEvent;

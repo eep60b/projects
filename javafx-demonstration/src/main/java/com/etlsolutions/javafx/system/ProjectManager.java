@@ -20,6 +20,8 @@ import javax.imageio.IIOException;
  */
 public final class ProjectManager {
 
+    public static final String PROJECT_PROPERTIES = "com.etlsolutions.javafx.system.ProjectManager.PROJECT_PROPERTIES";
+    
     private static final ProjectManager INSTANCE = new ProjectManager();
 
     private final ObjectMapper mapper = new ObjectMapper();
@@ -119,6 +121,10 @@ public final class ProjectManager {
     }
 
     public void exit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void close() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
