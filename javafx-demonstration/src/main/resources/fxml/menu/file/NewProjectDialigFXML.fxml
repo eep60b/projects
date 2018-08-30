@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,25 +8,57 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="368.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.file.NewProjectDialigFXMLController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.file.NewProjectDialigFXMLController">
   <stylesheets>
     <URL value="@/styles/menu/file/newprojectdialigfxml.css" />
   </stylesheets>
    <children>
-      <VBox layoutX="43.0" layoutY="74.0" prefHeight="61.0" prefWidth="393.0" AnchorPane.bottomAnchor="342.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-25.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="43.0" layoutY="74.0" prefHeight="61.0" prefWidth="393.0" spacing="10.0" AnchorPane.bottomAnchor="342.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-25.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox>
                <children>
-                  <Label text="Create a new project" />
+                  <Label text="Create a new project">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding></Label>
                </children>
             </HBox>
-            <HBox>
+            <HBox spacing="10.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label text="Title:   " />
-                  <TextField prefHeight="25.0" prefWidth="335.0" />
+                  <Label minWidth="10.0" text="Title:">
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Label>
+                  <TextField HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin></TextField>
                </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="newProjectOkButton" mnemonicParsing="false" text="OK">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>
    </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
 </AnchorPane>

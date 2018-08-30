@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeView;
 
 /**
@@ -28,7 +30,10 @@ public class LivePlantsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         PlantsGroupRoot r = ProjectManager.getInstance().getProject().getPlantsGroupRoot();
-        
+       
         livePlantsTreeView.setRoot(new PlantsGroupRootTreeItem(r));
+        MenuItem createPlantsGroupMenuItem = new MenuItem("New Group");
+        
+        livePlantsTreeView.setContextMenu(new ContextMenu(createPlantsGroupMenuItem));
     }
 }
