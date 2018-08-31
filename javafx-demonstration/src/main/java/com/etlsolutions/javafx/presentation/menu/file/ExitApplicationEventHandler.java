@@ -15,7 +15,7 @@ public class ExitApplicationEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         if (ProjectManager.getInstance().getProject().isModified()) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save the changes?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save change for the current project?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
             ButtonType result = alert.getResult();
             if (result == ButtonType.YES) {
                 ProjectManager.getInstance().saveProject();

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx;
 
-import com.etlsolutions.javafx.presentation.menu.file.NewProjectEventHandler;
+import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -25,7 +25,7 @@ public class MenusController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        newProjectMenuItem.setOnAction(new NewProjectEventHandler());
+        newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
     }    
     
 }

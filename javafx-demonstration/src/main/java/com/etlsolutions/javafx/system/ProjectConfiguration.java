@@ -87,6 +87,6 @@ public class ProjectConfiguration {
     }    
 
     public boolean isModified() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 }

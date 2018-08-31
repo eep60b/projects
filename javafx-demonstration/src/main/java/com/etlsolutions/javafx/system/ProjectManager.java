@@ -10,6 +10,8 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Properties;
 import javax.imageio.IIOException;
 
@@ -20,10 +22,12 @@ import javax.imageio.IIOException;
  */
 public final class ProjectManager {
 
-    public static final String PROJECT_PROPERTIES = "com.etlsolutions.javafx.system.ProjectManager.PROJECT_PROPERTIES";
+    public static final String NEW_PROJECT_PROPERTY = "com.etlsolutions.javafx.system.ProjectManager.NEW_PROJECT_PROPERTY";
     
     private static final ProjectManager INSTANCE = new ProjectManager();
 
+    private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+    
     private final ObjectMapper mapper = new ObjectMapper();
     private ProjectConfiguration configuration;
 
@@ -88,7 +92,7 @@ public final class ProjectManager {
         return configuration;
     }
 
-    public ProjectConfiguration createProject(String parentPath, String name) throws IOException {
+    public void createProject(String parentPath, String name) {
 
         configuration = new ProjectConfiguration();
         configuration.setParentPath(parentPath);
@@ -97,10 +101,10 @@ public final class ProjectManager {
         boolean success = file.mkdirs();
 
         if (!success) {
-            throw new IOException("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
+            throw new CustomLevelErrorRuntimeExceiption("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
         }
 
-        return configuration;
+        propertyChangeSupport.firePropertyChange(NEW_PROJECT_PROPERTY, false, true);
     }
 
     public ProjectConfiguration getProject() {
@@ -128,4 +132,23 @@ public final class ProjectManager {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(listener);
+    }
+
+    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(propertyName, listener);
+    }
+
+    public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(propertyName, listener);
+    }
+
+    public boolean hasListeners(String propertyName) {
+        return propertyChangeSupport.hasListeners(propertyName);
+    }
 }
