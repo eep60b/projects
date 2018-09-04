@@ -25,5 +25,4 @@ public class CloseProjectEventHnadler implements EventHandler<ActionEvent> {
         }
         ProjectManager.getInstance().close();
     }
-
 }

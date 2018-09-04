@@ -34,11 +34,17 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Add">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Add Plants" />
-                        <MenuItem mnemonicParsing="false" text="Add Location" />
-                        <MenuItem mnemonicParsing="false" text="Add Diary Record" />
-                        <MenuItem mnemonicParsing="false" text="Add Reference" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem fx:id="addPlantsMenuItem" mnemonicParsing="false" text="Add plants" />
+                        <MenuItem mnemonicParsing="false" text="Add a plant type" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Add an area" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Add an event" />
+                        <MenuItem mnemonicParsing="false" text="Add an Issue Record" />
+                        <MenuItem mnemonicParsing="false" text="Add a note" />
+                        <MenuItem mnemonicParsing="false" text="Add a reference" />
+                        <MenuItem mnemonicParsing="false" text="Add a task" />
+                        <MenuItem mnemonicParsing="false" text="Add a weather record" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">

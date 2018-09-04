@@ -1,13 +1,12 @@
 package com.etlsolutions.javafx.data.log.event;
 
-import com.etlsolutions.javafx.data.log.Log;
 import java.util.Date;
 
 /**
  *
  * @author zc
  */
-public class FruitingEvent extends Log {
+public class FruitingEvent extends Event {
 
     private Date rippenDate;
     private int NumberPerPlant;

@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx;
 
+import com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,9 +14,14 @@ import javafx.scene.control.MenuItem;
  * @author zc
  */
 public class MenusController implements Initializable {
-    
-    @FXML    
+
+    //The file menu
+    @FXML
     private MenuItem newProjectMenuItem;
+
+    //The add menu
+    @FXML
+    private MenuItem addPlantsMenuItem;
 
     /**
      * Initializes the controller class.
@@ -25,7 +31,10 @@ public class MenusController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
-    }    
-    
+
+        addPlantsMenuItem.setOnAction(new AddPlantsEventHnadler());
+    }
+
 }

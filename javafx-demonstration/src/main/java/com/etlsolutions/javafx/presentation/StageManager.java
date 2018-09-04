@@ -11,7 +11,14 @@ import org.apache.log4j.Logger;
  */
 public class StageManager {
     
-    public static final String NEW_PROJECT_DIALOG_STAGE = "com.etlsolutions.javafx.presentation.NEW_PROJECT_DIALOG_STAGE";
+    //Menus
+    //File menu
+    public static final String NEW_PROJECT_DIALOG_STAGE = "com.etlsolutions.javafx.presentation.StageManager.NEW_PROJECT_DIALOG_STAGE";
+    
+    //Add menu
+    public static final String ADD_PLANT_TYPE_DIALOG_STAGE = "com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_TYPE_DIALOG_STAGE";
+    public static final String ADD_PLANTS_DIALOG_STAGE = "com.etlsolutions.javafx.presentation.StageManager.ADD_PLANTS_DIALOG_STAGE";
+    
     
     private static final StageManager INSTANCE = new StageManager();
     
