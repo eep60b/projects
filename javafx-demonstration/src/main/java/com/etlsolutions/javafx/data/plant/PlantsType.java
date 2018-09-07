@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import static com.etlsolutions.javafx.system.SettingConstants.DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +15,32 @@ import java.util.List;
 public class PlantsType extends DataUnit {
 
     @JsonIgnore
+    public static final String GROUP_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.GROUP_PROPERTY";
+    
+    
+    @JsonIgnore
     public static final String PLANTS_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.PLANTS_PROPERTY";
-
+    
+    @JsonIgnore
+    public static final String VARIETIES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.VARIETIES_PROPERTY";  
+    
+    private PlantsGroup group;
     private List<Plants> plantsList;
+    
+    
+    //This property will not be shown in the tree.    
+    private List<PlantVariety> plantVarieties;
 
+    public PlantsGroup getGroup() {
+        return group;
+    }
+
+    public void setGroup(PlantsGroup group) {
+        PlantsGroup oldValue = this.group;
+        this.group = group;
+        fireChange(GROUP_PROPERTY, oldValue, this.group);
+    }
+    
     public List<Plants> getPlantses() {
         return new ArrayList<>(plantsList);
     }
@@ -40,4 +61,25 @@ public class PlantsType extends DataUnit {
         fireChange(PLANTS_PROPERTY, false, removed);
         return removed;
     }
+
+    public List<PlantVariety> getPlantVarieties() {
+        return new ArrayList<>(plantVarieties);
+    }
+
+    public void setPlantVarieties(List<PlantVariety> plantVarieties) {
+        this.plantVarieties = new ArrayList<>(plantVarieties);
+        fireChange(VARIETIES_PROPERTY);        
+    }
+    
+    public boolean addPlantVariety(PlantVariety plantVariety) {
+        boolean added = plantVarieties.add(plantVariety);
+        fireChange(VARIETIES_PROPERTY, false, added);        
+        return added;
+    }   
+    
+    public boolean removePlantVariety(PlantVariety plantVariety) {
+        boolean removed = plantVarieties.remove(plantVariety);
+        fireChange(VARIETIES_PROPERTY, false, removed);        
+        return removed;
+    }     
 }

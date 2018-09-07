@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
-import com.etlsolutions.javafx.data.DataUnitPart;
+import com.etlsolutions.javafx.data.DataUnit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,28 +9,16 @@ import java.util.List;
  *
  * @author zc
  */
-public class PlantVariety extends DataUnitPart {
+public class PlantVariety extends DataUnit {
 
-    @JsonIgnore
-    public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantVariety.TITLE_PROPERTY";
     @JsonIgnore
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantVariety.ALIASES_PROPERTY";
     @JsonIgnore
     public static final String LATINNAME_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantVariety.LATINNAME_PROPERTY";
 
-    private String title;
     private List<String> aliases;
     private String latinName;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        String oldValue = this.title;
-        this.title = title;
-        fireChange(TITLE_PROPERTY, oldValue, this.title);
-    }
 
     public List<String> getAliases() {
         return new ArrayList<>(aliases);

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddPlantVarietyDialogFXMLController">
+  <stylesheets>
+    <URL value="@/styles/menu/add/addplantvarietydialogfxml.css" />
+  </stylesheets>
+  <children>
+    <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <opaqueInsets>
+        <Insets />
+      </opaqueInsets>
+      <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+      <children>
+        <HBox spacing="10.0">
+          <children>
+            <Label text="Name">
+              <padding>
+                <Insets top="5.0" />
+              </padding>
+            </Label>
+            <TextField HBox.hgrow="ALWAYS" />
+          </children>
+        </HBox>
+        <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+          <children>
+            <Label text="Latin name">
+              <padding>
+                <Insets top="5.0" />
+              </padding>
+            </Label>
+            <TextField HBox.hgrow="ALWAYS" />
+          </children>
+        </HBox>
+        <Label text="Information">
+          <padding>
+            <Insets top="5.0" />
+          </padding>
+        </Label>
+        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="580.0">
+          <content>
+            <TextArea prefHeight="207.0" prefWidth="580.0" />
+          </content>
+        </ScrollPane>
+            <HBox spacing="10.0">
+               <children>
+              <Label layoutX="20.0" layoutY="90.0" text="Aliases">
+                <padding>
+                  <Insets top="5.0" />
+                </padding>
+              </Label>
+                  <Button mnemonicParsing="false" text="+" />
+                  <Button layoutX="57.0" layoutY="10.0" mnemonicParsing="false" text="-" />
+               </children>
+            </HBox>
+        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="580.0">
+          <content>
+            <TreeView minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" />
+          </content>
+        </ScrollPane>
+        <Separator prefWidth="200.0" />
+        <HBox spacing="10.0">
+          <children>
+            <Label text="Images">
+              <padding>
+                <Insets top="5.0" />
+              </padding>
+            </Label>
+            <Button mnemonicParsing="false" text="+" />
+            <Button layoutX="49.0" layoutY="10.0" mnemonicParsing="false" text="-" />
+            <Button layoutX="74.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
+            <Button layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
+            <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
+            <Button layoutX="195.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+          </children>
+        </HBox>
+        <HBox layoutX="20.0" layoutY="651.0" spacing="10.0">
+          <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" HBox.hgrow="NEVER">
+              <children>
+                <Text layoutX="25.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Image" />
+              </children>
+            </Pane>
+          </children>
+        </HBox>
+        <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+          <children>
+            <Button mnemonicParsing="false" text="OK" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

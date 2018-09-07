@@ -18,7 +18,7 @@ public class StageManager {
     //Add menu
     public static final String ADD_PLANT_TYPE_DIALOG_STAGE = "com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_TYPE_DIALOG_STAGE";
     public static final String ADD_PLANTS_DIALOG_STAGE = "com.etlsolutions.javafx.presentation.StageManager.ADD_PLANTS_DIALOG_STAGE";
-    
+   public static final String ADD_PLANT_VARIETY_DIALOG_STAGE = "com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_VARIETY_DIALOG_STAGE";    
     
     private static final StageManager INSTANCE = new StageManager();
     

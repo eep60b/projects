@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.planttype;
+package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.presentation.StageManager;
 import static com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_TYPE_DIALOG_STAGE;
@@ -16,27 +16,28 @@ import org.apache.log4j.Logger;
  *
  * @author zc
  */
-public class AddPlantTypeEventHandler implements EventHandler<ActionEvent> {
+public class AddImageLinkEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-
+        
         Logger logger = Logger.getLogger(getClass());
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/add/AddPlantTypeDialogFXML.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/imagelink/AddImageLinkDialogFXML.fxml"));
+            
+            AddImageLinkDialogFXMLController controller = loader.getController();
+            
             Parent root = loader.load();
-            AddPlantTypeDialogFXMLController controller = loader.getController();
-            
-            
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             StageManager.getInstance().putStage(ADD_PLANT_TYPE_DIALOG_STAGE, stage);
-            stage.setTitle("Add Plant Type");
+            stage.setTitle("Add Image");
             stage.setScene(scene);
+            controller.setOwnerWindow(stage);
             stage.show();
         } catch (IOException ex) {
-            String message = "Failed to create new plant type.";
+            String message = "Failed to create new imagee.";
             logger.error(message, ex);
             throw new CustomLevelErrorRuntimeExceiption(message);
         }
