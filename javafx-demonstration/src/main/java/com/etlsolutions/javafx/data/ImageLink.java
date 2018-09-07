@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * The ImageLink class represents the path to a image on and its description.
+ * The ImageLink class represents the path to a image on and its information.
  *
  * @author zc
  */
@@ -11,8 +11,9 @@ public class ImageLink {
 
     @JsonIgnore    
     public static final String IMAGE_LINK_LINK_PROPERTY = "com.etlsolutions.javafx.data.IMAGE_LINK_LINK_PROPERTY";
+    
     private String link;
-    private String description;
+    private String information;
 
     @JsonIgnore
     private final DataUnitChangeSupport support = new DataUnitChangeSupport();
@@ -27,12 +28,12 @@ public class ImageLink {
         support.fireChange(IMAGE_LINK_LINK_PROPERTY, oldValue, this.link);
     }
 
-    public String getDescription() {
-        return description;
+    public String getInformation() {
+        return information;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setInformation(String information) {
+        this.information = information;
     }
 
     public void addListener(String property, DataUnitChangeListener listener) {

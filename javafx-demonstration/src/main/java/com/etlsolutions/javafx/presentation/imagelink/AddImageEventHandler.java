@@ -21,7 +21,6 @@ class AddImageEventHandler implements EventHandler<ActionEvent> {
         this.ownerStage = ownerStage;
     }
 
-
     @Override
     public void handle(ActionEvent event) {
         FileChooser chooser = new FileChooser();
@@ -29,18 +28,20 @@ class AddImageEventHandler implements EventHandler<ActionEvent> {
         File defaultDirectory = getDirectory(new File(SettingConstants.DEFAULT_IMAGE_DIRECTORY));
         chooser.setInitialDirectory(defaultDirectory);
         
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "jpeg", "exif", "tiff", "gif", "bmp", "png"));
+
         File selectedFile = chooser.showOpenDialog(ownerStage);
-        
-        model.setImageFileLink(selectedFile.getAbsolutePath());
+        if (selectedFile != null) {
+            model.setImageFileLink(selectedFile.getAbsolutePath());
+        }
     }
-    
-    
+
     private File getDirectory(File file) {
-        
-        if(file.isDirectory()) {
+
+        if (file.isDirectory()) {
             return file;
         }
-        
+
         return getDirectory(file.getParentFile());
     }
 }
