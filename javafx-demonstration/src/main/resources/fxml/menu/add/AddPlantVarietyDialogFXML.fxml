@@ -83,6 +83,7 @@
             <Button fx:id="moveToLeftButton" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
             <Button fx:id="moveToRightButton" layoutX="125.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
             <Button fx:id="moveToEndButton" layoutX="195.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+                  <Button fx:id="editImageButton" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
           </children>
         </HBox>
         <HBox fx:id="imagesHbox" layoutX="20.0" layoutY="651.0" spacing="10.0">

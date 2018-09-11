@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -25,10 +24,7 @@ public class AddImageLinkDialogFXMLController implements Initializable {
     
     @FXML
     private HBox imageHBox;
-    
-    @FXML
-    private Label addImageButonLabel;
-    
+   
     @FXML
     private TextArea informationTextArea;
     
@@ -37,6 +33,7 @@ public class AddImageLinkDialogFXMLController implements Initializable {
     
     @FXML
     private Button cancelButton;
+    
     private Stage stage;
     private DataUnitDataModel parentModel;
     

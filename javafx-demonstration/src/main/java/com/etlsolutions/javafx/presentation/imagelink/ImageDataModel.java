@@ -1,9 +1,9 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
-import com.etlsolutions.javafx.presentation.InformationDataModel;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.File;
+import com.etlsolutions.javafx.presentation.InformationDataModel;
 
 /**
  *

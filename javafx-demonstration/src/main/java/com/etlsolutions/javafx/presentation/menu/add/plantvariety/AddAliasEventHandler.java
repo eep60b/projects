@@ -26,5 +26,4 @@ class AddAliasEventHandler extends ActionEventHandler<VarietyDialogDataModel> {
     public String getErrorMessage() {
         return "Failed to create new plant variety alias.";
     }
-
 }
