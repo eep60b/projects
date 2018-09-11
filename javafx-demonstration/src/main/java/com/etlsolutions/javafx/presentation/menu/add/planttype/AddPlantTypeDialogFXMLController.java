@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.planttype;
 
 import com.etlsolutions.javafx.data.plant.PlantsGroup;
-import static com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.TITLE_PROPERTY;
-import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddPlantVarietyEventHnadler;
+import static com.etlsolutions.javafx.presentation.menu.add.planttype.PlantTypeDialogDataModel.TITLE_PROPERTY;
+import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddPlantVarietyEventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -80,14 +80,14 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        AddPlantTypeDialogDataModel model = new AddPlantTypeDialogDataModel();
+        PlantTypeDialogDataModel model = new PlantTypeDialogDataModel();
         titleTextField.setText(model.getTitle());
         informationTextArea.setText(model.getInformation());
         
         groupComboBox.getItems().addAll(model.getPlantGroups());
         groupComboBox.getSelectionModel().select(model.getSelectedPlantGroup());
         
-        addVarityButton.setOnAction(new AddPlantVarietyEventHnadler(model));
+        addVarityButton.setOnAction(new AddPlantVarietyEventHandler(model));
         
         errorMessageLabel.setVisible(!model.isValid());
         errorMessageLabel.setText(model.getErrorMessage());

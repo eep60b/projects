@@ -11,11 +11,11 @@ import javafx.scene.control.Label;
  */
 class AddPlantTypeTitlePropertyChangeListener implements PropertyChangeListener {
 
-    private final AddPlantTypeDialogDataModel model;
+    private final PlantTypeDialogDataModel model;
     private final Label errorMessageLabel;
     private final Button okButton;
 
-    public AddPlantTypeTitlePropertyChangeListener(AddPlantTypeDialogDataModel model, Label errorMessageLabel, Button okButton) {
+    public AddPlantTypeTitlePropertyChangeListener(PlantTypeDialogDataModel model, Label errorMessageLabel, Button okButton) {
         this.model = model;
         this.errorMessageLabel = errorMessageLabel;
         this.okButton = okButton;

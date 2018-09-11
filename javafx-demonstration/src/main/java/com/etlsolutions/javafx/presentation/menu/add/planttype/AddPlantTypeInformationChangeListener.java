@@ -10,9 +10,9 @@ import javafx.beans.value.ObservableValue;
  */
 class AddPlantTypeInformationChangeListener implements ChangeListener<String> {
 
-    private final AddPlantTypeDialogDataModel model;
+    private final PlantTypeDialogDataModel model;
 
-    public AddPlantTypeInformationChangeListener(AddPlantTypeDialogDataModel model) {
+    public AddPlantTypeInformationChangeListener(PlantTypeDialogDataModel model) {
         this.model = model;
     }
 

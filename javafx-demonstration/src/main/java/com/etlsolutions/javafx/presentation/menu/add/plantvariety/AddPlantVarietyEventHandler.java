@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
 import com.etlsolutions.javafx.presentation.StageManager;
 import static com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_VARIETY_DIALOG_STAGE;
-import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.planttype.PlantTypeDialogDataModel;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -18,11 +18,11 @@ import org.apache.log4j.Logger;
  * @author zc
  * @param <T>
  */
-public class AddPlantVarietyEventHnadler<T>  implements EventHandler<ActionEvent> {
+public class AddPlantVarietyEventHandler<T>  implements EventHandler<ActionEvent> {
 
-    private final AddPlantTypeDialogDataModel model;
+    private final PlantTypeDialogDataModel model;
 
-    public AddPlantVarietyEventHnadler(AddPlantTypeDialogDataModel model) {
+    public AddPlantVarietyEventHandler(PlantTypeDialogDataModel model) {
         this.model = model;
     }
     

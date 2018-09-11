@@ -13,10 +13,10 @@ import javafx.stage.Stage;
  */
 class AddImageEventHandler implements EventHandler<ActionEvent> {
 
-    private final AddImageDataModel model;
+    private final ImageDataModel model;
     private final Stage ownerStage;
 
-    AddImageEventHandler(AddImageDataModel model, Stage ownerStage) {
+    AddImageEventHandler(ImageDataModel model, Stage ownerStage) {
         this.model = model;
         this.ownerStage = ownerStage;
     }

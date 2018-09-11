@@ -11,9 +11,9 @@ import javafx.scene.control.SingleSelectionModel;
  */
 public class AddPlantTypePlantGroupChangeListener implements ChangeListener<SingleSelectionModel<PlantsGroup>> {
 
-    private final AddPlantTypeDialogDataModel model;
+    private final PlantTypeDialogDataModel model;
 
-    public AddPlantTypePlantGroupChangeListener(AddPlantTypeDialogDataModel model) {
+    public AddPlantTypePlantGroupChangeListener(PlantTypeDialogDataModel model) {
         
         this.model = model;
     }

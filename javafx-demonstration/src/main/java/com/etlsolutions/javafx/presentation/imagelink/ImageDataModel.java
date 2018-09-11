@@ -1,10 +1,12 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
+import com.etlsolutions.javafx.presentation.InformationDataModel;
+
 /**
  *
  * @author zc
  */
-public class AddImageDataModel {
+public class ImageDataModel implements InformationDataModel {
   
     
     private String ImageFileLink;

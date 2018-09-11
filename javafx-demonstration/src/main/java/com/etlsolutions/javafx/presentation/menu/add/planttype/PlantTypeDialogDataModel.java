@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author zc
  */
-public class AddPlantTypeDialogDataModel {
+public class PlantTypeDialogDataModel {
     
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.TITLE_PROPERTY";
     
