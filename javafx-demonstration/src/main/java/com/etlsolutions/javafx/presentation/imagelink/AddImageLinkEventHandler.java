@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
+import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.StageManager;
 import static com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_TYPE_DIALOG_STAGE;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
@@ -18,6 +19,12 @@ import org.apache.log4j.Logger;
  */
 public class AddImageLinkEventHandler implements EventHandler<ActionEvent> {
 
+    private final DataUnitDataModel parentModel;
+
+    public AddImageLinkEventHandler(DataUnitDataModel parentModel) {
+        this.parentModel = parentModel;
+    }
+
     @Override
     public void handle(ActionEvent event) {
         
@@ -35,6 +42,7 @@ public class AddImageLinkEventHandler implements EventHandler<ActionEvent> {
             stage.setTitle("Add Image");
             stage.setScene(scene);
             controller.setOwnerWindow(stage);
+            controller.setParentModel(parentModel);
             stage.show();
         } catch (IOException ex) {
             String message = "Failed to create new imagee.";

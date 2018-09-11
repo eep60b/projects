@@ -29,7 +29,7 @@ public class DataUnitDataModel implements TitleDataModel, InformationDataModel {
     public DataUnitDataModel() {
         this.imageLinks = new ArrayList<>();
     }
-
+    
     @Override
     public String getTitle() {
         return title;
@@ -54,7 +54,7 @@ public class DataUnitDataModel implements TitleDataModel, InformationDataModel {
     public String getInformation() {
         return information;
     }
-    
+
     public List<ImageLink> getImageLinks() {
         return imageLinks;
     }

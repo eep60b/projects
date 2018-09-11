@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,6 @@ public interface ImageLinkDataModel {
     void add(ImageLink link);
     
     void remove(ImageLink link);
+    
+    List<ImageLink> getImageLinks();
 }
