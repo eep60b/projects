@@ -35,7 +35,7 @@ public abstract class ActionEventHandler<T> implements EventHandler<ActionEvent>
             FXMLLoader loader = new FXMLLoader(getClass().getResource(getFxmlFilePath()));
             Parent root = loader.load();
             ChildController controller = loader.getController();
-            controller.setParent(parentModel);
+            controller.setParentModel(parentModel);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();

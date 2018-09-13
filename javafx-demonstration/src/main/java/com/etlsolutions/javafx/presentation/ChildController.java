@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation;
 
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 
 /**
  *
@@ -13,5 +14,7 @@ public interface ChildController<T> extends Initializable {
      * 
      * @param parentModel 
      */
-     void setParent(T parentModel);
+     void setParentModel(T parentModel);
+     
+     void setParentStage(Stage parentStage);
 }

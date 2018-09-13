@@ -21,7 +21,7 @@ public class SubareaFactory {
         s.setId(DataUnitIdRegistry.createNewId());
         s.setTitle("Untitled");
         s.setInformation("");
-        s.setImgLinks(new ArrayList<ImageLink>());
+        s.setImageLinks(new ArrayList<ImageLink>());
         s.setContainers(new ArrayList<Container>());
         return s;
     }
@@ -31,7 +31,7 @@ public class SubareaFactory {
         s.setId(DataUnitIdRegistry.createNewId());
         s.setTitle("Untitled");
         s.setInformation("");
-        s.setImgLinks(new ArrayList<ImageLink>());
+        s.setImageLinks(new ArrayList<ImageLink>());
         s.setContainers(new ArrayList<Container>());
         s.setContainerSets(new ArrayList<ContainerSet>());
         s.setLocations(new ArrayList<CustomLocation>());
@@ -43,7 +43,7 @@ public class SubareaFactory {
         g.setId(DataUnitIdRegistry.createNewId());
         g.setTitle("Untitled");
         g.setInformation("");
-        g.setImgLinks(new ArrayList<ImageLink>());
+        g.setImageLinks(new ArrayList<ImageLink>());
         g.setContainers(new ArrayList<Container>());
         g.setContainerSets(new ArrayList<ContainerSet>());
         g.setLocations(new ArrayList<GreenHouseLocation>());
@@ -56,7 +56,7 @@ public class SubareaFactory {
         b.setTitle("Untitled");
         b.setInformation("");
         b.setShape("Not specified");
-        b.setImgLinks(new ArrayList<ImageLink>());
+        b.setImageLinks(new ArrayList<ImageLink>());
         b.setLocations(new ArrayList<PlantBedLocation>());
         return b;
     }
@@ -67,7 +67,7 @@ public class SubareaFactory {
         b.setId(DataUnitIdRegistry.createNewId());
         b.setTitle("Untitled");
         b.setInformation("");
-        b.setImgLinks(new ArrayList<ImageLink>());
+        b.setImageLinks(new ArrayList<ImageLink>());
         b.setLocations(new ArrayList<BorderLocation>());
         return b;
     }
@@ -78,7 +78,7 @@ public class SubareaFactory {
         p.setTitle("Untitled");
         p.setInformation("");
         p.setShape("Not specified");
-        p.setImgLinks(new ArrayList<ImageLink>());
+        p.setImageLinks(new ArrayList<ImageLink>());
         p.setLocations(new ArrayList<PondLocation>());
         return p;
     }
@@ -89,7 +89,7 @@ public class SubareaFactory {
         r.setTitle("Untitled");
         r.setInformation("");
         r.setShape("Not specified");
-        r.setImgLinks(new ArrayList<ImageLink>());
+        r.setImageLinks(new ArrayList<ImageLink>());
         r.setLocations(new ArrayList<PlantBedLocation>());
         return r;
     }
@@ -99,7 +99,7 @@ public class SubareaFactory {
         r.setId(DataUnitIdRegistry.createNewId());
         r.setTitle("Untitled");
         r.setInformation("");
-        r.setImgLinks(new ArrayList<ImageLink>());
+        r.setImageLinks(new ArrayList<ImageLink>());
         r.setContainers(new ArrayList<Container>());
         r.setContainerSets(new ArrayList<ContainerSet>());
         return r;

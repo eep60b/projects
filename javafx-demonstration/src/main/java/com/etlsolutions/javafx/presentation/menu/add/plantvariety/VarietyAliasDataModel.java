@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
+import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.TitleDataModel;
+import com.etlsolutions.javafx.presentation.Validatable;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -8,7 +10,7 @@ import java.beans.PropertyChangeSupport;
  *
  * @author zc
  */
-public class VarietyAliasDataModel implements TitleDataModel {
+public class VarietyAliasDataModel implements TitleDataModel, Savable, Validatable {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety. VarietyAliasDataModel.TITLE_PROPERTY";
 
@@ -33,11 +35,27 @@ public class VarietyAliasDataModel implements TitleDataModel {
         support.firePropertyChange(TITLE_PROPERTY, oldValue, this.title);
     }
 
-    public void addAlias() {
-        parentModel.addAlias(title);
-    }
-    
     public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
         support.addPropertyChangeListener(property, listener);
+    }
+
+    @Override
+    public void save() {
+        parentModel.addAlias(title);
+    }
+
+    @Override
+    public boolean isValid() {
+        return title != null && !title.trim().isEmpty();
+    }
+
+    @Override
+    public String getErrorMessage() {
+        
+        if(isValid()) {
+            return "";
+        }
+        
+        return "Please enter alias name.";
     }
 }

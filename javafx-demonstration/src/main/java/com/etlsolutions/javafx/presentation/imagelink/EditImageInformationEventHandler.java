@@ -1,8 +1,6 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.presentation.StageManager;
-import static com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_TYPE_DIALOG_STAGE;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -37,10 +35,10 @@ public class EditImageInformationEventHandler implements EventHandler<ActionEven
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            StageManager.getInstance().putStage(ADD_PLANT_TYPE_DIALOG_STAGE, stage);
             stage.setTitle("Edit Information");
             stage.setScene(scene);
             controller.setImageLink(imageLink);
+            controller.setStage(stage);
             stage.show();
         } catch (IOException ex) {
             String message = "Failed to create new imagee.";

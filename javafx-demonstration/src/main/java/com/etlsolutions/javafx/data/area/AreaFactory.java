@@ -35,7 +35,7 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());
         a.setInformation("");        
         a.setTitle("Untitled");
-        a.setImgLinks(new ArrayList<ImageLink>());
+        a.setImageLinks(new ArrayList<ImageLink>());
         return a;
     }
 
@@ -43,7 +43,7 @@ public final class AreaFactory {
         BalconyArea a = new BalconyArea();
         a.setId(DataUnitIdRegistry.createNewId());
         a.setTitle("Untitled");
-        a.setImgLinks(new ArrayList<ImageLink>());
+        a.setImageLinks(new ArrayList<ImageLink>());
         a.setContainers(new ArrayList<Container>());
         a.setContainerSets(new ArrayList<ContainerSet>());        
         return a;
@@ -53,7 +53,7 @@ public final class AreaFactory {
         CustomArea a = new CustomArea();
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
-        a.setImgLinks(new ArrayList<ImageLink>());
+        a.setImageLinks(new ArrayList<ImageLink>());
         a.setCustomSubareas(new ArrayList<CustomSubarea>());
         return a;
     }
@@ -63,7 +63,7 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
         a.setInformation("");        
-        a.setImgLinks(new ArrayList<ImageLink>());
+        a.setImageLinks(new ArrayList<ImageLink>());
         a.setPlantBeds(new ArrayList<PlantBed>());
         a.setCustomSubareas(new ArrayList<CustomSubarea>());
         a.setBorders(new ArrayList<PlantBedBorder>());
@@ -75,7 +75,7 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
         a.setInformation("");        
-        a.setImgLinks(new ArrayList<ImageLink>());
+        a.setImageLinks(new ArrayList<ImageLink>());
         a.setPlantBeds(new ArrayList<PlantBed>());
         a.setSubareas(new ArrayList<CustomSubarea>());
         a.setBorders(new ArrayList<PlantBedBorder>());
@@ -90,7 +90,7 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
         a.setInformation("");        
-        a.setImgLinks(new ArrayList<ImageLink>());
+        a.setImageLinks(new ArrayList<ImageLink>());
         a.setContainers(new ArrayList<Container>());
         a.setContainerSets(new ArrayList<ContainerSet>());        
         return a;
@@ -101,7 +101,7 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
         a.setInformation("");        
-        a.setImgLinks(new ArrayList<ImageLink>());
+        a.setImageLinks(new ArrayList<ImageLink>());
         a.setContainers(new ArrayList<Container>());
         a.setRaisedPlantBeds(new ArrayList<RaisedPlantBed>());
         a.setContainerSets(new ArrayList<ContainerSet>());        

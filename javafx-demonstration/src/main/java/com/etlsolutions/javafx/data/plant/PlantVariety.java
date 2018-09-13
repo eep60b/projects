@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,15 @@ public class PlantVariety extends DataUnit {
     private List<String> aliases;
     private String latinName;
 
+    public PlantVariety() {
+    }
 
+    public PlantVariety(List<String> aliases, String latinName, String title, String information, List<ImageLink> imageLinks) {
+        super(title, information, imageLinks);
+        this.aliases = aliases;
+        this.latinName = latinName;
+    }
+    
     public List<String> getAliases() {
         return new ArrayList<>(aliases);
     }

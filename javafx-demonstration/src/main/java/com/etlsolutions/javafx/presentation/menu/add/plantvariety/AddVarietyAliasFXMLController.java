@@ -1,19 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
+import com.etlsolutions.javafx.presentation.CancelEventHandler;
+import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.ChildController;
+import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
 import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
-import com.etlsolutions.javafx.presentation.TitleDataModel;
+import static com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAliasDataModel.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -23,7 +22,9 @@ import javafx.scene.control.TextField;
 public class AddVarietyAliasFXMLController implements ChildController<VarietyDialogDataModel> {
 
     private VarietyDialogDataModel parentModel;
-   
+    
+    private Stage parentStage;
+     
     @FXML
     private TextField titleTextField;
     
@@ -35,9 +36,9 @@ public class AddVarietyAliasFXMLController implements ChildController<VarietyDia
     
     @FXML
     private Button cancelButton;
-    
+   
     /**
-     * Initializes the controller class.
+     * Initialises the controller class.
      *
      * @param url
      * @param rb
@@ -46,13 +47,25 @@ public class AddVarietyAliasFXMLController implements ChildController<VarietyDia
     public void initialize(URL url, ResourceBundle rb) {
 
         VarietyAliasDataModel model = new VarietyAliasDataModel(parentModel);
-        titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
+        titleTextField.setText(model.getTitle());
+        errorMessageLabel.setText(model.getErrorMessage());
+        okButton.setDisable(!model.isValid());
         
+        titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
+        okButton.setOnAction(new SaveExitEventHandler(model, parentStage));
+        cancelButton.setOnAction(new CancelEventHandler(parentStage));
+        
+        model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
         
     }
 
     @Override
-    public void setParent(VarietyDialogDataModel parentModel) {
+    public void setParentModel(VarietyDialogDataModel parentModel) {
         this.parentModel = parentModel;
+    }
+
+    @Override
+    public void setParentStage(Stage parentStage) {
+        this.parentStage = parentStage;
     }
 }

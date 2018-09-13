@@ -8,8 +8,12 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHan
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.presentation.CancelEventHandler;
+import com.etlsolutions.javafx.presentation.ChildController;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
+import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
 import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
+import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.imagelink.AddImageLinkEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.SelectedImageLinkAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.PlantTypeDialogDataModel;
@@ -18,7 +22,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -26,16 +29,21 @@ import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author zc
  */
-public class AddPlantVarietyDialogFXMLController implements Initializable {
+public class AddPlantVarietyDialogFXMLController implements ChildController<PlantTypeDialogDataModel> {
 
+    
+    private PlantTypeDialogDataModel parentModel;
+    
+    private Stage parentStage;    
+    
     @FXML
     private TextField titleTextField;
 
@@ -86,8 +94,7 @@ public class AddPlantVarietyDialogFXMLController implements Initializable {
     
     @FXML
     private Button cancelButton;   
-    
-    private PlantTypeDialogDataModel parentModel;
+
     
     /**
      * Initializes the controller class.
@@ -119,6 +126,8 @@ public class AddPlantVarietyDialogFXMLController implements Initializable {
         moveToEndButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1));
         moveToRightButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1));
         editImageButton.setDisable(selectedImageLink == null);
+        errorMessageLabel.setText(model.getErrorMessage());
+        okButton.setDisable(!model.isValid());
                 
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         latinNameTextField.textProperty().addListener(new LatinNameChangeAdapter(model));
@@ -133,14 +142,22 @@ public class AddPlantVarietyDialogFXMLController implements Initializable {
         moveToEndButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
         moveToRightButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
         editImageButton.setOnAction(new EditImageInformationEventHandler(model.getSelectedImageLink()));
+        okButton.setOnAction(new SaveExitEventHandler(model, parentStage));
+        cancelButton.setOnAction(new CancelEventHandler(parentStage));
         
         model.addPropertyChangeListener(SELECTED_ALIAS_PROPERTY, new SelectedAliasChangeAdapter(removeAliasButton, aliasListView));
         model.addPropertyChangeListener(SELECTED_IMAGE_LINK_PROPERTY, new SelectedImageLinkAdapter(removeImageButton, moveToBeginButton, moveToLeftButton, moveToEndButton, moveToRightButton, editImageButton, imagesHbox));
         model.addPropertyChangeListener(IMAGE_LINKS_PROPERTY, new ImageLinksAdapter(imagesHbox));
+        model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
     }    
 
+    @Override
     public void setParentModel(PlantTypeDialogDataModel parentModel) {
         this.parentModel = parentModel;
     }
-    
+
+    @Override
+    public void setParentStage(Stage parentStage) {
+        this.parentStage = parentStage;
+    }
 }

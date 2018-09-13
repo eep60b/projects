@@ -1,8 +1,11 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.Savable;
+import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.PlantTypeDialogDataModel;
 import com.sun.javafx.collections.ObservableListWrapper;
+import java.sql.Savepoint;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;
@@ -11,7 +14,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class VarietyDialogDataModel extends DataUnitDataModel {
+public class VarietyDialogDataModel extends DataUnitDataModel implements Savable, Validatable {
 
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
@@ -73,5 +76,20 @@ public class VarietyDialogDataModel extends DataUnitDataModel {
         }
         selectedAlias = aliases.isEmpty() ? null : aliases.get(index);
         return removed;
+    }
+
+    @Override
+    public void save() {
+        parentModel.addVariety(null);
+    }
+
+    @Override
+    public boolean isValid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getErrorMessage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

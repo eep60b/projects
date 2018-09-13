@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.data.plant;
 
 import static com.etlsolutions.javafx.data.DataUnit.BUNDLE;
 import com.etlsolutions.javafx.data.DataUnitIdRegistry;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.event.FloweringEvent;
@@ -95,6 +96,15 @@ public class PlantsFactory {
         return p;
     }
 
+    public static PlantVariety createPlantVariety(String title, String latinName, String information, List<String> aliases, List<ImageLink> imageLinks) {
+        PlantVariety v = new PlantVariety(aliases, latinName, title, information, imageLinks);
+        v.setTitle("Not specified");
+        v.setLatinName("Not specified");
+        v.setInformation(information);
+        v.setAliases(new ArrayList<String>());
+        return v;
+    }    
+    
     public static PlantVariety createPlantVariety() {
         PlantVariety v = new PlantVariety();
         v.setTitle("Not specified");
