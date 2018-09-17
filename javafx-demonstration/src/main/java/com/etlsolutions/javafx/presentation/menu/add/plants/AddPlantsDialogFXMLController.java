@@ -5,7 +5,10 @@ import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.event.Event;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
+import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantsType;
+import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
+import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,7 +23,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -32,6 +35,9 @@ public class AddPlantsDialogFXMLController implements Initializable {
     @FXML
     private TextField titleTextField;
 
+    @FXML    
+    private ComboBox<PlantGroup> plantGroupCombox;    
+    
     @FXML    
     private ComboBox<PlantsType> plantTypeCombox;
     
@@ -88,6 +94,9 @@ public class AddPlantsDialogFXMLController implements Initializable {
     
     @FXML
     private Button editLocationButton;  
+    
+    @FXML
+    private TextArea locationInformationTextArea;
     
     @FXML
     private CheckBox isAliveCheckBox;     
@@ -154,6 +163,8 @@ public class AddPlantsDialogFXMLController implements Initializable {
     @FXML
     private Button cancelButton;   
     
+    private Stage stage;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -164,7 +175,19 @@ public class AddPlantsDialogFXMLController implements Initializable {
         
         AddPlantsDataModel model = new AddPlantsDataModel();
         
-        ToggleGroup group = new ToggleGroup();
+        titleTextField.setText(model.getTitle());
+        plantGroupCombox.setItems(model.getPlantGroups());
+        plantGroupCombox.getSelectionModel().select(model.getSelectedPlantGroup());
+        
+        plantGroupCombox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));
+        
+        plantTypeCombox.setItems(model.getPlantTypes());
+        
+        model.addPropertyChangeListener(SELECTED_PLANT_GROUP_PROPERTY, new PlantGroupSelectionPropertyChangeAdapter(plantTypeCombox));
     }    
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
     
 }

@@ -50,21 +50,21 @@ public class PlantsFactory {
         PlantsGroupRoot r = new PlantsGroupRoot();
         r.setId(DataUnitIdRegistry.createNewId());
         String[] defaultTitles = BUNDLE.getString("com.etlsolutions.javafx.data.plant.PlantsFactory.defaultPlantsGroup.Titles").split(",");
-        List<PlantsGroup> groups = new ArrayList<>();
+        List<PlantGroup> groups = new ArrayList<>();
         for (String title : defaultTitles) {
-            PlantsGroup group = createPlantsGroup(title);
+            PlantGroup group = createPlantsGroup(title);
             groups.add(group);
         }
         r.setPlantsGroups(groups);
         return r;
     }
 
-    public static PlantsGroup createPlantsGroup() {
+    public static PlantGroup createPlantsGroup() {
         return createPlantsGroup("untitled");
     }
 
-    public static PlantsGroup createPlantsGroup(String title) {
-        PlantsGroup g = new PlantsGroup();
+    public static PlantGroup createPlantsGroup(String title) {
+        PlantGroup g = new PlantGroup();
         g.setId(DataUnitIdRegistry.createNewId());
         g.setTitle(title);
         g.setInformation("");

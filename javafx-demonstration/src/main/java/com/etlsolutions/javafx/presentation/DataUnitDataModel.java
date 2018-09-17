@@ -26,7 +26,7 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
     protected boolean valid;
     protected String errorMessage;
     
-    protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
+    protected final DataUnitPropertyChangeSupport support = new DataUnitPropertyChangeSupport(this);
 
     public DataUnitDataModel() {
         this.imageLinks = new ArrayList<>();

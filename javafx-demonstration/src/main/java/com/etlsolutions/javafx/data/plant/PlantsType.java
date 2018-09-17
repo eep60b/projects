@@ -25,7 +25,7 @@ public class PlantsType extends DataUnit {
     @JsonIgnore
     public static final String VARIETIES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.VARIETIES_PROPERTY";  
     
-    private PlantsGroup group;
+    private PlantGroup group;
     private List<Plants> plantsList;
     
     
@@ -41,12 +41,12 @@ public class PlantsType extends DataUnit {
         this.plantsList = plantsList;
     }
 
-    public PlantsGroup getGroup() {
+    public PlantGroup getGroup() {
         return group;
     }
 
-    public void setGroup(PlantsGroup group) {
-        PlantsGroup oldValue = this.group;
+    public void setGroup(PlantGroup group) {
+        PlantGroup oldValue = this.group;
         this.group = group;
         fireChange(GROUP_PROPERTY, oldValue, this.group);
     }

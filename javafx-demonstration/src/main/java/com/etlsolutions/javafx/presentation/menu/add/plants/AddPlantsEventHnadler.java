@@ -24,11 +24,13 @@ public class AddPlantsEventHnadler implements EventHandler<ActionEvent> {
         Logger logger = Logger.getLogger(getClass());
         try {
 
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/menu/add/AddPlantsDialogFXML.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu/add/AddPlantsDialogFXML.fxml"));
+            Parent root = loader.load();
+            AddPlantsDialogFXMLController controller = loader.getController();
             Scene scene = new Scene(root);
 
             Stage stage = new Stage();
-            StageManager.getInstance().putStage(ADD_PLANTS_DIALOG_STAGE, stage);
+            controller.setStage(stage);
             stage.setTitle("Add Plants");
             stage.setScene(scene);
             stage.show();

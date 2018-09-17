@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
@@ -8,30 +7,43 @@ import com.etlsolutions.javafx.data.log.event.Event;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
+import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import com.etlsolutions.javafx.data.plant.PlantsType;
+import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.Savable;
+import com.etlsolutions.javafx.presentation.Validatable;
+import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
+import com.etlsolutions.javafx.system.ProjectManager;
+import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class AddPlantsDataModel {
+public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable {
 
-    private String title;
-    private Date datePlanted = new Date();
-    private PlantsType type;
-    private PlantVariety variety;
+    public static final String SELECTED_PLANT_GROUP_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_GROUP_PROPERTY ";
+    public static final String SELECTED_PLANT_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_TYPE_PROPERTY";
+    
+    
+    private final ObservableList<PlantGroup> plantGroups;
+    private PlantGroup selectedPlantGroup;
+    private ObservableList<PlantsType> plantTypes;
+    private PlantsType selectedPlantType;
+    private ObservableList<PlantVariety> plantVarieties;
+    private PlantVariety selectedVariety;
     private PlantsQuantity quantity;
     private int plantNumber;
-    private String informaton = "";
-    private List<ImageLink> imgLinks;
-    private int selectedImgLinkIndex;
     private Date plantedDate;
     private GrowingMedium growingMedium;
     private Location location;
+    private Date datePlanted = new Date();
     private boolean isAlive = true;
     private Date terminationDate;
     private String terminationReason;
@@ -40,25 +52,54 @@ public class AddPlantsDataModel {
     private List<GrowingIssue> issues = new ArrayList<>();
     private List<GrowingObservation> observations = new ArrayList<>();
 
-    private boolean valid;
-    private String errorMessage;
-    
-    private void validate() {
-        
-        if(title == null || title.trim().isEmpty()) {
-            errorMessage = "Title is not specified.";
-        }
-        
-        valid = errorMessage.isEmpty();
-    }
-    
-    public String getTitle() {
-        return title;
+    /**
+     * Construct an object.
+     *
+     * @throws IndexOutOfBoundsException if no plant group can be selected from the plant group list.
+     */
+    public AddPlantsDataModel() {
+        plantGroups = new ObservableListWrapper<>(ProjectManager.getInstance().getProject().getPlantsGroupRoot().getPlantGroups());
+        selectedPlantGroup = plantGroups.get(0);
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-        validate();
+    public ObservableList<PlantGroup> getPlantGroups() {
+        return plantGroups;
+    }
+
+    public PlantGroup getSelectedPlantGroup() {
+        return selectedPlantGroup;
+    }
+
+    @Override
+    public void setSelectedPlantGroup(PlantGroup selectedPlantGroup) {
+        
+        if(Objects.equals(this.selectedPlantGroup, selectedPlantGroup)) {
+            return;
+        }
+        
+        this.selectedPlantGroup = selectedPlantGroup;
+        plantTypes = new ObservableListWrapper<>(this.selectedPlantGroup.getPlantsTypes());
+        support.firePropertyChange(SELECTED_PLANT_GROUP_PROPERTY);
+    }
+
+    public ObservableList<PlantsType> getPlantTypes() {
+        return plantTypes;
+    }
+
+    public ObservableList<PlantVariety> getPlantVarieties() {
+        return plantVarieties;
+    }
+
+    
+    
+    @Override
+    public void validate() {
+        String title = getTitle();
+        if (title == null || title.trim().isEmpty()) {
+            errorMessage = "Title is not specified.";
+        }
+
+        valid = errorMessage.isEmpty();
     }
 
     public Date getDatePlanted() {
@@ -69,20 +110,20 @@ public class AddPlantsDataModel {
         this.datePlanted = datePlanted;
     }
 
-    public PlantsType getType() {
-        return type;
+    public PlantsType getSelectedPlantType() {
+        return selectedPlantType;
     }
 
-    public void setType(PlantsType type) {
-        this.type = type;
+    public void setSelectedPlantType(PlantsType selectedPlantType) {
+        this.selectedPlantType = selectedPlantType;
     }
 
-    public PlantVariety getVariety() {
-        return variety;
+    public PlantVariety getSelectedVariety() {
+        return selectedVariety;
     }
 
-    public void setVariety(PlantVariety variety) {
-        this.variety = variety;
+    public void setSelectedVariety(PlantVariety selectedVariety) {
+        this.selectedVariety = selectedVariety;
     }
 
     public PlantsQuantity getQuantity() {
@@ -99,30 +140,6 @@ public class AddPlantsDataModel {
 
     public void setPlantNumber(int plantNumber) {
         this.plantNumber = plantNumber;
-    }
-
-    public String getInformaton() {
-        return informaton;
-    }
-
-    public void setInformaton(String informaton) {
-        this.informaton = informaton;
-    }
-
-    public List<ImageLink> getImgLinks() {
-        return imgLinks;
-    }
-
-    public void setImgLinks(List<ImageLink> imgLinks) {
-        this.imgLinks = imgLinks;
-    }
-
-    public int getSelectedImgLinkIndex() {
-        return selectedImgLinkIndex;
-    }
-
-    public void setSelectedImgLinkIndex(int selectedImgLinkIndex) {
-        this.selectedImgLinkIndex = selectedImgLinkIndex;
     }
 
     public Date getPlantedDate() {
@@ -204,6 +221,10 @@ public class AddPlantsDataModel {
     public void setObservations(List<GrowingObservation> observations) {
         this.observations = observations;
     }
-    
-    
+
+    @Override
+    public void save() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

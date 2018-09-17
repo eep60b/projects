@@ -2,10 +2,11 @@ package com.etlsolutions.javafx.presentation.menu.add.planttype;
 
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
-import com.etlsolutions.javafx.data.plant.PlantsGroup;
+import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
+import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
 import com.etlsolutions.javafx.system.ProjectManager;
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savable, Validatable {
+public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable {
 
     public static final String VARIETIES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.VARIETIES_PROPERTY";
     public static final String SELECTED_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.SELECTED_VARIETY_PROPERTY";
@@ -24,11 +25,11 @@ public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savab
     private ObservableList<PlantVariety> varieties;
     private PlantVariety selectedVariety;
 
-    private final List<PlantsGroup> plantGroups;
-    private PlantsGroup selectedPlantGroup;
+    private final List<PlantGroup> plantGroups;
+    private PlantGroup selectedPlantGroup;
 
     public PlantTypeDialogDataModel() {
-        plantGroups = ProjectManager.getInstance().getProject().getPlantsGroupRoot().getPlantsGroups();
+        plantGroups = ProjectManager.getInstance().getProject().getPlantsGroupRoot().getPlantGroups();
         selectedPlantGroup = plantGroups.get(0);
         varieties = new ObservableListWrapper<>(new ArrayList<PlantVariety>());
     }
@@ -86,15 +87,16 @@ public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savab
         return errorMessage == null || errorMessage.trim().isEmpty();
     }
 
-    public PlantsGroup getSelectedPlantGroup() {
+    public PlantGroup getSelectedPlantGroup() {
         return selectedPlantGroup;
     }
 
-    public void setSelectedPlantGroup(PlantsGroup selectedPlantGroup) {
+    @Override
+    public void setSelectedPlantGroup(PlantGroup selectedPlantGroup) {
         this.selectedPlantGroup = selectedPlantGroup;
     }
 
-    public List<PlantsGroup> getPlantGroups() {
+    public List<PlantGroup> getPlantGroups() {
         return new ArrayList<>(plantGroups);
     }
 

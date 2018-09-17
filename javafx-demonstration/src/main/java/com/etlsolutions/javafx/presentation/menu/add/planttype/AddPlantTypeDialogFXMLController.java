@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.planttype;
 
+import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.plant.PlantsGroup;
+import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -47,7 +48,7 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
     private TextArea informationTextArea;
     
     @FXML
-    private ComboBox<PlantsGroup> groupComboBox;
+    private ComboBox<PlantGroup> groupComboBox;
     
     @FXML
     private Button addVarityButton;
@@ -134,7 +135,7 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
-        groupComboBox.selectionModelProperty().addListener(new AddPlantTypePlantGroupChangeListener(model));        
+        groupComboBox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));        
         addVarityButton.setOnAction(new AddPlantVarietyEventHandler(model));
         removeVarityButton.setOnAction(new RemovePlantVarietyEventHandler(model));
         editVarityButton.setOnAction(new EditPlantVarietyEventHandler(model));

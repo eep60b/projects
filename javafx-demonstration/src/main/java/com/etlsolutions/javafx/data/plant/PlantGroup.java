@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The PlantsGroup class represents a child of root item. Because the root item
+ * The PlantGroup class represents a child of root item. Because the root item
  * does BIT show in GUI, this class actually acts as the multiple roots from the
  * user point of view. A good example of groups is trees, annual plants,
  * biennial plants and perennial plants etc.
  *
  * @author zc
  */
-public class PlantsGroup extends DataUnit {
+public class PlantGroup extends DataUnit {
 
     @JsonIgnore
-    public static final String PLANTS_TYPES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsGroup.PLANTS_TYPES_PROPERTY";
+    public static final String PLANTS_TYPES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantGroup.PLANTS_TYPES_PROPERTY";
 
     private Set<PlantsType> plantsTypes = new HashSet<>();
 
