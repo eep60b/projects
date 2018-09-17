@@ -16,11 +16,13 @@ public class VarietyAliasDataModel implements TitleDataModel, Savable, Validatab
 
     private final VarietyDialogDataModel parentModel;
     private String title;
+    private final String oldTitle;
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public VarietyAliasDataModel(VarietyDialogDataModel parentModel) {
         this.parentModel = parentModel;
+        oldTitle = title = parentModel.getSelectedAlias();
     }
 
     @Override
@@ -41,7 +43,13 @@ public class VarietyAliasDataModel implements TitleDataModel, Savable, Validatab
 
     @Override
     public void save() {
-        parentModel.addAlias(title);
+
+        if (oldTitle == null || oldTitle.trim().isEmpty()) {
+            parentModel.addAlias(title);
+        } else {
+            parentModel.replaceAlias(oldTitle, title);
+        }
+
     }
 
     @Override
@@ -51,11 +59,11 @@ public class VarietyAliasDataModel implements TitleDataModel, Savable, Validatab
 
     @Override
     public String getErrorMessage() {
-        
-        if(isValid()) {
+
+        if (isValid()) {
             return "";
         }
-        
+
         return "Please enter alias name.";
     }
 }

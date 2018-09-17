@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author zc
  */
-public class DataUnitDataModel implements TitleDataModel, InformationDataModel {
+public abstract class DataUnitDataModel implements TitleDataModel, InformationDataModel {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";
@@ -23,13 +23,17 @@ public class DataUnitDataModel implements TitleDataModel, InformationDataModel {
     private List<ImageLink> imageLinks;
     private ImageLink selectedImageLink;
     private String logoPath;
-
+    protected boolean valid;
+    protected String errorMessage;
+    
     protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public DataUnitDataModel() {
         this.imageLinks = new ArrayList<>();
     }
 
+    protected abstract void validate();
+    
     @Override
     public String getTitle() {
         return title;
@@ -130,4 +134,12 @@ public class DataUnitDataModel implements TitleDataModel, InformationDataModel {
         selectedImageLink = imageLinks.get(imageLinks.indexOf(selectedImageLink) - 1);
         support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
     }
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }    
 }

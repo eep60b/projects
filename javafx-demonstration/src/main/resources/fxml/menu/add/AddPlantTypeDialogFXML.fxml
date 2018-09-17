@@ -20,7 +20,7 @@
             <HBox spacing="10.0">
                <children>
                   <Label text="Title" />
-                  <TextField HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="titleTextField" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox>
@@ -30,7 +30,7 @@
             </HBox>
             <ScrollPane prefHeight="197.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
                <content>
-                  <TextArea prefHeight="195.0" prefWidth="579.0" />
+                  <TextArea fx:id="informationTextArea" prefHeight="195.0" prefWidth="579.0" />
                </content>
             </ScrollPane>
             <HBox spacing="10.0">
@@ -47,12 +47,12 @@
                         <Insets top="5.0" />
                      </padding>
                   </Label>
-                  <Button mnemonicParsing="false" text="+" />
-                  <Button layoutX="49.0" layoutY="10.0" mnemonicParsing="false" text="-" />
-                  <Button layoutX="94.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                  <Button fx:id="addVarityButton" mnemonicParsing="false" text="+" />
+                  <Button fx:id="removeVarityButton" layoutX="49.0" layoutY="10.0" mnemonicParsing="false" text="-" />
+                  <Button fx:id="editVarityButton" layoutX="94.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
                </children>
             </HBox>
-            <ListView prefHeight="291.0" prefWidth="580.0" />
+            <ListView fx:id="varityListView" prefHeight="291.0" prefWidth="580.0" />
             <Separator prefWidth="200.0" />
             <HBox spacing="10.0">
                <children>
@@ -61,15 +61,16 @@
                         <Insets top="5.0" />
                      </padding>
                   </Label>
-                  <Button mnemonicParsing="false" text="+" />
-                  <Button layoutX="49.0" layoutY="10.0" mnemonicParsing="false" text="-" />
-                  <Button layoutX="74.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
-                  <Button layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
-                  <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
-                  <Button layoutX="195.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+                  <Button fx:id="addImageButton" mnemonicParsing="false" text="+" />
+                  <Button fx:id="removeImageButton" layoutX="49.0" layoutY="10.0" mnemonicParsing="false" text="-" />
+                  <Button fx:id="moveToBeginButton" layoutX="74.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
+                  <Button fx:id="moveToLeftButton" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
+                  <Button fx:id="moveToRightButton" layoutX="125.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
+                  <Button fx:id="moveToEndButton" layoutX="195.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+                  <Button fx:id="editImageButton" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" text="edit" />
                </children>
             </HBox>
-            <HBox layoutX="20.0" layoutY="651.0" spacing="10.0">
+            <HBox fx:id="imagesHbox" layoutX="20.0" layoutY="651.0" spacing="10.0">
                <children>
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" HBox.hgrow="NEVER">
                      <children>
@@ -81,8 +82,8 @@
             <Label fx:id="errorMessageLabel" text="ErrorMessage" textFill="#f50808" />
             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" text="OK" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
+                  <Button fx:id="cancelButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
                </children>
             </HBox>
          </children>

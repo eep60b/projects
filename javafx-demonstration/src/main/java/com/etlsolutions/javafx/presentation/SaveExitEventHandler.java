@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation;
 
-import com.etlsolutions.javafx.presentation.Savable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;

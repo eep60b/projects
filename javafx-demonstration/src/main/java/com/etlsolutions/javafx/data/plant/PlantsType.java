@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,15 @@ public class PlantsType extends DataUnit {
     
     //This property will not be shown in the tree.    
     private List<PlantVariety> plantVarieties;
+
+    public PlantsType() {
+    }
+    
+    PlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks, List<Plants> plantsList) {
+        super(title, information, imageLinks);
+        this.plantVarieties = varieties;
+        this.plantsList = plantsList;
+    }
 
     public PlantsGroup getGroup() {
         return group;

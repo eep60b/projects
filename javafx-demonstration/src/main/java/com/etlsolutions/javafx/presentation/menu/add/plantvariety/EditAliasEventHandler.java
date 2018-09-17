@@ -6,9 +6,9 @@ import com.etlsolutions.javafx.presentation.ActionEventHandler;
  *
  * @author zc
  */
-public class AddAliasEventHandler extends ActionEventHandler<VarietyDialogDataModel> {
+public class EditAliasEventHandler extends ActionEventHandler<VarietyDialogDataModel> {
 
-    public AddAliasEventHandler(VarietyDialogDataModel parentModel) {
+    public EditAliasEventHandler(VarietyDialogDataModel parentModel) {
        super(parentModel);
     }
 
@@ -19,11 +19,11 @@ public class AddAliasEventHandler extends ActionEventHandler<VarietyDialogDataMo
 
     @Override
     public String getStageTitle() {
-        return "Add Variety Alias";
+        return "Edit Variety Alias";
     }
 
     @Override
     public String getErrorMessage() {
-        return "Failed to create new plant variety alias.";
+        return "Failed to modify new plant variety alias.";
     }
 }

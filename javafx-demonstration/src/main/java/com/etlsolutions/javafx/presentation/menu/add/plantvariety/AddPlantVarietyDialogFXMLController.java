@@ -33,7 +33,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * AddPlantVarietyDialogFXMLController is an FXML Controller class which control the add plant variety dialog.
  *
  * @author zc
  */
@@ -58,6 +58,9 @@ public class AddPlantVarietyDialogFXMLController implements ChildController<Plan
     
     @FXML
     private Button removeAliasButton;
+    
+    @FXML
+    private Button editAliasButton;
     
     @FXML 
     private ListView aliasListView;
@@ -110,6 +113,7 @@ public class AddPlantVarietyDialogFXMLController implements ChildController<Plan
         informationTextArea.setText(model.getInformation());
         String alias = model.getSelectedAlias();
         removeAliasButton.setDisable(alias == null);
+        editAliasButton.setDisable(alias == null);
         
         aliasListView.setItems( model.getAliases());
         MultipleSelectionModel selectionModel = aliasListView.getSelectionModel();
@@ -134,6 +138,7 @@ public class AddPlantVarietyDialogFXMLController implements ChildController<Plan
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
         addAliasButton.setOnAction(new AddAliasEventHandler(model));
         removeAliasButton.setOnAction(new RemoveAliasEventHandler(model));
+        
         aliasListView.selectionModelProperty().addListener(new AliasChangeAdapter(model));
         addImageButton.setOnAction(new AddImageLinkEventHandler(model));
         removeImageButton.setOnAction(new RemoveImageLinkEventHandler(model));

@@ -31,7 +31,7 @@ public class AddPlantTypeEventHandler implements EventHandler<ActionEvent> {
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            StageManager.getInstance().putStage(ADD_PLANT_TYPE_DIALOG_STAGE, stage);
+            controller.setStage(stage);
             stage.setTitle("Add Plant Type");
             stage.setScene(scene);
             stage.show();

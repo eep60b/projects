@@ -3,7 +3,9 @@ package com.etlsolutions.javafx.data.plant;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * The PlantsGroup class represents a child of root item. Because the root item
@@ -18,21 +20,29 @@ public class PlantsGroup extends DataUnit {
     @JsonIgnore
     public static final String PLANTS_TYPES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsGroup.PLANTS_TYPES_PROPERTY";
 
-    private List<PlantsType> plantsTypes = new ArrayList<>();
+    private Set<PlantsType> plantsTypes = new HashSet<>();
 
     public List<PlantsType> getPlantsTypes() {
         return new ArrayList<>(plantsTypes);
     }
 
     public void setPlantsTypes(List<PlantsType> plantsTypes) {
-        this.plantsTypes = new ArrayList<>(plantsTypes);
+        this.plantsTypes = new HashSet<>(plantsTypes);
         fireChange(PLANTS_TYPES_PROPERTY);
     }
 
+    /**
+     * Add a plant type to this group.
+     * @param type - The plant type.
+     * @return true if the plant type is added, otherwise return false.
+     */
     public boolean addPlantsType(PlantsType type) {
-        boolean success = plantsTypes.add(type);
-        fireChange(PLANTS_TYPES_PROPERTY, false, success);
-        return success;
+        boolean added = plantsTypes.add(type);
+        if(added) {
+            type.setGroup(this);
+        }
+        fireChange(PLANTS_TYPES_PROPERTY, false, added);
+        return added;
     }
 
     public boolean removePlantsType(PlantsType type) {

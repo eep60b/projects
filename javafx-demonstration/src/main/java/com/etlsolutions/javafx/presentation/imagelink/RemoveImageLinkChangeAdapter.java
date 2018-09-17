@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation;
+package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.data.ImageLink;
 import javafx.beans.value.ChangeListener;

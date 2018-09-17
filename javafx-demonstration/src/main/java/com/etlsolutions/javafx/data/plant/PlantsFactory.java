@@ -13,6 +13,7 @@ import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.plant.GrowingStartPoint.Source;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -72,7 +73,9 @@ public class PlantsFactory {
         return g;
     }
     
-    
+    public static PlantsType creatPlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks) {
+        return new PlantsType(title, information, varieties, imageLinks, new ArrayList<Plants>());
+    }    
 
     public static PlantsType creatPlantsType() {
         PlantsType t = new PlantsType();
@@ -97,12 +100,7 @@ public class PlantsFactory {
     }
 
     public static PlantVariety createPlantVariety(String title, String latinName, String information, List<String> aliases, List<ImageLink> imageLinks) {
-        PlantVariety v = new PlantVariety(aliases, latinName, title, information, imageLinks);
-        v.setTitle("Not specified");
-        v.setLatinName("Not specified");
-        v.setInformation(information);
-        v.setAliases(new ArrayList<String>());
-        return v;
+        return new PlantVariety(aliases, latinName, title, information, imageLinks);
     }    
     
     public static PlantVariety createPlantVariety() {

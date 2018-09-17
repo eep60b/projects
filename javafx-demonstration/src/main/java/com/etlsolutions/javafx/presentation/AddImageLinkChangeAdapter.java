@@ -5,6 +5,7 @@
  */
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.javafx.presentation.imagelink.ImageLinkDataModel;
 import com.etlsolutions.javafx.data.ImageLink;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
