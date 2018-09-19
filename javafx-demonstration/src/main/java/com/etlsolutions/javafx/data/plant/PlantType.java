@@ -7,23 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The PlantsType class represents a plant type which loosely corresponding to
- * the plant species. As the plant species is not restrictively used by shops
+ * The PlantType class represents a plant type which loosely corresponding to
+ the plant species. As the plant species is not restrictively used by shops
  * and gardeners, Examples: Strawberry, Squash, Bean, Pea etc.
  *
  * @author zc
  */
-public class PlantsType extends DataUnit {
+public class PlantType extends DataUnit {
 
     @JsonIgnore
-    public static final String GROUP_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.GROUP_PROPERTY";
+    public static final String GROUP_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantType.GROUP_PROPERTY";
     
     
     @JsonIgnore
-    public static final String PLANTS_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.PLANTS_PROPERTY";
+    public static final String PLANTS_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantType.PLANTS_PROPERTY";
     
     @JsonIgnore
-    public static final String VARIETIES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsType.VARIETIES_PROPERTY";  
+    public static final String VARIETIES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantType.VARIETIES_PROPERTY";  
     
     private PlantGroup group;
     private List<Plants> plantsList;
@@ -32,10 +32,10 @@ public class PlantsType extends DataUnit {
     //This property will not be shown in the tree.    
     private List<PlantVariety> plantVarieties;
 
-    public PlantsType() {
+    public PlantType() {
     }
     
-    PlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks, List<Plants> plantsList) {
+    PlantType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks, List<Plants> plantsList) {
         super(title, information, imageLinks);
         this.plantVarieties = varieties;
         this.plantsList = plantsList;

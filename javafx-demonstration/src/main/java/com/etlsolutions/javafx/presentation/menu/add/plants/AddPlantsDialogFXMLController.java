@@ -6,8 +6,10 @@ import com.etlsolutions.javafx.data.log.event.Event;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
-import com.etlsolutions.javafx.data.plant.PlantsType;
+import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
 import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
+import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeEventHandler;
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,7 +41,7 @@ public class AddPlantsDialogFXMLController implements Initializable {
     private ComboBox<PlantGroup> plantGroupCombox;    
     
     @FXML    
-    private ComboBox<PlantsType> plantTypeCombox;
+    private ComboBox<PlantType> plantTypeCombox;
     
     @FXML
     private Button addPlantTypeButton;
@@ -178,10 +180,14 @@ public class AddPlantsDialogFXMLController implements Initializable {
         titleTextField.setText(model.getTitle());
         plantGroupCombox.setItems(model.getPlantGroups());
         plantGroupCombox.getSelectionModel().select(model.getSelectedPlantGroup());
-        
-        plantGroupCombox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));
-        
         plantTypeCombox.setItems(model.getPlantTypes());
+        plantTypeCombox.getSelectionModel().select(model.getSelectedPlantType());
+        plantVarietyCombobox.setItems(model.getPlantVarieties());
+        
+        titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
+        plantGroupCombox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));
+        plantTypeCombox.selectionModelProperty().addListener(new PlantTypeChangeAdapter(model));
+        addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
         
         model.addPropertyChangeListener(SELECTED_PLANT_GROUP_PROPERTY, new PlantGroupSelectionPropertyChangeAdapter(plantTypeCombox));
     }    

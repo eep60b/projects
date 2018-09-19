@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.tree.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.plant.Plants;
-import com.etlsolutions.javafx.data.plant.PlantsType;
+import com.etlsolutions.javafx.data.plant.PlantType;
 import java.util.List;
 import javafx.scene.control.TreeItem;
 
@@ -12,9 +12,9 @@ import javafx.scene.control.TreeItem;
  */
 public class PlantsTypeTreeItem extends TreeItem<DataUnit> {
     
-    private final PlantsType model;
+    private final PlantType model;
     
-    public PlantsTypeTreeItem(PlantsType model) {
+    public PlantsTypeTreeItem(PlantType model) {
         super(model);
         this.model = model;
         List<TreeItem<DataUnit>> children = getChildren();

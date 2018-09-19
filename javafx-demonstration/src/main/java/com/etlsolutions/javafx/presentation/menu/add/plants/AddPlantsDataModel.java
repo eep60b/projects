@@ -9,7 +9,9 @@ import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
-import com.etlsolutions.javafx.data.plant.PlantsType;
+import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantsFactory;
+import com.etlsolutions.javafx.presentation.Closable;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
@@ -26,16 +28,19 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable {
+public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable, Closable {
 
     public static final String SELECTED_PLANT_GROUP_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_GROUP_PROPERTY ";
+    
+    public static final String PLANT_TYPES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_TYPES_PROPERTY";
+    
     public static final String SELECTED_PLANT_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_TYPE_PROPERTY";
     
-    
     private final ObservableList<PlantGroup> plantGroups;
+    private final List<PlantTypesChangeAdapter> plantTypesChangeAdapters;
     private PlantGroup selectedPlantGroup;
-    private ObservableList<PlantsType> plantTypes;
-    private PlantsType selectedPlantType;
+    private ObservableList<PlantType> plantTypes;
+    private PlantType selectedPlantType;
     private ObservableList<PlantVariety> plantVarieties;
     private PlantVariety selectedVariety;
     private PlantsQuantity quantity;
@@ -59,7 +64,14 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
      */
     public AddPlantsDataModel() {
         plantGroups = new ObservableListWrapper<>(ProjectManager.getInstance().getProject().getPlantsGroupRoot().getPlantGroups());
-        selectedPlantGroup = plantGroups.get(0);
+        plantTypesChangeAdapters = new ArrayList<>();
+        for (PlantGroup group : plantGroups) {
+            PlantTypesChangeAdapter adapter = new PlantTypesChangeAdapter(group, this);
+            group.addListener(PlantGroup.PLANTS_TYPES_PROPERTY, adapter);
+            plantTypesChangeAdapters.add(adapter);
+        }
+
+        setSelectedPlantGroup(plantGroups.get(0));
     }
 
     public ObservableList<PlantGroup> getPlantGroups() {
@@ -72,22 +84,33 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
 
     @Override
     public void setSelectedPlantGroup(PlantGroup selectedPlantGroup) {
-        
-        if(Objects.equals(this.selectedPlantGroup, selectedPlantGroup)) {
+
+        if (Objects.equals(this.selectedPlantGroup, selectedPlantGroup)) {
             return;
         }
-        
+
         this.selectedPlantGroup = selectedPlantGroup;
-        plantTypes = new ObservableListWrapper<>(this.selectedPlantGroup.getPlantsTypes());
-        support.firePropertyChange(SELECTED_PLANT_GROUP_PROPERTY);
+        setPlantTypes(this.selectedPlantGroup.getPlantsTypes());
     }
 
-    public ObservableList<PlantsType> getPlantTypes() {
+    public ObservableList<PlantType> getPlantTypes() {
         return plantTypes;
+    }
+
+    public void setPlantTypes(List<PlantType> plantTypes) {
+        this.plantTypes = new ObservableListWrapper<>(plantTypes);
+        support.firePropertyChange(SELECTED_PLANT_GROUP_PROPERTY);
+        if(!this.plantTypes.isEmpty() && !this.plantTypes.contains(selectedPlantType)) {
+            setSelectedPlantType(this.plantTypes.get(0));
+        }
     }
 
     public ObservableList<PlantVariety> getPlantVarieties() {
         return plantVarieties;
+    }
+
+    public void setPlantVarieties(List<PlantVariety> plantVarieties) {
+        this.plantVarieties = new ObservableListWrapper<>(plantVarieties);
     }
 
     
@@ -110,12 +133,17 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         this.datePlanted = datePlanted;
     }
 
-    public PlantsType getSelectedPlantType() {
+    public PlantType getSelectedPlantType() {
         return selectedPlantType;
     }
 
-    public void setSelectedPlantType(PlantsType selectedPlantType) {
+    public void setSelectedPlantType(PlantType selectedPlantType) {
+        PlantType oldValue = this.selectedPlantType;        
         this.selectedPlantType = selectedPlantType;
+        support.firePropertyChange(SELECTED_PLANT_TYPE_PROPERTY, oldValue, this.selectedPlantType);
+        if(selectedPlantType != null) {
+            setPlantVarieties(this.selectedPlantType.getPlantVarieties());
+        }
     }
 
     public PlantVariety getSelectedVariety() {
@@ -224,7 +252,16 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        selectedPlantType.addPlants(PlantsFactory.creatPlants());
+        close();
     }
 
+    @Override
+    public void close() {
+        
+        for (PlantTypesChangeAdapter adapter : plantTypesChangeAdapters) {
+            
+            adapter.getSource().removeListener(PlantGroup.PLANTS_TYPES_PROPERTY, adapter);
+        }
+    }
 }

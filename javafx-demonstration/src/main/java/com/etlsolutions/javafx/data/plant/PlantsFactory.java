@@ -69,16 +69,16 @@ public class PlantsFactory {
         g.setTitle(title);
         g.setInformation("");
         g.setLogoPath("");
-        g.setPlantsTypes(new ArrayList<PlantsType>());
+        g.setPlantsTypes(new ArrayList<PlantType>());
         return g;
     }
     
-    public static PlantsType creatPlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks) {
-        return new PlantsType(title, information, varieties, imageLinks, new ArrayList<Plants>());
+    public static PlantType creatPlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks) {
+        return new PlantType(title, information, varieties, imageLinks, new ArrayList<Plants>());
     }    
 
-    public static PlantsType creatPlantsType() {
-        PlantsType t = new PlantsType();
+    public static PlantType creatPlantsType() {
+        PlantType t = new PlantType();
         t.setId(DataUnitIdRegistry.createNewId());
         t.setTitle("untitled");
         t.setInformation("");

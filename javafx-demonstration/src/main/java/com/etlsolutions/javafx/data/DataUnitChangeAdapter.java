@@ -14,6 +14,10 @@ public abstract class DataUnitChangeAdapter implements DataUnitChangeListener {
         this.unit = unit;
     }
 
+    public DataUnit getSource() {
+        return unit;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

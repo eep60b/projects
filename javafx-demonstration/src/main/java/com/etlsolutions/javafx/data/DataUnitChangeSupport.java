@@ -28,6 +28,21 @@ public final class DataUnitChangeSupport {
         return listeners.add(listener);
     }
 
+    public synchronized boolean removeListener(String property, DataUnitChangeListener listener) {
+
+        if (listener == null) {
+            return false;
+        }
+
+        Set<DataUnitChangeListener> listeners = map.get(property);
+        
+        if (listeners != null) {
+            listeners.remove(listener);
+        }
+        
+        return false;
+    }    
+    
     public synchronized void fireChange(String property) {
 
         Set<DataUnitChangeListener> listeners = map.get(property);
