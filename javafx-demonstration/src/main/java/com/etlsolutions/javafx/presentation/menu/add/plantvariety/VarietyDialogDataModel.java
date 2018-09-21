@@ -4,7 +4,6 @@ import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
-import com.etlsolutions.javafx.presentation.menu.add.planttype.PlantTypeDialogDataModel;
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +19,12 @@ public class VarietyDialogDataModel extends DataUnitDataModel implements Savable
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
     public static final String SELECTED_ALIAS_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.SELECTED_ALIAS_PROPERTY";
     
-    private final PlantTypeDialogDataModel parentModel;
+    private final VarietyAddable parentModel;
     private String latinName;
     private ObservableList<String> aliases;
     private String selectedAlias;
     
-    public VarietyDialogDataModel(PlantTypeDialogDataModel parentModel) {
+    public VarietyDialogDataModel(VarietyAddable parentModel) {
         this.parentModel = parentModel;
         aliases = new ObservableListWrapper<>(new ArrayList<String>());
     }

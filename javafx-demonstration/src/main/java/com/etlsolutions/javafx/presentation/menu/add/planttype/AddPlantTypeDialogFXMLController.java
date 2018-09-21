@@ -148,6 +148,7 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         moveToEndButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
         moveToRightButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
         editImageButton.setOnAction(new EditImageInformationEventHandler(model.getSelectedImageLink()));        
+
         okButton.setOnAction(new SaveExitEventHandler(model, stage));
         cancelButton.setOnAction(new CancelEventHandler(stage));
         

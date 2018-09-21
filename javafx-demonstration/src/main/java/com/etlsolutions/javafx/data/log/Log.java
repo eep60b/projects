@@ -13,25 +13,31 @@ import java.util.Date;
 public class Log extends DataUnit {
 
   @JsonIgnore
-  public static final String TIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.TIME_PROPERTY";
+  public static final String MODIFIED_TIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.MODIFIED_TIME_PROPERTY";
 
-  private final Calendar calendar = Calendar.getInstance();
-
-  public Date getTime() {
-    return calendar.getTime();
+  private final Calendar createdTime = Calendar.getInstance();
+  
+  private final Calendar modifiedTime = Calendar.getInstance();
+  
+  public Date getCreatedTime() {
+    return createdTime.getTime();
+}
+  
+  public Date getModifiedTime() {
+    return modifiedTime.getTime();
   }
 
-  public void setTime(Date time) {
-    Date oldValue = calendar.getTime();
-    calendar.setTime(time);
-    fireChange(TIME_PROPERTY, oldValue, time);
+  public void setModifiedTime(Date time) {
+    Date oldValue = modifiedTime.getTime();
+    modifiedTime.setTime(time);
+    fireChange(MODIFIED_TIME_PROPERTY, oldValue, time);
   }
 
   public int getYear() {
-    return calendar.get(Calendar.YEAR);
+    return modifiedTime.get(Calendar.YEAR);
   }
 
   public int getMonth() {
-    return calendar.get(Calendar.MONTH);
+    return modifiedTime.get(Calendar.MONTH);
   }
 }

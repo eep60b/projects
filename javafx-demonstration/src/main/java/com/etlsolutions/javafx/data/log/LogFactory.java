@@ -81,7 +81,6 @@ public class LogFactory {
         GrowingIssue g = new GrowingIssue();
         g.setId(DataUnitIdRegistry.createNewId());
         g.setTitle("");
-        g.setTime(new Date());
         g.setSolution("");
         g.setEffectiveness("");
         g.setInformation("");
@@ -92,7 +91,6 @@ public class LogFactory {
         GrowingObservation g = new GrowingObservation();
         g.setId(DataUnitIdRegistry.createNewId());
         g.setTitle("");
-        g.setTime(new Date());
         g.setInformation("");
         return g;
     }

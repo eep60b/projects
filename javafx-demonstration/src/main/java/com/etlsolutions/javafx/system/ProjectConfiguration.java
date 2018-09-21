@@ -2,9 +2,11 @@ package com.etlsolutions.javafx.system;
 
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
+import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantsGroupRoot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;
+import java.util.List;
 
 /**
  * The ProjectConfiguration class contains all the information about a project to run the application.
@@ -21,6 +23,7 @@ public class ProjectConfiguration {
     private AreaRoot areaRoot;
     private PlantsGroupRoot plantsGroupRoot;
     private LogGroupRoot logGroupRoot;
+    private List<GrowingMedium> growingMediums;
         
     public String getName() {
         return name;
@@ -89,4 +92,12 @@ public class ProjectConfiguration {
     public boolean isModified() {
         return false;
     }
+
+    public List<GrowingMedium> getGrowingMediums() {
+        return growingMediums;
+    }
+
+    public void setGrowingMediums(List<GrowingMedium> growingMediums) {
+        this.growingMediums = growingMediums;
+    } 
 }

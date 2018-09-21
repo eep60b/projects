@@ -11,13 +11,16 @@ import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
+import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
 import com.etlsolutions.javafx.presentation.Closable;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
+import com.etlsolutions.javafx.system.ProjectConfiguration;
 import com.etlsolutions.javafx.system.ProjectManager;
 import com.sun.javafx.collections.ObservableListWrapper;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,19 +39,24 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     
     public static final String SELECTED_PLANT_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_TYPE_PROPERTY";
     
+    public static final String PLANT_VARIETIES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_VARIETIES";
+    
+    public static final String SELECTED_PLANT_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_VARIETY_PROPERTY";
+    
+    public static final String QUANTITY_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.QUANTITY_TYPE_PROPERTY";
+    
     private final ObservableList<PlantGroup> plantGroups;
     private final List<PlantTypesChangeAdapter> plantTypesChangeAdapters;
+    private final ObservableList<GrowingMedium> growingMediums;
     private PlantGroup selectedPlantGroup;
     private ObservableList<PlantType> plantTypes;
     private PlantType selectedPlantType;
     private ObservableList<PlantVariety> plantVarieties;
     private PlantVariety selectedVariety;
     private PlantsQuantity quantity;
-    private int plantNumber;
-    private Date plantedDate;
-    private GrowingMedium growingMedium;
+    private LocalDateTime plantedDate;
+    private GrowingMedium selectedGrowingMedium;
     private Location location;
-    private Date datePlanted = new Date();
     private boolean isAlive = true;
     private Date terminationDate;
     private String terminationReason;
@@ -63,15 +71,21 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
      * @throws IndexOutOfBoundsException if no plant group can be selected from the plant group list.
      */
     public AddPlantsDataModel() {
-        plantGroups = new ObservableListWrapper<>(ProjectManager.getInstance().getProject().getPlantsGroupRoot().getPlantGroups());
+        
+        ProjectConfiguration project = ProjectManager.getInstance().getProject();
+        
+        plantGroups = new ObservableListWrapper<>(project.getPlantsGroupRoot().getPlantGroups());
         plantTypesChangeAdapters = new ArrayList<>();
         for (PlantGroup group : plantGroups) {
             PlantTypesChangeAdapter adapter = new PlantTypesChangeAdapter(group, this);
             group.addListener(PlantGroup.PLANTS_TYPES_PROPERTY, adapter);
             plantTypesChangeAdapters.add(adapter);
         }
-
-        setSelectedPlantGroup(plantGroups.get(0));
+        selectedPlantGroup = plantGroups.get(0);
+        
+        growingMediums = new ObservableListWrapper<>(project.getGrowingMediums());
+        selectedGrowingMedium = growingMediums.get(0);
+        
     }
 
     public ObservableList<PlantGroup> getPlantGroups() {
@@ -111,10 +125,19 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
 
     public void setPlantVarieties(List<PlantVariety> plantVarieties) {
         this.plantVarieties = new ObservableListWrapper<>(plantVarieties);
+        support.firePropertyChange(PLANT_VARIETIES_PROPERTY);
     }
 
-    
-    
+    public boolean addPlantVariety(PlantVariety variety) {
+        boolean added = selectedPlantType.addPlantVariety(variety);
+        if(added) {
+            setPlantVarieties(selectedPlantType.getPlantVarieties());
+            setSelectedVariety(variety);
+        }
+        
+        return added;
+    }
+      
     @Override
     public void validate() {
         String title = getTitle();
@@ -123,14 +146,6 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         }
 
         valid = errorMessage.isEmpty();
-    }
-
-    public Date getDatePlanted() {
-        return datePlanted;
-    }
-
-    public void setDatePlanted(Date datePlanted) {
-        this.datePlanted = datePlanted;
     }
 
     public PlantType getSelectedPlantType() {
@@ -151,39 +166,47 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     }
 
     public void setSelectedVariety(PlantVariety selectedVariety) {
+        PlantVariety oldValue = this.selectedVariety;
         this.selectedVariety = selectedVariety;
+        support.firePropertyChange(SELECTED_PLANT_VARIETY_PROPERTY, oldValue, this.selectedVariety);
     }
 
-    public PlantsQuantity getQuantity() {
-        return quantity;
+    public PlantsQuantity.Type getQuantityType() {
+        return quantity.getType();
     }
 
-    public void setQuantity(PlantsQuantity quantity) {
-        this.quantity = quantity;
+    public void setQuantityType(Type type) {
+        PlantsQuantity.Type oldValue = quantity.getType();
+        quantity.setType(type);
+        support.firePropertyChange(QUANTITY_TYPE_PROPERTY, oldValue, quantity.getType());
     }
 
     public int getPlantNumber() {
-        return plantNumber;
+        return quantity.getQuantity();
     }
 
-    public void setPlantNumber(int plantNumber) {
-        this.plantNumber = plantNumber;
+    public void setPlantNumber(int plantNumber) {        
+        quantity.setQuantity(plantNumber);
     }
 
-    public Date getPlantedDate() {
+    public LocalDateTime getPlantedDate() {
         return plantedDate;
     }
 
-    public void setPlantedDate(Date plantedDate) {
+    public void setPlantedDate(LocalDateTime plantedDate) {
         this.plantedDate = plantedDate;
     }
 
-    public GrowingMedium getGrowingMedium() {
-        return growingMedium;
+    public ObservableList<GrowingMedium> getGrowingMediums() {
+        return growingMediums;
+    }
+    
+    public GrowingMedium getSelectedGrowingMedium() {
+        return selectedGrowingMedium;
     }
 
-    public void setGrowingMedium(GrowingMedium growingMedium) {
-        this.growingMedium = growingMedium;
+    public void setSelectedGrowingMedium(GrowingMedium selectedGrowingMedium) {
+        this.selectedGrowingMedium = selectedGrowingMedium;
     }
 
     public Location getLocation() {

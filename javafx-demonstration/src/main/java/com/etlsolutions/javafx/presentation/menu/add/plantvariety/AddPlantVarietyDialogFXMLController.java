@@ -16,7 +16,6 @@ import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
 import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.imagelink.AddImageLinkEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.SelectedImageLinkAdapter;
-import com.etlsolutions.javafx.presentation.menu.add.planttype.PlantTypeDialogDataModel;
 import static com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.*;
 import java.net.URL;
 import java.util.List;
@@ -37,10 +36,10 @@ import javafx.stage.Stage;
  *
  * @author zc
  */
-public class AddPlantVarietyDialogFXMLController implements ChildController<PlantTypeDialogDataModel> {
+public class AddPlantVarietyDialogFXMLController implements ChildController<VarietyAddable> {
 
     
-    private PlantTypeDialogDataModel parentModel;
+    private VarietyAddable parentModel;
     
     private Stage parentStage;    
     
@@ -157,7 +156,7 @@ public class AddPlantVarietyDialogFXMLController implements ChildController<Plan
     }    
 
     @Override
-    public void setParentModel(PlantTypeDialogDataModel parentModel) {
+    public void setParentModel(VarietyAddable parentModel) {
         this.parentModel = parentModel;
     }
 

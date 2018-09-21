@@ -1,16 +1,14 @@
 package com.etlsolutions.javafx.data.plant;
 
-import com.etlsolutions.javafx.data.DataUnitPart;
+import com.etlsolutions.javafx.data.DataUnit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
  * @author zc
  */
-public class GrowingMedium extends DataUnitPart {
+public class GrowingMedium extends DataUnit {
 
-  @JsonIgnore
-  public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.data.plant.GrowingMedium.TITLE_PROPERTY";
   @JsonIgnore
   public static final String SAND_PERCENTAGE_PROPERTY = "com.etlsolutions.javafx.data.plant.GrowingMedium.SAND_PERCENTAGE_PROPERTY";
   @JsonIgnore
@@ -28,7 +26,6 @@ public class GrowingMedium extends DataUnitPart {
   @JsonIgnore
   public static final String FERTILISED_PROPERTY = "com.etlsolutions.javafx.data.plant.GrowingMedium.FERTILISED_PROPERTY";
 
-  private String title;
   private double sandPercentage;
   private double siltPercentage;
   private double clayPercentage;
@@ -42,7 +39,6 @@ public class GrowingMedium extends DataUnitPart {
   }
 
   GrowingMedium(String title, double[] compositions, boolean fertilised) {
-    this.title = title;
     int i = 0;
     sandPercentage = compositions[i];
     siltPercentage = compositions[i++];
@@ -52,16 +48,6 @@ public class GrowingMedium extends DataUnitPart {
     waterPercentage = compositions[i++];
     ph = compositions[i++];
     this.fertilised = fertilised;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    String oldValue = this.title;
-    this.title = title;
-    fireChange(TITLE_PROPERTY, oldValue, this.title);
   }
 
   public double getSandPercentage() {

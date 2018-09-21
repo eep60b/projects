@@ -71,6 +71,7 @@ public final class ProjectManager {
 
         configuration.setParentPath(parentPath);
         configuration.setName(projectName);
+        configuration.setGrowingMediums(PlantsFactory.createDefaultGrowingMediums());
 
         return configuration;
     }

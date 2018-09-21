@@ -1,50 +1,49 @@
 package com.etlsolutions.javafx.data.plant;
 
-import com.etlsolutions.javafx.data.DataUnitChangeListener;
-import com.etlsolutions.javafx.data.DataUnitChangeSupport;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  *
  * @author zc
  */
 public class PlantsQuantity {
 
-  public static enum Type {
-    SINGLE, MULTIPLE, ESTIMATION, NO_COUNTING
-  }
+    public static enum Type {
+        SINGLE, MULTIPLE, ESTIMATION, NO_COUNTING
+    }
 
-  @JsonIgnore
-  public static final String PROPERTY = "com.etlsolutions.javafx.data.plant.PlantsQuantity.PROPERTY";
+    private int quantity;
+    private Type type;
 
-  @JsonIgnore
-  private final DataUnitChangeSupport support = new DataUnitChangeSupport();
+    public PlantsQuantity() {
+        setType(Type.SINGLE);
+    }
 
-  private int quantity;
-  private Type type;
+    public int getQuantity() {
+        return quantity;
+    }
 
-  public int getQuantity() {
-    return quantity;
-  }
+    public void setQuantity(int quantity) {
 
-  public void setQuantity(int quantity) {
-    int oldValue = this.quantity;
-    this.quantity = quantity;
-    support.fireChange(PROPERTY, oldValue, this.quantity);
+        if (this.type == Type.SINGLE || this.type == Type.NO_COUNTING) {
+            return;
+        }
+        this.quantity = quantity;
+    }
 
-  }
+    public Type getType() {
+        return type;
+    }
 
-  public Type getType() {
-    return type;
-  }
+    public final void setType(Type type) {
 
-  public void setType(Type type) {
-    Type oldValue = this.type;
-    this.type = type;
-    support.fireChange(PROPERTY, oldValue, this.type);
-  }
+        this.type = type;
 
-  public synchronized boolean addListener(String property, DataUnitChangeListener listener) {
-    return support.addListener(property, listener);
-  }
+        if (this.type == Type.SINGLE) {
+            setQuantity(1);
+        }
+
+        if (this.type == Type.NO_COUNTING) {
+            setQuantity(0);
+        }
+    }
+
 }

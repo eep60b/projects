@@ -6,6 +6,7 @@ import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
+import com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAddable;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
 import com.etlsolutions.javafx.system.ProjectManager;
 import com.sun.javafx.collections.ObservableListWrapper;
@@ -17,7 +18,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable {
+public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable, VarietyAddable {
 
     public static final String VARIETIES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.VARIETIES_PROPERTY";
     public static final String SELECTED_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.SELECTED_VARIETY_PROPERTY";
@@ -48,6 +49,7 @@ public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savab
         }
     }
 
+    @Override
     public boolean addVariety(PlantVariety variety) {
         
         boolean added = this.varieties.add(variety);

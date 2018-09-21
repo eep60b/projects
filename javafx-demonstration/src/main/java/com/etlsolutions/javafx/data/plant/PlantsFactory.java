@@ -27,23 +27,23 @@ import java.util.Map;
  */
 public class PlantsFactory {
 
-    private static final Map<String, double[]> DEFAULT_VALUES = new HashMap<>();
-    private static final List<String> DEFAULT_TITLES = new ArrayList<>();
+    private static final Map<String, double[]> DEFAULT_GROWING_MEDIUM_VALUES = new HashMap<>();
+    private static final List<String> DEFAULT_GROWING_MEDIUM_TITLES = new ArrayList<>();
 
     static {
-        DEFAULT_VALUES.put("Loam", new double[]{28, 28, 14, 20, 0, 10, 7.0});
-        DEFAULT_VALUES.put("Sandy soil", new double[]{50, 35, 5, 5, 0, 5, 6.5});
-        DEFAULT_VALUES.put("Silt soil", new double[]{25, 50, 5, 10, 0, 10, 6.8});
-        DEFAULT_VALUES.put("Peat soi", new double[]{10, 10, 5, 50, 0, 25, 6.3});
-        DEFAULT_VALUES.put("Clay soil (light)", new double[]{15, 15, 45, 15, 0, 10, 7.0});
-        DEFAULT_VALUES.put("Clay soil (heavy)", new double[]{10, 10, 60, 10, 0, 10, 7.0});
-        DEFAULT_VALUES.put("Chalky soil", new double[]{28, 28, 14, 10, 20, 10, 7.0});
-        DEFAULT_VALUES.put("Multipurpose compost", new double[]{0, 0, 0, 80, 0, 20, 7.0});
-        DEFAULT_VALUES.put("Ericaceous compost", new double[]{0, 0, 0, 80, 0, 20, 5.2});
-        DEFAULT_VALUES.put("Stony soil", new double[]{30, 10, 0, 5, 50, 5, 7.0});
-        DEFAULT_VALUES.put("Plant liquid culture", new double[]{0, 0, 0, 0, 0, 100, 15});
-        DEFAULT_TITLES.addAll(DEFAULT_VALUES.keySet());
-        Collections.sort(DEFAULT_TITLES);
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Loam", new double[]{28, 28, 14, 20, 0, 10, 7.0});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Sandy soil", new double[]{50, 35, 5, 5, 0, 5, 6.5});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Silt soil", new double[]{25, 50, 5, 10, 0, 10, 6.8});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Peat soi", new double[]{10, 10, 5, 50, 0, 25, 6.3});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Clay soil (light)", new double[]{15, 15, 45, 15, 0, 10, 7.0});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Clay soil (heavy)", new double[]{10, 10, 60, 10, 0, 10, 7.0});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Chalky soil", new double[]{28, 28, 14, 10, 20, 10, 7.0});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Multipurpose compost", new double[]{0, 0, 0, 80, 0, 20, 7.0});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Ericaceous compost", new double[]{0, 0, 0, 80, 0, 20, 5.2});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Stony soil", new double[]{30, 10, 0, 5, 50, 5, 7.0});
+        DEFAULT_GROWING_MEDIUM_VALUES.put("Plant liquid culture", new double[]{0, 0, 0, 0, 0, 100, 15});
+        DEFAULT_GROWING_MEDIUM_TITLES.addAll(DEFAULT_GROWING_MEDIUM_VALUES.keySet());
+        Collections.sort(DEFAULT_GROWING_MEDIUM_TITLES);
     }
 
     public static PlantsGroupRoot createPlantsGroupRoot() {
@@ -72,10 +72,10 @@ public class PlantsFactory {
         g.setPlantsTypes(new ArrayList<PlantType>());
         return g;
     }
-    
+
     public static PlantType creatPlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks) {
         return new PlantType(title, information, varieties, imageLinks, new ArrayList<Plants>());
-    }    
+    }
 
     public static PlantType creatPlantsType() {
         PlantType t = new PlantType();
@@ -101,8 +101,8 @@ public class PlantsFactory {
 
     public static PlantVariety createPlantVariety(String title, String latinName, String information, List<String> aliases, List<ImageLink> imageLinks) {
         return new PlantVariety(aliases, latinName, title, information, imageLinks);
-    }    
-    
+    }
+
     public static PlantVariety createPlantVariety() {
         PlantVariety v = new PlantVariety();
         v.setTitle("Not specified");
@@ -122,7 +122,7 @@ public class PlantsFactory {
         d.setFloweringEvents(new ArrayList<FloweringEvent>());
         d.setFruitingEvents(new ArrayList<FruitingEvent>());
         d.setGrowingIssues(new ArrayList<GrowingIssue>());
-        d.setGrowingMedium(createGrowingMedium(DEFAULT_TITLES.get(0)));
+        d.setGrowingMedium(createGrowingMedium(DEFAULT_GROWING_MEDIUM_TITLES.get(0)));
         d.setGrowingObservations(new ArrayList<GrowingObservation>());
         d.setGrowingTermination(createGrowingTermination());
         d.setHarvestingTasks(new ArrayList<HarvestingTask>());
@@ -135,8 +135,8 @@ public class PlantsFactory {
     }
 
     public static GrowingMedium createGrowingMedium(String title) {
-        double[] values = DEFAULT_VALUES.get(title);
-        return values == null ? new GrowingMedium(title, DEFAULT_VALUES.get(DEFAULT_TITLES.get(0)), true) : new GrowingMedium(title, values, true);
+        double[] values = DEFAULT_GROWING_MEDIUM_VALUES.get(title);
+        return values == null ? new GrowingMedium(title, DEFAULT_GROWING_MEDIUM_VALUES.get(DEFAULT_GROWING_MEDIUM_TITLES.get(0)), true) : new GrowingMedium(title, values, true);
     }
 
     public static GrowingStartPoint createGrowingStartPoint() {
@@ -151,5 +151,13 @@ public class PlantsFactory {
         t.setReason("Not specified");
         t.setTime(new Date());
         return t;
+    }
+
+    public static List<GrowingMedium> createDefaultGrowingMediums() {
+        List<GrowingMedium> list = new ArrayList<>();
+        for (String title : DEFAULT_GROWING_MEDIUM_TITLES) {
+            list.add(createGrowingMedium(title));
+        }
+        return list;
     }
 }
