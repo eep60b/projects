@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  *
  * @author zc
  */
-public abstract class Location extends DataUnit {
+public class Location extends DataUnit {
 
     @JsonIgnore
     public static final String REFERENCE_POINT_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.Location.REFERENCE_POINT_PROPERTY";

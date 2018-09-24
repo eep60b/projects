@@ -57,6 +57,8 @@ public class SettingConstants {
      */
     public static final String FILE_NAME_SEPERATOR = "_";
 
+    
+    public static final int DATA_UNIT_ID_BASE = 1000;    
     /**
      * This extension is used for all JSON file in this application. The system should NOT de-serialise any file without this extension.
      */
@@ -66,4 +68,8 @@ public class SettingConstants {
      * ********************************* Default values *************************
      *
      */
+    
+
+    
+    public static final int DEFAULT_LOCATION_ID = 35;
 }

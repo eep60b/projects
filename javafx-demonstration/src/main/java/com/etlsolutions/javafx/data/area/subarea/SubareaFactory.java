@@ -5,7 +5,7 @@ import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.CustomLocation;
-import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseLocation;
+import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseGroundLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class SubareaFactory {
         g.setImageLinks(new ArrayList<ImageLink>());
         g.setContainers(new ArrayList<Container>());
         g.setContainerSets(new ArrayList<ContainerSet>());
-        g.setLocations(new ArrayList<GreenHouseLocation>());
+        g.setLocations(new ArrayList<GreenHouseGroundLocation>());
         return g;
     }
 
@@ -61,9 +61,9 @@ public class SubareaFactory {
         return b;
     }
 
-    public static PlantBedBorder createPlantBedBorder() {
+    public static Border createPlantBedBorder() {
 
-        PlantBedBorder b = new PlantBedBorder();
+        Border b = new Border();
         b.setId(DataUnitIdRegistry.createNewId());
         b.setTitle("Untitled");
         b.setInformation("");

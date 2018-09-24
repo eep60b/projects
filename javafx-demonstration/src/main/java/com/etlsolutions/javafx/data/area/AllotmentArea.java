@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.data.area;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
-import com.etlsolutions.javafx.data.area.subarea.PlantBedBorder;
+import com.etlsolutions.javafx.data.area.subarea.Border;
 import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
@@ -39,14 +39,14 @@ public class AllotmentArea extends Area {
     private String uom;
     private List<PlantBed> plantBeds;
     private List<RaisedPlantBed> raisedPlantBeds;
-    private List<PlantBedBorder> borders;
+    private List<Border> borders;
     private List<Greenhouse> greenhouses;
     private List<CustomSubarea> customSubareas;
     
     public AllotmentArea() {
     }
 
-    AllotmentArea(double length, double width, String uom, List<PlantBed> plantBeds, List<RaisedPlantBed> raisedPlantBeds, List<PlantBedBorder> borders, List<Greenhouse> greenhouses, List<CustomSubarea> subareas) {
+    AllotmentArea(double length, double width, String uom, List<PlantBed> plantBeds, List<RaisedPlantBed> raisedPlantBeds, List<Border> borders, List<Greenhouse> greenhouses, List<CustomSubarea> subareas) {
         this.length = length;
         this.width = width;
         this.uom = uom;
@@ -110,22 +110,22 @@ public class AllotmentArea extends Area {
         return removed;
     }
 
-    public List<PlantBedBorder> getBorders() {
+    public List<Border> getBorders() {
         return new ArrayList<>(borders);
     }
 
-    public void setBorders(List<PlantBedBorder> borders) {
+    public void setBorders(List<Border> borders) {
         this.borders = new ArrayList<>(borders);
         fireChange(BORDERS_PROPERTY);
     }
     
-    public boolean addBorders(PlantBedBorder border) {
+    public boolean addBorders(Border border) {
         boolean added = borders.add(border);
         fireChange(BORDERS_PROPERTY, false, added);
         return added;
     }
 
-    public boolean removeBorders(PlantBedBorder border) {
+    public boolean removeBorders(Border border) {
         boolean removed = borders.remove(border);
         fireChange(BORDERS_PROPERTY, false, removed);
         return removed;

@@ -42,11 +42,15 @@ public abstract class DataUnit {
     public DataUnit() {
     }
 
-    public DataUnit(String title, String information, List<ImageLink> imageLinks) {
-        this.id = DataUnitIdRegistry.createNewId();
+    public DataUnit(int id, String title, String information, List<ImageLink> imageLinks) {
+        this.id = id;
         this.title = title;
         this.information = information;
         this.imageLinks = imageLinks;
+    }
+    
+    public DataUnit(String title, String information, List<ImageLink> imageLinks) {
+        this(DataUnitIdRegistry.createNewId(), title, information, imageLinks);
     }
     
     /**

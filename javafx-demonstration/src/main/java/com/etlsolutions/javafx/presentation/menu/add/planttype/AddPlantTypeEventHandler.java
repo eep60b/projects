@@ -1,7 +1,5 @@
 package com.etlsolutions.javafx.presentation.menu.add.planttype;
 
-import com.etlsolutions.javafx.presentation.StageManager;
-import static com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_TYPE_DIALOG_STAGE;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
 import javafx.event.ActionEvent;

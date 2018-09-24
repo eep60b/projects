@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.event.Event;
@@ -21,6 +22,8 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHan
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumEventHandler;
 import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddPlantVarietyEventHandler;
@@ -248,12 +251,20 @@ public class AddPlantsDialogFXMLController implements Initializable {
         editImageButton.setDisable(selectedImageLink == null);   
         
         plantedDatePicker.setDateTimeValue(model.getPlantedDate());
+        growingMediumCombobox.setItems(model.getGrowingMediums());
+        growingMediumCombobox.getSelectionModel().select(model.getSelectedGrowingMedium());
         
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         plantGroupCombox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));
         plantTypeCombox.selectionModelProperty().addListener(new PlantTypeChangeAdapter(model));
         addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
         addPlantVarietyButton.setOnAction(new AddPlantVarietyEventHandler(new AddVarityToPlantsDialogDataModel(model)));
+        addGrowingMediumButton.setOnAction(new AddGrowingMediumEventHandler(new AddGrowingMediumDataModel(model)));
+        Location location = model.getLocation();
+        locationTitleTextField.setText(location == null ? "Not Specified" : location.getTitle());
+        locationTitleTextField.setDisable(true);
+        locationInformationTextArea.setText(location == null ? "" : location.getInformation());
+        locationInformationTextArea.setDisable(true);
 
         ToggleGroup toggleGroup = new ToggleGroup();
         singlePlantRadioButton.setToggleGroup(toggleGroup);
@@ -273,9 +284,12 @@ public class AddPlantsDialogFXMLController implements Initializable {
         moveToRightImageButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
         editImageButton.setOnAction(new EditImageInformationEventHandler(model.getSelectedImageLink()));
         plantedDatePicker.dateTimeValueProperty().addListener(new PlantedDateChangeAdapter(model));
+        growingMediumCombobox.selectionModelProperty().addListener(new GrowingMediumChangeAdapter(model));
 
         model.addPropertyChangeListener(SELECTED_PLANT_GROUP_PROPERTY, new PlantGroupSelectionPropertyChangeAdapter(plantTypeCombox));
         model.addPropertyChangeListener(QUANTITY_TYPE_PROPERTY, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
+        model.addPropertyChangeListener(SELECTED_GROWING_MEDIUM_RPOPERTY, new GrowingMediumSelectionPropertyChangeDapter(growingMediumCombobox));
+        model.addPropertyChangeListener(LOCATION_PROPERTY, new LocationPropertyChangeAdapter(locationTitleTextField, locationInformationTextArea, editLocationButton));
     }
 
     public void setStage(Stage stage) {

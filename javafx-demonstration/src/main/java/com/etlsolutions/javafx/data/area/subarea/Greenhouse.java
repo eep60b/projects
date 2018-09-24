@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
-import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseLocation;
+import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseGroundLocation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,26 +19,26 @@ public class Greenhouse extends Subarea {
     @JsonIgnore
     public static final String CONTAINER_SETS_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.Greenhouse.CONTAINER_SETS_PROPERTY";
 
-    private List<GreenHouseLocation> locations;
+    private List<GreenHouseGroundLocation> locations;
     private List<Container> containers;
     private List<ContainerSet> containerSets;
 
-    public List<GreenHouseLocation> getLocations() {
+    public List<GreenHouseGroundLocation> getLocations() {
         return new ArrayList<>(locations);
     }
 
-    public void setLocations(List<GreenHouseLocation> locations) {
+    public void setLocations(List<GreenHouseGroundLocation> locations) {
         this.locations = new ArrayList<>(locations);
         fireChange(LOCATIONS_PROPERTY);
     }
 
-    public boolean addLocations(GreenHouseLocation location) {
+    public boolean addLocations(GreenHouseGroundLocation location) {
         boolean added = locations.add(location);
         fireChange(LOCATIONS_PROPERTY, false, added);
         return added;
     }
 
-    public boolean removeLocations(GreenHouseLocation location) {
+    public boolean removeLocations(GreenHouseGroundLocation location) {
         boolean removed = locations.remove(location);
         fireChange(LOCATIONS_PROPERTY, false, removed);
         return removed;

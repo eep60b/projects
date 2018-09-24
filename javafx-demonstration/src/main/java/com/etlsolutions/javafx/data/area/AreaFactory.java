@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
-import com.etlsolutions.javafx.data.area.subarea.PlantBedBorder;
+import com.etlsolutions.javafx.data.area.subarea.Border;
 import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public final class AreaFactory {
     }
 
     public static AllotmentArea createAllotmentArea() {
-        AllotmentArea a = new AllotmentArea(10, 5, "meter", new ArrayList<PlantBed>(), new ArrayList<RaisedPlantBed>(), new ArrayList<PlantBedBorder>(),
+        AllotmentArea a = new AllotmentArea(10, 5, "meter", new ArrayList<PlantBed>(), new ArrayList<RaisedPlantBed>(), new ArrayList<Border>(),
                 new ArrayList<Greenhouse>(), new ArrayList<CustomSubarea>());
         a.setId(DataUnitIdRegistry.createNewId());
         a.setInformation("");        
@@ -66,7 +66,7 @@ public final class AreaFactory {
         a.setImageLinks(new ArrayList<ImageLink>());
         a.setPlantBeds(new ArrayList<PlantBed>());
         a.setCustomSubareas(new ArrayList<CustomSubarea>());
-        a.setBorders(new ArrayList<PlantBedBorder>());
+        a.setBorders(new ArrayList<Border>());
         return a;
     }
     
@@ -78,7 +78,7 @@ public final class AreaFactory {
         a.setImageLinks(new ArrayList<ImageLink>());
         a.setPlantBeds(new ArrayList<PlantBed>());
         a.setSubareas(new ArrayList<CustomSubarea>());
-        a.setBorders(new ArrayList<PlantBedBorder>());
+        a.setBorders(new ArrayList<Border>());
         a.setContainers(new ArrayList<Container>());
         a.setContainerSets(new ArrayList<ContainerSet>());
         a.setRaisedPlantBeds(new ArrayList<RaisedPlantBed>());

@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author zc
  */
-public class PlantBedBorder extends Subarea {
+public class Border extends Subarea {
 
     @JsonIgnore
     public static final String LENGTH_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.PlantBedBorder.LENGTH_PROPERTY";

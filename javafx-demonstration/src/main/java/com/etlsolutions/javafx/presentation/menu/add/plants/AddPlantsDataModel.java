@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.event.Event;
@@ -33,18 +34,15 @@ import javafx.collections.ObservableList;
  */
 public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable, Closable {
 
-    public static final String SELECTED_PLANT_GROUP_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_GROUP_PROPERTY ";
-    
-    public static final String PLANT_TYPES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_TYPES_PROPERTY";
-    
-    public static final String SELECTED_PLANT_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_TYPE_PROPERTY";
-    
-    public static final String PLANT_VARIETIES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_VARIETIES";
-    
-    public static final String SELECTED_PLANT_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_VARIETY_PROPERTY";
-    
+    public static final String SELECTED_PLANT_GROUP_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_GROUP_PROPERTY ";    
+    public static final String PLANT_TYPES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_TYPES_PROPERTY";    
+    public static final String SELECTED_PLANT_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_TYPE_PROPERTY";    
+    public static final String PLANT_VARIETIES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_VARIETIES";   
+    public static final String SELECTED_PLANT_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_VARIETY_PROPERTY"; 
     public static final String QUANTITY_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.QUANTITY_TYPE_PROPERTY";
-    
+    public static final String SELECTED_GROWING_MEDIUM_RPOPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_GROWING_MEDIUM_RPOPERTY";
+    public static final String LOCATION_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.LOCATION_PROPERTY";
+     
     private final ObservableList<PlantGroup> plantGroups;
     private final List<PlantTypesChangeAdapter> plantTypesChangeAdapters;
     private final ObservableList<GrowingMedium> growingMediums;

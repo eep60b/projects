@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data;
 
+import static com.etlsolutions.javafx.system.SettingConstants.*;
 import java.util.TreeSet;
 
 /**
@@ -10,7 +11,10 @@ public class DataUnitIdRegistry {
 
   private static final TreeSet<Integer> IDS = new TreeSet<>();
   
-  public DataUnitIdRegistry() {
+  private DataUnitIdRegistry() {
+      
+      registerId(DEFAULT_LOCATION_ID);
+      registerId(DATA_UNIT_ID_BASE);
   }
   
   public static void registerId(int id) {
@@ -19,7 +23,7 @@ public class DataUnitIdRegistry {
   
   public static int createNewId() {
     
-    int newId = IDS.isEmpty() ? 1 : IDS.last() + 1;
+    int newId = IDS.last() + 1;
     IDS.add(newId);
     return newId;
   }

@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.ImageLink;
 import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 

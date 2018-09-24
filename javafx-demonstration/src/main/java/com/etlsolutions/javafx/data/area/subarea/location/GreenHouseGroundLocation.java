@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  *
  * @author zc
  */
-public class GreenHouseLocation extends Location {
+public class GreenHouseGroundLocation extends Location {
     
     @JsonIgnore
     public static final String DIRECTION_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.GreenHouseLocation.REFERENCE_POINT_PROPERTY";

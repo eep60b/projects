@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
-import com.etlsolutions.javafx.data.area.subarea.PlantBedBorder;
+import com.etlsolutions.javafx.data.area.subarea.Border;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class FarmArea extends Area {
     public static final String CUSTOM_SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.FarmArea.CUSTOM_SUBAREAS_PROPERTY";
     
     private List<PlantBed> plantBeds;
-    private List<PlantBedBorder> borders;
+    private List<Border> borders;
     private List<CustomSubarea> customSubareas;
     
     public List<PlantBed> getPlantBeds() {
@@ -45,22 +45,22 @@ public class FarmArea extends Area {
         return removed;
     }
 
-    public List<PlantBedBorder> getBorders() {
+    public List<Border> getBorders() {
         return new ArrayList<>(borders);
     }
 
-    public void setBorders(List<PlantBedBorder> borders) {
+    public void setBorders(List<Border> borders) {
         this.borders = new ArrayList<>(borders);
         fireChange(BORDERS_PROPERTY);
     }
 
-    public boolean addBorders(PlantBedBorder border) {
+    public boolean addBorders(Border border) {
         boolean added = borders.add(border);
         fireChange(BORDERS_PROPERTY, false, added);
         return added;
     }
 
-    public boolean removeBorders(PlantBedBorder border) {
+    public boolean removeBorders(Border border) {
         boolean removed = borders.remove(border);
         fireChange(BORDERS_PROPERTY, false, removed);
         return removed;
