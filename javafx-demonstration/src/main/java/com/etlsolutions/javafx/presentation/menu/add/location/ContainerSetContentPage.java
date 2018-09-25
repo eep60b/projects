@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.presentation.menu.add.location;
+
+import javafx.scene.layout.VBox;
 
 /**
  *
  * @author zc
  */
-public class ContainerSetContentPage {
+public class ContainerSetContentPage extends VBox {
     
 }

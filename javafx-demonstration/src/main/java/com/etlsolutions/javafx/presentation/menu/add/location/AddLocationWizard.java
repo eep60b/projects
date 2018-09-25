@@ -1,38 +1,45 @@
 package com.etlsolutions.javafx.presentation.menu.add.location;
 
-import com.etlsolutions.javafx.presentation.Wizard;
-import com.etlsolutions.javafx.presentation.WizardPage;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import com.etlsolutions.javafx.presentation.wizard.Wizard;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.scene.Node;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  *
  * @author zc
  */
-public class AddLocationWizard extends Wizard {
+public class AddLocationWizard extends Wizard<AddLocationWizardDataModel> {
 
-    public AddLocationWizard() {
-        super(null, null);
-    }
-
-
-    @Override
-    public boolean hasNextPage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int indexOf(Node page) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void finish() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cancel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    private final TypeSelectionPage typeSelectionPage;
+    private final Map<SubAreaType, VBox> specificationPageMap;
+    private final LocationImagesPage locationImagesPage;
     
+    public AddLocationWizard(Stage stage, AddLocationWizardDataModel model) {
+        super(stage, model);
+        typeSelectionPage = new TypeSelectionPage();        
+        Map<SubAreaType, VBox> map = new HashMap<>();
+        map.put(SubAreaType.BORDER, new BorderContentPage());
+        
+        specificationPageMap = Collections.unmodifiableMap(map);
+        
+        locationImagesPage = new LocationImagesPage();
+        init();
+    }
+
+    @Override
+    protected Node getCurrentPage() {
+        
+        switch(model.getCurrentIndex()) {
+            
+            case 0: return typeSelectionPage;
+            case 1: return specificationPageMap.get(model.getSelectedType());
+            case 2: return locationImagesPage;            
+            default: throw new IllegalStateException("Invalid current index.");
+        }
+    }
 }

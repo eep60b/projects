@@ -6,6 +6,6 @@ import javafx.scene.layout.VBox;
  *
  * @author zc
  */
-public class GreenhouseContentPage extends VBox {
+public class LocationImagesPage extends VBox {
     
 }

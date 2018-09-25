@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Arrays;
 import java.util.List;
