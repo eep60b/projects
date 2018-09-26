@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
-import com.etlsolutions.javafx.data.area.subarea.location.Container;
+import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -17,53 +17,26 @@ public class BalconyArea extends Area {
     @JsonIgnore
     public static final String CONTAINER_SETS_PROPERTY = "com.etlsolutions.javafx.data.area.BalconyArea.CONTAINER_SETS_PROPERTY";
 
-    private List<ContainerSet> containerSets;
-    private List<Container> containers;
+    private final ObservableList<ContainerSet> containerSets;
+    private final ObservableList<SingleContainer> singleContainers;
 
-    public List<ContainerSet> getContainerSets() {
-        return new ArrayList<>(containerSets);
+    public BalconyArea() {
+        containerSets = FXCollections.observableArrayList();
+        singleContainers = FXCollections.observableArrayList();
     }
 
-    public void setContainerSets(List<ContainerSet> containerSets) {
-        this.containerSets = new ArrayList<>(containerSets);
-        fireChange(CONTAINER_SETS_PROPERTY);
+    public ObservableList<ContainerSet> getContainerSets() {
+        return containerSets;
     }
 
-    public boolean addContainer(ContainerSet containerSet) {
-        boolean added = containerSets.add(containerSet);
-        fireChange(CONTAINER_SETS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeContainer(ContainerSet containerSet) {
-        boolean removed = containerSets.remove(containerSet);
-        fireChange(CONTAINER_SETS_PROPERTY, false, removed);
-        return removed;
-    }
-
-    public List<Container> getContainers() {
-        return new ArrayList<>(containers);
-    }
-
-    public void setContainers(List<Container> containers) {
-        this.containers = new ArrayList<>(containers);
-        fireChange(CONTAINERS_PROPERTY);
-    }
-
-    public boolean addContainer(Container container) {
-        boolean added = containers.add(container);
-        fireChange(CONTAINERS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeContainer(Container container) {
-        boolean removed = containers.remove(container);
-        fireChange(CONTAINERS_PROPERTY, false, removed);
-        return removed;
+    public ObservableList<SingleContainer> getSingleContainers() {
+        return singleContainers;
     }
 
     @Override
-    public boolean isEmpty() {
-        return containers.isEmpty() && containerSets.isEmpty();
+    public void updateAllSubAreas() {
+        allSubAreas.addAll(containerSets);
+        allSubAreas.addAll(singleContainers);
     }
+
 }

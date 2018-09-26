@@ -22,7 +22,6 @@ public class SubareaFactory {
         s.setTitle("Untitled");
         s.setInformation("");
         s.setImageLinks(new ArrayList<ImageLink>());
-        s.setContainers(new ArrayList<Container>());
         return s;
     }
 
@@ -32,9 +31,6 @@ public class SubareaFactory {
         s.setTitle("Untitled");
         s.setInformation("");
         s.setImageLinks(new ArrayList<ImageLink>());
-        s.setContainers(new ArrayList<Container>());
-        s.setContainerSets(new ArrayList<ContainerSet>());
-        s.setLocations(new ArrayList<CustomLocation>());
         return s;
     }
 
@@ -44,9 +40,6 @@ public class SubareaFactory {
         g.setTitle("Untitled");
         g.setInformation("");
         g.setImageLinks(new ArrayList<ImageLink>());
-        g.setContainers(new ArrayList<Container>());
-        g.setContainerSets(new ArrayList<ContainerSet>());
-        g.setLocations(new ArrayList<GreenHouseGroundLocation>());
         return g;
     }
 
@@ -57,7 +50,6 @@ public class SubareaFactory {
         b.setInformation("");
         b.setShape("Not specified");
         b.setImageLinks(new ArrayList<ImageLink>());
-        b.setLocations(new ArrayList<PlantBedLocation>());
         return b;
     }
 
@@ -68,7 +60,6 @@ public class SubareaFactory {
         b.setTitle("Untitled");
         b.setInformation("");
         b.setImageLinks(new ArrayList<ImageLink>());
-        b.setLocations(new ArrayList<BorderLocation>());
         return b;
     }
 
@@ -79,7 +70,6 @@ public class SubareaFactory {
         p.setInformation("");
         p.setShape("Not specified");
         p.setImageLinks(new ArrayList<ImageLink>());
-        p.setLocations(new ArrayList<PondLocation>());
         return p;
     }
 
@@ -90,7 +80,6 @@ public class SubareaFactory {
         r.setInformation("");
         r.setShape("Not specified");
         r.setImageLinks(new ArrayList<ImageLink>());
-        r.setLocations(new ArrayList<PlantBedLocation>());
         return r;
     }
 

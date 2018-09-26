@@ -9,7 +9,7 @@ public interface WizardDataModel {
     String STATUS_PROPERTY = "com.etlsolutions.javafx.presentation.wizardWizardDataMode.STATUS_PROPERTY";
 
        
-    String getPageTitle();
+    String getWizardTitle();
     
     void save();
 

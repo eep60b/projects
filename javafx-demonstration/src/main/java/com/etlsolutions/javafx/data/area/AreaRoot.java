@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -10,83 +10,69 @@ import java.util.List;
  */
 public class AreaRoot extends DataUnit {
 
-    @JsonIgnore
-    public static final String GARDENAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.GARDENAREA_PROPERTY";
-    @JsonIgnore
-    public static final String INDOORAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.INDOORAREA_PROPERTY";
-    @JsonIgnore
-    public static final String PATIOREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.PATIOREA_PROPERTY";
-    @JsonIgnore
-    public static final String BALCONYAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.BALCONYAREA_PROPERTY";
-    @JsonIgnore
-    public static final String ALLOTMENTAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.ALLOTMENTAREA_PROPERTY";
-    @JsonIgnore
-    public static final String CUSTOMAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.CUSTOMAREA_PROPERTY";
-    @JsonIgnore
-    public static final String FARMAREA_PROPERTY = "com.etlsolutions.javafx.data.area.AreaRoot.FARMAREA_PROPERTY";
+    private final ObservableList<GardenArea> gardenAreas;
+    private final ObservableList<IndoorArea> indoorAreas;
+    private final ObservableList<PatioArea> patioAreas;
+    private final ObservableList<BalconyArea> balconyAreas;
+    private final ObservableList<AllotmentArea> allotmentAreas;
+    private final ObservableList<FarmArea> farmAreas;
+    private final ObservableList<CustomArea> customAreas;
+    private final ObservableList<Area> allAreas;
 
+    public AreaRoot() {
+        gardenAreas = FXCollections.observableArrayList();
+        indoorAreas = FXCollections.observableArrayList();
+        patioAreas = FXCollections.observableArrayList();
+        balconyAreas = FXCollections.observableArrayList();
+        allotmentAreas = FXCollections.observableArrayList();
+        farmAreas = FXCollections.observableArrayList();
+        customAreas = FXCollections.observableArrayList();
+        allAreas = FXCollections.observableArrayList();
+        
+        updateAllAreas();
+    }
     
-    private List<GardenArea> gardenAreas;
-    private List<IndoorArea> indoorAreas;
-    private List<PatioArea> patioAreas;
-    private List<BalconyArea> balconyAreas;
-    private List<AllotmentArea> allotmentAreas;
-    private List<FarmArea> farmAreas;
-    private List<CustomArea> customAreas;
+    private void updateAllAreas() {
+        allAreas.clear();
+        allAreas.addAll(gardenAreas);
+        allAreas.addAll(indoorAreas);
+        allAreas.addAll(patioAreas);
+        allAreas.addAll(balconyAreas);
+        allAreas.addAll(allotmentAreas);
+        allAreas.addAll(farmAreas);
+        allAreas.addAll(customAreas);
+    }
 
-    public List<GardenArea> getGardenAreas() {
+    public ObservableList<GardenArea> getGardenAreas() {
         return gardenAreas;
     }
 
-    public void setGardenAreas(List<GardenArea> gardenAreas) {
-        this.gardenAreas = gardenAreas;
-    }
-
-    public List<IndoorArea> getIndoorAreas() {
+    public ObservableList<IndoorArea> getIndoorAreas() {
         return indoorAreas;
     }
 
-    public void setIndoorAreas(List<IndoorArea> indoorAreas) {
-        this.indoorAreas = indoorAreas;
-    }
-
-    public List<PatioArea> getPatioAreas() {
+    public ObservableList<PatioArea> getPatioAreas() {
         return patioAreas;
     }
 
-    public void setPatioAreas(List<PatioArea> patioAreas) {
-        this.patioAreas = patioAreas;
-    }
-
-    public List<BalconyArea> getBalconyAreas() {
+    public ObservableList<BalconyArea> getBalconyAreas() {
         return balconyAreas;
     }
 
-    public void setBalconyAreas(List<BalconyArea> balconyAreas) {
-        this.balconyAreas = balconyAreas;
-    }
-
-    public List<AllotmentArea> getAllotmentAreas() {
+    public ObservableList<AllotmentArea> getAllotmentAreas() {
         return allotmentAreas;
     }
 
-    public void setAllotmentAreas(List<AllotmentArea> allotmentAreas) {
-        this.allotmentAreas = allotmentAreas;
-    }
-
-    public List<CustomArea> getCustomAreas() {
-        return customAreas;
-    }
-
-    public List<FarmArea> getFarmAreas() {
+    public ObservableList<FarmArea> getFarmAreas() {
         return farmAreas;
     }
 
-    public void setFarmAreas(List<FarmArea> farmAreas) {
-        this.farmAreas = farmAreas;
+    public ObservableList<CustomArea> getCustomAreas() {
+        return customAreas;
     }
 
-    public void setCustomAreas(List<CustomArea> customAreas) {
-        this.customAreas = customAreas;
+    public ObservableList<Area> getAllAreas() {
+        return allAreas;
     }
+ 
 }

@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author zc
  */
-public class Room extends Subarea {
+public class Room extends SubAreaK {
 
     @JsonIgnore
     public static final String CONTAINERS_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.Room.CONTAINERS_PROPERTY";
@@ -63,7 +63,12 @@ public class Room extends Subarea {
     }
 
     @Override
-    public boolean isEmpty() {
-        return containers.isEmpty() && containerSets.isEmpty();
-    }  
+    public void updateAllLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public SubAreaType getType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

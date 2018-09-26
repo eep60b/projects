@@ -1,44 +1,28 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaK;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
 public class CustomArea extends Area {
-
-    @JsonIgnore
-    public static final String CUSTOM_SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.CustomArea.CUSTOM_SUBAREAS_PROPERTY";
     
-    private List<CustomSubarea> customSubareas;
+    private final ObservableList<SubAreaK> customSubareas;
 
-    public List<CustomSubarea> getCustomSubareas() {
-        return new ArrayList<>(customSubareas);
+    public CustomArea() {
+        
+        customSubareas = FXCollections.observableArrayList();
     }
 
-    public void setCustomSubareas(List<CustomSubarea> customSubareas) {
-        this.customSubareas = new ArrayList<>(customSubareas);
-        fireChange(CUSTOM_SUBAREAS_PROPERTY);
+    public ObservableList<SubAreaK> getCustomSubareas() {
+        return customSubareas;
     }
 
-    public boolean addSubarea(CustomSubarea subarea) {
-        boolean added = customSubareas.add(subarea);
-        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeSubarea(CustomSubarea subarea) {
-        boolean removed = customSubareas.remove(subarea);
-        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, removed);
-        return removed;
-    }
-   
     @Override
-    public boolean isEmpty() {
-        return customSubareas.isEmpty();
+    public void updateAllSubAreas() {
+        allSubAreas.addAll(customSubareas);
     }
 }

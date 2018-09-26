@@ -1,13 +1,12 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
  * @author zc
  */
-public class Container extends DataUnit {
+public class Container extends Location {
 
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.Container.SHAPE_PROPERTY";

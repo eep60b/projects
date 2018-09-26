@@ -33,12 +33,14 @@ public class AddLocationWizardDataModel extends DataUnitDataModel implements Wiz
     }
 
     public void setSelectedType(SubAreaType selectedType) {
+        SubAreaType oldValue = this.selectedType;
         this.selectedType = selectedType;
+        support.firePropertyChange(STATUS_PROPERTY, oldValue, this.selectedType);
     }
 
     @Override
-    public String getPageTitle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getWizardTitle() {
+        return "Add Location";
     }
 
     @Override

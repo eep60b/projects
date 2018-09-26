@@ -2,13 +2,6 @@ package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnitIdRegistry;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
-import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
-import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
-import com.etlsolutions.javafx.data.area.subarea.PlantBed;
-import com.etlsolutions.javafx.data.area.subarea.Border;
-import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
-import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import java.util.ArrayList;
 
 /**
@@ -19,19 +12,24 @@ public final class AreaFactory {
 
     public static AreaRoot createAreaRoot() {
         AreaRoot a = new AreaRoot();
-        a.setAllotmentAreas(new ArrayList<AllotmentArea>());
-        a.setBalconyAreas(new ArrayList<BalconyArea>());
-        a.setCustomAreas(new ArrayList<CustomArea>());
-        a.setGardenAreas(new ArrayList<GardenArea>());
-        a.setIndoorAreas(new ArrayList<IndoorArea>());
-        a.setFarmAreas(new ArrayList<FarmArea>());
-        a.setPatioAreas(new ArrayList<PatioArea>());
+        
+        GardenArea gardenArea = createGardenArea();
+        gardenArea.setTitle("My Garden");
+        a.getGardenAreas().add(gardenArea);
+        
+        IndoorArea bedRoom = createIndoorArea();
+        bedRoom.setTitle("Bed Room");
+        IndoorArea livingRoom = createIndoorArea();
+        livingRoom.setTitle("Living Room");
+        IndoorArea kitchen = createIndoorArea();
+        kitchen.setTitle("Kitchen");   
+        
+        a.getIndoorAreas().addAll(bedRoom, livingRoom, kitchen);
         return a;
     }
 
     public static AllotmentArea createAllotmentArea() {
-        AllotmentArea a = new AllotmentArea(10, 5, "meter", new ArrayList<PlantBed>(), new ArrayList<RaisedPlantBed>(), new ArrayList<Border>(),
-                new ArrayList<Greenhouse>(), new ArrayList<CustomSubarea>());
+        AllotmentArea a = new AllotmentArea(10, 5, "meter");
         a.setId(DataUnitIdRegistry.createNewId());
         a.setInformation("");        
         a.setTitle("Untitled");
@@ -43,9 +41,7 @@ public final class AreaFactory {
         BalconyArea a = new BalconyArea();
         a.setId(DataUnitIdRegistry.createNewId());
         a.setTitle("Untitled");
-        a.setImageLinks(new ArrayList<ImageLink>());
-        a.setContainers(new ArrayList<Container>());
-        a.setContainerSets(new ArrayList<ContainerSet>());        
+        a.setImageLinks(new ArrayList<ImageLink>());       
         return a;
     }
 
@@ -54,7 +50,6 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
         a.setImageLinks(new ArrayList<ImageLink>());
-        a.setCustomSubareas(new ArrayList<CustomSubarea>());
         return a;
     }
 
@@ -64,9 +59,6 @@ public final class AreaFactory {
         a.setTitle("Untitled");
         a.setInformation("");        
         a.setImageLinks(new ArrayList<ImageLink>());
-        a.setPlantBeds(new ArrayList<PlantBed>());
-        a.setCustomSubareas(new ArrayList<CustomSubarea>());
-        a.setBorders(new ArrayList<Border>());
         return a;
     }
     
@@ -76,12 +68,6 @@ public final class AreaFactory {
         a.setTitle("Untitled");
         a.setInformation("");        
         a.setImageLinks(new ArrayList<ImageLink>());
-        a.setPlantBeds(new ArrayList<PlantBed>());
-        a.setSubareas(new ArrayList<CustomSubarea>());
-        a.setBorders(new ArrayList<Border>());
-        a.setContainers(new ArrayList<Container>());
-        a.setContainerSets(new ArrayList<ContainerSet>());
-        a.setRaisedPlantBeds(new ArrayList<RaisedPlantBed>());
         return a;
     } 
     
@@ -90,9 +76,7 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
         a.setInformation("");        
-        a.setImageLinks(new ArrayList<ImageLink>());
-        a.setContainers(new ArrayList<Container>());
-        a.setContainerSets(new ArrayList<ContainerSet>());        
+        a.setImageLinks(new ArrayList<ImageLink>());      
         return a;
     }
     
@@ -101,10 +85,7 @@ public final class AreaFactory {
         a.setId(DataUnitIdRegistry.createNewId());        
         a.setTitle("Untitled");
         a.setInformation("");        
-        a.setImageLinks(new ArrayList<ImageLink>());
-        a.setContainers(new ArrayList<Container>());
-        a.setRaisedPlantBeds(new ArrayList<RaisedPlantBed>());
-        a.setContainerSets(new ArrayList<ContainerSet>());        
+        a.setImageLinks(new ArrayList<ImageLink>());     
         return a;
     }     
 }

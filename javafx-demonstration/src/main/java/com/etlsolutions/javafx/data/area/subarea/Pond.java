@@ -2,14 +2,14 @@ package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class Pond extends Subarea {
+public class Pond extends SubAreaK {
 
     
     @JsonIgnore
@@ -22,8 +22,13 @@ public class Pond extends Subarea {
 
     private String shape;
     private double area;
-    private List<PondLocation> locations;
+    private final ObservableList<PondLocation> locations;
 
+    public Pond() {
+        locations = FXCollections.observableArrayList();
+    }
+
+    
     public String getShape() {
         return shape;
     }
@@ -44,15 +49,11 @@ public class Pond extends Subarea {
         this.area = area;
         fireChange(AREA_PROPERTY, oldValue, this.area);
     }
-    
-    public ArrayList<PondLocation> getLocations() {
-        return new ArrayList<>(locations);
+
+    public ObservableList<PondLocation> getLocations() {
+        return locations;
     }
 
-    public void setLocations(List<PondLocation> locations) {
-        this.locations = new ArrayList<>(locations);
-        fireChange(LOCATIONS_PROPERTY);
-    }
 
     public boolean addLocations(PondLocation location) {
         boolean added = locations.add(location);
@@ -67,8 +68,12 @@ public class Pond extends Subarea {
     }
 
     @Override
-    public boolean isEmpty() {
-        return locations.isEmpty();
+    public void updateAllLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public SubAreaType getType() {
+        return SubAreaType.POND;
+    }
 }

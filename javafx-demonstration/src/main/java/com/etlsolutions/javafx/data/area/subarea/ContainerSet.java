@@ -4,41 +4,33 @@ import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class ContainerSet extends Subarea {
+public class ContainerSet extends SubAreaK {
 
-    @JsonIgnore
-    public static final String CONTAINERS_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.ContainerSet.CONTAINERS_PROPERTY";
+    private final ObservableList<Container> containers;
 
-    private List<Container> containers;
-
-    public List<Container> getContainers() {
-        return new ArrayList<>(containers);
+    public ContainerSet() {
+        containers = FXCollections.observableArrayList();
     }
 
-    public void setContainers(List<Container> containers) {
-        this.containers = new ArrayList<>(containers);
-        fireChange(CONTAINERS_PROPERTY);
-    }
-
-    public boolean addContainer(Container container) {
-        boolean added = containers.add(container);
-        fireChange(CONTAINERS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeContainer(Container container) {
-        boolean removed = containers.remove(container);
-        fireChange(CONTAINERS_PROPERTY, false, removed);
-        return removed;
+    public ObservableList<Container> getContainers() {
+        return containers;
     }
 
     @Override
-    public boolean isEmpty() {
-        return containers.isEmpty();
+    public void updateAllLocations() {
+        allLocations.addAll(containers);
     }
+
+    @Override
+    public SubAreaType getType() {
+        return SubAreaType.CONTAINTER_SET;
+    }
+
 }

@@ -26,7 +26,7 @@ public class AreaRootTreeItem extends TreeItem<DataUnit> {
         List<TreeItem<DataUnit>> children = getChildren();
 
         for (GardenArea area : model.getGardenAreas()) {
-            if (!area.isEmpty()) {
+            if (!area.getAllSubAreas().isEmpty()) {
                 children.add(new GardenAreaTreeItem(area));
             }
         }
@@ -40,7 +40,7 @@ public class AreaRootTreeItem extends TreeItem<DataUnit> {
         }
 
         for (AllotmentArea area : model.getAllotmentAreas()) {
-            if (!area.isEmpty()) {
+            if (!area.getAllSubAreas().isEmpty()) {
                 children.add(new AllotmentAreaTreeItem(area));
             }
         }

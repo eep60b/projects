@@ -7,7 +7,7 @@ package com.etlsolutions.javafx.data.area.subarea;
 public enum SubAreaType {
     
     BORDER ("Border"),
-    CONTAINTER ("Container"),
+    SINGLE_CONTAINTER ("Container"),
     CONTAINTER_SET ("Container Set"),
     CUSTOM ("Custom area"),
     GREEN_HOUSE ("Green house"),

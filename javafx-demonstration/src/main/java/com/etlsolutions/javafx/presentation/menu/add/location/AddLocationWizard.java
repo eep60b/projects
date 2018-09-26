@@ -21,9 +21,11 @@ public class AddLocationWizard extends Wizard<AddLocationWizardDataModel> {
     
     public AddLocationWizard(Stage stage, AddLocationWizardDataModel model) {
         super(stage, model);
-        typeSelectionPage = new TypeSelectionPage();        
+        typeSelectionPage = new TypeSelectionPage(new TypeSelectionDataModel(model));        
         Map<SubAreaType, VBox> map = new HashMap<>();
         map.put(SubAreaType.BORDER, new BorderContentPage());
+        map.put(SubAreaType.SINGLE_CONTAINTER, new ContainerContentPage());
+        map.put(SubAreaType.CONTAINTER_SET, new ContainerSetContentPage());
         
         specificationPageMap = Collections.unmodifiableMap(map);
         

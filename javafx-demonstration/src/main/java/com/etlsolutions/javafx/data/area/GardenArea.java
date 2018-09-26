@@ -6,10 +6,13 @@ import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.Border;
 import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
+import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -32,158 +35,61 @@ public class GardenArea extends Area {
     @JsonIgnore
     public static final String CUSTOM_SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.GardenArea.CUSTOM_SUBAREAS_PROPERTY";
 
+    private final ObservableList<PlantBed> plantBeds;
+    private final ObservableList<RaisedPlantBed> raisedPlantBeds;
+    private final ObservableList<Border> borders;
+    private final ObservableList<Greenhouse> greenhouses;
+    private final ObservableList<ContainerSet> containerSets;
+    private final ObservableList<SingleContainer> singleContainers;
+    private final ObservableList<CustomSubarea> customSubareas;
 
-    private List<PlantBed> plantBeds;
-    private List<RaisedPlantBed> raisedPlantBeds;
-    private List<Border> borders;
-    private List<Greenhouse> greenhouses;
-    private List<Container> containers;
-    private List<ContainerSet> containerSets;
-    private List<CustomSubarea> customSubareas;
-
-    public List<PlantBed> getPlantBeds() {
-        return new ArrayList<>(plantBeds);
+    public GardenArea() {
+        plantBeds = FXCollections.observableArrayList();
+        raisedPlantBeds = FXCollections.observableArrayList();
+        borders = FXCollections.observableArrayList();
+        greenhouses = FXCollections.observableArrayList();
+        containerSets = FXCollections.observableArrayList();
+        singleContainers = FXCollections.observableArrayList();
+        customSubareas = FXCollections.observableArrayList();
     }
 
-    public void setPlantBeds(List<PlantBed> plantBeds) {
-        this.plantBeds = new ArrayList<>(plantBeds);
-        fireChange(PLANT_BEDS_PROPERTY);
+    public ObservableList<PlantBed> getPlantBeds() {
+        return plantBeds;
     }
 
-    public boolean addPlantBed(PlantBed plantBed) {
-        boolean added = plantBeds.add(plantBed);
-        fireChange(PLANT_BEDS_PROPERTY, false, added);
-        return added;
+    public ObservableList<RaisedPlantBed> getRaisedPlantBeds() {
+        return raisedPlantBeds;
     }
 
-    public boolean removePlantBed(PlantBed plantBed) {
-        boolean removed = plantBeds.remove(plantBed);
-        fireChange(PLANT_BEDS_PROPERTY, false, removed);
-        return removed;
+    public ObservableList<Border> getBorders() {
+        return borders;
     }
 
-    public List<Border> getBorders() {
-        return new ArrayList<>(borders);
+    public ObservableList<Greenhouse> getGreenhouses() {
+        return greenhouses;
     }
 
-    public void setBorders(List<Border> borders) {
-        this.borders = new ArrayList<>(borders);
-        fireChange(BORDERS_PROPERTY);
+    public ObservableList<ContainerSet> getContainerSets() {
+        return containerSets;
     }
 
-    public boolean addBorders(Border border) {
-        boolean added = borders.add(border);
-        fireChange(BORDERS_PROPERTY, false, added);
-        return added;
+    public ObservableList<SingleContainer> getSingleContainers() {
+        return singleContainers;
     }
 
-    public boolean removeBorders(Border border) {
-        boolean removed = borders.remove(border);
-        fireChange(BORDERS_PROPERTY, false, removed);
-        return removed;
-    }
-
-    public List<Greenhouse> getGreenhouses() {
-        return new ArrayList<>(greenhouses);
-    }
-
-    public boolean addGreenhouses(Greenhouse greenhous) {
-        boolean added = greenhouses.add(greenhous);
-        fireChange(GREENHOUSES_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeGreenhouses(Greenhouse greenhous) {
-        boolean removed = greenhouses.remove(greenhous);
-        fireChange(GREENHOUSES_PROPERTY, false, removed);
-        return removed;
-    }
-
-    public List<RaisedPlantBed> getRaisedPlantBeds() {
-        return new ArrayList<>(raisedPlantBeds);
-    }
-
-    public void setRaisedPlantBeds(List<RaisedPlantBed> raisedPlantBeds) {
-        this.raisedPlantBeds = new ArrayList<>(raisedPlantBeds);
-    }
-
-    public List<Container> getContainers() {
-        return new ArrayList<>(containers);
-    }
-
-    public void setContainers(List<Container> containers) {
-        this.containers = new ArrayList<>(containers);
-        fireChange(CONTAINERS_PROPERTY);
-    }
-
-    public boolean addContainer(Container container) {
-        boolean added = containers.add(container);
-        fireChange(CONTAINERS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeContainer(Container container) {
-        boolean removed = containers.remove(container);
-        fireChange(CONTAINERS_PROPERTY, false, removed);
-        return removed;
-    }
-    
-    public List<ContainerSet> getContainerSets() {
-        return new ArrayList<>(containerSets);
-    }
-
-    public void setContainerSets(List<ContainerSet> containerSets) {
-        this.containerSets = new ArrayList<>(containerSets);
-        fireChange(CONTAINER_SETS_PROPERTY);
-    }
-
-    public boolean addContainer(ContainerSet containerSet) {
-        boolean added = containerSets.add(containerSet);
-        fireChange(CONTAINER_SETS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeContainer(ContainerSet containerSet) {
-        boolean removed = containerSets.remove(containerSet);
-        fireChange(CONTAINER_SETS_PROPERTY, false, removed);
-        return removed;
-    }
-
-    public boolean addRaisedPlantBed(RaisedPlantBed raisedPlantBed) {
-        boolean added = raisedPlantBeds.add(raisedPlantBed);
-        fireChange(RAISED_PLANT_BEDS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeRaisedPlantBed(RaisedPlantBed raisedPlantBed) {
-        boolean removed = raisedPlantBeds.remove(raisedPlantBed);
-        fireChange(RAISED_PLANT_BEDS_PROPERTY, false, removed);
-        return removed;
-    }
-
-    public List<CustomSubarea> getSubareas() {
-        return new ArrayList<>(customSubareas);
-    }
-
-    public void setSubareas(List<CustomSubarea> subareas) {
-        this.customSubareas = new ArrayList<>(subareas);
-        fireChange(CUSTOM_SUBAREAS_PROPERTY);
-    }
-
-    public boolean addSubarea(CustomSubarea subarea) {
-        boolean added = customSubareas.add(subarea);
-        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removeSubarea(CustomSubarea subarea) {
-        boolean removed = customSubareas.remove(subarea);
-        fireChange(CUSTOM_SUBAREAS_PROPERTY, false, removed);
-        return removed;
+    public ObservableList<CustomSubarea> getCustomSubareas() {
+        return customSubareas;
     }
 
     @Override
-    public boolean isEmpty() {
-        return greenhouses.isEmpty() && plantBeds.isEmpty() && raisedPlantBeds.isEmpty() && borders.isEmpty() && containers.isEmpty() && containerSets.isEmpty() && raisedPlantBeds.isEmpty() && customSubareas.isEmpty();
+    public void updateAllSubAreas() {
+        allSubAreas.addAll(plantBeds);
+        allSubAreas.addAll(raisedPlantBeds);
+        allSubAreas.addAll(borders);
+        allSubAreas.addAll(greenhouses);
+        allSubAreas.addAll(containerSets);
+        allSubAreas.addAll(singleContainers);
+        allSubAreas.addAll(customSubareas);
     }
+
 }
