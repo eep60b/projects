@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class Border extends SubAreaK {
+public class Border extends SubArea {
 
     @JsonIgnore
     public static final String LENGTH_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.PlantBedBorder.LENGTH_PROPERTY";

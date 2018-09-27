@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
  */
 public abstract class ActionEventHandler<T> implements EventHandler<ActionEvent> {
 
-    private final T parentModel;
+    protected final T parentModel;
 
     public ActionEventHandler(T parentModel) {
         this.parentModel = parentModel;

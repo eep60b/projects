@@ -4,10 +4,8 @@ import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
-import com.etlsolutions.javafx.data.area.subarea.location.Container;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,15 +14,6 @@ import javafx.collections.ObservableList;
  * @author zc
  */
 public class PatioArea extends Area {
-
-    @JsonIgnore
-    public static final String RAISED_PLANT_BEDS_PROPERTY = "com.etlsolutions.javafx.data.area.PatioArea.RAISED_PLANT_BEDS_PROPERTY";
-    @JsonIgnore
-    public static final String GREENHOUSES_PROPERTY = "com.etlsolutions.javafx.data.area.PatioArea.GREENHOUSES_PROPERTY";
-    @JsonIgnore
-    public static final String CONTAINERS_PROPERTY = "com.etlsolutions.javafx.data.area.PatioArea.CONTAINERS_PROPERTY";
-    @JsonIgnore
-    public static final String CONTAINER_SETS_PROPERTY = "com.etlsolutions.javafx.data.area.PatioArea.CONTAINER_SETS_PROPERTY";
 
     private final ObservableList<RaisedPlantBed> raisedPlantBeds;
     private final ObservableList<Greenhouse> greenhouses;
@@ -62,4 +51,18 @@ public class PatioArea extends Area {
         allSubAreas.addAll(singleContainers);
     }
 
+    @Override
+    public ObservableList<SubAreaType> getSubAreaTypes() {
+        return FXCollections.observableArrayList(SubAreaType.BORDER, SubAreaType.CUSTOM);
+    }
+
+    @Override
+    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public AreaType getType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

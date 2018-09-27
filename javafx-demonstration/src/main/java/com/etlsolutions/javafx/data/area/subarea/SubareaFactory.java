@@ -25,8 +25,8 @@ public class SubareaFactory {
         return s;
     }
 
-    public static CustomSubarea createCustomSubarea() {
-        CustomSubarea s = new CustomSubarea();
+    public static CustomSubAreaK createCustomSubarea() {
+        CustomSubAreaK s = new CustomSubAreaK();
         s.setId(DataUnitIdRegistry.createNewId());
         s.setTitle("Untitled");
         s.setInformation("");

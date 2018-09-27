@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class PlantBed extends SubAreaK {
+public class PlantBed extends SubArea {
 
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.PlantBed.SHAPE_PROPERTY";

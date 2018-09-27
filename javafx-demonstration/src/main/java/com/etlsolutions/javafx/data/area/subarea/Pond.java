@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class Pond extends SubAreaK {
+public class Pond extends SubArea {
 
     
     @JsonIgnore

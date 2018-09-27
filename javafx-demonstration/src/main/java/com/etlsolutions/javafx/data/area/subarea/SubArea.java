@@ -10,11 +10,11 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public abstract class SubAreaK extends DataUnit {
+public abstract class SubArea extends DataUnit {
 
     protected final ObservableList<Location> allLocations;
 
-    public SubAreaK() {
+    public SubArea() {
         allLocations = FXCollections.observableArrayList();
     }
     

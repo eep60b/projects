@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.Container;
  *
  * @author zc
  */
-public class SingleContainer extends SubAreaK {
+public class SingleContainer extends SubArea {
 
     private Container container;
     

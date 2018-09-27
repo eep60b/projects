@@ -11,9 +11,9 @@ import javafx.scene.control.SingleSelectionModel;
  */
 public class AreaSelectionChangeAdapter implements ChangeListener<SingleSelectionModel<Area>> {
 
-    private final TypeSelectionDataModel model;
+    private final AddLocationWizardDataModel model;
 
-    public AreaSelectionChangeAdapter(TypeSelectionDataModel model) {
+    public AreaSelectionChangeAdapter(AddLocationWizardDataModel model) {
         this.model = model;
     }
 

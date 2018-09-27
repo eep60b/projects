@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class ContainerSet extends SubAreaK {
+public class ContainerSet extends SubArea {
 
     private final ObservableList<Container> containers;
 

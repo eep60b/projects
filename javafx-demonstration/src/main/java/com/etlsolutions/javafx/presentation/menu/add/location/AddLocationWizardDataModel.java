@@ -1,11 +1,13 @@
 package com.etlsolutions.javafx.presentation.menu.add.location;
 
+import com.etlsolutions.javafx.data.area.Area;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.wizard.StatusPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.wizard.WizardDataModel;
-import com.sun.javafx.collections.ObservableListWrapper;
-import java.util.Arrays;
+import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.collections.ObservableList;
 
 /**
@@ -13,31 +15,80 @@ import javafx.collections.ObservableList;
  * @author zc
  */
 public class AddLocationWizardDataModel extends DataUnitDataModel implements WizardDataModel {
-    
-    
-    private final ObservableList<SubAreaType> types;
-    private SubAreaType selectedType;
+
     private int currentIndex;
+    private final ObservableList<Area> areas;
+    private Area selectedArea;
+    private ObservableList<SubAreaType> subAreaTypes;
+    private SubAreaType selectedSubAreaType;
+    private ObservableList<SubArea> subAreas;
+    private SubArea selectedSubArea;
 
     public AddLocationWizardDataModel() {
-        this.types = new ObservableListWrapper<>(Arrays.asList(SubAreaType.values()));
-        selectedType = types.get(0);
+        areas = ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas();
+        selectedArea = areas.get(0);
+        this.subAreaTypes = selectedArea.getSubAreaTypes();
+        selectedSubAreaType = subAreaTypes.get(0);
+        subAreas = selectedArea.getSubAreas(selectedSubAreaType);
     }
 
-    public ObservableList<SubAreaType> getTypes() {
-        return types;
+    public ObservableList<Area> getAreas() {
+        return areas;
     }
 
-    public SubAreaType getSelectedType() {
-        return selectedType;
+    public Area getSelectedArea() {
+        return selectedArea;
     }
 
-    public void setSelectedType(SubAreaType selectedType) {
-        SubAreaType oldValue = this.selectedType;
-        this.selectedType = selectedType;
-        support.firePropertyChange(STATUS_PROPERTY, oldValue, this.selectedType);
+    public void setSelectedArea(Area selectedArea) {
+        this.selectedArea = selectedArea;
+        subAreaTypes = this.selectedArea.getSubAreaTypes();
+        if (subAreaTypes.contains(selectedSubAreaType)) {
+            return;
+        }
+        setSelectedSubAreaType(subAreaTypes.get(0));
     }
 
+    public ObservableList<SubArea> getSubAreas() {
+        return subAreas;
+    }
+
+    public void setSubAreas(ObservableList<SubArea> subAreas) {
+        this.subAreas = subAreas;
+    }
+
+    public SubArea getSelectedSubArea() {
+        return selectedSubArea;
+    }
+
+    public void setSelectedSubArea(SubArea selectedSubArea) {
+        SubArea oldValue = this.selectedSubArea;
+        this.selectedSubArea = selectedSubArea;
+        support.firePropertyChange(STATUS_PROPERTY, oldValue, this.selectedSubArea);
+    }
+
+    public ObservableList<SubAreaType> getSubAreaTypes() {
+        return subAreaTypes;
+    }
+
+    public SubAreaType getSelectedSubAreaType() {
+        return selectedSubAreaType;
+    }
+
+    public void setSelectedSubAreaType(SubAreaType selectedSubAreaType) {
+        
+        this.selectedSubAreaType = selectedSubAreaType;
+        subAreas = selectedArea.getSubAreas(this.selectedSubAreaType);
+        if (subAreas.contains(selectedSubArea)) {
+            return;
+        }
+        setSelectedSubArea(this.subAreas.isEmpty() ? null : subAreas.get(0));
+    }
+
+    public Location getLocation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public String getWizardTitle() {
         return "Add Location";
@@ -87,4 +138,5 @@ public class AddLocationWizardDataModel extends DataUnitDataModel implements Wiz
     protected void validate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

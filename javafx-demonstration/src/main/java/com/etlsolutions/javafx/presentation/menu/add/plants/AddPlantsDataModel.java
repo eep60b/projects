@@ -285,4 +285,8 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
             adapter.getSource().removeListener(PlantGroup.PLANTS_TYPES_PROPERTY, adapter);
         }
     }
+
+    void updateLocation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

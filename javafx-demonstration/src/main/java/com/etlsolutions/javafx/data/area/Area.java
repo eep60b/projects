@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.area.subarea.SubAreaK;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.collections.FXCollections;
@@ -18,7 +18,7 @@ public abstract class Area extends DataUnit {
     @JsonIgnore
     public static final String LATITUTE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.LATITUTE_PROPERTY";
 
-    protected final ObservableList<SubAreaK> allSubAreas;
+    protected final ObservableList<SubArea> allSubAreas;
     private double longitude;
     private double latitude;
 
@@ -26,9 +26,15 @@ public abstract class Area extends DataUnit {
         allSubAreas = FXCollections.observableArrayList();
     }
 
+    public abstract AreaType getType();
+    
     public abstract void updateAllSubAreas();
+    
+    public abstract ObservableList<SubAreaType> getSubAreaTypes();
 
-    public ObservableList<SubAreaK> getAllSubAreas() {
+    public abstract ObservableList<SubArea> getSubAreas(SubAreaType type);  
+
+    public ObservableList<SubArea> getAllSubAreas() {
         return allSubAreas;
     }
 

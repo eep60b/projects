@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class Greenhouse extends SubAreaK {
+public class Greenhouse extends SubArea {
 
     private final ObservableList<GreenHouseGroundLocation> locations;
     private final ObservableList<Container> containers;

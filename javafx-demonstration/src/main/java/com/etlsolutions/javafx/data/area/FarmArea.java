@@ -1,9 +1,10 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.area.subarea.CustomSubarea;
+import com.etlsolutions.javafx.data.area.subarea.CustomSubAreaK;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.Border;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -12,17 +13,10 @@ import javafx.collections.ObservableList;
  * @author zc
  */
 public class FarmArea extends Area {
-
-    @JsonIgnore
-    public static final String PLANT_BEDS_PROPERTY = "com.etlsolutions.javafx.data.area.FarmArea.PLANT_BEDS_PROPERTY";
-    @JsonIgnore
-    public static final String BORDERS_PROPERTY = "com.etlsolutions.javafx.data.area.FarmArea.BORDERS_PROPERTY";
-    @JsonIgnore
-    public static final String CUSTOM_SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.FarmArea.CUSTOM_SUBAREAS_PROPERTY";
     
     private final ObservableList<PlantBed> plantBeds;
     private final ObservableList<Border> borders;
-    private final ObservableList<CustomSubarea> customSubareas;
+    private final ObservableList<CustomSubAreaK> customSubareas;
 
     public FarmArea() {
         plantBeds = FXCollections.observableArrayList();
@@ -43,5 +37,21 @@ public class FarmArea extends Area {
         allSubAreas.addAll(plantBeds);
         allSubAreas.addAll(borders);
         allSubAreas.addAll(customSubareas);
+    }
+    
+    
+    @Override
+    public ObservableList<SubAreaType> getSubAreaTypes() {
+        return FXCollections.observableArrayList(SubAreaType.BORDER, SubAreaType.CUSTOM);
+    }
+
+    @Override
+    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public AreaType getType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

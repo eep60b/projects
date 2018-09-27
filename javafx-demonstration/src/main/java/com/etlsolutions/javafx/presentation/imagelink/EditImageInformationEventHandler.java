@@ -20,18 +20,18 @@ public class EditImageInformationEventHandler implements EventHandler<ActionEven
     private final ImageLink imageLink;
 
     public EditImageInformationEventHandler(ImageLink imageLink) {
-            this.imageLink = imageLink;
+        this.imageLink = imageLink;
     }
 
     @Override
     public void handle(ActionEvent event) {
-                Logger logger = Logger.getLogger(getClass());
+        Logger logger = Logger.getLogger(getClass());
         try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/imagelink/EditImageInformationDialogFXML.fxml"));
-            
+
             EditImageInformationDialogFXMLController controller = loader.getController();
-            
+
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -45,5 +45,5 @@ public class EditImageInformationEventHandler implements EventHandler<ActionEven
             logger.error(message, ex);
             throw new CustomLevelErrorRuntimeExceiption(message);
         }
-    }   
+    }
 }

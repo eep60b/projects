@@ -265,6 +265,8 @@ public class AddPlantsDialogFXMLController implements Initializable {
         locationTitleTextField.setDisable(true);
         locationInformationTextArea.setText(location == null ? "" : location.getInformation());
         locationInformationTextArea.setDisable(true);
+        editLocationButton.setOnAction(new EditPlantLocationEventHandler(model));
+        
 
         ToggleGroup toggleGroup = new ToggleGroup();
         singlePlantRadioButton.setToggleGroup(toggleGroup);

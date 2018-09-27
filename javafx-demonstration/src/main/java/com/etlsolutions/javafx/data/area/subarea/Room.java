@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author zc
  */
-public class Room extends SubAreaK {
+public class Room extends SubArea {
 
     @JsonIgnore
     public static final String CONTAINERS_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.Room.CONTAINERS_PROPERTY";

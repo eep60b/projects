@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
 import com.etlsolutions.javafx.presentation.ActionEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAddable;
 
 /**
  *

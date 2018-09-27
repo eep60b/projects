@@ -15,13 +15,17 @@ import javafx.stage.Stage;
  */
 public class AddLocationWizard extends Wizard<AddLocationWizardDataModel> {
 
-    private final TypeSelectionPage typeSelectionPage;
+    private final AreaSelectionPage areaSelectionPage;
+    private final SubAreaSelectionPage subAreaSelectionPage;
+    private final LocationTypeTitleInfromationPage locationTypeTitleInfromationPage;
     private final Map<SubAreaType, VBox> specificationPageMap;
     private final LocationImagesPage locationImagesPage;
     
     public AddLocationWizard(Stage stage, AddLocationWizardDataModel model) {
         super(stage, model);
-        typeSelectionPage = new TypeSelectionPage(new TypeSelectionDataModel(model));        
+        areaSelectionPage = new AreaSelectionPage(model);
+        subAreaSelectionPage = new SubAreaSelectionPage(model);
+        locationTypeTitleInfromationPage = new LocationTypeTitleInfromationPage(model);
         Map<SubAreaType, VBox> map = new HashMap<>();
         map.put(SubAreaType.BORDER, new BorderContentPage());
         map.put(SubAreaType.SINGLE_CONTAINTER, new ContainerContentPage());
@@ -38,9 +42,11 @@ public class AddLocationWizard extends Wizard<AddLocationWizardDataModel> {
         
         switch(model.getCurrentIndex()) {
             
-            case 0: return typeSelectionPage;
-            case 1: return specificationPageMap.get(model.getSelectedType());
-            case 2: return locationImagesPage;            
+            case 0: return areaSelectionPage;
+            case 1: return subAreaSelectionPage;
+            case 2: return locationTypeTitleInfromationPage;
+            case 3: return specificationPageMap.get(model.getSelectedSubAreaType());
+            case 4: return locationImagesPage;            
             default: throw new IllegalStateException("Invalid current index.");
         }
     }
