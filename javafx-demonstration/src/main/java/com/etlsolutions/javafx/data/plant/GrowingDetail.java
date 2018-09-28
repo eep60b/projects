@@ -6,8 +6,8 @@ import com.etlsolutions.javafx.data.log.task.TransplantTask;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.log.task.HarvestingTask;
 import com.etlsolutions.javafx.data.log.task.FertilisationTask;
-import com.etlsolutions.javafx.data.log.event.FruitingEvent;
-import com.etlsolutions.javafx.data.log.event.FloweringEvent;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -67,8 +67,8 @@ public class GrowingDetail extends DataUnitPart {
     private List<PlantThinningTask> plantThinningTasks;
     private List<WateringTask> wateringTasks;
     private List<FertilisationTask> fertilisationTasks;
-    private List<FloweringEvent> floweringEvents;
-    private List<FruitingEvent> fruitingEvents;
+    private List<FloweringGvent> floweringEvents;
+    private List<FruitingGvent> fruitingEvents;
     private List<HarvestingTask> harvestingTasks;
     private List<GrowingIssue> growingIssues;
     private List<GrowingObservation> growingObservations;
@@ -197,43 +197,43 @@ public class GrowingDetail extends DataUnitPart {
         return removed;
     }
     
-    public List<FloweringEvent> getFloweringEvents() {
+    public List<FloweringGvent> getFloweringEvents() {
         return new ArrayList<>(floweringEvents);
     }
 
-    public void setFloweringEvents(List<FloweringEvent> floweringEvents) {
+    public void setFloweringEvents(List<FloweringGvent> floweringEvents) {
         this.floweringEvents = new ArrayList<>(floweringEvents);
         fireChange(FLOWERING_EVENTS_PROPERTY);
     }
 
-    public boolean addFloweringTask(FloweringEvent floweringTask) {
+    public boolean addFloweringTask(FloweringGvent floweringTask) {
         boolean added = floweringEvents.add(floweringTask);
         fireChange(FLOWERING_EVENTS_PROPERTY, false, added);
         return added;
     }
 
-    public boolean removeFloweringTask(FloweringEvent floweringTask) {
+    public boolean removeFloweringTask(FloweringGvent floweringTask) {
         boolean removed = floweringEvents.remove(floweringTask);
         fireChange(FLOWERING_EVENTS_PROPERTY, false, removed);
         return removed;
     }
     
-    public List<FruitingEvent> getFruitingEvents() {
+    public List<FruitingGvent> getFruitingEvents() {
         return new ArrayList<>(fruitingEvents);
     }
 
-    public void setFruitingEvents(List<FruitingEvent> fruitingEvents) {
+    public void setFruitingEvents(List<FruitingGvent> fruitingEvents) {
         this.fruitingEvents = new ArrayList<>(fruitingEvents);
         fireChange(FRUITING_EVENTS_PROPERTY);
     }
 
-    public boolean addFruitingEvent(FruitingEvent fruitingEvent) {
+    public boolean addFruitingEvent(FruitingGvent fruitingEvent) {
         boolean added = fruitingEvents.add(fruitingEvent);
         fireChange(FRUITING_EVENTS_PROPERTY, false, added);
         return added;
     }
  
-    public boolean removeFruitingEvent(FruitingEvent fruitingEvent) {
+    public boolean removeFruitingEvent(FruitingGvent fruitingEvent) {
         boolean removed = fruitingEvents.remove(fruitingEvent);
         fireChange(FRUITING_EVENTS_PROPERTY, false, removed);
         return removed;

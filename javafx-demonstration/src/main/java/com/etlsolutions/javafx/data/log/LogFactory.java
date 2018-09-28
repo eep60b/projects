@@ -1,11 +1,9 @@
 package com.etlsolutions.javafx.data.log;
 
-import com.etlsolutions.javafx.data.DataUnitIdRegistry;
-import com.etlsolutions.javafx.data.log.event.Events;
+import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.task.Tasks;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
@@ -27,18 +25,16 @@ public class LogFactory {
         return l;
     }
 
-    public static Events createEvents() {
+    public static Gvents createEvents() {
 
-        Events e = new Events();
+        Gvents e = new Gvents();
         e.setTitle("Events");
-        e.setYears(new ArrayList<LogYear>());
         return e;
     }
 
     public static Issues createIssues() {
         Issues i = new Issues();
         i.setTitle("Issues");
-        i.setYears(new ArrayList<LogYear>());
         return i;
     }
 
@@ -46,21 +42,18 @@ public class LogFactory {
 
         Notes n = new Notes();
         n.setTitle("Notes");
-        n.setYears(new ArrayList<LogYear>());
         return n;
     }
 
     public static References createReferences() {
         References r = new References();
         r.setTitle("References");
-        r.setYears(new ArrayList<LogYear>());
         return r;
     }
 
     public static Tasks createTasks() {
         Tasks t = new Tasks();
         t.setTitle("Tasks");
-        t.setYears(new ArrayList<LogYear>());
         return t;
     }
 
@@ -73,25 +66,16 @@ public class LogFactory {
     public static WeatherRecords createWeatherRecords() {
         WeatherRecords w = new WeatherRecords();
         w.setTitle("Weather");
-        w.setYears(new ArrayList<LogYear>());
         return w;
     }
 
     public static GrowingIssue createGrowingIssue() {
         GrowingIssue g = new GrowingIssue();
-        g.setId(DataUnitIdRegistry.createNewId());
-        g.setTitle("");
-        g.setSolution("");
-        g.setEffectiveness("");
-        g.setInformation("");
         return g;
     }
 
     public static GrowingObservation createGrowingObservation() {
         GrowingObservation g = new GrowingObservation();
-        g.setId(DataUnitIdRegistry.createNewId());
-        g.setTitle("");
-        g.setInformation("");
         return g;
     }
 }

@@ -1,19 +1,17 @@
 package com.etlsolutions.javafx.data.plant;
 
 import static com.etlsolutions.javafx.data.DataUnit.BUNDLE;
-import com.etlsolutions.javafx.data.DataUnitIdRegistry;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
-import com.etlsolutions.javafx.data.log.event.FloweringEvent;
-import com.etlsolutions.javafx.data.log.event.FruitingEvent;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
 import com.etlsolutions.javafx.data.log.task.FertilisationTask;
 import com.etlsolutions.javafx.data.log.task.HarvestingTask;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.plant.GrowingStartPoint.Source;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -48,7 +46,6 @@ public class PlantsFactory {
 
     public static PlantsGroupRoot createPlantsGroupRoot() {
         PlantsGroupRoot r = new PlantsGroupRoot();
-        r.setId(DataUnitIdRegistry.createNewId());
         String[] defaultTitles = BUNDLE.getString("com.etlsolutions.javafx.data.plant.PlantsFactory.defaultPlantsGroup.Titles").split(",");
         List<PlantGroup> groups = new ArrayList<>();
         for (String title : defaultTitles) {
@@ -65,7 +62,6 @@ public class PlantsFactory {
 
     public static PlantGroup createPlantsGroup(String title) {
         PlantGroup g = new PlantGroup();
-        g.setId(DataUnitIdRegistry.createNewId());
         g.setTitle(title);
         g.setInformation("");
         g.setLogoPath("");
@@ -74,22 +70,20 @@ public class PlantsFactory {
     }
 
     public static PlantType creatPlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks) {
-        return new PlantType(title, information, varieties, imageLinks, new ArrayList<Plants>());
+        return new PlantType(title, information);
     }
 
     public static PlantType creatPlantsType() {
         PlantType t = new PlantType();
-        t.setId(DataUnitIdRegistry.createNewId());
+
         t.setTitle("untitled");
         t.setInformation("");
         t.setLogoPath("");
-        t.setPlantsList(new ArrayList<Plants>());
         return t;
     }
 
     public static Plants creatPlants() {
-        Plants p = new Plants();
-        p.setId(DataUnitIdRegistry.createNewId());
+        Plants p = new Plants();        
         p.setTitle("untitled");
         p.setInformation("");
         p.setLogoPath("");
@@ -100,7 +94,7 @@ public class PlantsFactory {
     }
 
     public static PlantVariety createPlantVariety(String title, String latinName, String information, List<String> aliases, List<ImageLink> imageLinks) {
-        return new PlantVariety(aliases, latinName, title, information, imageLinks);
+        return new PlantVariety(aliases, latinName, title, information);
     }
 
     public static PlantVariety createPlantVariety() {
@@ -119,8 +113,8 @@ public class PlantsFactory {
     public static GrowingDetail createGrowingDetail() {
         GrowingDetail d = new GrowingDetail();
         d.setFertilisationTasks(new ArrayList<FertilisationTask>());
-        d.setFloweringEvents(new ArrayList<FloweringEvent>());
-        d.setFruitingEvents(new ArrayList<FruitingEvent>());
+        d.setFloweringEvents(new ArrayList<FloweringGvent>());
+        d.setFruitingEvents(new ArrayList<FruitingGvent>());
         d.setGrowingIssues(new ArrayList<GrowingIssue>());
         d.setGrowingMedium(createGrowingMedium(DEFAULT_GROWING_MEDIUM_TITLES.get(0)));
         d.setGrowingObservations(new ArrayList<GrowingObservation>());

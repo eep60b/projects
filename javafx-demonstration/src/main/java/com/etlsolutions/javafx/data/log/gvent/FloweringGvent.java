@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.data.log.event;
+package com.etlsolutions.javafx.data.log.gvent;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import java.util.Date;
  *
  * @author zc
  */
-public class FloweringEvent extends Event {
+public class FloweringGvent extends Gvent {
 
     private Date finish;
     private int numberPerPlant = -1;

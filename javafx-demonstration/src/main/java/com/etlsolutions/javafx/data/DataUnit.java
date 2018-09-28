@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * The DataUnit class represents objects which are data units. The the ID for this data unit. Keep the implementation as simple as possible so they can be serialised easily.
@@ -18,8 +20,6 @@ public abstract class DataUnit {
     @JsonIgnore
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.IMG_INFORMATION_PROPERTY";
     @JsonIgnore
-    public static final String IMG_LINKS_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.IMG_LINKS_PROPERTY";
-    @JsonIgnore
     public static final String SELECTED_ING_LINK_INDEX_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.SELECTED_ING_LINK_INDEX_PROPERTY";
     @JsonIgnore
     public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.LOGO_PATH_PROPERTY";
@@ -29,7 +29,7 @@ public abstract class DataUnit {
     private int id;
     private String title;
     private String information;
-    private List<ImageLink> imageLinks;
+    private ObservableList<ImageLink> imageLinks;
     private int selectedImgLinkIndex;
     private String logoPath;
 
@@ -42,15 +42,15 @@ public abstract class DataUnit {
     public DataUnit() {
     }
 
-    public DataUnit(int id, String title, String information, List<ImageLink> imageLinks) {
+    protected DataUnit(int id, String title, String information) {
+        this();
         this.id = id;
         this.title = title;
         this.information = information;
-        this.imageLinks = imageLinks;
     }
     
-    public DataUnit(String title, String information, List<ImageLink> imageLinks) {
-        this(DataUnitIdRegistry.createNewId(), title, information, imageLinks);
+    public DataUnit(String title, String information) {
+        this(DataUnitIdRegistry.getInstance().createNewId(), title, information);
     }
     
     /**
@@ -127,20 +127,6 @@ public abstract class DataUnit {
         return new ArrayList<>(imageLinks);
     }
 
-    public void setImageLinks(List<ImageLink> imageLinks) {
-        this.imageLinks = new ArrayList<>(imageLinks);
-        fireChange(IMG_LINKS_PROPERTY);
-    }
-
-    public void addImgLinks(ImageLink imgLink) {
-        imageLinks.add(imgLink);
-        fireChange(IMG_LINKS_PROPERTY);
-    }
-
-    public void removeImgLinks(ImageLink imgLink) {
-        imageLinks.remove(imgLink);
-        fireChange(IMG_LINKS_PROPERTY);
-    }
 
     public int getSelectedImgLinkIndex() {
         return selectedImgLinkIndex;

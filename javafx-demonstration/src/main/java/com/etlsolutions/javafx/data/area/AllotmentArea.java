@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.area.subarea.CustomSubAreaK;
+import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.Border;
@@ -13,7 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * The AllotmentArea class represents an allotment. It is a rectangle area which usually have borders.
+ * The AllotmentArea class represents an allotment. It is a rectangle area which
+ * usually have borders.
  *
  * @author zc
  */
@@ -25,36 +26,27 @@ public class AllotmentArea extends Area {
     public static final String WIDTH_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.WIDTH_PROPERTY";
     @JsonIgnore
     public static final String UOM_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.UOM_PROPERTY";
-    @JsonIgnore
-    public static final String PLANT_BEDS_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.PLANT_BEDS_PROPERTY";
-    @JsonIgnore
-    public static final String RAISED_PLANT_BEDS_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.RAISED_PLANT_BEDS_PROPERTY";
-    @JsonIgnore
-    public static final String BORDERS_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.BORDERS_PROPERTY";
-    @JsonIgnore
-    public static final String GREENHOUSES_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.GREENHOUSES_PROPERTY";
-    @JsonIgnore
-    public static final String CUSTOM_SUBAREAS_PROPERTY = "com.etlsolutions.javafx.data.area.AllotmentArea.CUSTOM_SUBAREAS_PROPERTY";
 
     private double length;
     private double width;
     private String uom;
-    private final ObservableList<PlantBed> plantBeds;
-    private final ObservableList<RaisedPlantBed> raisedPlantBeds;
-    private final ObservableList<Border> borders;
-    private final ObservableList<Greenhouse> greenhouses;
-    private final ObservableList<CustomSubAreaK> customSubareas;
+    private ObservableList<PlantBed> plantBeds;
+    private ObservableList<RaisedPlantBed> raisedPlantBeds;
+    private ObservableList<Border> borders;
+    private ObservableList<Greenhouse> greenhouses;
+    private ObservableList<CustomSubArea> customSubareas;
 
     public AllotmentArea() {
+
+    }
+
+    protected AllotmentArea(String title, String information, double length, double width, String uom) {
+        super(title, information);
         this.plantBeds = FXCollections.observableArrayList();
         this.raisedPlantBeds = FXCollections.observableArrayList();
         this.borders = FXCollections.observableArrayList();
         this.greenhouses = FXCollections.observableArrayList();
         this.customSubareas = FXCollections.observableArrayList();
-    }
-
-    AllotmentArea(double length, double width, String uom) {
-        this();
         this.length = length;
         this.width = width;
         this.uom = uom;
@@ -106,14 +98,14 @@ public class AllotmentArea extends Area {
         return greenhouses;
     }
 
-    public ObservableList<CustomSubAreaK> getCustomSubareas() {
+    public ObservableList<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
-    
+
     @Override
     public void updateAllSubAreas() {
         List<SubArea> subAreas = getAllSubAreas();
-        subAreas.addAll(plantBeds);        
+        subAreas.addAll(plantBeds);
     }
 
     @Override

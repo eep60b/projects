@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.log.task.Tasks;
-import com.etlsolutions.javafx.data.log.event.Events;
+import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
 
@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
  */
 public class LogGroupRoot extends DataUnit {
   
-   private Events events;
+   private Gvents events;
    private Issues issues;
    private Notes notes;
    private References references;
@@ -19,11 +19,11 @@ public class LogGroupRoot extends DataUnit {
    private Tests tests;
    private WeatherRecords weatherRecords;
 
-    public Events getEvents() {
+    public Gvents getEvents() {
         return events;
     }
 
-    public void setEvents(Events events) {
+    public void setEvents(Gvents events) {
         this.events = events;
     }
 

@@ -18,7 +18,7 @@ public class PlantsTypeTreeItem extends TreeItem<DataUnit> {
         super(model);
         this.model = model;
         List<TreeItem<DataUnit>> children = getChildren();
-        for (Plants plants : model.getPlantses()) {
+        for (Plants plants : model.getPlantsList()) {
             children.add(new PlantsTreeItem(plants));
         }
     }

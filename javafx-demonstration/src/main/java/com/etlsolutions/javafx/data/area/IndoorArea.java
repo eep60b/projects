@@ -5,6 +5,7 @@ import com.etlsolutions.javafx.data.area.subarea.Room;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,11 +15,15 @@ import javafx.collections.ObservableList;
  */
 public class IndoorArea extends Area {
 
-    private final ObservableList<ContainerSet> containerSets;
-    private final ObservableList<SingleContainer> singleContainers;
-    private final ObservableList<Room> rooms;
+    private ObservableList<ContainerSet> containerSets;
+    private ObservableList<SingleContainer> singleContainers;
+    private ObservableList<Room> rooms;
 
     public IndoorArea() {
+    }
+
+    public IndoorArea(String title, String information) {
+        super(title, information);
         containerSets = FXCollections.observableArrayList();
         singleContainers = FXCollections.observableArrayList();
         rooms = FXCollections.observableArrayList();
@@ -43,16 +48,30 @@ public class IndoorArea extends Area {
 
     @Override
     public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(SubAreaType.BORDER, SubAreaType.CUSTOM);
+        return FXCollections.observableArrayList(CONTAINTER_SET, SINGLE_CONTAINTER);
     }
 
     @Override
     public ObservableList<SubArea> getSubAreas(SubAreaType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        ObservableList<SubArea> subAreas = FXCollections.observableArrayList();
+        switch (type) {
+            case CONTAINTER_SET:
+                subAreas.addAll(containerSets);
+                break;
+            case SINGLE_CONTAINTER:
+                subAreas.addAll(singleContainers);
+                break;
+            case ROOM:
+                subAreas.addAll(rooms);
+                break;
+        }
+
+        return subAreas;
     }
 
     @Override
     public AreaType getType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return AreaType.INDOOR;
     }
 }

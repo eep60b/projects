@@ -1,9 +1,11 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -26,6 +28,11 @@ public abstract class Area extends DataUnit {
         allSubAreas = FXCollections.observableArrayList();
     }
 
+    protected Area(String title, String information) {
+        super(title, information);
+        this.allSubAreas = FXCollections.observableArrayList();
+    }
+   
     public abstract AreaType getType();
     
     public abstract void updateAllSubAreas();

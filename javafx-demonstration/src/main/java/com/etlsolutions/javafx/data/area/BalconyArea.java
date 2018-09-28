@@ -4,7 +4,6 @@ import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,17 +13,14 @@ import javafx.collections.ObservableList;
  */
 public class BalconyArea extends Area {
 
-    @JsonIgnore
-    public static final String CONTAINERS_PROPERTY = "com.etlsolutions.javafx.data.area.BalconyArea.CONTAINERS_PROPERTY";
-    @JsonIgnore
-    public static final String CONTAINER_SETS_PROPERTY = "com.etlsolutions.javafx.data.area.BalconyArea.CONTAINER_SETS_PROPERTY";
-
-    private final ObservableList<ContainerSet> containerSets;
-    private final ObservableList<SingleContainer> singleContainers;
+    private ObservableList<ContainerSet> containerSets;
+    private ObservableList<SingleContainer> singleContainers;
 
     public BalconyArea() {
-        containerSets = FXCollections.observableArrayList();
-        singleContainers = FXCollections.observableArrayList();
+    }
+
+    protected BalconyArea(String title, String information) {
+        super(title, information);
     }
 
     public ObservableList<ContainerSet> getContainerSets() {

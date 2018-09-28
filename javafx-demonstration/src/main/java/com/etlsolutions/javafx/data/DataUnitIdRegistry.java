@@ -7,9 +7,11 @@ import java.util.TreeSet;
  *
  * @author zc
  */
-public class DataUnitIdRegistry {
+public final class DataUnitIdRegistry {
 
-  private static final TreeSet<Integer> IDS = new TreeSet<>();
+  private static final DataUnitIdRegistry INSTANCE = new DataUnitIdRegistry();
+  
+  private final TreeSet<Integer> idSet = new TreeSet<>();
   
   private DataUnitIdRegistry() {
       
@@ -17,14 +19,18 @@ public class DataUnitIdRegistry {
       registerId(DATA_UNIT_ID_BASE);
   }
   
-  public static void registerId(int id) {
-    IDS.add(id);
+  public static final DataUnitIdRegistry getInstance() {
+      return INSTANCE;
   }
   
-  public static int createNewId() {
+  public void registerId(int id) {
+    idSet.add(id);
+  }
+  
+  public int createNewId() {
     
-    int newId = IDS.last() + 1;
-    IDS.add(newId);
+    int newId = idSet.last() + 1;
+    idSet.add(newId);
     return newId;
   }
 }

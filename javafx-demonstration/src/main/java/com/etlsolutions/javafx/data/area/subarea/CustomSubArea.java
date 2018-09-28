@@ -9,12 +9,12 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class CustomSubAreaK extends SubArea {
+public class CustomSubArea extends SubArea {
 
     private final ObservableList<CustomLocation> locations;
     private final ObservableList<Container> containers;
 
-    public CustomSubAreaK() {
+    public CustomSubArea() {
         locations = FXCollections.observableArrayList();
         containers = FXCollections.observableArrayList();
     }

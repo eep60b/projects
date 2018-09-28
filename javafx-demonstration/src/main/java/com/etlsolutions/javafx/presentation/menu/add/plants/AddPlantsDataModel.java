@@ -1,10 +1,9 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
-import com.etlsolutions.javafx.data.log.event.Event;
+import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
@@ -23,9 +22,9 @@ import com.etlsolutions.javafx.system.ProjectManager;
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -42,7 +41,8 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     public static final String QUANTITY_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.QUANTITY_TYPE_PROPERTY";
     public static final String SELECTED_GROWING_MEDIUM_RPOPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_GROWING_MEDIUM_RPOPERTY";
     public static final String LOCATION_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.LOCATION_PROPERTY";
-     
+    public static final String ALIVE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.DataUnitDataModel.ALIVE_PROPERTY";
+
     private final ObservableList<PlantGroup> plantGroups;
     private final List<PlantTypesChangeAdapter> plantTypesChangeAdapters;
     private final ObservableList<GrowingMedium> growingMediums;
@@ -55,13 +55,17 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     private LocalDateTime plantedDate;
     private GrowingMedium selectedGrowingMedium;
     private Location location;
-    private boolean isAlive = true;
-    private Date terminationDate;
+    private boolean alive;
+    private LocalDateTime terminationDate;
     private String terminationReason;
-    private List<Event> events = new ArrayList<>();
-    private List<Task> tasks = new ArrayList<>();
-    private List<GrowingIssue> issues = new ArrayList<>();
-    private List<GrowingObservation> observations = new ArrayList<>();
+    private final ObservableList<Gvent> events;
+    private Gvent selectedEvent;
+    private final ObservableList<Task> tasks;
+    private Task selectedTask;
+    private final ObservableList<GrowingIssue> issues;
+    private GrowingIssue selectedGrowingIssue;
+    private final ObservableList<GrowingObservation> observations;
+    private GrowingObservation selectedGrowingObservation;
 
     /**
      * Construct an object.
@@ -83,7 +87,13 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         
         growingMediums = new ObservableListWrapper<>(project.getGrowingMediums());
         selectedGrowingMedium = growingMediums.get(0);
-        
+        alive = true;
+        terminationDate = LocalDateTime.now();
+        terminationReason = "";
+        events = FXCollections.observableArrayList();
+        tasks = FXCollections.observableArrayList();
+        issues = FXCollections.observableArrayList();
+        observations = FXCollections.observableArrayList();
     }
 
     public ObservableList<PlantGroup> getPlantGroups() {
@@ -127,7 +137,7 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     }
 
     public boolean addPlantVariety(PlantVariety variety) {
-        boolean added = selectedPlantType.addPlantVariety(variety);
+        boolean added = selectedPlantType.getPlantVarieties().add(variety);
         if(added) {
             setPlantVarieties(selectedPlantType.getPlantVarieties());
             setSelectedVariety(variety);
@@ -215,22 +225,24 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         this.location = location;
     }
 
-    public boolean isIsAlive() {
-        return isAlive;
+    public boolean isAlive() {
+        return alive;
     }
 
-    public void setIsAlive(boolean isAlive) {
-        this.isAlive = isAlive;
+    public void setAlive(boolean alive) {
+        this.alive = alive;
     }
 
-    public Date getTerminationDate() {
+    public LocalDateTime getTerminationDate() {
         return terminationDate;
     }
 
-    public void setTerminationDate(Date terminationDate) {
+    public void setTerminationDate(LocalDateTime terminationDate) {
+        LocalDateTime oldValue = this.terminationDate;
         this.terminationDate = terminationDate;
+        support.firePropertyChange(ALIVE_PROPERTY, oldValue, this.terminationDate);
     }
-
+    
     public String getTerminationReason() {
         return terminationReason;
     }
@@ -239,41 +251,73 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         this.terminationReason = terminationReason;
     }
 
-    public List<Event> getEvents() {
+    public ObservableList<Gvent> getEvents() {
         return events;
     }
 
-    public void setEvents(List<Event> events) {
-        this.events = events;
+    public Gvent getSelectedEvent() {
+        return selectedEvent;
     }
 
-    public List<Task> getTasks() {
+    public void setSelectedEvent(Gvent selectedEvent) {
+        this.selectedEvent = selectedEvent;
+    }
+    
+    public void removeSelectedEvent() {
+        events.remove(selectedEvent);
+    }
+
+    public ObservableList<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public Task getSelectedTask() {
+        return selectedTask;
     }
 
-    public List<GrowingIssue> getIssues() {
+    public void setSelectedTask(Task selectedTask) {
+        this.selectedTask = selectedTask;
+    }
+        
+    public void removeSelectedTask() {
+        tasks.remove(selectedTask);
+    }
+    
+    public ObservableList<GrowingIssue> getIssues() {
         return issues;
     }
 
-    public void setIssues(List<GrowingIssue> issues) {
-        this.issues = issues;
+    public GrowingIssue getSelectedGrowingIssue() {
+        return selectedGrowingIssue;
     }
 
-    public List<GrowingObservation> getObservations() {
+    public void setSelectedGrowingIssue(GrowingIssue selectedGrowingIssue) {
+        this.selectedGrowingIssue = selectedGrowingIssue;
+    }
+
+    public void removeSelectedGrowingIssue() {
+        issues.remove(selectedGrowingIssue);
+    }
+    
+    public ObservableList<GrowingObservation> getObservations() {
         return observations;
     }
 
-    public void setObservations(List<GrowingObservation> observations) {
-        this.observations = observations;
+    public GrowingObservation getSelectedGrowingObservation() {
+        return selectedGrowingObservation;
     }
 
+    public void setSelectedGrowingObservation(GrowingObservation selectedGrowingObservation) {
+        this.selectedGrowingObservation = selectedGrowingObservation;
+    }
+
+    public void removeSelectedGrowingObservation() {
+        observations.remove(selectedGrowingObservation);
+    }
+    
     @Override
     public void save() {
-        selectedPlantType.addPlants(PlantsFactory.creatPlants());
+        selectedPlantType.getPlantsList().add(PlantsFactory.creatPlants());
         close();
     }
 

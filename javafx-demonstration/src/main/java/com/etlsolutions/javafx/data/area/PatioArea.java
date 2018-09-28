@@ -15,12 +15,17 @@ import javafx.collections.ObservableList;
  */
 public class PatioArea extends Area {
 
-    private final ObservableList<RaisedPlantBed> raisedPlantBeds;
-    private final ObservableList<Greenhouse> greenhouses;
-    private final ObservableList<SingleContainer> singleContainers;
-    private final ObservableList<ContainerSet> containerSets;
+    private ObservableList<RaisedPlantBed> raisedPlantBeds;
+    private ObservableList<Greenhouse> greenhouses;
+    private ObservableList<SingleContainer> singleContainers;
+    private ObservableList<ContainerSet> containerSets;
 
     public PatioArea() {
+
+    }
+
+    public PatioArea(String title, String information) {
+        super(title, information);
         raisedPlantBeds = FXCollections.observableArrayList();
         greenhouses = FXCollections.observableArrayList();
         singleContainers = FXCollections.observableArrayList();

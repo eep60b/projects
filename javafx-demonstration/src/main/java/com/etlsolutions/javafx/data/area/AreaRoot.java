@@ -10,16 +10,21 @@ import javafx.collections.ObservableList;
  */
 public class AreaRoot extends DataUnit {
 
-    private final ObservableList<GardenArea> gardenAreas;
-    private final ObservableList<IndoorArea> indoorAreas;
-    private final ObservableList<PatioArea> patioAreas;
-    private final ObservableList<BalconyArea> balconyAreas;
-    private final ObservableList<AllotmentArea> allotmentAreas;
-    private final ObservableList<FarmArea> farmAreas;
-    private final ObservableList<CustomArea> customAreas;
-    private final ObservableList<Area> allAreas;
+    private ObservableList<GardenArea> gardenAreas;
+    private ObservableList<IndoorArea> indoorAreas;
+    private ObservableList<PatioArea> patioAreas;
+    private ObservableList<BalconyArea> balconyAreas;
+    private ObservableList<AllotmentArea> allotmentAreas;
+    private ObservableList<FarmArea> farmAreas;
+    private ObservableList<CustomArea> customAreas;
+    private ObservableList<Area> allAreas;
 
     public AreaRoot() {
+
+    }
+
+    public AreaRoot(String title, String information) {
+        super(title, information);
         gardenAreas = FXCollections.observableArrayList();
         indoorAreas = FXCollections.observableArrayList();
         patioAreas = FXCollections.observableArrayList();
@@ -31,6 +36,7 @@ public class AreaRoot extends DataUnit {
         
         updateAllAreas();
     }
+
     
     private void updateAllAreas() {
         allAreas.clear();

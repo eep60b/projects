@@ -23,8 +23,8 @@ public class PlantVariety extends DataUnit {
     public PlantVariety() {
     }
 
-    public PlantVariety(List<String> aliases, String latinName, String title, String information, List<ImageLink> imageLinks) {
-        super(title, information, imageLinks);
+    public PlantVariety(List<String> aliases, String latinName, String title, String information) {
+        super(title, information);
         this.aliases = aliases;
         this.latinName = latinName;
     }

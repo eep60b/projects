@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
-import com.etlsolutions.javafx.data.area.subarea.CustomSubAreaK;
+import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.Border;
@@ -20,17 +20,22 @@ import javafx.collections.ObservableList;
  */
 public class GardenArea extends Area {
 
-    private final ObservableList<PlantBed> plantBeds;
-    private final ObservableList<RaisedPlantBed> raisedPlantBeds;
-    private final ObservableList<Lawn> lawns;
-    private final ObservableList<Border> borders;
-    private final ObservableList<Greenhouse> greenhouses;
-    private final ObservableList<ContainerSet> containerSets;
-    private final ObservableList<SingleContainer> singleContainers;
-    private final ObservableList<Pond> ponds;
-    private final ObservableList<CustomSubAreaK> customSubareas;
+    private ObservableList<PlantBed> plantBeds;
+    private ObservableList<RaisedPlantBed> raisedPlantBeds;
+    private ObservableList<Lawn> lawns;
+    private ObservableList<Border> borders;
+    private ObservableList<Greenhouse> greenhouses;
+    private ObservableList<ContainerSet> containerSets;
+    private ObservableList<SingleContainer> singleContainers;
+    private ObservableList<Pond> ponds;
+    private ObservableList<CustomSubArea> customSubareas;
 
     public GardenArea() {
+
+    }
+
+    public GardenArea(String title, String information) {
+        super(title, information);
         plantBeds = FXCollections.observableArrayList();
         raisedPlantBeds = FXCollections.observableArrayList();
         lawns = FXCollections.observableArrayList();
@@ -74,7 +79,7 @@ public class GardenArea extends Area {
         return ponds;
     }
 
-    public ObservableList<CustomSubAreaK> getCustomSubareas() {
+    public ObservableList<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
 

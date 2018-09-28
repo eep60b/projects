@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.data.log.event;
+package com.etlsolutions.javafx.data.log.gvent;
 
 import com.etlsolutions.javafx.data.log.LogGroup;
 
@@ -6,6 +6,6 @@ import com.etlsolutions.javafx.data.log.LogGroup;
  *
  * @author Zhipeng
  */
-public class Events extends LogGroup {
+public class Gvents extends LogGroup {
 
 }

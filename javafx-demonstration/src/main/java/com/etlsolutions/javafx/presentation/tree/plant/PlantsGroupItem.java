@@ -19,7 +19,7 @@ public class PlantsGroupItem extends TreeItem<DataUnit> {
         this.model = model;
         List<TreeItem<DataUnit>> children = getChildren();
         for (PlantType type : model.getPlantsTypes()) {
-            if (!type.getPlantses().isEmpty()) {
+            if (!type.getPlantsList().isEmpty()) {
                 children.add(new PlantsTypeTreeItem(type));
             }
         }
