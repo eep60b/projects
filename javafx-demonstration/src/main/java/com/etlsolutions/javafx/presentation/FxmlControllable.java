@@ -8,13 +8,13 @@ import javafx.stage.Stage;
  * @author zc
  * @param <T>
  */
-public interface ChildController<T> extends Initializable {
+public interface FxmlControllable<T> extends Initializable {
         
     /**
      * 
-     * @param parentModel 
+     * @param model 
      */
-     void setParentModel(T parentModel);
+     void setModel(T model);
      
-     void setParentStage(Stage parentStage);
+     void setStage(Stage starge);
 }

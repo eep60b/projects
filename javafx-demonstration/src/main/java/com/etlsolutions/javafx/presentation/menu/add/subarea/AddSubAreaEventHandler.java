@@ -1,13 +1,13 @@
 package com.etlsolutions.javafx.presentation.menu.add.subarea;
 
-import com.etlsolutions.javafx.presentation.ActionEventHandler;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.location.AddLocationWizardDataModel;
 
 /**
  *
  * @author zc
  */
-public class AddSubAreaEventHandler extends ActionEventHandler<AddLocationWizardDataModel> {
+public class AddSubAreaEventHandler extends AbstractActionEventHandler<AddLocationWizardDataModel> {
 
     private final String typeTitle;
 

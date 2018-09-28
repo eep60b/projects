@@ -1,12 +1,12 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
-import com.etlsolutions.javafx.presentation.ActionEventHandler;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 
 /**
  *
  * @author zc
  */
-public class AddGrowingMediumEventHandler extends ActionEventHandler<AddGrowingMediumDataModel> {
+public class AddGrowingMediumEventHandler extends AbstractActionEventHandler<AddGrowingMediumDataModel> {
 
     public AddGrowingMediumEventHandler(AddGrowingMediumDataModel model) {
         super(model);

@@ -1,12 +1,12 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
-import com.etlsolutions.javafx.presentation.ActionEventHandler;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 
 /**
  *
  * @author zc
  */
-public class AddAliasEventHandler extends ActionEventHandler<VarietyDialogDataModel> {
+public class AddAliasEventHandler extends AbstractActionEventHandler<VarietyDialogDataModel> {
 
     public AddAliasEventHandler(VarietyDialogDataModel parentModel) {
        super(parentModel);

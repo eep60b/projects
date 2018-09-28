@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
-import com.etlsolutions.javafx.presentation.ChildController;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
 import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
 import static com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAliasDataModel.*;
@@ -13,13 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import com.etlsolutions.javafx.presentation.FxmlControllable;
 
 /**
  * AddVarietyAliasFXMLController is an FXML Controller class which control the add variety alias dialog.
  *
  * @author zc
  */
-public class AddVarietyAliasFXMLController implements ChildController<VarietyDialogDataModel> {
+public class AddVarietyAliasFXMLController implements FxmlControllable<VarietyDialogDataModel> {
 
     private VarietyDialogDataModel parentModel;
     
@@ -60,12 +60,12 @@ public class AddVarietyAliasFXMLController implements ChildController<VarietyDia
     }
 
     @Override
-    public void setParentModel(VarietyDialogDataModel parentModel) {
+    public void setModel(VarietyDialogDataModel parentModel) {
         this.parentModel = parentModel;
     }
 
     @Override
-    public void setParentStage(Stage parentStage) {
+    public void setStage(Stage parentStage) {
         this.parentStage = parentStage;
     }
 }

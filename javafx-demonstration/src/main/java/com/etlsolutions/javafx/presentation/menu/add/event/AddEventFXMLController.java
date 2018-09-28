@@ -1,16 +1,16 @@
 package com.etlsolutions.javafx.presentation.menu.add.event;
 
-import com.etlsolutions.javafx.presentation.ChildController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.Stage;
+import com.etlsolutions.javafx.presentation.FxmlControllable;
 
 /**
  * FXML Controller class
  *
  * @author zc
  */
-public class AddEventFXMLController implements ChildController<AddEventDataModel> {
+public class AddEventFXMLController implements FxmlControllable<AddEventDataModel> {
 
     /**
      * Initializes the controller class.
@@ -23,12 +23,12 @@ public class AddEventFXMLController implements ChildController<AddEventDataModel
     }    
 
     @Override
-    public void setParentModel(AddEventDataModel parentModel) {
+    public void setModel(AddEventDataModel parentModel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void setParentStage(Stage parentStage) {
+    public void setStage(Stage parentStage) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

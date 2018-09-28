@@ -1,12 +1,12 @@
 package com.etlsolutions.javafx.presentation.menu.add.issue;
 
-import com.etlsolutions.javafx.presentation.ActionEventHandler;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 
 /**
  *
  * @author zc
  */
-public class AddIssueEventHandler extends ActionEventHandler<AddIssueDataModel> {
+public class AddIssueEventHandler extends AbstractActionEventHandler<AddIssueDataModel> {
 
     public AddIssueEventHandler(AddIssueDataModel parentModel) {
         super(parentModel);

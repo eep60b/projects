@@ -1,12 +1,12 @@
 package com.etlsolutions.javafx.presentation.menu.edit.event;
 
-import com.etlsolutions.javafx.presentation.ActionEventHandler;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 
 /**
  *
  * @author zc
  */
-public class EditEventEventHandler extends ActionEventHandler<EditEventDataModel>{
+public class EditEventEventHandler extends AbstractActionEventHandler<EditEventDataModel>{
 
     public EditEventEventHandler(EditEventDataModel parentModel) {
         super(parentModel);

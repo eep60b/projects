@@ -9,7 +9,6 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventH
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
-import com.etlsolutions.javafx.presentation.ChildController;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
 import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
@@ -30,13 +29,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import com.etlsolutions.javafx.presentation.FxmlControllable;
 
 /**
  * AddPlantVarietyDialogFXMLController is an FXML Controller class which control the add plant variety dialog.
  *
  * @author zc
  */
-public class AddPlantVarietyDialogFXMLController implements ChildController<VarietyAddable> {
+public class AddPlantVarietyDialogFXMLController implements FxmlControllable<VarietyAddable> {
 
     
     private VarietyAddable parentModel;
@@ -156,12 +156,12 @@ public class AddPlantVarietyDialogFXMLController implements ChildController<Vari
     }    
 
     @Override
-    public void setParentModel(VarietyAddable parentModel) {
+    public void setModel(VarietyAddable parentModel) {
         this.parentModel = parentModel;
     }
 
     @Override
-    public void setParentStage(Stage parentStage) {
+    public void setStage(Stage parentStage) {
         this.parentStage = parentStage;
     }
 }

@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.area;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.presentation.FxmlControllable;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
 import com.etlsolutions.javafx.presentation.imagelink.AddImageLinkEventHandler;
@@ -9,7 +10,6 @@ import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandle
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -19,13 +19,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author Zhipeng
  */
-public class AddAreaDialogFXMLController implements Initializable {
+public class AddAreaDialogFXMLController implements FxmlControllable<AddAreaDialogDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -87,4 +88,13 @@ public class AddAreaDialogFXMLController implements Initializable {
         }
     }
 
+    @Override
+    public void setModel(AddAreaDialogDataModel model) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setStage(Stage starge) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

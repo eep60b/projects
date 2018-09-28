@@ -15,16 +15,18 @@ import org.apache.log4j.Logger;
  * @author zc
  * @param <T>
  */
-public abstract class ActionEventHandler<T> implements EventHandler<ActionEvent> {
+public abstract class AbstractActionEventHandler<T> implements EventHandler<ActionEvent> {
 
-    protected final T parentModel;
+    protected final T model;
 
-    public ActionEventHandler(T parentModel) {
-        this.parentModel = parentModel;
+    public AbstractActionEventHandler(T model) {
+        this.model = model;
     }
 
     public abstract String getFxmlFilePath();
+    
     public abstract String getStageTitle();
+    
     public abstract String getErrorMessage();
     
     @Override
@@ -34,11 +36,12 @@ public abstract class ActionEventHandler<T> implements EventHandler<ActionEvent>
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource(getFxmlFilePath()));
             Parent root = loader.load();
-            ChildController controller = loader.getController();
-            controller.setParentModel(parentModel);
+            FxmlControllable<T> controller = loader.getController();
+            controller.setModel(model);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
+            controller.setStage(stage);
             stage.setTitle(getStageTitle());
             stage.setScene(scene);
             stage.show();
