@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.issue;
+package com.etlsolutions.javafx.presentation.menu.add.growingissue;
 
 import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 
@@ -6,9 +6,9 @@ import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
  *
  * @author zc
  */
-public class AddIssueEventHandler extends AbstractActionEventHandler<AddIssueDataModel> {
+public class AddGrowingIssueEventHandler extends AbstractActionEventHandler<AddGrowingIssueDataModel> {
 
-    public AddIssueEventHandler(AddIssueDataModel parentModel) {
+    public AddGrowingIssueEventHandler(AddGrowingIssueDataModel parentModel) {
         super(parentModel);
     }
 

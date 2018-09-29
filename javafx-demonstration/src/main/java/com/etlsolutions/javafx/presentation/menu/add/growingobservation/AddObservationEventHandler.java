@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.observation;
+package com.etlsolutions.javafx.presentation.menu.add.growingobservation;
 
 import javafx.event.ActionEvent;
 

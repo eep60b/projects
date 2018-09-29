@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.etlsolutions.javafx.presentation.menu.add.event;
+package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 
@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.data.log.gvent.Gvent;
  *
  * @author zc
  */
-public class AddEventDataModel {
+public class AddGventDataModel {
 
     public Gvent getEvent() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

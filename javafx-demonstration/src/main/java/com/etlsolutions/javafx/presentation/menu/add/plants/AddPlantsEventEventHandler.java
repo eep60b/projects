@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
-import com.etlsolutions.javafx.presentation.menu.add.event.AddEventDataModel;
-import com.etlsolutions.javafx.presentation.menu.add.event.AddEventEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.AddGventDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.AddGventEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -20,8 +20,8 @@ public class AddPlantsEventEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        AddEventDataModel eventModel = new AddEventDataModel();
-        AddEventEventHandler handler = new AddEventEventHandler(eventModel);
+        AddGventDataModel eventModel = new AddGventDataModel();
+        AddGventEventHandler handler = new AddGventEventHandler(eventModel);
         handler.handle(event);
         Gvent e = eventModel.getEvent();
         model.getEvents().add(e);

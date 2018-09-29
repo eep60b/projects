@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.observation;
+package com.etlsolutions.javafx.presentation.menu.add.growingobservation;
 
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 

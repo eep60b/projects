@@ -16,5 +16,5 @@ public interface FxmlControllable<T> extends Initializable {
      */
      void setModel(T model);
      
-     void setStage(Stage starge);
+     void setStage(Stage stage);
 }

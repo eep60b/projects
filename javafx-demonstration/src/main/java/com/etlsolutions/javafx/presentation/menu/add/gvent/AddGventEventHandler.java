@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.event;
+package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 
@@ -6,9 +6,9 @@ import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
  *
  * @author zc
  */
-public class AddEventEventHandler extends AbstractActionEventHandler<AddEventDataModel> {
+public class AddGventEventHandler extends AbstractActionEventHandler<AddGventDataModel> {
 
-    public AddEventEventHandler(AddEventDataModel parentModel) {
+    public AddGventEventHandler(AddGventDataModel parentModel) {
         super(parentModel);
     }
 

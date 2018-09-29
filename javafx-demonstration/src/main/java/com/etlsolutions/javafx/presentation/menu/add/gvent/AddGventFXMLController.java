@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.event;
+package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,7 +10,7 @@ import com.etlsolutions.javafx.presentation.FxmlControllable;
  *
  * @author zc
  */
-public class AddEventFXMLController implements FxmlControllable<AddEventDataModel> {
+public class AddGventFXMLController implements FxmlControllable<AddGventDataModel> {
 
     /**
      * Initializes the controller class.
@@ -23,7 +23,7 @@ public class AddEventFXMLController implements FxmlControllable<AddEventDataMode
     }    
 
     @Override
-    public void setModel(AddEventDataModel parentModel) {
+    public void setModel(AddGventDataModel parentModel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -1,11 +1,11 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.presentation.menu.add.observation.AddObservationEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.observation.AddObservationDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.growingobservation.AddObservationEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.growingobservation.AddObservationDataModel;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
-import com.etlsolutions.javafx.presentation.menu.add.issue.AddIssueDataModel;
-import com.etlsolutions.javafx.presentation.menu.add.issue.AddIssueEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.growingissue.AddGrowingIssueDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.growingissue.AddGrowingIssueEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

@@ -2,8 +2,7 @@ package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * Example: Events, Tasks, Issues, Tests, Note.
@@ -15,29 +14,51 @@ public class Log extends DataUnit {
   @JsonIgnore
   public static final String MODIFIED_TIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.MODIFIED_TIME_PROPERTY";
 
-  private final Calendar createdTime = Calendar.getInstance();
+  private LocalDateTime createdTime;
   
-  private final Calendar modifiedTime = Calendar.getInstance();
+  private LocalDateTime modifiedTime;
   
-  public Date getCreatedTime() {
-    return createdTime.getTime();
-}
-  
-  public Date getModifiedTime() {
-    return modifiedTime.getTime();
-  }
+  private LocalDateTime firstHappeningTime;
 
-  public void setModifiedTime(Date time) {
-    Date oldValue = modifiedTime.getTime();
-    modifiedTime.setTime(time);
-    fireChange(MODIFIED_TIME_PROPERTY, oldValue, time);
-  }
+    public Log() {
+    }
+
+    public Log(String title, String information) {
+        super(title, information);
+        createdTime = LocalDateTime.now();
+        modifiedTime = createdTime;
+    }
+
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public LocalDateTime getModifiedTime() {
+        return modifiedTime;
+    }
+
+    public void setModifiedTime(LocalDateTime modifiedTime) {
+        this.modifiedTime = modifiedTime;
+    }
+
+    public LocalDateTime getFirstHappeningTime() {
+        return firstHappeningTime;
+    }
+
+    public void setFirstHappeningTime(LocalDateTime firstHappeningTime) {
+        this.firstHappeningTime = firstHappeningTime;
+    }
+  
 
   public int getYear() {
-    return modifiedTime.get(Calendar.YEAR);
+    return firstHappeningTime.getYear();
   }
 
   public int getMonth() {
-    return modifiedTime.get(Calendar.MONTH);
+    return firstHappeningTime.getMonth().getValue();
   }
 }

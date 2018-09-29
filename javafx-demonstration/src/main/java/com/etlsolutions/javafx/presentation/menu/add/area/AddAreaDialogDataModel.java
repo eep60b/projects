@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.area;
 
+import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.Closable;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
