@@ -26,7 +26,7 @@ public class PlantVarietySelectionProertyChangeAdapter implements PropertyChange
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         
-        PlantTypeDialogDataModel model = (PlantTypeDialogDataModel) evt.getSource();
+        AddPlantTypeDialogDataModel model = (AddPlantTypeDialogDataModel) evt.getSource();
         PlantVariety v = model.getSelectedVariety();
         boolean noSelection = v == null;
         editVarityButton.setDisable(noSelection);

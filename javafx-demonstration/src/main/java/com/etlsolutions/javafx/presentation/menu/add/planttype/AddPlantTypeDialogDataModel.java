@@ -3,62 +3,38 @@ package com.etlsolutions.javafx.presentation.menu.add.planttype;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
+import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
-import com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAddable;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
 import com.etlsolutions.javafx.system.ProjectManager;
 import com.sun.javafx.collections.ObservableListWrapper;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable, VarietyAddable {
+public class AddPlantTypeDialogDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable {
 
-    public static final String VARIETIES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.VARIETIES_PROPERTY";
     public static final String SELECTED_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.SELECTED_VARIETY_PROPERTY";
 
-    private ObservableList<PlantVariety> varieties;
+    private final ObservableList<PlantGroup> plantGroups;
+    private PlantGroup selectedPlantGroup;
+    
+    private final ObservableList<PlantVariety> varieties;
     private PlantVariety selectedVariety;
 
-    private final List<PlantGroup> plantGroups;
-    private PlantGroup selectedPlantGroup;
-
-    public PlantTypeDialogDataModel() {
+    public AddPlantTypeDialogDataModel() {
         plantGroups = ProjectManager.getInstance().getProject().getPlantsGroupRoot().getPlantGroups();
         selectedPlantGroup = plantGroups.get(0);
-        varieties = new ObservableListWrapper<>(new ArrayList<PlantVariety>());
+        varieties = FXCollections.observableArrayList();
     }
 
     public ObservableList<PlantVariety> getVarieties() {
         return new ObservableListWrapper<>(varieties);
-    }
-
-    public void setVarieties(ObservableList<PlantVariety> varieties) {
-        this.varieties = new ObservableListWrapper<>(varieties);
-        support.firePropertyChange(VARIETIES_PROPERTY, false, true);
-        if (this.varieties.isEmpty()) {
-            setSelectedVariety(null);
-        } else {
-            setSelectedVariety(this.varieties.get(0));
-        }
-    }
-
-    @Override
-    public boolean addVariety(PlantVariety variety) {
-        
-        boolean added = this.varieties.add(variety);
-        if (added) {
-            support.firePropertyChange(VARIETIES_PROPERTY, false, true);
-            setSelectedVariety(variety);
-        }
-
-        return added;
     }
 
     public PlantVariety getSelectedVariety() {
@@ -73,7 +49,6 @@ public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savab
 
     @Override
     public void validate() {
-        String title = getTitle();
         if (title == null || title.trim().isEmpty()) {
             errorMessage = "Enter the name.";
         }
@@ -98,13 +73,15 @@ public class PlantTypeDialogDataModel extends DataUnitDataModel implements Savab
         this.selectedPlantGroup = selectedPlantGroup;
     }
 
-    public List<PlantGroup> getPlantGroups() {
-        return new ArrayList<>(plantGroups);
+    public ObservableList<PlantGroup> getPlantGroups() {
+        return plantGroups;
     }
 
     @Override
     public void save() {
-        selectedPlantGroup.addPlantsType(PlantsFactory.creatPlantsType());
+        
+        PlantType type = PlantsFactory.creatPlantsType(title, information, varieties, imageLinks);        
+        selectedPlantGroup.getPlantsTypes().add(type);
     }
 
     public void removeSelectedPlantVariety() {

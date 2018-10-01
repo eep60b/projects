@@ -14,21 +14,15 @@ public class ImageOkEventHandler implements EventHandler<ActionEvent> {
 
     private final DataUnitDataModel parentModel;
     private final ImageDataModel model;
-    private final Stage stage;
 
-    public ImageOkEventHandler(DataUnitDataModel parentModel, ImageDataModel model, Stage stage) {
+    public ImageOkEventHandler(DataUnitDataModel parentModel, ImageDataModel model) {
         this.parentModel = parentModel;
         this.model = model;
-        this.stage = stage;
     }
 
     @Override
-    public void handle(ActionEvent event) {
-        ImageLink link = new ImageLink();
-        link.setLink(model.getImageFileLink());
-        link.setInformation(model.getInformation());
-        
-        parentModel.addImageLink(link);
+    public void handle(ActionEvent event) {        
+        parentModel.getImageLinks().add(new ImageLink(model.getImageFileLink(), model.getInformation()));
     }
 
 }

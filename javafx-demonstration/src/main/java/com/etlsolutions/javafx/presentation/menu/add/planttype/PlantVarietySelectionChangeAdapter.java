@@ -12,9 +12,9 @@ import javafx.scene.control.SelectionModel;
  */
 public class PlantVarietySelectionChangeAdapter implements ChangeListener<SelectionModel<PlantVariety>> {
 
-    private final PlantTypeDialogDataModel model;
+    private final AddPlantTypeDialogDataModel model;
 
-    public PlantVarietySelectionChangeAdapter(PlantTypeDialogDataModel model) {
+    public PlantVarietySelectionChangeAdapter(AddPlantTypeDialogDataModel model) {
         this.model = model;
     }
 

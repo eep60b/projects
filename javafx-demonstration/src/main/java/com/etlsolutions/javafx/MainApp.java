@@ -18,6 +18,7 @@ import static javafx.application.Application.launch;
 public class MainApp extends Application {
 
     @Override
+    @SuppressWarnings("UseSpecificCatch")
     public void start(Stage stage) {
 
         try {
@@ -43,6 +44,7 @@ public class MainApp extends Application {
      *
      * @param args the command line arguments
      */
+    @SuppressWarnings("UseSpecificCatch")
     public static void main(String[] args) {
                 
         try {

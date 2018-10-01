@@ -9,9 +9,9 @@ import javafx.event.EventHandler;
  */
 public class RemoveAliasEventHandler implements EventHandler<ActionEvent> {
 
-    private final VarietyDialogDataModel model;
+    private final AddVarietyDialogDataModel model;
 
-    public RemoveAliasEventHandler(VarietyDialogDataModel model) {
+    public RemoveAliasEventHandler(AddVarietyDialogDataModel model) {
         this.model = model;
     }
 

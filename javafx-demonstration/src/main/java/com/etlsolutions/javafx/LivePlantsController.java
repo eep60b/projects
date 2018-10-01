@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.plant.PlantsGroupRoot;
+import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.etlsolutions.javafx.presentation.tree.plant.PlantsGroupRootTreeItem;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.net.URL;
@@ -29,7 +29,7 @@ public class LivePlantsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        PlantsGroupRoot r = ProjectManager.getInstance().getProject().getPlantsGroupRoot();
+        PlantGroupRoot r = ProjectManager.getInstance().getProject().getPlantsGroupRoot();
        
         livePlantsTreeView.setRoot(new PlantsGroupRootTreeItem(r));
         MenuItem createPlantsGroupMenuItem = new MenuItem("New Group");

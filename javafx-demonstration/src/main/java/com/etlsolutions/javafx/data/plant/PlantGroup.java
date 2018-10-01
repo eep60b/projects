@@ -1,11 +1,8 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * The PlantGroup class represents a child of root item. Because the root item
@@ -17,37 +14,19 @@ import java.util.Set;
  */
 public class PlantGroup extends DataUnit {
 
-    @JsonIgnore
-    public static final String PLANTS_TYPES_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantGroup.PLANTS_TYPES_PROPERTY";
+    private ObservableList<PlantType> plantsTypes;
 
-    private Set<PlantType> plantsTypes = new HashSet<>();
-
-    public List<PlantType> getPlantsTypes() {
-        return new ArrayList<>(plantsTypes);
+    public PlantGroup() {
     }
 
-    public void setPlantsTypes(List<PlantType> plantsTypes) {
-        this.plantsTypes = new HashSet<>(plantsTypes);
-        fireChange(PLANTS_TYPES_PROPERTY);
+    public PlantGroup(String title, String information) {
+        super(title, information);
+        plantsTypes = FXCollections.observableArrayList();
     }
+    
+    
 
-    /**
-     * Add a plant type to this group.
-     * @param type - The plant type.
-     * @return true if the plant type is added, otherwise return false.
-     */
-    public boolean addPlantsType(PlantType type) {
-        boolean added = plantsTypes.add(type);
-        if(added) {
-            type.setGroup(this);
-        }
-        fireChange(PLANTS_TYPES_PROPERTY, false, added);
-        return added;
-    }
-
-    public boolean removePlantsType(PlantType type) {
-        boolean success = plantsTypes.remove(type);
-        fireChange(PLANTS_TYPES_PROPERTY, false, success);
-        return success;
+    public ObservableList<PlantType> getPlantsTypes() {
+        return plantsTypes;
     }
 }

@@ -12,17 +12,13 @@ import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
-import com.etlsolutions.javafx.presentation.Closable;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
 import com.etlsolutions.javafx.system.ProjectConfiguration;
 import com.etlsolutions.javafx.system.ProjectManager;
-import com.sun.javafx.collections.ObservableListWrapper;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,7 +27,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable, Closable {
+public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable {
 
     public static final String SELECTED_PLANT_GROUP_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_GROUP_PROPERTY ";    
     public static final String PLANT_TYPES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_TYPES_PROPERTY";    
@@ -44,16 +40,15 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     public static final String ALIVE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.DataUnitDataModel.ALIVE_PROPERTY";
 
     private final ObservableList<PlantGroup> plantGroups;
-    private final List<PlantTypesChangeAdapter> plantTypesChangeAdapters;
     private final ObservableList<GrowingMedium> growingMediums;
     private PlantGroup selectedPlantGroup;
-    private ObservableList<PlantType> plantTypes;
+    private GrowingMedium selectedGrowingMedium;    
+    private ObservableList<PlantType> plantTypes;    
     private PlantType selectedPlantType;
     private ObservableList<PlantVariety> plantVarieties;
     private PlantVariety selectedVariety;
-    private PlantsQuantity quantity;
+    private final PlantsQuantity quantity;
     private LocalDateTime plantedDate;
-    private GrowingMedium selectedGrowingMedium;
     private Location location;
     private boolean alive;
     private LocalDateTime terminationDate;
@@ -76,17 +71,18 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         
         ProjectConfiguration project = ProjectManager.getInstance().getProject();
         
-        plantGroups = new ObservableListWrapper<>(project.getPlantsGroupRoot().getPlantGroups());
-        plantTypesChangeAdapters = new ArrayList<>();
-        for (PlantGroup group : plantGroups) {
-            PlantTypesChangeAdapter adapter = new PlantTypesChangeAdapter(group, this);
-            group.addListener(PlantGroup.PLANTS_TYPES_PROPERTY, adapter);
-            plantTypesChangeAdapters.add(adapter);
-        }
-        selectedPlantGroup = plantGroups.get(0);
-        
-        growingMediums = new ObservableListWrapper<>(project.getGrowingMediums());
+        plantGroups = project.getPlantsGroupRoot().getPlantGroups();
+        selectedPlantGroup = plantGroups.get(0);        
+        growingMediums = project.getGrowingMediums();
         selectedGrowingMedium = growingMediums.get(0);
+        plantTypes = FXCollections.observableArrayList(selectedPlantGroup.getPlantsTypes());
+        selectedPlantType = plantTypes.get(0);
+        plantVarieties = selectedPlantType.getPlantVarieties();
+        if(!plantVarieties.isEmpty()) {
+            selectedVariety = plantVarieties.get(0);
+        }
+        quantity = new PlantsQuantity();
+        plantedDate = LocalDateTime.now();
         alive = true;
         terminationDate = LocalDateTime.now();
         terminationReason = "";
@@ -119,8 +115,8 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         return plantTypes;
     }
 
-    public void setPlantTypes(List<PlantType> plantTypes) {
-        this.plantTypes = new ObservableListWrapper<>(plantTypes);
+    public void setPlantTypes(ObservableList<PlantType> plantTypes) {
+        this.plantTypes = plantTypes;
         support.firePropertyChange(SELECTED_PLANT_GROUP_PROPERTY);
         if(!this.plantTypes.isEmpty() && !this.plantTypes.contains(selectedPlantType)) {
             setSelectedPlantType(this.plantTypes.get(0));
@@ -131,8 +127,8 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
         return plantVarieties;
     }
 
-    public void setPlantVarieties(List<PlantVariety> plantVarieties) {
-        this.plantVarieties = new ObservableListWrapper<>(plantVarieties);
+    public void setPlantVarieties(ObservableList<PlantVariety> plantVarieties) {
+        this.plantVarieties = plantVarieties;
         support.firePropertyChange(PLANT_VARIETIES_PROPERTY);
     }
 
@@ -148,7 +144,6 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
       
     @Override
     public void validate() {
-        String title = getTitle();
         if (title == null || title.trim().isEmpty()) {
             errorMessage = "Title is not specified.";
         }
@@ -318,19 +313,9 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     @Override
     public void save() {
         selectedPlantType.getPlantsList().add(PlantsFactory.creatPlants());
-        close();
     }
 
-    @Override
-    public void close() {
-        
-        for (PlantTypesChangeAdapter adapter : plantTypesChangeAdapters) {
-            
-            adapter.getSource().removeListener(PlantGroup.PLANTS_TYPES_PROPERTY, adapter);
-        }
-    }
-
-    void updateLocation() {
+    public void updateLocation() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

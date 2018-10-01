@@ -10,17 +10,17 @@ import java.beans.PropertyChangeSupport;
  *
  * @author zc
  */
-public class VarietyAliasDataModel implements TitleDataModel, Savable, Validatable {
+public class AddVarietyAliasDataModel implements TitleDataModel, Savable, Validatable {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety. VarietyAliasDataModel.TITLE_PROPERTY";
 
-    private final VarietyDialogDataModel parentModel;
+    private final AddVarietyDialogDataModel parentModel;
     private String title;
     private final String oldTitle;
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
-    public VarietyAliasDataModel(VarietyDialogDataModel parentModel) {
+    public AddVarietyAliasDataModel(AddVarietyDialogDataModel parentModel) {
         this.parentModel = parentModel;
         oldTitle = title = parentModel.getSelectedAlias();
     }

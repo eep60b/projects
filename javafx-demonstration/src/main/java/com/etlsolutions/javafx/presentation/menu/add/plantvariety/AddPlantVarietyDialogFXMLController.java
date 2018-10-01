@@ -8,6 +8,8 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHan
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
+import com.etlsolutions.javafx.presentation.AbstractFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -15,10 +17,8 @@ import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
 import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.imagelink.AddImageLinkEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.SelectedImageLinkAdapter;
-import static com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.*;
-import java.net.URL;
+import static com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddVarietyDialogDataModel.*;
 import java.util.List;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,17 +29,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import com.etlsolutions.javafx.presentation.FxmlControllable;
 
 /**
  * AddPlantVarietyDialogFXMLController is an FXML Controller class which control the add plant variety dialog.
  *
  * @author zc
  */
-public class AddPlantVarietyDialogFXMLController implements FxmlControllable<VarietyAddable> {
-
-    
-    private VarietyAddable parentModel;
+public class AddPlantVarietyDialogFXMLController extends AbstractFXMLController<VarietyAddable> {
     
     private Stage parentStage;    
     
@@ -97,16 +93,11 @@ public class AddPlantVarietyDialogFXMLController implements FxmlControllable<Var
     @FXML
     private Button cancelButton;   
 
-    
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initializeComponents() {
         
-        VarietyDialogDataModel model = new VarietyDialogDataModel(parentModel);
+        AddVarietyDialogDataModel model = new AddVarietyDialogDataModel(this.model);
         titleTextField.setText(model.getTitle());
         latinNameTextField.setText(model.getLatinName());
         informationTextArea.setText(model.getInformation());
@@ -135,7 +126,7 @@ public class AddPlantVarietyDialogFXMLController implements FxmlControllable<Var
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         latinNameTextField.textProperty().addListener(new LatinNameChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
-        addAliasButton.setOnAction(new AddAliasEventHandler(model));
+        addAliasButton.setOnAction(new AbstractActionEventHandler<>(model));
         removeAliasButton.setOnAction(new RemoveAliasEventHandler(model));
         
         aliasListView.selectionModelProperty().addListener(new AliasChangeAdapter(model));
@@ -151,17 +142,7 @@ public class AddPlantVarietyDialogFXMLController implements FxmlControllable<Var
         
         model.addPropertyChangeListener(SELECTED_ALIAS_PROPERTY, new SelectedAliasChangeAdapter(removeAliasButton, aliasListView));
         model.addPropertyChangeListener(SELECTED_IMAGE_LINK_PROPERTY, new SelectedImageLinkAdapter(removeImageButton, moveToBeginButton, moveToLeftButton, moveToEndButton, moveToRightButton, editImageButton, imagesHbox));
-        model.addPropertyChangeListener(IMAGE_LINKS_PROPERTY, new ImageLinksAdapter(imagesHbox));
+        model.getImageLinks().addListener(new ImageLinksAdapter(model, imagesHbox));
         model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
     }    
-
-    @Override
-    public void setModel(VarietyAddable parentModel) {
-        this.parentModel = parentModel;
-    }
-
-    @Override
-    public void setStage(Stage parentStage) {
-        this.parentStage = parentStage;
-    }
 }

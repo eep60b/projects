@@ -9,9 +9,9 @@ import javafx.event.EventHandler;
  */
 public class RemovePlantVarietyEventHandler implements EventHandler<ActionEvent> {
 
-    private final PlantTypeDialogDataModel model;
+    private final AddPlantTypeDialogDataModel model;
 
-    public RemovePlantVarietyEventHandler(PlantTypeDialogDataModel model) {
+    public RemovePlantVarietyEventHandler(AddPlantTypeDialogDataModel model) {
         this.model = model;
     }
 

@@ -12,12 +12,15 @@ import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.plant.GrowingStartPoint.Source;
+import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_SEPARATER;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -44,33 +47,45 @@ public class PlantsFactory {
         Collections.sort(DEFAULT_GROWING_MEDIUM_TITLES);
     }
 
-    public static PlantsGroupRoot createPlantsGroupRoot() {
-        PlantsGroupRoot r = new PlantsGroupRoot();
-        String[] defaultTitles = BUNDLE.getString("com.etlsolutions.javafx.data.plant.PlantsFactory.defaultPlantsGroup.Titles").split(",");
-        List<PlantGroup> groups = new ArrayList<>();
+    public static PlantGroupRoot createPlantsGroupRoot() {
+        PlantGroupRoot r = new PlantGroupRoot();
+        String[] defaultTitles = BUNDLE.getString("com.etlsolutions.javafx.data.plant.PlantsFactory.defaultPlantsGroup.Titles").split(BUNDLE_SEPARATER);
+
         for (String title : defaultTitles) {
-            PlantGroup group = createPlantsGroup(title);
-            groups.add(group);
+            PlantGroup group = createPlantsGroup(title, "");
+            if(title.equals("Annual Plants")) {
+                group.getPlantsTypes().add(creatPlantsType("Tomato", ""));
+            }
+            if(title.equals("Biennial Plants")) {
+                group.getPlantsTypes().add(creatPlantsType("Unset", ""));
+            }
+            if(title.equals("Perennial Plants")) {
+                group.getPlantsTypes().add(creatPlantsType("Garlic Chive", ""));
+            }
+            if(title.equals("Trees")) {
+                group.getPlantsTypes().add(creatPlantsType("Appleo", ""));
+            }            
+            r.getPlantGroups().add(group);
+            
         }
-        r.setPlantsGroups(groups);
+        
         return r;
     }
 
     public static PlantGroup createPlantsGroup() {
-        return createPlantsGroup("untitled");
+        return createPlantsGroup("untitled", "");
     }
 
-    public static PlantGroup createPlantsGroup(String title) {
-        PlantGroup g = new PlantGroup();
-        g.setTitle(title);
-        g.setInformation("");
-        g.setLogoPath("");
-        g.setPlantsTypes(new ArrayList<PlantType>());
-        return g;
+    public static PlantGroup createPlantsGroup(String title, String information) {
+        return new PlantGroup(title, information);
     }
 
-    public static PlantType creatPlantsType(String title, String information, List<PlantVariety> varieties, List<ImageLink> imageLinks) {
+    public static PlantType creatPlantsType(String title, String information) {
         return new PlantType(title, information);
+    }
+    
+    public static PlantType creatPlantsType(String title, String information, ObservableList<PlantVariety> varieties, ObservableList<ImageLink> imageLinks) {
+        return new PlantType(title, information, imageLinks, varieties);
     }
 
     public static PlantType creatPlantsType() {
@@ -147,8 +162,8 @@ public class PlantsFactory {
         return t;
     }
 
-    public static List<GrowingMedium> createDefaultGrowingMediums() {
-        List<GrowingMedium> list = new ArrayList<>();
+    public static ObservableList<GrowingMedium> createDefaultGrowingMediums() {
+        ObservableList<GrowingMedium> list = FXCollections.observableArrayList();
         for (String title : DEFAULT_GROWING_MEDIUM_TITLES) {
             list.add(createGrowingMedium(title));
         }

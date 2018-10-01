@@ -18,12 +18,12 @@ public final class DateTimePicker extends DatePicker {
     private ObjectProperty<String> format;
 
     public DateTimePicker() {
-        this(DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy"));
+        this("HH:mm dd-MM-yyyy");
     }
 
-    public DateTimePicker(DateTimeFormatter formatter) {
+    public DateTimePicker(String formatString) {
         super();
-        this.formatter = formatter;
+        this.formatter = DateTimeFormatter.ofPattern(formatString);
         dateTimeValue = new SimpleObjectProperty<>(LocalDateTime.now());
 
         format = new SimpleObjectProperty<String>() {
@@ -34,6 +34,7 @@ public final class DateTimePicker extends DatePicker {
             }
         };
 
+        format.setValue(formatString);
         setConverter(new InternalConverter());
         alignColumnCountWithFormat();
 

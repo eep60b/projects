@@ -7,6 +7,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import com.etlsolutions.javafx.presentation.*?>
 
 <AnchorPane id="AnchorPane" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDialogFXMLController">
   <stylesheets>
@@ -57,10 +58,10 @@
                     <Separator prefWidth="200.0" />
                     <HBox layoutX="20.0" layoutY="30.0" spacing="10.0">
                       <children>
-                        <RadioButton fx:id="singlePlantRadioButton" mnemonicParsing="false" text="Single plant" />
-                        <RadioButton fx:id="multiplePlantRadioButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Multiple plants" />
-                        <RadioButton fx:id="estimatedPlantRadioButton" layoutX="104.0" layoutY="10.0" mnemonicParsing="false" text="Multiple plants (estimated)" />
-                        <RadioButton fx:id="notCountingRadioButton" layoutX="198.0" layoutY="10.0" mnemonicParsing="false" text="Not counting" />
+                        <QuantityTypeRadioButton fx:id="singlePlantRadioButton" mnemonicParsing="false" text="Single plant" />
+                        <QuantityTypeRadioButton fx:id="multiplePlantRadioButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Multiple plants" />
+                        <QuantityTypeRadioButton fx:id="estimatedPlantRadioButton" layoutX="104.0" layoutY="10.0" mnemonicParsing="false" text="Multiple plants (estimated)" />
+                        <QuantityTypeRadioButton fx:id="notCountingRadioButton" layoutX="198.0" layoutY="10.0" mnemonicParsing="false" text="Not counting" />
                       </children>
                     </HBox>
                     <HBox layoutX="20.0" layoutY="100.0" spacing="10.0">
@@ -143,7 +144,7 @@
                     <HBox spacing="10.0">
                       <children>
                         <Label text="Termination date" />
-                        <DatePicker fx:id="terminationDatePicker" />
+                        <DateTimePicker fx:id="terminationDatePicker" />
                       </children>
                     </HBox>
                     <Label text="Termination reason" />

@@ -44,10 +44,19 @@ public class SettingConstants {
      */
     public static final String REPOSITORY_CONFIG_FILE_PATH = REPOSITORY_LOCATION + File.separator + "config.properties";
 
+    
+    public static final String BUNDLE_SEPARATER = ",";
+    
     /**
      *
      */
     public static final String DATAUNIT_BUNDLE_PATH = "com/etlsolutions/javafx/data/DataUnit";
+    
+    /**
+     * 
+     */
+    public static final String ACTION_EVENT_BUNDLE_PATH = "com/etlsolutions/javafx/presentation/AcitionEvent";    
+    
 
     /**
      * **************************** Constants ************************************

@@ -12,8 +12,10 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
+import com.etlsolutions.javafx.presentation.AbstractFXMLController;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -27,17 +29,12 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHa
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumDataModel;
-import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumEventHandler;
 import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddPlantVarietyEventHandler;
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
-import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -49,14 +46,13 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author zc
  */
-public class AddPlantsDialogFXMLController implements Initializable {
+public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPlantsDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -197,21 +193,9 @@ public class AddPlantsDialogFXMLController implements Initializable {
 
     @FXML
     private Button cancelButton;
-    
 
-    private Stage stage;
-
-    /**
-     * Initializes the controller class.
-     *
-     * @param url
-     * @param rb
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-        AddPlantsDataModel model = new AddPlantsDataModel();
-
+    public void initializeComponents() {
         titleTextField.setText(model.getTitle());
         plantGroupCombox.setItems(model.getPlantGroups());
         plantGroupCombox.getSelectionModel().select(model.getSelectedPlantGroup());
@@ -240,7 +224,9 @@ public class AddPlantsDialogFXMLController implements Initializable {
                 throw new IllegalStateException("Invalid type");
         }
 
-        ((IntegerSpinnerValueFactory) plantNumberSpinner.getValueFactory()).valueProperty().setValue(model.getPlantNumber());
+        IntegerSpinnerValueFactory factory = new IntegerSpinnerValueFactory(0, 100000);
+        factory.setValue(model.getPlantNumber());
+        plantNumberSpinner.setValueFactory(factory);
         PlantsQuantity.Type type = model.getQuantityType();
         plantNumberSpinner.setDisable(type == PlantsQuantity.Type.SINGLE || type == PlantsQuantity.Type.NO_COUNTING);
         ((IntegerSpinnerValueFactory) plantNumberSpinner.getValueFactory()).setMin(0);
@@ -264,8 +250,8 @@ public class AddPlantsDialogFXMLController implements Initializable {
         plantGroupCombox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));
         plantTypeCombox.selectionModelProperty().addListener(new PlantTypeChangeAdapter(model));
         addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
-        addPlantVarietyButton.setOnAction(new AddPlantVarietyEventHandler(new AddVarityToPlantsDialogDataModel(model)));
-        addGrowingMediumButton.setOnAction(new AddGrowingMediumEventHandler(new AddGrowingMediumDataModel(model)));
+        addPlantVarietyButton.setOnAction(new AbstractActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
+        addGrowingMediumButton.setOnAction(new AbstractActionEventHandler<>(new AddGrowingMediumDataModel(model)));
         Location location = model.getLocation();
         locationTitleTextField.setText(location == null ? "Not Specified" : location.getTitle());
         locationTitleTextField.setDisable(true);
@@ -282,34 +268,34 @@ public class AddPlantsDialogFXMLController implements Initializable {
         isAliveCheckBox.setSelected(isAlive);
         terminationDatePicker.setDateTimeValue(model.getTerminationDate());
         terminationDatePicker.setDayCellFactory(new CurrentMaxDayCellFactory());
-        
+
         eventListView.setItems(model.getEvents());
         eventListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         eventListView.getSelectionModel().select(model.getSelectedEvent());
         editEventButton.setDisable(model.getSelectedEvent() == null);
         removeEventButton.setDisable(model.getSelectedEvent() == null);
-        
+
         taskListView.setItems(model.getTasks());
         taskListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         taskListView.getSelectionModel().select(model.getSelectedTask());
         editTaskButton.setDisable(model.getSelectedTask() == null);
         removeTaskButton.setDisable(model.getSelectedTask() == null);
-        
+
         issueListView.setItems(model.getIssues());
         issueListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         issueListView.getSelectionModel().select(model.getSelectedGrowingIssue());
-        editIssueButton.setDisable(model.getSelectedGrowingIssue()== null);
-        removeIssueButton.setDisable(model.getSelectedGrowingIssue()== null);
-       
+        editIssueButton.setDisable(model.getSelectedGrowingIssue() == null);
+        removeIssueButton.setDisable(model.getSelectedGrowingIssue() == null);
+
         observationListView.setItems(model.getObservations());
         observationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         observationListView.getSelectionModel().select(model.getSelectedGrowingObservation());
         editObservationButton.setDisable(model.getSelectedGrowingObservation() == null);
         removeObservationButton.setDisable(model.getSelectedGrowingObservation() == null);
-        
+
         errorMessageLabel.setText(model.getErrorMessage());
         okButton.setDisable(!model.isValid());
-        
+
         //Group the radio buttons.
         ToggleGroup toggleGroup = new ToggleGroup();
         singlePlantRadioButton.setToggleGroup(toggleGroup);
@@ -336,7 +322,7 @@ public class AddPlantsDialogFXMLController implements Initializable {
         terminationDatePicker.dateTimeValueProperty().addListener(new TerminationDateChangeAdapter(model));
         terminationTextArea.textProperty().addListener(new TerminationReasonChangeAdapter(model));
         eventListView.selectionModelProperty().addListener(new EventSelectionChangeAdapter(model));
-        addEventButton.setOnAction(new AddPlantsEventEventHandler(model));
+        addEventButton.setOnAction(new AddPlantsGventEventHandler(model));
         editEventButton.setOnAction(new EditPlantsEventEventHandler(model, eventListView));
         removeEventButton.setOnAction(new RemovePlantsEventEventHandler(model));
         eventListView.selectionModelProperty().addListener(new EventSelectionChangeAdapter(model));
@@ -350,10 +336,10 @@ public class AddPlantsDialogFXMLController implements Initializable {
         observationListView.selectionModelProperty().addListener(new ObservationSelectionChangeAdapter(model));
         addObservationButton.setOnAction(new AddPlantsObservationEventHandler(model));
         editObservationButton.setOnAction(new EditPlantsObservationEventHandler(model, observationListView));
-        removeObservationButton.setOnAction(new RemovePlantsObservationEventHandler(model)); 
+        removeObservationButton.setOnAction(new RemovePlantsObservationEventHandler(model));
         okButton.setOnAction(new SaveExitEventHandler(model, stage));
         cancelButton.setOnAction(new CancelEventHandler(stage));
-        
+
         //Add change listeners to model.
         model.addPropertyChangeListener(SELECTED_PLANT_GROUP_PROPERTY, new PlantGroupSelectionPropertyChangeAdapter(plantTypeCombox));
         model.addPropertyChangeListener(QUANTITY_TYPE_PROPERTY, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
@@ -361,9 +347,5 @@ public class AddPlantsDialogFXMLController implements Initializable {
         model.addPropertyChangeListener(LOCATION_PROPERTY, new LocationPropertyChangeAdapter(locationTitleTextField, locationInformationTextArea, editLocationButton));
         model.addPropertyChangeListener(ALIVE_PROPERTY, new AlivePropertyChangeAdapter(terminationDatePicker, terminationTextArea));
         model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
     }
 }

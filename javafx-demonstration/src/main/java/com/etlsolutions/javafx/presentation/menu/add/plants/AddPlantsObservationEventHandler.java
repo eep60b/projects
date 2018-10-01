@@ -1,11 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.presentation.menu.add.growingobservation.AddObservationEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.growingobservation.AddObservationDataModel;
-import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
-import com.etlsolutions.javafx.presentation.menu.add.growingissue.AddGrowingIssueDataModel;
-import com.etlsolutions.javafx.presentation.menu.add.growingissue.AddGrowingIssueEventHandler;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -23,10 +20,10 @@ public class AddPlantsObservationEventHandler implements EventHandler<ActionEven
 
     @Override
     public void handle(ActionEvent event) {
-        AddObservationDataModel issueModel = new AddObservationDataModel();
-        AddObservationEventHandler handler = new AddObservationEventHandler(issueModel);
+        AddObservationDataModel observationModel = new AddObservationDataModel();
+        AbstractActionEventHandler<AddObservationDataModel> handler = new AbstractActionEventHandler<>(observationModel);
         handler.handle(event);
-        GrowingObservation observation = issueModel.getGrowingObservation();
+        GrowingObservation observation = observationModel.getGrowingObservation();
         model.getObservations().add(observation);
         model.setSelectedGrowingObservation(observation);
     }

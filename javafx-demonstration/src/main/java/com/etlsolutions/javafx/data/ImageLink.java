@@ -11,12 +11,23 @@ import com.etlsolutions.javafx.presentation.InformationDataModel;
  */
 public class ImageLink implements InformationDataModel {
 
-    @JsonIgnore    
-    public static final String IMAGE_LINK_LINK_PROPERTY = "com.etlsolutions.javafx.data.IMAGE_LINK_LINK_PROPERTY";
-    
+    @JsonIgnore
+    public static final String LINK_PROPERTY = "com.etlsolutions.javafx.data.ImageLink.LINK_PROPERTY";
+
+    @JsonIgnore
+    public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.INFORMATION._PROPERTY";
+
     private String link;
     private String information;
 
+    public ImageLink() {
+    }
+
+    public ImageLink(String link, String information) {
+        this.link = link;
+        this.information = information;
+    }
+        
     @JsonIgnore
     private final DataUnitChangeSupport support = new DataUnitChangeSupport();
 
@@ -27,7 +38,7 @@ public class ImageLink implements InformationDataModel {
     public void setLink(String link) {
         String oldValue = this.link;
         this.link = link;
-        support.fireChange(IMAGE_LINK_LINK_PROPERTY, oldValue, this.link);
+        support.fireChange(LINK_PROPERTY, oldValue, this.link);
     }
 
     @Override
@@ -37,7 +48,9 @@ public class ImageLink implements InformationDataModel {
 
     @Override
     public void setInformation(String information) {
+        String oldValue = this.information;
         this.information = information;
+        support.fireChange(INFORMATION_PROPERTY, oldValue, this.information);
     }
 
     public void addListener(String property, DataUnitChangeListener listener) {

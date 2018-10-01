@@ -23,11 +23,11 @@ import javax.imageio.IIOException;
 public final class ProjectManager {
 
     public static final String NEW_PROJECT_PROPERTY = "com.etlsolutions.javafx.system.ProjectManager.NEW_PROJECT_PROPERTY";
-    
+
     private static final ProjectManager INSTANCE = new ProjectManager();
 
     private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
-    
+
     private final ObjectMapper mapper = new ObjectMapper();
     private ProjectConfiguration configuration;
 
@@ -61,19 +61,17 @@ public final class ProjectManager {
 
             configuration.setParentPath(projectDirectory.getParent());
             configuration.setName(projectDirectory.getName());
+            configuration.setGrowingMediums(PlantsFactory.createDefaultGrowingMediums());
+        } else {
+            //      createProject(projectDirectory.getParent(), projectDirectory.getName());
+
+            //manually set things up for now.
+            configuration.setGrowingMediums(PlantsFactory.createDefaultGrowingMediums());
         }
+
         configuration.setAreaRoot(AreaFactory.createAreaRoot());
         configuration.setPlantsGroupRoot(PlantsFactory.createPlantsGroupRoot());
         configuration.setLogGroupRoot(LogFactory.createLogGroupRoot());
-    }
-
-    public ProjectConfiguration createPorject(String parentPath, String projectName) {
-
-        configuration.setParentPath(parentPath);
-        configuration.setName(projectName);
-        configuration.setGrowingMediums(PlantsFactory.createDefaultGrowingMediums());
-
-        return configuration;
     }
 
     public ProjectConfiguration loadProject(String projectPath) throws IOException {
@@ -93,11 +91,12 @@ public final class ProjectManager {
         return configuration;
     }
 
-    public void createProject(String parentPath, String name) {
+    public ProjectConfiguration createProject(String parentPath, String name) {
 
         configuration = new ProjectConfiguration();
         configuration.setParentPath(parentPath);
         configuration.setName(name);
+        configuration.setGrowingMediums(PlantsFactory.createDefaultGrowingMediums());
         File file = new File(configuration.getProjectPath());
         boolean success = file.mkdirs();
 
@@ -106,6 +105,8 @@ public final class ProjectManager {
         }
 
         propertyChangeSupport.firePropertyChange(NEW_PROJECT_PROPERTY, false, true);
+
+        return configuration;
     }
 
     public ProjectConfiguration getProject() {

@@ -14,8 +14,14 @@ public class PlantsQuantity {
     private Type type;
 
     public PlantsQuantity() {
-        setType(Type.SINGLE);
+        this(Type.SINGLE);
     }
+
+    public PlantsQuantity(Type type) {
+        setType(type);
+    }
+    
+    
 
     public int getQuantity() {
         return quantity;

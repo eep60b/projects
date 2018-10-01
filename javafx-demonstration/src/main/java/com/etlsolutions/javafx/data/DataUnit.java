@@ -52,6 +52,13 @@ public abstract class DataUnit {
     public DataUnit(String title, String information) {
         this(DataUnitIdRegistry.getInstance().createNewId(), title, information);
     }
+
+    public DataUnit(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        this(title, information);
+        this.imageLinks = imageLinks;
+    }
+    
+    
     
     /**
      * Get the ID for this data unit.

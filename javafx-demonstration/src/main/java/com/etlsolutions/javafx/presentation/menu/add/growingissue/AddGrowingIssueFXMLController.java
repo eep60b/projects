@@ -1,38 +1,16 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingissue;
 
-import com.etlsolutions.javafx.presentation.FxmlControllable;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.stage.Stage;
+import com.etlsolutions.javafx.presentation.AbstractFXMLController;
 
 /**
  * FXML Controller class
  *
  * @author Zhipeng
  */
-public class AddGrowingIssueFXMLController implements FxmlControllable<AddGrowingIssueDataModel>{
-
-    private AddGrowingIssueDataModel model;
-    private Stage stage;
-
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+public class AddGrowingIssueFXMLController extends AbstractFXMLController<AddGrowingIssueDataModel>{
 
     @Override
-    public void setModel(AddGrowingIssueDataModel model) {
-        this.model = model;
+    public void initializeComponents() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-    
 }

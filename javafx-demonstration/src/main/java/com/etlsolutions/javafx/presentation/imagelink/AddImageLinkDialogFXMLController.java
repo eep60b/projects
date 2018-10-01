@@ -53,7 +53,7 @@ public class AddImageLinkDialogFXMLController implements Initializable {
         
         model.addPropertyChangeListener(IMAGE_FILE_LINK_PROPERTY, new ImagePropertyChangeAdapter(addImageButton, okButton, imageHBox));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
-        okButton.setOnAction(new ImageOkEventHandler(parentModel, model, stage));
+        okButton.setOnAction(new ImageOkEventHandler(parentModel, model));
         cancelButton.setOnAction(new ImageCancelEventHandler(stage));
     }    
 

@@ -2,8 +2,8 @@ package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.ImageLink;
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -13,13 +13,12 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";
-    public static final String IMAGE_LINKS_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMAGE_LINKS_PROPERTY";
     public static final String SELECTED_IMAGE_LINK_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.SELECTED_IMAGE_LINK_PROPERTY";
     public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.LOGO_PATH_PROPERTY";
 
-    private String title;
-    private String information;
-    private List<ImageLink> imageLinks;
+    protected final ObservableList<ImageLink> imageLinks;    
+    protected String title;
+    protected String information;
     private ImageLink selectedImageLink;
     private String logoPath;
     protected boolean valid;
@@ -28,7 +27,7 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
     protected final DataUnitPropertyChangeSupport support = new DataUnitPropertyChangeSupport(this);
 
     public DataUnitDataModel() {
-        this.imageLinks = new ArrayList<>();
+        this.imageLinks = FXCollections.observableArrayList();
     }
 
     protected abstract void validate();
@@ -58,24 +57,10 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
         return information;
     }
 
-    public List<ImageLink> getImageLinks() {
+    public ObservableList<ImageLink> getImageLinks() {
         return imageLinks;
     }
 
-    public void setImageLinks(List<ImageLink> imageLinks) {
-        this.imageLinks = new ArrayList<>(imageLinks);
-        support.firePropertyChange(IMAGE_LINKS_PROPERTY, true, false);
-    }
-
-    public boolean addImageLink(ImageLink imageLink) {
-
-        boolean added = imageLinks.add(imageLink);
-        support.firePropertyChange(IMAGE_LINKS_PROPERTY, false, added);
-        if (added) {
-            setSelectedImageLink(imageLink);
-        }
-        return added;
-    }
 
     public ImageLink getSelectedImageLink() {
         return selectedImageLink;
@@ -111,8 +96,7 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
 
     public void removeSelectedImageLink() {
         int index = imageLinks.indexOf(selectedImageLink);
-        boolean removed = imageLinks.remove(selectedImageLink);
-        support.firePropertyChange(IMAGE_LINKS_PROPERTY, false, removed);
+        imageLinks.remove(selectedImageLink);
         setSelectedImageLink(imageLinks.isEmpty() ? null : imageLinks.get(index == imageLinks.size() ? index - 1 : index));
     }
 

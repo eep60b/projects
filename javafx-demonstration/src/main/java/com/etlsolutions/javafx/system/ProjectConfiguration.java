@@ -3,10 +3,11 @@ package com.etlsolutions.javafx.system;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.plant.GrowingMedium;
-import com.etlsolutions.javafx.data.plant.PlantsGroupRoot;
+import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;
 import java.util.List;
+import javafx.collections.ObservableList;
 
 /**
  * The ProjectConfiguration class contains all the information about a project to run the application.
@@ -21,9 +22,9 @@ public class ProjectConfiguration {
     private String parentPath;
     private boolean encrypted;
     private AreaRoot areaRoot;
-    private PlantsGroupRoot plantsGroupRoot;
+    private PlantGroupRoot plantsGroupRoot;
     private LogGroupRoot logGroupRoot;
-    private List<GrowingMedium> growingMediums;
+    private ObservableList<GrowingMedium> growingMediums;
         
     public String getName() {
         return name;
@@ -73,11 +74,11 @@ public class ProjectConfiguration {
         this.areaRoot = areaRoot;
     }
 
-    public PlantsGroupRoot getPlantsGroupRoot() {
+    public PlantGroupRoot getPlantsGroupRoot() {
         return plantsGroupRoot;
     }
 
-    public void setPlantsGroupRoot(PlantsGroupRoot plantsGroupRoot) {
+    public void setPlantsGroupRoot(PlantGroupRoot plantsGroupRoot) {
         this.plantsGroupRoot = plantsGroupRoot;
     }
 
@@ -93,11 +94,11 @@ public class ProjectConfiguration {
         return false;
     }
 
-    public List<GrowingMedium> getGrowingMediums() {
+    public ObservableList<GrowingMedium> getGrowingMediums() {
         return growingMediums;
     }
 
-    public void setGrowingMediums(List<GrowingMedium> growingMediums) {
+    public void setGrowingMediums(ObservableList<GrowingMedium> growingMediums) {
         this.growingMediums = growingMediums;
-    } 
+    }
 }

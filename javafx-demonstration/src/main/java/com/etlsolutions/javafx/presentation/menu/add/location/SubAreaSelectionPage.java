@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.location;
 
-import com.etlsolutions.javafx.presentation.menu.add.subarea.AddSubAreaEventHandler;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -44,7 +44,7 @@ public class SubAreaSelectionPage extends VBox {
         model.getSubAreas().addListener(new SubAreaListChangeAdapter(areaComboBox, model));
 
         Button addAreaButton = new Button("Add New");
-        addAreaButton.setOnAction(new AddSubAreaEventHandler(model));
+        addAreaButton.setOnAction(new AbstractActionEventHandler<>(model));
 
         subAreaHbox.getChildren().addAll(areaLabel, areaComboBox, addAreaButton);
         super.getChildren().addAll(subAreaTypeHbox, subAreaHbox);

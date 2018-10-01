@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx;
 
-import com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsEventHnadler;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,7 +35,7 @@ public class MenusController implements Initializable {
 
         newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
 
-        addPlantsMenuItem.setOnAction(new AddPlantsEventHnadler());
+        addPlantsMenuItem.setOnAction(new AbstractActionEventHandler<>(new AddPlantsDataModel()));
     }
 
 }

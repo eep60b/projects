@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,12 @@ public class PlantType extends DataUnit {
         this.plantsList = FXCollections.observableArrayList();
     }
 
+    public PlantType(String title, String information, ObservableList<ImageLink> imageLinks, ObservableList<PlantVariety> plantVarieties) {
+        super(title, information, imageLinks, 0, null);
+        this.plantVarieties = plantVarieties;
+        this.plantsList = FXCollections.observableArrayList();        
+    }
+         
     public ObservableList<Plants> getPlantsList() {
         return plantsList;
     }

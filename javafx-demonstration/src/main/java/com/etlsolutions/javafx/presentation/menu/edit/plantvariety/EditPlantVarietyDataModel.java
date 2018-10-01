@@ -1,9 +1,10 @@
-package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
+package com.etlsolutions.javafx.presentation.menu.edit.plantvariety;
 
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.presentation.DataUnitDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
+import com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAddable;
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class VarietyDialogDataModel extends DataUnitDataModel implements Savable, Validatable {
+public class EditPlantVarietyDataModel extends DataUnitDataModel implements Savable, Validatable {
     
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
@@ -24,7 +25,7 @@ public class VarietyDialogDataModel extends DataUnitDataModel implements Savable
     private ObservableList<String> aliases;
     private String selectedAlias;
     
-    public VarietyDialogDataModel(VarietyAddable parentModel) {
+    public EditPlantVarietyDataModel(VarietyAddable parentModel) {
         this.parentModel = parentModel;
         aliases = new ObservableListWrapper<>(new ArrayList<String>());
     }

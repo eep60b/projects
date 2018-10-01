@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.menu.add.planttype;
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
+import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -17,8 +18,7 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHa
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.SelectedImageLinkAdapter;
-import static com.etlsolutions.javafx.presentation.menu.add.planttype.PlantTypeDialogDataModel.*;
-import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddPlantVarietyEventHandler;
+import static com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.*;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -106,7 +106,7 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        PlantTypeDialogDataModel model = new PlantTypeDialogDataModel();
+        AddPlantTypeDialogDataModel model = new AddPlantTypeDialogDataModel();
         titleTextField.setText(model.getTitle());
         informationTextArea.setText(model.getInformation());
         
@@ -136,9 +136,9 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
         groupComboBox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));        
-        addVarityButton.setOnAction(new AddPlantVarietyEventHandler(model));
+        addVarityButton.setOnAction(new AbstractActionEventHandler<>(model));
         removeVarityButton.setOnAction(new RemovePlantVarietyEventHandler(model));
-        editVarityButton.setOnAction(new EditPlantVarietyEventHandler(model));
+        editVarityButton.setOnAction(new AbstractActionEventHandler<>(model));
         varityListView.getSelectionModel().selectionModeProperty().addListener(new PlantVarietySelectionChangeAdapter(model));
         
         addImageButton.setOnAction(new AddImageLinkEventHandler(model));
@@ -155,7 +155,7 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
         model.addPropertyChangeListener(SELECTED_VARIETY_PROPERTY, new PlantVarietySelectionProertyChangeAdapter(editVarityButton, removeVarityButton, varityListView));
         model.addPropertyChangeListener(SELECTED_IMAGE_LINK_PROPERTY, new SelectedImageLinkAdapter(removeImageButton, moveToBeginButton, moveToLeftButton, moveToEndButton, moveToRightButton, editImageButton, imagesHbox));
-        model.addPropertyChangeListener(IMAGE_LINKS_PROPERTY, new ImageLinksAdapter(imagesHbox));        
+        model.getImageLinks().addListener(new ImageLinksAdapter(model, imagesHbox));        
     }    
     
     public void setStage(Stage stage) {
