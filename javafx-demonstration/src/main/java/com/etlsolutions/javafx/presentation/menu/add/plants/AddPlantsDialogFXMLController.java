@@ -46,6 +46,7 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -73,19 +74,10 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
     private Button addPlantVarietyButton;
 
     @FXML
-    private QuantityTypeRadioButton singlePlantRadioButton;
+    private HBox plantNumberTypeHbox;
 
     @FXML
-    private QuantityTypeRadioButton multiplePlantRadioButton;
-
-    @FXML
-    private QuantityTypeRadioButton estimatedPlantRadioButton;
-
-    @FXML
-    private QuantityTypeRadioButton notCountingRadioButton;
-
-    @FXML
-    private Spinner<Integer> plantNumberSpinner;
+    private HBox plantNumberHbox;
 
     @FXML
     private TextArea informationTextArea;
@@ -112,7 +104,7 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
     private Button moveToEndImageButton;
 
     @FXML
-    private DateTimePicker plantedDatePicker;
+    HBox datePlantedHbox;
 
     @FXML
     private ComboBox<GrowingMedium> growingMediumCombobox;
@@ -133,7 +125,7 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
     private CheckBox isAliveCheckBox;
 
     @FXML
-    private DateTimePicker terminationDatePicker;
+    HBox terminationDateHbox;
 
     @FXML
     private TextArea terminationTextArea;
@@ -186,6 +178,7 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
     @FXML
     private Button removeObservationButton;
 
+    @FXML
     private Label errorMessageLabel;
 
     @FXML
@@ -202,6 +195,12 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         plantTypeCombox.setItems(model.getPlantTypes());
         plantTypeCombox.getSelectionModel().select(model.getSelectedPlantType());
         plantVarietyCombobox.setItems(model.getPlantVarieties());
+        
+        QuantityTypeRadioButton singlePlantRadioButton = new QuantityTypeRadioButton();
+        QuantityTypeRadioButton multiplePlantRadioButton = new QuantityTypeRadioButton();
+        QuantityTypeRadioButton estimatedPlantRadioButton = new QuantityTypeRadioButton();
+        QuantityTypeRadioButton notCountingRadioButton = new QuantityTypeRadioButton();
+        plantNumberTypeHbox.getChildren().addAll(singlePlantRadioButton, multiplePlantRadioButton, estimatedPlantRadioButton, notCountingRadioButton);
         singlePlantRadioButton.setType(PlantsQuantity.Type.SINGLE);
         multiplePlantRadioButton.setType(PlantsQuantity.Type.MULTIPLE);
         estimatedPlantRadioButton.setType(PlantsQuantity.Type.ESTIMATION);
@@ -223,7 +222,9 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
             default:
                 throw new IllegalStateException("Invalid type");
         }
-
+        
+        Spinner<Integer> plantNumberSpinner = new Spinner<>();
+        plantNumberHbox.getChildren().add(plantNumberSpinner);
         IntegerSpinnerValueFactory factory = new IntegerSpinnerValueFactory(0, 100000);
         factory.setValue(model.getPlantNumber());
         plantNumberSpinner.setValueFactory(factory);
@@ -242,7 +243,10 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         moveToRightImageButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1));
         editImageButton.setDisable(selectedImageLink == null);
 
-        plantedDatePicker.setDateTimeValue(model.getPlantedDate());
+        DateTimePicker datePlantedPicker = new DateTimePicker();
+        datePlantedHbox.getChildren().add(datePlantedPicker);        
+        datePlantedPicker.setDateTimeValue(model.getPlantedDate());
+        
         growingMediumCombobox.setItems(model.getGrowingMediums());
         growingMediumCombobox.getSelectionModel().select(model.getSelectedGrowingMedium());
 
@@ -259,6 +263,8 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         locationInformationTextArea.setDisable(true);
         editLocationButton.setText(location == null ? "Add Location" : "Edit Location");
         boolean isAlive = model.isAlive();
+        DateTimePicker terminationDatePicker = new DateTimePicker();
+        terminationDateHbox.getChildren().add(terminationDatePicker);
         if (!isAlive) {
             terminationDatePicker.setDateTimeValue(LocalDateTime.now());
             terminationTextArea.setText("");
@@ -315,7 +321,7 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
         moveToRightImageButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
         editImageButton.setOnAction(new EditImageInformationEventHandler(model.getSelectedImageLink()));
-        plantedDatePicker.dateTimeValueProperty().addListener(new PlantedDateChangeAdapter(model));
+        datePlantedPicker.dateTimeValueProperty().addListener(new PlantedDateChangeAdapter(model));
         growingMediumCombobox.selectionModelProperty().addListener(new GrowingMediumChangeAdapter(model));
         editLocationButton.setOnAction(new EditPlantLocationEventHandler(model));
         isAliveCheckBox.selectedProperty().addListener(new IsAliveChangeAdapter(model));

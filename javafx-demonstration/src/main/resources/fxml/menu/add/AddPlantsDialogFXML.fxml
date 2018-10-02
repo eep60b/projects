@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -7,267 +8,257 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import com.etlsolutions.javafx.presentation.*?>
 
 <AnchorPane id="AnchorPane" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDialogFXMLController">
-  <stylesheets>
-    <URL value="@/styles/menu/add/addplantsdialogfxml.css" />
-  </stylesheets>
-  <children>
-    <VBox>
-      <children>
-        <TabPane layoutX="-162.0" layoutY="-233.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
-          <tabs>
-            <Tab text="General Information">
-              <content>
-                <VBox prefHeight="495.0" prefWidth="655.0" spacing="10.0">
-                  <children>
-                    <HBox spacing="10.0">
-                      <children>
-                        <Label text="Title" />
-                        <TextField fx:id="titleTextField" prefHeight="25.0" prefWidth="563.0" HBox.hgrow="ALWAYS">
-                          <HBox.margin>
-                            <Insets right="10.0" />
-                          </HBox.margin>
-                        </TextField>
-                      </children>
-                      <VBox.margin>
-                        <Insets />
-                      </VBox.margin>
-                    </HBox>
-                              <HBox layoutX="20.0" layoutY="65.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Group" />
-                                    <ComboBox fx:id="plantGroupCombox" layoutX="100.0" prefWidth="604.0" HBox.hgrow="ALWAYS" />
-                                 </children>
-                              </HBox>
-                    <HBox layoutX="20.0" layoutY="30.0" spacing="10.0">
-                      <children>
-                        <Label text="Type" />
-                        <ComboBox fx:id="plantTypeCombox" layoutX="100.0" prefHeight="25.0" prefWidth="498.0" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="addPlantTypeButton" mnemonicParsing="false" text="Add a new type" />
-                      </children>
-                    </HBox>
-                    <HBox layoutX="20.0" layoutY="65.0" spacing="10.0">
-                      <children>
-                        <Label text="Variety" />
-                        <ComboBox fx:id="plantVarietyCombobox" prefHeight="25.0" prefWidth="424.0" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="addPlantVarietyButton" mnemonicParsing="false" text="Add a new variety" />
-                      </children>
-                    </HBox>
-                    <Separator prefWidth="200.0" />
-                    <HBox layoutX="20.0" layoutY="30.0" spacing="10.0">
-                      <children>
-                        <QuantityTypeRadioButton fx:id="singlePlantRadioButton" mnemonicParsing="false" text="Single plant" />
-                        <QuantityTypeRadioButton fx:id="multiplePlantRadioButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Multiple plants" />
-                        <QuantityTypeRadioButton fx:id="estimatedPlantRadioButton" layoutX="104.0" layoutY="10.0" mnemonicParsing="false" text="Multiple plants (estimated)" />
-                        <QuantityTypeRadioButton fx:id="notCountingRadioButton" layoutX="198.0" layoutY="10.0" mnemonicParsing="false" text="Not counting" />
-                      </children>
-                    </HBox>
-                    <HBox layoutX="20.0" layoutY="100.0" spacing="10.0">
-                      <children>
-                        <Label text="Plant number" />
-                        <Spinner fx:id="plantNumberSpinner">
-                          <editable>true</editable>
-                        </Spinner>
-                      </children>
-                    </HBox>
-                    <Separator prefWidth="200.0" />
-                    <Label layoutX="20.0" layoutY="135.0" text="Descriptio:n:" />
-                    <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0">
-                      <content>
-                        <TextArea fx:id="informationTextArea" layoutX="20.0" layoutY="162.0" prefHeight="192.0" prefWidth="607.0" />
-                      </content>
-                    </ScrollPane>
-                    <Separator prefWidth="200.0" />
-                    <HBox spacing="10.0">
-                      <children>
-                        <Label layoutX="20.0" layoutY="189.0" text="Images" />
-                        <Button fx:id="addImageButton" mnemonicParsing="false" text="+" />
-                                    <Button fx:id="removeImageButton" layoutX="59.0" layoutY="10.0" mnemonicParsing="false" text="-" />
-                      </children>
-                    </HBox>
-                    <HBox layoutX="20.0" layoutY="30.0" spacing="10.0" VBox.vgrow="ALWAYS">
-                      <children>
-                        <Button fx:id="moveToLeftImageButton" mnemonicParsing="false" text="&lt;&lt;&lt;&lt;" />
-                        <HBox />
-                        <Button fx:id="moveToRightImageButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="&gt;&gt;&gt;&gt;" />
-                      </children>
-                    </HBox>
-                  </children>
-                  <padding>
-                    <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
-                  </padding>
-                </VBox>
-              </content>
-            </Tab>
-            <Tab text="Growing Details">
-              <content>
-                <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                  <children>
-                    <HBox spacing="10.0">
-                      <children>
-                        <Label text="Date planted" />
-                        <DatePicker fx:id="datePlantedDatePicker" />
-                      </children>
-                    </HBox>
-                    <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
-                      <children>
-                        <Label text="Growing medium" />
-                        <ComboBox fx:id="growingMediumCombobox" prefWidth="150.0" />
-                        <Button fx:id="addGrowingMediumButton" mnemonicParsing="false" text="Add new growing medium" />
-                      </children>
-                    </HBox>
-                              <Separator layoutX="20.0" layoutY="175.0" prefWidth="200.0" />
-                    <HBox layoutX="20.0" layoutY="55.0" spacing="10.0">
-                      <children>
-                        <Label text="Location" />
-                        <TextField fx:id="locationTitleTextField" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="editLocationButton" mnemonicParsing="false" text="Edit" />
-                      </children>
-                    </HBox>
-                              <ScrollPane prefHeight="182.0" prefViewportHeight="98.0" prefViewportWidth="659.0" prefWidth="659.0">
-                                 <content>
-                                    <TextArea fx:id="locationInformationTextArea" prefHeight="108.0" prefWidth="613.0">
-                                       <padding>
-                                          <Insets left="55.0" />
-                                       </padding>
-                                    </TextArea>
-                                 </content>
-                              </ScrollPane>
-                    <Separator prefHeight="0.0" prefWidth="659.0">
-                      <VBox.margin>
-                        <Insets top="10.0" />
-                      </VBox.margin>
-                    </Separator>
-                    <CheckBox fx:id="isAliveCheckBox" mnemonicParsing="false" text="Is alive" />
-                    <HBox spacing="10.0">
-                      <children>
-                        <Label text="Termination date" />
-                        <DateTimePicker fx:id="terminationDatePicker" />
-                      </children>
-                    </HBox>
-                    <Label text="Termination reason" />
-                    <ScrollPane prefViewportHeight="197.0" prefViewportWidth="635.0">
-                      <content>
-                        <TextArea fx:id="terminationTextArea" prefHeight="197.0" prefWidth="657.0" />
-                      </content>
-                    </ScrollPane>
-                  </children>
-                  <padding>
-                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                  </padding>
-                </VBox>
-              </content>
-            </Tab>
-            <Tab text="Additional Information">
-              <content>
-                <VBox spacing="10.0">
-                  <padding>
-                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                  </padding>
-                  <children>
-                    <TitledPane text="Events">
-                      <content>
-                        <VBox prefHeight="0.0" prefWidth="657.0">
-                          <children>
-                            <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
-                              <content>
-                                <ListView fx:id="eventListView" />
-                              </content>
-                            </ScrollPane>
-                            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                              <children>
-                                <Button fx:id="addEventButton" mnemonicParsing="false" text="Add" />
-                                <Button fx:id="editEventButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                <Button fx:id="removeEventButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
-                              </children>
-                            </HBox>
-                          </children>
-                        </VBox>
-                      </content>
-                    </TitledPane>
-                    <TitledPane layoutX="20.0" layoutY="20.0" text="Tasks">
-                      <content>
-                        <VBox prefHeight="0.0" prefWidth="657.0">
-                          <children>
-                            <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
-                              <content>
-                                <ListView fx:id="taskListView" />
-                              </content>
-                            </ScrollPane>
-                            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                              <children>
-                                <Button fx:id="addTaskButton" mnemonicParsing="false" text="Add" />
-                                <Button fx:id="editTaskButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                <Button fx:id="removeTaskButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
-                              </children>
-                            </HBox>
-                          </children>
-                        </VBox>
-                      </content>
-                    </TitledPane>
-                    <TitledPane layoutX="20.0" layoutY="20.0" text="Issues">
-                      <content>
-                        <VBox prefHeight="0.0" prefWidth="657.0">
-                          <children>
-                            <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
-                              <content>
-                                <ListView fx:id="issueListView" />
-                              </content>
-                            </ScrollPane>
-                            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                              <children>
-                                <Button fx:id="addIssueButton" mnemonicParsing="false" text="Add" />
-                                <Button fx:id="editIssueButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                <Button fx:id="removeIssueButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
-                              </children>
-                            </HBox>
-                          </children>
-                        </VBox>
-                      </content>
-                    </TitledPane>
-                    <TitledPane layoutX="20.0" layoutY="254.0" text="Observations">
-                      <content>
-                        <VBox prefHeight="0.0" prefWidth="657.0">
-                          <children>
-                            <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
-                              <content>
-                                <ListView fx:id="observationListView" />
-                              </content>
-                            </ScrollPane>
-                            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                              <children>
-                                <Button fx:id="addObservationButton" mnemonicParsing="false" text="Add" />
-                                <Button fx:id="editObservationButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                <Button fx:id="removeObservationButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
-                              </children>
-                            </HBox>
-                          </children>
-                        </VBox>
-                      </content>
-                    </TitledPane>
-                  </children>
-                </VBox>
-              </content>
-            </Tab>
-          </tabs>
-        </TabPane>
-            <Separator prefWidth="200.0" />
-            <Label fx:id="errorMessageLabel" text="Error mmeesssage" VBox.vgrow="ALWAYS" />
-        <HBox alignment="BOTTOM_RIGHT" spacing="10.0" VBox.vgrow="ALWAYS">
-          <children>
-            <Button fx:id="okButton" alignment="BOTTOM_RIGHT" contentDisplay="TOP" mnemonicParsing="false" text="OK" />
-            <Button fx:id="cancelButton" alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
-          </children>
-          <VBox.margin>
-            <Insets left="10.0" right="10.0" />
-          </VBox.margin>
-        </HBox>
-      </children>
-      <padding>
-        <Insets bottom="10.0" left="10.0" />
-      </padding>
-    </VBox>
-  </children>
+    <stylesheets>
+        <URL value="@/styles/menu/add/addplantsdialogfxml.css" />
+    </stylesheets>
+    <children>
+        <VBox>
+            <children>
+                <TabPane layoutX="-162.0" layoutY="-233.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
+                    <tabs>
+                        <Tab text="General Information">
+                            <content>
+                                <VBox prefHeight="495.0" prefWidth="655.0" spacing="10.0">
+                                    <children>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Label text="Title" />
+                                                <TextField fx:id="titleTextField" prefHeight="25.0" prefWidth="563.0" HBox.hgrow="ALWAYS">
+                                                    <HBox.margin>
+                                                        <Insets right="10.0" />
+                                                    </HBox.margin>
+                                                </TextField>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox layoutX="20.0" layoutY="65.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Group" />
+                                                <ComboBox fx:id="plantGroupCombox" layoutX="100.0" prefWidth="604.0" HBox.hgrow="ALWAYS" />
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="20.0" layoutY="30.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Type" />
+                                                <ComboBox fx:id="plantTypeCombox" layoutX="100.0" prefHeight="25.0" prefWidth="498.0" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="addPlantTypeButton" mnemonicParsing="false" text="Add a new type" />
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="20.0" layoutY="65.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Variety" />
+                                                <ComboBox fx:id="plantVarietyCombobox" prefHeight="25.0" prefWidth="424.0" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="addPlantVarietyButton" mnemonicParsing="false" text="Add a new variety" />
+                                            </children>
+                                        </HBox>
+                                        <Separator prefWidth="200.0" />
+                                        <HBox fx:id="plantNumberTypeHbox" layoutX="20.0" layoutY="30.0" spacing="10.0" />
+                                        <HBox fx:id="plantNumberHbox" layoutX="20.0" layoutY="100.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Plant number" />
+                                            </children>
+                                        </HBox>
+                                        <Separator prefWidth="200.0" />
+                                        <Label layoutX="20.0" layoutY="135.0" text="Descriptio:n:" />
+                                        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0">
+                                            <content>
+                                                <TextArea fx:id="informationTextArea" layoutX="20.0" layoutY="162.0" prefHeight="192.0" prefWidth="607.0" />
+                                            </content>
+                                        </ScrollPane>
+                                        <Separator prefWidth="200.0" />
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Label layoutX="20.0" layoutY="189.0" text="Images" />
+                                                <Button fx:id="addImageButton" mnemonicParsing="false" text="+" />
+                                                <Button fx:id="removeImageButton" layoutX="59.0" layoutY="10.0" mnemonicParsing="false" text="-" />
+                                                <Button fx:id="editImageButton" layoutX="94.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                <Button fx:id="moveToBeginImageButton" layoutX="125.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
+                                                <Button fx:id="moveToLeftImageButton" layoutX="156.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
+                                                <Button fx:id="moveToRightImageButton" layoutX="210.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
+                                                <Button fx:id="moveToEndImageButton" layoutX="245.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="20.0" layoutY="30.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                                            <children>
+                                                <Circle fill="DODGERBLUE" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab text="Growing Details">
+                            <content>
+                                <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                    <children>
+                                        <HBox fx:id="datePlantedHbox" spacing="10.0">
+                                            <children>
+                                                <Label text="Date planted" />
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Growing medium" />
+                                                <ComboBox fx:id="growingMediumCombobox" prefWidth="150.0" />
+                                                <Button fx:id="addGrowingMediumButton" mnemonicParsing="false" text="Add new growing medium" />
+                                            </children>
+                                        </HBox>
+                                        <Separator layoutX="20.0" layoutY="175.0" prefWidth="200.0" />
+                                        <HBox layoutX="20.0" layoutY="55.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Location" />
+                                                <TextField fx:id="locationTitleTextField" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="editLocationButton" mnemonicParsing="false" text="Edit" />
+                                            </children>
+                                        </HBox>
+                                        <ScrollPane prefHeight="182.0" prefViewportHeight="98.0" prefViewportWidth="659.0" prefWidth="659.0">
+                                            <content>
+                                                <TextArea fx:id="locationInformationTextArea" prefHeight="108.0" prefWidth="613.0">
+                                                    <padding>
+                                                        <Insets left="55.0" />
+                                                    </padding>
+                                                </TextArea>
+                                            </content>
+                                        </ScrollPane>
+                                        <Separator prefHeight="0.0" prefWidth="659.0">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Separator>
+                                        <CheckBox fx:id="isAliveCheckBox" mnemonicParsing="false" text="Is alive" />
+                                        <HBox fx:id="terminationDateHbox" spacing="10.0">
+                                            <children>
+                                                <Label text="Termination date" />
+                                            </children>
+                                        </HBox>
+                                        <Label text="Termination reason" />
+                                        <ScrollPane prefViewportHeight="197.0" prefViewportWidth="635.0">
+                                            <content>
+                                                <TextArea fx:id="terminationTextArea" prefHeight="197.0" prefWidth="657.0" />
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab text="Additional Information">
+                            <content>
+                                <VBox spacing="10.0">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <children>
+                                        <TitledPane text="Events">
+                                            <content>
+                                                <VBox prefHeight="0.0" prefWidth="657.0">
+                                                    <children>
+                                                        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
+                                                            <content>
+                                                                <ListView fx:id="eventListView" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                                            <children>
+                                                                <Button fx:id="addEventButton" mnemonicParsing="false" text="Add" />
+                                                                <Button fx:id="editEventButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                                <Button fx:id="removeEventButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+                                        <TitledPane layoutX="20.0" layoutY="20.0" text="Tasks">
+                                            <content>
+                                                <VBox prefHeight="0.0" prefWidth="657.0">
+                                                    <children>
+                                                        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
+                                                            <content>
+                                                                <ListView fx:id="taskListView" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                                            <children>
+                                                                <Button fx:id="addTaskButton" mnemonicParsing="false" text="Add" />
+                                                                <Button fx:id="editTaskButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                                <Button fx:id="removeTaskButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+                                        <TitledPane layoutX="20.0" layoutY="20.0" text="Issues">
+                                            <content>
+                                                <VBox prefHeight="0.0" prefWidth="657.0">
+                                                    <children>
+                                                        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
+                                                            <content>
+                                                                <ListView fx:id="issueListView" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                                            <children>
+                                                                <Button fx:id="addIssueButton" mnemonicParsing="false" text="Add" />
+                                                                <Button fx:id="editIssueButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                                <Button fx:id="removeIssueButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+                                        <TitledPane layoutX="20.0" layoutY="254.0" text="Observations">
+                                            <content>
+                                                <VBox prefHeight="0.0" prefWidth="657.0">
+                                                    <children>
+                                                        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
+                                                            <content>
+                                                                <ListView fx:id="observationListView" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                                            <children>
+                                                                <Button fx:id="addObservationButton" mnemonicParsing="false" text="Add" />
+                                                                <Button fx:id="editObservationButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                                <Button fx:id="removeObservationButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <Separator prefWidth="200.0" />
+                <Label fx:id="errorMessageLabel" text="Error mmeesssage" VBox.vgrow="ALWAYS" />
+                <HBox alignment="BOTTOM_RIGHT" spacing="10.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Button fx:id="okButton" alignment="BOTTOM_RIGHT" contentDisplay="TOP" mnemonicParsing="false" text="OK" />
+                        <Button fx:id="cancelButton" alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" />
+            </padding>
+        </VBox>
+    </children>
 </AnchorPane>
