@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHan
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
+import com.etlsolutions.javafx.presentation.DialogActionEventHandler;
 import com.etlsolutions.javafx.presentation.AbstractFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
@@ -126,7 +126,7 @@ public class AddPlantVarietyDialogFXMLController extends AbstractFXMLController<
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         latinNameTextField.textProperty().addListener(new LatinNameChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
-        addAliasButton.setOnAction(new AbstractActionEventHandler<>(model));
+        addAliasButton.setOnAction(new DialogActionEventHandler<>(model));
         removeAliasButton.setOnAction(new RemoveAliasEventHandler(model));
         
         aliasListView.selectionModelProperty().addListener(new AliasChangeAdapter(model));

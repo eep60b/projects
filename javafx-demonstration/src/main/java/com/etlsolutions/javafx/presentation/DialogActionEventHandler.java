@@ -13,17 +13,31 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
 /**
+ * The DialogActionEventHandler class is a universal event handler which starts
+ * a new dialog. It will load the FXML file path, the dialog title and the
+ * exception message from the bundle files
+ * (com/etlsolutions/javafx/presentation/AcitionEvent_*.properties) which use
+ * the full class name of the data model as the key.
+ *
+ * Usages:
+ *
+ * 1. Create a data model class.
+ *
+ * 2. Create an FXML file with a new controller which extends
+ * AbstractFXMLController with the data model as its T type.
+ * 
+ * 3. Add an entry to the bundle file with the full data model class name as the key.
  *
  * @author zc
  * @param <T>
  */
-public class AbstractActionEventHandler<T> implements EventHandler<ActionEvent> {
+public class DialogActionEventHandler<T> implements EventHandler<ActionEvent> {
 
     public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(ACTION_EVENT_BUNDLE_PATH);
-    
+
     protected final T model;
 
-    public AbstractActionEventHandler(T model) {
+    public DialogActionEventHandler(T model) {
         this.model = model;
     }
 
@@ -32,22 +46,22 @@ public class AbstractActionEventHandler<T> implements EventHandler<ActionEvent> 
         Logger logger = Logger.getLogger(getClass());
         String message = "Message has NOT been loaded from the bundle.";
         try {
-            
+
             String[] strs = BUNDLE.getString(model.getClass().getName()).split(BUNDLE_SEPARATER);
             message = strs[2];
-            Stage stage = new Stage();            
+            Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(strs[0]));
             Parent root = loader.load();
             AbstractFXMLController<T> controller = loader.getController();
             controller.setModel(model);
             controller.setStage(stage);
             controller.initializeComponents();
-            
+
             Scene scene = new Scene(root);
             stage.setTitle(strs[1]);
             stage.setScene(scene);
             stage.show();
-        } catch (IOException ex) {          
+        } catch (IOException ex) {
             logger.error(message, ex);
             throw new CustomLevelErrorRuntimeExceiption(message);
         }

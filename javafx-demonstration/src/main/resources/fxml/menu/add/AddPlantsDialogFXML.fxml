@@ -135,10 +135,10 @@
                                         <CheckBox fx:id="isAliveCheckBox" mnemonicParsing="false" text="Is alive" />
                                         <HBox fx:id="terminationDateHbox" spacing="10.0">
                                             <children>
-                                                <Label text="Termination date" />
+                                                <Label fx:id="terminationDatePickerLabel" text="Termination date" />
                                             </children>
                                         </HBox>
-                                        <Label text="Termination reason" />
+                                        <Label fx:id="terminationReasonTextAreaLabel" text="Termination reason" />
                                         <ScrollPane prefViewportHeight="197.0" prefViewportWidth="635.0">
                                             <content>
                                                 <TextArea fx:id="terminationTextArea" prefHeight="197.0" prefWidth="657.0" />

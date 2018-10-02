@@ -12,7 +12,7 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
-import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
+import com.etlsolutions.javafx.presentation.DialogActionEventHandler;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.AbstractFXMLController;
@@ -125,13 +125,19 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
     private CheckBox isAliveCheckBox;
 
     @FXML
-    HBox terminationDateHbox;
+    private HBox terminationDateHbox;
+    
+    @FXML
+    private Label terminationDatePickerLabel;
 
     @FXML
     private TextArea terminationTextArea;
 
     @FXML
     private ListView<Gvent> eventListView;
+    
+    @FXML
+    private Label terminationReasonTextAreaLabel;
 
     @FXML
     private Button addEventButton;
@@ -254,8 +260,8 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         plantGroupCombox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));
         plantTypeCombox.selectionModelProperty().addListener(new PlantTypeChangeAdapter(model));
         addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
-        addPlantVarietyButton.setOnAction(new AbstractActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
-        addGrowingMediumButton.setOnAction(new AbstractActionEventHandler<>(new AddGrowingMediumDataModel(model)));
+        addPlantVarietyButton.setOnAction(new DialogActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
+        addGrowingMediumButton.setOnAction(new DialogActionEventHandler<>(new AddGrowingMediumDataModel(model)));
         Location location = model.getLocation();
         locationTitleTextField.setText(location == null ? "Not Specified" : location.getTitle());
         locationTitleTextField.setDisable(true);
@@ -351,7 +357,7 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         model.addPropertyChangeListener(QUANTITY_TYPE_PROPERTY, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
         model.addPropertyChangeListener(SELECTED_GROWING_MEDIUM_RPOPERTY, new GrowingMediumSelectionPropertyChangeDapter(growingMediumCombobox));
         model.addPropertyChangeListener(LOCATION_PROPERTY, new LocationPropertyChangeAdapter(locationTitleTextField, locationInformationTextArea, editLocationButton));
-        model.addPropertyChangeListener(ALIVE_PROPERTY, new AlivePropertyChangeAdapter(terminationDatePicker, terminationTextArea));
+        model.addPropertyChangeListener(ALIVE_PROPERTY, new AlivePropertyChangeAdapter(terminationDatePicker, terminationTextArea, terminationDatePickerLabel, terminationReasonTextAreaLabel));
         model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
     }
 }

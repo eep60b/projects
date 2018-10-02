@@ -43,23 +43,28 @@ public abstract class DataUnit {
     }
 
     protected DataUnit(int id, String title, String information) {
-        this();
         this.id = id;
         this.title = title;
         this.information = information;
     }
     
-    public DataUnit(String title, String information) {
+    protected DataUnit(String title, String information) {
         this(DataUnitIdRegistry.getInstance().createNewId(), title, information);
+        this.imageLinks = FXCollections.observableArrayList();
     }
 
-    public DataUnit(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    protected DataUnit(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         this(title, information);
         this.imageLinks = imageLinks;
     }
-    
-    
-    
+
+    protected DataUnit(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        this(id, title, information);
+        this.imageLinks = imageLinks;
+        this.selectedImgLinkIndex = selectedImgLinkIndex;
+        this.logoPath = logoPath;
+    }
+     
     /**
      * Get the ID for this data unit.
      *
@@ -67,11 +72,6 @@ public abstract class DataUnit {
      * @throws IllegalStateException if the ID has not been set.
      */
     public final int getId() {
-
-        if (id != 0) {
-            throw new IllegalStateException("The ID has not been set.");
-        }
-
         return id;
     }
 
@@ -79,15 +79,9 @@ public abstract class DataUnit {
      * Set the ID for this data unit. The ID can ONLY be set once. This method can ONLY be called once.
      *
      * @param id - The ID number.
-     * @throws IllegalStateException if this method is called second time.
      */
     public final void setId(int id) {
-        
-        if (this.id == 0) {
             this.id = id;
-            return;
-        }
-        throw new IllegalStateException("The ID has already been set.");
     }
 
     /**

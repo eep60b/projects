@@ -131,7 +131,7 @@ public class PlantsFactory {
         d.setFloweringEvents(new ArrayList<FloweringGvent>());
         d.setFruitingEvents(new ArrayList<FruitingGvent>());
         d.setGrowingIssues(new ArrayList<GrowingIssue>());
-        d.setGrowingMedium(createGrowingMedium(DEFAULT_GROWING_MEDIUM_TITLES.get(0)));
+        d.setGrowingMedium(createGrowingMedium("Loam", "", new double[]{28, 28, 14, 20, 0, 10, 7.0}, true));
         d.setGrowingObservations(new ArrayList<GrowingObservation>());
         d.setGrowingTermination(createGrowingTermination());
         d.setHarvestingTasks(new ArrayList<HarvestingTask>());
@@ -143,11 +143,18 @@ public class PlantsFactory {
         return d;
     }
 
-    public static GrowingMedium createGrowingMedium(String title) {
-        double[] values = DEFAULT_GROWING_MEDIUM_VALUES.get(title);
-        return values == null ? new GrowingMedium(title, DEFAULT_GROWING_MEDIUM_VALUES.get(DEFAULT_GROWING_MEDIUM_TITLES.get(0)), true) : new GrowingMedium(title, values, true);
+    public static GrowingMedium createGrowingMedium(String title, String information, double[] compositions, boolean fertilised) {
+        return new GrowingMedium(title, information, compositions, fertilised);
+    }    
+    
+    public static GrowingMedium createBuildInGrowingMedium(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
+        return new GrowingMedium(title, information, imageLinks, selectedImgLinkIndex, logoPath, compositions, fertilised);
     }
 
+    public static GrowingMedium createBuildInGrowingMedium(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
+        return new GrowingMedium(id, title, information, imageLinks, selectedImgLinkIndex, logoPath, compositions, fertilised);
+    }
+    
     public static GrowingStartPoint createGrowingStartPoint() {
         GrowingStartPoint p = new GrowingStartPoint();
         p.setSource(Source.SEED);
@@ -165,7 +172,7 @@ public class PlantsFactory {
     public static ObservableList<GrowingMedium> createDefaultGrowingMediums() {
         ObservableList<GrowingMedium> list = FXCollections.observableArrayList();
         for (String title : DEFAULT_GROWING_MEDIUM_TITLES) {
-            list.add(createGrowingMedium(title));
+            list.add(createGrowingMedium("Loam", "", new double[]{28, 28, 14, 20, 0, 10, 7.0}, true));
         }
         return list;
     }

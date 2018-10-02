@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.menu.add.planttype;
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
-import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
+import com.etlsolutions.javafx.presentation.DialogActionEventHandler;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -136,9 +136,9 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
         groupComboBox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));        
-        addVarityButton.setOnAction(new AbstractActionEventHandler<>(model));
+        addVarityButton.setOnAction(new DialogActionEventHandler<>(model));
         removeVarityButton.setOnAction(new RemovePlantVarietyEventHandler(model));
-        editVarityButton.setOnAction(new AbstractActionEventHandler<>(model));
+        editVarityButton.setOnAction(new DialogActionEventHandler<>(model));
         varityListView.getSelectionModel().selectionModeProperty().addListener(new PlantVarietySelectionChangeAdapter(model));
         
         addImageButton.setOnAction(new AddImageLinkEventHandler(model));

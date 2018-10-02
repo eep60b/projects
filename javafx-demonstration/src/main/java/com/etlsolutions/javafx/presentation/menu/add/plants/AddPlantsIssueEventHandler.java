@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.log.GrowingIssue;
-import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
+import com.etlsolutions.javafx.presentation.DialogActionEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.growingissue.AddGrowingIssueDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,7 +21,7 @@ public class AddPlantsIssueEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         AddGrowingIssueDataModel issueModel = new AddGrowingIssueDataModel();
-        AbstractActionEventHandler<AddGrowingIssueDataModel> handler = new AbstractActionEventHandler<>(issueModel);
+        DialogActionEventHandler<AddGrowingIssueDataModel> handler = new DialogActionEventHandler<>(issueModel);
         handler.handle(event);
         GrowingIssue issue = issueModel.getGrowingIssue();
         model.getIssues().add(issue);

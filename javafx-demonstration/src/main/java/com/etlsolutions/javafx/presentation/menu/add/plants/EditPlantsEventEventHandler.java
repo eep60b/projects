@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.menu.add.plants;
 import com.etlsolutions.javafx.presentation.menu.edit.gvent.EditGventDataModel;
 import com.etlsolutions.javafx.data.log.FirstDateComparator;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
-import com.etlsolutions.javafx.presentation.AbstractActionEventHandler;
+import com.etlsolutions.javafx.presentation.DialogActionEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ListView;
@@ -27,7 +27,7 @@ public class EditPlantsEventEventHandler implements EventHandler<ActionEvent> {
         
         Gvent e = model.getSelectedEvent();
         EditGventDataModel m = new EditGventDataModel(e);        
-        AbstractActionEventHandler<EditGventDataModel> handler = new AbstractActionEventHandler<>(m);
+        DialogActionEventHandler<EditGventDataModel> handler = new DialogActionEventHandler<>(m);
         handler.handle(event);
         listView.getItems().set( listView.getSelectionModel().getSelectedIndex(), e);
         listView.getItems().sort(new FirstDateComparator<Gvent>());

@@ -225,7 +225,9 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     }
 
     public void setAlive(boolean alive) {
+        boolean oldValue = this.alive;
         this.alive = alive;
+        support.firePropertyChange(ALIVE_PROPERTY, oldValue, this.alive);        
     }
 
     public LocalDateTime getTerminationDate() {
@@ -233,9 +235,7 @@ public class AddPlantsDataModel extends DataUnitDataModel implements Savable, Va
     }
 
     public void setTerminationDate(LocalDateTime terminationDate) {
-        LocalDateTime oldValue = this.terminationDate;
         this.terminationDate = terminationDate;
-        support.firePropertyChange(ALIVE_PROPERTY, oldValue, this.terminationDate);
     }
     
     public String getTerminationReason() {
