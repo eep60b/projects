@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.system;
 
 import java.io.File;
+import java.util.Locale;
 
 /**
  *
@@ -73,12 +74,17 @@ public class SettingConstants {
      */
     public static final String JSON_FILE_EXTENSION = ".json";
 
+    
     /**
      * ********************************* Default values *************************
      *
      */
-    
-
-    
     public static final int DEFAULT_LOCATION_ID = 35;
+    
+    
+    public static final String LANGUAGE = Locale.getDefault().getLanguage();
+    
+    public static final String DEFAULT_DATA_DIRECTORY = "src/main/resources/data/json/" + LANGUAGE;
+    
+    public static final String DEFALUT_SUPPORT_INFORMATION_DIRECTORY = "src/main/resources/support/data/" + LANGUAGE + "/information";
 }

@@ -6,7 +6,6 @@ import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;
-import java.util.List;
 import javafx.collections.ObservableList;
 
 /**

@@ -13,7 +13,6 @@ public class ImageLink implements InformationDataModel {
 
     @JsonIgnore
     public static final String LINK_PROPERTY = "com.etlsolutions.javafx.data.ImageLink.LINK_PROPERTY";
-
     @JsonIgnore
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.INFORMATION._PROPERTY";
 

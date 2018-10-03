@@ -1,10 +1,8 @@
 package com.etlsolutions.javafx.system;
 
-import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -23,7 +21,7 @@ public class RepositoryManager {
         return INSTANCE;
     }
     
-    public ObservableList<GrowingMedium> loadDefaultGrowingMediums() throws IOException {
-        return mapper.readValue(new File(""), ObservableList.class);
+    public <T> T loadDefaultData(String path, Class<T> c) throws IOException {
+        return mapper.readValue(new File(path), c);
     }
 }

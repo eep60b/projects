@@ -2,14 +2,13 @@ package com.etlsolutions.javafx.data;
 
 import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * The DataUnit class represents objects which are data units. The the ID for this data unit. Keep the implementation as simple as possible so they can be serialised easily.
+ * The DataUnit class represents objects which are data units. The the ID for
+ * this data unit. Keep the implementation as simple as possible so they can be
+ * serialised easily.
  *
  * @author zc
  */
@@ -29,13 +28,13 @@ public abstract class DataUnit {
     private int id;
     private String title;
     private String information;
-    private ObservableList<ImageLink> imageLinks;
+    private ObservableListWrapperA<ImageLink> imageLinks;
     private int selectedImgLinkIndex;
     private String logoPath;
 
     @JsonIgnore
     private final DataUnitChangeSupport support = new DataUnitChangeSupport();
-    
+
     /**
      * The default constructor.
      */
@@ -47,24 +46,24 @@ public abstract class DataUnit {
         this.title = title;
         this.information = information;
     }
-    
+
     protected DataUnit(String title, String information) {
         this(DataUnitIdRegistry.getInstance().createNewId(), title, information);
-        this.imageLinks = FXCollections.observableArrayList();
+        this.imageLinks = new ObservableListWrapperA<>();
     }
 
     protected DataUnit(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         this(title, information);
-        this.imageLinks = imageLinks;
+        this.imageLinks = new ObservableListWrapperA<>(imageLinks);
     }
 
     protected DataUnit(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         this(id, title, information);
-        this.imageLinks = imageLinks;
+        this.imageLinks = new ObservableListWrapperA<>(imageLinks);
         this.selectedImgLinkIndex = selectedImgLinkIndex;
         this.logoPath = logoPath;
     }
-     
+
     /**
      * Get the ID for this data unit.
      *
@@ -76,12 +75,13 @@ public abstract class DataUnit {
     }
 
     /**
-     * Set the ID for this data unit. The ID can ONLY be set once. This method can ONLY be called once.
+     * Set the ID for this data unit. The ID can ONLY be set once. This method
+     * can ONLY be called once.
      *
      * @param id - The ID number.
      */
     public final void setId(int id) {
-            this.id = id;
+        this.id = id;
     }
 
     /**
@@ -124,10 +124,9 @@ public abstract class DataUnit {
         fireChange(INFORMATION_PROPERTY, olveValue, this.information);
     }
 
-    public List<ImageLink> getImageLinks() {
-        return new ArrayList<>(imageLinks);
+    public ObservableList<ImageLink> getImageLinks() {
+        return imageLinks;
     }
-
 
     public int getSelectedImgLinkIndex() {
         return selectedImgLinkIndex;
@@ -156,7 +155,7 @@ public abstract class DataUnit {
     public boolean removeListener(String property, DataUnitChangeListener listener) {
         return support.removeListener(property, listener);
     }
-    
+
     public void fireChange(String property, Object oldVaue, Object newValue) {
         support.fireChange(property, oldVaue, newValue);
     }

@@ -1,33 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.etlsolutions.javafx.system;
 
 import com.etlsolutions.javafx.data.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
+import java.util.Locale;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
- * Test of of class RepositoryManager via concrete data. No Mockito used.
  *
  * @author zc
  */
-public final class RepositoryManagerConcreteTest {
+public class DefaultJsonDataFileWriterRunner {
+    
+    private final Object[] objects;
 
-    private final ObjectMapper mapper = new ObjectMapper();
-    private final RepositoryManager instance = RepositoryManager.getInstance();
+    public DefaultJsonDataFileWriterRunner() {
 
-    private final ObservableList<GrowingMedium> defaultGrowingMediums = FXCollections.observableArrayList();
-
-    @Before
-    public void setUp() {
-
-        GrowingMedium loam = PlantsFactory.createGrowingMedium(501, "Loam", "", FXCollections.<ImageLink>observableArrayList(new ImageLink("aa", "cc"), new ImageLink("aa", "cc"), new ImageLink("ffsxa", "cfsfcc")), 0, "", new double[]{28, 28, 14, 20, 0, 10, 7.0}, true);
+        
+        //Growing mediums
+        GrowingMedium loam = PlantsFactory.createGrowingMedium(501, "Loam", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{28, 28, 14, 20, 0, 10, 7.0}, true);
         GrowingMedium sandySoll = PlantsFactory.createGrowingMedium(502, "Sandy soil", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{50, 35, 5, 5, 0, 5, 6.5}, true);
         GrowingMedium siltSoil = PlantsFactory.createGrowingMedium(503, "Silt soi", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{25, 50, 5, 10, 0, 10, 6.8}, true);
         GrowingMedium peatSoil = PlantsFactory.createGrowingMedium(504, "Peat soil", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{10, 10, 60, 10, 0, 10, 7.0}, true);
@@ -43,32 +42,19 @@ public final class RepositoryManagerConcreteTest {
         GrowingMedium johnInnes3 = PlantsFactory.createGrowingMedium(514, "John Innes No. 3", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{28, 28, 14, 20, 0, 10, 7.0}, true);
         GrowingMedium johnInnesSeeds = PlantsFactory.createGrowingMedium(515, "John Innes Seeds", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{28, 28, 14, 20, 0, 10, 7.0}, true);
         GrowingMedium johnInnesPotting = PlantsFactory.createGrowingMedium(516, "John Innes Potting", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{28, 28, 14, 20, 0, 10, 7.0}, true);
-        defaultGrowingMediums.addAll(loam, sandySoll, siltSoil, peatSoil, lightClaySoil, heavyClaySoil, chalkySoil, multipurposeCompost,
-                ericaceousCompost, stonySoil, plantLiquidCulture, johnInnes1, johnInnes2, johnInnes3, johnInnesSeeds, johnInnesPotting);
+        GrowingMediumGroup growingMediumGroup = new GrowingMediumGroup(FXCollections.observableArrayList(loam, sandySoll, siltSoil, peatSoil, lightClaySoil, heavyClaySoil, chalkySoil, multipurposeCompost,
+                ericaceousCompost, stonySoil, plantLiquidCulture, johnInnes1, johnInnes2, johnInnes3, johnInnesSeeds, johnInnesPotting));
+
+        objects = new Object[]{growingMediumGroup};
     }
 
-    /**
-     * Test of getInstance method.
-     */
+    @Before
+    public void setUp() {
+    }
+
     @Test
-    public void testGetInstance() {
-
-        assertSame(RepositoryManager.getInstance(), RepositoryManager.getInstance());
+    public void write() throws Exception {
+        new DefaultJsonDataFileWriter().write(objects);
     }
 
-    /**
-     * Test of loadDefaultData method.
-     *
-     * @throws Exception if an error occurs.
-     */
-    @Test
-    public void testLoadDefaultGrowingMediums() throws Exception {
-
-        String path = "target/test/resources/json/growing-medium-group.json";
-        new File(path).getParentFile().mkdirs();
-        new File(path).createNewFile();
-        GrowingMediumGroup group = new GrowingMediumGroup(defaultGrowingMediums);
-        mapper.writeValue(new File(path), group);
-        assertEquals(group, instance.loadDefaultData(path, GrowingMediumGroup.class));
-    }
 }
