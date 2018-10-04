@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.etlsolutions.javafx.presentation.menu.add;
+package com.etlsolutions.javafx.presentation.menu.add.weather;
 
 /**
  *
  * @author zc
  */
-public class AddReferenceEventHandler {
+public class AddWeatherRecordDataModel {
     
 }

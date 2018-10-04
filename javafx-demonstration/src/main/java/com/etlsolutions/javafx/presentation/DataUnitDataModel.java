@@ -1,15 +1,15 @@
 package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import java.beans.PropertyChangeListener;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public abstract class DataUnitDataModel implements TitleDataModel, InformationDataModel {
+public abstract class DataUnitDataModel implements TitleDataModel, InformationDataModel, Savable {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";
@@ -23,11 +23,13 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
     private String logoPath;
     protected boolean valid;
     protected String errorMessage;
+    private boolean firstImage;
+    private boolean lastImage;
     
     protected final DataUnitPropertyChangeSupport support = new DataUnitPropertyChangeSupport(this);
 
     public DataUnitDataModel() {
-        this.imageLinks = FXCollections.observableArrayList();
+        this.imageLinks = new ObservableListWrapperA<>();
     }
 
     protected abstract void validate();
@@ -70,6 +72,8 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
 
         ImageLink oldValue = this.selectedImageLink;
         this.selectedImageLink = selectedImageLink;
+        firstImage = selectedImageLink == null || selectedImageLink == imageLinks.get(0);
+        lastImage = selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1);
         support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
     }
 
@@ -89,9 +93,7 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
     }
 
     public void incrementSelectedImageLinkIndex() {
-        ImageLink oldValue = this.selectedImageLink;
-        selectedImageLink = imageLinks.get(imageLinks.indexOf(selectedImageLink) + 1);
-        support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
+        setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) + 1));
     }
 
     public void removeSelectedImageLink() {
@@ -101,21 +103,15 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
     }
 
     public void setSelectedImageLinkToFirst() {
-        ImageLink oldValue = this.selectedImageLink;
-        selectedImageLink = imageLinks.get(0);
-        support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
+        setSelectedImageLink(imageLinks.get(0));
     }
 
     public void setSelectedImageLinkToLast() {
-        ImageLink oldValue = this.selectedImageLink;
-        selectedImageLink = imageLinks.get(imageLinks.size() - 1);
-        support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
+        setSelectedImageLink(imageLinks.get(imageLinks.size() - 1));
     }
 
     public void decrementSelectedImageLinkIndex() {
-        ImageLink oldValue = this.selectedImageLink;
-        selectedImageLink = imageLinks.get(imageLinks.indexOf(selectedImageLink) - 1);
-        support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
+        setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) - 1));
     }
 
     public boolean isValid() {
@@ -125,4 +121,12 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
     public String getErrorMessage() {
         return errorMessage;
     }    
+
+    public boolean isFirstImage() {
+        return firstImage;
+    }
+
+    public boolean isLastImage() {
+        return lastImage;
+    }
 }

@@ -1,5 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author zc
@@ -49,4 +52,11 @@ public final class AreaFactory {
     public static PatioArea createPatioArea(String title, String information) {
         return new PatioArea(title, information);
     }     
+
+    public static Area createArea(AreaType type, String title, String information, ObservableList<ImageLink> imageLinks) {
+        switch(type) {
+            
+            default:  throw new IllegalArgumentException("Invalid area type.");
+        }
+    }
 }
