@@ -4,8 +4,7 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantType;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
-import com.etlsolutions.javafx.presentation.Savable;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -17,7 +16,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddPlantTypeDialogDataModel extends DataUnitDataModel implements Savable, Validatable, GroupSelectable {
+public class AddPlantTypeDialogDataModel extends DataUnitFXMLDataModel implements Validatable, GroupSelectable {
 
     public static final String SELECTED_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.SELECTED_VARIETY_PROPERTY";
 
@@ -90,5 +89,10 @@ public class AddPlantTypeDialogDataModel extends DataUnitDataModel implements Sa
             varieties.remove(index);
             setSelectedVariety(varieties.isEmpty() ? null : varieties.get(index == 0 ? 0 : index -1));
         }
+    }
+
+    @Override
+    public String getFxmlPath() {
+          return "/fxml/menu/add/AddPlantTypeDialogFXML.fxml";
     }
 }

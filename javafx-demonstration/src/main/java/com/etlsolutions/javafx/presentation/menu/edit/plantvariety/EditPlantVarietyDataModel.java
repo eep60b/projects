@@ -1,8 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.edit.plantvariety;
 
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
-import com.etlsolutions.javafx.presentation.Savable;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAddable;
 import com.sun.javafx.collections.ObservableListWrapper;
@@ -14,7 +13,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class EditPlantVarietyDataModel extends DataUnitDataModel implements Savable, Validatable {
+public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel implements Validatable {
     
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
@@ -85,7 +84,6 @@ public class EditPlantVarietyDataModel extends DataUnitDataModel implements Sava
     
     @Override
     protected void validate() {
-        String title = getTitle();
         if (title == null || title.trim().isEmpty()) {
             valid = false;
             errorMessage = "Please enter the name.";
@@ -102,5 +100,10 @@ public class EditPlantVarietyDataModel extends DataUnitDataModel implements Sava
         aliases.add(index, newAlias);
         support.firePropertyChange(ALIASES_PROPERTY, oldAlias, newAlias);
         setSelectedAlias(newAlias);
+    }
+
+    @Override
+    public String getFxmlPath() {
+        return "/fxml/menu/add/AddPlantVarietyDialogFXML.fxml";
     }
 }

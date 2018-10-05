@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
@@ -12,10 +12,10 @@ import javafx.stage.Stage;
  */
 public class ImageOkEventHandler implements EventHandler<ActionEvent> {
 
-    private final DataUnitDataModel parentModel;
+    private final DataUnitFXMLDataModel parentModel;
     private final ImageDataModel model;
 
-    public ImageOkEventHandler(DataUnitDataModel parentModel, ImageDataModel model) {
+    public ImageOkEventHandler(DataUnitFXMLDataModel parentModel, ImageDataModel model) {
         this.parentModel = parentModel;
         this.model = model;
     }

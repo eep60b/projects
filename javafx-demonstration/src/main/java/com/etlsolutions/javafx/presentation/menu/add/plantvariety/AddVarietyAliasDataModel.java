@@ -1,44 +1,21 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
-import com.etlsolutions.javafx.presentation.Savable;
-import com.etlsolutions.javafx.presentation.TitleDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 
 /**
  *
  * @author zc
  */
-public class AddVarietyAliasDataModel implements TitleDataModel, Savable, Validatable {
-
-    public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety. VarietyAliasDataModel.TITLE_PROPERTY";
+public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel implements Validatable {
 
     private final AddVarietyDialogDataModel parentModel;
-    private String title;
     private final String oldTitle;
 
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
-
+ 
     public AddVarietyAliasDataModel(AddVarietyDialogDataModel parentModel) {
         this.parentModel = parentModel;
         oldTitle = title = parentModel.getSelectedAlias();
-    }
-
-    @Override
-    public String getTitle() {
-        return title;
-    }
-
-    @Override
-    public void setTitle(String title) {
-        String oldValue = this.title;
-        this.title = title;
-        support.firePropertyChange(TITLE_PROPERTY, oldValue, this.title);
-    }
-
-    public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
-        support.addPropertyChangeListener(property, listener);
     }
 
     @Override
@@ -66,4 +43,15 @@ public class AddVarietyAliasDataModel implements TitleDataModel, Savable, Valida
 
         return "Please enter alias name.";
     }
+
+    @Override
+    protected void validate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getFxmlPath() {
+        return "/fxml/menu/add/AddVarietyAliasFXML.fxml";
+    }
+
 }

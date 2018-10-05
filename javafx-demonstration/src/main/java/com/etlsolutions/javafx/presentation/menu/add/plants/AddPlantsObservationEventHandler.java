@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.presentation.menu.add.growingobservation.AddObservationDataModel;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
-import com.etlsolutions.javafx.presentation.DialogActionEventHandler;
+import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -21,7 +21,7 @@ public class AddPlantsObservationEventHandler implements EventHandler<ActionEven
     @Override
     public void handle(ActionEvent event) {
         AddObservationDataModel observationModel = new AddObservationDataModel();
-        DialogActionEventHandler<AddObservationDataModel> handler = new DialogActionEventHandler<>(observationModel);
+        FXMLActionEventHandler<AddObservationDataModel> handler = new FXMLActionEventHandler<>(observationModel);
         handler.handle(event);
         GrowingObservation observation = observationModel.getGrowingObservation();
         model.getObservations().add(observation);

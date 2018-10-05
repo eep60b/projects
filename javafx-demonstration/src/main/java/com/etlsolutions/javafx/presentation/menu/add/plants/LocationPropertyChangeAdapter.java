@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;

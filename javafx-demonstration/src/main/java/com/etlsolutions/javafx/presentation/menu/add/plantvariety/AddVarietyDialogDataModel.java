@@ -1,8 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
-import com.etlsolutions.javafx.presentation.Savable;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddVarietyDialogDataModel extends DataUnitDataModel implements Savable, Validatable {
+public class AddVarietyDialogDataModel extends DataUnitFXMLDataModel implements Validatable {
     
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
@@ -101,5 +100,10 @@ public class AddVarietyDialogDataModel extends DataUnitDataModel implements Sava
         aliases.add(index, newAlias);
         support.firePropertyChange(ALIASES_PROPERTY, oldAlias, newAlias);
         setSelectedAlias(newAlias);
+    }
+
+    @Override
+    public String getFxmlPath() {
+        return "/fxml/menu/add/AddPlantVarietyDialogFXML.fxml";
     }
 }

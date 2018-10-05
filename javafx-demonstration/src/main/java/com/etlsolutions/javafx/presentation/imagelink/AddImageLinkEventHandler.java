@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.StageManager;
 import static com.etlsolutions.javafx.presentation.StageManager.ADD_PLANT_TYPE_DIALOG_STAGE;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
@@ -19,9 +19,9 @@ import org.apache.log4j.Logger;
  */
 public class AddImageLinkEventHandler implements EventHandler<ActionEvent> {
 
-    private final DataUnitDataModel parentModel;
+    private final DataUnitFXMLDataModel parentModel;
 
-    public AddImageLinkEventHandler(DataUnitDataModel parentModel) {
+    public AddImageLinkEventHandler(DataUnitFXMLDataModel parentModel) {
         this.parentModel = parentModel;
     }
 

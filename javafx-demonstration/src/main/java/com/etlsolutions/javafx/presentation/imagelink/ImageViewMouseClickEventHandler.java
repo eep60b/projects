@@ -5,7 +5,7 @@
  */
 package com.etlsolutions.javafx.presentation.imagelink;
 
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,9 +16,9 @@ import javafx.scene.input.MouseEvent;
  */
 public class ImageViewMouseClickEventHandler implements EventHandler<MouseEvent> {
 
-    private final DataUnitDataModel model;
+    private final DataUnitFXMLDataModel model;
 
-    public ImageViewMouseClickEventHandler(DataUnitDataModel model) {
+    public ImageViewMouseClickEventHandler(DataUnitFXMLDataModel model) {
         this.model = model;
     }
 

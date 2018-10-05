@@ -1,12 +1,10 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.List;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -19,18 +17,21 @@ public abstract class Area extends DataUnit {
     public static final String LONGGITUDE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.LONGGITUDE_PROPERTY";
     @JsonIgnore
     public static final String LATITUTE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.LATITUTE_PROPERTY";
+    @JsonIgnore
+    public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.SHAPE_PROPERTY";
 
     protected final ObservableList<SubArea> allSubAreas;
     private double longitude;
     private double latitude;
-
+    private AreaShape shape;
+    
     public Area() {
-        allSubAreas = FXCollections.observableArrayList();
+        allSubAreas = new ObservableListWrapperA<>();
     }
 
     protected Area(String title, String information) {
         super(title, information);
-        this.allSubAreas = FXCollections.observableArrayList();
+        this.allSubAreas = new ObservableListWrapperA<>();
     }
    
     public abstract AreaType getType();
@@ -63,5 +64,14 @@ public abstract class Area extends DataUnit {
         double oldValue = this.latitude;
         this.latitude = latitude;
         fireChange(LATITUTE_PROPERTY, oldValue, this.latitude);
+    }
+
+    public AreaShape getShape() {
+        return shape;
+    }
+
+    public void setShape(AreaShape shape) {
+        this.shape = shape;
+        fireChange(SHAPE_PROPERTY);
     }
 }

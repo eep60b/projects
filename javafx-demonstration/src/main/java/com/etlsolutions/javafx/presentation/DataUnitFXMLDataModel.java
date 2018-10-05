@@ -6,34 +6,46 @@ import java.beans.PropertyChangeListener;
 import javafx.collections.ObservableList;
 
 /**
+ * The DataUnitFXMLDataModel class is designed to button action to start a
+ * dialog with title field, information text area, images and OK and Cancel
+ * buttons. To use it:
+ *
+ * 1. Create a empty FXML file with controller which extends
+ * DataUnitFXMLController.
+ *
+ * 2. Create a data model class extents this class.
+ *
+ * 3. Add a bundle entry to com.etlsolutions.javafx.presentation.ActionEvent
  *
  * @author zc
  */
-public abstract class DataUnitDataModel implements TitleDataModel, InformationDataModel, Savable {
+public abstract class DataUnitFXMLDataModel implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";
     public static final String SELECTED_IMAGE_LINK_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.SELECTED_IMAGE_LINK_PROPERTY";
     public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.LOGO_PATH_PROPERTY";
 
-    protected final ObservableList<ImageLink> imageLinks;    
+    protected final ObservableList<ImageLink> imageLinks;
     protected String title;
     protected String information;
     private ImageLink selectedImageLink;
     private String logoPath;
     protected boolean valid;
     protected String errorMessage;
-    private boolean firstImage;
-    private boolean lastImage;
-    
+    private boolean noOrFirstImage;
+    private boolean noOrLastImage;
+
     protected final DataUnitPropertyChangeSupport support = new DataUnitPropertyChangeSupport(this);
 
-    public DataUnitDataModel() {
+    public DataUnitFXMLDataModel() {
         this.imageLinks = new ObservableListWrapperA<>();
+        noOrFirstImage = true;
+        noOrLastImage = true;
     }
 
     protected abstract void validate();
-    
+
     @Override
     public String getTitle() {
         return title;
@@ -63,7 +75,6 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
         return imageLinks;
     }
 
-
     public ImageLink getSelectedImageLink() {
         return selectedImageLink;
     }
@@ -72,8 +83,8 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
 
         ImageLink oldValue = this.selectedImageLink;
         this.selectedImageLink = selectedImageLink;
-        firstImage = selectedImageLink == null || selectedImageLink == imageLinks.get(0);
-        lastImage = selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1);
+        noOrFirstImage = selectedImageLink == null || selectedImageLink == imageLinks.get(0);
+        noOrLastImage = selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1);
         support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
     }
 
@@ -120,13 +131,13 @@ public abstract class DataUnitDataModel implements TitleDataModel, InformationDa
 
     public String getErrorMessage() {
         return errorMessage;
-    }    
-
-    public boolean isFirstImage() {
-        return firstImage;
     }
 
-    public boolean isLastImage() {
-        return lastImage;
+    public boolean isNoOrFirstImage() {
+        return noOrFirstImage;
+    }
+
+    public boolean isNoOrLastImage() {
+        return noOrLastImage;
     }
 }

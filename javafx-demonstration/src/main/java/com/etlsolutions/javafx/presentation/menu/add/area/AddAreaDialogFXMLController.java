@@ -30,22 +30,23 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
     private Button addImageButton;
 
     @FXML
-    private Button editImageButton;
+    private Button editImageButton;    
     
-    @FXML
-    private Button moveToBeginButton;
-    
-    @FXML
-    private Button moveToLeftButton;
-    
-    @FXML
-    private Button moveToRightButton;
-    
-    @FXML
-    private Button moveToEndButton;
-
     @FXML
     private Button removeImageButton;
+    
+    @FXML
+    private Button moveToBeginImageButton;
+    
+    @FXML
+    private Button moveToLeftImageButton;
+    
+    @FXML
+    private Button moveToRightImageButton;
+    
+    @FXML
+    private Button moveToEndImageButton;
+
 
     @FXML
     private TilePane imageTilePane;
@@ -69,7 +70,7 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
     @Override
     public void initializeComponents() {
         
-        initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginButton, moveToLeftButton, moveToRightButton, moveToEndButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
+        initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
         typeComboBox.setItems(model.getAreaTypes());
         typeComboBox.getSelectionModel().select(model.getSelectedAreaType());

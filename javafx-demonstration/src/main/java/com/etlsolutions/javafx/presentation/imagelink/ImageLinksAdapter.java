@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -16,10 +16,10 @@ import javafx.scene.layout.HBox;
  */
 public class ImageLinksAdapter implements ListChangeListener<ImageLink> {
 
-    private final DataUnitDataModel model;
+    private final DataUnitFXMLDataModel model;
     private final HBox imagesHbox;
 
-    public ImageLinksAdapter(DataUnitDataModel model, HBox imagesHbox) {
+    public ImageLinksAdapter(DataUnitFXMLDataModel model, HBox imagesHbox) {
         this.model = model;
         this.imagesHbox = imagesHbox;
     }

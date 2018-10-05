@@ -55,7 +55,7 @@ public final class AreaFactory {
 
     public static Area createArea(AreaType type, String title, String information, ObservableList<ImageLink> imageLinks) {
         switch(type) {
-            
+            case ALLOTMENT: return AreaFactory.createAllotmentArea(title, information, 0, 0, title);
             default:  throw new IllegalArgumentException("Invalid area type.");
         }
     }

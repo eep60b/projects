@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -10,9 +10,9 @@ import javafx.event.EventHandler;
  */
 public class RemoveImageLinkEventHandler implements EventHandler<ActionEvent> {
 
-    private final DataUnitDataModel model;
+    private final DataUnitFXMLDataModel model;
 
-    public RemoveImageLinkEventHandler(DataUnitDataModel model) {
+    public RemoveImageLinkEventHandler(DataUnitFXMLDataModel model) {
         this.model = model;
     }
 

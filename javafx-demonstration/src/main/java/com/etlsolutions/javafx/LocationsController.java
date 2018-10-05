@@ -28,8 +28,8 @@ public class LocationsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         AreaRoot r = ProjectManager.getInstance().getProject().getAreaRoot();
-
         locationsTreeView.setRoot(new AreaRootTreeItem(r));
     }
 

@@ -71,6 +71,10 @@
                                     <Button fx:id="addImageButton" mnemonicParsing="false" text="Add" />
                                     <Button fx:id="editImageButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
                                     <Button fx:id="removeImageButton" layoutX="72.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                    <Button fx:id="moveToBeginImageButton" layoutX="105.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
+                                    <Button fx:id="moveToLeftImageButton" layoutX="174.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
+                                    <Button fx:id="moveToRightImageButton" layoutX="243.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
+                                    <Button fx:id="moveToEndImageButton" layoutX="312.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
                                  </children>
                               </HBox>
                               <TilePane fx:id="imageTilePane" prefHeight="442.0" prefWidth="588.0" />
@@ -87,7 +91,7 @@
             <Label fx:id="errorMessageLabel" text="Error Message" />
             <HBox alignment="CENTER_RIGHT" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" text="OK" />
+                  <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
                   <Button fx:id="cancelButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
                </children>
                <VBox.margin>

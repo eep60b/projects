@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.area.AreaType;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
  *
  * @author Zhipeng
  */
-public class AddAreaDialogDataModel extends DataUnitDataModel implements Validatable {
+public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Validatable {
 
     private final ObservableList<AreaType> areaTypes;
     private AreaType selectedAreaType;
@@ -49,5 +49,10 @@ public class AddAreaDialogDataModel extends DataUnitDataModel implements Validat
     public void save() {
         Area a = AreaFactory.createArea(selectedAreaType, title, information, imageLinks);
         ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().add(a);
+    }
+
+    @Override
+    public String getFxmlPath() {
+        return "/fxml/menu/add/AddAreaDialogFXML.fxml";
     }
 }

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import static com.etlsolutions.javafx.presentation.imagelink.ImageDataModel.IMAGE_FILE_LINK_PROPERTY;
 import java.net.URL;
@@ -35,7 +35,7 @@ public class AddImageLinkDialogFXMLController implements Initializable {
     private Button cancelButton;
     
     private Stage stage;
-    private DataUnitDataModel parentModel;
+    private DataUnitFXMLDataModel parentModel;
     
     /**
      * Initializes the controller class.
@@ -61,7 +61,7 @@ public class AddImageLinkDialogFXMLController implements Initializable {
         this.stage = stage;
     }
 
-    void setParentModel(DataUnitDataModel parentModel) {
+    void setParentModel(DataUnitFXMLDataModel parentModel) {
         this.parentModel = parentModel;
     }
 }

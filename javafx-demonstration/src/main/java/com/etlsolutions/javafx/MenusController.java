@@ -1,7 +1,9 @@
 package com.etlsolutions.javafx;
 
-import com.etlsolutions.javafx.presentation.DialogActionEventHandler;
+import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +25,36 @@ public class MenusController implements Initializable {
     //The add menu
     @FXML
     private MenuItem addPlantsMenuItem;
+    
+    @FXML
+    private MenuItem addPlantTypeMenuItem;
+    
+    @FXML
+    private MenuItem addAreaMenuItem;
+    
+    @FXML
+    private MenuItem addEventMenuItem;
+    
+    @FXML
+    private MenuItem addIssueMenuItem;
+    
+    @FXML
+    private MenuItem addNoteMenuItem;
+    
+    @FXML
+    private MenuItem addReferenceMenuItem;
+    
+    @FXML
+    private MenuItem addTaskMenuItem;
+    
+    @FXML
+    private MenuItem addWeatherRecordMenuItem;
+            
+    @FXML
+    private MenuItem addGrowingMediumMenuItem;
+    
+    @FXML
+    private MenuItem addFertiliserMenuItem;
 
     /**
      * Initializes the controller class.
@@ -35,7 +67,9 @@ public class MenusController implements Initializable {
 
         newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
 
-        addPlantsMenuItem.setOnAction(new DialogActionEventHandler<>(new AddPlantsDataModel()));
+        addPlantsMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantsDataModel()));
+        addPlantTypeMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantTypeDialogDataModel()));
+        addAreaMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddAreaDialogDataModel()));
     }
 
 }

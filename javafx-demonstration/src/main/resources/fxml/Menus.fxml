@@ -35,16 +35,19 @@
                 <Menu mnemonicParsing="false" text="Add">
                   <items>
                     <MenuItem fx:id="addPlantsMenuItem" mnemonicParsing="false" text="Add plants" />
-                        <MenuItem mnemonicParsing="false" text="Add a plant type" />
+                        <MenuItem fx:id="addPlantTypeMenuItem" mnemonicParsing="false" text="Add a plant type" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Add an area" />
+                        <MenuItem fx:id="addAreaMenuItem" mnemonicParsing="false" text="Add an area" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" text="Add an event" />
-                        <MenuItem mnemonicParsing="false" text="Add an Issue Record" />
+                        <MenuItem fx:id="addIssueMenuItem" mnemonicParsing="false" text="Add an Issue Record" />
                         <MenuItem mnemonicParsing="false" text="Add a note" />
-                        <MenuItem mnemonicParsing="false" text="Add a reference" />
-                        <MenuItem mnemonicParsing="false" text="Add a task" />
-                        <MenuItem mnemonicParsing="false" text="Add a weather record" />
+                        <MenuItem fx:id="addReferenceMenuItem" mnemonicParsing="false" text="Add a reference" />
+                        <MenuItem fx:id="addTaskMenuItem" mnemonicParsing="false" text="Add a task" />
+                        <MenuItem fx:id="addWeatherRecordMenuItem" mnemonicParsing="false" text="Add a weather record" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="addGrowingMediumMenuItem" mnemonicParsing="false" text="Add Growing Medium" />
+                        <MenuItem fx:id="addFertiliserMenuItem" mnemonicParsing="false" text="Add Fertiliser" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">

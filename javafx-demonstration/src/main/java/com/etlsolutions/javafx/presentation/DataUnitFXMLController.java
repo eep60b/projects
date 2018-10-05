@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import static com.etlsolutions.javafx.presentation.DataUnitDataModel.*;
+import static com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel.*;
 import com.etlsolutions.javafx.presentation.imagelink.AddImageLinkEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventHandler;
@@ -9,23 +9,22 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHan
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
-import java.util.List;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.TilePane;
+import javafx.scene.layout.Pane;
 
 /**
  *
  * @author zc
  * @param <T> - The data model type.
  */
-public abstract class DataUnitFXMLController<T extends DataUnitDataModel> extends AbstractFXMLController<T> {
+public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> extends AbstractFXMLController<T> {
 
-    protected void initCommonComponents(TextField titleTextField, TextArea informationTextArea, TilePane imageTilePane, Button addImageButton,
+    protected void initCommonComponents(TextField titleTextField, TextArea informationTextArea, Pane imageTilePane, Button addImageButton,
             Button editImageButton, Button moveToBeginImageButton, Button moveToLeftImageButton, Button moveToRightImageButton, Button moveToEndImageButton, Button removeImageButton,
             Label errorMessageLabel, Button okButton, Button cancelButton) {
 
@@ -35,10 +34,10 @@ public abstract class DataUnitFXMLController<T extends DataUnitDataModel> extend
         ImageLink selectedImageLink = model.getSelectedImageLink();
         removeImageButton.setDisable(selectedImageLink == null);        
         editImageButton.setDisable(selectedImageLink == null);
-        moveToBeginImageButton.setDisable(model.isFirstImage());
-        moveToLeftImageButton.setDisable(model.isFirstImage());
-        moveToEndImageButton.setDisable(model.isLastImage());
-        moveToRightImageButton.setDisable(model.isLastImage());
+        moveToBeginImageButton.setDisable(model.isNoOrFirstImage());
+        moveToLeftImageButton.setDisable(model.isNoOrFirstImage());
+        moveToEndImageButton.setDisable(model.isNoOrLastImage());
+        moveToRightImageButton.setDisable(model.isNoOrLastImage());
   
         for (ImageLink link : model.getImageLinks()) {
             imageTilePane.getChildren().addAll(new ImageView(new Image(link.getLink())));

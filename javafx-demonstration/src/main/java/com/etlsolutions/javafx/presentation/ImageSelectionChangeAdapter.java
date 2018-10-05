@@ -31,14 +31,14 @@ public class ImageSelectionChangeAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         
-        DataUnitDataModel model = (DataUnitDataModel) evt.getSource();
+        DataUnitFXMLDataModel model = (DataUnitFXMLDataModel) evt.getSource();
         ImageLink selectedImageLink = model.getSelectedImageLink();
         removeImageButton.setDisable(selectedImageLink == null);
         editImageButton.setDisable(selectedImageLink == null);
-        moveToBeginImageButton.setDisable(model.isFirstImage());
-        moveToLeftImageButton.setDisable(model.isFirstImage());
-        moveToEndImageButton.setDisable(model.isLastImage());
-        moveToRightImageButton.setDisable(model.isLastImage());
+        moveToBeginImageButton.setDisable(model.isNoOrFirstImage());
+        moveToLeftImageButton.setDisable(model.isNoOrFirstImage());
+        moveToEndImageButton.setDisable(model.isNoOrLastImage());
+        moveToRightImageButton.setDisable(model.isNoOrLastImage());
     }
 
 }

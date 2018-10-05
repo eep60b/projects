@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.wizard.StatusPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.wizard.WizardDataModel;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddLocationWizardDataModel extends DataUnitDataModel implements WizardDataModel {
+public class AddLocationWizardDataModel extends DataUnitFXMLDataModel implements WizardDataModel {
 
     private int currentIndex;
     private final ObservableList<Area> areas;
@@ -136,6 +136,11 @@ public class AddLocationWizardDataModel extends DataUnitDataModel implements Wiz
 
     @Override
     protected void validate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getFxmlPath() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

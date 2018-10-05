@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.presentation.DataUnitDataModel;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
@@ -38,7 +38,7 @@ public class SelectedImageLinkAdapter implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        DataUnitDataModel model = (DataUnitDataModel) evt.getSource();
+        DataUnitFXMLDataModel model = (DataUnitFXMLDataModel) evt.getSource();
         ImageLink selectedImageLink = model.getSelectedImageLink();
         removeImageButton.setDisable(selectedImageLink == null);
         editImageInformationButton.setDisable(selectedImageLink == null);
