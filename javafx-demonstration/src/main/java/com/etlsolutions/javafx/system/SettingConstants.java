@@ -87,4 +87,11 @@ public class SettingConstants {
     public static final String DEFAULT_DATA_DIRECTORY = "src/main/resources/data/json/" + LANGUAGE;
     
     public static final String DEFALUT_SUPPORT_INFORMATION_DIRECTORY = "src/main/resources/support/data/" + LANGUAGE + "/information";
+    
+    
+    /**
+     * ********************************* Other constants *************************
+     */
+    
+    public static final double PI = 3.14159265;
 }

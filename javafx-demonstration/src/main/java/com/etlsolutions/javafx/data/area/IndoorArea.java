@@ -1,6 +1,9 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
+import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.Room;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
@@ -18,15 +21,17 @@ public class IndoorArea extends Area {
     private ObservableList<ContainerSet> containerSets;
     private ObservableList<SingleContainer> singleContainers;
     private ObservableList<Room> rooms;
+        private ObservableList<CustomSubArea> customSubareas;
 
     public IndoorArea() {
     }
 
-    public IndoorArea(String title, String information) {
-        super(title, information);
-        containerSets = FXCollections.observableArrayList();
-        singleContainers = FXCollections.observableArrayList();
-        rooms = FXCollections.observableArrayList();
+    protected IndoorArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+        containerSets = new ObservableListWrapperA<>();
+        singleContainers = new ObservableListWrapperA<>();
+        rooms = new ObservableListWrapperA<>();
+                customSubareas = new ObservableListWrapperA<>();
     }
 
     public ObservableList<ContainerSet> getContainerSets() {
@@ -41,20 +46,29 @@ public class IndoorArea extends Area {
         return rooms;
     }
 
+    public ObservableList<CustomSubArea> getCustomSubareas() {
+        return customSubareas;
+    }
+
     @Override
     public void updateAllSubAreas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        allSubAreas.clear();
+        allSubAreas.addAll(containerSets);
+        allSubAreas.addAll(singleContainers);
+        allSubAreas.addAll(rooms);
+        allSubAreas.addAll(customSubareas);
     }
 
     @Override
     public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(CONTAINTER_SET, SINGLE_CONTAINTER);
+        return FXCollections.observableArrayList(CONTAINTER_SET, SINGLE_CONTAINTER, ROOM, CUSTOM);
     }
 
     @Override
     public ObservableList<SubArea> getSubAreas(SubAreaType type) {
 
-        ObservableList<SubArea> subAreas = FXCollections.observableArrayList();
+        ObservableList<SubArea> subAreas = new ObservableListWrapperA<>();
         switch (type) {
             case CONTAINTER_SET:
                 subAreas.addAll(containerSets);
@@ -65,6 +79,8 @@ public class IndoorArea extends Area {
             case ROOM:
                 subAreas.addAll(rooms);
                 break;
+            case CUSTOM:
+                subAreas.addAll(customSubareas);
         }
 
         return subAreas;

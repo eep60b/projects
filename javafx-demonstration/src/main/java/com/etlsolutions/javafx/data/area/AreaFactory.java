@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
 import javafx.collections.ObservableList;
 
 /**
@@ -13,49 +15,50 @@ public final class AreaFactory {
 
         AreaRoot a = new AreaRoot("", "");
         
-        GardenArea gardenArea = createGardenArea("My Garden", "");
+        GardenArea gardenArea = createGardenArea("My Garden", "", new ObservableListWrapperA<ImageLink>(), 0, "", -300, -300, new RectAngleAreaShape());
         a.getGardenAreas().add(gardenArea);
         
-        IndoorArea bedRoom = createIndoorArea("Bed Room", "");
-        IndoorArea livingRoom = createIndoorArea("Living Room", "");
-        IndoorArea kitchen = createIndoorArea("Kitchen", "");
+        IndoorArea bedRoom = createIndoorArea("Bed Room", "", new ObservableListWrapperA<ImageLink>(), 0, "", -300, -300, new RectAngleAreaShape());
+        IndoorArea livingRoom = createIndoorArea("Living Room", "", new ObservableListWrapperA<ImageLink>(), 0, "", -300, -300, new RectAngleAreaShape());
+        IndoorArea kitchen = createIndoorArea("Kitchen", "", new ObservableListWrapperA<ImageLink>(), 0, "", -300, -300, new RectAngleAreaShape());
         
         a.getIndoorAreas().addAll(bedRoom, livingRoom, kitchen);
         return a;
     }
 
-    public static AllotmentArea createAllotmentArea(String title, String information, int length, int width, String uom) {
-        return new AllotmentArea(title, information, length, width, uom);
+    public static AllotmentArea createAllotmentArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        return new AllotmentArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
     }
 
-    public static BalconyArea createBalconyArea(String title, String information) {
-        return new BalconyArea(title, information);
+    public static BalconyArea createBalconyArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        return new BalconyArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
     }
 
-    public static CustomArea createCustomArea(String title, String information) {
-        return new CustomArea(title, information);
+    public static CustomArea createCustomArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        return new CustomArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
     }
 
-    public static FarmArea createFarmArea(String title, String information) {
-        return new FarmArea(title, information);
+    public static FarmArea createFarmArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        return new FarmArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
     }
     
-    public static GardenArea createGardenArea(String title, String information) {
-        return new GardenArea(title, information);
+    public static GardenArea createGardenArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        return new GardenArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
     } 
     
-    public static IndoorArea createIndoorArea(String title, String information) {
-        return new IndoorArea(title, information);
+    public static IndoorArea createIndoorArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        return new IndoorArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
 
     }
     
-    public static PatioArea createPatioArea(String title, String information) {
-        return new PatioArea(title, information);
+    public static PatioArea createPatioArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        return new PatioArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
     }     
 
-    public static Area createArea(AreaType type, String title, String information, ObservableList<ImageLink> imageLinks) {
+    public static Area createArea(AreaType type, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
         switch(type) {
-            case ALLOTMENT: return AreaFactory.createAllotmentArea(title, information, 0, 0, title);
+            case ALLOTMENT: return createAllotmentArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+            
             default:  throw new IllegalArgumentException("Invalid area type.");
         }
     }

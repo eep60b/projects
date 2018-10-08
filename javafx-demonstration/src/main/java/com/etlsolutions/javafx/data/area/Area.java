@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
@@ -20,18 +21,25 @@ public abstract class Area extends DataUnit {
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.SHAPE_PROPERTY";
 
-    protected final ObservableList<SubArea> allSubAreas;
+    protected ObservableList<SubArea> allSubAreas;
     private double longitude;
     private double latitude;
     private AreaShape shape;
     
     public Area() {
-        allSubAreas = new ObservableListWrapperA<>();
     }
 
     protected Area(String title, String information) {
         super(title, information);
         this.allSubAreas = new ObservableListWrapperA<>();
+    }
+
+    protected Area(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.allSubAreas = new ObservableListWrapperA<>();
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.shape = shape;
     }
    
     public abstract AreaType getType();

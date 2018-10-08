@@ -1,9 +1,13 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
+import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,12 +19,16 @@ public class BalconyArea extends Area {
 
     private ObservableList<ContainerSet> containerSets;
     private ObservableList<SingleContainer> singleContainers;
+    private ObservableList<CustomSubArea> customSubareas;
 
     public BalconyArea() {
     }
 
-    protected BalconyArea(String title, String information) {
-        super(title, information);
+    protected BalconyArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+        containerSets = new ObservableListWrapperA<>();
+        singleContainers = new ObservableListWrapperA<>();
+        customSubareas = new ObservableListWrapperA<>();
     }
 
     public ObservableList<ContainerSet> getContainerSets() {
@@ -31,15 +39,22 @@ public class BalconyArea extends Area {
         return singleContainers;
     }
 
+    public ObservableList<CustomSubArea> getCustomSubareas() {
+        return customSubareas;
+    }
+
     @Override
     public void updateAllSubAreas() {
+        
+        allSubAreas.clear();
         allSubAreas.addAll(containerSets);
         allSubAreas.addAll(singleContainers);
+        allSubAreas.addAll(customSubareas);
     }
 
     @Override
     public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(SubAreaType.BORDER, SubAreaType.CUSTOM);
+        return FXCollections.observableArrayList(CONTAINTER_SET, SINGLE_CONTAINTER, CUSTOM);
     }
 
     @Override
@@ -49,6 +64,6 @@ public class BalconyArea extends Area {
 
     @Override
     public AreaType getType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return AreaType.BALCONY;
     }
 }
