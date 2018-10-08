@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 
 /**
@@ -25,7 +26,19 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
 
     @FXML
     private TextArea informationTextArea;
+    
+    @FXML
+    private ComboBox shapeTypeComboBox;
+    
+    @FXML
+    private HBox areaShapeContentHbox;
+    
+    @FXML
+    private TextField longitudeTextField;
 
+    @FXML
+    private TextField latitudeTextField;
+            
     @FXML
     private Button addImageButton;
 

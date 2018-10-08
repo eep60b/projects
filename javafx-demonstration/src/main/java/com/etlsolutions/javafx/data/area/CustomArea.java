@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.Border;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
@@ -35,18 +37,18 @@ public class CustomArea extends Area {
     public CustomArea() {
     }
 
-    protected CustomArea(String title, String information) {
-        super(title, information);
-        plantBeds = FXCollections.observableArrayList();
-        raisedPlantBeds = FXCollections.observableArrayList();
-        lawns = FXCollections.observableArrayList();
-        borders = FXCollections.observableArrayList();
-        greenhouses = FXCollections.observableArrayList();
-        containerSets = FXCollections.observableArrayList();
-        singleContainers = FXCollections.observableArrayList();
-        ponds = FXCollections.observableArrayList();
-        customSubareas = FXCollections.observableArrayList();
-        rooms = FXCollections.observableArrayList();
+    protected CustomArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+        plantBeds = new ObservableListWrapperA<>();
+        raisedPlantBeds = new ObservableListWrapperA<>();
+        lawns = new ObservableListWrapperA<>();
+        borders = new ObservableListWrapperA<>();
+        greenhouses = new ObservableListWrapperA<>();
+        containerSets = new ObservableListWrapperA<>();
+        singleContainers = new ObservableListWrapperA<>();
+        ponds = new ObservableListWrapperA<>();
+        rooms = new ObservableListWrapperA<>();
+        customSubareas = new ObservableListWrapperA<>();
     }
 
     public ObservableList<PlantBed> getPlantBeds() {
@@ -91,21 +93,71 @@ public class CustomArea extends Area {
 
     @Override
     public void updateAllSubAreas() {
+
+        allSubAreas.clear();
+        allSubAreas.addAll(plantBeds);
+        allSubAreas.addAll(raisedPlantBeds);
+        allSubAreas.addAll(lawns);
+        allSubAreas.addAll(borders);
+        allSubAreas.addAll(greenhouses);
+        allSubAreas.addAll(containerSets);
+        allSubAreas.addAll(singleContainers);
+        allSubAreas.addAll(ponds);
+        allSubAreas.addAll(rooms);
         allSubAreas.addAll(customSubareas);
     }
 
     @Override
     public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(SubAreaType.BORDER, SubAreaType.CUSTOM);
+        return FXCollections.observableArrayList(SubAreaType.values());
     }
 
     @Override
     public ObservableList<SubArea> getSubAreas(SubAreaType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ObservableList<SubArea> subAreas = new ObservableListWrapperA<>();
+        switch (type) {
+            case PLANT_BED:
+                subAreas.addAll(plantBeds);
+                break;
+            case RAISED_PLANT_BED:
+                subAreas.addAll(raisedPlantBeds);
+                break;
+            case LAWN:
+                subAreas.addAll(lawns);
+                break;
+
+            case BORDER:
+                subAreas.addAll(borders);
+                break;
+
+            case GREEN_HOUSE:
+                subAreas.addAll(greenhouses);
+                break;
+
+            case CONTAINTER_SET:
+                subAreas.addAll(containerSets);
+                break;
+
+            case SINGLE_CONTAINTER:
+                subAreas.addAll(singleContainers);
+                break;
+            case POND:
+                subAreas.addAll(ponds);
+                break;
+
+            case ROOM:
+                subAreas.addAll(rooms);
+                break;
+
+            case CUSTOM:
+                subAreas.addAll(customSubareas);
+                break;
+        }
+        return subAreas;
     }
 
     @Override
     public AreaType getType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return AreaType.CUSTOM;
     }
 }
