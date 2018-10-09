@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,10 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.geometry.*?>
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.room.AddRoomFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.singlecontainer.AddSingleContainerFXMLController">
     <stylesheets>
-        <URL value="@/styles/menu/add/addroomfxml.css"/>
+        <URL value="@/styles/menu/add/addsinglecontainerfxml.css"/>
     </stylesheets>
     <children>
         <VBox layoutX="145.0" layoutY="40.0" prefHeight="471.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -111,5 +111,5 @@
                 </HBox>
             </children>
         </VBox>
-    </children>
+    </children> 
 </AnchorPane>
