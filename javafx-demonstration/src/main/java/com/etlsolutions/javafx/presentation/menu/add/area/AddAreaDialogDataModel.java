@@ -26,6 +26,7 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     public static final String LONGITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LONGITUDE_PROPERTY";
     public static final String LATITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LATITUDE_PROPERTY";
     public static final String AREA_SHAPE_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_TYPE_PROPERTY";
+    public static final String AREA_SHAPE_VALUE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_VALUE_PROPERTY";
 
     private final ObservableList<AreaType> areaTypes;
     private AreaType selectedAreaType;
@@ -102,7 +103,12 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setLength(double length) {
+
+        if (rectAngleAreaShape.getLength() == length) {
+            return;
+        }
         rectAngleAreaShape.setLength(length);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     public double getWidth() {
@@ -110,15 +116,25 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setWidth(double width) {
+
+        if (rectAngleAreaShape.getWidth() == width) {
+            return;
+        }
         rectAngleAreaShape.setWidth(width);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     public double getSide() {
         return squareAreaShape.getSide();
+
     }
 
     public void setSide(double side) {
+        if(squareAreaShape.getSide() == side) {
+            return;
+        }
         squareAreaShape.setSide(side);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     public double getDiameter() {
@@ -126,7 +142,12 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setDiameter(double diameter) {
+        
+        if(circleAreaShape.getDiameter() == diameter) {
+            return;
+        }
         circleAreaShape.setDiameter(diameter);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     public double getA() {
@@ -134,7 +155,13 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setA(double a) {
+        
+        if(triangleAreaShape.getA() == a) {
+            return;
+        }
+        
         triangleAreaShape.setA(a);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     public double getB() {
@@ -142,7 +169,12 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setB(double b) {
+        if(triangleAreaShape.getB() == b) {
+            return;
+        }
+        
         triangleAreaShape.setB(b);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     public double getC() {
@@ -150,7 +182,11 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setC(double c) {
+        if(triangleAreaShape.getC() == c) {
+            return;
+        }
         triangleAreaShape.setC(c);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     public double getArea() {
@@ -158,7 +194,11 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setArea(double area) {
+        if(irregularAreaShape.getArea() == area) {
+            return;
+        } 
         irregularAreaShape.setArea(area);
+        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
     @Override
