@@ -8,34 +8,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.imagelink.AddImageLinkDialogFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.imagelink.AddImageLinkDialogFXMLController">
   <stylesheets>
     <URL value="@/styles/imagelink/addimagelinkdialogfxml.css" />
   </stylesheets>
    <children>
       <HBox>
          <children>
-            <VBox alignment="CENTER" layoutX="209.0" layoutY="26.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="CENTER_LEFT" layoutX="209.0" layoutY="26.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
                <children>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="imageHbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="No image" />
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" text="Add image" />
+                  <Button fx:id="selectImageButton" mnemonicParsing="false" text="Select Image" />
                   <Label text="Information" />
                   <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="600.0">
                      <content>
-                        <TextArea maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" />
+                        <TextArea fx:id="informationTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" />
                      </content>
                   </ScrollPane>
-                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" text="OK" />
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
+                        <Label fx:id="errorMessageLabel" text="ErrorMesssage" textFill="#ee0606" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" layoutX="20.0" layoutY="502.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
+                        <Button fx:id="cancelButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
                      </children>
                   </HBox>
                </children>

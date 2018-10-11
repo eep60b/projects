@@ -1,67 +1,64 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
-import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.AbstractFXMLController;
+import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
-import static com.etlsolutions.javafx.presentation.imagelink.ImageDataModel.IMAGE_FILE_LINK_PROPERTY;
-import java.net.URL;
-import java.util.ResourceBundle;
+import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
+import static com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel.*;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author zc
  */
-public class AddImageLinkDialogFXMLController implements Initializable {
+public class AddImageLinkDialogFXMLController extends AbstractFXMLController<AddImageDataModel>{
 
     @FXML
-    private Button addImageButton;
-    
+    private Button selectImageButton;
+
     @FXML
-    private HBox imageHBox;
-   
+    private HBox imageHbox;
+
     @FXML
     private TextArea informationTextArea;
+
+    @FXML
+    private Label errorMessageLabel;
     
     @FXML
     private Button okButton;
-    
+
     @FXML
     private Button cancelButton;
-    
-    private Stage stage;
-    private DataUnitFXMLDataModel parentModel;
-    
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-        ImageDataModel model = new ImageDataModel();
-        addImageButton.setOnAction(new AddImageEventHandler(model, stage));
-        addImageButton.setText(model.hasImage() ? "Change Image" : "Add Image");
+    public void initializeComponents() {
+  
+        selectImageButton.setOnAction(new SelectImageFileEventHandler(model, stage));
         informationTextArea.setText(model.getInformation());
-        okButton.setDisable(!model.hasImage());   
+        errorMessageLabel.setText(model.getErrorMessage());
+        boolean valid = model.isValid();
+        okButton.setDisable(valid);
+        errorMessageLabel.setVisible(!valid);
+        errorMessageLabel.setText(model.getErrorMessage());
         
-        model.addPropertyChangeListener(IMAGE_FILE_LINK_PROPERTY, new ImagePropertyChangeAdapter(addImageButton, okButton, imageHBox));
+        if(valid) {
+        ObservableList<Node> children = imageHbox.getChildren();        
+        children.clear();
+        children.add(new ImageView(model.getImageFileLink()));
+        }
+
+        model.addPropertyChangeListener(IMAGE_FILE_LINK_PROPERTY, new ImagePropertyChangeAdapter(imageHbox, errorMessageLabel, okButton));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
-        okButton.setOnAction(new ImageOkEventHandler(parentModel, model));
-        cancelButton.setOnAction(new ImageCancelEventHandler(stage));
-    }    
-
-    public void setOwnerWindow(Stage stage) {
-        this.stage = stage;
-    }
-
-    void setParentModel(DataUnitFXMLDataModel parentModel) {
-        this.parentModel = parentModel;
+        okButton.setOnAction(new SaveExitEventHandler(model, stage));
+        cancelButton.setOnAction(new CancelEventHandler(stage));
     }
 }

@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.imagelink;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 /**
  *
@@ -10,19 +11,26 @@ import javafx.scene.control.Button;
  */
 class ImageLinkInformationPropertyChangeAdapter implements PropertyChangeListener {
 
+    private final Label errorMesssageLabel;    
     private final Button saveButton;
     private final Button saveExitButton;
 
-    public ImageLinkInformationPropertyChangeAdapter(Button saveButton, Button saveExitButton) {
+
+    public ImageLinkInformationPropertyChangeAdapter(Label errorMesssageLabel, Button saveButton, Button saveExitButton) {
+        this.errorMesssageLabel = errorMesssageLabel;
         this.saveButton = saveButton;
         this.saveExitButton = saveExitButton;
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        boolean disabled = ((EditImageInformationDataModel) evt.getSource()).isNotChanged();
-        saveButton.setDisable(disabled);
-        saveExitButton.setDisable(disabled);
+  
+        EditImageInformationDataModel model = ((EditImageInformationDataModel) evt.getSource());
+        boolean valid = model.isValid();
+        errorMesssageLabel.setText(model.getErrorMessage());
+        errorMesssageLabel.setDisable(valid);
+        saveButton.setDisable(!valid);
+        saveExitButton.setDisable(!valid);
     }
     
 }

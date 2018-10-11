@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.subarea.raisedbed;
+package com.etlsolutions.javafx.presentation.menu.add.weather;
 
 import com.etlsolutions.javafx.data.area.AreaShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
@@ -20,7 +20,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class AddRaisedBedFXMLController implements Initializable {
+public class AddWeatherRecordFXMLController implements Initializable {
 
     @FXML
     private TextField titleTextField;

@@ -56,6 +56,7 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
 
         String oldValue = this.title;
         this.title = title;
+        validate();
         support.firePropertyChange(TITLE_PROPERTY, oldValue, this.title);
     }
 

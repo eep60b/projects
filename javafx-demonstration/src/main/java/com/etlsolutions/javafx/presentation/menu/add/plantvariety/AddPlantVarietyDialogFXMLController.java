@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
-import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.ImageLinksAdapter;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
@@ -15,7 +14,8 @@ import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
 import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
 import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
-import com.etlsolutions.javafx.presentation.imagelink.AddImageLinkEventHandler;
+import com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel;
+import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel;
 import com.etlsolutions.javafx.presentation.imagelink.SelectedImageLinkAdapter;
 import static com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddVarietyDialogDataModel.*;
 import java.util.List;
@@ -130,13 +130,13 @@ public class AddPlantVarietyDialogFXMLController extends AbstractFXMLController<
         removeAliasButton.setOnAction(new RemoveAliasEventHandler(model));
         
         aliasListView.selectionModelProperty().addListener(new AliasChangeAdapter(model));
-        addImageButton.setOnAction(new AddImageLinkEventHandler(model));
+        addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
         removeImageButton.setOnAction(new RemoveImageLinkEventHandler(model));
         moveToBeginButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
         moveToRightButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
-        editImageButton.setOnAction(new EditImageInformationEventHandler(model.getSelectedImageLink()));
+        editImageButton.setOnAction(new FXMLActionEventHandler<>(new EditImageInformationDataModel(model.getSelectedImageLink())));
         okButton.setOnAction(new SaveExitEventHandler(model, parentStage));
         cancelButton.setOnAction(new CancelEventHandler(parentStage));
         

@@ -1,4 +1,5 @@
-package com.etlsolutions.javafx.presentation.menu.add.subarea.raisedbed;
+
+package com.etlsolutions.javafx.presentation.menu.add.node;
 
 import com.etlsolutions.javafx.data.area.AreaShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
@@ -20,28 +21,13 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class AddRaisedBedFXMLController implements Initializable {
+public class AddNodeFXMLController implements Initializable {
 
     @FXML
     private TextField titleTextField;
 
     @FXML
-    private ComboBox<AreaType> typeComboBox;
-
-    @FXML
     private TextArea informationTextArea;
-
-    @FXML
-    private ComboBox<AreaShapeType> shapeTypeComboBox;
-
-    @FXML
-    private HBox areaShapeContentHbox;
-
-    @FXML
-    private TextField longitudeTextField;
-
-    @FXML
-    private TextField latitudeTextField;
 
     @FXML
     private Button addImageButton;
@@ -78,6 +64,8 @@ public class AddRaisedBedFXMLController implements Initializable {
 
     @FXML
     private Button cancelButton;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

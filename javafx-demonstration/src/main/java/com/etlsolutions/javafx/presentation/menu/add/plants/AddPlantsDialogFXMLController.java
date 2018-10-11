@@ -21,8 +21,8 @@ import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
 import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
 import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
-import com.etlsolutions.javafx.presentation.imagelink.AddImageLinkEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationEventHandler;
+import com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel;
+import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
@@ -320,13 +320,13 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         plantNumberSpinner.valueProperty().addListener(new PlantNumberChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
 
-        addImageButton.setOnAction(new AddImageLinkEventHandler(model));
+        addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
         removeImageButton.setOnAction(new RemoveImageLinkEventHandler(model));
         moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
         moveToRightImageButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
-        editImageButton.setOnAction(new EditImageInformationEventHandler(model.getSelectedImageLink()));
+        editImageButton.setOnAction(new FXMLActionEventHandler<>(new EditImageInformationDataModel(model.getSelectedImageLink())));
         datePlantedPicker.dateTimeValueProperty().addListener(new PlantedDateChangeAdapter(model));
         growingMediumCombobox.selectionModelProperty().addListener(new GrowingMediumChangeAdapter(model));
         editLocationButton.setOnAction(new EditPlantLocationEventHandler(model));

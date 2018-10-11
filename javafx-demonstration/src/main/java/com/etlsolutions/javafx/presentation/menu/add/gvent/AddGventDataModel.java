@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
  *
  * @author zc
  */
-public class AddGventDataModel extends DataUnitFXMLDataModel{
+public class AddGventDataModel extends DataUnitFXMLDataModel {
 
     public Gvent getEvent() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

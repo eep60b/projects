@@ -18,7 +18,7 @@ public class Log extends DataUnit {
   
   private LocalDateTime modifiedTime;
   
-  private LocalDateTime firstHappeningTime;
+  private LocalDateTime startTime;
 
     public Log() {
     }
@@ -45,20 +45,20 @@ public class Log extends DataUnit {
         this.modifiedTime = modifiedTime;
     }
 
-    public LocalDateTime getFirstHappeningTime() {
-        return firstHappeningTime;
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
 
-    public void setFirstHappeningTime(LocalDateTime firstHappeningTime) {
-        this.firstHappeningTime = firstHappeningTime;
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
   
 
   public int getYear() {
-    return firstHappeningTime.getYear();
+    return startTime.getYear();
   }
 
   public int getMonth() {
-    return firstHappeningTime.getMonth().getValue();
+    return startTime.getMonth().getValue();
   }
 }

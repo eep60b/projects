@@ -82,8 +82,6 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
 
     @FXML
     private Button cancelButton;
-    
-    private VBox customAreaContent;
 
     /**
      * Initialises the components in this dialog.
@@ -124,7 +122,7 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
         TextField cTextField = new TextField(String.valueOf(model.getC()));
         cTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
-        Label areaLabel = new Label("Arear");
+        Label areaLabel = new Label("Area");
         TextField areaTextField = new TextField(String.valueOf(model.getArea()));
 
         ObservableList<Node> children = areaShapeContentHbox.getChildren();
@@ -156,7 +154,7 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
         latitudeTextField.setText(String.valueOf(model.getLatitude()));
         latitudeTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
-        customAreaContent = new CustomAreaContent(model);
+        VBox customAreaContent = new CustomAreaContent(model);
         switch (model.getSelectedAreaType()) {
             case CUSTOM:
                 contentsTab.setContent(customAreaContent);
