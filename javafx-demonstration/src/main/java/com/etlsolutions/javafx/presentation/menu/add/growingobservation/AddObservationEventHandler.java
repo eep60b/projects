@@ -8,7 +8,7 @@ import javafx.event.ActionEvent;
  */
 public class AddObservationEventHandler {
 
-    public AddObservationEventHandler(AddObservationDataModel sueModel) {
+    public AddObservationEventHandler(AddGrowingObservationDataModel sueModel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

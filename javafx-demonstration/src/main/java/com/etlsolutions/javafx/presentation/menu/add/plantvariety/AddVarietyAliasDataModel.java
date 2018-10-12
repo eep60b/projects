@@ -19,7 +19,7 @@ public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel implements V
     }
 
     @Override
-    public void save() {
+    public void add() {
 
         if (oldTitle == null || oldTitle.trim().isEmpty()) {
             parentModel.addAlias(title);

@@ -19,7 +19,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public abstract class DataUnitFXMLDataModel implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel {
+public abstract class DataUnitFXMLDataModel implements TitleDataModel, InformationDataModel, Addable, FXMLActionDataModel, Validatable {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";

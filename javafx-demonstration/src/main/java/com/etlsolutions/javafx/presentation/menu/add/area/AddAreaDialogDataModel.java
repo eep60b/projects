@@ -211,7 +211,7 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     @Override
-    public void save() {
+    public void add() {
 
         AreaShape selectedShape;
         switch (this.selectedAreaShapeType) {

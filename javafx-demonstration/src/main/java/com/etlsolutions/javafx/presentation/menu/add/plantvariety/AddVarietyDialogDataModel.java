@@ -77,7 +77,7 @@ public class AddVarietyDialogDataModel extends DataUnitFXMLDataModel implements 
     }
     
     @Override
-    public void save() {
+    public void add() {
         parentModel.addVariety(PlantsFactory.createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks()));
     }
     

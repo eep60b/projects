@@ -33,7 +33,7 @@ public abstract class DataUnit {
     private String logoPath;
 
     @JsonIgnore
-    private final DataUnitChangeSupport support = new DataUnitChangeSupport();
+    protected final DataUnitChangeSupport support = new DataUnitChangeSupport();
 
     /**
      * The default constructor.

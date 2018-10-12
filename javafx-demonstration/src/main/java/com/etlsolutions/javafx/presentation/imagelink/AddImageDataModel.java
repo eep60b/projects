@@ -7,14 +7,14 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.File;
 import com.etlsolutions.javafx.presentation.InformationDataModel;
-import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
+import com.etlsolutions.javafx.presentation.Addable;
 
 /**
  *
  * @author zc
  */
-public class AddImageDataModel implements InformationDataModel, FXMLActionDataModel, Savable, Validatable {
+public class AddImageDataModel implements InformationDataModel, FXMLActionDataModel, Addable, Validatable {
 
     public static final String IMAGE_FILE_LINK_PROPERTY = "com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel.IMAGE_FILE_LINK_PROPERTY";
 
@@ -28,7 +28,7 @@ public class AddImageDataModel implements InformationDataModel, FXMLActionDataMo
     public AddImageDataModel(DataUnitFXMLDataModel parentModel) {
         imageFileLink = "";
         information = "";
-        valid = true;
+        valid = false;
         this.parentModel = parentModel;
     }
 
@@ -66,7 +66,7 @@ public class AddImageDataModel implements InformationDataModel, FXMLActionDataMo
     }    
 
     @Override
-    public void save() {
+    public void add() {
         parentModel.getImageLinks().add(new ImageLink(imageFileLink, information));
     }
 

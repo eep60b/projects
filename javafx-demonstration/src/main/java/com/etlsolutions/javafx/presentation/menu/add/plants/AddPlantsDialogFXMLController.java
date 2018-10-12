@@ -261,7 +261,7 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         plantTypeCombox.selectionModelProperty().addListener(new PlantTypeChangeAdapter(model));
         addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
         addPlantVarietyButton.setOnAction(new FXMLActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
-        addGrowingMediumButton.setOnAction(new FXMLActionEventHandler<>(new AddGrowingMediumDataModel(model)));
+        addGrowingMediumButton.setOnAction(new AddPlantsGrowingMediumEventHandler(model));
         Location location = model.getLocation();
         locationTitleTextField.setText(location == null ? "Not Specified" : location.getTitle());
         locationTitleTextField.setDisable(true);

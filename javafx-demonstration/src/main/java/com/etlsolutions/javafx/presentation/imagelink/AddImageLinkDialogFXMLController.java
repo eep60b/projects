@@ -49,13 +49,7 @@ public class AddImageLinkDialogFXMLController extends AbstractFXMLController<Add
         okButton.setDisable(valid);
         errorMessageLabel.setVisible(!valid);
         errorMessageLabel.setText(model.getErrorMessage());
-        
-        if(valid) {
-        ObservableList<Node> children = imageHbox.getChildren();        
-        children.clear();
-        children.add(new ImageView(model.getImageFileLink()));
-        }
-
+       
         model.addPropertyChangeListener(IMAGE_FILE_LINK_PROPERTY, new ImagePropertyChangeAdapter(imageHbox, errorMessageLabel, okButton));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
         okButton.setOnAction(new SaveExitEventHandler(model, stage));

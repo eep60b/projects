@@ -1,13 +1,10 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
-import com.etlsolutions.javafx.data.area.AreaShapeType;
-import com.etlsolutions.javafx.data.area.AreaType;
-import com.etlsolutions.javafx.presentation.AbstractFXMLController;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
+import com.etlsolutions.javafx.presentation.DateTimePicker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -18,28 +15,16 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class AddGventFXMLController extends AbstractFXMLController<AddGventDataModel> {
+public class AddGventFXMLController extends DataUnitFXMLController<AddGventDataModel> {
     
-        @FXML
+    @FXML
     private TextField titleTextField;
 
     @FXML
-    private ComboBox<AreaType> typeComboBox;
-
+    private HBox timeHbox;
+    
     @FXML
     private TextArea informationTextArea;
-
-    @FXML
-    private ComboBox<AreaShapeType> shapeTypeComboBox;
-
-    @FXML
-    private HBox areaShapeContentHbox;
-
-    @FXML
-    private TextField longitudeTextField;
-
-    @FXML
-    private TextField latitudeTextField;
 
     @FXML
     private Button addImageButton;
@@ -66,20 +51,26 @@ public class AddGventFXMLController extends AbstractFXMLController<AddGventDataM
     private TilePane imageTilePane;
 
     @FXML
-    private Tab contentsTab;
-
-    @FXML
     private Label errorMessageLabel;
 
     @FXML
     private Button okButton;
 
     @FXML
-    private Button cancelButton;
+    private Button cancelButton;    
     
     @Override
     public void initializeComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
+        
+        Label startTimeLabel = new Label("Start Time");
+        DateTimePicker startTimePicker = new DateTimePicker();
+        startTimePicker.setDateTimeValue(model.getStartTime());
+        Label endTimeLabel = new Label("End Time");        
+        DateTimePicker endTimePicker = new DateTimePicker();
+        endTimePicker.setDateTimeValue(model.getEndTime());
+        timeHbox.getChildren().clear();
+        timeHbox.getChildren().addAll(startTimeLabel, startTimePicker, endTimeLabel,endTimePicker);
     }
     
 }

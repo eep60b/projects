@@ -13,8 +13,6 @@ import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.Savable;
-import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
 import com.etlsolutions.javafx.system.ProjectConfiguration;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -27,7 +25,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddPlantsDataModel extends DataUnitFXMLDataModel implements Savable, Validatable, GroupSelectable {
+public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSelectable {
 
     public static final String SELECTED_PLANT_GROUP_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_GROUP_PROPERTY ";    
     public static final String PLANT_TYPES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_TYPES_PROPERTY";    
@@ -311,7 +309,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements Savable
     }
     
     @Override
-    public void save() {
+    public void add() {
         selectedPlantType.getPlantsList().add(PlantsFactory.creatPlants());
     }
 

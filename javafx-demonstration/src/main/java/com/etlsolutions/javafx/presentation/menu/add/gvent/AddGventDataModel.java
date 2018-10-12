@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -9,6 +10,27 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
  */
 public class AddGventDataModel extends DataUnitFXMLDataModel {
 
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;    
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
+    
+    
+    
     public Gvent getEvent() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -19,7 +41,7 @@ public class AddGventDataModel extends DataUnitFXMLDataModel {
     }
 
     @Override
-    public void save() {
+    public void add() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

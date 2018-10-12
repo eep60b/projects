@@ -12,7 +12,7 @@ public class DigitalFilter implements UnaryOperator<Change> {
     @Override
     public Change apply(Change change) {
         String text = change.getText();
-        if (text.matches("^[-+]?\\d+(\\.\\d+)?$")) {
+        if (text == null || text.trim().isEmpty() || text.matches("^[-+]?\\d+(\\.\\d+)?$")) {
             return change;
         }
         return null;

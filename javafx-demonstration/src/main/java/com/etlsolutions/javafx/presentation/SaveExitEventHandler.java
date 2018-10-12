@@ -10,17 +10,17 @@ import javafx.stage.Stage;
  */
 public class SaveExitEventHandler implements EventHandler<ActionEvent> {
 
-    private final Savable model;
+    private final Addable model;
     private final Stage parentStage;
 
-    public SaveExitEventHandler(Savable model, Stage parentStage) {
+    public SaveExitEventHandler(Addable model, Stage parentStage) {
         this.model = model;
         this.parentStage = parentStage;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        model.save();
+        model.add();
         parentStage.close();
     }
 }

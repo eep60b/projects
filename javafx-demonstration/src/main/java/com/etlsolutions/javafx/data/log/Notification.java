@@ -25,7 +25,5 @@ public class Notification {
 
     public void setRepeatPeriod(long repeatPeriod) {
         this.repeatPeriod = repeatPeriod;
-    }
-    
-    
+    }  
 }

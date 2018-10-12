@@ -3,17 +3,17 @@ package com.etlsolutions.javafx.presentation.imagelink;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.InformationDataModel;
-import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Objects;
+import com.etlsolutions.javafx.presentation.Addable;
 
 /**
  *
  * @author zc
  */
-public class EditImageInformationDataModel implements InformationDataModel, FXMLActionDataModel, Savable, Validatable {
+public class EditImageInformationDataModel implements InformationDataModel, FXMLActionDataModel, Addable, Validatable {
 
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.ImageLink.EditImageInformationDataModel.INFORMATION_PROPERTY";
     
@@ -51,7 +51,7 @@ public class EditImageInformationDataModel implements InformationDataModel, FXML
     }
 
     @Override
-    public void save() {
+    public void add() {
         String oldValue = imageLink.getInformation();
         imageLink.setInformation(information);
         

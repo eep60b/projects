@@ -33,7 +33,7 @@ public class GrowingMedium extends DataUnit {
     private double clayPercentage;
     private double organicPercentage;
     private double stonepaencentage;
-    private double waterPercentage;
+    private double waterStoragePercentage;
     private double ph;
     private boolean fertilised;
 
@@ -49,7 +49,7 @@ public class GrowingMedium extends DataUnit {
         clayPercentage = compositions[i++];
         organicPercentage = compositions[i++];
         stonepaencentage = compositions[i++];
-        waterPercentage = compositions[i++];
+        waterStoragePercentage = compositions[i++];
         ph = compositions[i++];
         this.fertilised = fertilised;
     }
@@ -63,7 +63,7 @@ public class GrowingMedium extends DataUnit {
         clayPercentage = compositions[i++];
         organicPercentage = compositions[i++];
         stonepaencentage = compositions[i++];
-        waterPercentage = compositions[i++];
+        waterStoragePercentage = compositions[i++];
         ph = compositions[i++];
         this.fertilised = fertilised;
     }
@@ -76,7 +76,7 @@ public class GrowingMedium extends DataUnit {
         clayPercentage = compositions[i++];
         organicPercentage = compositions[i++];
         stonepaencentage = compositions[i++];
-        waterPercentage = compositions[i++];
+        waterStoragePercentage = compositions[i++];
         ph = compositions[i++];
         this.fertilised = fertilised;
     }
@@ -131,14 +131,14 @@ public class GrowingMedium extends DataUnit {
         fireChange(STONE_PERCENTAGE_PROPERTY, oldValue, this.stonepaencentage);
     }
 
-    public double getWaterPercentage() {
-        return waterPercentage;
+    public double getWaterStoragePercentage() {
+        return waterStoragePercentage;
     }
 
-    public void setWaterPercentage(double waterPercentage) {
-        double oldValue = this.waterPercentage;
-        this.waterPercentage = waterPercentage;
-        fireChange(WATER_PERCENTAGE_PROPERTY, oldValue, this.waterPercentage);
+    public void setWaterStoragePercentage(double waterStoragePercentage) {
+        double oldValue = this.waterStoragePercentage;
+        this.waterStoragePercentage = waterStoragePercentage;
+        fireChange(WATER_PERCENTAGE_PROPERTY, oldValue, this.waterStoragePercentage);
     }
 
     public double getPh() {

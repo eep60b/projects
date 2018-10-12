@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.presentation.menu.add.location.AddLocationEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.locationwizard.AddLocationEventHandler;
 import com.etlsolutions.javafx.presentation.menu.edit.location.EditLocationEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

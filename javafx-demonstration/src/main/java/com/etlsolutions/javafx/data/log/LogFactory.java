@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.data.log;
 import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.task.Tasks;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -69,13 +70,13 @@ public class LogFactory {
         return w;
     }
 
-    public static GrowingIssue createGrowingIssue() {
-        GrowingIssue g = new GrowingIssue();
+    public static GrowingIssue createGrowingIssue(String title, String information, LocalDateTime startTime, LocalDateTime endTime, String solution, String effectiveness) {
+        GrowingIssue g = new GrowingIssue(title, information, startTime, endTime, solution, effectiveness);
         return g;
     }
 
-    public static GrowingObservation createGrowingObservation() {
-        GrowingObservation g = new GrowingObservation();
+    public static GrowingObservation createGrowingObservation(String title, String information, LocalDateTime startTime, LocalDateTime endTime) {
+        GrowingObservation g = new GrowingObservation(title, information, startTime, endTime);
         return g;
     }
 }
