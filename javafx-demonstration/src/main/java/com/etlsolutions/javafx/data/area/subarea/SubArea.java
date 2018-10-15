@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -15,7 +15,7 @@ public abstract class SubArea extends DataUnit {
     protected final ObservableList<Location> allLocations;
 
     public SubArea() {
-        allLocations = FXCollections.observableArrayList();
+        allLocations = new ObservableListWrapperA<>();
     }
     
     public abstract void updateAllLocations();

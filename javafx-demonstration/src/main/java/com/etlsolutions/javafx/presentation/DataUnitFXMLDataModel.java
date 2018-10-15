@@ -44,8 +44,6 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
         noOrLastImage = true;
     }
 
-    protected abstract void validate();
-
     @Override
     public String getTitle() {
         return title;
@@ -126,10 +124,12 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
         setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) - 1));
     }
 
+    @Override
     public boolean isValid() {
         return valid;
     }
 
+    @Override
     public String getErrorMessage() {
         return errorMessage;
     }
@@ -140,5 +140,10 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
 
     public boolean isNoOrLastImage() {
         return noOrLastImage;
+    }
+
+    protected void validate() {
+        valid = title != null && title.trim().isEmpty();
+        errorMessage = valid ? "" : "Please enter title.";
     }
 }

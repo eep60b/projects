@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.system;
 
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
-import com.etlsolutions.javafx.data.plant.GrowingMedium;
+import com.etlsolutions.javafx.data.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;

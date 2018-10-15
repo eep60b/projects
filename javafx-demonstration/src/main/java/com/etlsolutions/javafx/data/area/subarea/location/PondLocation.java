@@ -1,26 +1,22 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.etlsolutions.javafx.data.ImageLink;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class PondLocation extends Location {
-    
-    @JsonIgnore
-    public static final String DIRECTION_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.PondLocation.REFERENCE_POINT_PROPERTY";
-    
-    private String direction;
+public class PondLocation extends GroundLocation {
 
-    public String getDirection() {
-        return direction;
+    public PondLocation() {
     }
 
-    public void setDirection(String direction) {
-        
-        String oldValue = this.direction;
-        this.direction = direction;
-        fireChange(DIRECTION_PROPERTY, oldValue, this.direction);
+    public PondLocation(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, referencePoint, direction, distance, occupiedArea);
+    }
+
+    public PondLocation(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
+        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath, referencePoint, direction, distance, occupiedArea);
     }
 }

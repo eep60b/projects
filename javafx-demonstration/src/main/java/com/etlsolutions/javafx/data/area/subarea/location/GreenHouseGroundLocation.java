@@ -1,26 +1,23 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
+import com.etlsolutions.javafx.data.ImageLink;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class GreenHouseGroundLocation extends Location {
-    
-    @JsonIgnore
-    public static final String DIRECTION_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.GreenHouseLocation.REFERENCE_POINT_PROPERTY";
-    
-    private String directtion;
+public class GreenHouseGroundLocation extends GroundLocation {
 
-    public String getDirecttion() {
-        return directtion;
+    public GreenHouseGroundLocation() {
     }
 
-    public void setDirecttion(String directtion) {
-        
-        String oldValue = this.directtion;
-        this.directtion = directtion;
-        fireChange(DIRECTION_PROPERTY, oldValue, this.directtion);
+    public GreenHouseGroundLocation(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, referencePoint, direction, distance, occupiedArea);
+    }
+
+    public GreenHouseGroundLocation(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
+        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath, referencePoint, direction, distance, occupiedArea);
     }
 }

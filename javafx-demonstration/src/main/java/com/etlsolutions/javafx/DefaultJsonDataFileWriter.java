@@ -1,5 +1,6 @@
-package com.etlsolutions.javafx.system;
+package com.etlsolutions.javafx;
 
+import com.etlsolutions.javafx.system.SettingConstants;
 import static com.etlsolutions.javafx.system.SettingConstants.DEFAULT_DATA_DIRECTORY;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;

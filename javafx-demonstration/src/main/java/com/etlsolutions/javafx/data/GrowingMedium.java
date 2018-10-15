@@ -1,7 +1,5 @@
-package com.etlsolutions.javafx.data.plant;
+package com.etlsolutions.javafx.data;
 
-import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.collections.ObservableList;
 

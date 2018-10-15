@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.GrowingMediumFactory;
 import com.etlsolutions.javafx.data.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.log.LogFactory;
@@ -62,7 +63,7 @@ public final class ProjectManager {
 
             configuration.setParentPath(projectDirectory.getParent());
             configuration.setName(projectDirectory.getName());
-            configuration.setGrowingMediums(PlantsFactory.createDefaultGrowingMediums());
+            configuration.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
         } else {
             //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
@@ -97,7 +98,7 @@ public final class ProjectManager {
         configuration = new ProjectConfiguration();
         configuration.setParentPath(parentPath);
         configuration.setName(name);
-        configuration.setGrowingMediums(PlantsFactory.createDefaultGrowingMediums());
+        configuration.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
         File file = new File(configuration.getProjectPath());
         boolean success = file.mkdirs();
 

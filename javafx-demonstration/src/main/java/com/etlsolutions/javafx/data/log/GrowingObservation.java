@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  *
  * @author zc
  */
-public class GrowingObservation extends Log {
+public class GrowingObservation extends Note {
     
     @JsonIgnore
     public static final String ENDTIME_PROPERTY = "com.etlsolutions.javafx.data.log.GrowingObservation.ENDTIME_PROPERTY";    

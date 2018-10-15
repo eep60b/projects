@@ -16,6 +16,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
@@ -98,18 +99,23 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
         shapeTypeComboBox.getSelectionModel().select(model.getSelectedAreaShapeType());
 
         Label lengthLabel = new Label("Length");
-        TextField lengthTextField = new TextField(String.valueOf(model.getLength()));
+        TextField lengthTextField = new TextField();
+        lengthTextField.setMinWidth(Region.USE_COMPUTED_SIZE);
         lengthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        
         Label widthLabel = new Label("Width");
-        TextField widthTextField = new TextField(String.valueOf(model.getWidth()));
+        widthLabel.setMinWidth(Region.USE_COMPUTED_SIZE);
+        TextField widthTextField = new TextField();
         widthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
         Label sideLabel = new Label("Side");
-        TextField sideTextField = new TextField(String.valueOf(model.getSide()));
+        TextField sideTextField = new TextField();
+        sideLabel.setMinWidth(Region.USE_COMPUTED_SIZE);
         sideTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
         Label diameterLabel = new Label("Diameter");
-        TextField diameterTextField = new TextField(String.valueOf(model.getDiameter()));
+        diameterLabel.setMinWidth(Region.USE_COMPUTED_SIZE);
+        TextField diameterTextField = new TextField();
         diameterTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
         Label aLebel = new Label("A");

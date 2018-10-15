@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.data.plant.GrowingMedium;
+import com.etlsolutions.javafx.data.GrowingMedium;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumDataModel;
 import javafx.event.ActionEvent;

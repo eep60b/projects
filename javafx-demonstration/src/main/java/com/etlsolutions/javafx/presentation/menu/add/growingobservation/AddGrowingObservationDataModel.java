@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.menu.add.growingobservation;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.system.ProjectManager;
 import java.time.LocalDateTime;
 
 /**
@@ -33,13 +34,9 @@ public class AddGrowingObservationDataModel extends DataUnitFXMLDataModel {
     }
 
     @Override
-    protected void validate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void add() {
         growingObservation = LogFactory.createGrowingObservation(title, information, startTime, endTime);
+        ProjectManager.getInstance().getProject().getLogGroupRoot().getNotes().addLog(growingObservation);
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
-import com.etlsolutions.javafx.data.plant.GrowingMedium;
+import com.etlsolutions.javafx.data.GrowingMedium;
+import com.etlsolutions.javafx.data.GrowingMediumFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
@@ -21,12 +23,12 @@ public class AddGrowingMediumDataModel extends DataUnitFXMLDataModel {
 
 
     public AddGrowingMediumDataModel() {
-        sandPercentage = 32.0;
-        siltPercentage = 32.0;
-        clayPercentage = 16.0;
-        organicPercentage = 20.0;
-        stonePercentage = 0.0;
-        waterStoragePercentage = 20.0;
+        sandPercentage = 32;
+        siltPercentage = 32;
+        clayPercentage = 16;
+        organicPercentage = 20;
+        stonePercentage = 0;
+        waterStoragePercentage = 20;
         ph = 6.8;
                 
     }
@@ -87,16 +89,12 @@ public class AddGrowingMediumDataModel extends DataUnitFXMLDataModel {
         this.ph = ph;
     }
 
-    
-    @Override
-    protected void validate() {
-        valid = title != null && ! title.isEmpty();
-        errorMessage = valid ? "" : "Please enter the title.";
-    }
-
     @Override
     public void add() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        growingMedium = GrowingMediumFactory.getInstance().createGrowingMedium(title, information, imageLinks, 0, title, 
+                new double[]{sandPercentage, siltPercentage, clayPercentage, organicPercentage, stonePercentage, waterStoragePercentage, ph}, true);
+        ProjectManager.getInstance().getProject().getGrowingMediums().add(growingMedium);
     }
 
     @Override

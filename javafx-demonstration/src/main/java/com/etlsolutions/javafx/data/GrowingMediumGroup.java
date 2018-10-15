@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data;
 
-import com.etlsolutions.javafx.data.plant.GrowingMedium;
 import java.util.List;
 import java.util.Objects;
 import javafx.collections.ObservableList;

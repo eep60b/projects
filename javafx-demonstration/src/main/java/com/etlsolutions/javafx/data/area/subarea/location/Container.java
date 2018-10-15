@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
+import com.etlsolutions.javafx.data.ImageLink;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -14,17 +16,34 @@ public class Container extends Location {
     public static final String HEIGHT_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.Container.HEIGHT_PROPERTY";
     @JsonIgnore
     public static final String VOLUMN_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.Container.VOLUMN_PROPERTY";
-    
-    private String shape;
+        
+    private ContainerShape shape;
     private double height;
     private double volumn;
 
-    public String getShape() {
+    public Container() {
+    }
+
+    public Container(ContainerShape shape, double height, double volumn, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.shape = shape;
+        this.height = height;
+        this.volumn = volumn;
+    }
+
+    public Container(ContainerShape shape, double height, double volumn, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.shape = shape;
+        this.height = height;
+        this.volumn = volumn;
+    }
+
+    public ContainerShape getShape() {
         return shape;
     }
 
-    public void setShape(String shape) {
-        String oldValue = this.shape;
+    public void setShape(ContainerShape shape) {
+        ContainerShape oldValue = this.shape;
         this.shape = shape;
         fireChange(SHAPE_PROPERTY, oldValue, this.shape);
     }

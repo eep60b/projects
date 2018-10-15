@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
+import com.etlsolutions.javafx.data.GrowingMedium;
 import com.etlsolutions.javafx.data.DataUnitPart;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;

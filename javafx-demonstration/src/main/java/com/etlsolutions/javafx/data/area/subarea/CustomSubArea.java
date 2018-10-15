@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.CustomLocation;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -15,8 +15,8 @@ public class CustomSubArea extends SubArea {
     private final ObservableList<Container> containers;
 
     public CustomSubArea() {
-        locations = FXCollections.observableArrayList();
-        containers = FXCollections.observableArrayList();
+        locations = new ObservableListWrapperA<>();
+        containers = new ObservableListWrapperA<>();
     }
 
     public ObservableList<CustomLocation> getLocations() {

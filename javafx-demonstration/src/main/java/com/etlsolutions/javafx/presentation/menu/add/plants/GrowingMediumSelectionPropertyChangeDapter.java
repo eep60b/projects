@@ -5,7 +5,7 @@
  */
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.data.plant.GrowingMedium;
+import com.etlsolutions.javafx.data.GrowingMedium;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.ComboBox;

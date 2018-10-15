@@ -1,11 +1,8 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitIdRegistry;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -20,7 +17,7 @@ public class LogGroup extends DataUnit {
     public static final String YEARS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.YEARS_PROPERTY";
 
     @JsonIgnore
-    private final List<Log> cache = new ArrayList<>();
+    private ObservableList<Log> cache;
 
     private ObservableList<LogYear> years;
 
@@ -29,7 +26,8 @@ public class LogGroup extends DataUnit {
 
     protected LogGroup(String title, String information) {
         super(title, information);
-        years = FXCollections.observableArrayList();
+        cache = new ObservableListWrapperA<>();
+        years = new ObservableListWrapperA<>();
     }
 
     public ObservableList<LogYear> getYears() {
@@ -80,7 +78,7 @@ public class LogGroup extends DataUnit {
         fireChange(LOGS_PROPERTY);
     }
 
-    public List<Log> getLogs() {
-        return new ArrayList<>(cache);
+    public ObservableList<Log> getLogs() {
+        return cache;
     }
 }
