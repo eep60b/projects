@@ -14,7 +14,10 @@ public class Tasks  extends LogGroup {
     public List<Tasks> tasks = new ArrayList<>();
 
     public Tasks() {
-        super.setTitle("Tasks");
+    }
+
+    public Tasks(String title, String information) {
+        super(title, information);
     }
 
     public List<Tasks> getTasks() {

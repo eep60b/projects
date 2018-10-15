@@ -16,7 +16,11 @@ public class Tests extends LogGroup {
     public List<Test> tests = new ArrayList<>();
 
     public Tests() {
-        super.setTitle("Tests");
+        
+    }
+
+    public Tests(String title, String information) {
+        super(title, information);
     }
 
     public List<Test> getTests() {

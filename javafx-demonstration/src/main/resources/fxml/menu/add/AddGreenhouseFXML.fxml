@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.greenhouse.AddGreenhouseFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.greenhouse.AddGreenhouseFXMLController">
     <stylesheets>
-        <URL value="@/styles/menu/add/addgreenhousefxml.css"/>
+        <URL value="@/styles/menu/add/addgreenhousefxml.css" />
     </stylesheets>
     <children>
         <VBox layoutX="145.0" layoutY="40.0" prefHeight="471.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -18,7 +18,7 @@
                 <Insets bottom="10.0" right="10.0" top="10.0" />
             </padding>
             <children>
-                <TabPane prefHeight="470.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE">
+                <TabPane prefHeight="623.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                         <Tab text="General">
                             <content>
@@ -54,15 +54,34 @@
                                                 </HBox>
                                                 <HBox spacing="10.0">
                                                     <children>
-                                                        <Label text="Area">
+                                                        <Label text="Length">
                                                             <padding>
                                                                 <Insets top="3.0" />
                                                             </padding>
                                                         </Label>
-                                                        <TextField fx:id="areaTextField" prefHeight="25.0" prefWidth="79.0" />
-                                                        <HBox fx:id="shapeHbox" prefHeight="25.0" prefWidth="453.0" spacing="10.0" />
+                                                        <TextField fx:id="lengthTextField" prefHeight="25.0" prefWidth="79.0" HBox.hgrow="ALWAYS" />
                                                     </children>
                                                 </HBox>
+                                    <HBox layoutX="20.0" layoutY="348.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="37.0" text="Width">
+                                             <padding>
+                                                <Insets top="3.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="lengthTextField1" prefHeight="25.0" prefWidth="79.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="20.0" layoutY="348.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Height">
+                                             <padding>
+                                                <Insets top="3.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="lengthTextField2" prefHeight="25.0" prefWidth="79.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
                                             </children>
                                             <padding>
                                                 <Insets left="10.0" top="10.0" />
@@ -98,7 +117,7 @@
                         </Tab>
                     </tabs>
                 </TabPane>
-                <Label fx:id="errorMessageLabel" prefHeight="25.0" prefWidth="108.0" text="Error Messsage">
+                <Label fx:id="errorMessageLabel" prefHeight="25.0" prefWidth="108.0" text="Error Messsage" textFill="#f80101">
                     <padding>
                         <Insets left="10.0" />
                     </padding>

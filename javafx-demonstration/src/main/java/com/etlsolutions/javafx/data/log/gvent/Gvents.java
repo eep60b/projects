@@ -8,4 +8,10 @@ import com.etlsolutions.javafx.data.log.LogGroup;
  */
 public class Gvents extends LogGroup {
 
+    public Gvents() {
+    }
+
+    public Gvents(String title, String information) {
+        super(title, information);
+    }
 }

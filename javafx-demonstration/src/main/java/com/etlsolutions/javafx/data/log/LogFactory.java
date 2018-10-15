@@ -28,46 +28,38 @@ public class LogFactory {
 
     public static Gvents createEvents() {
 
-        Gvents e = new Gvents();
-        e.setTitle("Events");
-        return e;
+        return new Gvents("Events", "");
+
     }
 
     public static Issues createIssues() {
-        Issues i = new Issues();
-        i.setTitle("Issues");
-        return i;
+        return new Issues("Issues", "");
+
     }
 
     public static Notes createNotes() {
 
-        Notes n = new Notes();
-        n.setTitle("Notes");
-        return n;
+        return new Notes("Notes", "");
     }
 
     public static References createReferences() {
-        References r = new References();
-        r.setTitle("References");
-        return r;
+        
+        return new References("References", "");
     }
 
     public static Tasks createTasks() {
-        Tasks t = new Tasks();
-        t.setTitle("Tasks");
-        return t;
+        
+        return new Tasks("Tasks", "");
     }
 
     public static Tests createTests() {
-        Tests t = new Tests();
-        t.setTitle("Tests");
-        return t;
+        
+        return new Tests("Tests", "");
     }
 
     public static WeatherRecords createWeatherRecords() {
-        WeatherRecords w = new WeatherRecords();
-        w.setTitle("Weather");
-        return w;
+        
+        return new WeatherRecords("Weather", "");
     }
 
     public static GrowingIssue createGrowingIssue(String title, String information, LocalDateTime startTime, LocalDateTime endTime, String solution, String effectiveness) {

@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="471.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.custom.AddCustomSubAreaFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.custom.AddCustomSubAreaFXMLController">
   <stylesheets>
     <URL value="@/styles/menu/add/addcustomsubareafxml.css" />
   </stylesheets>
@@ -18,7 +18,7 @@
             <Insets bottom="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <TabPane prefHeight="470.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="612.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="General">
                   <content>
@@ -54,13 +54,12 @@
                                     </HBox>
                                     <HBox spacing="10.0">
                                        <children>
-                                          <Label text="Area">
+                                          <Label prefHeight="20.0" prefWidth="37.0" text="Area">
                                              <padding>
                                                 <Insets top="3.0" />
                                              </padding>
                                           </Label>
-                                          <TextField fx:id="areaTextField" prefHeight="25.0" prefWidth="79.0" />
-                                          <HBox fx:id="shapeHbox" prefHeight="25.0" prefWidth="453.0" spacing="10.0" />
+                                          <TextField fx:id="areaTextField" prefHeight="25.0" prefWidth="79.0" HBox.hgrow="ALWAYS" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -98,7 +97,7 @@
                 </Tab>
               </tabs>
             </TabPane>
-            <Label fx:id="errorMessageLabel" prefHeight="25.0" prefWidth="108.0" text="Error Messsage">
+            <Label fx:id="errorMessageLabel" prefHeight="25.0" prefWidth="108.0" text="Error Messsage" textFill="#f50606">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
