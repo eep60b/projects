@@ -9,30 +9,23 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeView;
+import org.apache.log4j.Logger;
 
 /**
- * The LogsController class is a FXML Controller class to control the view tab of logs.
+ * The LogsController class is a FXML Controller class to control the view tab
+ * of logs.
  *
  * @author zc
  */
-public class LogsController implements Initializable {
+public class LogsController extends AbstractFXMLController {
 
     @FXML
     private TreeView<DataUnit> logsTreeView;
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {    
-        LogGroupRoot r = ProjectManager.getInstance().getProject().getLogGroupRoot();
-        
-        
-        
-        
-       logsTreeView.setRoot(new LogGroupRootTreeItem(r));
-    }
+    public void initializeComponents() {
 
+        LogGroupRoot r = ProjectManager.getInstance().getProject().getLogGroupRoot();
+        logsTreeView.setRoot(new LogGroupRootTreeItem(r));
+    }
 }

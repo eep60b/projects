@@ -15,7 +15,7 @@ import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
-import com.etlsolutions.javafx.presentation.AbstractFXMLController;
+import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -27,7 +27,7 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventH
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
+import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumDataModel;
 import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeEventHandler;
@@ -53,7 +53,7 @@ import javafx.scene.layout.HBox;
  *
  * @author zc
  */
-public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPlantsDataModel> {
+public class AddPlantsDialogFXMLController extends AbstractComponentsFXMLController<AddPlantsDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -321,7 +321,7 @@ public class AddPlantsDialogFXMLController extends AbstractFXMLController<AddPla
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
 
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveImageLinkEventHandler(model));
+        removeImageButton.setOnAction(new RemoveEventHandler(model, model.getSelectedImageLink()));
         moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));

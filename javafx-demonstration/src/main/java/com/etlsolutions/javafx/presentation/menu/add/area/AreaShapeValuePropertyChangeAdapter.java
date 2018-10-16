@@ -20,7 +20,7 @@ public class AreaShapeValuePropertyChangeAdapter implements PropertyChangeListen
     public void propertyChange(PropertyChangeEvent evt) {
         
         AddAreaDialogDataModel model = (AddAreaDialogDataModel) evt.getSource();
-       areaTextField.setText(String.valueOf(model.getArea()));
+       areaTextField.setText(String.valueOf(model.getAreaValue()));
     }
     
 }

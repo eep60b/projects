@@ -106,10 +106,12 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
         setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) + 1));
     }
 
-    public void removeSelectedImageLink() {
-        int index = imageLinks.indexOf(selectedImageLink);
-        imageLinks.remove(selectedImageLink);
-        setSelectedImageLink(imageLinks.isEmpty() ? null : imageLinks.get(index == imageLinks.size() ? index - 1 : index));
+    public void remove(Object item) {
+        if (item instanceof ImageLink) {
+            int index = imageLinks.indexOf(item);
+            imageLinks.remove(index);
+            setSelectedImageLink(imageLinks.isEmpty() ? null : imageLinks.get(index == imageLinks.size() ? index - 1 : index));
+        }
     }
 
     public void setSelectedImageLinkToFirst() {

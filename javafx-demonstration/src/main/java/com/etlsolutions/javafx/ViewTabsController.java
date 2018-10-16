@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx;
 
 import java.net.URL;
@@ -14,14 +9,10 @@ import javafx.fxml.Initializable;
  *
  * @author zc
  */
-public class ViewTabsController implements Initializable {
+public class ViewTabsController extends AbstractFXMLController {
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    public void initializeComponents() {
+        
+    } 
 }

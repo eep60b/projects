@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.collections.FXCollections;
@@ -76,4 +77,9 @@ public class Pond extends SubArea {
     public SubAreaType getType() {
         return SubAreaType.POND;
     }
+    
+    @Override
+    public ObservableList<LocationType> getLocationTypes() {
+        return FXCollections.observableArrayList(LocationType.POND_LOCATION);
+    }      
 }

@@ -41,7 +41,7 @@ public class TriangleAreaShape extends AreaShape {
 
         double mean = (a + b + c) / 2;
 
-        area = Math.sqrt(mean * (mean - a) * (mean - b) * (mean - c));
+        areaValue = Math.sqrt(mean * (mean - a) * (mean - b) * (mean - c));
 
     }
 

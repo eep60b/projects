@@ -129,7 +129,7 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
         cTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
         Label areaLabel = new Label("Area");
-        TextField areaTextField = new TextField(String.valueOf(model.getArea()));
+        TextField areaTextField = new TextField(String.valueOf(model.getAreaValue()));
 
         ObservableList<Node> children = areaShapeContentHbox.getChildren();
         children.clear();

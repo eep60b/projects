@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.data.area.subarea;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import javafx.collections.ObservableList;
 
 /**
@@ -21,6 +22,8 @@ public abstract class SubArea extends DataUnit {
     public abstract void updateAllLocations();
 
     public abstract SubAreaType getType();
+    
+    public abstract ObservableList<LocationType> getLocationTypes();
 
     public ObservableList<Location> getAllLocations() {
         return allLocations;

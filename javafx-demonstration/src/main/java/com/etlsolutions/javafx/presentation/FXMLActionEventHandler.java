@@ -52,7 +52,7 @@ public class FXMLActionEventHandler<T extends FXMLActionDataModel> implements Ev
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getFxmlPath()));
             Parent root = loader.load();
-            AbstractFXMLController<T> controller = loader.getController();
+            AbstractComponentsFXMLController<T> controller = loader.getController();
             controller.setModel(model);
             controller.setStage(stage);
             controller.initializeComponents();

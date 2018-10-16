@@ -1,9 +1,12 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -71,4 +74,9 @@ public class Room extends SubArea {
     public SubAreaType getType() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public ObservableList<LocationType> getLocationTypes() {
+        return FXCollections.observableArrayList(LocationType.CONTAINER);
+    }  
 }

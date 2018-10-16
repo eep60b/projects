@@ -80,11 +80,6 @@ public class AddGrowingMediumFXMLController extends DataUnitFXMLController<AddGr
     private Button cancelButton;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
-
-    @Override
     public void initializeComponents() {
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 

@@ -69,6 +69,16 @@
                                           <Button fx:id="editSubareaButton" layoutX="371.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
                                        </children>
                                     </HBox>
+                                    <HBox layoutX="10.0" layoutY="406.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="64.0" text="Type">
+                                             <padding>
+                                                <Insets left="10.0" top="3.0" />
+                                             </padding>
+                                          </Label>
+                                          <ComboBox fx:id="locationTypeComboBox" prefHeight="25.0" prefWidth="359.0" />
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                            </children></AnchorPane>

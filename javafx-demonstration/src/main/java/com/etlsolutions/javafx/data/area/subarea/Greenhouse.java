@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseGroundLocation;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -38,4 +39,8 @@ public class Greenhouse extends SubArea {
         return SubAreaType.GREEN_HOUSE;
     }
 
+    @Override
+    public ObservableList<LocationType> getLocationTypes() {
+        return FXCollections.observableArrayList(LocationType.CONTAINER, LocationType.GREEN_HOUSE_GROUND_LOCATION);
+    }  
 }

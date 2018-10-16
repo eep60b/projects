@@ -1,5 +1,9 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author zc
@@ -16,5 +20,9 @@ public class Lawn extends SubArea {
         return SubAreaType.LAWN;
     }
 
+    @Override
+    public ObservableList<LocationType> getLocationTypes() {
+        return FXCollections.observableArrayList(LocationType.CUSTOMER_LOCATION);
+    }  
     
 }

@@ -8,7 +8,6 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventH
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -22,7 +21,7 @@ import javafx.scene.layout.Pane;
  * @author zc
  * @param <T> - The data model type.
  */
-public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> extends AbstractFXMLController<T> {
+public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> extends AbstractComponentsFXMLController<T> {
 
     protected void initCommonComponents(TextField titleTextField, TextArea informationTextArea, Pane imageTilePane, Button addImageButton,
             Button editImageButton, Button moveToBeginImageButton, Button moveToLeftImageButton, Button moveToRightImageButton, Button moveToEndImageButton, Button removeImageButton,
@@ -50,7 +49,7 @@ public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> ex
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
 
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveImageLinkEventHandler(model));
+        removeImageButton.setOnAction(new RemoveEventHandler(model, model.getSelectedImageLink()));
         moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));

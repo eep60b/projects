@@ -41,7 +41,7 @@ public class SubAreaSelectionPage extends VBox {
         ComboBox<SubArea> areaComboBox = new ComboBox<>(model.getSubAreas());
         areaComboBox.getSelectionModel().select(model.getSelectedSubArea());
         areaComboBox.selectionModelProperty().addListener(new SubAreaSelectionChangeAdapter(model));
-        model.getSubAreas().addListener(new SubAreaListChangeAdapter(areaComboBox, model));
+       // model.getSubAreas().addListener(new SubAreaListChangeAdapter(areaComboBox, model));
 
         Button addAreaButton = new Button("Add New");
         addAreaButton.setOnAction(new FXMLActionEventHandler<>(model));

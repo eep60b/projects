@@ -6,8 +6,8 @@ package com.etlsolutions.javafx.data.area;
  */
 public class IrregularAreaShape extends AreaShape {
 
-    public void setArea(double area) {
-        this.area = area;
+    public void setAreaValue(double areaValue) {
+        this.areaValue = areaValue;
     }
     
     @Override
@@ -18,7 +18,7 @@ public class IrregularAreaShape extends AreaShape {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.area) ^ (Double.doubleToLongBits(this.area) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.areaValue) ^ (Double.doubleToLongBits(this.areaValue) >>> 32));
         return hash;
     }
 
@@ -34,6 +34,6 @@ public class IrregularAreaShape extends AreaShape {
             return false;
         }
         final IrregularAreaShape other = (IrregularAreaShape) obj;
-        return Double.doubleToLongBits(this.area) == Double.doubleToLongBits(other.area);
+        return Double.doubleToLongBits(this.areaValue) == Double.doubleToLongBits(other.areaValue);
     }
 }

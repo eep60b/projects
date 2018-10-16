@@ -6,11 +6,11 @@ package com.etlsolutions.javafx.data.area;
  */
 public abstract class AreaShape {
     
-    protected double area;
+    protected double areaValue;
     
     public abstract AreaShapeType getType();
 
-    public double getArea() {
-        return area;
+    public double getAreaValue() {
+        return areaValue;
     }    
 }

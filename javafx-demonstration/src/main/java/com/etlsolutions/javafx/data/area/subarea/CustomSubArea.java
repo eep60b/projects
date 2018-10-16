@@ -3,6 +3,8 @@ package com.etlsolutions.javafx.data.area.subarea;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.CustomLocation;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -38,4 +40,8 @@ public class CustomSubArea extends SubArea {
         return SubAreaType.CUSTOM;
     }
 
+    @Override
+    public ObservableList<LocationType> getLocationTypes() {
+        return FXCollections.observableArrayList(LocationType.CONTAINER, LocationType.CUSTOMER_LOCATION);
+    }    
 }

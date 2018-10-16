@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class Location extends DataUnit {
+public abstract class Location extends DataUnit {
 
     public Location() {
     }

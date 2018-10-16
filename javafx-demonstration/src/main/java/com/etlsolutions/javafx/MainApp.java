@@ -1,12 +1,12 @@
 package com.etlsolutions.javafx;
 
 import com.etlsolutions.javafx.system.RepositoryUtils;
+import com.etlsolutions.javafx.system.ThrowableHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import static javafx.application.Application.launch;
 
@@ -32,28 +32,26 @@ public class MainApp extends Application {
             stage.setScene(scene);
             stage.show();
         } catch (Throwable th) {
-            Logger.getLogger(MainApp.class).error(th);
-            JOptionPane.showMessageDialog(null, "Error: the project is corrupted.");
-            System.exit(-1);
+            ThrowableHandler.getInstance().handle(th, getClass());
         }
     }
 
     /**
-     * The main() method is ignored in correctly deployed JavaFX application. main() serves only as fallback in case the application can not be launched through deployment artifacts, e.g., in IDEs
-     * with limited FX support. NetBeans ignores main().
+     * The main() method is ignored in correctly deployed JavaFX application.
+     * main() serves only as fallback in case the application can not be
+     * launched through deployment artifacts, e.g., in IDEs with limited FX
+     * support. NetBeans ignores main().
      *
      * @param args the command line arguments
      */
     @SuppressWarnings("UseSpecificCatch")
     public static void main(String[] args) {
-                
+
         try {
             RepositoryUtils.initRepository(args);
             launch(args);
         } catch (Throwable th) {
-            Logger.getLogger(MainApp.class).error(th);
-            JOptionPane.showMessageDialog(null, "Error: the project is corrupted.");
-            System.exit(-1);
+            ThrowableHandler.getInstance().handle(th, MainApp.class);
         }
     }
 }

@@ -1,6 +1,7 @@
-package com.etlsolutions.javafx.presentation.menu.add.locationwizard;
+package com.etlsolutions.javafx.presentation.menu.add.location;
 
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
+import com.etlsolutions.javafx.presentation.menu.add.locationwizard.AddLocationWizardDataModel;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.ComboBox;
 

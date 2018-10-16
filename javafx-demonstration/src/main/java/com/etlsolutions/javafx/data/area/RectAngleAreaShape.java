@@ -20,7 +20,7 @@ public class RectAngleAreaShape extends AreaShape {
 
     public void setLength(double length) {
         this.length = length;
-        area = this.width * this.length;
+        areaValue = this.width * this.length;
     }
 
     public double getWidth() {
@@ -29,7 +29,7 @@ public class RectAngleAreaShape extends AreaShape {
 
     public void setWidth(double width) {
         this.width = width;
-        area = this.width * this.length;
+        areaValue = this.width * this.length;
     }
 
     @Override

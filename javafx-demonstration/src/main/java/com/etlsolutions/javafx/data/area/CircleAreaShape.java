@@ -16,7 +16,7 @@ public class CircleAreaShape extends AreaShape {
 
     public void setDiameter(double diameter) {
         this.diameter = diameter;
-        area = (this.diameter / 2) * this.diameter / 2 * PI;
+        areaValue = (this.diameter / 2) * this.diameter / 2 * PI;
     }
 
     @Override

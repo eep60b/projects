@@ -1,9 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -31,6 +29,11 @@ public class ContainerSet extends SubArea {
     @Override
     public SubAreaType getType() {
         return SubAreaType.CONTAINTER_SET;
+    }
+
+    @Override
+    public ObservableList<LocationType> getLocationTypes() {
+        return FXCollections.observableArrayList(LocationType.CONTAINER);
     }
 
 }

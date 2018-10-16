@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.locationwizard;
+package com.etlsolutions.javafx.presentation.menu.add.location;
 
 import com.etlsolutions.javafx.data.area.Area;
 import javafx.collections.ListChangeListener;
@@ -11,15 +11,16 @@ import javafx.scene.control.ComboBox;
 public class AreaListChangeAdapter implements ListChangeListener<Area> {
 
     private final ComboBox<Area> areaComboBox;
-    private final AddLocationWizardDataModel model;
+    private final AddLocationDataModel model;
 
-    public AreaListChangeAdapter(ComboBox<Area> areaComboBox, AddLocationWizardDataModel model) {        
+    public AreaListChangeAdapter(ComboBox<Area> areaComboBox, AddLocationDataModel model) {        
         this.areaComboBox = areaComboBox;
         this.model = model;
     }
 
     @Override
     public void onChanged(Change<? extends Area> c) {
+         areaComboBox.setItems(model.getAreas());
          areaComboBox.getSelectionModel().select(model.getSelectedArea());
     }  
 }

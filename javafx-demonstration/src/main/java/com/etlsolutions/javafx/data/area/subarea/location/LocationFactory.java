@@ -34,7 +34,8 @@ public class LocationFactory {
             defaultLocationDirections.add(new LocationDirection(title));
         }
         
-        defaultLocation = new Location();
+        defaultLocation = new PlantBedLocation("Untitled", "", new ObservableListWrapperA<ImageLink>(), 0, "", 
+                defaultLocationReferencePoints.get(0), defaultLocationDirections.get(0), 0, 0);
     }
 
     public static LocationFactory getInstance() {
@@ -64,5 +65,9 @@ public class LocationFactory {
     
     public ObservableList<LocationDirection> getDefaultLocationDirections(){
         return defaultLocationDirections;
+    }
+
+    public Location getDefaultLocation() {
+        return defaultLocation;
     }
 }

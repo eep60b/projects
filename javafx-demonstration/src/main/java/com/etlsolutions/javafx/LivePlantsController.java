@@ -17,23 +17,17 @@ import javafx.scene.control.TreeView;
  *
  * @author zc
  */
-public class LivePlantsController implements Initializable {
+public class LivePlantsController extends AbstractFXMLController {
 
     @FXML
     private TreeView<DataUnit> livePlantsTreeView;
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        PlantGroupRoot r = ProjectManager.getInstance().getProject().getPlantsGroupRoot();
-       
-        livePlantsTreeView.setRoot(new PlantsGroupRootTreeItem(r));
-        MenuItem createPlantsGroupMenuItem = new MenuItem("New Group");
+    public void initializeComponents() {
         
+        PlantGroupRoot r = ProjectManager.getInstance().getProject().getPlantsGroupRoot();       
+        livePlantsTreeView.setRoot(new PlantsGroupRootTreeItem(r));
+        MenuItem createPlantsGroupMenuItem = new MenuItem("New Group");   
         livePlantsTreeView.setContextMenu(new ContextMenu(createPlantsGroupMenuItem));
     }
 }

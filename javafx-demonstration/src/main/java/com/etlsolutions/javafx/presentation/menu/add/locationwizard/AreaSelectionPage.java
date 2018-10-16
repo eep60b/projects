@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.locationwizard;
 
+import com.etlsolutions.javafx.presentation.menu.add.location.AreaListChangeAdapter;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel;
@@ -23,7 +24,7 @@ public class AreaSelectionPage extends VBox {
         ComboBox<Area> areaComboBox = new ComboBox<>(model.getAreas());
         areaComboBox.getSelectionModel().select(model.getSelectedArea());
         areaComboBox.selectionModelProperty().addListener(new AreaSelectionChangeAdapter(model));        
-        model.getAreas().addListener(new AreaListChangeAdapter(areaComboBox, model));
+   //     model.getAreas().addListener(new AreaListChangeAdapter(areaComboBox, model));
         
         Button addAreaButton = new Button("Add Area");
         addAreaButton.setOnAction(new FXMLActionEventHandler<>(new AddAreaDialogDataModel()));

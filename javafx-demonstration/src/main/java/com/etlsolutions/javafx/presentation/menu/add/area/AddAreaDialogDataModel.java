@@ -28,6 +28,7 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     public static final String AREA_SHAPE_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_TYPE_PROPERTY";
     public static final String AREA_SHAPE_VALUE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_VALUE_PROPERTY";
 
+    private Area area;    
     private final ObservableList<AreaType> areaTypes;
     private AreaType selectedAreaType;
     private double longitude;
@@ -52,6 +53,10 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
         irregularAreaShape = new IrregularAreaShape();
     }
 
+    public Area getArea() {
+        return area;
+    }
+    
     public ObservableList<AreaType> getAreaTypes() {
         return areaTypes;
     }
@@ -189,15 +194,15 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
         support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
-    public double getArea() {
-        return irregularAreaShape.getArea();
+    public double getAreaValue() {
+        return irregularAreaShape.getAreaValue();
     }
 
-    public void setArea(double area) {
-        if(irregularAreaShape.getArea() == area) {
+    public void setAreaValue(double areaValue) {
+        if(irregularAreaShape.getAreaValue() == areaValue) {
             return;
         } 
-        irregularAreaShape.setArea(area);
+        irregularAreaShape.setAreaValue(areaValue);
         support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
@@ -235,8 +240,8 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
             default:
                 selectedShape = null;
         }
-        Area a = AreaFactory.createArea(selectedAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", -300, -300, selectedShape);
-        ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().add(a);
+        area = AreaFactory.createArea(selectedAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", -300, -300, selectedShape);
+        ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().add(area);
     }
 
     @Override

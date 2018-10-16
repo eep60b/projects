@@ -14,7 +14,7 @@ public class SquareAreaShape extends AreaShape {
 
     public void setSide(double side) {
         this.side = side;
-        area = this.side * this.side;
+        areaValue = this.side * this.side;
     }
     
     @Override

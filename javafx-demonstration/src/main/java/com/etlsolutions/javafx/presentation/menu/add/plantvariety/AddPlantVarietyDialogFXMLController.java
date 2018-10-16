@@ -5,10 +5,10 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventH
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
+import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.AbstractFXMLController;
+import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -35,7 +35,7 @@ import javafx.stage.Stage;
  *
  * @author zc
  */
-public class AddPlantVarietyDialogFXMLController extends AbstractFXMLController<VarietyAddable> {
+public class AddPlantVarietyDialogFXMLController extends AbstractComponentsFXMLController<VarietyAddable> {
     
     private Stage parentStage;    
     
@@ -131,7 +131,7 @@ public class AddPlantVarietyDialogFXMLController extends AbstractFXMLController<
         
         aliasListView.selectionModelProperty().addListener(new AliasChangeAdapter(model));
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveImageLinkEventHandler(model));
+        removeImageButton.setOnAction(new RemoveEventHandler(model, model.getSelectedImageLink()));
         moveToBeginButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndButton.setOnAction(new MoveImageLinkToEndEventHandler(model));

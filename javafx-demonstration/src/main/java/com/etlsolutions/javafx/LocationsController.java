@@ -15,22 +15,15 @@ import javafx.scene.control.TreeView;
  *
  * @author zc
  */
-public class LocationsController implements Initializable {
+public class LocationsController extends AbstractFXMLController {
 
     @FXML
     private TreeView<DataUnit> locationsTreeView;
 
-    /**
-     * Initializes the controller class.
-     *
-     * @param url
-     * @param rb
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initializeComponents() {
         
         AreaRoot r = ProjectManager.getInstance().getProject().getAreaRoot();
         locationsTreeView.setRoot(new AreaRootTreeItem(r));
     }
-
 }

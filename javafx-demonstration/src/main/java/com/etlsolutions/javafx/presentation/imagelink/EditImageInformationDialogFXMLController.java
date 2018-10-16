@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
 import com.etlsolutions.javafx.presentation.SaveEventHandler;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.presentation.AbstractFXMLController;
+import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import static com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel.INFORMATION_PROPERTY;
 import java.net.URL;
@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  *
  * @author zc
  */
-public class EditImageInformationDialogFXMLController extends AbstractFXMLController<EditImageInformationDataModel> {
+public class EditImageInformationDialogFXMLController extends AbstractComponentsFXMLController<EditImageInformationDataModel> {
 
     private ImageLink imageLink;
     

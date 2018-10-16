@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx;
+package com.etlsolutions.javafx.data;
 
 import com.etlsolutions.javafx.system.SettingConstants;
 import static com.etlsolutions.javafx.system.SettingConstants.DEFAULT_DATA_DIRECTORY;

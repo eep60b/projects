@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx;
 
+import com.etlsolutions.javafx.data.DefaultJsonDataFileWriterRunner;
 import org.junit.Test;
 
 /**

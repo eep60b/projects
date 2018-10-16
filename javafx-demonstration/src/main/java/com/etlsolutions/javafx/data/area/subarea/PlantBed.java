@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
@@ -58,4 +59,10 @@ public class PlantBed extends SubArea {
     public SubAreaType getType() {
         return SubAreaType.PLANT_BED;
     }
+    
+    
+    @Override
+    public ObservableList<LocationType> getLocationTypes() {
+        return FXCollections.observableArrayList(LocationType.PLANT_BED_LOCATION);
+    }  
 }

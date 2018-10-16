@@ -16,7 +16,7 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventH
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.RemoveImageLinkEventHandler;
+import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.SelectedImageLinkAdapter;
 import static com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.*;
 import java.net.URL;
@@ -142,7 +142,7 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         varityListView.getSelectionModel().selectionModeProperty().addListener(new PlantVarietySelectionChangeAdapter(model));
         
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveImageLinkEventHandler(model));
+        removeImageButton.setOnAction(new RemoveEventHandler(model, model.getSelectedImageLink()));
         moveToBeginButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndButton.setOnAction(new MoveImageLinkToEndEventHandler(model));

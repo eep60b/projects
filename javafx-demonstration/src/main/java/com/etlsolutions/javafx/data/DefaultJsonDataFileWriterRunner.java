@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx;
+package com.etlsolutions.javafx.data;
 
 import com.etlsolutions.javafx.data.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.ImageLink;
