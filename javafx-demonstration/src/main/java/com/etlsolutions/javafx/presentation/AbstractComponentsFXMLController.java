@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.presentation;
 
-import com.etlsolutions.javafx.AbstractFXMLController;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
 /**
@@ -8,10 +10,12 @@ import javafx.stage.Stage;
  * @author zc
  * @param <T>
  */
-public abstract class AbstractComponentsFXMLController<T> extends AbstractFXMLController {
+public abstract class AbstractComponentsFXMLController<T> {
 
     protected Stage stage;
     protected T model;
+    
+    public abstract void initializeComponents();    
     
     /**
      * 

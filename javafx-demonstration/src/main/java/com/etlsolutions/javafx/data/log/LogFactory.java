@@ -4,7 +4,6 @@ import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.task.Tasks;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 /**
  *
