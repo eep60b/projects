@@ -1,8 +1,7 @@
-package com.etlsolutions.javafx.presentation.menu.add.area;
+package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
@@ -12,8 +11,6 @@ import com.etlsolutions.javafx.data.area.RectAngleAreaShape;
 import com.etlsolutions.javafx.data.area.SquareAreaShape;
 import com.etlsolutions.javafx.data.area.TriangleAreaShape;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.Validatable;
-import com.etlsolutions.javafx.system.ProjectManager;
 import java.util.Arrays;
 import javafx.collections.ObservableList;
 
@@ -21,31 +18,29 @@ import javafx.collections.ObservableList;
  *
  * @author Zhipeng
  */
-public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Validatable {
+public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
 
     public static final String LONGITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LONGITUDE_PROPERTY";
     public static final String LATITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LATITUDE_PROPERTY";
     public static final String AREA_SHAPE_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_TYPE_PROPERTY";
     public static final String AREA_SHAPE_VALUE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_VALUE_PROPERTY";
 
-    private Area area;    
-    private final ObservableList<AreaType> areaTypes;
-    private AreaType selectedAreaType;
+    protected Area area;
+    protected final ObservableList<AreaType> areaTypes;
+    protected AreaType selectedAreaType;
     private double longitude;
     private double latitude;
-    private final ObservableList<AreaShapeType> areaShapeTypes;
-    private AreaShapeType selectedAreaShapeType;
+    protected final ObservableList<AreaShapeType> areaShapeTypes;
+    protected AreaShapeType selectedAreaShapeType;
     private final RectAngleAreaShape rectAngleAreaShape;
     private final SquareAreaShape squareAreaShape;
     private final CircleAreaShape circleAreaShape;
     private final TriangleAreaShape triangleAreaShape;
     private final IrregularAreaShape irregularAreaShape;
 
-    public AddAreaDialogDataModel() {
-        this.areaTypes = new ObservableListWrapperA<>(Arrays.asList(AreaType.values()));
-        selectedAreaType = areaTypes.get(0);
-        this.areaShapeTypes = new ObservableListWrapperA<>(Arrays.asList(AreaShapeType.values()));
-        selectedAreaShapeType = areaShapeTypes.get(0);
+    public AbstractAreaDataModel(ObservableList<AreaType> areaTypes) {
+        this.areaTypes = areaTypes;
+        areaShapeTypes = new ObservableListWrapperA<>(Arrays.asList(AreaShapeType.values()));
         rectAngleAreaShape = new RectAngleAreaShape();
         squareAreaShape = new SquareAreaShape();
         circleAreaShape = new CircleAreaShape();
@@ -56,7 +51,7 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     public Area getArea() {
         return area;
     }
-    
+
     public ObservableList<AreaType> getAreaTypes() {
         return areaTypes;
     }
@@ -135,7 +130,7 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setSide(double side) {
-        if(squareAreaShape.getSide() == side) {
+        if (squareAreaShape.getSide() == side) {
             return;
         }
         squareAreaShape.setSide(side);
@@ -147,8 +142,8 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setDiameter(double diameter) {
-        
-        if(circleAreaShape.getDiameter() == diameter) {
+
+        if (circleAreaShape.getDiameter() == diameter) {
             return;
         }
         circleAreaShape.setDiameter(diameter);
@@ -160,11 +155,11 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setA(double a) {
-        
-        if(triangleAreaShape.getA() == a) {
+
+        if (triangleAreaShape.getA() == a) {
             return;
         }
-        
+
         triangleAreaShape.setA(a);
         support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
@@ -174,10 +169,10 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setB(double b) {
-        if(triangleAreaShape.getB() == b) {
+        if (triangleAreaShape.getB() == b) {
             return;
         }
-        
+
         triangleAreaShape.setB(b);
         support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
@@ -187,7 +182,7 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setC(double c) {
-        if(triangleAreaShape.getC() == c) {
+        if (triangleAreaShape.getC() == c) {
             return;
         }
         triangleAreaShape.setC(c);
@@ -199,53 +194,32 @@ public class AddAreaDialogDataModel extends DataUnitFXMLDataModel implements Val
     }
 
     public void setAreaValue(double areaValue) {
-        if(irregularAreaShape.getAreaValue() == areaValue) {
+        if (irregularAreaShape.getAreaValue() == areaValue) {
             return;
-        } 
+        }
         irregularAreaShape.setAreaValue(areaValue);
         support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
-    @Override
-    protected void validate() {
-
-        valid = title != null && !title.isEmpty();
-        if (!valid) {
-            errorMessage = "Enter the title";
-        }
-    }
-
-    @Override
-    public void add() {
-
-        AreaShape selectedShape;
+    public AreaShape getShape() {
         switch (this.selectedAreaShapeType) {
             case RECTANGLE:
-                selectedShape = rectAngleAreaShape;
-                break;
-
+                return rectAngleAreaShape;
             case SQURE:
-                selectedShape = squareAreaShape;
-                break;
-
+                return squareAreaShape;
             case CIRCLE:
-                selectedShape = circleAreaShape;
-                break;
+                return circleAreaShape;
             case TRIANGLE:
-                selectedShape = triangleAreaShape;
-                break;
+                return triangleAreaShape;
             case IRREGULAR:
-                selectedShape = irregularAreaShape;
-                break;
+                return irregularAreaShape;
             default:
-                selectedShape = null;
+                return null;
         }
-        area = AreaFactory.createArea(selectedAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", -300, -300, selectedShape);
-        ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().add(area);
     }
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/AddAreaDialogFXML.fxml";
+        return "/fxml/area/AreaFXML.fxml";
     }
 }

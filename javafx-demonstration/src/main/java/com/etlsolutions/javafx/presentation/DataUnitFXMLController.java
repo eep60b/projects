@@ -49,7 +49,7 @@ public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> ex
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
 
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveEventHandler(model, model.getSelectedImageLink()));
+        removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));
         moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));

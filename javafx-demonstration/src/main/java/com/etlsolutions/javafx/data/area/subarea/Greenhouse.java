@@ -12,6 +12,9 @@ import javafx.collections.ObservableList;
  */
 public class Greenhouse extends SubArea {
 
+    private double length;
+    private double width;
+    private double height;
     private final ObservableList<GreenHouseGroundLocation> locations;
     private final ObservableList<Container> containers;
 

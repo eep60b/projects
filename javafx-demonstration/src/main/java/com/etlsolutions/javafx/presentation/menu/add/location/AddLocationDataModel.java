@@ -5,6 +5,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.collections.ObservableList;
 
@@ -18,6 +19,8 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
     public static final String SUBAREA_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.location.AddLocationDataModel.SUBAREA_PROPERTY";
     public static final String LOCATION_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.location.AddLocationDataModel.LOCATION_TYPE_PROPERTY";
     
+    public static final RemoveEventId SELECTED_AREA_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.location.AddLocationDataModel", "selected area");
+    
     private final ObservableList<Area> areas;
     private Area selectedArea;
     private ObservableList<SubArea> subAreas;
@@ -26,12 +29,11 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
     private LocationType selectedType;
 
     public AddLocationDataModel() {
-        areas = ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas();
+        areas = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas());
         selectedArea = areas.get(0);
-        subAreas = selectedArea.getAllSubAreas();
+        subAreas = new ObservableListWrapperA<>(selectedArea.getAllSubAreas());
         selectedSubArea = subAreas.get(0);
-        types = new ObservableListWrapperA<>();
-        types.addAll(LocationType.values());
+        types = selectedSubArea == null ? new ObservableListWrapperA<LocationType>() : selectedSubArea.getLocationTypes();
         selectedType = types.get(0);
     }
 
@@ -39,6 +41,13 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
         return areas;
     }
 
+    public void addArea(Area area) {
+        ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().add(area);
+        areas.add(area);
+        setSelectedArea(area);
+    }
+    
+    
     public Area getSelectedArea() {
         return selectedArea;
     }
@@ -96,6 +105,14 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public void remove(RemoveEventId id) {
+        super.remove(id); 
+    }
+
+
+
+    
     @Override
     public String getFxmlPath() {
         return "/fxml/menu/add/AddGventFXML.fxml";

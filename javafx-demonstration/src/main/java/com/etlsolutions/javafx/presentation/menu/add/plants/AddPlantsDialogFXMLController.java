@@ -28,7 +28,6 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHan
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumDataModel;
 import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeEventHandler;
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
@@ -321,7 +320,7 @@ public class AddPlantsDialogFXMLController extends AbstractComponentsFXMLControl
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
 
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveEventHandler(model, model.getSelectedImageLink()));
+        removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));
         moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));

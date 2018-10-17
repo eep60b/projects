@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.area;
+package com.etlsolutions.javafx.presentation.area;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
  */
 public class CustomAreaContent extends VBox {
 
-    public CustomAreaContent(AddAreaDialogDataModel model) {
+    public CustomAreaContent(AbstractAreaDataModel model) {
         setSpacing(10);
         HBox plantBedHbox = new HBox();
         plantBedHbox.setSpacing(10);

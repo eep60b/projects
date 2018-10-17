@@ -2,7 +2,8 @@ package com.etlsolutions.javafx.presentation.menu.add.location;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel;
+import com.etlsolutions.javafx.presentation.area.AbstractAreaDataModel;
+import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -10,20 +11,20 @@ import javafx.event.EventHandler;
  *
  * @author zc
  */
-public class AddLocationAreaEventHandler implements EventHandler<ActionEvent> {
+public class LocationAreaEventHandler implements EventHandler<ActionEvent> {
 
     private final AddLocationDataModel model;
+    private final AbstractAreaDataModel areaModel;
 
-    public AddLocationAreaEventHandler(AddLocationDataModel model) {
+    public LocationAreaEventHandler(AddLocationDataModel model, AbstractAreaDataModel areaModel) {
     
         this.model = model;
+        this.areaModel = areaModel;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        
-        AddAreaDialogDataModel areaModel = new AddAreaDialogDataModel();
-        FXMLActionEventHandler<AddAreaDialogDataModel> eventHandler = new FXMLActionEventHandler<>(areaModel);
+        FXMLActionEventHandler<AbstractAreaDataModel> eventHandler = new FXMLActionEventHandler<>(areaModel);
         eventHandler.handle(event);
         Area area = areaModel.getArea();
         if(area == null) {

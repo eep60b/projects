@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.area;
+package com.etlsolutions.javafx.presentation.area;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -54,7 +54,7 @@ public class AreaShapeTypePropertyChangeAdapter implements PropertyChangeListene
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        AddAreaDialogDataModel model = (AddAreaDialogDataModel) evt.getSource();
+        AddAreaDataModel model = (AddAreaDataModel) evt.getSource();
 
         ObservableList<Node> children = areaShapeContentHbox.getChildren();
         children.clear();

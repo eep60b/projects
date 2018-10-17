@@ -128,6 +128,11 @@ public abstract class DataUnit {
         return imageLinks;
     }
 
+    public void setImageLinks(ObservableListWrapperA<ImageLink> imageLinks) {
+        this.imageLinks = imageLinks;
+    }
+
+    
     public int getSelectedImgLinkIndex() {
         return selectedImgLinkIndex;
     }

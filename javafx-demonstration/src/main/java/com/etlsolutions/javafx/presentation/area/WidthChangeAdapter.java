@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.area;
+package com.etlsolutions.javafx.presentation.area;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -7,17 +7,17 @@ import javafx.beans.value.ObservableValue;
  *
  * @author zc
  */
-public class SideChangeAdapter implements ChangeListener<String> {
+public class WidthChangeAdapter implements ChangeListener<String> {
 
-    private final AddAreaDialogDataModel model;
+    private final AbstractAreaDataModel model;
 
-    public SideChangeAdapter(AddAreaDialogDataModel model) {
+    public WidthChangeAdapter(AbstractAreaDataModel model) {
         this.model = model;
     }
 
     @Override
     public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-        model.setSide(Double.parseDouble(newValue));
+        model.setWidth(Double.parseDouble(newValue));
     }
     
 }

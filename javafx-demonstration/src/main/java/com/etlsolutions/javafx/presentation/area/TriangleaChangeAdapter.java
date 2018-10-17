@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.area;
+package com.etlsolutions.javafx.presentation.area;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -9,9 +9,9 @@ import javafx.beans.value.ObservableValue;
  */
 public class TriangleaChangeAdapter implements ChangeListener<String> {
 
-    private final AddAreaDialogDataModel model;
+    private final AbstractAreaDataModel model;
 
-    public TriangleaChangeAdapter(AddAreaDialogDataModel model) {
+    public TriangleaChangeAdapter(AbstractAreaDataModel model) {
         this.model = model;
     }
 

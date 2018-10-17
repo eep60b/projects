@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.area;
+package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.area.AreaShapeType;
 import javafx.beans.value.ChangeListener;
@@ -11,9 +11,9 @@ import javafx.scene.control.SingleSelectionModel;
  */
 public class AreaShapeTypeChangeAdapter implements ChangeListener<SingleSelectionModel<AreaShapeType>> {
 
-    private final AddAreaDialogDataModel model;
+    private final AbstractAreaDataModel model;
 
-    public AreaShapeTypeChangeAdapter(AddAreaDialogDataModel model) {
+    public AreaShapeTypeChangeAdapter(AbstractAreaDataModel model) {
         this.model = model;
     }
 

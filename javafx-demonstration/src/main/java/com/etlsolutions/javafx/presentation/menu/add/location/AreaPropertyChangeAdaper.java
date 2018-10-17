@@ -10,12 +10,12 @@ import javafx.scene.control.ComboBox;
  *
  * @author zc
  */
-public class AreasPropertyChangeAdaper implements PropertyChangeListener {
+public class AreaPropertyChangeAdaper implements PropertyChangeListener {
 
     private final ComboBox<SubArea> subareaComboBox;
     private final Button removeAreaButton;
 
-    public AreasPropertyChangeAdaper(ComboBox<SubArea> subareaComboBox, Button removeAreaButton) {
+    public AreaPropertyChangeAdaper(ComboBox<SubArea> subareaComboBox, Button removeAreaButton) {
         this.subareaComboBox = subareaComboBox;
         this.removeAreaButton = removeAreaButton;
     }

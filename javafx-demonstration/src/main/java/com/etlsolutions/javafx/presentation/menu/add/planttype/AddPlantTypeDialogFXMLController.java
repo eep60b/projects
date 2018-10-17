@@ -142,7 +142,7 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         varityListView.getSelectionModel().selectionModeProperty().addListener(new PlantVarietySelectionChangeAdapter(model));
         
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveEventHandler(model, model.getSelectedImageLink()));
+        removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));
         moveToBeginButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndButton.setOnAction(new MoveImageLinkToEndEventHandler(model));

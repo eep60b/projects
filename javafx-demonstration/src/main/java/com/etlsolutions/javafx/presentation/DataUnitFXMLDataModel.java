@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import java.beans.PropertyChangeListener;
+import java.util.Objects;
 import javafx.collections.ObservableList;
 
 /**
@@ -26,6 +27,8 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
     public static final String SELECTED_IMAGE_LINK_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.SELECTED_IMAGE_LINK_PROPERTY";
     public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.LOGO_PATH_PROPERTY";
 
+    public static final RemoveEventId SELECTED_IMAGE_LINK_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.selectedImageLink", "Selected Image");
+    
     protected final ObservableList<ImageLink> imageLinks;
     protected String title;
     protected String information;
@@ -106,9 +109,9 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
         setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) + 1));
     }
 
-    public void remove(Object item) {
-        if (item instanceof ImageLink) {
-            int index = imageLinks.indexOf(item);
+    public void remove(RemoveEventId id) {
+        if (Objects.equals(id, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID)) {
+            int index = imageLinks.indexOf(selectedImageLink);
             imageLinks.remove(index);
             setSelectedImageLink(imageLinks.isEmpty() ? null : imageLinks.get(index == imageLinks.size() ? index - 1 : index));
         }

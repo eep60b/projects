@@ -1,10 +1,10 @@
-package com.etlsolutions.javafx.presentation.menu.add.area;
+package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.area.AreaShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
-import static com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.*;
+import static com.etlsolutions.javafx.presentation.area.AddAreaDataModel.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -25,7 +25,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Zhipeng
  */
-public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaDialogDataModel> {
+public class AreaFXMLController extends DataUnitFXMLController<AbstractAreaDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -95,25 +95,30 @@ public class AddAreaDialogFXMLController extends DataUnitFXMLController<AddAreaD
 
         typeComboBox.setItems(model.getAreaTypes());
         typeComboBox.getSelectionModel().select(model.getSelectedAreaType());
+        typeComboBox.setDisable(model.getAreaTypes().size() <= 1);
         shapeTypeComboBox.setItems(model.getAreaShapeTypes());
         shapeTypeComboBox.getSelectionModel().select(model.getSelectedAreaShapeType());
 
         Label lengthLabel = new Label("Length");
+        lengthLabel.setPrefWidth(100);
         TextField lengthTextField = new TextField();
         lengthTextField.setMinWidth(Region.USE_COMPUTED_SIZE);
         lengthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         
         Label widthLabel = new Label("Width");
+        widthLabel.setPrefWidth(100);
         widthLabel.setMinWidth(Region.USE_COMPUTED_SIZE);
         TextField widthTextField = new TextField();
         widthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
         Label sideLabel = new Label("Side");
+        sideLabel.setPrefWidth(100);
         TextField sideTextField = new TextField();
         sideLabel.setMinWidth(Region.USE_COMPUTED_SIZE);
         sideTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
 
         Label diameterLabel = new Label("Diameter");
+        diameterLabel.setPrefWidth(100);
         diameterLabel.setMinWidth(Region.USE_COMPUTED_SIZE);
         TextField diameterTextField = new TextField();
         diameterTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));

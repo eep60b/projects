@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
@@ -13,11 +14,23 @@ import javafx.collections.ObservableList;
  */
 public abstract class SubArea extends DataUnit {
 
-    protected final ObservableList<Location> allLocations;
+    protected  ObservableList<Location> allLocations;
 
     public SubArea() {
+        
+    }
+
+    public SubArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         allLocations = new ObservableListWrapperA<>();
     }
+
+    public SubArea(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        allLocations = new ObservableListWrapperA<>();
+    }
+    
+    
     
     public abstract void updateAllLocations();
 

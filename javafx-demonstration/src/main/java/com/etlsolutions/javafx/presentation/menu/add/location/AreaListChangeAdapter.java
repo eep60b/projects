@@ -21,6 +21,5 @@ public class AreaListChangeAdapter implements ListChangeListener<Area> {
     @Override
     public void onChanged(Change<? extends Area> c) {
          areaComboBox.setItems(model.getAreas());
-         areaComboBox.getSelectionModel().select(model.getSelectedArea());
     }  
 }
