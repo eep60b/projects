@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import com.etlsolutions.javafx.presentation.Addable;
+import com.etlsolutions.javafx.presentation.Savable;
 
 /**
  *
@@ -10,15 +10,15 @@ import com.etlsolutions.javafx.presentation.Addable;
  */
 public class SaveEventHandler implements EventHandler<ActionEvent> {
 
-    private final Addable model;
+    private final Savable model;
 
-    public SaveEventHandler(Addable model) {
+    public SaveEventHandler(Savable model) {
         this.model = model;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        model.add();
+        model.save();
     }
     
 }

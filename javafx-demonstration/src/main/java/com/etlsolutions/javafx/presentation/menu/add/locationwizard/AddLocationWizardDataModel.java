@@ -95,7 +95,7 @@ public class AddLocationWizardDataModel extends DataUnitFXMLDataModel implements
     }
 
     @Override
-    public void add() {
+    public void save() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -141,11 +141,6 @@ public class AddLocationWizardDataModel extends DataUnitFXMLDataModel implements
 
     @Override
     public String getFxmlPath() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void save() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

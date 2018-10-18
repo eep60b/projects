@@ -14,19 +14,19 @@ public class EditAreaDataModel extends AbstractAreaDataModel {
         super(new ObservableListWrapperA<>(area.getType()));
         this.area = area;
         selectedAreaType = area.getType();
-        selectedAreaShapeType = area.getShape().getType();
+        selectedAreaShapeType = area.getMeasurement().getType();
     }
 
    
     @Override
-    public void add() {        
+    public void save() {        
         area.setTitle(title);
         area.setInformation(information);
         area.getImageLinks().clear();
-        area.setImageLinks(new ObservableListWrapperA<>(imageLinks));
+        area.getImageLinks().addAll(imageLinks);
         area.setSelectedImgLinkIndex(imageLinks.indexOf(getSelectedImageLink()));
         area.setLongitude(getLongitude());
         area.setLatitude(getLatitude());
-        area.setShape(getShape());
+        area.setMeasurement(getMeasurement());
     }
 }

@@ -8,13 +8,13 @@ import java.beans.PropertyChangeSupport;
 import java.io.File;
 import com.etlsolutions.javafx.presentation.InformationDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
-import com.etlsolutions.javafx.presentation.Addable;
+import com.etlsolutions.javafx.presentation.Savable;
 
 /**
  *
  * @author zc
  */
-public class AddImageDataModel implements InformationDataModel, FXMLActionDataModel, Addable, Validatable {
+public class AddImageDataModel implements InformationDataModel, FXMLActionDataModel, Savable, Validatable {
 
     public static final String IMAGE_FILE_LINK_PROPERTY = "com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel.IMAGE_FILE_LINK_PROPERTY";
 
@@ -66,7 +66,7 @@ public class AddImageDataModel implements InformationDataModel, FXMLActionDataMo
     }    
 
     @Override
-    public void add() {
+    public void save() {
         parentModel.getImageLinks().add(new ImageLink(imageFileLink, information));
     }
 

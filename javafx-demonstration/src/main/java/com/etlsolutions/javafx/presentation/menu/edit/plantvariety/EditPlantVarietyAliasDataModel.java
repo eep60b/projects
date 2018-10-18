@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddVarietyDialogDataModel;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import com.etlsolutions.javafx.presentation.Addable;
+import com.etlsolutions.javafx.presentation.Savable;
 
 /**
  *
@@ -24,7 +24,7 @@ public class EditPlantVarietyAliasDataModel extends DataUnitFXMLDataModel {
 
 
     @Override
-    public void add() {
+    public void save() {
 
         if (oldTitle == null || oldTitle.trim().isEmpty()) {
             parentModel.addAlias(title);

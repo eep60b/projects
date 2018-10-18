@@ -1,19 +1,24 @@
 package com.etlsolutions.javafx.presentation.area.subarea;
 
+import com.etlsolutions.javafx.data.area.Area;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaFactoryK;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
+
 /**
  *
  * @author zc
  */
 public class AddSubAreaDataModel extends AbstractSubAreaDataModel {
 
-    @Override
-    public void add() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AddSubAreaDataModel(Area area) {
+        super(area, SubAreaType.values());
+        measurement = new SubAreaMeasurement();
     }
 
     @Override
-    public String getFxmlPath() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void save() {
+        subArea = SubAreaFactoryK.getInstance().createSubArea(selectedSubAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", selectedSubAreaShape, measurement);
+        area.getSubAreas(selectedSubAreaType).add(subArea);
     }
-    
 }

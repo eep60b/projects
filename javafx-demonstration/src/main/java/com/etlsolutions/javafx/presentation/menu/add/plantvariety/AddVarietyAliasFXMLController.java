@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 
 /**
- * AddVarietyAliasFXMLController is an FXML Controller class which control the add variety alias dialog.
+ * AddVarietyAliasFXMLController is an FXML Controller class which control the save variety alias dialog.
  *
  * @author zc
  */

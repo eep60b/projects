@@ -1,9 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
-import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -23,19 +20,14 @@ public class SingleContainer extends SubArea {
         setInformation(this.container.getInformation());
     }
 
-
     @Override
     public SubAreaType getType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return SubAreaType.SINGLE_CONTAINTER;
     }
 
     @Override
     public void updateAllLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        allLocations.clear();
+        allLocations.add(container);
     }
-
-    @Override
-    public ObservableList<LocationType> getLocationTypes() {
-        return FXCollections.observableArrayList(LocationType.CONTAINER);
-    }  
 }

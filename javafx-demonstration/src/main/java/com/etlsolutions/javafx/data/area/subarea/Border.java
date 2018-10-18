@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
-import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -58,10 +57,5 @@ public class Border extends SubArea {
     @Override
     public SubAreaType getType() {
         return SubAreaType.BORDER;
-    }
-
-    @Override
-    public ObservableList<LocationType> getLocationTypes() {
-        return FXCollections.observableArrayList(LocationType.BORDER_LOCATION);
     }
 }

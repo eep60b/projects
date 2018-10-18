@@ -31,7 +31,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
- * AddPlantVarietyDialogFXMLController is an FXML Controller class which control the add plant variety dialog.
+ * AddPlantVarietyDialogFXMLController is an FXML Controller class which control the save plant variety dialog.
  *
  * @author zc
  */

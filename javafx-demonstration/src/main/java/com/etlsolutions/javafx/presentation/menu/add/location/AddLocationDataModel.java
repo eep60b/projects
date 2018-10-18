@@ -33,7 +33,7 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
         selectedArea = areas.get(0);
         subAreas = new ObservableListWrapperA<>(selectedArea.getAllSubAreas());
         selectedSubArea = subAreas.get(0);
-        types = selectedSubArea == null ? new ObservableListWrapperA<LocationType>() : selectedSubArea.getLocationTypes();
+        types = selectedSubArea == null ? new ObservableListWrapperA<LocationType>() : new ObservableListWrapperA<>(selectedSubArea.getType().getLocationTypes());
         selectedType = types.get(0);
     }
 
@@ -72,7 +72,7 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
     public void setSelectedSubArea(SubArea selectedSubArea) {
         SubArea oldValue = this.selectedSubArea;
         this.selectedSubArea = selectedSubArea;
-        types = this.selectedSubArea == null ? new ObservableListWrapperA<LocationType>() : selectedSubArea.getLocationTypes();
+        types = this.selectedSubArea == null ? new ObservableListWrapperA<LocationType>() : new ObservableListWrapperA<>(selectedSubArea.getType().getLocationTypes());
         selectedType = types.isEmpty() ? null : types.get(0);
         support.firePropertyChange(SUBAREA_PROPERTY, oldValue, this.selectedSubArea);
     }
@@ -101,7 +101,7 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
     }
 
     @Override
-    public void add() {
+    public void save() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

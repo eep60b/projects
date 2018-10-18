@@ -7,13 +7,13 @@ import com.etlsolutions.javafx.presentation.Validatable;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Objects;
-import com.etlsolutions.javafx.presentation.Addable;
+import com.etlsolutions.javafx.presentation.Savable;
 
 /**
  *
  * @author zc
  */
-public class EditImageInformationDataModel implements InformationDataModel, FXMLActionDataModel, Addable, Validatable {
+public class EditImageInformationDataModel implements InformationDataModel, FXMLActionDataModel, Savable, Validatable {
 
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.ImageLink.EditImageInformationDataModel.INFORMATION_PROPERTY";
     
@@ -51,7 +51,7 @@ public class EditImageInformationDataModel implements InformationDataModel, FXML
     }
 
     @Override
-    public void add() {
+    public void save() {
         String oldValue = imageLink.getInformation();
         imageLink.setInformation(information);
         

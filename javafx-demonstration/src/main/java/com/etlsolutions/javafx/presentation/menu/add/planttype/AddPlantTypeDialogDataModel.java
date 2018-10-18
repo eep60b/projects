@@ -77,7 +77,7 @@ public class AddPlantTypeDialogDataModel extends DataUnitFXMLDataModel implement
     }
 
     @Override
-    public void add() {
+    public void save() {
         
         PlantType type = PlantsFactory.creatPlantsType(title, information, varieties, imageLinks);        
         selectedPlantGroup.getPlantsTypes().add(type);

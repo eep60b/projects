@@ -4,7 +4,7 @@ package com.etlsolutions.javafx.presentation;
  *
  * @author zc
  */
-public interface Addable {
+public interface Savable {
     
-    void add();
+    void save();
 }

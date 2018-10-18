@@ -1,12 +1,10 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.ROOM;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
-import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -22,7 +20,6 @@ public class Room extends SubArea {
     private List<Container> containers;
     private List<ContainerSet> containerSets;
 
-    
     public List<ContainerSet> getContainerSets() {
         return new ArrayList<>(containerSets);
     }
@@ -72,11 +69,6 @@ public class Room extends SubArea {
 
     @Override
     public SubAreaType getType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ROOM;
     }
-    
-    @Override
-    public ObservableList<LocationType> getLocationTypes() {
-        return FXCollections.observableArrayList(LocationType.CONTAINER);
-    }  
 }

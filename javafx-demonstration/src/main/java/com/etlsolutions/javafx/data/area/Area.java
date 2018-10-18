@@ -19,12 +19,12 @@ public abstract class Area extends DataUnit {
     @JsonIgnore
     public static final String LATITUTE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.LATITUTE_PROPERTY";
     @JsonIgnore
-    public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.SHAPE_PROPERTY";
+    public static final String MEASUREMENT_PROPERTY = "com.etlsolutions.javafx.data.area.Area.MEASUREMENT_PROPERTY";
 
     protected ObservableList<SubArea> allSubAreas;
     private double longitude;
     private double latitude;
-    private AreaMeasurement shape;
+    private AreaMeasurement measurement;
     
     public Area() {
     }
@@ -39,7 +39,7 @@ public abstract class Area extends DataUnit {
         this.allSubAreas = new ObservableListWrapperA<>();
         this.longitude = longitude;
         this.latitude = latitude;
-        this.shape = shape;
+        this.measurement = shape;
     }
    
     public abstract AreaType getType();
@@ -74,12 +74,12 @@ public abstract class Area extends DataUnit {
         fireChange(LATITUTE_PROPERTY, oldValue, this.latitude);
     }
 
-    public AreaMeasurement getShape() {
-        return shape;
+    public AreaMeasurement getMeasurement() {
+        return measurement;
     }
 
-    public void setShape(AreaMeasurement shape) {
-        this.shape = shape;
-        fireChange(SHAPE_PROPERTY);
+    public void setMeasurement(AreaMeasurement measurement) {
+        this.measurement = measurement;
+        fireChange(MEASUREMENT_PROPERTY);
     }
 }

@@ -90,7 +90,7 @@ public class AddGrowingMediumDataModel extends DataUnitFXMLDataModel {
     }
 
     @Override
-    public void add() {
+    public void save() {
         
         growingMedium = GrowingMediumFactory.getInstance().createGrowingMedium(title, information, imageLinks, 0, title, 
                 new double[]{sandPercentage, siltPercentage, clayPercentage, organicPercentage, stonePercentage, waterStoragePercentage, ph}, true);

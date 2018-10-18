@@ -19,7 +19,7 @@ public class MenusController extends AbstractFXMLController {
     @FXML
     private MenuItem newProjectMenuItem;
 
-    //The add menu
+    //The save menu
     @FXML
     private MenuItem addPlantsMenuItem;
     

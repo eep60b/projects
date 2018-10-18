@@ -201,7 +201,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
         support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
     }
 
-    public AreaMeasurement getShape() {
+    public AreaMeasurement getMeasurement() {
         switch (this.selectedAreaShapeType) {
             case RECTANGLE:
                 return rectAngleAreaMeasurement;

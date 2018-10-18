@@ -34,7 +34,7 @@ public class AddGrowingObservationDataModel extends DataUnitFXMLDataModel {
     }
 
     @Override
-    public void add() {
+    public void save() {
         growingObservation = LogFactory.createGrowingObservation(title, information, startTime, endTime);
         ProjectManager.getInstance().getProject().getLogGroupRoot().getNotes().addLog(growingObservation);
     }

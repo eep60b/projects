@@ -9,14 +9,22 @@ import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseGroundLocati
 import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
 import java.util.ArrayList;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class SubareaFactory {
+public class SubAreaFactoryK {
 
-    public static ContainerSet createContainerSet() {
+    private static final SubAreaFactoryK INSTANCE = new SubAreaFactoryK();
+    
+    
+    public static final SubAreaFactoryK getInstance() {
+        return INSTANCE;
+    }
+    
+    public ContainerSet createContainerSet() {
         ContainerSet s = new ContainerSet();
         return s;
     }
@@ -55,5 +63,9 @@ public class SubareaFactory {
     public static Room createRoom() {
         Room r = new Room();
         return r;
+    }
+
+    public SubArea createSubArea(SubAreaType selectedSubAreaType, String title, String information, ObservableList<ImageLink> imageLinks, int indexOf, String string, SubAreaShape selectedSubAreaShape, SubAreaMeasurement measurement) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

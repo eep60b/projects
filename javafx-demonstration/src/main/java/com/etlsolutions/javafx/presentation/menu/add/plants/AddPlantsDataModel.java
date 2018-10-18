@@ -309,7 +309,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
     }
     
     @Override
-    public void add() {
+    public void save() {
         selectedPlantType.getPlantsList().add(PlantsFactory.creatPlants());
     }
 

@@ -2,8 +2,6 @@ package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
-import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -18,17 +16,19 @@ public class ContainerSet extends SubArea {
     public ContainerSet() {
     }
 
-    public ContainerSet(Container container, int number, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public ContainerSet(Container container, int number, SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.container = container;
         this.number = number;
     }
 
-    public ContainerSet(Container container, int number, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public ContainerSet(Container container, int number, SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.container = container;
         this.number = number;
     }
+
+
     
     public Container getContainer() {
         return container;
@@ -54,11 +54,6 @@ public class ContainerSet extends SubArea {
     @Override
     public SubAreaType getType() {
         return SubAreaType.CONTAINTER_SET;
-    }
-
-    @Override
-    public ObservableList<LocationType> getLocationTypes() {
-        return FXCollections.observableArrayList(LocationType.CONTAINER);
     }
 
 }

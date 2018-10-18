@@ -63,7 +63,7 @@ public class AddGrowingIssueDataModel extends DataUnitFXMLDataModel {
     }
 
     @Override
-    public void add() {
+    public void save() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
