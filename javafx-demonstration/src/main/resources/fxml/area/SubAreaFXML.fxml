@@ -8,14 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.area.subarea.SubAreaFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.area.AreaFXMLController">
     <stylesheets>
-        <URL value="@/styles/area/subareafxml.css" />
+        <URL value="@/styles/menu/add/addareadialogfxml.css" />
     </stylesheets>
     <children>
-        <VBox prefHeight="640.0" prefWidth="628.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefHeight="640.0" prefWidth="608.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <TabPane prefHeight="562.0" prefWidth="580.0">
+                <TabPane prefHeight="573.0" prefWidth="608.0">
                     <tabs>
                         <Tab text="Genernal">
                             <content>
@@ -23,7 +23,7 @@
                                     <children>
                                         <HBox spacing="10.0">
                                             <children>
-                                                <Label text="Title">
+                                                <Label prefHeight="17.0" prefWidth="38.0" text="Title">
                                                     <HBox.margin>
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
@@ -37,7 +37,7 @@
                                         </HBox>
                                         <HBox spacing="10.0">
                                             <children>
-                                                <Label prefHeight="17.0" prefWidth="30.0" text="Type">
+                                                <Label prefHeight="17.0" prefWidth="60.0" text="Type">
                                                     <HBox.margin>
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
@@ -49,60 +49,22 @@
                                                 </ComboBox>
                                             </children>
                                         </HBox>
+                                        <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="62.0" text="Shape">
+                                                    <HBox.margin>
+                                                        <Insets top="3.0" />
+                                                    </HBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="shapeTypeComboBox" prefHeight="25.0" prefWidth="542.0" />
+                                            </children>
+                                        </HBox>
                                         <Label text="Information" />
-                                        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="580.0">
+                                        <ScrollPane prefHeight="419.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
                                             <content>
-                                                <TextArea fx:id="informationTextArea" prefHeight="200.0" prefWidth="578.0" />
+                                                <TextArea fx:id="informationTextArea" prefHeight="396.0" prefWidth="587.0" />
                                             </content>
                                         </ScrollPane>
-                                        <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Shape">
-                                                    <HBox.margin>
-                                                        <Insets top="3.0" />
-                                                    </HBox.margin>
-                                                </Label>
-                                                <ComboBox fx:id="shapeTypeComboBox" prefHeight="25.0" prefWidth="450.0" />
-                                            </children>
-                                        </HBox>
-                                        <HBox fx:id="areaHbox" layoutX="20.0" layoutY="329.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Area">
-                                                    <HBox.margin>
-                                                        <Insets top="3.0" />
-                                                    </HBox.margin>
-                                                </Label>
-                                                <HBox fx:id="areaShapeContentHbox" minWidth="-Infinity" prefHeight="20.0" prefWidth="450.0" />
-                                            </children>
-                                        </HBox>
-                                        <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Longitude">
-                                                    <HBox.margin>
-                                                        <Insets top="3.0" />
-                                                    </HBox.margin>
-                                                </Label>
-                                                <TextField fx:id="longitudeTextField" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
-                                                    <HBox.margin>
-                                                        <Insets left="6.0" />
-                                                    </HBox.margin>
-                                                </TextField>
-                                            </children>
-                                        </HBox>
-                                        <HBox layoutX="20.0" layoutY="394.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Latitude">
-                                                    <HBox.margin>
-                                                        <Insets top="3.0" />
-                                                    </HBox.margin>
-                                                </Label>
-                                                <TextField fx:id="latitudeTextField" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
-                                                    <HBox.margin>
-                                                        <Insets left="6.0" />
-                                                    </HBox.margin>
-                                                </TextField>
-                                            </children>
-                                        </HBox>
                                     </children>
                                     <padding>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -110,7 +72,7 @@
                                 </VBox>
                             </content>
                         </Tab>
-                        <Tab fx:id="contentsTab" text="Measurements" />
+                        <Tab fx:id="contentsTab" text="Measurement" />
                         <Tab text="Images">
                             <content>
                                 <VBox layoutX="183.0" layoutY="24.0" prefHeight="487.0" prefWidth="608.0" spacing="10.0" AnchorPane.bottomAnchor="-87.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">
@@ -136,10 +98,10 @@
                         </Tab>
                     </tabs>
                 </TabPane>
-                <Label fx:id="errorMessageLabel" text="Error Message" textFill="#f80707">
-               <VBox.margin>
+                <Label fx:id="errorMessageLabel" text="Error Message" textFill="#f50606">
+               <padding>
                   <Insets left="10.0" />
-               </VBox.margin></Label>
+               </padding></Label>
                 <HBox alignment="CENTER_RIGHT" spacing="10.0">
                     <children>
                         <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
