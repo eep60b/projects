@@ -4,13 +4,7 @@ package com.etlsolutions.javafx.data.area;
  *
  * @author zc
  */
-public abstract class AreaShape {
+public enum AreaShape {
     
-    protected double areaValue;
-    
-    public abstract AreaShapeType getType();
-
-    public double getAreaValue() {
-        return areaValue;
-    }    
+    RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR;
 }

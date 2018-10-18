@@ -29,7 +29,7 @@ public class PatioArea extends Area {
 
     }
 
-    public PatioArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+    public PatioArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
 
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
         raisedPlantBeds = new ObservableListWrapperA<>();

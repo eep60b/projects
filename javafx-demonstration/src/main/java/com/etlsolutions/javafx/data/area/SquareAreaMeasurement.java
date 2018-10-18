@@ -4,7 +4,7 @@ package com.etlsolutions.javafx.data.area;
  *
  * @author zc
  */
-public class SquareAreaShape extends AreaShape {
+public class SquareAreaMeasurement extends AreaMeasurement {
 
     private double side;
 
@@ -18,8 +18,8 @@ public class SquareAreaShape extends AreaShape {
     }
     
     @Override
-    public AreaShapeType getType() {
-        return AreaShapeType.SQURE;
+    public AreaShape getType() {
+        return AreaShape.SQURE;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class SquareAreaShape extends AreaShape {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SquareAreaShape other = (SquareAreaShape) obj;
+        final SquareAreaMeasurement other = (SquareAreaMeasurement) obj;
         return Double.doubleToLongBits(this.side) == Double.doubleToLongBits(other.side);
     }
 }

@@ -24,7 +24,7 @@ public class BalconyArea extends Area {
     public BalconyArea() {
     }
 
-    protected BalconyArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+    protected BalconyArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
         containerSets = new ObservableListWrapperA<>();
         singleContainers = new ObservableListWrapperA<>();

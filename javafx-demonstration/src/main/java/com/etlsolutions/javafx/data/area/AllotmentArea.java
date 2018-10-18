@@ -31,7 +31,7 @@ public class AllotmentArea extends Area {
 
     }
 
-    protected AllotmentArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+    protected AllotmentArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
 
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
         plantBeds = new ObservableListWrapperA<>();

@@ -4,7 +4,7 @@ package com.etlsolutions.javafx.data.area;
  *
  * @author zc
  */
-public class TriangleAreaShape extends AreaShape {
+public class TriangleAreaMeasurement extends AreaMeasurement {
 
     private double a;
     private double b;
@@ -65,7 +65,7 @@ public class TriangleAreaShape extends AreaShape {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final TriangleAreaShape other = (TriangleAreaShape) obj;
+        final TriangleAreaMeasurement other = (TriangleAreaMeasurement) obj;
         if (Double.doubleToLongBits(this.a) != Double.doubleToLongBits(other.a)) {
             return false;
         }
@@ -76,7 +76,7 @@ public class TriangleAreaShape extends AreaShape {
     }
 
     @Override
-    public AreaShapeType getType() {
-        return AreaShapeType.TRIANGLE;
+    public AreaShape getType() {
+        return AreaShape.TRIANGLE;
     }
 }

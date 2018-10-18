@@ -6,7 +6,7 @@ import static com.etlsolutions.javafx.system.SettingConstants.PI;
  *
  * @author zc
  */
-public class CircleAreaShape extends AreaShape {
+public class CircleAreaMeasurement extends AreaMeasurement {
 
     private double diameter;
 
@@ -20,9 +20,9 @@ public class CircleAreaShape extends AreaShape {
     }
 
     @Override
-    public AreaShapeType getType() {
+    public AreaShape getType() {
 
-        return AreaShapeType.CIRCLE;
+        return AreaShape.CIRCLE;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CircleAreaShape extends AreaShape {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CircleAreaShape other = (CircleAreaShape) obj;
+        final CircleAreaMeasurement other = (CircleAreaMeasurement) obj;
         return Double.doubleToLongBits(this.diameter) == Double.doubleToLongBits(other.diameter);
     }
 

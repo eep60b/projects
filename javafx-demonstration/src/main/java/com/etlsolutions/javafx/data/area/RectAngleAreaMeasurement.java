@@ -4,14 +4,14 @@ package com.etlsolutions.javafx.data.area;
  *
  * @author zc
  */
-public class RectAngleAreaShape extends AreaShape {
+public class RectAngleAreaMeasurement extends AreaMeasurement {
 
     private double length;
     private double width;
 
     @Override
-    public AreaShapeType getType() {
-        return AreaShapeType.RECTANGLE;
+    public AreaShape getType() {
+        return AreaShape.RECTANGLE;
     }
 
     public double getLength() {
@@ -51,7 +51,7 @@ public class RectAngleAreaShape extends AreaShape {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final RectAngleAreaShape other = (RectAngleAreaShape) obj;
+        final RectAngleAreaMeasurement other = (RectAngleAreaMeasurement) obj;
         if (Double.doubleToLongBits(this.length) != Double.doubleToLongBits(other.length)) {
             return false;
         }

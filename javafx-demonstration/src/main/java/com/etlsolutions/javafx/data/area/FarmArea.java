@@ -24,7 +24,7 @@ public class FarmArea extends Area {
     public FarmArea() {
     }
 
-    protected FarmArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+    protected FarmArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
 
         plantBeds = new ObservableListWrapperA<>();

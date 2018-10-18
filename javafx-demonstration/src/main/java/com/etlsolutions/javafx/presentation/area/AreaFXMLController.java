@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.area;
 
-import com.etlsolutions.javafx.data.area.AreaShapeType;
+import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
@@ -37,7 +37,7 @@ public class AreaFXMLController extends DataUnitFXMLController<AbstractAreaDataM
     private TextArea informationTextArea;
 
     @FXML
-    private ComboBox<AreaShapeType> shapeTypeComboBox;
+    private ComboBox<AreaShape> shapeTypeComboBox;
 
     @FXML
     private HBox areaShapeContentHbox;

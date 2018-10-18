@@ -26,7 +26,7 @@ public class IndoorArea extends Area {
     public IndoorArea() {
     }
 
-    protected IndoorArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+    protected IndoorArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
         containerSets = new ObservableListWrapperA<>();
         singleContainers = new ObservableListWrapperA<>();

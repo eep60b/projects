@@ -5,7 +5,7 @@
  */
 package com.etlsolutions.javafx.presentation.menu.add.subarea.containerset;
 
-import com.etlsolutions.javafx.data.area.AreaShapeType;
+import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,7 +37,7 @@ public class AddContainerSetFXMLController implements Initializable {
     private TextArea informationTextArea;
 
     @FXML
-    private ComboBox<AreaShapeType> shapeTypeComboBox;
+    private ComboBox<AreaShape> shapeTypeComboBox;
 
     @FXML
     private HBox areaShapeContentHbox;

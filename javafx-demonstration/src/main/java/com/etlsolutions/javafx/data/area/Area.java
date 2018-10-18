@@ -24,7 +24,7 @@ public abstract class Area extends DataUnit {
     protected ObservableList<SubArea> allSubAreas;
     private double longitude;
     private double latitude;
-    private AreaShape shape;
+    private AreaMeasurement shape;
     
     public Area() {
     }
@@ -34,7 +34,7 @@ public abstract class Area extends DataUnit {
         this.allSubAreas = new ObservableListWrapperA<>();
     }
 
-    protected Area(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+    protected Area(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.allSubAreas = new ObservableListWrapperA<>();
         this.longitude = longitude;
@@ -74,11 +74,11 @@ public abstract class Area extends DataUnit {
         fireChange(LATITUTE_PROPERTY, oldValue, this.latitude);
     }
 
-    public AreaShape getShape() {
+    public AreaMeasurement getShape() {
         return shape;
     }
 
-    public void setShape(AreaShape shape) {
+    public void setShape(AreaMeasurement shape) {
         this.shape = shape;
         fireChange(SHAPE_PROPERTY);
     }

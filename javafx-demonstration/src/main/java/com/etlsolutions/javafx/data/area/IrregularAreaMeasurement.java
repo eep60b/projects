@@ -4,15 +4,15 @@ package com.etlsolutions.javafx.data.area;
  *
  * @author zc
  */
-public class IrregularAreaShape extends AreaShape {
+public class IrregularAreaMeasurement extends AreaMeasurement {
 
     public void setAreaValue(double areaValue) {
         this.areaValue = areaValue;
     }
     
     @Override
-    public AreaShapeType getType() {
-        return AreaShapeType.IRREGULAR;
+    public AreaShape getType() {
+        return AreaShape.IRREGULAR;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class IrregularAreaShape extends AreaShape {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final IrregularAreaShape other = (IrregularAreaShape) obj;
+        final IrregularAreaMeasurement other = (IrregularAreaMeasurement) obj;
         return Double.doubleToLongBits(this.areaValue) == Double.doubleToLongBits(other.areaValue);
     }
 }
