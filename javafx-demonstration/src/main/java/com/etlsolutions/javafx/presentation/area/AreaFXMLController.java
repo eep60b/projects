@@ -29,73 +29,73 @@ import javafx.scene.layout.TilePane;
  * @author Zhipeng
  */
 public class AreaFXMLController extends DataUnitFXMLController<AbstractAreaDataModel> {
-
+    
     @FXML
     private TextField titleTextField;
-
+    
     @FXML
     private ComboBox<AreaType> typeComboBox;
-
+    
     @FXML
     private TextArea informationTextArea;
-
+    
     @FXML
     private ComboBox<AreaShape> shapeComboBox;
-
+    
     @FXML
     private TextField longitudeTextField;
-
+    
     @FXML
     private TextField latitudeTextField;
-
+    
     @FXML
     private Tab measurementTab;
-
+    
     @FXML
     private ListView<SubArea> subAreaListView;
     
     @FXML
     private Button addSubAreaButton;
-
+    
     @FXML
     private Button editSubAreaButton;
-
+    
     @FXML
     private Button removeSubAreaButton;
-
+    
     @FXML
     private Button addImageButton;
-
+    
     @FXML
     private Button editImageButton;
-
+    
     @FXML
     private Button removeImageButton;
-
+    
     @FXML
     private Button moveToBeginImageButton;
-
+    
     @FXML
     private Button moveToLeftImageButton;
-
+    
     @FXML
     private Button moveToRightImageButton;
-
+    
     @FXML
     private Button moveToEndImageButton;
-
+    
     @FXML
     private TilePane imageTilePane;
-
+    
     @FXML
     private Label errorMessageLabel;
-
+    
     @FXML
     private Button okButton;
-
+    
     @FXML
     private Button cancelButton;
-
+    
     private final Map<AreaShape, Node> map = new HashMap<>();
 
     /**
@@ -104,13 +104,13 @@ public class AreaFXMLController extends DataUnitFXMLController<AbstractAreaDataM
      */
     @Override
     public void initializeComponents() {
-
+        
         for (AreaShape shape : AreaShape.values()) {
             map.put(shape, getNode(shape));
         }
-
+        
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
-
+        
         typeComboBox.setItems(model.getAreaTypes());
         typeComboBox.getSelectionModel().select(model.getSelectedAreaType());
         typeComboBox.setDisable(model.getAreaTypes().size() <= 1);
@@ -122,15 +122,18 @@ public class AreaFXMLController extends DataUnitFXMLController<AbstractAreaDataM
         latitudeTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         measurementTab.setContent(map.get(model.getSelectedAreaShape()));
         subAreaListView.setItems(model.getSubAreas());
-        
+        subAreaListView.getSelectionModel().select(model.getSelectedSubArea());
+        removeSubAreaButton.setDisable(model.getSelectedSubArea() == null);
+        editSubAreaButton.setDisable(model.getSelectedSubArea() == null);
         
         typeComboBox.getSelectionModel().selectedItemProperty().addListener(new AreaTypeChangeAdapter(model, shapeComboBox));
         shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new AreaShapeChangeAdapter(model, measurementTab, map));
         longitudeTextField.textProperty().addListener(new LongitudeChangeAdapter(model));
         latitudeTextField.textProperty().addListener(new LatitudeChangeAdapter(model));
-
+        subAreaListView.getSelectionModel().selectedItemProperty().addListener(new SubAreaChangeAdapter(model, removeSubAreaButton, editSubAreaButton));
+        addSubAreaButton.setOnAction(new AddSubAreaEventHandler(model, subAreaListView));
     }
-
+    
     private Node getNode(AreaShape shape) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getMeasurementDataModel().getFxmlPath(shape)));

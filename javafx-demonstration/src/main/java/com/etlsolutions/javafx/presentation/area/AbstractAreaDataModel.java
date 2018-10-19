@@ -29,6 +29,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
     protected AreaShape selectedAreaShape;
     protected final AreaMeasurementDataModel measurementDataModel;
     protected final ObservableListWrapperA<SubArea> subAreas;
+    private SubArea selectedSubArea;
 
     public AbstractAreaDataModel(ObservableList<AreaType> areaTypes,  AreaMeasurement measurement) {
         this.areaTypes = areaTypes;
@@ -37,6 +38,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
         selectedAreaShape = areaShapes.get(0);
         this.measurementDataModel = new AreaMeasurementDataModel(measurement);
         subAreas = area == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(area.getAllSubAreas());
+        selectedSubArea = subAreas.isEmpty() ? null : subAreas.get(0);
     }
 
     public Area getArea() {
@@ -95,6 +97,14 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
 
     public ObservableListWrapperA<SubArea> getSubAreas() {
         return subAreas;
+    }
+
+    public SubArea getSelectedSubArea() {
+        return selectedSubArea;
+    }
+
+    public void setSelectedSubArea(SubArea selectedSubArea) {
+        this.selectedSubArea = selectedSubArea;
     }
 
     @Override

@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.area.CircleFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.area.CircleFXMLController">
     <stylesheets>
-        <URL value="@/styles/area/circlefxml.css"/>
+        <URL value="@/styles/area/circlefxml.css" />
     </stylesheets>
     <children>
       <VBox layoutX="99.0" layoutY="7.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -21,6 +21,9 @@
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <padding>
+                        <Insets top="3.0" />
+                     </padding>
                   </Label>
                   <TextField fx:id="diameterTextField" HBox.hgrow="ALWAYS">
                      <HBox.margin>
@@ -34,12 +37,15 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="20.0" spacing="10.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="40.0" text="Area:">
+                  <Label prefHeight="17.0" prefWidth="53.0" text="Area:">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <padding>
+                        <Insets top="3.0" />
+                     </padding>
                   </Label>
-                  <TextField fx:id="areaValueTextField" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="areaValueTextField" prefHeight="25.0" prefWidth="507.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>

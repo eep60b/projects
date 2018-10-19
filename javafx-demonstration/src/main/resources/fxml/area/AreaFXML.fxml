@@ -23,7 +23,7 @@
                                     <children>
                                         <HBox spacing="10.0">
                                             <children>
-                                                <Label prefHeight="17.0" prefWidth="28.0" text="Title">
+                                                <Label prefHeight="17.0" prefWidth="56.0" text="Title:">
                                                     <HBox.margin>
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
@@ -37,7 +37,7 @@
                                         </HBox>
                                         <HBox spacing="10.0">
                                             <children>
-                                                <Label prefHeight="17.0" prefWidth="39.0" text="Type">
+                                                <Label prefHeight="17.0" prefWidth="94.0" text="Type:">
                                                     <HBox.margin>
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
@@ -51,7 +51,7 @@
                                         </HBox>
                                         <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="Shape">
+                                                <Label prefHeight="17.0" prefWidth="84.0" text="Shape:">
                                                     <HBox.margin>
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
@@ -59,25 +59,9 @@
                                                 <ComboBox fx:id="shapeComboBox" prefHeight="25.0" prefWidth="535.0" />
                                             </children>
                                         </HBox>
-                                        <Label text="Information" />
-                                        <ScrollPane prefViewportHeight="200.0" prefViewportWidth="580.0">
-                                            <content>
-                                                <TextArea fx:id="informationTextArea" prefHeight="200.0" prefWidth="578.0" />
-                                            </content>
-                                        </ScrollPane>
-                                        <HBox fx:id="areaHbox" layoutX="20.0" layoutY="329.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Area">
-                                                    <HBox.margin>
-                                                        <Insets top="3.0" />
-                                                    </HBox.margin>
-                                                </Label>
-                                                <HBox fx:id="areaShapeContentHbox" minWidth="-Infinity" prefHeight="20.0" prefWidth="450.0" />
-                                            </children>
-                                        </HBox>
                                         <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="Longitude">
+                                                <Label text="Longitude:">
                                                     <HBox.margin>
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
@@ -91,7 +75,7 @@
                                         </HBox>
                                         <HBox layoutX="20.0" layoutY="394.0" spacing="10.0">
                                             <children>
-                                                <Label text="Latitude">
+                                                <Label prefHeight="17.0" prefWidth="59.0" text="Latitude:">
                                                     <HBox.margin>
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
@@ -103,6 +87,12 @@
                                                 </TextField>
                                             </children>
                                         </HBox>
+                                        <Label text="Information" />
+                                        <ScrollPane prefHeight="304.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
+                                            <content>
+                                                <TextArea fx:id="informationTextArea" prefHeight="302.0" prefWidth="578.0" />
+                                            </content>
+                                        </ScrollPane>
                                     </children>
                                     <padding>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
