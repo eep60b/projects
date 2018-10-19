@@ -8,7 +8,6 @@ import com.etlsolutions.javafx.data.area.subarea.Border;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -24,8 +23,8 @@ public class FarmArea extends Area {
     public FarmArea() {
     }
 
-    protected FarmArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+    protected FarmArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude,measurement, shape);
 
         plantBeds = new ObservableListWrapperA<>();
         borders = new ObservableListWrapperA<>();
@@ -47,11 +46,6 @@ public class FarmArea extends Area {
         allSubAreas.addAll(plantBeds);
         allSubAreas.addAll(borders);
         allSubAreas.addAll(customSubareas);
-    }
-
-    @Override
-    public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(PLANT_BED, BORDER, CUSTOM);
     }
 
     @Override

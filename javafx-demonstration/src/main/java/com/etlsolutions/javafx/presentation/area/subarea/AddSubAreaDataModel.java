@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.area.subarea;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import com.etlsolutions.javafx.data.area.subarea.SubAreaFactoryK;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaFactory;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
 
 /**
@@ -18,7 +18,7 @@ public class AddSubAreaDataModel extends AbstractSubAreaDataModel {
 
     @Override
     public void save() {
-        subArea = SubAreaFactoryK.getInstance().createSubArea(selectedSubAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", selectedSubAreaShape, measurement);
+        subArea = SubAreaFactory.getInstance().createSubArea(selectedSubAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", selectedSubAreaShape, measurement);
         area.getSubAreas(selectedSubAreaType).add(subArea);
     }
 }

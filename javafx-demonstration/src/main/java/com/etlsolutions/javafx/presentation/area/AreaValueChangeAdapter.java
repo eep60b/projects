@@ -7,17 +7,17 @@ import javafx.beans.value.ObservableValue;
  *
  * @author zc
  */
-public class AreaChangeAdapter implements ChangeListener<String> {
+public class AreaValueChangeAdapter implements ChangeListener<String> {
 
-    private final AbstractAreaDataModel model;
+    private final AreaValueDataModel model;
 
-    public AreaChangeAdapter(AbstractAreaDataModel model) {
+    public AreaValueChangeAdapter(AreaValueDataModel model) {
         this.model = model;
     }
 
     @Override
     public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-        model.setAreaValue(Double.parseDouble(newValue));
+        model.setAreaValue(newValue);
     }
     
 }

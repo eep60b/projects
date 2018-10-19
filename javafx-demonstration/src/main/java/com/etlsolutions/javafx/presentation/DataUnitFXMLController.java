@@ -21,7 +21,7 @@ import javafx.scene.layout.Pane;
  * @author zc
  * @param <T> - The data model type.
  */
-public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> extends AbstractComponentsFXMLController<T> {
+public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> extends AbstractComponentStageFXMLController<T> {
 
     protected void initCommonComponents(TextField titleTextField, TextArea informationTextArea, Pane imageTilePane, Button addImageButton,
             Button editImageButton, Button moveToBeginImageButton, Button moveToLeftImageButton, Button moveToRightImageButton, Button moveToEndImageButton, Button removeImageButton,

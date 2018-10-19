@@ -1,26 +1,18 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
-import com.etlsolutions.javafx.data.DataUnitIdRegistry;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
-import com.etlsolutions.javafx.data.area.subarea.location.Container;
-import com.etlsolutions.javafx.data.area.subarea.location.CustomLocation;
-import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseGroundLocation;
-import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
-import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
-import java.util.ArrayList;
 import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class SubAreaFactoryK {
+public class SubAreaFactory {
 
-    private static final SubAreaFactoryK INSTANCE = new SubAreaFactoryK();
+    private static final SubAreaFactory INSTANCE = new SubAreaFactory();
     
     
-    public static final SubAreaFactoryK getInstance() {
+    public static final SubAreaFactory getInstance() {
         return INSTANCE;
     }
     

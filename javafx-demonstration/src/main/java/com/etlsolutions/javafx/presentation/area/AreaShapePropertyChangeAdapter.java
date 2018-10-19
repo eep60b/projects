@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
  *
  * @author zc
  */
-public class AreaShapeTypePropertyChangeAdapter implements PropertyChangeListener {
+public class AreaShapePropertyChangeAdapter implements PropertyChangeListener {
 
     private final HBox areaShapeContentHbox;
     private final Label lengthLabel;
@@ -32,7 +32,7 @@ public class AreaShapeTypePropertyChangeAdapter implements PropertyChangeListene
     private final Label areaLabel;
     private final TextField areaTextField;
 
-    public AreaShapeTypePropertyChangeAdapter(HBox areaShapeContentHbox, Label lengthLabel, TextField lengthTextField, Label widthLabel, TextField widthTextField, Label sideLabel, TextField sideTextField, Label diameterLabel, TextField diameterTextField, Label aLebel, TextField aTextField, Label bLebel, TextField bTextField, Label cLebel, TextField cTextField, Label areaLabel, TextField areaTextField) {
+    public AreaShapePropertyChangeAdapter(HBox areaShapeContentHbox, Label lengthLabel, TextField lengthTextField, Label widthLabel, TextField widthTextField, Label sideLabel, TextField sideTextField, Label diameterLabel, TextField diameterTextField, Label aLebel, TextField aTextField, Label bLebel, TextField bTextField, Label cLebel, TextField cTextField, Label areaLabel, TextField areaTextField) {
         this.areaShapeContentHbox = areaShapeContentHbox;
         this.lengthLabel = lengthLabel;
         this.lengthTextField = lengthTextField;
@@ -58,7 +58,7 @@ public class AreaShapeTypePropertyChangeAdapter implements PropertyChangeListene
 
         ObservableList<Node> children = areaShapeContentHbox.getChildren();
         children.clear();
-        switch (model.getSelectedAreaShapeType()) {
+        switch (model.getSelectedAreaShape()) {
             case RECTANGLE:
                 children.addAll(areaLabel, areaTextField, lengthLabel, lengthTextField, widthLabel, widthTextField);
                 areaTextField.setDisable(true);

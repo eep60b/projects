@@ -7,8 +7,6 @@ import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -24,8 +22,8 @@ public class BalconyArea extends Area {
     public BalconyArea() {
     }
 
-    protected BalconyArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+    protected BalconyArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         containerSets = new ObservableListWrapperA<>();
         singleContainers = new ObservableListWrapperA<>();
         customSubareas = new ObservableListWrapperA<>();
@@ -51,12 +49,7 @@ public class BalconyArea extends Area {
         allSubAreas.addAll(singleContainers);
         allSubAreas.addAll(customSubareas);
     }
-
-    @Override
-    public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(CONTAINTER_SET, SINGLE_CONTAINTER, CUSTOM);
-    }
-
+    
     @Override
     public ObservableList<SubArea> getSubAreas(SubAreaType type) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

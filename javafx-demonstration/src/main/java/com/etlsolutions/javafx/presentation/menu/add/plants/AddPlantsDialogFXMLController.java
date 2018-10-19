@@ -15,7 +15,7 @@ import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
-import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -52,7 +52,7 @@ import javafx.scene.layout.HBox;
  *
  * @author zc
  */
-public class AddPlantsDialogFXMLController extends AbstractComponentsFXMLController<AddPlantsDataModel> {
+public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLController<AddPlantsDataModel> {
 
     @FXML
     private TextField titleTextField;

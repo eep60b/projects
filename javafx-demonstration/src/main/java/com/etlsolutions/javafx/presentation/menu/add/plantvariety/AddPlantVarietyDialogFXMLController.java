@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventH
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -35,7 +35,7 @@ import javafx.stage.Stage;
  *
  * @author zc
  */
-public class AddPlantVarietyDialogFXMLController extends AbstractComponentsFXMLController<VarietyAddable> {
+public class AddPlantVarietyDialogFXMLController extends AbstractComponentStageFXMLController<VarietyAddable> {
     
     private Stage parentStage;    
     

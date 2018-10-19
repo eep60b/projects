@@ -14,7 +14,6 @@ import com.etlsolutions.javafx.data.area.subarea.Room;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -37,8 +36,8 @@ public class CustomArea extends Area {
     public CustomArea() {
     }
 
-    protected CustomArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+    protected CustomArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude,measurement, shape);
         plantBeds = new ObservableListWrapperA<>();
         raisedPlantBeds = new ObservableListWrapperA<>();
         lawns = new ObservableListWrapperA<>();
@@ -105,11 +104,6 @@ public class CustomArea extends Area {
         allSubAreas.addAll(ponds);
         allSubAreas.addAll(rooms);
         allSubAreas.addAll(customSubareas);
-    }
-
-    @Override
-    public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(SubAreaType.values());
     }
 
     @Override

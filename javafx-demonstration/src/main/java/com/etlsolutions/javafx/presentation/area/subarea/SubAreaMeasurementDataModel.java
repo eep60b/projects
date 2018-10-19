@@ -1,12 +1,17 @@
 package com.etlsolutions.javafx.presentation.area.subarea;
 
+import com.etlsolutions.javafx.presentation.area.CircleDataModel;
+import com.etlsolutions.javafx.presentation.area.SquareDataModel;
+import com.etlsolutions.javafx.presentation.area.TriangleDataModel;
+import com.etlsolutions.javafx.presentation.area.AreaValueDataModel;
+import com.etlsolutions.javafx.presentation.area.LengthWidthDataModel;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
 
 /**
  *
  * @author zc
  */
-public class SubAreaMeasurementDataModel {
+public class SubAreaMeasurementDataModel implements LengthWidthDataModel, AreaValueDataModel, TriangleDataModel, SquareDataModel, CircleDataModel {
 
     private final SubAreaMeasurement measurement;
 
@@ -18,92 +23,113 @@ public class SubAreaMeasurementDataModel {
         return measurement;
     }
 
-    public double getAreaValue() {
-        return measurement.getAreaValue();
+    @Override
+    public String getAreaValue() {
+        return String.valueOf(measurement.getAreaValue());
     }
 
-    public void setAreaValue(double areaValue) {
-        measurement.setAreaValue(areaValue);
+    @Override
+    public void setAreaValue(String areaValue) {
+        measurement.setAreaValue(Double.parseDouble(areaValue));
     }
 
-    public double getHeight() {
-        return measurement.getHeight();
+    public String getHeight() {
+        return String.valueOf(measurement.getHeight());
     }
 
-    public void setHeight(double height) {
-        measurement.setHeight(height);
+    public void setHeight(String height) {
+        measurement.setHeight(Double.parseDouble(height));
     }
 
-    public double getLength() {
-        return measurement.getLength();
+    @Override
+    public String getLength() {
+        return String.valueOf(measurement.getLength());
     }
 
-    public void setLength(double length) {
-        measurement.setLength(length);
+    @Override
+    public void setLength(String length) {
+        measurement.setLength(Double.parseDouble(length));
     }
 
-    public double getWidth() {
-        return measurement.getWidth();
+    @Override
+    public String getWidth() {
+        return String.valueOf(measurement.getWidth());
     }
 
-    public void setWidth(double width) {
-        measurement.setWidth(width);
+    @Override
+    public void setWidth(String width) {
+        measurement.setWidth(Double.parseDouble(width));
     }
 
-    public double getSide() {
-        return measurement.getSide();
+    @Override
+    public String getSide() {
+        return String.valueOf(measurement.getSide());
     }
 
-    public void setSide(double side) {
-        measurement.setSide(side);
+    @Override
+    public void setSide(String side) {
+        measurement.setSide(Double.parseDouble(side));
     }
 
-    public double getDiameter() {
-        return measurement.getDiameter();
+    @Override
+    public String getDiameter() {
+        return String.valueOf(measurement.getDiameter());
     }
 
-    public void setDiameter(double diameter) {
-        measurement.setDiameter(diameter);
+    @Override
+    public void setDiameter(String diameter) {
+        measurement.setDiameter(Double.parseDouble(diameter));
     }
 
-    public double getA() {
-        return measurement.getA();
+    @Override
+    public String getA() {
+        return String.valueOf(measurement.getA());
     }
 
-    public void setA(double a) {
-        measurement.setA(a);
+    @Override
+    public void setA(String a) {
+        measurement.setA(Double.parseDouble(a));
     }
 
-    public double getB() {
-        return measurement.getB();
+    @Override
+    public String getB() {
+        return String.valueOf(measurement.getB());
     }
 
-    public void setB(double b) {
-        measurement.setB(b);
+    @Override
+    public void setB(String b) {
+        measurement.setB(Double.parseDouble(b));
     }
 
-    public double getC() {
-        return measurement.getC();
+    @Override
+    public String getC() {
+        return String.valueOf(measurement.getC());
     }
 
-    public void setC(double c) {
-        measurement.setC(c);
+    @Override
+    public void setC(String c) {
+        measurement.setC(Double.parseDouble(c));
     }
 
-    public double getVolume() {
-        return measurement.getVolume();
+    public String getVolume() {
+        return String.valueOf(measurement.getVolume());
     }
 
-    public void setVolume(double volume) {
-        measurement.setVolume(volume);
+    public void setVolume(String volume) {
+        measurement.setVolume(Double.parseDouble(volume));
     }
 
-    public double getDepth() {
-        return measurement.getDepth();
+    public String getDepth() {
+        return String.valueOf(measurement.getDepth());
     }
 
-    public void setDepth(double depth) {
-        measurement.setDepth(depth);
+    public void setDepth(String depth) {
+        measurement.setDepth(Double.parseDouble(depth));
+    }
+
+    @Override
+    public String getFxmlPath(Object shape) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

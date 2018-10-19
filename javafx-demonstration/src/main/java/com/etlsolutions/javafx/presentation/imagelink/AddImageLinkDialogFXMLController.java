@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
-import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
@@ -16,7 +16,7 @@ import javafx.scene.layout.HBox;
  *
  * @author zc
  */
-public class AddImageLinkDialogFXMLController extends AbstractComponentsFXMLController<AddImageDataModel>{
+public class AddImageLinkDialogFXMLController extends AbstractComponentStageFXMLController<AddImageDataModel>{
 
     @FXML
     private Button selectImageButton;

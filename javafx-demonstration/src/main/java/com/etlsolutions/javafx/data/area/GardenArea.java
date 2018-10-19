@@ -14,7 +14,6 @@ import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -37,8 +36,8 @@ public class GardenArea extends Area {
 
     }
 
-    protected GardenArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+    protected GardenArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         plantBeds = new ObservableListWrapperA<>();
         raisedPlantBeds = new ObservableListWrapperA<>();
         lawns = new ObservableListWrapperA<>();
@@ -99,11 +98,6 @@ public class GardenArea extends Area {
         allSubAreas.addAll(singleContainers);
         allSubAreas.addAll(ponds);
         allSubAreas.addAll(customSubareas);
-    }
-
-    @Override
-    public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(PLANT_BED, RAISED_PLANT_BED, LAWN, BORDER, GREEN_HOUSE, CONTAINTER_SET, SINGLE_CONTAINTER, POND, CUSTOM);
     }
 
     @Override

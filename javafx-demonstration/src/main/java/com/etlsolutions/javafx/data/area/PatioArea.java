@@ -29,9 +29,9 @@ public class PatioArea extends Area {
 
     }
 
-    public PatioArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
+    public PatioArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
 
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         raisedPlantBeds = new ObservableListWrapperA<>();
         greenhouses = new ObservableListWrapperA<>();
         singleContainers = new ObservableListWrapperA<>();
@@ -68,11 +68,6 @@ public class PatioArea extends Area {
         allSubAreas.addAll(containerSets);
         allSubAreas.addAll(singleContainers);
         allSubAreas.addAll(customSubareas);
-    }
-
-    @Override
-    public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(RAISED_PLANT_BED, GREEN_HOUSE, CONTAINTER_SET, SINGLE_CONTAINTER, CUSTOM);
     }
 
     @Override

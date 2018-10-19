@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.area;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -9,15 +10,18 @@ import javafx.beans.value.ObservableValue;
  */
 public class SideChangeAdapter implements ChangeListener<String> {
 
-    private final AbstractAreaDataModel model;
+    private final SquareDataModel model;
+    private final TextField areaValueTextField;
 
-    public SideChangeAdapter(AbstractAreaDataModel model) {
+    public SideChangeAdapter(SquareDataModel model, TextField areaValueTextField) {
         this.model = model;
+        this.areaValueTextField = areaValueTextField;
     }
 
     @Override
     public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-        model.setSide(Double.parseDouble(newValue));
+        model.setSide(newValue);
+        areaValueTextField.setText(model.getAreaValue());
     }
     
 }

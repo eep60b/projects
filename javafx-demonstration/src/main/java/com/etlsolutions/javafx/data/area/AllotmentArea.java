@@ -11,7 +11,6 @@ import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -31,9 +30,9 @@ public class AllotmentArea extends Area {
 
     }
 
-    protected AllotmentArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
+    protected AllotmentArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
 
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         plantBeds = new ObservableListWrapperA<>();
         raisedPlantBeds = new ObservableListWrapperA<>();
         borders = new ObservableListWrapperA<>();
@@ -70,11 +69,6 @@ public class AllotmentArea extends Area {
         allSubAreas.addAll(borders);
         allSubAreas.addAll(greenhouses);
         allSubAreas.addAll(customSubareas);
-    }
-
-    @Override
-    public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(PLANT_BED, RAISED_PLANT_BED, BORDER, GREEN_HOUSE, CUSTOM);
     }
 
     @Override

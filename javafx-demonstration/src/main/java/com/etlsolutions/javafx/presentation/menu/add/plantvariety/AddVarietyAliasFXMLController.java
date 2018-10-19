@@ -9,14 +9,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 
 /**
  * AddVarietyAliasFXMLController is an FXML Controller class which control the save variety alias dialog.
  *
  * @author zc
  */
-public class AddVarietyAliasFXMLController extends AbstractComponentsFXMLController<AddVarietyDialogDataModel> {
+public class AddVarietyAliasFXMLController extends AbstractComponentStageFXMLController<AddVarietyDialogDataModel> {
      
     @FXML
     private TextField titleTextField;

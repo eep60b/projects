@@ -5,13 +5,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaMeasurement;
 import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
-import com.etlsolutions.javafx.data.area.CircleAreaMeasurement;
-import com.etlsolutions.javafx.data.area.IrregularAreaMeasurement;
-import com.etlsolutions.javafx.data.area.RectAngleAreaMeasurement;
-import com.etlsolutions.javafx.data.area.SquareAreaMeasurement;
-import com.etlsolutions.javafx.data.area.TriangleAreaMeasurement;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import java.util.Arrays;
 import javafx.collections.ObservableList;
 
 /**
@@ -30,22 +24,16 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
     protected AreaType selectedAreaType;
     private double longitude;
     private double latitude;
-    protected final ObservableList<AreaShape> areaShapeTypes;
-    protected AreaShape selectedAreaShapeType;
-    private final RectAngleAreaMeasurement rectAngleAreaMeasurement;
-    private final SquareAreaMeasurement squareAreaMeasurement;
-    private final CircleAreaMeasurement circleAreaMeasurement;
-    private final TriangleAreaMeasurement triangleAreaMeasurement;
-    private final IrregularAreaMeasurement irregularAreaMeasurement;
+    protected final ObservableList<AreaShape> areaShapes;
+    protected AreaShape selectedAreaShape;
+    protected final AreaMeasurement measurement;
 
-    public AbstractAreaDataModel(ObservableList<AreaType> areaTypes) {
+    public AbstractAreaDataModel(ObservableList<AreaType> areaTypes,  AreaMeasurement measurement) {
         this.areaTypes = areaTypes;
-        areaShapeTypes = new ObservableListWrapperA<>(Arrays.asList(AreaShape.values()));
-        rectAngleAreaMeasurement = new RectAngleAreaMeasurement();
-        squareAreaMeasurement = new SquareAreaMeasurement();
-        circleAreaMeasurement = new CircleAreaMeasurement();
-        triangleAreaMeasurement = new TriangleAreaMeasurement();
-        irregularAreaMeasurement = new IrregularAreaMeasurement();
+        selectedAreaType = areaTypes.get(0);
+        areaShapes = new ObservableListWrapperA<>(selectedAreaType.getShapes());
+        selectedAreaShape = areaShapes.get(0);
+        this.measurement = measurement;
     }
 
     public Area getArea() {
@@ -64,6 +52,12 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
         this.selectedAreaType = selectedAreaType;
     }
 
+    public AreaMeasurement getMeasurement() {
+        return measurement;
+    }
+
+    
+    
     public double getLongitude() {
         return longitude;
     }
@@ -84,138 +78,18 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
         support.firePropertyChange(LATITUDE_PROPERTY, oldValue, this.latitude);
     }
 
-    public ObservableList<AreaShape> getAreaShapeTypes() {
-        return areaShapeTypes;
+    public ObservableList<AreaShape> getAreaShapes() {
+        return areaShapes;
     }
 
-    public AreaShape getSelectedAreaShapeType() {
-        return selectedAreaShapeType;
+    public AreaShape getSelectedAreaShape() {
+        return selectedAreaShape;
     }
 
-    public void setSelectedAreaShapeType(AreaShape selectedAreaShapeType) {
-        AreaShape oldValue = this.selectedAreaShapeType;
-        this.selectedAreaShapeType = selectedAreaShapeType;
-        support.firePropertyChange(AREA_SHAPE_TYPE_PROPERTY, oldValue, this.selectedAreaShapeType);
-    }
-
-    public double getLength() {
-        return rectAngleAreaMeasurement.getLength();
-    }
-
-    public void setLength(double length) {
-
-        if (rectAngleAreaMeasurement.getLength() == length) {
-            return;
-        }
-        rectAngleAreaMeasurement.setLength(length);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public double getWidth() {
-        return rectAngleAreaMeasurement.getWidth();
-    }
-
-    public void setWidth(double width) {
-
-        if (rectAngleAreaMeasurement.getWidth() == width) {
-            return;
-        }
-        rectAngleAreaMeasurement.setWidth(width);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public double getSide() {
-        return squareAreaMeasurement.getSide();
-
-    }
-
-    public void setSide(double side) {
-        if (squareAreaMeasurement.getSide() == side) {
-            return;
-        }
-        squareAreaMeasurement.setSide(side);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public double getDiameter() {
-        return circleAreaMeasurement.getDiameter();
-    }
-
-    public void setDiameter(double diameter) {
-
-        if (circleAreaMeasurement.getDiameter() == diameter) {
-            return;
-        }
-        circleAreaMeasurement.setDiameter(diameter);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public double getA() {
-        return triangleAreaMeasurement.getA();
-    }
-
-    public void setA(double a) {
-
-        if (triangleAreaMeasurement.getA() == a) {
-            return;
-        }
-
-        triangleAreaMeasurement.setA(a);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public double getB() {
-        return triangleAreaMeasurement.getB();
-    }
-
-    public void setB(double b) {
-        if (triangleAreaMeasurement.getB() == b) {
-            return;
-        }
-
-        triangleAreaMeasurement.setB(b);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public double getC() {
-        return triangleAreaMeasurement.getC();
-    }
-
-    public void setC(double c) {
-        if (triangleAreaMeasurement.getC() == c) {
-            return;
-        }
-        triangleAreaMeasurement.setC(c);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public double getAreaValue() {
-        return irregularAreaMeasurement.getAreaValue();
-    }
-
-    public void setAreaValue(double areaValue) {
-        if (irregularAreaMeasurement.getAreaValue() == areaValue) {
-            return;
-        }
-        irregularAreaMeasurement.setAreaValue(areaValue);
-        support.firePropertyChange(AREA_SHAPE_VALUE_PROPERTY);
-    }
-
-    public AreaMeasurement getMeasurement() {
-        switch (this.selectedAreaShapeType) {
-            case RECTANGLE:
-                return rectAngleAreaMeasurement;
-            case SQURE:
-                return squareAreaMeasurement;
-            case CIRCLE:
-                return circleAreaMeasurement;
-            case TRIANGLE:
-                return triangleAreaMeasurement;
-            case IRREGULAR:
-                return irregularAreaMeasurement;
-            default:
-                return null;
-        }
+    public void setSelectedAreaShape(AreaShape selectedAreaShape) {
+        AreaShape oldValue = this.selectedAreaShape;
+        this.selectedAreaShape = selectedAreaShape;
+        support.firePropertyChange(AREA_SHAPE_TYPE_PROPERTY, oldValue, this.selectedAreaShape);
     }
 
     @Override

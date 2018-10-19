@@ -27,7 +27,7 @@ public class AddLocationWizardDataModel extends DataUnitFXMLDataModel implements
     public AddLocationWizardDataModel() {
         areas = ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas();
         selectedArea = areas.get(0);
-        this.subAreaTypes = selectedArea.getSubAreaTypes();
+    //    this.subAreaTypes = selectedArea.getSubAreaTypes();
         selectedSubAreaType = subAreaTypes.get(0);
         subAreas = selectedArea.getSubAreas(selectedSubAreaType);
     }
@@ -42,7 +42,7 @@ public class AddLocationWizardDataModel extends DataUnitFXMLDataModel implements
 
     public void setSelectedArea(Area selectedArea) {
         this.selectedArea = selectedArea;
-        subAreaTypes = this.selectedArea.getSubAreaTypes();
+   //     subAreaTypes = this.selectedArea.getSubAreaTypes();
         if (subAreaTypes.contains(selectedSubAreaType)) {
             return;
         }

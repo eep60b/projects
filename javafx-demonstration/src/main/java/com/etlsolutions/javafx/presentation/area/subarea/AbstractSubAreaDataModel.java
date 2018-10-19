@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
  */
 public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
 
+    public static final String SUB_AREA_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.area.subarea.AbstractSubAreaDataModel.SUB_AREA_TYPE_PROPERTY";    
     public static final String SUB_AREA_SHAPE_PROPERTY = "com.etlsolutions.javafx.presentation.area.subarea.AbstractSubAreaDataModel.SUB_AREA_SHAPE_PROPERTY";
     public static final String SUB_AREA_MEASUREMENT_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.SUB_AREA_MEASUREMENT_PROPERTY";
 
@@ -38,7 +39,7 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
         return subArea;
     }
 
-    public ObservableList<SubAreaType> getAreaTypes() {
+    public ObservableList<SubAreaType> getSubAreaTypes() {
         return subAreaTypes;
     }
 
@@ -47,7 +48,9 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
     }
 
     public void setSelectedSubAreaType(SubAreaType selectedSubAreaType) {
+        SubAreaType oldValue = this.selectedSubAreaType;
         this.selectedSubAreaType = selectedSubAreaType;
+        support.firePropertyChange(SUB_AREA_TYPE_PROPERTY, oldValue, this.selectedSubAreaType);
     }
 
     public ObservableList<SubAreaShape> getAreaShapeTypes() {

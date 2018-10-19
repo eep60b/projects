@@ -9,7 +9,6 @@ import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -21,17 +20,17 @@ public class IndoorArea extends Area {
     private ObservableList<ContainerSet> containerSets;
     private ObservableList<SingleContainer> singleContainers;
     private ObservableList<Room> rooms;
-        private ObservableList<CustomSubArea> customSubareas;
+    private ObservableList<CustomSubArea> customSubareas;
 
     public IndoorArea() {
     }
 
-    protected IndoorArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, shape);
+    protected IndoorArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         containerSets = new ObservableListWrapperA<>();
         singleContainers = new ObservableListWrapperA<>();
         rooms = new ObservableListWrapperA<>();
-                customSubareas = new ObservableListWrapperA<>();
+        customSubareas = new ObservableListWrapperA<>();
     }
 
     public ObservableList<ContainerSet> getContainerSets() {
@@ -52,17 +51,12 @@ public class IndoorArea extends Area {
 
     @Override
     public void updateAllSubAreas() {
-        
+
         allSubAreas.clear();
         allSubAreas.addAll(containerSets);
         allSubAreas.addAll(singleContainers);
         allSubAreas.addAll(rooms);
         allSubAreas.addAll(customSubareas);
-    }
-
-    @Override
-    public ObservableList<SubAreaType> getSubAreaTypes() {
-        return FXCollections.observableArrayList(CONTAINTER_SET, SINGLE_CONTAINTER, ROOM, CUSTOM);
     }
 
     @Override
