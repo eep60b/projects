@@ -5,6 +5,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaMeasurement;
 import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.collections.ObservableList;
 
@@ -26,14 +27,16 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
     private double latitude;
     protected final ObservableList<AreaShape> areaShapes;
     protected AreaShape selectedAreaShape;
-    protected final AreaMeasurement measurement;
+    protected final AreaMeasurementDataModel measurementDataModel;
+    protected final ObservableListWrapperA<SubArea> subAreas;
 
     public AbstractAreaDataModel(ObservableList<AreaType> areaTypes,  AreaMeasurement measurement) {
         this.areaTypes = areaTypes;
         selectedAreaType = areaTypes.get(0);
         areaShapes = new ObservableListWrapperA<>(selectedAreaType.getShapes());
         selectedAreaShape = areaShapes.get(0);
-        this.measurement = measurement;
+        this.measurementDataModel = new AreaMeasurementDataModel(measurement);
+        subAreas = area == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(area.getAllSubAreas());
     }
 
     public Area getArea() {
@@ -52,12 +55,10 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
         this.selectedAreaType = selectedAreaType;
     }
 
-    public AreaMeasurement getMeasurement() {
-        return measurement;
+    public AreaMeasurementDataModel getMeasurementDataModel() {
+        return measurementDataModel;
     }
 
-    
-    
     public double getLongitude() {
         return longitude;
     }
@@ -90,6 +91,10 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
         AreaShape oldValue = this.selectedAreaShape;
         this.selectedAreaShape = selectedAreaShape;
         support.firePropertyChange(AREA_SHAPE_TYPE_PROPERTY, oldValue, this.selectedAreaShape);
+    }
+
+    public ObservableListWrapperA<SubArea> getSubAreas() {
+        return subAreas;
     }
 
     @Override

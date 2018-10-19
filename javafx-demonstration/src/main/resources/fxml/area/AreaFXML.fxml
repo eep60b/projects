@@ -111,7 +111,40 @@
                             </content>
                         </Tab>
                         <Tab fx:id="measurementTab" text="Measurements" />
-                  <Tab fx:id="contentsTab" text="Contents" />
+                  <Tab fx:id="contentsTab" text="Contents">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <VBox prefHeight="533.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Area Part:">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Button fx:id="addSubAreaButton" mnemonicParsing="false" text="Add" />
+                                          <Button fx:id="removeSubAreaButton" layoutX="72.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                          <Button fx:id="editSubAreaButton" layoutX="120.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                       </children>
+                                    </HBox>
+                                    <ScrollPane prefViewportHeight="516.0" prefViewportWidth="600.0">
+                                       <content>
+                                          <ListView fx:id="subAreaListView" prefHeight="505.0" prefWidth="594.0" />
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content></Tab>
                         <Tab text="Images">
                             <content>
                                 <VBox layoutX="183.0" layoutY="24.0" prefHeight="487.0" prefWidth="608.0" spacing="10.0" AnchorPane.bottomAnchor="-87.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">
