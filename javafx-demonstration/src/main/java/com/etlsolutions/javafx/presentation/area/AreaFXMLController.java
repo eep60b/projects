@@ -6,6 +6,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
+import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -132,6 +133,8 @@ public class AreaFXMLController extends DataUnitFXMLController<AbstractAreaDataM
         latitudeTextField.textProperty().addListener(new LatitudeChangeAdapter(model));
         subAreaListView.getSelectionModel().selectedItemProperty().addListener(new SubAreaChangeAdapter(model, removeSubAreaButton, editSubAreaButton));
         addSubAreaButton.setOnAction(new AddSubAreaEventHandler(model, subAreaListView));
+        removeSubAreaButton.setOnAction(new RemoveEventHandler(model, AbstractAreaDataModel.SELECTED_SUB_AREA_REMOVE_EVENT_ID));
+        editSubAreaButton.setOnAction(new EditSubAreaEventHandler(model));
     }
     
     private Node getNode(AreaShape shape) {

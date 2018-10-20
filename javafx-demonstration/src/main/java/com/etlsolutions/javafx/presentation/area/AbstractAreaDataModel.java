@@ -7,6 +7,8 @@ import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.RemoveEventId;
+import java.util.Objects;
 import javafx.collections.ObservableList;
 
 /**
@@ -20,6 +22,8 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
     public static final String AREA_SHAPE_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_TYPE_PROPERTY";
     public static final String AREA_SHAPE_VALUE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.AREA_SHAPE_VALUE_PROPERTY";
 
+    public static final RemoveEventId SELECTED_SUB_AREA_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.area.AbstractAreaDataModel.SELECTED_SUB_AREA_REMOVE_EVENT_ID", "selected area part");
+    
     protected Area area;
     protected final ObservableList<AreaType> areaTypes;
     protected AreaType selectedAreaType;
@@ -105,6 +109,17 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
 
     public void setSelectedSubArea(SubArea selectedSubArea) {
         this.selectedSubArea = selectedSubArea;
+    }
+
+    @Override
+    public void remove(RemoveEventId id) {
+        
+        if(Objects.equals(id, SELECTED_SUB_AREA_REMOVE_EVENT_ID)) {
+            subAreas.remove(selectedSubArea);
+            return;
+        }
+        
+        super.remove(id);
     }
 
     @Override
