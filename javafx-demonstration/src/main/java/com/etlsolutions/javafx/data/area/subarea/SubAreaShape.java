@@ -14,6 +14,9 @@ public enum SubAreaShape {
     
     TRIANGLE("Triangle"), 
     
+    /**
+     * Round border subarea
+     */
     ROUND("Round"),
     
     GOTHIC("Gothic"),
@@ -24,7 +27,12 @@ public enum SubAreaShape {
     
     LEAN_TO_WALL("Lean-to-wall"), 
     
-    STREIGHT_LINE("Streight line"),    
+    /**
+     * Straight line border.
+     */
+    STRAIGHT_LINE("Straight line"),   
+    
+    POND("Pond"),
     
     IRREGULAR("Irregular");
 

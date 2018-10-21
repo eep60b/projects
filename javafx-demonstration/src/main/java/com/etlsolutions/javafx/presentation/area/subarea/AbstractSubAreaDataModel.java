@@ -25,14 +25,15 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
     protected SubAreaType selectedSubAreaType;
     protected final ObservableListWrapperA<SubAreaShape> subAreaShapes;
     protected SubAreaShape selectedSubAreaShape;
-    protected SubAreaMeasurement measurement;
+    protected final SubAreaMeasurementDataModel measurementDataModel;
 
-    public AbstractSubAreaDataModel(Area area, SubAreaType... subAreaTypes) {
+    public AbstractSubAreaDataModel(Area area, SubAreaMeasurement measurement, SubAreaType... subAreaTypes) {
         this.area = area;
         this.subAreaTypes = new ObservableListWrapperA<>(subAreaTypes);
         selectedSubAreaType = this.subAreaTypes.get(0);
         subAreaShapes = new ObservableListWrapperA<>(selectedSubAreaType.getShapes());
         selectedSubAreaShape = subAreaShapes.get(0);
+        measurementDataModel = new SubAreaMeasurementDataModel(measurement);
     }
 
     public SubArea getSubArea() {
@@ -53,7 +54,7 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
         support.firePropertyChange(SUB_AREA_TYPE_PROPERTY, oldValue, this.selectedSubAreaType);
     }
 
-    public ObservableList<SubAreaShape> getAreaShapeTypes() {
+    public ObservableList<SubAreaShape> getShapes() {
         return subAreaShapes;
     }
 
@@ -65,6 +66,10 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
         SubAreaShape oldValue = this.selectedSubAreaShape;
         this.selectedSubAreaShape = selectedSubAreaShape;
         support.firePropertyChange(SUB_AREA_SHAPE_PROPERTY, oldValue, this.selectedSubAreaShape);
+    }
+
+    public SubAreaMeasurementDataModel getMeasurementDataModel() {
+        return measurementDataModel;
     }
 
     @Override

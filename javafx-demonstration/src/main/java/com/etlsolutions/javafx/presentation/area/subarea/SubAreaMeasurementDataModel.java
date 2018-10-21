@@ -6,6 +6,7 @@ import com.etlsolutions.javafx.presentation.area.TriangleDataModel;
 import com.etlsolutions.javafx.presentation.area.AreaValueDataModel;
 import com.etlsolutions.javafx.presentation.area.LengthWidthDataModel;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 
 /**
  *
@@ -128,9 +129,36 @@ public class SubAreaMeasurementDataModel implements LengthWidthDataModel, AreaVa
     }
 
     @Override
-    public String getFxmlPath(Object shape) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getFxmlPath(Object object) {
+        SubAreaShape shape = (SubAreaShape) object;
+        switch (shape) {
+            case RECTANGLE:
+                return "/fxml/area/LengthWidthFXML.fxml";
+            case SQURE:
+                return "/fxml/area/SquareFXML.fxml";
+            case CIRCLE:
+                return "/fxml/area/CircleFXML.fxml";
+            case TRIANGLE:
+                return "/fxml/area/TriangleFXML.fxml";
+            case ROUND:
+                return "/fxml/area/RoundFXML.fxml";
+            case GOTHIC:
+                return "/fxml/area/BoxFXML.fxml";
+            case HOOP:
+                return "/fxml/area/BoxFXML.fxml";
+            case DOOM:
+                return "/fxml/area/DoomFXML.fxml";
+            case LEAN_TO_WALL:
+                return "/fxml/area/BoxFXML.fxml";
+            case STRAIGHT_LINE:
+                return "/fxml/area/LengthWidthFXML.fxml";
+            case POND:
+                return "/fxml/area/PondFXML.fxml";
+            case IRREGULAR:
+                return "/fxml/area/AreaValueFXML.fxml";
+            default:
+                throw new IllegalArgumentException("Invalid shape.");
+        }
     }
-    
-    
+
 }

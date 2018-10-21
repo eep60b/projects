@@ -12,12 +12,11 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
 public class EditSubAreaDataModel extends AbstractSubAreaDataModel {
 
     public EditSubAreaDataModel(Area area, SubArea subArea) {
-        super(area, subArea.getType());
+        super(area, new SubAreaMeasurement(subArea.getMeasurement()), subArea.getType());
         this.subArea = subArea;
         this.title = subArea.getTitle();
         this.information = subArea.getInformation();
         this.imageLinks = new ObservableListWrapperA<>(subArea.getImageLinks());
-        this.measurement = new SubAreaMeasurement(subArea.getMeasurement());
         this.selectedSubAreaShape = subArea.getShape();
     }
 
@@ -27,7 +26,7 @@ public class EditSubAreaDataModel extends AbstractSubAreaDataModel {
         subArea.setInformation(information);
         area.getImageLinks().clear();
         area.getImageLinks().addAll(imageLinks);
-        subArea.setMeasurement(measurement);
+        subArea.setMeasurement(measurementDataModel.getMeasurement());
         subArea.setShape(selectedSubAreaShape);
     }
 }
