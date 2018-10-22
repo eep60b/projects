@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.location;
+package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
-import static com.etlsolutions.javafx.presentation.menu.add.location.AddLocationDataModel.*;
+import static com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel.*;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
 import javafx.fxml.FXML;

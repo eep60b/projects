@@ -8,14 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumFXMLController">
   <stylesheets>
     <URL value="@/styles/menu/add/addgrowingmediumfxml.css" />
   </stylesheets>
    <children>
       <VBox prefHeight="572.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TabPane prefHeight="502.0" prefWidth="600.0">
+            <TabPane prefHeight="564.0" prefWidth="600.0">
                <tabs>
                   <Tab text="General">
                      <content>
@@ -41,12 +41,12 @@
                               <Label text="Information" />
                               <ScrollPane prefViewportHeight="200.0" prefViewportWidth="580.0">
                                  <content>
-                                    <TextArea fx:id="informationTextArea" prefHeight="136.0" prefWidth="578.0" />
+                                    <TextArea fx:id="informationTextArea" prefHeight="199.0" prefWidth="578.0" />
                                  </content>
                               </ScrollPane>
                               <HBox fx:id="timeHbox1" layoutX="20.0" layoutY="55.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="20.0" prefWidth="147.0" text="Sand Pecentage">
+                                    <Label prefHeight="20.0" prefWidth="107.0" text="Sand (%):">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
@@ -56,37 +56,37 @@
                               </HBox>
                               <HBox fx:id="timeHbox11" layoutX="20.0" layoutY="304.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="20.0" prefWidth="194.0" text="Silt Pecentage">
+                                    <Label prefHeight="20.0" prefWidth="114.0" text="Silt (%):">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="sandPercentageTextField1" prefHeight="25.0" prefWidth="470.0" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="siltPercentageTextField" prefHeight="25.0" prefWidth="470.0" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox fx:id="timeHbox111" layoutX="20.0" layoutY="339.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="20.0" prefWidth="147.0" text="Clay Pecentage">
+                                    <Label prefHeight="20.0" prefWidth="106.0" text="Clay(%):">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="sandPercentageTextField11" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="clayPercentageTextField" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox fx:id="timeHbox1111" layoutX="20.0" layoutY="374.0" spacing="10.0">
                                  <children>
-                                    <Label text="Organic Material Pecentage">
+                                    <Label text="Organic Material(%):">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="sandPercentageTextField111" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="organicPercentageTextField" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox fx:id="timeHbox11111" layoutX="20.0" layoutY="409.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="20.0" prefWidth="147.0" text="Stone Pecentage">
+                                    <Label fx:id="stonePercentageTextField" prefHeight="20.0" prefWidth="109.0" text="Stone(%):">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
@@ -96,7 +96,7 @@
                               </HBox>
                               <HBox fx:id="timeHbox111111" layoutX="20.0" layoutY="444.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="20.0" prefWidth="147.0" text="Water Storage Percentage">
+                                    <Label fx:id="waterPercentageTextField" prefHeight="20.0" prefWidth="108.0" text="Water Storage(%):">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
@@ -106,7 +106,7 @@
                               </HBox>
                               <HBox fx:id="timeHbox1111111" layoutX="20.0" layoutY="448.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="20.0" prefWidth="146.0" text="PH">
+                                    <Label fx:id="phTextField" prefHeight="20.0" prefWidth="109.0" text="PH:">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
@@ -146,7 +146,7 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <Label fx:id="errorMessageButton" text="Error message">
+            <Label fx:id="errorMessageButton" text="Error message" textFill="#f20808">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>

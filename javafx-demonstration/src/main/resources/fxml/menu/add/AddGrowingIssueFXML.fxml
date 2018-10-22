@@ -9,14 +9,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.growingissue.AddGrowingIssueFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.growingissue.AddGrowingIssueFXMLController">
     <stylesheets>
         <URL value="@/styles/menu/add/addgrowingissuefxml.css" />
     </stylesheets>
    <children>
-      <VBox prefHeight="487.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="640.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TabPane>
+            <TabPane prefHeight="568.0" prefWidth="600.0">
                <tabs>
                   <Tab text="General">
                      <content>
@@ -38,34 +38,85 @@
                                     <TextField fx:id="titleTextField" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
-                              <HBox fx:id="timeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
+                              <Label text="Information" />
+                              <ScrollPane layoutX="20.0" layoutY="82.0" prefViewportHeight="200.0" prefViewportWidth="580.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <TextArea fx:id="effectivenessTextArea" prefHeight="455.0" prefWidth="578.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab text="Time">
+                     <content>
+                        <VBox layoutX="137.0" layoutY="34.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox fx:id="timeHbox1" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                  <children>
-                                    <Label text="Time HBox">
+                                    <Label text="Start Time:">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
                                  </children>
                               </HBox>
-                              <Label text="Information" />
-                              <ScrollPane prefViewportHeight="200.0" prefViewportWidth="580.0">
+                              <HBox fx:id="timeHbox11" layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                 <children>
+                                    <Label text="End Time:">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox111" layoutX="20.0" layoutY="50.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Notifictions">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <ScrollPane prefHeight="459.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
                                  <content>
-                                    <TextArea fx:id="informationTextArea" prefHeight="68.0" prefWidth="578.0" />
+                                    <ListView prefHeight="428.0" prefWidth="576.0" />
                                  </content>
                               </ScrollPane>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab text="Additional Information">
+                     <content>
+                        <VBox layoutX="137.0" layoutY="34.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
                               <Label text="Solution" />
-                              <ScrollPane layoutX="20.0" layoutY="82.0" prefViewportHeight="200.0" prefViewportWidth="580.0">
+                              <ScrollPane layoutX="20.0" layoutY="82.0" prefHeight="441.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
                                  <content>
-                                    <TextArea fx:id="solutionTextArea" prefHeight="67.0" prefWidth="578.0" />
+                                    <TextArea fx:id="solutionTextArea2" prefHeight="349.0" prefWidth="578.0" />
                                  </content>
                               </ScrollPane>
                               <Label layoutX="20.0" layoutY="294.0" text="Effectiveness" />
                               <ScrollPane layoutX="20.0" layoutY="82.0" prefViewportHeight="200.0" prefViewportWidth="580.0" VBox.vgrow="ALWAYS">
                                  <content>
-                                    <TextArea fx:id="effectivenessTextArea" prefHeight="69.0" prefWidth="578.0" />
+                                    <TextArea fx:id="effectivenessTextArea2" prefHeight="109.0" prefWidth="578.0" />
                                  </content>
                               </ScrollPane>
                            </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
                         </VBox>
                      </content>
                   </Tab>
@@ -101,7 +152,7 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <Label fx:id="errorMessageButton" text="Error message">
+            <Label fx:id="errorMessageButton" text="Error message" textFill="#ee0404">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>

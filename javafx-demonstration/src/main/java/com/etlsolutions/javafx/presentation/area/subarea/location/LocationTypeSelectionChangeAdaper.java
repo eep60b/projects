@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.location;
+package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import javafx.beans.value.ChangeListener;

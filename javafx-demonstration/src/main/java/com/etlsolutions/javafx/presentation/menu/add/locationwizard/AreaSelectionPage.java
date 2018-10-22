@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.locationwizard;
 
-import com.etlsolutions.javafx.presentation.menu.add.location.AreaListChangeAdapter;
+import com.etlsolutions.javafx.presentation.area.subarea.location.AreaListChangeAdapter;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;

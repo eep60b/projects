@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.location;
+package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
@@ -93,11 +93,11 @@ public class AddLocationDataModel extends DataUnitFXMLDataModel {
 
     public String getGroudLocationDeatailsFxmlPath() {
 
-        return "/fxml/menu/add/location/GroundLocationDetailFXML.fxml";
+        return "/fxml/area/GroundLocationDetailFXML.fxml";
     }
 
     public String getContainerFxmlPath() {
-        return "/fxml/menu/add/location/ContainerDetailFXML.fxml";
+        return "/fxml/area/ContainerFXML.fxml";
     }
 
     @Override
