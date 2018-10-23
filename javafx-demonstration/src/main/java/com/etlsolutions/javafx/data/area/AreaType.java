@@ -29,12 +29,12 @@ public enum AreaType {
 
     private final String title;
     private final AreaShape[] shapes;    
-    private final SubAreaType[] types;
+    private final SubAreaType[] subAreaTypes;
 
-    private AreaType(String title, AreaShape[] shapes, SubAreaType[] types) {
+    private AreaType(String title, AreaShape[] shapes, SubAreaType[] subAreaTypes) {
         this.title = title;
         this.shapes = shapes;        
-        this.types = types;
+        this.subAreaTypes = subAreaTypes;
     }
 
     public String getTitle() {
@@ -45,8 +45,8 @@ public enum AreaType {
         return shapes;
     }
 
-    public SubAreaType[] getTypes() {
-        return types;
+    public SubAreaType[] getSubAreaTypes() {
+        return subAreaTypes;
     }
 
     @Override

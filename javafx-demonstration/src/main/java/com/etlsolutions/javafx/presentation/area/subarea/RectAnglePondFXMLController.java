@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation.area.subarea;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
-import com.etlsolutions.javafx.presentation.area.DiameterChangeAdapter;
 import com.etlsolutions.javafx.presentation.area.LengthChangeAdapter;
 import com.etlsolutions.javafx.presentation.area.WidthChangeAdapter;
 import javafx.fxml.FXML;
@@ -14,7 +13,7 @@ import javafx.scene.control.TextFormatter;
  *
  * @author Zhipeng
  */
-public class RoundFXMLController extends AbstractComponentsFXMLController<RoundDataModel> {
+public class RectAnglePondFXMLController extends AbstractComponentsFXMLController<RectAnglePondDataModel> {
 
     @FXML
     private TextField lengthTextField;
@@ -23,7 +22,7 @@ public class RoundFXMLController extends AbstractComponentsFXMLController<RoundD
     private TextField widthTextField;
 
     @FXML
-    private TextField diameterTextField;
+    private TextField depthTextField;    
     
     @FXML
     private TextField areaValueTextField;
@@ -41,8 +40,8 @@ public class RoundFXMLController extends AbstractComponentsFXMLController<RoundD
         widthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         widthTextField.textProperty().addListener(new WidthChangeAdapter(model, areaValueTextField));
  
-        diameterTextField.setText(model.getDiameter());
-        diameterTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        diameterTextField.textProperty().addListener(new DiameterChangeAdapter(model, areaValueTextField));        
+        depthTextField.setText(model.getDepth());
+        depthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        depthTextField.textProperty().addListener(new DepthChangeAdapter(model));        
     }
 }

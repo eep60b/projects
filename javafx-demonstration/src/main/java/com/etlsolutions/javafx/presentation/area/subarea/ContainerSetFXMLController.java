@@ -1,27 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.presentation.area.subarea;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.DigitalFilter;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 
 /**
  * FXML Controller class
  *
  * @author Zhipeng
  */
-public class ContainerSetFXMLController implements Initializable {
+public class ContainerSetFXMLController extends AbstractComponentsFXMLController<ContainerSetDataModel> {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private TextField volumeTextField;
+
+    @FXML
+    private TextField numberTextField;
+
+    @FXML
+    private TextField heightTextField;    
+
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    public void initializeComponents() {
+
+        
+        volumeTextField.setText(model.getVolume());
+        volumeTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        volumeTextField.textProperty().addListener(new VolumeChangeAdapter(model));
+
+        numberTextField.setText(model.getNumber());
+        numberTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        numberTextField.textProperty().addListener(new NumberChangeAdapter(model));
+ 
+        heightTextField.setText(model.getHeight());
+        heightTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        heightTextField.textProperty().addListener(new HeightChangeAdapter(model));        
+    }
 }

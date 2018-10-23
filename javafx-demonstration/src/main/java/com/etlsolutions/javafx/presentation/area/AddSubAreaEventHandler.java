@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.CreateSubAreaDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ListView;
@@ -23,9 +24,9 @@ public class AddSubAreaEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        AddSubAreaDataModel addSubAreaDataModel = new AddSubAreaDataModel(model.getSelectedAreaType().getTypes());
-        new FXMLActionEventHandler<>(addSubAreaDataModel).handle(event);
-        SubArea subArea = addSubAreaDataModel.getSubArea();
+        CreateSubAreaDataModel subAreaDataModel = new CreateSubAreaDataModel(model.getSelectedAreaType().getSubAreaTypes());
+        new FXMLActionEventHandler<>(subAreaDataModel).handle(event);
+        SubArea subArea = subAreaDataModel.getSubArea();
         model.getSubAreas().add(subArea);
         model.setSelectedSubArea(subArea);
         subAreaListView.setItems(model.getSubAreas());

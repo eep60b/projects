@@ -9,10 +9,10 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
  *
  * @author zc
  */
-public class EditSubAreaDataModel extends AbstractSubAreaDataModel {
+public class EditSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
 
     public EditSubAreaDataModel(Area area, SubArea subArea) {
-        super(area, new SubAreaMeasurement(subArea.getMeasurement()), subArea.getType());
+        super(area, new SubAreaMeasurement(subArea.getMeasurement()));
         this.subArea = subArea;
         this.title = subArea.getTitle();
         this.information = subArea.getInformation();

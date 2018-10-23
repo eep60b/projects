@@ -6,35 +6,35 @@ package com.etlsolutions.javafx.data.area.subarea;
  */
 public enum SubAreaShape {
 
-    RECTANGLE("Rectangle"), 
-    
-    SQURE ("Squre"), 
-    
-    CIRCLE ("Circle"), 
-    
-    TRIANGLE("Triangle"), 
-    
+    RECTANGLE("Rectangle"),
+    SQURE("Squre"),
+    CIRCLE("Circle"),
+    TRIANGLE("Triangle"),
+    IRREGULAR("Irregular"),
     /**
      * Round border subarea
      */
-    ROUND("Round"),
-    
-    GOTHIC("Gothic"),
-    
-    HOOP("Hoop"), 
-    
-    DOOM("Doom"), 
-    
-    LEAN_TO_WALL("Lean-to-wall"), 
-    
+    ROUND_BORDER(
+            "Round"),
     /**
      * Straight line border.
      */
-    STRAIGHT_LINE("Straight line"),   
-    
-    POND("Pond"),
-    
-    IRREGULAR("Irregular");
+    STRAIGHT_LINE_BORDER("Straight line"),
+    /**
+     * Greenhouse
+     */
+    GOTHIC("Gothic"),
+    HOOP("Hoop"),
+    DOOM("Doom"),
+    LEAN_TO_WALL("Lean-to-wall"),
+    /**
+     * Pound
+     */
+    RECTANGLE_POND("Rectangle"),
+    SQURE_POND("Squre"),
+    CIRCLE_POND("Circle"),
+    TRIANGLE_POND("Triangle"),
+    IRREGULAR_POND("Irregular");
 
     private final String title;
 

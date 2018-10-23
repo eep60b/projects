@@ -10,15 +10,15 @@ import javafx.scene.control.TextFormatter;
 /**
  * FXML Controller class
  *
- * @author Zhipeng
+ * @author zc
  */
-public class DoomFXMLController extends AbstractComponentsFXMLController<DoomDataModel> {
+public class CirclePondFXMLController extends AbstractComponentsFXMLController<CirclePondDataModel> {
 
     @FXML
     private TextField diameterTextField;
-
+    
     @FXML
-    private TextField heightTextField;    
+    private TextField depthTextField;
     
     @FXML
     private TextField areaValueTextField;
@@ -27,13 +27,13 @@ public class DoomFXMLController extends AbstractComponentsFXMLController<DoomDat
     public void initializeComponents() {
         areaValueTextField.setDisable(true);
         areaValueTextField.setText(model.getAreaValue());
-        
+
         diameterTextField.setText(model.getDiameter());
         diameterTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         diameterTextField.textProperty().addListener(new DiameterChangeAdapter(model, areaValueTextField));
- 
-        heightTextField.setText(model.getHeight());
-        heightTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        heightTextField.textProperty().addListener(new HeightChangeAdapter(model));        
+
+        depthTextField.setText(model.getDepth());
+        depthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        depthTextField.textProperty().addListener(new DepthChangeAdapter(model));
     }
 }

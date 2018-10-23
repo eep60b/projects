@@ -9,9 +9,9 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
  */
 public enum SubAreaType {
     
-    BORDER ("Border", new SubAreaShape[]{STRAIGHT_LINE, CIRCLE, IRREGULAR}, LocationType.BORDER_LOCATION),
-    SINGLE_CONTAINTER ("Single Container", new SubAreaShape[]{ROUND, RECTANGLE, SQURE, IRREGULAR}, LocationType.CONTAINER),
-    CONTAINTER_SET ("Container Set", new SubAreaShape[]{ROUND, RECTANGLE, SQURE, IRREGULAR}, LocationType.CONTAINER),
+    BORDER ("Border", new SubAreaShape[]{STRAIGHT_LINE_BORDER, CIRCLE, IRREGULAR}, LocationType.BORDER_LOCATION),
+    SINGLE_CONTAINTER ("Single Container", new SubAreaShape[]{ROUND_BORDER, RECTANGLE, SQURE, IRREGULAR}, LocationType.CONTAINER),
+    CONTAINTER_SET ("Container Set", new SubAreaShape[]{ROUND_BORDER, RECTANGLE, SQURE, IRREGULAR}, LocationType.CONTAINER),
     CUSTOM ("Custom area", SubAreaShape.values(), LocationType.CONTAINER, LocationType.CUSTOMER_LOCATION),
     GREEN_HOUSE ("Greenhouse", new SubAreaShape[]{RECTANGLE, SQURE, LEAN_TO_WALL, DOOM, GOTHIC, HOOP, IRREGULAR}, LocationType.CONTAINER, LocationType.GREEN_HOUSE_GROUND_LOCATION),
     LAWN ("Lawn", new SubAreaShape[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, LocationType.LAWN_LOCATION),

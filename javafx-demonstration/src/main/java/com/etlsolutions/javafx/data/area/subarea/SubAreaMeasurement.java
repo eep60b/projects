@@ -16,6 +16,7 @@ public class SubAreaMeasurement {
     private double b;
     private double c;
     private double volume;
+    private int number;
     private double depth;
 
     public SubAreaMeasurement() {
@@ -113,6 +114,14 @@ public class SubAreaMeasurement {
 
     public void setVolume(double volume) {
         this.volume = volume;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public double getDepth() {

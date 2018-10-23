@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
-import static com.etlsolutions.javafx.presentation.area.subarea.AbstractSubAreaDataModel.*;
+import static com.etlsolutions.javafx.presentation.area.subarea.AbstractAreaDefinedSubAreaDataModel.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +25,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class SubAreaFXMLController extends DataUnitFXMLController<AbstractSubAreaDataModel> {
+public class SubAreaFXMLController extends DataUnitFXMLController<AbstractAreaDefinedSubAreaDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -96,9 +96,8 @@ public class SubAreaFXMLController extends DataUnitFXMLController<AbstractSubAre
         shapeComboBox.getSelectionModel().select(model.getSelectedSubAreaShape());
 
         typeComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaTypeChangeAdapter(model, shapeComboBox));
-        shapeComboBox.selectionModelProperty().addListener(new SubAreaShapeChangeAdapter(model));
+        shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaShapeChangeAdapter(model, measurementTab, map));
 
-        model.addPropertyChangeListener(SUB_AREA_SHAPE_PROPERTY, new SubAreShapePropertyChangeAdapter(measurementTab));
     }
     
     private Node getNode(SubAreaShape shape) {

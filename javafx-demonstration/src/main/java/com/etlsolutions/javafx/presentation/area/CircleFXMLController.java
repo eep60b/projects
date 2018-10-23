@@ -28,5 +28,4 @@ public class CircleFXMLController extends AbstractComponentsFXMLController<Circl
         diameterTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         diameterTextField.textProperty().addListener(new DiameterChangeAdapter(model, areaValueTextField));
     }
-
 }
