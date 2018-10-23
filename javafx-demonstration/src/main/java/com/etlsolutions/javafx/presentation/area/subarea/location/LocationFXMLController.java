@@ -27,7 +27,7 @@ import org.apache.log4j.Logger;
  *
  * @author zc
  */
-public class AddLocationFXMLController extends DataUnitFXMLController<AddLocationDataModel> {
+public class LocationFXMLController extends DataUnitFXMLController<AddLocationDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -143,11 +143,7 @@ public class AddLocationFXMLController extends DataUnitFXMLController<AddLocatio
             subareaComboBox.selectionModelProperty().addListener(new SubAreaSelectionChangeAdaper(model));
             
             locationTypeComboBox.selectionModelProperty().addListener(new LocationTypeSelectionChangeAdaper(model));
-
-            model.addPropertyChangeListener(AREA_PROPERTY, new AreaPropertyChangeAdaper(subareaComboBox, removeAreaButton));
-            model.addPropertyChangeListener(SUBAREA_PROPERTY, new SubAreasPropertyChangeAdaper(locationTypeComboBox, removeSubareaButton, editSubareaButton));
-            model.addPropertyChangeListener(LOCATION_TYPE_PROPERTY, new LocationTypePropertyChangeAdaper(okButton, errorMessageLabel));
-
+            
             model.getAreas().addListener(new AreaListChangeAdapter(areaComboBox, model));
 
         } catch (IOException ex) {

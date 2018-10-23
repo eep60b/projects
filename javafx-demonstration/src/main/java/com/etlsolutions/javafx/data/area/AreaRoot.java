@@ -1,8 +1,7 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
  *
@@ -10,14 +9,14 @@ import javafx.collections.ObservableList;
  */
 public class AreaRoot extends DataUnit {
 
-    private ObservableList<GardenArea> gardenAreas;
-    private ObservableList<IndoorArea> indoorAreas;
-    private ObservableList<PatioArea> patioAreas;
-    private ObservableList<BalconyArea> balconyAreas;
-    private ObservableList<AllotmentArea> allotmentAreas;
-    private ObservableList<FarmArea> farmAreas;
-    private ObservableList<CustomArea> customAreas;
-    private ObservableList<Area> allAreas;
+    private ObservableListWrapperA<GardenArea> gardenAreas;
+    private ObservableListWrapperA<IndoorArea> indoorAreas;
+    private ObservableListWrapperA<PatioArea> patioAreas;
+    private ObservableListWrapperA<BalconyArea> balconyAreas;
+    private ObservableListWrapperA<AllotmentArea> allotmentAreas;
+    private ObservableListWrapperA<FarmArea> farmAreas;
+    private ObservableListWrapperA<CustomArea> customAreas;
+    private ObservableListWrapperA<Area> allAreas;
 
     public AreaRoot() {
 
@@ -25,14 +24,14 @@ public class AreaRoot extends DataUnit {
 
     public AreaRoot(String title, String information) {
         super(title, information);
-        gardenAreas = FXCollections.observableArrayList();
-        indoorAreas = FXCollections.observableArrayList();
-        patioAreas = FXCollections.observableArrayList();
-        balconyAreas = FXCollections.observableArrayList();
-        allotmentAreas = FXCollections.observableArrayList();
-        farmAreas = FXCollections.observableArrayList();
-        customAreas = FXCollections.observableArrayList();
-        allAreas = FXCollections.observableArrayList();
+        gardenAreas = new ObservableListWrapperA<>();
+        indoorAreas = new ObservableListWrapperA<>();
+        patioAreas = new ObservableListWrapperA<>();
+        balconyAreas = new ObservableListWrapperA<>();
+        allotmentAreas = new ObservableListWrapperA<>();
+        farmAreas = new ObservableListWrapperA<>();
+        customAreas = new ObservableListWrapperA<>();
+        allAreas = new ObservableListWrapperA<>();
         
         updateAllAreas();
     }
@@ -49,35 +48,35 @@ public class AreaRoot extends DataUnit {
         allAreas.addAll(customAreas);
     }
 
-    public ObservableList<GardenArea> getGardenAreas() {
+    public ObservableListWrapperA<GardenArea> getGardenAreas() {
         return gardenAreas;
     }
 
-    public ObservableList<IndoorArea> getIndoorAreas() {
+    public ObservableListWrapperA<IndoorArea> getIndoorAreas() {
         return indoorAreas;
     }
 
-    public ObservableList<PatioArea> getPatioAreas() {
+    public ObservableListWrapperA<PatioArea> getPatioAreas() {
         return patioAreas;
     }
 
-    public ObservableList<BalconyArea> getBalconyAreas() {
+    public ObservableListWrapperA<BalconyArea> getBalconyAreas() {
         return balconyAreas;
     }
 
-    public ObservableList<AllotmentArea> getAllotmentAreas() {
+    public ObservableListWrapperA<AllotmentArea> getAllotmentAreas() {
         return allotmentAreas;
     }
 
-    public ObservableList<FarmArea> getFarmAreas() {
+    public ObservableListWrapperA<FarmArea> getFarmAreas() {
         return farmAreas;
     }
 
-    public ObservableList<CustomArea> getCustomAreas() {
+    public ObservableListWrapperA<CustomArea> getCustomAreas() {
         return customAreas;
     }
 
-    public ObservableList<Area> getAllAreas() {
+    public ObservableListWrapperA<Area> getAllAreas() {
         return allAreas;
     }
  

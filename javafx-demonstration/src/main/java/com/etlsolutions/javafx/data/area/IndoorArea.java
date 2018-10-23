@@ -9,7 +9,6 @@ import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -17,15 +16,15 @@ import javafx.collections.ObservableList;
  */
 public class IndoorArea extends Area {
 
-    private ObservableList<ContainerSet> containerSets;
-    private ObservableList<SingleContainer> singleContainers;
-    private ObservableList<Room> rooms;
-    private ObservableList<CustomSubArea> customSubareas;
+    private ObservableListWrapperA<ContainerSet> containerSets;
+    private ObservableListWrapperA<SingleContainer> singleContainers;
+    private ObservableListWrapperA<Room> rooms;
+    private ObservableListWrapperA<CustomSubArea> customSubareas;
 
     public IndoorArea() {
     }
 
-    protected IndoorArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    protected IndoorArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         containerSets = new ObservableListWrapperA<>();
         singleContainers = new ObservableListWrapperA<>();
@@ -33,19 +32,19 @@ public class IndoorArea extends Area {
         customSubareas = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<ContainerSet> getContainerSets() {
+    public ObservableListWrapperA<ContainerSet> getContainerSets() {
         return containerSets;
     }
 
-    public ObservableList<SingleContainer> getSingleContainers() {
+    public ObservableListWrapperA<SingleContainer> getSingleContainers() {
         return singleContainers;
     }
 
-    public ObservableList<Room> getRooms() {
+    public ObservableListWrapperA<Room> getRooms() {
         return rooms;
     }
 
-    public ObservableList<CustomSubArea> getCustomSubareas() {
+    public ObservableListWrapperA<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
 
@@ -60,9 +59,9 @@ public class IndoorArea extends Area {
     }
 
     @Override
-    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
+    public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
 
-        ObservableList<SubArea> subAreas = new ObservableListWrapperA<>();
+        ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         switch (type) {
             case CONTAINTER_SET:
                 subAreas.addAll(containerSets);

@@ -8,7 +8,6 @@ import com.etlsolutions.javafx.data.area.subarea.Border;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -16,14 +15,14 @@ import javafx.collections.ObservableList;
  */
 public class FarmArea extends Area {
 
-    private ObservableList<PlantBed> plantBeds;
-    private ObservableList<Border> borders;
-    private ObservableList<CustomSubArea> customSubareas;
+    private ObservableListWrapperA<PlantBed> plantBeds;
+    private ObservableListWrapperA<Border> borders;
+    private ObservableListWrapperA<CustomSubArea> customSubareas;
 
     public FarmArea() {
     }
 
-    protected FarmArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    protected FarmArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude,measurement, shape);
 
         plantBeds = new ObservableListWrapperA<>();
@@ -31,11 +30,11 @@ public class FarmArea extends Area {
         customSubareas = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<PlantBed> getPlantBeds() {
+    public ObservableListWrapperA<PlantBed> getPlantBeds() {
         return plantBeds;
     }
 
-    public ObservableList<Border> getBorders() {
+    public ObservableListWrapperA<Border> getBorders() {
         return borders;
     }
 
@@ -49,9 +48,9 @@ public class FarmArea extends Area {
     }
 
     @Override
-    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
+    public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
         
-        ObservableList<SubArea> subAreas = new ObservableListWrapperA<>();
+        ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         switch (type) {
             case PLANT_BED:
                 subAreas.addAll(plantBeds);

@@ -7,7 +7,6 @@ import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -15,29 +14,29 @@ import javafx.collections.ObservableList;
  */
 public class BalconyArea extends Area {
 
-    private ObservableList<ContainerSet> containerSets;
-    private ObservableList<SingleContainer> singleContainers;
-    private ObservableList<CustomSubArea> customSubareas;
+    private ObservableListWrapperA<ContainerSet> containerSets;
+    private ObservableListWrapperA<SingleContainer> singleContainers;
+    private ObservableListWrapperA<CustomSubArea> customSubareas;
 
     public BalconyArea() {
     }
 
-    protected BalconyArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    protected BalconyArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         containerSets = new ObservableListWrapperA<>();
         singleContainers = new ObservableListWrapperA<>();
         customSubareas = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<ContainerSet> getContainerSets() {
+    public ObservableListWrapperA<ContainerSet> getContainerSets() {
         return containerSets;
     }
 
-    public ObservableList<SingleContainer> getSingleContainers() {
+    public ObservableListWrapperA<SingleContainer> getSingleContainers() {
         return singleContainers;
     }
 
-    public ObservableList<CustomSubArea> getCustomSubareas() {
+    public ObservableListWrapperA<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
 
@@ -51,7 +50,7 @@ public class BalconyArea extends Area {
     }
     
     @Override
-    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
+    public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

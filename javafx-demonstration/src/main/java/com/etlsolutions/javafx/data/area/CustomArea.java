@@ -14,7 +14,6 @@ import com.etlsolutions.javafx.data.area.subarea.Room;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -22,21 +21,21 @@ import javafx.collections.ObservableList;
  */
 public class CustomArea extends Area {
 
-    private ObservableList<PlantBed> plantBeds;
-    private ObservableList<RaisedPlantBed> raisedPlantBeds;
-    private ObservableList<Lawn> lawns;
-    private ObservableList<Border> borders;
-    private ObservableList<Greenhouse> greenhouses;
-    private ObservableList<ContainerSet> containerSets;
-    private ObservableList<SingleContainer> singleContainers;
-    private ObservableList<Pond> ponds;
-    private ObservableList<Room> rooms;
-    private ObservableList<CustomSubArea> customSubareas;
+    private ObservableListWrapperA<PlantBed> plantBeds;
+    private ObservableListWrapperA<RaisedPlantBed> raisedPlantBeds;
+    private ObservableListWrapperA<Lawn> lawns;
+    private ObservableListWrapperA<Border> borders;
+    private ObservableListWrapperA<Greenhouse> greenhouses;
+    private ObservableListWrapperA<ContainerSet> containerSets;
+    private ObservableListWrapperA<SingleContainer> singleContainers;
+    private ObservableListWrapperA<Pond> ponds;
+    private ObservableListWrapperA<Room> rooms;
+    private ObservableListWrapperA<CustomSubArea> customSubareas;
 
     public CustomArea() {
     }
 
-    protected CustomArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    protected CustomArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude,measurement, shape);
         plantBeds = new ObservableListWrapperA<>();
         raisedPlantBeds = new ObservableListWrapperA<>();
@@ -50,43 +49,43 @@ public class CustomArea extends Area {
         customSubareas = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<PlantBed> getPlantBeds() {
+    public ObservableListWrapperA<PlantBed> getPlantBeds() {
         return plantBeds;
     }
 
-    public ObservableList<RaisedPlantBed> getRaisedPlantBeds() {
+    public ObservableListWrapperA<RaisedPlantBed> getRaisedPlantBeds() {
         return raisedPlantBeds;
     }
 
-    public ObservableList<Lawn> getLawns() {
+    public ObservableListWrapperA<Lawn> getLawns() {
         return lawns;
     }
 
-    public ObservableList<Border> getBorders() {
+    public ObservableListWrapperA<Border> getBorders() {
         return borders;
     }
 
-    public ObservableList<Greenhouse> getGreenhouses() {
+    public ObservableListWrapperA<Greenhouse> getGreenhouses() {
         return greenhouses;
     }
 
-    public ObservableList<ContainerSet> getContainerSets() {
+    public ObservableListWrapperA<ContainerSet> getContainerSets() {
         return containerSets;
     }
 
-    public ObservableList<SingleContainer> getSingleContainers() {
+    public ObservableListWrapperA<SingleContainer> getSingleContainers() {
         return singleContainers;
     }
 
-    public ObservableList<Pond> getPonds() {
+    public ObservableListWrapperA<Pond> getPonds() {
         return ponds;
     }
 
-    public ObservableList<CustomSubArea> getCustomSubareas() {
+    public ObservableListWrapperA<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
 
-    public ObservableList<Room> getRooms() {
+    public ObservableListWrapperA<Room> getRooms() {
         return rooms;
     }
 
@@ -107,8 +106,8 @@ public class CustomArea extends Area {
     }
 
     @Override
-    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
-        ObservableList<SubArea> subAreas = new ObservableListWrapperA<>();
+    public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
+        ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         switch (type) {
             case PLANT_BED:
                 subAreas.addAll(plantBeds);

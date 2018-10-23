@@ -6,7 +6,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -23,7 +22,7 @@ public abstract class Area extends DataUnit {
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.SHAPE_PROPERTY";
     
-    protected ObservableList<SubArea> allSubAreas;
+    protected ObservableListWrapperA<SubArea> allSubAreas;
     private double longitude;
     private double latitude;
     private AreaMeasurement measurement;
@@ -37,7 +36,7 @@ public abstract class Area extends DataUnit {
         this.allSubAreas = new ObservableListWrapperA<>();
     }
 
-    protected Area(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    protected Area(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.allSubAreas = new ObservableListWrapperA<>();
         this.longitude = longitude;
@@ -50,9 +49,9 @@ public abstract class Area extends DataUnit {
 
     public abstract void updateAllSubAreas();
 
-    public abstract ObservableList<SubArea> getSubAreas(SubAreaType type);
+    public abstract ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type);
 
-    public ObservableList<SubArea> getAllSubAreas() {
+    public ObservableListWrapperA<SubArea> getAllSubAreas() {
         return allSubAreas;
     }
 

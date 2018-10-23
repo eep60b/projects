@@ -10,8 +10,6 @@ import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -19,17 +17,17 @@ import javafx.collections.ObservableList;
  */
 public class PatioArea extends Area {
 
-    private ObservableList<RaisedPlantBed> raisedPlantBeds;
-    private ObservableList<Greenhouse> greenhouses;
-    private ObservableList<SingleContainer> singleContainers;
-    private ObservableList<ContainerSet> containerSets;
-    private ObservableList<CustomSubArea> customSubareas;
+    private ObservableListWrapperA<RaisedPlantBed> raisedPlantBeds;
+    private ObservableListWrapperA<Greenhouse> greenhouses;
+    private ObservableListWrapperA<SingleContainer> singleContainers;
+    private ObservableListWrapperA<ContainerSet> containerSets;
+    private ObservableListWrapperA<CustomSubArea> customSubareas;
 
     public PatioArea() {
 
     }
 
-    public PatioArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    public PatioArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
 
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         raisedPlantBeds = new ObservableListWrapperA<>();
@@ -39,23 +37,23 @@ public class PatioArea extends Area {
         customSubareas = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<RaisedPlantBed> getRaisedPlantBeds() {
+    public ObservableListWrapperA<RaisedPlantBed> getRaisedPlantBeds() {
         return raisedPlantBeds;
     }
 
-    public ObservableList<Greenhouse> getGreenhouses() {
+    public ObservableListWrapperA<Greenhouse> getGreenhouses() {
         return greenhouses;
     }
 
-    public ObservableList<SingleContainer> getSingleContainers() {
+    public ObservableListWrapperA<SingleContainer> getSingleContainers() {
         return singleContainers;
     }
 
-    public ObservableList<ContainerSet> getContainerSets() {
+    public ObservableListWrapperA<ContainerSet> getContainerSets() {
         return containerSets;
     }
 
-    public ObservableList<CustomSubArea> getCustomSubareas() {
+    public ObservableListWrapperA<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
 
@@ -71,8 +69,8 @@ public class PatioArea extends Area {
     }
 
     @Override
-    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
-               ObservableList<SubArea> subAreas = new ObservableListWrapperA<>();
+    public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
+               ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         switch (type) {
             case RAISED_PLANT_BED:
                 subAreas.addAll(raisedPlantBeds);

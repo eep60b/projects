@@ -11,7 +11,6 @@ import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
-import javafx.collections.ObservableList;
 
 /**
  * The AllotmentArea class represents an allotment.
@@ -20,17 +19,17 @@ import javafx.collections.ObservableList;
  */
 public class AllotmentArea extends Area {
 
-    private ObservableList<PlantBed> plantBeds;
-    private ObservableList<RaisedPlantBed> raisedPlantBeds;
-    private ObservableList<Border> borders;
-    private ObservableList<Greenhouse> greenhouses;
-    private ObservableList<CustomSubArea> customSubareas;
+    private ObservableListWrapperA<PlantBed> plantBeds;
+    private ObservableListWrapperA<RaisedPlantBed> raisedPlantBeds;
+    private ObservableListWrapperA<Border> borders;
+    private ObservableListWrapperA<Greenhouse> greenhouses;
+    private ObservableListWrapperA<CustomSubArea> customSubareas;
 
     public AllotmentArea() {
 
     }
 
-    protected AllotmentArea(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    protected AllotmentArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
 
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
         plantBeds = new ObservableListWrapperA<>();
@@ -40,23 +39,23 @@ public class AllotmentArea extends Area {
         customSubareas = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<PlantBed> getPlantBeds() {
+    public ObservableListWrapperA<PlantBed> getPlantBeds() {
         return plantBeds;
     }
 
-    public ObservableList<RaisedPlantBed> getRaisedPlantBeds() {
+    public ObservableListWrapperA<RaisedPlantBed> getRaisedPlantBeds() {
         return raisedPlantBeds;
     }
 
-    public ObservableList<Border> getBorders() {
+    public ObservableListWrapperA<Border> getBorders() {
         return borders;
     }
 
-    public ObservableList<Greenhouse> getGreenhouses() {
+    public ObservableListWrapperA<Greenhouse> getGreenhouses() {
         return greenhouses;
     }
 
-    public ObservableList<CustomSubArea> getCustomSubareas() {
+    public ObservableListWrapperA<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
 
@@ -72,9 +71,9 @@ public class AllotmentArea extends Area {
     }
 
     @Override
-    public ObservableList<SubArea> getSubAreas(SubAreaType type) {
+    public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
 
-        ObservableList<SubArea> subAreas = new ObservableListWrapperA<>();
+        ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         switch (type) {
             case PLANT_BED:
                 subAreas.addAll(plantBeds);
