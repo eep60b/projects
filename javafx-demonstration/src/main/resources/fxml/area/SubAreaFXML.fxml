@@ -56,7 +56,7 @@
                                                         <Insets top="3.0" />
                                                     </HBox.margin>
                                                 </Label>
-                                                <ComboBox fx:id="shapeTypeComboBox" prefHeight="25.0" prefWidth="542.0" />
+                                                <ComboBox fx:id="shapeComboBox" prefHeight="25.0" prefWidth="542.0" />
                                             </children>
                                         </HBox>
                                         <Label text="Information" />
@@ -72,7 +72,7 @@
                                 </VBox>
                             </content>
                         </Tab>
-                        <Tab fx:id="contentsTab" text="Measurement" />
+                        <Tab fx:id="measurementTab" text="Measurement" />
                         <Tab text="Images">
                             <content>
                                 <VBox layoutX="183.0" layoutY="24.0" prefHeight="487.0" prefWidth="608.0" spacing="10.0" AnchorPane.bottomAnchor="-87.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">

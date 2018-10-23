@@ -12,8 +12,9 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
  *
  * @author zc
  */
-public class SubAreaMeasurementDataModel implements LengthWidthDataModel, AreaValueDataModel, TriangleDataModel, 
-        SquareDataModel, CircleDataModel, BoxDataModel, ContainerSetDataModel, DoomDataModel, DepthDataModel, RoundDataModel {
+public class SubAreaMeasurementDataModel implements LengthWidthDataModel, AreaValueDataModel, TriangleDataModel,
+        SquareDataModel, CircleDataModel, BoxDataModel, ContainerSetDataModel, DoomDataModel, DepthDataModel, RoundDataModel,
+        CirclePondDataModel, IrregularPondDataModel, RectAnglePondDataModel, SquarePondDataModel, TrianglePondDataModel {
 
     private final SubAreaMeasurement measurement;
 
@@ -134,17 +135,17 @@ public class SubAreaMeasurementDataModel implements LengthWidthDataModel, AreaVa
     public void setNumber(String number) {
         measurement.setNumber(Integer.parseInt(number));
     }
-   
-    @Override    
+
+    @Override
     public String getDepth() {
         return String.valueOf(measurement.getDepth());
     }
 
-    @Override    
+    @Override
     public void setDepth(String depth) {
         measurement.setDepth(Double.parseDouble(depth));
     }
-    
+
     @Override
     public String getFxmlPath(Object object) {
         SubAreaShape shape = (SubAreaShape) object;
@@ -171,8 +172,16 @@ public class SubAreaMeasurementDataModel implements LengthWidthDataModel, AreaVa
                 return "/fxml/area/LengthWidthFXML.fxml";
             case RECTANGLE_POND:
                 return "/fxml/area/RectanglePondFXML.fxml";
+            case SQUARE_POND:
+                return "/fxml/area/SquarePondFXML.fxml";
+            case CIRCLE_POND:
+                return "/fxml/area/CirclePondFXML.fxml";
+            case TRIANGLE_POND:
+                return "/fxml/area/TrianglePondFXML.fxml";
             case IRREGULAR:
                 return "/fxml/area/AreaValueFXML.fxml";
+            case IRREGULAR_POND:
+                return "/fxml/area/IrregularPondFXML.fxml";
             default:
                 throw new IllegalArgumentException("Invalid shape.");
         }

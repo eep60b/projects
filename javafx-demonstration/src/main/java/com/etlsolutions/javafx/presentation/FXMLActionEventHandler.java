@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
@@ -60,7 +61,8 @@ public class FXMLActionEventHandler<T extends FXMLActionDataModel> implements Ev
             Scene scene = new Scene(root);
             stage.setTitle(strs[0]);
             stage.setScene(scene);
-            stage.show();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
         } catch (IOException ex) {
             logger.error(message, ex);
             throw new CustomLevelErrorRuntimeExceiption(message);

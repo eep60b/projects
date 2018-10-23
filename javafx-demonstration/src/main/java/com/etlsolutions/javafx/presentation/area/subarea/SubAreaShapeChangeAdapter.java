@@ -13,11 +13,11 @@ import javafx.scene.control.Tab;
  */
 public class SubAreaShapeChangeAdapter implements ChangeListener<SubAreaShape> {
 
-    private final AbstractAreaDefinedSubAreaDataModel model;
+    private final AbstractSubAreaDataModel model;
     private final Tab measurementTab;
     private final Map<SubAreaShape, Node> map;
 
-    public SubAreaShapeChangeAdapter(AbstractAreaDefinedSubAreaDataModel model, Tab measurementTab, Map<SubAreaShape, Node> map) {
+    public SubAreaShapeChangeAdapter(AbstractSubAreaDataModel model, Tab measurementTab, Map<SubAreaShape, Node> map) {
         this.model = model;
         this.measurementTab = measurementTab;
         this.map = map;

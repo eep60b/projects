@@ -12,10 +12,10 @@ import javafx.scene.control.ComboBox;
  */
 public class SubAreaTypeChangeAdapter implements ChangeListener<SubAreaType> {
 
-    private final AbstractAreaDefinedSubAreaDataModel model;
+    private final AbstractSubAreaDataModel model;
     private final ComboBox<SubAreaShape> shapeComboBox;    
 
-    public SubAreaTypeChangeAdapter(AbstractAreaDefinedSubAreaDataModel model, ComboBox<SubAreaShape> shapeComboBox) {
+    public SubAreaTypeChangeAdapter(AbstractSubAreaDataModel model, ComboBox<SubAreaShape> shapeComboBox) {
         this.model = model;
         this.shapeComboBox = shapeComboBox;
     }

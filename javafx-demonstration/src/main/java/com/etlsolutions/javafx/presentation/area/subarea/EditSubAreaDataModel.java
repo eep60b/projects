@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 
 /**
  *
@@ -12,7 +13,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
 public class EditSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
 
     public EditSubAreaDataModel(Area area, SubArea subArea) {
-        super(area, new SubAreaMeasurement(subArea.getMeasurement()));
+        super(area, new SubAreaType[]{subArea.getType()}, new SubAreaMeasurement(subArea.getMeasurement()));
         this.subArea = subArea;
         this.title = subArea.getTitle();
         this.information = subArea.getInformation();

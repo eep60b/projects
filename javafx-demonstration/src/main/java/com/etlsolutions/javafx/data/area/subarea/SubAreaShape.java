@@ -31,7 +31,7 @@ public enum SubAreaShape {
      * Pound
      */
     RECTANGLE_POND("Rectangle"),
-    SQURE_POND("Squre"),
+    SQUARE_POND("Squre"),
     CIRCLE_POND("Circle"),
     TRIANGLE_POND("Triangle"),
     IRREGULAR_POND("Irregular");

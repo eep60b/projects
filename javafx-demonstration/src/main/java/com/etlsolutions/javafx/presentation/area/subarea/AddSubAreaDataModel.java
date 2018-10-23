@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
 public class AddSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
 
     public AddSubAreaDataModel(Area area) {
-        super(area, new SubAreaMeasurement());
+        super(area, area.getType().getSubAreaTypes(), new SubAreaMeasurement());
     }
 
     @Override

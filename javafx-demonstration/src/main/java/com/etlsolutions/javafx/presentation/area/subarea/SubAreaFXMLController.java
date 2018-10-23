@@ -4,7 +4,6 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
-import static com.etlsolutions.javafx.presentation.area.subarea.AbstractAreaDefinedSubAreaDataModel.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +24,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class SubAreaFXMLController extends DataUnitFXMLController<AbstractAreaDefinedSubAreaDataModel> {
+public class SubAreaFXMLController extends DataUnitFXMLController<AbstractSubAreaDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -94,6 +93,7 @@ public class SubAreaFXMLController extends DataUnitFXMLController<AbstractAreaDe
         typeComboBox.setDisable(model.getSubAreaTypes().size() <= 1);
         shapeComboBox.setItems(model.getShapes());
         shapeComboBox.getSelectionModel().select(model.getSelectedSubAreaShape());
+        measurementTab.setContent(map.get(model.getSelectedSubAreaShape()));
 
         typeComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaTypeChangeAdapter(model, shapeComboBox));
         shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaShapeChangeAdapter(model, measurementTab, map));
