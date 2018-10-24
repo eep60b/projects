@@ -10,6 +10,7 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.GrowingMediumFactory;
 import com.etlsolutions.javafx.data.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.area.AreaFactory;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import java.beans.PropertyChangeListener;
@@ -64,11 +65,17 @@ public final class ProjectManager {
             configuration.setParentPath(projectDirectory.getParent());
             configuration.setName(projectDirectory.getName());
             configuration.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
+            configuration.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
+            configuration.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
+            configuration.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
         } else {
             //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
             //manually set things up for now.
             configuration.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
+            configuration.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
+            configuration.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());       
+            configuration.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());            
         }
 
         configuration.setAreaRoot(AreaFactory.createAreaRoot());

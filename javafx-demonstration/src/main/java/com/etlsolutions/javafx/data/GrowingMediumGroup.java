@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.data;
 
 import java.util.List;
 import java.util.Objects;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -20,7 +19,7 @@ public class GrowingMediumGroup {
         this.growingMediums = new ObservableListWrapperA<>(growingMediums);
     }
 
-    public ObservableList<GrowingMedium> getGrowingMediums() {
+    public ObservableListWrapperA<GrowingMedium> getGrowingMediums() {
         return growingMediums;
     }
 

@@ -19,7 +19,7 @@ public class Container extends Location {
         
     private ContainerShape shape;
     private double height;
-    private double volumn;
+    private double volume;
 
     public Container() {
     }
@@ -28,14 +28,14 @@ public class Container extends Location {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.shape = shape;
         this.height = height;
-        this.volumn = volumn;
+        this.volume = volumn;
     }
 
     public Container(ContainerShape shape, double height, double volumn, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.shape = shape;
         this.height = height;
-        this.volumn = volumn;
+        this.volume = volumn;
     }
 
     public ContainerShape getShape() {
@@ -58,13 +58,13 @@ public class Container extends Location {
         fireChange(HEIGHT_PROPERTY, oldValue, this.height);
     }
 
-    public double getVolumn() {
-        return volumn;
+    public double getVolume() {
+        return volume;
     }
 
-    public void setVolumn(double volumn) {
-        double oldValue = this.volumn;
-        this.volumn = volumn;
-        fireChange(VOLUMN_PROPERTY, oldValue, this.volumn);
+    public void setVolume(double volume) {
+        double oldValue = this.volume;
+        this.volume = volume;
+        fireChange(VOLUMN_PROPERTY, oldValue, this.volume);
     }
 }

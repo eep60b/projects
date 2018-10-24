@@ -9,9 +9,9 @@ import javafx.beans.value.ObservableValue;
  */
 public class VolumeChangeAdapter implements ChangeListener<String> {
 
-    private final ContainerSetDataModel model;
+    private final VolumeDataModel model;
 
-    public VolumeChangeAdapter(ContainerSetDataModel model) {
+    public VolumeChangeAdapter(VolumeDataModel model) {
         this.model = model;
     }
 

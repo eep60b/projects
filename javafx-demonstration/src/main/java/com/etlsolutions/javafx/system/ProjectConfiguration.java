@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.system;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.GrowingMedium;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;
@@ -19,12 +20,16 @@ public class ProjectConfiguration {
     private String name;
     @JsonIgnore
     private String parentPath;
+    
     private boolean encrypted;
     private AreaRoot areaRoot;
     private PlantGroupRoot plantsGroupRoot;
     private LogGroupRoot logGroupRoot;
-    private ObservableList<GrowingMedium> growingMediums;
-        
+    private ObservableListWrapperA<GrowingMedium> growingMediums;
+    private ObservableListWrapperA<String> locationReferencePoints;
+    private ObservableListWrapperA<String> locationDirections;
+    private ObservableListWrapperA<String> containerShapes;
+    
     public String getName() {
         return name;
     }
@@ -97,7 +102,31 @@ public class ProjectConfiguration {
         return growingMediums;
     }
 
-    public void setGrowingMediums(ObservableList<GrowingMedium> growingMediums) {
+    public void setGrowingMediums(ObservableListWrapperA<GrowingMedium> growingMediums) {
         this.growingMediums = growingMediums;
+    }
+
+    public ObservableListWrapperA<String> getLocationReferencePoints() {
+        return locationReferencePoints;
+    }
+
+    public void setLocationReferencePoints(ObservableListWrapperA<String> locationReferencePoints) {
+        this.locationReferencePoints = locationReferencePoints;
+    }
+
+    public ObservableListWrapperA<String> getLocationDirections() {
+        return locationDirections;
+    }
+
+    public void setLocationDirections(ObservableListWrapperA<String> locationDirections) {
+        this.locationDirections = locationDirections;
+    } 
+
+    public ObservableListWrapperA<String> getContainerShapes() {
+        return containerShapes;
+    }
+
+    public void setContainerShapes(ObservableListWrapperA<String> containerShapes) {
+        this.containerShapes = containerShapes;
     }
 }

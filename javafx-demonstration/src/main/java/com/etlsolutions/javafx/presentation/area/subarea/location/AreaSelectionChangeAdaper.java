@@ -9,16 +9,16 @@ import javafx.scene.control.SingleSelectionModel;
  *
  * @author zc
  */
-public class AreaSelectionChangeAdaper implements ChangeListener<SingleSelectionModel<Area>> {
+public class AreaSelectionChangeAdaper implements ChangeListener<Area> {
 
-    private final AddLocationDataModel model;
+    private final AbstractLocationDataModel model;
 
-    public AreaSelectionChangeAdaper(AddLocationDataModel model) {
+    public AreaSelectionChangeAdaper(AbstractLocationDataModel model) {
         this.model = model;
     }
 
     @Override
-    public void changed(ObservableValue<? extends SingleSelectionModel<Area>> observable, SingleSelectionModel<Area> oldValue, SingleSelectionModel<Area> newValue) {
-        model.setSelectedArea(newValue.getSelectedItem());
+    public void changed(ObservableValue<? extends Area> observable, Area oldValue, Area newValue) {
+        model.setSelectedArea(newValue);
     }
 }

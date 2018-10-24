@@ -14,28 +14,21 @@ public class LocationFactory {
 
     private final Location defaultLocation;
     
-    private final ObservableList<LocationReferencePoint> defaultLocationReferencePoints;
-    private final ObservableList<LocationDirection> defaultLocationDirections;
+    private final ObservableListWrapperA<String> defaultLocationReferencePoints;
+    private final ObservableListWrapperA<String> defaultLocationDirections;
+    private final ObservableListWrapperA<String> defaultContainerShape;
 
     private LocationFactory() {
         
-        defaultLocationReferencePoints = new ObservableListWrapperA<>();
-        String[] referencePointTitles = {"Central", "Northeast corner", "Northwest corner", "Southeast corner", "Southwest corner"};
+        defaultLocationReferencePoints = new ObservableListWrapperA<>(new String[]{"Central", "Northeast corner", "Northwest corner", "Southeast corner", "Southwest corner"});
         
-        for(String title : referencePointTitles) {
-            defaultLocationReferencePoints.add(new LocationReferencePoint(title));
-        }
-        
-        defaultLocationDirections = new ObservableListWrapperA<>();
-        
-        String[] directionTitles = {"North", "East", "South", "West",  "North east", "North west", "South east", "South west"};
-        
-        for(String title : directionTitles) {
-            defaultLocationDirections.add(new LocationDirection(title));
-        }
-        
+        defaultLocationDirections = new ObservableListWrapperA<>(new String[]{"North", "East", "South", "West",  "North east", "North west", "South east", "South west"});
+               
         defaultLocation = new PlantBedLocation("Untitled", "", new ObservableListWrapperA<ImageLink>(), 0, "", 
-                defaultLocationReferencePoints.get(0), defaultLocationDirections.get(0), 0, 0);
+                new LocationReferencePoint(defaultLocationReferencePoints.get(0)), new LocationDirection(defaultLocationDirections.get(0)), 0, 0);
+        
+        defaultContainerShape = new ObservableListWrapperA<>(new String[]{"Round", "Square", "Rectangle", "Irregular"});
+               
     }
 
     public static LocationFactory getInstance() {
@@ -59,15 +52,20 @@ public class LocationFactory {
         return new PlantBedLocation(title, information, imageLinks, selectedImgLinkIndex, logoPath, referencePoint, direction, distance, occupiedArea);
     }
     
-    public ObservableList<LocationReferencePoint> getDefaultLocationReferencePoints() {
+    public ObservableListWrapperA<String> getDefaultLocationReferencePoints() {
         return defaultLocationReferencePoints;
     }
     
-    public ObservableList<LocationDirection> getDefaultLocationDirections(){
+    public ObservableListWrapperA<String> getDefaultLocationDirections(){
         return defaultLocationDirections;
     }
-
+    
     public Location getDefaultLocation() {
         return defaultLocation;
     }
+
+    public ObservableListWrapperA<String> getDefaultContainerShape() {
+        return defaultContainerShape;
+    }
+    
 }

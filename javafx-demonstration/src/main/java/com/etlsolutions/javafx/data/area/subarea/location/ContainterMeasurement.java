@@ -6,33 +6,46 @@ package com.etlsolutions.javafx.data.area.subarea.location;
  */
 public class ContainterMeasurement implements LocationMeasurement {
     
-    private String height;
-    
-    private String volume;
+    private ContainerShape shape;
+    private double height;
+    private double volume;
 
     public ContainterMeasurement() {
     }
 
-    public ContainterMeasurement(String height, String volume) {
+    public ContainterMeasurement(ContainerShape shape, int height, int volume) {
+        this.shape = shape;
         this.height = height;
         this.volume = volume;
     }
+
+    public String getShape() {
+        return shape.getTitle();
+    }
+
+    public void setShape(String title) {
+        this.shape.setTitle(title);
+    }
+ 
     
     public String getHeight() {
-        return height;
+        return String.valueOf(height);
     }
 
     public void setHeight(String height) {
-        this.height = height;
+        this.height = Double.parseDouble(height);
     }
 
     public String getVolume() {
-        return volume;
+        return String.valueOf(volume);
     }
 
     public void setVolume(String volume) {
-        this.volume = volume;
+        this.volume = Double.parseDouble(volume);
     }
-    
-    
+
+    @Override
+    public LocationMeasurementType getType() {
+        return LocationMeasurementType.CONTAINER;
+    } 
 }

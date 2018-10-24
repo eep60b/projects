@@ -25,8 +25,8 @@ public class GrowingMediumFactory {
         return new GrowingMedium(title, information, imageLinks, selectedImgLinkIndex, logoPath, compositions, fertilised);
     }
 
-    public ObservableList<GrowingMedium> createDefaultGrowingMediums() {
-        ObservableList<GrowingMedium> list = FXCollections.observableArrayList();
+    public ObservableListWrapperA<GrowingMedium> createDefaultGrowingMediums() {
+        ObservableListWrapperA<GrowingMedium> list = new ObservableListWrapperA<>();
         GrowingMedium loam = GrowingMediumFactory.getInstance().createGrowingMedium(501, "Loamy Soil", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{32, 32, 16, 20, 0, 20, 7.0}, true);
         GrowingMedium sandySoll = GrowingMediumFactory.getInstance().createGrowingMedium(502, "Sandy Soil", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{55, 35, 5, 5, 0, 5, 6.5}, true);
         GrowingMedium siltSoil = GrowingMediumFactory.getInstance().createGrowingMedium(503, "Silty Soil", "", FXCollections.<ImageLink>observableArrayList(), 0, "", new double[]{25, 50, 5, 10, 0, 10, 6.8}, true);

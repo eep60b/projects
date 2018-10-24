@@ -3,23 +3,22 @@ package com.etlsolutions.javafx.presentation.area.subarea.location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.SingleSelectionModel;
 
 /**
  *
  * @author zc
  */
-public class LocationTypeSelectionChangeAdaper implements ChangeListener<SingleSelectionModel<LocationType>> {
+public class LocationTypeSelectionChangeAdaper implements ChangeListener<LocationType> {
 
-    private final AddLocationDataModel model;
+    private final AbstractLocationDataModel model;
 
-    public LocationTypeSelectionChangeAdaper(AddLocationDataModel model) {
+    public LocationTypeSelectionChangeAdaper(AbstractLocationDataModel model) {
         this.model = model;
     }
 
     @Override
-    public void changed(ObservableValue<? extends SingleSelectionModel<LocationType>> observable, SingleSelectionModel<LocationType> oldValue, SingleSelectionModel<LocationType> newValue) {
-          model.setSelectedType(newValue.getSelectedItem());
+    public void changed(ObservableValue<? extends LocationType> observable, LocationType oldValue, LocationType newValue) {
+          model.setSelectedType(newValue);
     }
 
 }
