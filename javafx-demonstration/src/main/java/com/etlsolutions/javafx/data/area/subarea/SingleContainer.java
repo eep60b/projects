@@ -1,6 +1,9 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 
 /**
  *
@@ -9,7 +12,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.Container;
 public class SingleContainer extends SubArea {
 
     private Container container;
-    
+
     public Container getContainer() {
         return container;
     }
@@ -26,8 +29,20 @@ public class SingleContainer extends SubArea {
     }
 
     @Override
-    public void updateAllLocations() {
-        allLocations.clear();
-        allLocations.add(container);
+    public ObservableListWrapperA<Location> getAllLocations() {
+        ObservableListWrapperA list = new ObservableListWrapperA<>();
+        list.addAll(container);
+        return list;
+    }
+
+    @Override
+    public ObservableListWrapperA<Location> getLocations(LocationType type) {
+        ObservableListWrapperA<Location> locations = new ObservableListWrapperA<>();
+        switch (type) {
+            case CONTAINER:
+                locations.add(container);
+                break;
+        }
+        return locations;
     }
 }

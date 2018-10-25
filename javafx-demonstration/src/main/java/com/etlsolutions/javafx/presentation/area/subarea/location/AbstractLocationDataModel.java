@@ -6,7 +6,6 @@ import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.ContainterMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
@@ -22,7 +21,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel {
     protected Area selectedArea;
     protected final ObservableListWrapperA<SubArea> subAreas;
     protected Location location;
-    private SubArea selectedSubArea;
+    protected SubArea selectedSubArea;
     private final ObservableListWrapperA<LocationType> types;
     protected LocationType selectedType;
     protected LocationMeasurementDataModel measurementDataModel;
@@ -107,5 +106,4 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel {
     public LocationMeasurementDataModel getMeasurementDataModel() {
         return measurementDataModel;
     }
-    
 }

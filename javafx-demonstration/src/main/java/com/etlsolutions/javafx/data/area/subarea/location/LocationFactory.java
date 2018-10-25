@@ -67,5 +67,9 @@ public class LocationFactory {
     public ObservableListWrapperA<String> getDefaultContainerShape() {
         return defaultContainerShape;
     }
+
+    public Location createLocation(LocationType selectedType) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

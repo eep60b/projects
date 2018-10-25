@@ -2,6 +2,8 @@ package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
 import javafx.collections.ObservableList;
 
@@ -30,14 +32,31 @@ public class PlantBed extends SubArea {
         return locations;
     }
 
-    @Override
-    public void updateAllLocations() {
-        allLocations.clear();
-        allLocations.addAll(locations);
+    public void setLocations(ObservableList<PlantBedLocation> locations) {
+        this.locations = locations;
     }
 
     @Override
+    public ObservableListWrapperA<Location> getAllLocations() {
+        ObservableListWrapperA list = new ObservableListWrapperA<>();
+        list.addAll(locations);
+        return list;
+    }
+    
+    @Override
     public SubAreaType getType() {
         return SubAreaType.PLANT_BED;
+    }
+
+    @Override
+    public ObservableListWrapperA<Location> getLocations(LocationType type) {
+        
+        ObservableListWrapperA<Location> list = new ObservableListWrapperA<>();
+        switch (type) {
+            case PLANT_BED_LOCATION:
+                list.addAll(locations);
+                break;
+        }
+        return list;
     }
 }

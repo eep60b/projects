@@ -15,31 +15,31 @@ public class ContainerDataModel extends LocationMeasurementDataModel<ContainterM
     }
 
     public String getShape() {
-        return measurement.getShape();
+        return String.valueOf(measurement.getShape());
     }
 
     public void setShape(String title) {
-        measurement.setShape(title);
+        measurement.getShape().setTitle(title);
     }
 
     @Override
     public String getHeight() {
-        return measurement.getHeight();
+        return String.valueOf(measurement.getHeight());
     }
 
     @Override
     public void setHeight(String height) {
-        measurement.setHeight(height);
+        measurement.setHeight(Double.parseDouble(height));
     }
 
     @Override
     public String getVolume() {
-        return measurement.getVolume();
+        return String.valueOf(measurement.getVolume());
     }
 
     @Override
     public void setVolume(String volume) {
-        measurement.setVolume(volume);
+        measurement.setVolume(Double.parseDouble(volume));
     }
 
     @Override

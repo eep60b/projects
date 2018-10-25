@@ -1,6 +1,9 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,12 +53,19 @@ public class Border extends SubArea {
     }
 
     @Override
-    public void updateAllLocations() {
-        allLocations.addAll(locations);
+    public ObservableListWrapperA<Location> getAllLocations() {
+        ObservableListWrapperA list = new ObservableListWrapperA<>();
+        list.addAll(locations);
+        return list;
     }
 
     @Override
     public SubAreaType getType() {
         return SubAreaType.BORDER;
+    }
+
+    @Override
+    public ObservableListWrapperA<Location> getLocations(LocationType type) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

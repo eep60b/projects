@@ -1,6 +1,9 @@
 package com.etlsolutions.javafx.presentation.area.subarea.location;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurement;
+import com.etlsolutions.javafx.system.ProjectConfiguration;
+import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
@@ -8,8 +11,14 @@ import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurem
  */
 public class GroundLocationMeasurementDataModel extends LocationMeasurementDataModel<GroundLocationMeasurement> {
 
+    private final ObservableListWrapperA<String> referencePoints;
+    private final ObservableListWrapperA<String> directions;
+    
     public GroundLocationMeasurementDataModel(GroundLocationMeasurement measurement) {
         super(measurement);
+        ProjectConfiguration project = ProjectManager.getInstance().getProject();
+        referencePoints = new ObservableListWrapperA<>(project.getLocationReferencePoints());
+        directions = new ObservableListWrapperA<>(project.getLocationDirections());
     }
 
     public String getReferencePoint() {
@@ -43,7 +52,15 @@ public class GroundLocationMeasurementDataModel extends LocationMeasurementDataM
     public void setOccupiedArea(String occupiedArea) {
         measurement.setOccupiedArea(Double.parseDouble(occupiedArea));
     }
-    
+
+    public ObservableListWrapperA<String> getReferencePoints() {
+        return referencePoints;
+    }
+
+    public ObservableListWrapperA<String> getDirections() {
+        return directions;
+    }
+   
     @Override
     public String getFxmlPath() {
         return "/fxml/area/GroundLocationFXML.fxml";

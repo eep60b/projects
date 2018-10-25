@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
-import com.etlsolutions.javafx.data.area.subarea.location.LocationReferencePoint;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectManager;
 
@@ -24,11 +23,21 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        location = LocationFactory.getInstance().createLocation(selectedType);
+        selectedSubArea.getLocations(selectedType).add(location);
     }
 
     @Override
     public void remove(RemoveEventId id) {
+        
+        if(id == SELECTED_AREA_REMOVE_EVENT_ID) {
+           ProjectManager.getInstance().getProject().getAreaRoot().remove(selectedArea);
+        }
+        
+        if(id == SELECTED_SUBAREA_REMOVE_EVENT_ID) {
+            selectedArea.remove(selectedSubArea);
+        }
+        
         super.remove(id);
     }
 
@@ -42,5 +51,4 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
 
         super.validate();
     }
-
 }

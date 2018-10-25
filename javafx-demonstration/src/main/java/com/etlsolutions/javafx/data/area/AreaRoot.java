@@ -79,5 +79,9 @@ public class AreaRoot extends DataUnit {
     public ObservableListWrapperA<Area> getAllAreas() {
         return allAreas;
     }
+
+    public void remove(Area selectedArea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  
 }

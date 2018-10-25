@@ -16,20 +16,12 @@ public class EditLocationDataModel extends AbstractLocationDataModel {
     public EditLocationDataModel(Location location) {
         super(ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas(),
                 ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().get(0).getAllSubAreas(),
-                ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().get(0).getAllSubAreas().get(0).getType().getLocationTypes());
-        
-        
-        
+                ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().get(0).getAllSubAreas().get(0).getType().getLocationTypes());        
     }
 
     @Override
     public void save() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void remove(RemoveEventId id) {
-        super.remove(id);
     }
 
     @Override

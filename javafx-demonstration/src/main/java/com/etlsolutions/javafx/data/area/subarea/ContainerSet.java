@@ -1,7 +1,10 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import javafx.collections.ObservableList;
 
 /**
@@ -47,13 +50,26 @@ public class ContainerSet extends SubArea {
     }
 
     @Override
-    public void updateAllLocations() {
-        allLocations.addAll(container);
+    public ObservableListWrapperA<Location> getAllLocations() {
+        ObservableListWrapperA list = new ObservableListWrapperA<>();
+        list.addAll(container);
+        return list;
     }
 
     @Override
     public SubAreaType getType() {
         return SubAreaType.CONTAINTER_SET;
+    }
+
+    @Override
+    public ObservableListWrapperA<Location> getLocations(LocationType type) {
+        ObservableListWrapperA<Location> locations = new ObservableListWrapperA<>();
+        switch(type){
+            case CONTAINER:
+                locations.add(container);
+                break;
+        }
+        return locations;
     }
 
 }

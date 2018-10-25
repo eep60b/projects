@@ -93,4 +93,8 @@ public abstract class Area extends DataUnit {
         this.shape = shape;
         fireChange(SHAPE_PROPERTY, oldValue, this.shape);
     }
+
+    public void remove(SubArea selectedSubArea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
 import javafx.collections.FXCollections;
@@ -34,12 +35,27 @@ public class Pond extends SubArea {
     }
 
     @Override
-    public void updateAllLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ObservableListWrapperA<Location> getAllLocations() {
+        ObservableListWrapperA list = new ObservableListWrapperA<>();
+        list.addAll(locations);
+        return list;
     }
 
     @Override
     public SubAreaType getType() {
         return SubAreaType.POND;
+    }
+
+    @Override
+    public ObservableListWrapperA<Location> getLocations(LocationType type) {
+        
+        ObservableListWrapperA<Location> list = new ObservableListWrapperA<>();
+        switch (type) {
+
+            case POND_LOCATION:
+                list.addAll(locations);
+                break;
+        }
+        return list;
     }
 }
