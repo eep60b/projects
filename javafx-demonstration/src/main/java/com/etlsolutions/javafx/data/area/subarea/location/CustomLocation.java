@@ -20,5 +20,8 @@ public class CustomLocation extends Location {
     public CustomLocation(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
     }
-    
+        @Override
+    public LocationType getType() {
+        return LocationType.CUSTOMER_LOCATION;
+    }
 }

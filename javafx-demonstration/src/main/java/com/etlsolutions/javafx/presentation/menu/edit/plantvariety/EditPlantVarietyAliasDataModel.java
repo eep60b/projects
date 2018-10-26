@@ -35,14 +35,14 @@ public class EditPlantVarietyAliasDataModel extends DataUnitFXMLDataModel {
     }
 
     @Override
-    public boolean isValid() {
+    public boolean isInvalid() {
         return title != null && !title.trim().isEmpty();
     }
 
     @Override
     public String getErrorMessage() {
 
-        if (isValid()) {
+        if (isInvalid()) {
             return "";
         }
 

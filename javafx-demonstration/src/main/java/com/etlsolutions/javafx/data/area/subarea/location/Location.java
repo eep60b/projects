@@ -20,4 +20,6 @@ public abstract class Location extends DataUnit {
     public Location(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
     }
+
+    public abstract LocationType getType();
 }

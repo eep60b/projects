@@ -67,4 +67,9 @@ public class Container extends Location {
         this.volume = volume;
         fireChange(VOLUMN_PROPERTY, oldValue, this.volume);
     }
+
+    @Override
+    public LocationType getType() {
+        return LocationType.CONTAINER;
+    }
 }

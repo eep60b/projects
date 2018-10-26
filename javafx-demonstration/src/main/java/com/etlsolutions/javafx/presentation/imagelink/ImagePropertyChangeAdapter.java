@@ -28,7 +28,7 @@ public class ImagePropertyChangeAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         AddImageDataModel model = (AddImageDataModel) evt.getSource();
-        boolean valid = model.isValid();
+        boolean valid = model.isInvalid();
         okButton.setDisable(valid);
         errorMessageLabel.setVisible(!valid);
         errorMessageLabel.setText(model.getErrorMessage());

@@ -43,7 +43,7 @@ public abstract class DataUnitFXMLController<T extends DataUnitFXMLDataModel> ex
         }
         
         errorMessageLabel.setText(model.getErrorMessage());
-        okButton.setDisable(!model.isValid());
+        okButton.setDisable(model.isInvalid());
 
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));

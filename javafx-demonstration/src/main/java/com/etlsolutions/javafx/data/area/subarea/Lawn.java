@@ -58,4 +58,9 @@ public class Lawn extends SubArea {
         }
         return list;
     }
+    
+        @Override
+    public ObservableListWrapperA<LocationType> getLocationTypes() {
+        return new ObservableListWrapperA<>(LocationType.CUSTOMER_LOCATION);
+    }
 }

@@ -54,8 +54,8 @@ public class Room extends SubArea {
     public SubAreaType getType() {
         return ROOM;
     }
-    
-        @Override
+
+    @Override
     public ObservableListWrapperA<Location> getLocations(LocationType type) {
         ObservableListWrapperA<Location> list = new ObservableListWrapperA<>();
         switch (type) {
@@ -64,5 +64,10 @@ public class Room extends SubArea {
                 break;
         }
         return list;
+    }
+
+    @Override
+    public ObservableListWrapperA<LocationType> getLocationTypes() {
+        return new ObservableListWrapperA<>(LocationType.CONTAINER);
     }
 }

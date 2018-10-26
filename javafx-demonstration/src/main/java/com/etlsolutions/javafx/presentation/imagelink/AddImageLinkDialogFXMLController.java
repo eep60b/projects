@@ -42,7 +42,7 @@ public class AddImageLinkDialogFXMLController extends AbstractComponentStageFXML
         selectImageButton.setOnAction(new SelectImageFileEventHandler(model, stage));
         informationTextArea.setText(model.getInformation());
         errorMessageLabel.setText(model.getErrorMessage());
-        boolean valid = model.isValid();
+        boolean valid = model.isInvalid();
         okButton.setDisable(valid);
         errorMessageLabel.setVisible(!valid);
         errorMessageLabel.setText(model.getErrorMessage());

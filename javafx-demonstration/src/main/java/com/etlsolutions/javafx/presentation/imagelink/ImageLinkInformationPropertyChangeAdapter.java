@@ -26,7 +26,7 @@ class ImageLinkInformationPropertyChangeAdapter implements PropertyChangeListene
     public void propertyChange(PropertyChangeEvent evt) {
   
         EditImageInformationDataModel model = ((EditImageInformationDataModel) evt.getSource());
-        boolean valid = model.isValid();
+        boolean valid = model.isInvalid();
         errorMesssageLabel.setText(model.getErrorMessage());
         errorMesssageLabel.setDisable(valid);
         saveButton.setDisable(!valid);

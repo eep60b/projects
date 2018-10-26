@@ -14,7 +14,6 @@ import javafx.collections.ObservableList;
  */
 public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
 
- 
     protected SubArea subArea;
     protected final ObservableListWrapperA<SubAreaType> subAreaTypes;
     protected SubAreaType selectedSubAreaType;

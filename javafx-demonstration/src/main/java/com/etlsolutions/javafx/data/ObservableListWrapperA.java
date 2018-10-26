@@ -26,12 +26,12 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
         super(new ArrayList<E>());
         add(item);
     }    
-    
-    public ObservableListWrapperA(E[] items) {
+        
+    public ObservableListWrapperA(E... items) {
         super(new ArrayList<E>());
         addAll(items);
     }
-
+    
     public ObservableListWrapperA(List<E> list) {
         super(new ArrayList<E>());
         addAll(list);

@@ -66,4 +66,9 @@ public class Greenhouse extends SubArea {
         }
         return list;
     }
+
+    @Override
+    public ObservableListWrapperA<LocationType> getLocationTypes() {
+        return new ObservableListWrapperA<>(LocationType.CONTAINER, LocationType.GREEN_HOUSE_GROUND_LOCATION);
+    }
 }

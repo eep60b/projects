@@ -58,4 +58,9 @@ public class Pond extends SubArea {
         }
         return list;
     }
+        @Override
+    public ObservableListWrapperA<LocationType> getLocationTypes() {
+        return new ObservableListWrapperA<>(LocationType.POND_LOCATION);
+    }
+    
 }

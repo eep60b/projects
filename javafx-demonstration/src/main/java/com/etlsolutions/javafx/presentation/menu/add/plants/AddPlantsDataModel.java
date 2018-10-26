@@ -146,7 +146,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
             errorMessage = "Title is not specified.";
         }
 
-        valid = errorMessage.isEmpty();
+        invalid = errorMessage.isEmpty();
     }
 
     public PlantType getSelectedPlantType() {

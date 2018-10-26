@@ -71,7 +71,7 @@ public class AddImageDataModel implements InformationDataModel, FXMLActionDataMo
     }
 
     @Override
-    public boolean isValid() {
+    public boolean isInvalid() {
         return valid;
     }
 

@@ -30,5 +30,6 @@ public class LocationAreaEventHandler implements EventHandler<ActionEvent> {
             return;
         }        
         model.getAreas().add(area);
+        model.setSelectedArea(area);
     }
 }

@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.presentation.CurrentMaxDayCellFactory;
-import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
@@ -12,27 +11,15 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
+import static com.etlsolutions.javafx.data.plant.PlantsQuantity.Type.SINGLE;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
-import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
-import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
-import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
-import com.etlsolutions.javafx.presentation.TitleChangeAdapter;
-import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
-import com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel;
-import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
-import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeEventHandler;
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import java.time.LocalDateTime;
-import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -46,16 +33,20 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
  *
  * @author zc
  */
-public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLController<AddPlantsDataModel> {
+public class AddPlantsDialogFXMLController extends DataUnitFXMLController<AddPlantsDataModel> {
 
     @FXML
     private TextField titleTextField;
+    
+    @FXML
+    private Pane imageTilePane;
 
     @FXML
     private ComboBox<PlantGroup> plantGroupCombox;
@@ -125,7 +116,7 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
 
     @FXML
     private HBox terminationDateHbox;
-    
+
     @FXML
     private Label terminationDatePickerLabel;
 
@@ -134,7 +125,7 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
 
     @FXML
     private ListView<Gvent> eventListView;
-    
+
     @FXML
     private Label terminationReasonTextAreaLabel;
 
@@ -194,13 +185,15 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
 
     @Override
     public void initializeComponents() {
-        titleTextField.setText(model.getTitle());
+
+        initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
+
         plantGroupCombox.setItems(model.getPlantGroups());
         plantGroupCombox.getSelectionModel().select(model.getSelectedPlantGroup());
         plantTypeCombox.setItems(model.getPlantTypes());
         plantTypeCombox.getSelectionModel().select(model.getSelectedPlantType());
         plantVarietyCombobox.setItems(model.getPlantVarieties());
-        
+
         QuantityTypeRadioButton singlePlantRadioButton = new QuantityTypeRadioButton();
         QuantityTypeRadioButton multiplePlantRadioButton = new QuantityTypeRadioButton();
         QuantityTypeRadioButton estimatedPlantRadioButton = new QuantityTypeRadioButton();
@@ -227,7 +220,7 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
             default:
                 throw new IllegalStateException("Invalid type");
         }
-        
+
         Spinner<Integer> plantNumberSpinner = new Spinner<>();
         plantNumberHbox.getChildren().add(plantNumberSpinner);
         IntegerSpinnerValueFactory factory = new IntegerSpinnerValueFactory(0, 100000);
@@ -237,30 +230,13 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
         plantNumberSpinner.setDisable(type == PlantsQuantity.Type.SINGLE || type == PlantsQuantity.Type.NO_COUNTING);
         ((IntegerSpinnerValueFactory) plantNumberSpinner.getValueFactory()).setMin(0);
 
-        informationTextArea.setText(model.getInformation());
-
-        ImageLink selectedImageLink = model.getSelectedImageLink();
-        removeImageButton.setDisable(selectedImageLink == null);
-        List<ImageLink> imageLinks = model.getImageLinks();
-        moveToBeginImageButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(0));
-        moveToLeftImageButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(0));
-        moveToEndImageButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1));
-        moveToRightImageButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1));
-        editImageButton.setDisable(selectedImageLink == null);
-
         DateTimePicker datePlantedPicker = new DateTimePicker();
-        datePlantedHbox.getChildren().add(datePlantedPicker);        
+        datePlantedHbox.getChildren().add(datePlantedPicker);
         datePlantedPicker.setDateTimeValue(model.getPlantedDate());
-        
+
         growingMediumCombobox.setItems(model.getGrowingMediums());
         growingMediumCombobox.getSelectionModel().select(model.getSelectedGrowingMedium());
 
-        titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
-        plantGroupCombox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));
-        plantTypeCombox.selectionModelProperty().addListener(new PlantTypeChangeAdapter(model));
-        addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
-        addPlantVarietyButton.setOnAction(new FXMLActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
-        addGrowingMediumButton.setOnAction(new AddPlantsGrowingMediumEventHandler(model));
         Location location = model.getLocation();
         locationTitleTextField.setText(location == null ? "Not Specified" : location.getTitle());
         locationTitleTextField.setDisable(true);
@@ -304,9 +280,6 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
         editObservationButton.setDisable(model.getSelectedGrowingObservation() == null);
         removeObservationButton.setDisable(model.getSelectedGrowingObservation() == null);
 
-        errorMessageLabel.setText(model.getErrorMessage());
-        okButton.setDisable(!model.isValid());
-
         //Group the radio buttons.
         ToggleGroup toggleGroup = new ToggleGroup();
         singlePlantRadioButton.setToggleGroup(toggleGroup);
@@ -315,17 +288,15 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
         notCountingRadioButton.setToggleGroup(toggleGroup);
 
         //Add change listeners to components.
+        plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new SelectPlantGroupChangeAdapter(model));
+        plantTypeCombox.getSelectionModel().selectedItemProperty().addListener(new PlantTypeChangeAdapter(model));
+        addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
+        addPlantVarietyButton.setOnAction(new FXMLActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
+        addGrowingMediumButton.setOnAction(new AddPlantsGrowingMediumEventHandler(model));
+
         toggleGroup.selectedToggleProperty().addListener(new PlantNumberTypeChangeAdapter(model));
         plantNumberSpinner.valueProperty().addListener(new PlantNumberChangeAdapter(model));
-        informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
 
-        addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
-        removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));
-        moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
-        moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
-        moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
-        moveToRightImageButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
-        editImageButton.setOnAction(new FXMLActionEventHandler<>(new EditImageInformationDataModel(model.getSelectedImageLink())));
         datePlantedPicker.dateTimeValueProperty().addListener(new PlantedDateChangeAdapter(model));
         growingMediumCombobox.selectionModelProperty().addListener(new GrowingMediumChangeAdapter(model));
         editLocationButton.setOnAction(new EditPlantLocationEventHandler(model));
@@ -348,8 +319,6 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
         addObservationButton.setOnAction(new AddPlantsObservationEventHandler(model));
         editObservationButton.setOnAction(new EditPlantsObservationEventHandler(model, observationListView));
         removeObservationButton.setOnAction(new RemovePlantsObservationEventHandler(model));
-        okButton.setOnAction(new SaveExitEventHandler(model, stage));
-        cancelButton.setOnAction(new CancelEventHandler(stage));
 
         //Add change listeners to model.
         model.addPropertyChangeListener(SELECTED_PLANT_GROUP_PROPERTY, new PlantGroupSelectionPropertyChangeAdapter(plantTypeCombox));
@@ -357,6 +326,5 @@ public class AddPlantsDialogFXMLController extends AbstractComponentStageFXMLCon
         model.addPropertyChangeListener(SELECTED_GROWING_MEDIUM_RPOPERTY, new GrowingMediumSelectionPropertyChangeDapter(growingMediumCombobox));
         model.addPropertyChangeListener(LOCATION_PROPERTY, new LocationPropertyChangeAdapter(locationTitleTextField, locationInformationTextArea, editLocationButton));
         model.addPropertyChangeListener(ALIVE_PROPERTY, new AlivePropertyChangeAdapter(terminationDatePicker, terminationTextArea, terminationDatePickerLabel, terminationReasonTextAreaLabel));
-        model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
     }
 }

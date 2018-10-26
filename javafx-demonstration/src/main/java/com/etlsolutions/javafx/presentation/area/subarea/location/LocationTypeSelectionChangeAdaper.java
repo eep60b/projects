@@ -20,5 +20,4 @@ public class LocationTypeSelectionChangeAdaper implements ChangeListener<Locatio
     public void changed(ObservableValue<? extends LocationType> observable, LocationType oldValue, LocationType newValue) {
           model.setSelectedType(newValue);
     }
-
 }

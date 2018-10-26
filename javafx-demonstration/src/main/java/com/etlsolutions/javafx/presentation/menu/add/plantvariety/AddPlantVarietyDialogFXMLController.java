@@ -121,7 +121,7 @@ public class AddPlantVarietyDialogFXMLController extends AbstractComponentStageF
         moveToRightButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1));
         editImageButton.setDisable(selectedImageLink == null);
         errorMessageLabel.setText(model.getErrorMessage());
-        okButton.setDisable(!model.isValid());
+        okButton.setDisable(!model.isInvalid());
                 
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         latinNameTextField.textProperty().addListener(new LatinNameChangeAdapter(model));

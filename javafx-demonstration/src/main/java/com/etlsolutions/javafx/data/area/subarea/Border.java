@@ -23,7 +23,7 @@ public class Border extends SubArea {
     private double width;
     private final ObservableList<BorderLocation> locations;
 
-    public Border() {        
+    public Border() {
         locations = FXCollections.observableArrayList();
     }
 
@@ -66,6 +66,18 @@ public class Border extends SubArea {
 
     @Override
     public ObservableListWrapperA<Location> getLocations(LocationType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        ObservableListWrapperA<Location> list = new ObservableListWrapperA<>();
+        switch (type) {
+            case BORDER_LOCATION:
+                list.addAll(locations);
+                break;
+        }
+        return list;
+    }
+
+    @Override
+    public ObservableListWrapperA<LocationType> getLocationTypes() {
+        return new ObservableListWrapperA<>(LocationType.BORDER_LOCATION);
     }
 }

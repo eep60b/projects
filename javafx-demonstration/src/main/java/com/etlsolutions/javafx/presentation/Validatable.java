@@ -6,7 +6,7 @@ package com.etlsolutions.javafx.presentation;
  */
 public interface Validatable {
     
-    boolean isValid();
+    boolean isInvalid();
     
     String getErrorMessage();
 }

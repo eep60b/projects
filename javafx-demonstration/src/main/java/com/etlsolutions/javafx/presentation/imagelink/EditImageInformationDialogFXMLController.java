@@ -52,7 +52,7 @@ public class EditImageInformationDialogFXMLController extends AbstractComponentS
     public void initializeComponents() {
         imageHbox.getChildren().add(new ImageView(new Image(imageLink.getLink())));
         informationTextArea.setText(imageLink.getInformation());
-        boolean valid = model.isValid();
+        boolean valid = model.isInvalid();
         errorMesssageLabel.setText(model.getErrorMessage());
         errorMesssageLabel.setDisable(valid);
         saveButton.setDisable(!valid);

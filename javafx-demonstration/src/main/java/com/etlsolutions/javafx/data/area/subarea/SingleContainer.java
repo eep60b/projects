@@ -45,4 +45,9 @@ public class SingleContainer extends SubArea {
         }
         return locations;
     }
+    
+        @Override
+    public ObservableListWrapperA<LocationType> getLocationTypes() {
+        return new ObservableListWrapperA<>(LocationType.CONTAINER);
+    }
 }

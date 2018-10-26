@@ -85,12 +85,12 @@ public class AddVarietyDialogDataModel extends DataUnitFXMLDataModel implements 
     protected void validate() {
         String title = getTitle();
         if (title == null || title.trim().isEmpty()) {
-            valid = false;
+            invalid = false;
             errorMessage = "Please enter the name.";
             return;
         }        
         
-        valid = true;
+        invalid = true;
         errorMessage = "";
     }
     

@@ -85,12 +85,12 @@ public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel implements 
     @Override
     protected void validate() {
         if (title == null || title.trim().isEmpty()) {
-            valid = false;
+            invalid = false;
             errorMessage = "Please enter the name.";
             return;
         }        
         
-        valid = true;
+        invalid = true;
         errorMessage = "";
     }
     

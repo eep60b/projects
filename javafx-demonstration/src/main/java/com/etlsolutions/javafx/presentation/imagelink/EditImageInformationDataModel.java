@@ -64,7 +64,7 @@ public class EditImageInformationDataModel implements InformationDataModel, FXML
     }
 
     @Override
-    public boolean isValid() {
+    public boolean isInvalid() {
         return valid;
     }
 

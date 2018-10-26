@@ -72,4 +72,8 @@ public class ContainerSet extends SubArea {
         return locations;
     }
 
+    @Override
+    public ObservableListWrapperA<LocationType> getLocationTypes() {
+        return new ObservableListWrapperA<>(LocationType.CONTAINER);
+    }
 }

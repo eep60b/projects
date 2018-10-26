@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
-import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
@@ -10,7 +9,8 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
-import com.etlsolutions.javafx.presentation.area.subarea.SubAreaMeasurementDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.EditSubAreaDataModel;
 import static com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel.*;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
@@ -129,10 +129,11 @@ public class LocationFXMLController extends DataUnitFXMLController<AbstractLocat
             editAreaButton.setDisable(model.getAreas().size() < 1);
             subareaComboBox.setItems(model.getSubAreas());
             subareaComboBox.getSelectionModel().select(model.getSelectedSubArea());
+            removeSubareaButton.setDisable(model.getSubAreas().size() <= 1);
+            editSubareaButton.setDisable(model.getSubAreas().size() < 1);
 
             locationTypeComboBox.setItems(model.getTypes());
             locationTypeComboBox.getSelectionModel().select(model.getSelectedType());
-            locationTypeComboBox.setDisable(model.getTypes().size() <= 1);
 
             measurementTab.setContent(map.get(model.getMeasurementDataModel().getType()));
 
@@ -140,9 +141,18 @@ public class LocationFXMLController extends DataUnitFXMLController<AbstractLocat
             addAreaButton.setOnAction(new LocationAreaEventHandler(model, new AddAreaDataModel()));
             removeAreaButton.setOnAction(new RemoveEventHandler(model, SELECTED_AREA_REMOVE_EVENT_ID));
             editAreaButton.setOnAction(new LocationAreaEventHandler(model, new EditAreaDataModel(model.getSelectedArea())));
-            subareaComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaSelectionChangeAdaper(model));
-
+            subareaComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaSelectionChangeAdaper(model, locationTypeComboBox));
+            addSubareaButton.setOnAction(new LocationSubAreaEventHandler(model, new AddSubAreaDataModel(model.getSelectedArea())));
+            removeSubareaButton.setOnAction(new RemoveEventHandler(model, SELECTED_SUBAREA_REMOVE_EVENT_ID));
+            editSubareaButton.setOnAction(new LocationSubAreaEventHandler(model, new EditSubAreaDataModel(model.getSelectedArea(), model.getSelectedSubArea())));
             locationTypeComboBox.getSelectionModel().selectedItemProperty().addListener(new LocationTypeSelectionChangeAdaper(model));
+            
+            model.getAreas().addListener(new AreaListChangeAdapter(areaComboBox, removeAreaButton, editAreaButton, model));
+            model.addPropertyChangeListener(SELECTED_AREA_PROPERTY, new AreaSelectionPropertyChangeAdapter(subareaComboBox));
+            model.getSubAreas().addListener(new SubAreaListChangeAdapter(subareaComboBox, removeSubareaButton, editSubareaButton, model));
+            model.addPropertyChangeListener(SELECTED_SUBAREA_PROPERTY, new SubAreaSelectionPropertyChangeAdapter(locationTypeComboBox));
+            model.getTypes().addListener(new LocationTypeListChangeAdapter(locationTypeComboBox, model));
+            model.addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new LocationTypePropertyChangeAdaper(okButton, errorMessageLabel, measurementTab, map));
 
         } catch (IOException ex) {
             Logger.getLogger(getClass()).error(ex);

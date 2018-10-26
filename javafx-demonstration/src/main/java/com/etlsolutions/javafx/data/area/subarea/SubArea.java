@@ -39,11 +39,13 @@ public abstract class SubArea extends DataUnit {
         this.shape = shape;
     }
 
-    public abstract ObservableListWrapperA<Location> getAllLocations();
-
     public abstract SubAreaType getType();
     
     public abstract ObservableListWrapperA<Location> getLocations(LocationType type);
+    
+    public abstract ObservableListWrapperA<Location> getAllLocations();
+    
+    public abstract ObservableListWrapperA<LocationType> getLocationTypes();
 
     public SubAreaMeasurement getMeasurement() {
         return measurement;
@@ -63,4 +65,6 @@ public abstract class SubArea extends DataUnit {
         this.shape = shape;
         support.fireChange(SHAPE_PROPERTY, oldValue, this.shape);
     }
+
+
 }

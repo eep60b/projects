@@ -129,13 +129,13 @@ public class AddPlantTypeDialogFXMLController implements Initializable {
         moveToRightButton.setDisable(selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1));
         editImageButton.setDisable(selectedImageLink == null);     
         
-        errorMessageLabel.setVisible(!model.isValid());
+        errorMessageLabel.setVisible(!model.isInvalid());
         errorMessageLabel.setText(model.getErrorMessage());
-        okButton.setDisable(!model.isValid());
+        okButton.setDisable(!model.isInvalid());
         
         titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
         informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
-        groupComboBox.selectionModelProperty().addListener(new SelectPlantGroupChangeAdapter(model));        
+        groupComboBox.getSelectionModel().selectedItemProperty().addListener(new SelectPlantGroupChangeAdapter(model));        
         addVarityButton.setOnAction(new FXMLActionEventHandler<>(model));
         removeVarityButton.setOnAction(new RemovePlantVarietyEventHandler(model));
         editVarityButton.setOnAction(new FXMLActionEventHandler<>(model));

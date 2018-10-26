@@ -34,7 +34,7 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
     protected String information;
     private ImageLink selectedImageLink;
     private String logoPath;
-    protected boolean valid;
+    protected boolean invalid;
     protected String errorMessage;
     private boolean noOrFirstImage;
     private boolean noOrLastImage;
@@ -45,6 +45,7 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
         this.imageLinks = new ObservableListWrapperA<>();
         noOrFirstImage = true;
         noOrLastImage = true;
+        invalid = true;
     }
 
     @Override
@@ -130,8 +131,8 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
     }
 
     @Override
-    public boolean isValid() {
-        return valid;
+    public boolean isInvalid() {
+        return invalid;
     }
 
     @Override
@@ -148,7 +149,7 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
     }
 
     protected void validate() {
-        valid = title != null && title.trim().isEmpty();
-        errorMessage = valid ? "" : "Please enter title.";
+        invalid = title == null || title.trim().isEmpty();
+        errorMessage = invalid ? "Please enter title." : "";
     }
 }

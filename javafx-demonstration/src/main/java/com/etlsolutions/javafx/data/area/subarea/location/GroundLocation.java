@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class GroundLocation extends Location {
+public abstract class GroundLocation extends Location {
 
     @JsonIgnore
     public static final String REFERENCE_POINT_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.GroundLocation.Location.REFERENCE_POINT_PROPERTY";

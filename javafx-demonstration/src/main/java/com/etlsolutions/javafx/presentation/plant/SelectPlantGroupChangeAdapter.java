@@ -10,7 +10,7 @@ import javafx.scene.control.SingleSelectionModel;
  *
  * @author zc
  */
-public class SelectPlantGroupChangeAdapter implements ChangeListener<SingleSelectionModel<PlantGroup>> {
+public class SelectPlantGroupChangeAdapter implements ChangeListener<PlantGroup> {
 
     private final GroupSelectable model;
 
@@ -20,8 +20,7 @@ public class SelectPlantGroupChangeAdapter implements ChangeListener<SingleSelec
     }
 
     @Override
-    public void changed(ObservableValue<? extends SingleSelectionModel<PlantGroup>> observable, SingleSelectionModel<PlantGroup> oldValue, SingleSelectionModel<PlantGroup> newValue) {
-        
-        model.setSelectedPlantGroup(newValue.getSelectedItem());
+    public void changed(ObservableValue<? extends PlantGroup> observable, PlantGroup oldValue, PlantGroup newValue) {
+        model.setSelectedPlantGroup(newValue);
     }
 }

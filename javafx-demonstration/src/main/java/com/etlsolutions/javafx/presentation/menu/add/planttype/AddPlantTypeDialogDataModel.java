@@ -59,7 +59,7 @@ public class AddPlantTypeDialogDataModel extends DataUnitFXMLDataModel implement
     }
 
     @Override
-    public boolean isValid() {
+    public boolean isInvalid() {
         return errorMessage == null || errorMessage.trim().isEmpty();
     }
 

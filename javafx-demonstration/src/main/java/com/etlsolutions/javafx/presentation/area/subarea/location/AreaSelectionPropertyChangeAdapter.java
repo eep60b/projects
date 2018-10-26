@@ -3,31 +3,25 @@ package com.etlsolutions.javafx.presentation.area.subarea.location;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
 /**
  *
  * @author zc
  */
-public class AreaPropertyChangeAdaper implements PropertyChangeListener {
+public class AreaSelectionPropertyChangeAdapter implements PropertyChangeListener {
 
     private final ComboBox<SubArea> subareaComboBox;
-    private final Button removeAreaButton;
 
-    public AreaPropertyChangeAdaper(ComboBox<SubArea> subareaComboBox, Button removeAreaButton) {
+    public AreaSelectionPropertyChangeAdapter(ComboBox<SubArea> subareaComboBox) {
         this.subareaComboBox = subareaComboBox;
-        this.removeAreaButton = removeAreaButton;
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         
-        AddLocationDataModel model = (AddLocationDataModel) evt.getSource();
+        AbstractLocationDataModel model = (AbstractLocationDataModel) evt.getSource();
         subareaComboBox.setItems(model.getSubAreas());
         subareaComboBox.getSelectionModel().select(model.getSelectedSubArea());
-        boolean disabled = model.getAreas().size() <= 1;
-        removeAreaButton.setDisable(disabled);
-        subareaComboBox.setDisable(disabled);
-    }
+    }  
 }
