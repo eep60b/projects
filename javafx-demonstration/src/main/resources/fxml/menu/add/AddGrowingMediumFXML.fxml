@@ -91,7 +91,7 @@
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="sandPercentageTextField1111" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="stonePercentageTextField" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox fx:id="timeHbox111111" layoutX="20.0" layoutY="444.0" spacing="10.0">
@@ -101,7 +101,7 @@
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="sandPercentageTextField11111" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="waterStoragePercentageTextField" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox fx:id="timeHbox1111111" layoutX="20.0" layoutY="448.0" spacing="10.0">
@@ -111,7 +111,7 @@
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="sandPercentageTextField111111" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="phTextField" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>

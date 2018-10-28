@@ -215,7 +215,10 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
     }
 
     public void setLocation(Location location) {
+        
+        Location oldValue = this.location;
         this.location = location;
+        support.firePropertyChange(LOCATION_PROPERTY, oldValue, this.location);
     }
 
     public boolean isAlive() {
@@ -319,6 +322,6 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/AddPlantsDialogFXML.fxml";
+        return "/fxml/menu/add/AddPlantsFXML.fxml";
     }
 }

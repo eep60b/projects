@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -14,13 +14,13 @@ import javafx.scene.control.TextField;
  */
 class LocationPropertyChangeAdapter implements PropertyChangeListener {
 
-    private final TextField locationTitleTextField;
+    private final Label locationTitleTabel;
     private final TextArea locationInformationTextArea;
     private final Button editLocationButton;
 
-    public LocationPropertyChangeAdapter(TextField locationTitleTextField, TextArea locationInformationTextArea, Button editLocationButton) {
+    public LocationPropertyChangeAdapter(Label locationTitleLabel, TextArea locationInformationTextArea, Button editLocationButton) {
         
-        this.locationTitleTextField = locationTitleTextField;
+        this.locationTitleTabel = locationTitleLabel;
         this.locationInformationTextArea = locationInformationTextArea;
         this.editLocationButton = editLocationButton;
     }
@@ -30,7 +30,7 @@ class LocationPropertyChangeAdapter implements PropertyChangeListener {
         
         AddPlantsDataModel model = (AddPlantsDataModel)evt.getSource();
         Location location = model.getLocation();
-        locationTitleTextField.setText(location == null ? "Not Specified" : location.getTitle());
+        locationTitleTabel.setText(location == null ? "Not Specified" : location.getTitle());
         locationInformationTextArea.setText(location == null ? "" : location.getInformation());
         editLocationButton.setText(location == null ? "Add Location" : "Edit Location");
     }

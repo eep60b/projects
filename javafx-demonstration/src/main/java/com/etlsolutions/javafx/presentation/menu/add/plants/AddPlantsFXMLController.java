@@ -40,7 +40,7 @@ import javafx.scene.layout.Pane;
  *
  * @author zc
  */
-public class AddPlantsDialogFXMLController extends DataUnitFXMLController<AddPlantsDataModel> {
+public class AddPlantsFXMLController extends DataUnitFXMLController<AddPlantsDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -103,7 +103,7 @@ public class AddPlantsDialogFXMLController extends DataUnitFXMLController<AddPla
     private Button addGrowingMediumButton;
 
     @FXML
-    private TextField locationTitleTextField;
+    private Label locationTitleLabel;
 
     @FXML
     private Button editLocationButton;
@@ -238,8 +238,7 @@ public class AddPlantsDialogFXMLController extends DataUnitFXMLController<AddPla
         growingMediumCombobox.getSelectionModel().select(model.getSelectedGrowingMedium());
 
         Location location = model.getLocation();
-        locationTitleTextField.setText(location == null ? "Not Specified" : location.getTitle());
-        locationTitleTextField.setDisable(true);
+        locationTitleLabel.setText(location == null ? "Not Specified" : location.getTitle());
         locationInformationTextArea.setText(location == null ? "" : location.getInformation());
         locationInformationTextArea.setDisable(true);
         editLocationButton.setText(location == null ? "Add Location" : "Edit Location");
@@ -250,6 +249,7 @@ public class AddPlantsDialogFXMLController extends DataUnitFXMLController<AddPla
             terminationDatePicker.setDateTimeValue(LocalDateTime.now());
             terminationTextArea.setText("");
         }
+        
         terminationDatePicker.setVisible(!isAlive);
         terminationTextArea.setVisible(!isAlive);
         isAliveCheckBox.setSelected(isAlive);
@@ -324,7 +324,7 @@ public class AddPlantsDialogFXMLController extends DataUnitFXMLController<AddPla
         model.addPropertyChangeListener(SELECTED_PLANT_GROUP_PROPERTY, new PlantGroupSelectionPropertyChangeAdapter(plantTypeCombox));
         model.addPropertyChangeListener(QUANTITY_TYPE_PROPERTY, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
         model.addPropertyChangeListener(SELECTED_GROWING_MEDIUM_RPOPERTY, new GrowingMediumSelectionPropertyChangeDapter(growingMediumCombobox));
-        model.addPropertyChangeListener(LOCATION_PROPERTY, new LocationPropertyChangeAdapter(locationTitleTextField, locationInformationTextArea, editLocationButton));
+        model.addPropertyChangeListener(LOCATION_PROPERTY, new LocationPropertyChangeAdapter(locationTitleLabel, locationInformationTextArea, editLocationButton));
         model.addPropertyChangeListener(ALIVE_PROPERTY, new AlivePropertyChangeAdapter(terminationDatePicker, terminationTextArea, terminationDatePickerLabel, terminationReasonTextAreaLabel));
     }
 }

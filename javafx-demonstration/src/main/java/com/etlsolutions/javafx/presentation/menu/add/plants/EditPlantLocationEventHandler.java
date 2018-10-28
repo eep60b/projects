@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.presentation.menu.add.locationwizard.AddLocationEventHandler;
+import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.location.EditLocationDataModel;
 import com.etlsolutions.javafx.presentation.menu.edit.location.EditLocationEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,12 +24,14 @@ public class EditPlantLocationEventHandler implements EventHandler<ActionEvent> 
 
         if (model.getLocation() == null) {
 
-            AddLocationEventHandler eventHandler = new AddLocationEventHandler();
+            AddLocationDataModel addLocationDataModel = new AddLocationDataModel();
+            FXMLActionEventHandler<AddLocationDataModel> eventHandler = new FXMLActionEventHandler<>(addLocationDataModel); 
             eventHandler.handle(event);
-            model.setLocation(eventHandler.getWizardDataModel().getLocation());
+            model.setLocation(addLocationDataModel.getLocation());
             return;
         }
 
+        EditLocationDataModel editLocationDataModel = new EditLocationDataModel(area, subArea, location);
         EditLocationEventHandler eventHandler = new EditLocationEventHandler(model.getLocation());
         eventHandler.handle(event);
         if (eventHandler.getDataModel().isModified()) {

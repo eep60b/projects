@@ -98,6 +98,10 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel {
         support.firePropertyChange(SELECTED_TYPE_PROPERTY, oldValue, this.selectedType);        
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
     @Override
     public String getFxmlPath() {
         return "/fxml/menu/add/AddGventFXML.fxml";
