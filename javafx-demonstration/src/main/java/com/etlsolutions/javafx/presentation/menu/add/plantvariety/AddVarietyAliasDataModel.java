@@ -9,11 +9,11 @@ import com.etlsolutions.javafx.presentation.Validatable;
  */
 public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel implements Validatable {
 
-    private final AddVarietyDialogDataModel parentModel;
+    private final AbstractVarietyDataModel parentModel;
     private final String oldTitle;
 
  
-    public AddVarietyAliasDataModel(AddVarietyDialogDataModel parentModel) {
+    public AddVarietyAliasDataModel(AbstractVarietyDataModel parentModel) {
         this.parentModel = parentModel;
         oldTitle = title = parentModel.getSelectedAlias();
     }
@@ -24,7 +24,7 @@ public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel implements V
         if (oldTitle == null || oldTitle.trim().isEmpty()) {
             parentModel.addAlias(title);
         } else {
-            parentModel.replaceAlias(oldTitle, title);
+    //        parentModel.replaceAlias(oldTitle, title);
         }
 
     }

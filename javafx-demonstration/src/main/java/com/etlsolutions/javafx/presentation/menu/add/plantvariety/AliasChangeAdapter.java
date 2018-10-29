@@ -9,9 +9,9 @@ import javafx.beans.value.ObservableValue;
  */
 class AliasChangeAdapter implements ChangeListener<String> {
 
-    private final AddVarietyDialogDataModel model;
+    private final AbstractVarietyDataModel model;
 
-    public AliasChangeAdapter(AddVarietyDialogDataModel model) {
+    public AliasChangeAdapter(AbstractVarietyDataModel model) {
         
         this.model = model;
     }

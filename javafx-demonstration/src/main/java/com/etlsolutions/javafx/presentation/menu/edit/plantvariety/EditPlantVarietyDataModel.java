@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation.menu.edit.plantvariety;
 
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAddable;
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel implements Validatable {
+public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel {
     
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
@@ -79,21 +78,9 @@ public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel implements 
     
     @Override
     public void save() {
-        parentModel.addVariety(PlantsFactory.createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks()));
+        parentModel.addVariety(PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks()));
     }
-    
-    @Override
-    protected void validate() {
-        if (title == null || title.trim().isEmpty()) {
-            invalid = false;
-            errorMessage = "Please enter the name.";
-            return;
-        }        
-        
-        invalid = true;
-        errorMessage = "";
-    }
-    
+
     public void replaceAlias(String oldAlias, String newAlias) {
         int index = aliases.indexOf(oldAlias);
         aliases.remove(index);
@@ -104,6 +91,6 @@ public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel implements 
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/AddPlantVarietyDialogFXML.fxml";
+        return "/fxml/menu/add/AddPlantVarietyFXML.fxml";
     }
 }

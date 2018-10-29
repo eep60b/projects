@@ -3,27 +3,21 @@ package com.etlsolutions.javafx.presentation.menu.add.planttype;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.Button;
-import javafx.scene.control.SelectionModel;
 
 /**
  *
  * @author zc
  */
-public class PlantVarietySelectionChangeAdapter implements ChangeListener<SelectionModel<PlantVariety>> {
+public class PlantVarietySelectionChangeAdapter implements ChangeListener<PlantVariety> {
 
-    private final AddPlantTypeDialogDataModel model;
+    private final AddPlantTypeDataModel model;
 
-    public PlantVarietySelectionChangeAdapter(AddPlantTypeDialogDataModel model) {
+    public PlantVarietySelectionChangeAdapter(AddPlantTypeDataModel model) {
         this.model = model;
     }
 
-    PlantVarietySelectionChangeAdapter(Button editVarityButton, Button removeVarityButton) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
-    public void changed(ObservableValue<? extends SelectionModel<PlantVariety>> observable, SelectionModel<PlantVariety> oldValue, SelectionModel<PlantVariety> newValue) {
-        model.setSelectedVariety(newValue.getSelectedItem());
+    public void changed(ObservableValue<? extends PlantVariety> observable, PlantVariety oldValue, PlantVariety newValue) {
+        model.setSelectedVariety(newValue);
     }
 }

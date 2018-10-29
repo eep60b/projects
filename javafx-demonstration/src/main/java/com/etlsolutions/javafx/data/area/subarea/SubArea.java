@@ -19,10 +19,15 @@ public abstract class SubArea extends DataUnit {
     public static final String MEASUREMENT_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.MEASUREMENT_PROPERTY";
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.SHAPE_PROPERTY";
+    @JsonIgnore
+    public static final String PARENT_ID_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.PARENT_ID_PROPERTY";
 
+
+    
     protected SubAreaMeasurement measurement;
     protected SubAreaShape shape;
-
+    private int parentId;    
+    
     public SubArea() {
 
     }
@@ -66,5 +71,14 @@ public abstract class SubArea extends DataUnit {
         support.fireChange(SHAPE_PROPERTY, oldValue, this.shape);
     }
 
+    public int getParentId() {
+        return parentId;
+    }
 
+    public void setParentId(int parentId) {
+        
+        int oldValue = this.parentId;
+        this.parentId = parentId;
+        support.fireChange(PARENT_ID_PROPERTY, oldValue, this.parentId);
+    }
 }

@@ -21,9 +21,8 @@ public abstract class GroundLocation extends Location {
 
     private LocationReferencePoint referencePoint;
     private LocationDirection direction;
-    private double distance;    
+    private double distance;
     private double occupiedArea;
-    private int plantsId;
 
     public GroundLocation() {
     }
@@ -69,7 +68,7 @@ public abstract class GroundLocation extends Location {
         this.direction = direction;
         fireChange(DIRECTION_PROPERTY, oldValue, this.direction);
     }
-    
+
     public void setDistance(double distance) {
 
         double oldValue = this.distance;
@@ -85,24 +84,5 @@ public abstract class GroundLocation extends Location {
         double oldValue = this.occupiedArea;
         this.occupiedArea = occupiedArea;
         fireChange(OCCUPIED_AREA_PROPERTY, oldValue, this.occupiedArea);
-    }
-
-    public int getPlantsId() {
-        return plantsId;
-    }
-
-    /**
-     * Set the ID of plants which use the location. This can only set once.
-     *
-     * @param plantsId - The ID of plants.
-     */
-    public void setPlantsId(int plantsId) {
-
-        if (this.plantsId == 0) {
-            this.plantsId = plantsId;
-            return;
-        }
-
-        throw new IllegalStateException("The plants ID can only set once.");
     }
 }

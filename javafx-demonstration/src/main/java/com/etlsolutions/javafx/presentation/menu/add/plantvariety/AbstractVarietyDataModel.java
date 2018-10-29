@@ -1,32 +1,36 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.Validatable;
-import com.sun.javafx.collections.ObservableListWrapper;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.collections.ObservableList;
 
 /**
  *
  * @author zc
  */
-public class AddVarietyDialogDataModel extends DataUnitFXMLDataModel implements Validatable {
+public class AbstractVarietyDataModel extends DataUnitFXMLDataModel {
     
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
     public static final String SELECTED_ALIAS_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.SELECTED_ALIAS_PROPERTY";
     
-    private final VarietyAddable parentModel;
-    private String latinName;
-    private ObservableList<String> aliases;
+    protected PlantVariety variety;
+    protected String latinName;
+    protected final ObservableListWrapperA<String> aliases;
     private String selectedAlias;
     
-    public AddVarietyDialogDataModel(VarietyAddable parentModel) {
-        this.parentModel = parentModel;
-        aliases = new ObservableListWrapper<>(new ArrayList<String>());
+    public AbstractVarietyDataModel() {
+        aliases = new ObservableListWrapperA<>();
     }
+
+    public AbstractVarietyDataModel(PlantVariety variety) {
+        this();
+        this.variety = variety;
+    }
+    
+    
     
     public String getLatinName() {
         return latinName;
@@ -42,12 +46,7 @@ public class AddVarietyDialogDataModel extends DataUnitFXMLDataModel implements 
     public ObservableList<String> getAliases() {
         return aliases;
     }
-    
-    public void setAliases(List<String> aliases) {
-        this.aliases = new ObservableListWrapper<>(aliases);
-        support.firePropertyChange(ALIASES_PROPERTY, false, true);
-    }
-    
+   
     public boolean addAlias(String alias) {
         boolean added = aliases.add(alias);
         support.firePropertyChange(ALIASES_PROPERTY, false, added);
@@ -78,32 +77,16 @@ public class AddVarietyDialogDataModel extends DataUnitFXMLDataModel implements 
     
     @Override
     public void save() {
-        parentModel.addVariety(PlantsFactory.createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks()));
-    }
-    
-    @Override
-    protected void validate() {
-        String title = getTitle();
-        if (title == null || title.trim().isEmpty()) {
-            invalid = false;
-            errorMessage = "Please enter the name.";
-            return;
-        }        
-        
-        invalid = true;
-        errorMessage = "";
-    }
-    
-    public void replaceAlias(String oldAlias, String newAlias) {
-        int index = aliases.indexOf(oldAlias);
-        aliases.remove(index);
-        aliases.add(index, newAlias);
-        support.firePropertyChange(ALIASES_PROPERTY, oldAlias, newAlias);
-        setSelectedAlias(newAlias);
+        variety = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks());
     }
 
+
+    public PlantVariety getVariety() {
+        return variety;
+    }
+    
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/AddPlantVarietyDialogFXML.fxml";
+        return "/fxml/menu/add/PlantVarietyFXML.fxml";
     }
 }

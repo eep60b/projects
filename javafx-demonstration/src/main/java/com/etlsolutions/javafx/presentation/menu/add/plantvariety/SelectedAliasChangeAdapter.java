@@ -23,7 +23,7 @@ public class SelectedAliasChangeAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        AddVarietyDialogDataModel model = (AddVarietyDialogDataModel) evt.getSource();
+        AbstractVarietyDataModel model = (AbstractVarietyDataModel) evt.getSource();
         String alias = model.getSelectedAlias();
         removeAliasButton.setDisable(alias == null);
         MultipleSelectionModel selectionModel = aliasListView.getSelectionModel();

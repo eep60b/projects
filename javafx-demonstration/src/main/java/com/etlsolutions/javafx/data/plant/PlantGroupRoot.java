@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
  *
@@ -10,13 +10,21 @@ import javafx.collections.ObservableList;
  */
 public class PlantGroupRoot extends DataUnit {
 
-  private final ObservableList<PlantGroup> plantGroups;
+    private ObservableListWrapperA<PlantGroup> plantGroups;
 
     public PlantGroupRoot() {
-        plantGroups = FXCollections.observableArrayList();
     }
 
-    public ObservableList<PlantGroup> getPlantGroups() {
+    public PlantGroupRoot(String logoPath) {
+        super("", "", new ObservableListWrapperA<ImageLink>(), 0, logoPath);
+        plantGroups = new ObservableListWrapperA<>();
+    }
+
+    public ObservableListWrapperA<PlantGroup> getPlantGroups() {
         return plantGroups;
+    }
+
+    public void setPlantGroups(ObservableListWrapperA<PlantGroup> plantGroups) {
+        this.plantGroups = plantGroups;
     }
 }

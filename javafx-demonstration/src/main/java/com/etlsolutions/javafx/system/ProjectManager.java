@@ -15,6 +15,8 @@ import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import javax.imageio.IIOException;
 
@@ -33,6 +35,8 @@ public final class ProjectManager {
 
     private final ObjectMapper mapper = new ObjectMapper();
     private ProjectConfiguration configuration;
+    
+    private final Map<Integer, DataUnit> dataStore = new HashMap<>();
 
     private ProjectManager() {
     }
@@ -79,7 +83,7 @@ public final class ProjectManager {
         }
 
         configuration.setAreaRoot(AreaFactory.createAreaRoot());
-        configuration.setPlantsGroupRoot(PlantsFactory.createPlantsGroupRoot());
+        configuration.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
         configuration.setLogGroupRoot(LogFactory.createLogGroupRoot());
     }
 
@@ -161,5 +165,13 @@ public final class ProjectManager {
 
     public boolean hasListeners(String propertyName) {
         return propertyChangeSupport.hasListeners(propertyName);
+    }
+    
+    public DataUnit getItem(int id) {
+        return dataStore.get(id);
+    }
+    
+    public void addItem(DataUnit unit) {
+        dataStore.put(unit.getId(), unit);
     }
 }

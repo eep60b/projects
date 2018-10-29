@@ -14,9 +14,9 @@ import javafx.beans.value.ObservableValue;
  */
 public class LatinNameChangeAdapter implements ChangeListener<String> {
 
-    private final AddVarietyDialogDataModel model;
+    private final AbstractVarietyDataModel model;
 
-    public LatinNameChangeAdapter(AddVarietyDialogDataModel model) {
+    public LatinNameChangeAdapter(AbstractVarietyDataModel model) {
         this.model = model;
     }
 

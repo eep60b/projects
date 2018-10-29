@@ -7,17 +7,16 @@ import javafx.event.EventHandler;
  *
  * @author zc
  */
-public class RemovePlantVarietyEventHandler implements EventHandler<ActionEvent> {
+public class AddPlantVarietyEventhandler implements EventHandler<ActionEvent> {
 
-    private final AddPlantTypeDialogDataModel model;
+    private final AddPlantTypeDataModel model;
 
-    public RemovePlantVarietyEventHandler(AddPlantTypeDialogDataModel model) {
+    public AddPlantVarietyEventhandler(AddPlantTypeDataModel model) {
         this.model = model;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        model.removeSelectedPlantVariety();
+      
     }
-    
 }

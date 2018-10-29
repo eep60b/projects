@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.menu.edit.plantvariety;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.TitleDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
-import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddVarietyDialogDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AbstractVarietyDataModel;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import com.etlsolutions.javafx.presentation.Savable;
@@ -14,10 +14,10 @@ import com.etlsolutions.javafx.presentation.Savable;
  */
 public class EditPlantVarietyAliasDataModel extends DataUnitFXMLDataModel {
 
-    private final AddVarietyDialogDataModel parentModel;
+    private final AbstractVarietyDataModel parentModel;
     private final String oldTitle;
 
-    public EditPlantVarietyAliasDataModel(AddVarietyDialogDataModel parentModel) {
+    public EditPlantVarietyAliasDataModel(AbstractVarietyDataModel parentModel) {
         this.parentModel = parentModel;
         oldTitle = title = parentModel.getSelectedAlias();
     }
@@ -29,7 +29,7 @@ public class EditPlantVarietyAliasDataModel extends DataUnitFXMLDataModel {
         if (oldTitle == null || oldTitle.trim().isEmpty()) {
             parentModel.addAlias(title);
         } else {
-            parentModel.replaceAlias(oldTitle, title);
+   //         parentModel.replaceAlias(oldTitle, title);
         }
 
     }

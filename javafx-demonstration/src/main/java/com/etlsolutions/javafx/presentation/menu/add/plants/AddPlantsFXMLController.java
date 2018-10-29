@@ -17,7 +17,6 @@ import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
 import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
-import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeEventHandler;
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
@@ -193,6 +192,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<AddPlantsDat
         plantTypeCombox.setItems(model.getPlantTypes());
         plantTypeCombox.getSelectionModel().select(model.getSelectedPlantType());
         plantVarietyCombobox.setItems(model.getPlantVarieties());
+        plantVarietyCombobox.getSelectionModel().select(model.getSelectedVariety());
 
         QuantityTypeRadioButton singlePlantRadioButton = new QuantityTypeRadioButton();
         QuantityTypeRadioButton multiplePlantRadioButton = new QuantityTypeRadioButton();
@@ -289,8 +289,10 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<AddPlantsDat
 
         //Add change listeners to components.
         plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new SelectPlantGroupChangeAdapter(model));
-        plantTypeCombox.getSelectionModel().selectedItemProperty().addListener(new PlantTypeChangeAdapter(model));
-        addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler());
+                
+        plantTypeCombox.getSelectionModel().selectedItemProperty().addListener(new PlantTypeChangeAdapter(model));        
+        addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler(model));
+        
         addPlantVarietyButton.setOnAction(new FXMLActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
         addGrowingMediumButton.setOnAction(new AddPlantsGrowingMediumEventHandler(model));
 
@@ -321,7 +323,9 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<AddPlantsDat
         removeObservationButton.setOnAction(new RemovePlantsObservationEventHandler(model));
 
         //Add change listeners to model.
-        model.addPropertyChangeListener(SELECTED_PLANT_GROUP_PROPERTY, new PlantGroupSelectionPropertyChangeAdapter(plantTypeCombox));
+        model.getPlantTypes().addListener(new PlantTypeListChangeAdapter(plantTypeCombox, model));
+        model.addPropertyChangeListener(SELECTED_PLANT_TYPE_PROPERTY, new PlantTypeSelectionPropertyChangeAdapter(plantTypeCombox));
+        
         model.addPropertyChangeListener(QUANTITY_TYPE_PROPERTY, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
         model.addPropertyChangeListener(SELECTED_GROWING_MEDIUM_RPOPERTY, new GrowingMediumSelectionPropertyChangeDapter(growingMediumCombobox));
         model.addPropertyChangeListener(LOCATION_PROPERTY, new LocationPropertyChangeAdapter(locationTitleLabel, locationInformationTextArea, editLocationButton));

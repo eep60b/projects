@@ -3,7 +3,7 @@ package com.etlsolutions.javafx;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel;
-import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -59,7 +59,7 @@ public class MenusController extends AbstractFXMLController {
         newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
 
         addPlantsMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantsDataModel()));
-        addPlantTypeMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantTypeDialogDataModel()));
+        addPlantTypeMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantTypeDataModel()));
         addAreaMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddAreaDataModel()));
     }
 }

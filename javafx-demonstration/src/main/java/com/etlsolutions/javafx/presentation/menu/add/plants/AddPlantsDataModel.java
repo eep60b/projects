@@ -6,6 +6,7 @@ import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.GrowingMedium;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
@@ -41,7 +42,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
     private final ObservableList<GrowingMedium> growingMediums;
     private PlantGroup selectedPlantGroup;
     private GrowingMedium selectedGrowingMedium;    
-    private ObservableList<PlantType> plantTypes;    
+    private final ObservableListWrapperA<PlantType> plantTypes;    
     private PlantType selectedPlantType;
     private ObservableList<PlantVariety> plantVarieties;
     private PlantVariety selectedVariety;
@@ -73,7 +74,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
         selectedPlantGroup = plantGroups.get(0);        
         growingMediums = project.getGrowingMediums();
         selectedGrowingMedium = growingMediums.get(0);
-        plantTypes = FXCollections.observableArrayList(selectedPlantGroup.getPlantsTypes());
+        plantTypes = new ObservableListWrapperA<>(selectedPlantGroup.getPlantsTypes());
         selectedPlantType = plantTypes.get(0);
         plantVarieties = selectedPlantType.getPlantVarieties();
         if(!plantVarieties.isEmpty()) {
@@ -109,13 +110,13 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
         setPlantTypes(this.selectedPlantGroup.getPlantsTypes());
     }
 
-    public ObservableList<PlantType> getPlantTypes() {
+    public ObservableListWrapperA<PlantType> getPlantTypes() {
         return plantTypes;
     }
 
     public void setPlantTypes(ObservableList<PlantType> plantTypes) {
-        this.plantTypes = plantTypes;
-        support.firePropertyChange(SELECTED_PLANT_GROUP_PROPERTY);
+        this.plantTypes.clear();
+        this.plantTypes.addAll(plantTypes);
         if(!this.plantTypes.isEmpty() && !this.plantTypes.contains(selectedPlantType)) {
             setSelectedPlantType(this.plantTypes.get(0));
         }
@@ -313,11 +314,11 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
     
     @Override
     public void save() {
-        selectedPlantType.getPlantsList().add(PlantsFactory.creatPlants());
+        selectedPlantType.getPlantsList().add(PlantsFactory.getInstance().creatPlants());
     }
 
     public void updateLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        support.firePropertyChange(LOCATION_PROPERTY);
     }
 
     @Override

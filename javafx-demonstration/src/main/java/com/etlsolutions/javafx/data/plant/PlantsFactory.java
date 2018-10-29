@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.plant;
 
-import com.etlsolutions.javafx.data.GrowingMedium;
 import static com.etlsolutions.javafx.data.DataUnit.BUNDLE;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
@@ -15,12 +14,8 @@ import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.plant.GrowingStartPoint.Source;
 import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_SEPARATER;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -29,9 +24,14 @@ import javafx.collections.ObservableList;
  */
 public class PlantsFactory {
 
+    private static final PlantsFactory INSTANCE = new PlantsFactory();
+    
+    public static PlantsFactory getInstance() {
+        return INSTANCE;
+    }
 
-    public static PlantGroupRoot createPlantsGroupRoot() {
-        PlantGroupRoot r = new PlantGroupRoot();
+    public PlantGroupRoot createPlantsGroupRoot() {
+        PlantGroupRoot r = new PlantGroupRoot("");
         String[] defaultTitles = BUNDLE.getString("com.etlsolutions.javafx.data.plant.PlantsFactory.defaultPlantsGroup.Titles").split(BUNDLE_SEPARATER);
 
         for (String title : defaultTitles) {
@@ -55,23 +55,23 @@ public class PlantsFactory {
         return r;
     }
 
-    public static PlantGroup createPlantsGroup() {
+    public PlantGroup createPlantsGroup() {
         return createPlantsGroup("untitled", "");
     }
 
-    public static PlantGroup createPlantsGroup(String title, String information) {
+    public PlantGroup createPlantsGroup(String title, String information) {
         return new PlantGroup(title, information);
     }
 
-    public static PlantType creatPlantsType(String title, String information) {
+    public PlantType creatPlantsType(String title, String information) {
         return new PlantType(title, information);
     }
     
-    public static PlantType creatPlantsType(String title, String information, ObservableList<PlantVariety> varieties, ObservableList<ImageLink> imageLinks) {
+    public PlantType creatPlantsType(String title, String information, ObservableList<PlantVariety> varieties, ObservableList<ImageLink> imageLinks) {
         return new PlantType(title, information, imageLinks, varieties);
     }
 
-    public static PlantType creatPlantsType() {
+    public PlantType creatPlantsType() {
         PlantType t = new PlantType();
 
         t.setTitle("untitled");
@@ -80,7 +80,7 @@ public class PlantsFactory {
         return t;
     }
 
-    public static Plants creatPlants() {
+    public Plants creatPlants() {
         Plants p = new Plants();        
         p.setTitle("untitled");
         p.setInformation("");
@@ -91,11 +91,11 @@ public class PlantsFactory {
         return p;
     }
 
-    public static PlantVariety createPlantVariety(String title, String latinName, String information, List<String> aliases, List<ImageLink> imageLinks) {
+    public PlantVariety createPlantVariety(String title, String latinName, String information, List<String> aliases, List<ImageLink> imageLinks) {
         return new PlantVariety(aliases, latinName, title, information);
     }
 
-    public static PlantVariety createPlantVariety() {
+    public PlantVariety createPlantVariety() {
         PlantVariety v = new PlantVariety();
         v.setTitle("Not specified");
         v.setLatinName("Not specified");
@@ -103,12 +103,12 @@ public class PlantsFactory {
         return v;
     }
 
-    public static PlantsQuantity createPlantsQuantity() {
+    public PlantsQuantity createPlantsQuantity() {
         PlantsQuantity p = new PlantsQuantity();
         return p;
     }
 
-    public static GrowingDetail createGrowingDetail() {
+    public GrowingDetail createGrowingDetail() {
         GrowingDetail d = new GrowingDetail();
         d.setFertilisationTasks(new ArrayList<FertilisationTask>());
         d.setFloweringEvents(new ArrayList<FloweringGvent>());
@@ -125,14 +125,14 @@ public class PlantsFactory {
         return d;
     }
 
-    public static GrowingStartPoint createGrowingStartPoint() {
+    public GrowingStartPoint createGrowingStartPoint() {
         GrowingStartPoint p = new GrowingStartPoint();
         p.setSource(Source.SEED);
         p.setTime(new Date());
         return p;
     }
 
-    public static GrowingTermination createGrowingTermination() {
+    public GrowingTermination createGrowingTermination() {
         GrowingTermination t = new GrowingTermination();
         t.setReason("Not specified");
         t.setTime(new Date());

@@ -16,7 +16,7 @@ import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController
  *
  * @author zc
  */
-public class AddVarietyAliasFXMLController extends AbstractComponentStageFXMLController<AddVarietyDialogDataModel> {
+public class AddVarietyAliasFXMLController extends AbstractComponentStageFXMLController<AbstractVarietyDataModel> {
      
     @FXML
     private TextField titleTextField;
