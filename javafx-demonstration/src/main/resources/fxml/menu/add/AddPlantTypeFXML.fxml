@@ -70,7 +70,7 @@
                                         </HBox>
                                         <ScrollPane prefViewportHeight="126.0" prefViewportWidth="590.0">
                                             <content>
-                                                <ListView prefHeight="112.0" prefWidth="578.0" />
+                                                <ListView fx:id="plantVarityListView" prefHeight="112.0" prefWidth="578.0" />
                                             </content>
                                         </ScrollPane>
                                     </children>

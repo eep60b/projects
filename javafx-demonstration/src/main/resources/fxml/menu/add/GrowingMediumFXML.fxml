@@ -86,7 +86,7 @@
                               </HBox>
                               <HBox fx:id="timeHbox11111" layoutX="20.0" layoutY="409.0" spacing="10.0">
                                  <children>
-                                    <Label fx:id="stonePercentageTextField" prefHeight="20.0" prefWidth="109.0" text="Stone(%):">
+                                    <Label fx:id="stonePercentageLabel" prefHeight="20.0" prefWidth="109.0" text="Stone(%):">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>
@@ -106,7 +106,7 @@
                               </HBox>
                               <HBox fx:id="timeHbox1111111" layoutX="20.0" layoutY="448.0" spacing="10.0">
                                  <children>
-                                    <Label fx:id="phTextField" prefHeight="20.0" prefWidth="109.0" text="PH:">
+                                    <Label fx:id="phLabel" prefHeight="20.0" prefWidth="109.0" text="PH:">
                                        <padding>
                                           <Insets top="3.0" />
                                        </padding>

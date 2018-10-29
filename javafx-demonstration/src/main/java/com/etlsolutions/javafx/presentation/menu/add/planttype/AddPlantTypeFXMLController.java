@@ -29,19 +29,19 @@ public class AddPlantTypeFXMLController extends DataUnitFXMLController<AddPlantT
     private TextArea informationTextArea;
 
     @FXML
-    private ComboBox<PlantGroup> groupComboBox;
+    private ComboBox<PlantGroup> plantGroupCombox;
 
     @FXML
-    private Button addVarityButton;
+    private Button addPlantVarietyButton;
 
     @FXML
-    private Button removeVarityButton;
+    private Button removePlantVarietyButton;
 
     @FXML
-    private Button editVarityButton;
+    private Button editPlantVarietyButton;
 
     @FXML
-    private ListView varityListView;
+    private ListView plantVarityListView;
 
     @FXML
     private Button addImageButton;
@@ -81,23 +81,23 @@ public class AddPlantTypeFXMLController extends DataUnitFXMLController<AddPlantT
 
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
-        groupComboBox.setItems(model.getPlantGroups());
-        groupComboBox.getSelectionModel().select(model.getSelectedPlantGroup());
+        plantGroupCombox.setItems(model.getPlantGroups());
+        plantGroupCombox.getSelectionModel().select(model.getSelectedPlantGroup());
 
-        removeVarityButton.setDisable(model.getSelectedVariety() == null);
-        editVarityButton.setDisable(model.getSelectedVariety() == null);
-        varityListView.setItems(model.getVarieties());
-        varityListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        varityListView.getSelectionModel().select(model.getSelectedVariety());
+        removePlantVarietyButton.setDisable(model.getSelectedVariety() == null);
+        editPlantVarietyButton.setDisable(model.getSelectedVariety() == null);
+        plantVarityListView.setItems(model.getVarieties());
+        plantVarityListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        plantVarityListView.getSelectionModel().select(model.getSelectedVariety());
 
-        groupComboBox.getSelectionModel().selectedItemProperty().addListener(new SelectPlantGroupChangeAdapter(model));
-        addVarityButton.setOnAction(new AddPlantVarietyEventhandler(model));
-        removeVarityButton.setOnAction(new RemoveEventHandler(model, REMOVE_VARIETY_ID));
-        editVarityButton.setOnAction(new EditPlantVarietyEventhandler(model, model.getSelectedVariety()));
-        varityListView.getSelectionModel().selectedItemProperty().addListener(new PlantVarietySelectionChangeAdapter(model));
+        plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new SelectPlantGroupChangeAdapter(model));
+        addPlantVarietyButton.setOnAction(new CreatePlantVarietyEventhandler(model));
+        removePlantVarietyButton.setOnAction(new RemoveEventHandler(model, REMOVE_VARIETY_ID));
+        editPlantVarietyButton.setOnAction(new EditPlantVarietyEventhandler(model, model.getSelectedVariety()));
+        plantVarityListView.getSelectionModel().selectedItemProperty().addListener(new PlantVarietySelectionChangeAdapter(model));
 
-        model.addPropertyChangeListener(SELECTED_VARIETY_PROPERTY, new PlantVarietySelectionProertyChangeAdapter(editVarityButton, removeVarityButton, varityListView));
-        model.getVarieties().addListener(new VarietyListChangeAdapter(model, varityListView));
-        model.addPropertyChangeListener(VARIETY_CHANGE_PROPERTY, new VarietyPropertyChangeAdapter(varityListView));
+        model.addPropertyChangeListener(SELECTED_VARIETY_PROPERTY, new PlantVarietySelectionProertyChangeAdapter(editPlantVarietyButton, removePlantVarietyButton, plantVarityListView));
+        model.getVarieties().addListener(new VarietyListChangeAdapter(model, plantVarityListView));
+        model.addPropertyChangeListener(VARIETY_CHANGE_PROPERTY, new VarietyPropertyChangeAdapter(plantVarityListView));
     }
 }

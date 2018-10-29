@@ -199,7 +199,7 @@
                                                     <children>
                                                         <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
                                                             <content>
-                                                                <ListView fx:id="eventListView" />
+                                                                <ListView fx:id="eventListView" prefHeight="80.0" prefWidth="571.0" />
                                                             </content>
                                                         </ScrollPane>
                                                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -219,7 +219,7 @@
                                                     <children>
                                                         <ScrollPane prefHeight="50.0" prefViewportHeight="200.0" prefViewportWidth="635.0" prefWidth="637.0" VBox.vgrow="ALWAYS">
                                                             <content>
-                                                                <ListView fx:id="taskListView" />
+                                                                <ListView fx:id="taskListView" prefHeight="91.0" prefWidth="568.0" />
                                                             </content>
                                                         </ScrollPane>
                                                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -239,7 +239,7 @@
                                                     <children>
                                                         <ScrollPane prefHeight="43.0" prefViewportHeight="200.0" prefViewportWidth="635.0" prefWidth="637.0" VBox.vgrow="ALWAYS">
                                                             <content>
-                                                                <ListView fx:id="issueListView" />
+                                                                <ListView fx:id="issueListView" prefHeight="102.0" prefWidth="573.0" />
                                                             </content>
                                                         </ScrollPane>
                                                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -259,7 +259,7 @@
                                                     <children>
                                                         <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
                                                             <content>
-                                                                <ListView fx:id="observationListView" />
+                                                                <ListView fx:id="observationListView" prefHeight="97.0" prefWidth="575.0" />
                                                             </content>
                                                         </ScrollPane>
                                                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">

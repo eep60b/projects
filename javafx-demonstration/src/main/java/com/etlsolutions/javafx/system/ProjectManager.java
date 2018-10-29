@@ -82,7 +82,7 @@ public final class ProjectManager {
             configuration.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());            
         }
 
-        configuration.setAreaRoot(AreaFactory.createAreaRoot());
+        configuration.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
         configuration.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
         configuration.setLogGroupRoot(LogFactory.createLogGroupRoot());
     }

@@ -26,7 +26,7 @@ public class ValidationPropertyChangeAdapter implements PropertyChangeListener {
         Validatable validatable = (Validatable) evt.getSource();
         errorMessageLabel.setText(validatable.getErrorMessage());
         for(Button button : buttons) {
-            button.setDisable(!validatable.isInvalid());
+            button.setDisable(validatable.isInvalid());
         }
     }
 }

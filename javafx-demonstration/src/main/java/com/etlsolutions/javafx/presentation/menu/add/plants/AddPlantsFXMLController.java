@@ -12,7 +12,6 @@ import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantType;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import static com.etlsolutions.javafx.data.plant.PlantsQuantity.Type.SINGLE;
-import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
@@ -293,7 +292,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<AddPlantsDat
         plantTypeCombox.getSelectionModel().selectedItemProperty().addListener(new PlantTypeChangeAdapter(model));        
         addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler(model));
         
-        addPlantVarietyButton.setOnAction(new FXMLActionEventHandler<>(new AddVarityToPlantsDialogDataModel(model)));
+        addPlantVarietyButton.setOnAction(new AddVarityToPlantEventHandler(model));
         addGrowingMediumButton.setOnAction(new AddPlantsGrowingMediumEventHandler(model));
 
         toggleGroup.selectedToggleProperty().addListener(new PlantNumberTypeChangeAdapter(model));

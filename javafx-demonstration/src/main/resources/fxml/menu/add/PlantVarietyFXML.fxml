@@ -67,14 +67,14 @@
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
-                                                <Button fx:id="addPlantVarietyButton" mnemonicParsing="false" text="Add" />
-                                                <Button fx:id="editPlantVarietyButton" layoutX="96.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                <Button fx:id="removePlantVarietyButton" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                <Button fx:id="addAliasButton" mnemonicParsing="false" text="Add" />
+                                                <Button fx:id="editAliasButton" layoutX="96.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                <Button fx:id="removeAliasButton" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
                                             </children>
                                         </HBox>
                                         <ScrollPane prefViewportHeight="126.0" prefViewportWidth="590.0">
                                             <content>
-                                                <ListView prefHeight="112.0" prefWidth="578.0" />
+                                                <ListView fx:id="aliasListView" prefHeight="112.0" prefWidth="578.0" />
                                             </content>
                                         </ScrollPane>
                                     </children>
