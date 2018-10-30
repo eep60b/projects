@@ -21,13 +21,13 @@ public class CustomSubArea extends SubArea {
 
     }
 
-    public CustomSubArea(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public CustomSubArea(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         customlocations = new ObservableListWrapperA<>();
         containers = new ObservableListWrapperA<>();
     }
 
-    public CustomSubArea(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public CustomSubArea(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         customlocations = new ObservableListWrapperA<>();
         containers = new ObservableListWrapperA<>();

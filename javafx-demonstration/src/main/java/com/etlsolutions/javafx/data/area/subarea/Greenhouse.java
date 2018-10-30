@@ -20,13 +20,13 @@ public class Greenhouse extends SubArea {
     public Greenhouse() {
     }
 
-    public Greenhouse(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public Greenhouse(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         locations = new ObservableListWrapperA<>();
         containers = new ObservableListWrapperA<>();
     }
 
-    public Greenhouse(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public Greenhouse(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         locations = new ObservableListWrapperA<>();
         containers = new ObservableListWrapperA<>();

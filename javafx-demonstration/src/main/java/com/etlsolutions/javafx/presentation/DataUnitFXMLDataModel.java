@@ -32,8 +32,8 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
     protected ObservableListWrapperA<ImageLink> imageLinks;
     protected String title;
     protected String information;
-    private ImageLink selectedImageLink;
-    private String logoPath;
+    protected ImageLink selectedImageLink;
+    protected String logoPath;
     protected boolean invalid;
     protected String errorMessage;
     private boolean noOrFirstImage;

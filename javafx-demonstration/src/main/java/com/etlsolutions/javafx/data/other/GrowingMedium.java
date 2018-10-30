@@ -1,7 +1,9 @@
-package com.etlsolutions.javafx.data;
+package com.etlsolutions.javafx.data.other;
 
+import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -52,7 +54,7 @@ public class GrowingMedium extends DataUnit {
         this.fertilised = fertilised;
     }
     
-    GrowingMedium(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
+    GrowingMedium(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         
         int i = 0;
@@ -66,7 +68,7 @@ public class GrowingMedium extends DataUnit {
         this.fertilised = fertilised;
     }
 
-    GrowingMedium(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
+    GrowingMedium(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         int i = 0;
         sandPercentage = compositions[i];

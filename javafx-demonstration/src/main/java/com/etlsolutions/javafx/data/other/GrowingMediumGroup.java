@@ -1,5 +1,6 @@
-package com.etlsolutions.javafx.data;
+package com.etlsolutions.javafx.data.other;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,13 +10,13 @@ import java.util.Objects;
  */
 public class GrowingMediumGroup {
     
-    private final ObservableListWrapperA<GrowingMedium> growingMediums;
+    private ObservableListWrapperA<GrowingMedium> growingMediums;
 
     public GrowingMediumGroup() {
-        growingMediums = new ObservableListWrapperA<>();
+        
     }
 
-    public GrowingMediumGroup(List<GrowingMedium> growingMediums) {
+    public GrowingMediumGroup(ObservableListWrapperA<GrowingMedium> growingMediums) {
         this.growingMediums = new ObservableListWrapperA<>(growingMediums);
     }
 
@@ -23,6 +24,11 @@ public class GrowingMediumGroup {
         return growingMediums;
     }
 
+    public void setGrowingMediums(ObservableListWrapperA<GrowingMedium> growingMediums) {
+        this.growingMediums = growingMediums;
+    }
+ 
+    
     @Override
     public int hashCode() {
         int hash = 5;

@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -24,14 +24,14 @@ public class Container extends Location {
     public Container() {
     }
 
-    public Container(ContainerShape shape, double height, double volumn, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public Container(ContainerShape shape, double height, double volumn, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.shape = shape;
         this.height = height;
         this.volume = volumn;
     }
 
-    public Container(ContainerShape shape, double height, double volumn, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public Container(ContainerShape shape, double height, double volumn, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.shape = shape;
         this.height = height;

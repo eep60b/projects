@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -27,7 +27,7 @@ public abstract class GroundLocation extends Location {
     public GroundLocation() {
     }
 
-    public GroundLocation(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
+    public GroundLocation(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.referencePoint = referencePoint;
         this.direction = direction;
@@ -36,7 +36,7 @@ public abstract class GroundLocation extends Location {
 
     }
 
-    public GroundLocation(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
+    public GroundLocation(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.referencePoint = referencePoint;
         this.direction = direction;

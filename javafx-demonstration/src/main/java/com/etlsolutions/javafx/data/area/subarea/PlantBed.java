@@ -13,17 +13,17 @@ import javafx.collections.ObservableList;
  */
 public class PlantBed extends SubArea {
 
-    private ObservableList<PlantBedLocation> locations;
+    private ObservableListWrapperA<PlantBedLocation> locations;
 
     public PlantBed() {
     }
 
-    public PlantBed(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public PlantBed(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         locations = new ObservableListWrapperA<>();
     }
 
-    public PlantBed(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public PlantBed(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         locations = new ObservableListWrapperA<>();
     }
@@ -32,7 +32,7 @@ public class PlantBed extends SubArea {
         return locations;
     }
 
-    public void setLocations(ObservableList<PlantBedLocation> locations) {
+    public void setLocations(ObservableListWrapperA<PlantBedLocation> locations) {
         this.locations = locations;
     }
 

@@ -2,6 +2,7 @@ package com.etlsolutions.javafx;
 
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
+import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
@@ -61,5 +62,8 @@ public class MenusController extends AbstractFXMLController {
         addPlantsMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantsDataModel()));
         addPlantTypeMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantTypeDataModel()));
         addAreaMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddAreaDataModel()));
+        
+        
+        addGrowingMediumMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddGrowingMediumDataModel()));        
     }
 }

@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.data.log.task;
+package com.etlsolutions.javafx.data.other;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import java.util.Date;

@@ -1,21 +1,32 @@
-package com.etlsolutions.javafx.data;
+package com.etlsolutions.javafx.data.other;
 
-import com.etlsolutions.javafx.data.other.GrowingMedium;
-import com.etlsolutions.javafx.data.other.GrowingMediumFactory;
-import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
  *
  * @author zc
  */
-public class DefaultJsonDataFileWriterRunner {
-    
-    private final Object[] objects;
+public class GrowingMediumFactory {
 
-    public DefaultJsonDataFileWriterRunner() {
+    private static final GrowingMediumFactory INSTANCE = new GrowingMediumFactory();
 
-        
-        //Growing mediums
+    public static final GrowingMediumFactory getInstance() {
+        return INSTANCE;
+    }
+
+    public GrowingMedium createGrowingMedium(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
+
+        return new GrowingMedium(id, title, information, imageLinks, selectedImgLinkIndex, logoPath, compositions, fertilised);
+    }
+
+    public GrowingMedium createGrowingMedium(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
+
+        return new GrowingMedium(title, information, imageLinks, selectedImgLinkIndex, logoPath, compositions, fertilised);
+    }
+
+    public ObservableListWrapperA<GrowingMedium> createDefaultGrowingMediums() {
+        ObservableListWrapperA<GrowingMedium> list = new ObservableListWrapperA<>();
         GrowingMedium loam = GrowingMediumFactory.getInstance().createGrowingMedium(501, "Loamy Soil", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{32, 32, 16, 20, 0, 20, 7.0}, true);
         GrowingMedium sandySoll = GrowingMediumFactory.getInstance().createGrowingMedium(502, "Sandy Soil", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{55, 35, 5, 5, 0, 5, 6.5}, true);
         GrowingMedium siltSoil = GrowingMediumFactory.getInstance().createGrowingMedium(503, "Silty Soil", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{25, 50, 5, 10, 0, 10, 6.8}, true);
@@ -31,15 +42,8 @@ public class DefaultJsonDataFileWriterRunner {
         GrowingMedium johnInnes2 = GrowingMediumFactory.getInstance().createGrowingMedium(513, "John Innes No. 2", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{23.333, 23.33, 28.34, 25, 0, 10, 7.0}, true);
         GrowingMedium johnInnes3 = GrowingMediumFactory.getInstance().createGrowingMedium(514, "John Innes No. 3", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{23.333, 23.33, 28.34, 25, 0, 10, 7.0}, true);
         GrowingMedium johnInnesSeeds = GrowingMediumFactory.getInstance().createGrowingMedium(515, "John Innes Seeds", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{45, 20, 10, 25, 0, 10, 7.0}, true);
-        GrowingMedium johnInnesPotting = GrowingMediumFactory.getInstance().createGrowingMedium(516, "John Innes Potting", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{23.333, 23.33, 28.34, 25, 0, 10, 7.0}, true);
-        GrowingMediumGroup growingMediumGroup = new GrowingMediumGroup(new ObservableListWrapperA<>(loam, sandySoll, siltSoil, peatSoil, lightClaySoil, heavyClaySoil, chalkySoil, multipurposeCompost,
-                ericaceousCompost, stonySoil, plantLiquidCulture, johnInnes1, johnInnes2, johnInnes3, johnInnesSeeds, johnInnesPotting));
-
-        objects = new Object[]{growingMediumGroup};
+        GrowingMedium johnInnesPotting = GrowingMediumFactory.getInstance().createGrowingMedium(516, "John Innes Potting", "", new ObservableListWrapperA<ImageLink>(), 0, "", new double[]{23.333, 23.33, 28.34, 25, 0, 10, 7.0}, true);        
+        list.addAll(loam, sandySoll, siltSoil, peatSoil, lightClaySoil, heavyClaySoil, chalkySoil, multipurposeCompost, ericaceousCompost, stonySoil, plantLiquidCulture, johnInnes1, johnInnes2, johnInnes3, johnInnesSeeds, johnInnesPotting);
+        return list;
     }
-
-    public void write() throws Exception {
-        new DefaultJsonDataFileWriter().write(objects);
-    }
-
 }

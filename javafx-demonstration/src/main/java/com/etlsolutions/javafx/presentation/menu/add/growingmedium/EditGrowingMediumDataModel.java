@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
-import com.etlsolutions.javafx.data.GrowingMedium;
+import com.etlsolutions.javafx.data.other.GrowingMedium;
 
 /**
  *

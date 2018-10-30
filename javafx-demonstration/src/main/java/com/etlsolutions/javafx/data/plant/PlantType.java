@@ -2,11 +2,7 @@ package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
  * The PlantType class represents a plant type which loosely corresponding to
@@ -16,49 +12,51 @@ import javafx.collections.ObservableList;
  * @author zc
  */
 public class PlantType extends DataUnit {
+    
+    private int plantGroupId;
+    private ObservableListWrapperA<Plants> plantsList;
 
-    @JsonIgnore
-    public static final String GROUP_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantType.GROUP_PROPERTY";
+    //This property will not be shown in the tree.  
+    private ObservableListWrapperA<PlantVariety> plantVarieties;
     
-    private PlantGroup group;
-    private ObservableList<Plants> plantsList;
-    
-    
-    //This property will not be shown in the tree.    
-    private ObservableList<PlantVariety> plantVarieties;
-
     public PlantType() {
     }
-    
-    PlantType(String title, String information) {
-        super(title, information);
-        this.plantVarieties = FXCollections.observableArrayList();
-        this.plantsList = FXCollections.observableArrayList();
+
+    public PlantType(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.plantGroupId = plantGroupId;
+        this.plantsList = plantsList;
+        this.plantVarieties = plantVarieties;
     }
 
-    public PlantType(String title, String information, ObservableList<ImageLink> imageLinks, ObservableList<PlantVariety> plantVarieties) {
-        super(title, information, imageLinks, 0, null);
+    public PlantType(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.plantGroupId = plantGroupId;
+        this.plantsList = plantsList;
         this.plantVarieties = plantVarieties;
-        this.plantsList = FXCollections.observableArrayList();        
     }
-         
-    public ObservableList<Plants> getPlantsList() {
+
+    public int getPlantGroupId() {
+        return plantGroupId;
+    }
+
+    public void setPlantGroupId(int plantGroupId) {
+        this.plantGroupId = plantGroupId;
+    }
+
+    public ObservableListWrapperA<Plants> getPlantsList() {
         return plantsList;
     }
 
-    public ObservableList<PlantVariety> getPlantVarieties() {
+    public void setPlantsList(ObservableListWrapperA<Plants> plantsList) {
+        this.plantsList = plantsList;
+    }
+
+    public ObservableListWrapperA<PlantVariety> getPlantVarieties() {
         return plantVarieties;
     }
 
-    
-    public PlantGroup getGroup() {
-        return group;
-    }
-
-    public void setGroup(PlantGroup group) {
-        PlantGroup oldValue = this.group;
-        this.group = group;
-        fireChange(GROUP_PROPERTY, oldValue, this.group);
-    }
-   
+    public void setPlantVarieties(ObservableListWrapperA<PlantVariety> plantVarieties) {
+        this.plantVarieties = plantVarieties;
+    }   
 }

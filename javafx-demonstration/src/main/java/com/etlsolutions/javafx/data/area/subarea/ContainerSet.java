@@ -5,7 +5,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -19,13 +18,13 @@ public class ContainerSet extends SubArea {
     public ContainerSet() {
     }
 
-    public ContainerSet(Container container, int number, SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public ContainerSet(Container container, int number, SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.container = container;
         this.number = number;
     }
 
-    public ContainerSet(Container container, int number, SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public ContainerSet(Container container, int number, SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.container = container;
         this.number = number;

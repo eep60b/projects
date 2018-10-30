@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
-import com.etlsolutions.javafx.data.GrowingMedium;
-import com.etlsolutions.javafx.data.GrowingMediumFactory;
+import com.etlsolutions.javafx.data.other.GrowingMedium;
+import com.etlsolutions.javafx.data.other.GrowingMediumFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.system.ProjectManager;
 

@@ -5,8 +5,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -20,17 +18,17 @@ public class Pond extends SubArea {
 
     }
 
-    public Pond(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public Pond(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         locations = new ObservableListWrapperA<>();
     }
 
-    public Pond(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public Pond(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         locations = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<PondLocation> getLocations() {
+    public ObservableListWrapperA<PondLocation> getLocations() {
         return locations;
     }
 

@@ -3,7 +3,6 @@ package com.etlsolutions.javafx.data;
 import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
 
 /**
  * The DataUnit class represents objects which are data units. The the ID for
@@ -52,12 +51,12 @@ public abstract class DataUnit {
         this.imageLinks = new ObservableListWrapperA<>();
     }
 
-    protected DataUnit(String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    protected DataUnit(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         this(title, information);
         this.imageLinks = new ObservableListWrapperA<>(imageLinks);
     }
 
-    protected DataUnit(int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    protected DataUnit(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         this(id, title, information);
         this.imageLinks = new ObservableListWrapperA<>(imageLinks);
         this.selectedImgLinkIndex = selectedImgLinkIndex;
@@ -124,7 +123,7 @@ public abstract class DataUnit {
         fireChange(INFORMATION_PROPERTY, olveValue, this.information);
     }
 
-    public ObservableList<ImageLink> getImageLinks() {
+    public ObservableListWrapperA<ImageLink> getImageLinks() {
         return imageLinks;
     }
 

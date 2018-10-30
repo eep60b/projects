@@ -1,8 +1,9 @@
 package com.etlsolutions.javafx.system;
 
+import com.etlsolutions.javafx.data.other.GrowingFertiliser;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
-import com.etlsolutions.javafx.data.GrowingMedium;
+import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,12 +21,14 @@ public class ProjectConfiguration {
     private String name;
     @JsonIgnore
     private String parentPath;
-    
+    @JsonIgnore    
     private boolean encrypted;
+    
     private AreaRoot areaRoot;
     private PlantGroupRoot plantsGroupRoot;
     private LogGroupRoot logGroupRoot;
     private ObservableListWrapperA<GrowingMedium> growingMediums;
+    private ObservableListWrapperA<GrowingFertiliser> growingFertilisers;
     private ObservableListWrapperA<String> locationReferencePoints;
     private ObservableListWrapperA<String> locationDirections;
     private ObservableListWrapperA<String> containerShapes;
@@ -104,6 +107,14 @@ public class ProjectConfiguration {
 
     public void setGrowingMediums(ObservableListWrapperA<GrowingMedium> growingMediums) {
         this.growingMediums = growingMediums;
+    }
+
+    public ObservableListWrapperA<GrowingFertiliser> getGrowingFertilisers() {
+        return growingFertilisers;
+    }
+
+    public void setGrowingFertilisers(ObservableListWrapperA<GrowingFertiliser> growingFertilisers) {
+        this.growingFertilisers = growingFertilisers;
     }
 
     public ObservableListWrapperA<String> getLocationReferencePoints() {

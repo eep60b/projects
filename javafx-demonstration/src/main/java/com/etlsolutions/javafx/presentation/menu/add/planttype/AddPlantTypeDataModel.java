@@ -5,6 +5,7 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
@@ -69,7 +70,7 @@ public class AddPlantTypeDataModel extends DataUnitFXMLDataModel implements Grou
     @Override
     public void save() {
         
-        plantType = PlantsFactory.getInstance().creatPlantsType(title, information, varieties, imageLinks);        
+        plantType = PlantsFactory.getInstance().creatPlantsType(0, new ObservableListWrapperA<Plants>(), varieties, title, information, imageLinks, 0, logoPath);        
         selectedPlantGroup.getPlantsTypes().add(plantType);
         manager.addItem(plantType);
     }

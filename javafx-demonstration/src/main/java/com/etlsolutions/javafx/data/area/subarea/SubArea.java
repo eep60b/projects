@@ -6,7 +6,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
 
 /**
  * Container set, border area, raised-bed, normal-plant-bed
@@ -19,10 +18,6 @@ public abstract class SubArea extends DataUnit {
     public static final String MEASUREMENT_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.MEASUREMENT_PROPERTY";
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.SHAPE_PROPERTY";
-    @JsonIgnore
-    public static final String PARENT_ID_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.PARENT_ID_PROPERTY";
-
-
     
     protected SubAreaMeasurement measurement;
     protected SubAreaShape shape;
@@ -32,13 +27,13 @@ public abstract class SubArea extends DataUnit {
 
     }
 
-    public SubArea(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public SubArea(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.measurement = measurement;
         this.shape = shape;
     }
 
-    public SubArea(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableList<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public SubArea(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.measurement = measurement;
         this.shape = shape;
@@ -76,9 +71,6 @@ public abstract class SubArea extends DataUnit {
     }
 
     public void setParentId(int parentId) {
-        
-        int oldValue = this.parentId;
         this.parentId = parentId;
-        support.fireChange(PARENT_ID_PROPERTY, oldValue, this.parentId);
     }
 }

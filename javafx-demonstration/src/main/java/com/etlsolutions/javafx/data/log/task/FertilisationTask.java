@@ -10,18 +10,18 @@ public class FertilisationTask extends Log
 {
   public static final String PROPERTY = "com.etlsolutions.javafx.data.log.task.FertilisationTask.PROPERTY";
   
-  private GrowingFertiliser fertiliser;
+  private int fertiliserId;
   private double amount;
   private String uom;
 
-  public GrowingFertiliser getFertiliser() {
-    return fertiliser;
-  }
+    public int getFertiliserId() {
+        return fertiliserId;
+    }
 
-  public void setFertiliser(GrowingFertiliser fertiliser) {
-    this.fertiliser = fertiliser;
-  }
-
+    public void setFertiliserId(int fertiliserId) {
+        this.fertiliserId = fertiliserId;
+    }
+    
   public double getAmount() {
     return amount;
   }

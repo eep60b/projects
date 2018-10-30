@@ -15,7 +15,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author Zhipeng
  */
-public class AddGrowingObservationFXMLController extends DataUnitFXMLController<AddGrowingObservationDataModel>{
+public class GrowingObservationFXMLController extends DataUnitFXMLController<AbstractGrowingObservationDataModel>{
 
     @FXML
     private TextField titleTextField;
