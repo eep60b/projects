@@ -1,12 +1,10 @@
 package com.etlsolutions.javafx.data.log.task;
 
-import com.etlsolutions.javafx.data.log.Log;
-
 /**
  *
  * @author zc
  */
-public class FertilisationTask extends Log
+public class FertilisationTask extends Task
 {
   public static final String PROPERTY = "com.etlsolutions.javafx.data.log.task.FertilisationTask.PROPERTY";
   
@@ -37,4 +35,9 @@ public class FertilisationTask extends Log
   public void setUom(String uom) {
     this.uom = uom;
   }
+  
+    @Override
+    public TaskType getType() {
+        return TaskType.FERTILZATION;
+    }  
 }

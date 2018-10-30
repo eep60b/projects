@@ -7,7 +7,17 @@ import java.util.List;
  *
  * @author zc
  */
-public class Task {
+public abstract class Task {
 
     private List<Notification> notifications;
+    
+    public abstract TaskType getType();
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
 }
