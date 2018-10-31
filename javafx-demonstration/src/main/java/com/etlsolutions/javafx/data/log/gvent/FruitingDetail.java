@@ -4,8 +4,8 @@ package com.etlsolutions.javafx.data.log.gvent;
  *
  * @author zc
  */
-public class FruitingGvent extends Gvent {
-    
+public class FruitingDetail implements GventDetail {
+
     private int NumberPerPlant;
     private String color;
     private String shape;
@@ -59,5 +59,10 @@ public class FruitingGvent extends Gvent {
 
     public void setAverageWeight(double averageWeight) {
         this.averageWeight = averageWeight;
-    }    
+    }
+    
+    @Override
+    public GventType getType() {
+        return GventType.FRUITING;
+    }
 }

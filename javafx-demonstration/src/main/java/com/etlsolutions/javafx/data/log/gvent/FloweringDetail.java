@@ -1,14 +1,12 @@
 package com.etlsolutions.javafx.data.log.gvent;
 
-import java.util.Date;
-
 /**
  *
  * @author zc
  */
-public class FloweringGvent extends Gvent {
+public class FloweringDetail implements GventDetail {
 
-    private int numberPerPlant = -1;
+    private int numberPerPlant;
     private String color;
 
     public int getNumberPerPlant() {
@@ -25,5 +23,10 @@ public class FloweringGvent extends Gvent {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public GventType getType() {
+        return GventType.FLOWERING;
     }
 }

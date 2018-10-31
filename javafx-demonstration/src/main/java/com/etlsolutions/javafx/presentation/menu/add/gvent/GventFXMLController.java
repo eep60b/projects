@@ -15,7 +15,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class AddGventFXMLController extends DataUnitFXMLController<AddGventDataModel> {
+public class GventFXMLController extends DataUnitFXMLController<AddGventDataModel> {
     
     @FXML
     private TextField titleTextField;

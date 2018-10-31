@@ -1,6 +1,10 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
+import com.etlsolutions.javafx.data.log.gvent.GventDetail;
+import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import java.time.LocalDateTime;
 
@@ -10,9 +14,20 @@ import java.time.LocalDateTime;
  */
 public class AddGventDataModel extends DataUnitFXMLDataModel {
 
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;    
+    protected Gvent gvent;
+    private final ObservableListWrapperA<GventType> types;
+    protected GventType selectedType;
+    protected LocalDateTime startTime;
+    protected LocalDateTime endTime;
+    protected final ObservableListWrapperA<Notification> notifications;
+    private Notification selectedNotification;
+    protected GventDetail detail;
 
+    public AddGventDataModel() {
+        this.notifications = new ObservableListWrapperA<>();
+        this.types = new ObservableListWrapperA<>();
+    }
+    
     public LocalDateTime getStartTime() {
         return startTime;
     }
@@ -31,13 +46,8 @@ public class AddGventDataModel extends DataUnitFXMLDataModel {
     
     
     
-    public Gvent getEvent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    protected void validate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Gvent getGvent() {
+        return gvent;
     }
 
     @Override
@@ -47,7 +57,6 @@ public class AddGventDataModel extends DataUnitFXMLDataModel {
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/AddGventFXML.fxml";
+        return "/fxml/menu/add/GventFXML.fxml";
     }
-    
 }
