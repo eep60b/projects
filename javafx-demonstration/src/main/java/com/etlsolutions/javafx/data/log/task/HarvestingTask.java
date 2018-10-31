@@ -1,12 +1,10 @@
 package com.etlsolutions.javafx.data.log.task;
 
-import com.etlsolutions.javafx.data.log.Log;
-
 /**
  *
  * @author zc
  */
-public class HarvestingTask extends Log
+public class HarvestingTask extends Task
 {
   private String quality;
   private double quatantity;
@@ -36,4 +34,8 @@ public class HarvestingTask extends Log
     this.uom = uom;
   }
   
+      @Override
+    public TaskType getType() {
+        return TaskType.HARVESTING;
+    }
 }

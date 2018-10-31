@@ -1,14 +1,32 @@
 package com.etlsolutions.javafx.data.log.task;
 
-import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.data.log.Log;
-
 /**
  *
  * @author zc
  */
-public class TransplantTask extends Log{
+public class TransplantTask extends Task {
   
-  public Location fromLocation;
-  public Location toLocation;
+  public int fromLocationId;
+  public int toLocationId;
+
+    public int getFromLocationId() {
+        return fromLocationId;
+    }
+
+    public void setFromLocationId(int fromLocationId) {
+        this.fromLocationId = fromLocationId;
+    }
+
+    public int getToLocationId() {
+        return toLocationId;
+    }
+
+    public void setToLocationId(int toLocationId) {
+        this.toLocationId = toLocationId;
+    }
+
+    @Override
+    public TaskType getType() {
+        return TaskType.TRANSPLANTING;
+    }
 }
