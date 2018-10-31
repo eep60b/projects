@@ -4,7 +4,7 @@ package com.etlsolutions.javafx.data.log.gvent;
  *
  * @author zc
  */
-public class FruitingDetail implements GventDetail {
+public class FruitingGventDetail implements GventDetail {
 
     private int NumberPerPlant;
     private String color;

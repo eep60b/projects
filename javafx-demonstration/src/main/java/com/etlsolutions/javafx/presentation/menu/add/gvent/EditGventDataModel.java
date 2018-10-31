@@ -1,10 +1,16 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
+import com.etlsolutions.javafx.data.log.gvent.Gvent;
+
 /**
  *
  * @author zc
  */
-public class AddGventDataModel extends AbstractGventDataModel {
+public class EditGventDataModel extends AbstractGventDataModel {
+
+    public EditGventDataModel(Gvent gvent) {
+        super(gvent);
+    }
 
     @Override
     public void save() {

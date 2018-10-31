@@ -11,12 +11,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.gvent.GventFXMLController">
     <stylesheets>
-        <URL value="@/styles/menu/add/gventfxml.css" />
+        <URL value="@/styles/log/gventfxml.css" />
     </stylesheets>
     <children>
         <VBox>
             <children>
-                <TabPane prefHeight="622.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <TabPane fx:id="mainTabPane" prefHeight="622.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <tabs>
                         <Tab text="General">
                             <content>

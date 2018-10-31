@@ -306,7 +306,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<AddPlantsDat
         terminationTextArea.textProperty().addListener(new TerminationReasonChangeAdapter(model));
         eventListView.selectionModelProperty().addListener(new EventSelectionChangeAdapter(model));
         addEventButton.setOnAction(new AddPlantsGventEventHandler(model));
-        editEventButton.setOnAction(new EditPlantsEventEventHandler(model, eventListView));
+        editEventButton.setOnAction(new EditPlantsGventEventHandler(model, eventListView));
         removeEventButton.setOnAction(new RemovePlantsEventEventHandler(model));
         eventListView.selectionModelProperty().addListener(new EventSelectionChangeAdapter(model));
         addTaskButton.setOnAction(new AddPlantsTaskEventHandler(model));
