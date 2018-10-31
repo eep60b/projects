@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
  */
 public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel {
 
+    public static final String SELECTED_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_TYPE_PROPERTY";
+    
     protected Gvent gvent;
     private final ObservableListWrapperA<GventType> types;
     protected GventType selectedType;
@@ -25,14 +27,28 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel {
 
     public AbstractGventDataModel() {
         this.notifications = new ObservableListWrapperA<>();
-        this.types = new ObservableListWrapperA<>();
+        this.types = new ObservableListWrapperA<>(GventType.values());
+        selectedType = types.get(0);
     }
 
     public AbstractGventDataModel(Gvent gvent) {
-        this.notifications = new ObservableListWrapperA<>();
-        this.types = new ObservableListWrapperA<>();
+        this.notifications = new ObservableListWrapperA<>(gvent.getNotifications());
+        types = new ObservableListWrapperA<>(gvent.getType());
+        selectedType = gvent.getType();
         this.gvent = gvent;
     }
+
+    public ObservableListWrapperA<GventType> getTypes() {
+        return types;
+    }
+
+    public GventType getSelectedType() {
+        return selectedType;
+    }
+
+    public void setSelectedType(GventType selectedType) {
+        this.selectedType = selectedType;
+    }  
     
     public LocalDateTime getStartTime() {
         return startTime;
@@ -49,16 +65,26 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel {
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
-    
-    
-    
+
+    public ObservableListWrapperA<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public Notification getSelectedNotification() {
+        return selectedNotification;
+    }
+
+    public void setSelectedNotification(Notification selectedNotification) {
+        this.selectedNotification = selectedNotification;
+    }
+     
     public Gvent getGvent() {
         return gvent;
     }
 
     @Override
     public String getFxmlPath() {
-        return "/log/GventFXML.fxml";
+        return "/fxml/log/GventFXML.fxml";
     }
 
     public GventDetailDataModel<GventDetail> getTypeDataModel(GventType type) {

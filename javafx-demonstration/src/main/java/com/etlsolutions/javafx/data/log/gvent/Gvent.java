@@ -10,13 +10,15 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class Gvent extends Log {
+public abstract class Gvent extends Log {
 
     private ObservableList<Notification> notifications;
     private LocalDateTime endTime;
-    
+
     public Gvent() {
     }
+
+    public abstract GventType getType();
 
     public Gvent(String title, String information, LocalDateTime startTime) {
         super(title, information, startTime);

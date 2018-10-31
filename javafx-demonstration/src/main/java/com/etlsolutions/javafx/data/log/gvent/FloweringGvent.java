@@ -26,4 +26,9 @@ public class FloweringGvent extends Gvent {
     public void setColor(String color) {
         this.color = color;
     }
+    
+    @Override
+    public GventType getType() {
+        return GventType.FLOWERING;
+    }    
 }

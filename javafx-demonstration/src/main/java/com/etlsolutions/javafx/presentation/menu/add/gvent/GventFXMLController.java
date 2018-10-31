@@ -106,8 +106,35 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
             startTimePicker.setDateTimeValue(model.getStartTime());
             DateTimePicker endTimePicker = new DateTimePicker();
             endTimePicker.setDateTimeValue(model.getEndTime());
-            startTimeHbox.getChildren().addAll(startTimePicker);
-            endTimeHbox.getChildren().addAll(endTimePicker);
+            startTimeHbox.getChildren().add(startTimePicker);
+            endTimeHbox.getChildren().add(endTimePicker);
+
+            typeComboBox.setItems(model.getTypes());
+            GventType type = model.getSelectedType();
+            typeComboBox.getSelectionModel().select(type);
+            switch (type) {
+                case CUSTOM:
+                    mainTabPane.getTabs().remove(detailTab);
+                    break;
+                case FLOWERING:
+                case FRUITING:
+                    if (!mainTabPane.getTabs().contains(detailTab)) {
+                        mainTabPane.getTabs().add(1, detailTab);
+                    }
+                    detailTab.setContent(map.get(type));
+                    break;
+                default:
+                    throw new IllegalArgumentException("Ivalid gvent type.");
+            }
+            
+            
+            //Add listeners to components
+            startTimePicker.dateTimeValueProperty().addListener(new StartTimeChangeAdapter(model));
+            endTimePicker.dateTimeValueProperty().addListener(new EndTimeChangeAdapter(model));
+            typeComboBox.getSelectionModel().selectedItemProperty().addListener(new GventTypeSelectionAdapter(model));
+
+            //Add losteners to data model.
+            model.addPropertyChangeListener(AbstractGventDataModel.SELECTED_TYPE_PROPERTY, new SelectedTypePropertyAdapter(mainTabPane, detailTab, map));
 
         } catch (IOException ex) {
             Logger.getLogger(getClass()).error(ex);
