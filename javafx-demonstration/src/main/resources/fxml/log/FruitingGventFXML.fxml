@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +8,68 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.gvent.FruitingGventFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.menu.add.gvent.FruitingGventFXMLController">
     <stylesheets>
-        <URL value="@/styles/log/fruitinggventfxml.css"/>
+        <URL value="@/styles/log/fruitinggventfxml.css" />
     </stylesheets>
+    <children>
+        <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label text="Flower Shape:" />
+                        <ComboBox fx:id="fllowerShapeComboBox" prefHeight="25.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="17.0" prefWidth="75.0" text="Fruit color:" />
+                        <ComboBox fx:id="fruitColorComboBox" prefHeight="25.0" prefWidth="499.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <CheckBox fx:id="countableCheckBox" mnemonicParsing="false" text="Countable">
+                            <HBox.margin>
+                                <Insets top="10.0" />
+                            </HBox.margin>
+                        </CheckBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox fx:id="numberPerPlantHbox" layoutX="20.0" layoutY="90.0" spacing="10.0">
+                    <children>
+                        <Label text="Number per plant:" />
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </HBox>
+            <HBox fx:id="averageSizeHbox" layoutX="20.0" layoutY="127.0" spacing="10.0">
+               <children>
+                  <Label text="Average size:" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="averageWeightHbox" layoutX="20.0" layoutY="127.0" spacing="10.0">
+               <children>
+                  <Label text="Average weight" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

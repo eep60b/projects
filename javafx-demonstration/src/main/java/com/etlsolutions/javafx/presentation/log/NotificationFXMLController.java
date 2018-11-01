@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.layout.HBox;
 
@@ -20,7 +19,7 @@ import javafx.scene.layout.HBox;
 public class NotificationFXMLController extends AbstractComponentStageFXMLController<NotificationDataModel> {
 
     @FXML
-    private HBox lengthBeforeHbox;
+    private HBox notificationHbox;
 
     @FXML
     private ComboBox<NotificationTimeUnit> timeUnitComboBox;
@@ -45,7 +44,7 @@ public class NotificationFXMLController extends AbstractComponentStageFXMLContro
         IntegerSpinnerValueFactory lengthBeforeFactory = new IntegerSpinnerValueFactory(0, 100000);
         lengthBeforeFactory.setValue(model.getLengthBefore());
         lengthBeforeSpinner.setValueFactory(lengthBeforeFactory);
-        lengthBeforeHbox.getChildren().add(lengthBeforeSpinner);
+        notificationHbox.getChildren().add(1, lengthBeforeSpinner);
 
         timeUnitComboBox.setItems(model.getTimeUnits());
         timeUnitComboBox.getSelectionModel().select(model.getSelectedTimeUnit());

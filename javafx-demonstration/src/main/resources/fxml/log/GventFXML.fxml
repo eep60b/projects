@@ -85,6 +85,11 @@
                                                 </Label>
                                             </children>
                                         </HBox>
+                              <HBox fx:id="endTimeHbox1" layoutX="20.0" layoutY="50.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="repeatYearlyCheckBox" mnemonicParsing="false" text="Repeat yearly" />
+                                 </children>
+                              </HBox>
                                         <HBox fx:id="notificationHbox" layoutX="20.0" layoutY="50.0" spacing="10.0">
                                             <children>
                                                 <Label text="Notifictions">
@@ -96,7 +101,7 @@
                                         </HBox>
                                         <ScrollPane prefHeight="459.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
                                             <content>
-                                                <ListView fx:id="notificationListView" prefHeight="428.0" prefWidth="576.0" />
+                                                <ListView fx:id="notificationListView" prefHeight="457.0" prefWidth="576.0" />
                                             </content>
                                         </ScrollPane>
                                     </children>
@@ -137,7 +142,7 @@
                 </TabPane>
                 <HBox>
                     <children>
-                        <Label text="Error Message">
+                        <Label text="Error Message" textFill="#f20404">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" />
                             </padding>

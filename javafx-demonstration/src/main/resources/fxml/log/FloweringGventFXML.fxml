@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +8,52 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.gvent.FloweringGventFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.menu.add.gvent.FloweringGventFXMLController">
     <stylesheets>
-        <URL value="@/styles/log/floweringgventfxml.css"/>
+        <URL value="@/styles/log/floweringgventfxml.css" />
     </stylesheets>
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Flower type:" />
+                  <ComboBox fx:id="fllowerTypeComboBox" prefHeight="25.0" prefWidth="503.0" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+               <children>
+                  <Label text="Flower color:" />
+                  <ComboBox fx:id="fllowerTypeComboBox1" prefHeight="25.0" prefWidth="499.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+               <children>
+                  <CheckBox fx:id="countableCheckBox" mnemonicParsing="false" text="Countable">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="20.0" layoutY="90.0" spacing="10.0">
+               <children>
+                  <Label text="How many per plant:" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

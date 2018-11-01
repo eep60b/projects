@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -88,6 +89,9 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
 
     @FXML
     private HBox endTimeHbox;
+    
+    @FXML
+    private CheckBox repeatYearlyCheckBox;
     
     @FXML
     private ListView<Notification> notificationListView;
