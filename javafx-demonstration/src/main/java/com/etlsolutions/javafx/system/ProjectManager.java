@@ -84,7 +84,7 @@ public final class ProjectManager {
 
         configuration.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
         configuration.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
-        configuration.setLogGroupRoot(LogFactory.createLogGroupRoot());
+        configuration.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
     }
 
     public ProjectConfiguration loadProject(String projectPath) throws IOException {

@@ -11,7 +11,18 @@ import java.time.LocalDateTime;
  */
 public class LogFactory {
 
-    public static LogGroupRoot createLogGroupRoot() {
+    private static final LogFactory INSTANCE = new LogFactory();
+    
+    public static LogFactory getInstance() {
+        return INSTANCE;
+    }
+    
+    public Notification getDefaultNotification() {
+        
+        return new Notification(30, NotificationTimeUnit.MINUTS, 1);
+    }
+    
+    public LogGroupRoot createLogGroupRoot() {
 
         LogGroupRoot l = new LogGroupRoot();
 
@@ -70,4 +81,7 @@ public class LogFactory {
         GrowingObservation g = new GrowingObservation(title, information, startTime, endTime);
         return g;
     }
+    
+    
+    
 }

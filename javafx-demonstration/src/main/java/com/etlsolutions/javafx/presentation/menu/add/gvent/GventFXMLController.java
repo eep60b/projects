@@ -1,9 +1,12 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
+import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
+import com.etlsolutions.javafx.presentation.RemoveEventHandler;
+import static com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.*;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,6 +17,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
@@ -83,6 +88,18 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
 
     @FXML
     private HBox endTimeHbox;
+    
+    @FXML
+    private ListView<Notification> notificationListView;
+    
+    @FXML
+    private Button addNotificationButton;
+    
+    @FXML
+    private Button editNotificationButton;
+    
+    @FXML
+    private Button removeNotificationButton;    
 
     private final Map<GventType, Node> map = new HashMap<>();
 
@@ -127,14 +144,27 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
                     throw new IllegalArgumentException("Ivalid gvent type.");
             }
             
+            notificationListView.setItems(model.getNotifications());
+            notificationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+            notificationListView.getSelectionModel().select(model.getSelectedNotification());
+            
+            boolean hasNoSelectedNotification = model.getSelectedNotification() == null;
+            editNotificationButton.setDisable(hasNoSelectedNotification);
+            removeNotificationButton.setDisable(hasNoSelectedNotification);
             
             //Add listeners to components
             startTimePicker.dateTimeValueProperty().addListener(new StartTimeChangeAdapter(model));
             endTimePicker.dateTimeValueProperty().addListener(new EndTimeChangeAdapter(model));
             typeComboBox.getSelectionModel().selectedItemProperty().addListener(new GventTypeSelectionAdapter(model));
-
+            notificationListView.getSelectionModel().selectedItemProperty().addListener(new SelectedNotificationChangeAdapter(model));
+            addNotificationButton.setOnAction(new AddGventNotificationEventHandler(model));
+            editNotificationButton.setOnAction(new EditGventNotificationEventHandler(model));
+            removeNotificationButton.setOnAction(new RemoveEventHandler(model, NOTIFICATION_REMOVE_EVENT_ID));
+            
             //Add losteners to data model.
-            model.addPropertyChangeListener(AbstractGventDataModel.SELECTED_TYPE_PROPERTY, new SelectedTypePropertyAdapter(mainTabPane, detailTab, map));
+            model.addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new SelectedTypePropertyAdapter(mainTabPane, detailTab, map));
+            model.getNotifications().addListener(new NotificationListChangeAdapter(model, notificationListView));
+            model.addPropertyChangeListener(SELECTED_NOTIFICATION_PROPERTY, new SelectedNotificationPropertyChangeAdapter(notificationListView, editNotificationButton, removeNotificationButton));
 
         } catch (IOException ex) {
             Logger.getLogger(getClass()).error(ex);

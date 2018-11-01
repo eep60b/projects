@@ -10,7 +10,7 @@ import com.etlsolutions.javafx.data.log.gvent.GventType;
  */
 public abstract class GventDetailDataModel<T extends GventDetail> {
 
-    private final T detail;
+    protected final T detail;
 
     public GventDetailDataModel(T detail) {
         this.detail = detail;
