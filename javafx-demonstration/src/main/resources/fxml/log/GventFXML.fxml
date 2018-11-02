@@ -97,6 +97,9 @@
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
+                                    <Button fx:id="addNotificationButton" mnemonicParsing="false" text="add" />
+                                    <Button fx:id="editNotificationButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" text="edit" />
+                                    <Button fx:id="removeNotificationButton" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="remove" />
                                             </children>
                                         </HBox>
                                         <ScrollPane prefHeight="459.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
