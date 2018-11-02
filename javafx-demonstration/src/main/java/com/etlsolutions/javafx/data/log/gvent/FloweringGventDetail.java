@@ -6,14 +6,23 @@ package com.etlsolutions.javafx.data.log.gvent;
  */
 public class FloweringGventDetail implements GventDetail {
 
+    private String flowerType;    
     private int numberPerPlant;
     private String color;
 
-    public int getNumberPerPlant() {
+    public String getFlowerType() {
+        return flowerType;
+    }
+
+    public void setFlowerType(String flowerType) {
+        this.flowerType = flowerType;
+    }
+    
+    public int getCount() {
         return numberPerPlant;
     }
 
-    public void setNumberPerPlant(int numberPerPlant) {
+    public void setCount(int numberPerPlant) {
         this.numberPerPlant = numberPerPlant;
     }
 

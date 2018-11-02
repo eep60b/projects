@@ -11,6 +11,10 @@ public abstract class AbstractComponentsFXMLController<T> {
     
     public abstract void initializeComponents();    
     
+    public final T getModel() {
+        return model;
+    }    
+    
     /**
      * 
      * @param model 

@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurement;
-import com.etlsolutions.javafx.system.ProjectConfiguration;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
@@ -16,7 +16,7 @@ public class GroundLocationMeasurementDataModel extends LocationMeasurementDataM
     
     public GroundLocationMeasurementDataModel(GroundLocationMeasurement measurement) {
         super(measurement);
-        ProjectConfiguration project = ProjectManager.getInstance().getProject();
+        ProjectContents project = ProjectManager.getInstance().getProject();
         referencePoints = new ObservableListWrapperA<>(project.getLocationReferencePoints());
         directions = new ObservableListWrapperA<>(project.getLocationDirections());
     }

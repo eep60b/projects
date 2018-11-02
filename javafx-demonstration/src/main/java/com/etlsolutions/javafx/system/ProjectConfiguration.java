@@ -24,15 +24,6 @@ public class ProjectConfiguration {
     @JsonIgnore    
     private boolean encrypted;
     
-    private AreaRoot areaRoot;
-    private PlantGroupRoot plantsGroupRoot;
-    private LogGroupRoot logGroupRoot;
-    private ObservableListWrapperA<GrowingMedium> growingMediums;
-    private ObservableListWrapperA<GrowingFertiliser> growingFertilisers;
-    private ObservableListWrapperA<String> locationReferencePoints;
-    private ObservableListWrapperA<String> locationDirections;
-    private ObservableListWrapperA<String> containerShapes;
-    
     public String getName() {
         return name;
     }
@@ -71,73 +62,5 @@ public class ProjectConfiguration {
 
     public void setEncrypted(boolean encrypted) {
         this.encrypted = encrypted;
-    }
-
-    public AreaRoot getAreaRoot() {
-        return areaRoot;
-    }
-
-    public void setAreaRoot(AreaRoot areaRoot) {
-        this.areaRoot = areaRoot;
-    }
-
-    public PlantGroupRoot getPlantsGroupRoot() {
-        return plantsGroupRoot;
-    }
-
-    public void setPlantsGroupRoot(PlantGroupRoot plantsGroupRoot) {
-        this.plantsGroupRoot = plantsGroupRoot;
-    }
-
-    public LogGroupRoot getLogGroupRoot() {
-        return logGroupRoot;
-    }
-
-    public void setLogGroupRoot(LogGroupRoot logGroupRoot) {
-        this.logGroupRoot = logGroupRoot;
-    }    
-
-    public boolean isModified() {
-        return false;
-    }
-
-    public ObservableList<GrowingMedium> getGrowingMediums() {
-        return growingMediums;
-    }
-
-    public void setGrowingMediums(ObservableListWrapperA<GrowingMedium> growingMediums) {
-        this.growingMediums = growingMediums;
-    }
-
-    public ObservableListWrapperA<GrowingFertiliser> getGrowingFertilisers() {
-        return growingFertilisers;
-    }
-
-    public void setGrowingFertilisers(ObservableListWrapperA<GrowingFertiliser> growingFertilisers) {
-        this.growingFertilisers = growingFertilisers;
-    }
-
-    public ObservableListWrapperA<String> getLocationReferencePoints() {
-        return locationReferencePoints;
-    }
-
-    public void setLocationReferencePoints(ObservableListWrapperA<String> locationReferencePoints) {
-        this.locationReferencePoints = locationReferencePoints;
-    }
-
-    public ObservableListWrapperA<String> getLocationDirections() {
-        return locationDirections;
-    }
-
-    public void setLocationDirections(ObservableListWrapperA<String> locationDirections) {
-        this.locationDirections = locationDirections;
-    } 
-
-    public ObservableListWrapperA<String> getContainerShapes() {
-        return containerShapes;
-    }
-
-    public void setContainerShapes(ObservableListWrapperA<String> containerShapes) {
-        this.containerShapes = containerShapes;
     }
 }

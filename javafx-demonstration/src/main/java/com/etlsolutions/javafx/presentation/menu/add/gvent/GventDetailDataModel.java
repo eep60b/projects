@@ -18,7 +18,11 @@ public abstract class GventDetailDataModel<T extends GventDetail> {
 
     public abstract String getFxmlPath();
     
-    private GventType getType() {
+    public GventType getType() {
         return detail.getType();
+    }
+
+    public T getDetail() {
+        return detail;
     }
 }

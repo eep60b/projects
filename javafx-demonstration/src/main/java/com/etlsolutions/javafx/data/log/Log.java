@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 
@@ -11,30 +13,41 @@ import java.time.LocalDateTime;
  */
 public class Log extends DataUnit {
 
-  @JsonIgnore
-  public static final String MODIFIED_TIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.MODIFIED_TIME_PROPERTY";
-  @JsonIgnore
-  public static final String STARTTIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.STARTTIME_PROPERTY";
+    @JsonIgnore
+    public static final String MODIFIED_TIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.MODIFIED_TIME_PROPERTY";
+    @JsonIgnore
+    public static final String STARTTIME_PROPERTY = "com.etlsolutions.javafx.data.log.Log.STARTTIME_PROPERTY";
 
-  private final LocalDateTime createdTime;
-  
-  private LocalDateTime modifiedTime;
-  
-  private LocalDateTime startTime;
+    private LocalDateTime createdTime;
+
+    private LocalDateTime modifiedTime;
+
+    private LocalDateTime startTime;
 
     public Log() {
-        createdTime = LocalDateTime.now();
+
     }
 
-    public Log(String title, String information, LocalDateTime startTime) {
-        super(title, information);
+    public Log(LocalDateTime modifiedTime, LocalDateTime startTime, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         createdTime = LocalDateTime.now();
-        modifiedTime = createdTime;
+        this.modifiedTime = modifiedTime;
+        this.startTime = startTime;
+    }
+
+    public Log(LocalDateTime modifiedTime, LocalDateTime startTime, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        createdTime = LocalDateTime.now();
+        this.modifiedTime = modifiedTime;
         this.startTime = startTime;
     }
 
     public LocalDateTime getCreatedTime() {
         return createdTime;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
     }
 
     public LocalDateTime getModifiedTime() {
@@ -56,13 +69,12 @@ public class Log extends DataUnit {
         this.startTime = startTime;
         support.fireChange(STARTTIME_PROPERTY, oldValue, this.startTime);
     }
-  
 
-  public int getYear() {
-    return startTime.getYear();
-  }
+    public int getYear() {
+        return startTime.getYear();
+    }
 
-  public int getMonth() {
-    return startTime.getMonth().getValue();
-  }
+    public int getMonth() {
+        return startTime.getMonth().getValue();
+    }
 }

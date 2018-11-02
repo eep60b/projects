@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.menu.add.gvent;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.ComponentsFXMLControllerNodeWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
@@ -105,19 +106,19 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
     @FXML
     private Button removeNotificationButton;    
 
-    private final Map<GventType, Node> map = new HashMap<>();
+    private final Map<GventType, ComponentsFXMLControllerNodeWrapper<GventDetailDataModel>> map = new HashMap<>();
 
     @Override
     public void initializeComponents() {
         try {
             for (GventType type : GventType.values()) {
                 if (type != GventType.CUSTOM) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getTypeDataModel(type).getFxmlPath()));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getDetailDataModel(type).getFxmlPath()));
                     Node node = (AnchorPane) loader.load();
                     AbstractComponentsFXMLController<GventDetailDataModel> controller = loader.getController();
-                    controller.setModel(model.getDetailDataModel());
+                    controller.setModel(model.getDetailDataModel(type));
                     controller.initializeComponents();
-                    map.put(type, node);
+                    map.put(type, new ComponentsFXMLControllerNodeWrapper<>(controller, node));
                 }
             }
 
@@ -142,7 +143,7 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
                     if (!mainTabPane.getTabs().contains(detailTab)) {
                         mainTabPane.getTabs().add(1, detailTab);
                     }
-                    detailTab.setContent(map.get(type));
+                    detailTab.setContent(map.get(type).getNode());
                     break;
                 default:
                     throw new IllegalArgumentException("Ivalid gvent type.");

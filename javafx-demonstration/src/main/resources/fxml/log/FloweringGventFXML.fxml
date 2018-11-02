@@ -18,7 +18,7 @@
             <HBox spacing="10.0">
                <children>
                   <Label text="Flower type:" />
-                  <ComboBox fx:id="fllowerTypeComboBox" prefHeight="25.0" prefWidth="503.0" HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="flowerTypeComboBox" prefHeight="25.0" prefWidth="503.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
@@ -27,7 +27,7 @@
             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                <children>
                   <Label text="Flower color:" />
-                  <ComboBox fx:id="fllowerTypeComboBox1" prefHeight="25.0" prefWidth="499.0" />
+                  <ComboBox fx:id="flowerColorComboBox" prefHeight="25.0" prefWidth="499.0" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" />
@@ -45,7 +45,7 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </HBox>
-            <HBox layoutX="20.0" layoutY="90.0" spacing="10.0">
+            <HBox fx:id="countHBox" layoutX="20.0" layoutY="90.0" spacing="10.0">
                <children>
                   <Label text="How many per plant:" />
                </children>

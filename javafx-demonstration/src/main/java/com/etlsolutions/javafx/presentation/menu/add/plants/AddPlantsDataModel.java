@@ -15,7 +15,7 @@ import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.plant.GroupSelectable;
-import com.etlsolutions.javafx.system.ProjectConfiguration;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -68,7 +68,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSe
      */
     public AddPlantsDataModel() {
         
-        ProjectConfiguration project = ProjectManager.getInstance().getProject();
+        ProjectContents project = ProjectManager.getInstance().getProject();
         
         plantGroups = project.getPlantsGroupRoot().getPlantGroups();
         selectedPlantGroup = plantGroups.get(0);        

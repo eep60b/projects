@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.log;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 
@@ -17,11 +19,16 @@ public class GrowingObservation extends Note {
     public GrowingObservation() {
     }
 
-    public GrowingObservation(String title, String information, LocalDateTime startTime, LocalDateTime endTime) {
-        super(title, information, startTime);
+    public GrowingObservation(LocalDateTime endTime, LocalDateTime modifiedTime, LocalDateTime startTime, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(modifiedTime, startTime, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.endTime = endTime;
     }
 
+    public GrowingObservation(LocalDateTime endTime, LocalDateTime modifiedTime, LocalDateTime startTime, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(modifiedTime, startTime, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.endTime = endTime;
+    }
+    
     public LocalDateTime getEndTime() {
         return endTime;
     }

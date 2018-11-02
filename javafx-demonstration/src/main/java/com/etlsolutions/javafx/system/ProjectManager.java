@@ -35,8 +35,8 @@ public final class ProjectManager {
 
     private final ObjectMapper mapper = new ObjectMapper();
     private ProjectConfiguration configuration;
-    
-    private final Map<Integer, DataUnit> dataStore = new HashMap<>();
+    private ProjectContents contents;
+    private final Map<Integer, DataUnit> dataMap = new HashMap<>();
 
     private ProjectManager() {
     }
@@ -48,6 +48,7 @@ public final class ProjectManager {
     void init(Properties properties) throws IOException {
 
         configuration = new ProjectConfiguration();
+        contents = new ProjectContents();
         String path = properties.getProperty(CURRENT_RPOJECT_PATH_KEY);
         if (path != null) {
             File directory = new File(path);
@@ -68,23 +69,29 @@ public final class ProjectManager {
 
             configuration.setParentPath(projectDirectory.getParent());
             configuration.setName(projectDirectory.getName());
-            configuration.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
-            configuration.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
-            configuration.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
-            configuration.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
+            contents.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
+            contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
+            contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
+            contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
+            contents.setFlowerTypes(LogFactory.getInstance().getDefaultFlowerTypes());
+            contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
         } else {
             //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
             //manually set things up for now.
-            configuration.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
-            configuration.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
-            configuration.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());       
-            configuration.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());            
+            contents.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
+            contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
+            contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
+            contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
+            contents.setFlowerTypes(LogFactory.getInstance().getDefaultFlowerTypes());
+            contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
+            contents.setFruitShapes(LogFactory.getInstance().getDefaultFruitShapes());
+            contents.setFruitColors(LogFactory.getInstance().getDefaultFruitColors());
         }
 
-        configuration.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
-        configuration.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
-        configuration.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
+        contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
+        contents.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
+        contents.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
     }
 
     public ProjectConfiguration loadProject(String projectPath) throws IOException {
@@ -109,7 +116,7 @@ public final class ProjectManager {
         configuration = new ProjectConfiguration();
         configuration.setParentPath(parentPath);
         configuration.setName(name);
-        configuration.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
+        contents.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
         File file = new File(configuration.getProjectPath());
         boolean success = file.mkdirs();
 
@@ -122,8 +129,8 @@ public final class ProjectManager {
         return configuration;
     }
 
-    public ProjectConfiguration getProject() {
-        return configuration;
+    public ProjectContents getProject() {
+        return contents;
     }
 
     public void deleteProject(ProjectConfiguration configuration) {
@@ -166,12 +173,12 @@ public final class ProjectManager {
     public boolean hasListeners(String propertyName) {
         return propertyChangeSupport.hasListeners(propertyName);
     }
-    
+
     public DataUnit getItem(int id) {
-        return dataStore.get(id);
+        return dataMap.get(id);
     }
-    
+
     public void addItem(DataUnit unit) {
-        dataStore.put(unit.getId(), unit);
+        dataMap.put(unit.getId(), unit);
     }
 }

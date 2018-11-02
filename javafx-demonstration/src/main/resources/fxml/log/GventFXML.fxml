@@ -62,7 +62,7 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab fx:id="detailsTab" text="Details" />
+                        <Tab fx:id="detailTab" text="Details" />
                         <Tab text="Time">
                             <content>
                                 <VBox layoutX="137.0" layoutY="34.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -123,12 +123,12 @@
                                                 <HBox spacing="10.0">
                                                     <children>
                                                         <Button fx:id="addImageButton" mnemonicParsing="false" text="Add" />
-                                                        <Button fx:id="addImageButton1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
-                                                        <Button fx:id="addImageButton11" layoutX="48.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                        <Button fx:id="addImageButton111" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
-                                                        <Button fx:id="addImageButton1111" layoutX="124.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
-                                                        <Button fx:id="addImageButton11111" layoutX="162.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
-                                                        <Button fx:id="addImageButton111111" layoutX="200.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+                                                        <Button fx:id="removeImageButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                        <Button fx:id="editImageButton" layoutX="48.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                        <Button fx:id="moveToBeginImageButton" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
+                                                        <Button fx:id="moveToLeftImageButton" layoutX="124.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
+                                                        <Button fx:id="moveToRightImageButton" layoutX="162.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
+                                                        <Button fx:id="moveToEndImageButton" layoutX="200.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
                                                     </children>
                                                 </HBox>
                                                 <TilePane fx:id="imagePane" prefHeight="585.0" prefWidth="600.0" />
@@ -142,7 +142,7 @@
                 </TabPane>
                 <HBox>
                     <children>
-                        <Label text="Error Message" textFill="#f20404">
+                        <Label fx:id="errorMessageLabel" text="Error Message" textFill="#f20404">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" />
                             </padding>
@@ -151,8 +151,8 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="657.0" spacing="10.0" VBox.vgrow="ALWAYS">
                     <children>
-                        <Button mnemonicParsing="false" text="OK" />
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel">
+                        <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
+                        <Button fx:id="cancelButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel">
                             <HBox.margin>
                                 <Insets right="10.0" />
                             </HBox.margin>
