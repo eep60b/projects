@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.presentation.menu.add.task.AddTaskEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.task.AddTaskDataModel;
+import com.etlsolutions.javafx.presentation.log.task.AddTaskDataModel;
 import com.etlsolutions.javafx.data.log.task.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,8 +20,8 @@ public class AddPlantsTaskEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         AddTaskDataModel taskModel = new AddTaskDataModel();
-        AddTaskEventHandler handler = new AddTaskEventHandler(taskModel);
-        handler.handle(event);
+//        AddTaskEventHandler handler = new AddTaskEventHandler(taskModel);
+//        handler.handle(event);
         Task issue = taskModel.getTask();
         model.getTasks().add(issue);
         model.setSelectedTask(issue);

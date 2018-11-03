@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.task;
+package com.etlsolutions.javafx.presentation.log.task;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,9 +7,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author zc
+ * @author Zhipeng
  */
-public class AddTaskFXMLController implements Initializable {
+public class PlantThinningFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.

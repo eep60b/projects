@@ -1,14 +1,13 @@
-package com.etlsolutions.javafx.presentation.menu.add.task;
-
-import com.etlsolutions.javafx.data.log.task.Task;
+package com.etlsolutions.javafx.presentation.log.task;
 
 /**
  *
  * @author zc
  */
-public class AddTaskDataModel {
+public class AddTaskDataModel extends AbstractTaskDataModel {
 
-    public Task getTask() {
+    @Override
+    public void save() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

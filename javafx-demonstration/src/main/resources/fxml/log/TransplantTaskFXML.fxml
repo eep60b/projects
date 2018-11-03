@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.log.task.TransplantTaskFXMLController">
+    <stylesheets>
+        <URL value="@/styles/log/transplanttaskfxml.css" />
+    </stylesheets>
+    
+    <children>
+        <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefHeight="17.0" prefWidth="80.0" text="From location:" />
+                  <Label fx:id="fromLocatoinLabel" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="443.0" text="LocatX" />
+                  <Button fx:id="addFromLocationButton" mnemonicParsing="false" text="Add" />
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+            <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="79.0" text="To location:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="toLocatoinLabel" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="444.0" text="LocatX" />
+                  <Button fx:id="editFromLocationButton" mnemonicParsing="false" text="Add" />
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.log.task.PlantThinningFXMLController">
+    <stylesheets>
+        <URL value="@/styles/log/plantthinningfxml.css" />
+    </stylesheets>
+        <children>
+        <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox fx:id="totalPlantNumberHBox" spacing="10.0">
+                    <children>
+                        <Label prefHeight="21.0" prefWidth="142.0" text="Total plant number:">
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding></Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="21.0" prefWidth="261.0" text="Thinning ratio:           Leave  one plant for every ">
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding></Label>
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="21.0" prefWidth="40.0" text="plants">
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding>
+                  </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </HBox>
+            <HBox layoutX="20.0" layoutY="51.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="140.0" text="Remaining plant number:">
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="thinningPlantRemainingLabel" layoutX="20.0" layoutY="10.0" prefHeight="21.0" prefWidth="430.0" text="1000" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets top="4.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

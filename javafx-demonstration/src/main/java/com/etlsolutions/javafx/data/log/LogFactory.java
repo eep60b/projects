@@ -127,7 +127,7 @@ public class LogFactory {
     }
 
     public ObservableListWrapperA<String> getDefaultFruitShapes() {
-        String[] types = {"Round"};
+        String[] types = {"Rounded", "Cylindrical", "Fflattened", "Heart shaped"};
 
         return new ObservableListWrapperA<>(types);
     }
