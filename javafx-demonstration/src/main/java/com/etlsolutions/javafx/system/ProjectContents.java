@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.system;
 
-import com.etlsolutions.javafx.data.other.GrowingFertiliser;
+import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
@@ -19,7 +19,7 @@ public class ProjectContents {
     private PlantGroupRoot plantsGroupRoot;
     private LogGroupRoot logGroupRoot;
     private ObservableListWrapperA<GrowingMedium> growingMediums;
-    private ObservableListWrapperA<GrowingFertiliser> growingFertilisers;
+    private ObservableListWrapperA<Fertiliser> fertilisers;
     
     private ObservableListWrapperA<String> locationReferencePoints;
     private ObservableListWrapperA<String> locationDirections;
@@ -28,6 +28,7 @@ public class ProjectContents {
     private ObservableListWrapperA<String> flowerColors;
     private ObservableListWrapperA<String> fruitShapes;
     private ObservableListWrapperA<String> fruitColors;
+    private ObservableListWrapperA<String> fertiliserUoms;
     
     public AreaRoot getAreaRoot() {
         return areaRoot;
@@ -65,12 +66,12 @@ public class ProjectContents {
         this.growingMediums = growingMediums;
     }
 
-    public ObservableListWrapperA<GrowingFertiliser> getGrowingFertilisers() {
-        return growingFertilisers;
+    public ObservableListWrapperA<Fertiliser> getFertilisers() {
+        return fertilisers;
     }
 
-    public void setGrowingFertilisers(ObservableListWrapperA<GrowingFertiliser> growingFertilisers) {
-        this.growingFertilisers = growingFertilisers;
+    public void setFertilisers(ObservableListWrapperA<Fertiliser> fertilisers) {
+        this.fertilisers = fertilisers;
     }
 
     public ObservableListWrapperA<String> getLocationReferencePoints() {
@@ -127,6 +128,14 @@ public class ProjectContents {
 
     public void setFruitColors(ObservableListWrapperA<String> fruitColors) {
         this.fruitColors = fruitColors;
+    }
+
+    public ObservableListWrapperA<String> getFertiliserUoms() {
+        return fertiliserUoms;
+    }
+
+    public void setFertiliserUoms(ObservableListWrapperA<String> fertiliserUoms) {
+        this.fertiliserUoms = fertiliserUoms;
     }
     
     

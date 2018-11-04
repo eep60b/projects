@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.system;
 
-import com.etlsolutions.javafx.data.other.GrowingFertiliser;
+import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.other.GrowingMedium;

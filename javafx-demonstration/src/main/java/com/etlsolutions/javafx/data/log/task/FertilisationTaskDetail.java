@@ -1,37 +1,40 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.other.Fertiliser;
+
 /**
  *
  * @author zc
  */
 public class FertilisationTaskDetail implements TaskDetail {
 
-    private int fertiliserId;
-    private double amount;
-    private String uom;
+    private final ValueWrapper<Fertiliser> fertiliser;
+    private final ValueWrapper<Double> amount;
+    private final ValueWrapper<String> uom;
 
-    public int getFertiliserId() {
-        return fertiliserId;
+    public FertilisationTaskDetail(Fertiliser fertiliser, double amount, String uom) {
+        this.fertiliser = new ValueWrapper<>(fertiliser);
+        this.amount = new ValueWrapper<>(amount);
+        this.uom = new ValueWrapper<>(uom);
     }
 
-    public void setFertiliserId(int fertiliserId) {
-        this.fertiliserId = fertiliserId;
+    public ValueWrapper<Fertiliser> getFertiliser() {
+        return fertiliser;
     }
 
-    public double getAmount() {
+    public ValueWrapper<Double> getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public String getUom() {
+    public ValueWrapper<String> getUom() {
         return uom;
     }
 
+  
+
     public void setUom(String uom) {
-        this.uom = uom;
+        this.uom.setValue(uom);
     }
 
     @Override

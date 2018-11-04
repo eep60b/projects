@@ -1,11 +1,13 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.task.CustomTaskDetail;
 import com.etlsolutions.javafx.data.log.task.FertilisationTaskDetail;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.log.task.TaskType;
+import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import java.time.LocalDateTime;
@@ -125,7 +127,8 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel {
             case CUSTOM:
                 return new CustomTaskDetailDataModel(new CustomTaskDetail());
             case FERTILZATION:
-                return new FertilizationTaskDetailDataModel(new FertilisationTaskDetail());
+                return new FertilizationTaskDetailDataModel(
+                        new FertilisationTaskDetail(FertiliserFactory.getInstance().getDefaultFertiliser(), 0.0, "growmore"));
             default:
                 return null;
         }

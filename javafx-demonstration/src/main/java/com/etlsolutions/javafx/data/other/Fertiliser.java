@@ -7,7 +7,7 @@ import java.util.Date;
  *
  * @author zc
  */
-public abstract class GrowingFertiliser extends DataUnit {
+public abstract class Fertiliser extends DataUnit {
 
   private String manufacturer = "Not specified";
   private String shop = "Not specified";
