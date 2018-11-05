@@ -20,7 +20,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public abstract class DataUnitFXMLDataModel implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable {
+public abstract class DataUnitFXMLDataModel implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";
@@ -110,6 +110,7 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
         setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) + 1));
     }
 
+    @Override
     public void remove(RemoveEventId id) {
         if (Objects.equals(id, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID)) {
             int index = imageLinks.indexOf(selectedImageLink);

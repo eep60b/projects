@@ -61,4 +61,9 @@ public class FertilizationTaskDetailDataModel extends TaskDetailDataModel<Fertil
             detail.getFertiliser().setValue(fertilisers.get(index));
         }
     }
+
+    @Override
+    public void save() {
+        ProjectManager.getInstance().getProject().getFertiliserUoms().add(detail.getUom().getValue());
+    }
 }

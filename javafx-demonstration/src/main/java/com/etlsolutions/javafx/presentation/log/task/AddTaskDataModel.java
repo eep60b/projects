@@ -14,6 +14,7 @@ public class AddTaskDataModel extends AbstractTaskDataModel {
         task = LogFactory.getInstance().createTask(title, information, imageLinks, logoPath, 
                 selectedType.getValue(), notifications, detailDataModel.getDetail());
         ProjectManager.getInstance().getProject().getLogGroupRoot().getTasks().addLog(task);
+        detailDataModel.save();
     }
     
 }

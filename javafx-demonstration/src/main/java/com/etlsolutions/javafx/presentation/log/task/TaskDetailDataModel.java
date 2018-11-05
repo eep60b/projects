@@ -2,14 +2,16 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.log.task.TaskDetail;
 import com.etlsolutions.javafx.data.log.task.TaskType;
+import com.etlsolutions.javafx.presentation.Removable;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
+import com.etlsolutions.javafx.presentation.Savable;
 
 /**
  *
  * @author Zhipeng
  * @param <T>
  */
-public abstract class TaskDetailDataModel <T extends TaskDetail> {
+public abstract class TaskDetailDataModel <T extends TaskDetail> implements Savable, Removable {
 
     protected final T detail;
 
@@ -27,5 +29,4 @@ public abstract class TaskDetailDataModel <T extends TaskDetail> {
         return detail;
     }
 
-    public abstract void remove(RemoveEventId id);
 }

@@ -1,40 +1,31 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+
 /**
  *
  * @author zc
  */
 public class PlantThinningTaskDetail implements TaskDetail {
-      private int totalPlants;
-  private int raminingPlants;
-  private int thinningRatio;
 
-    public int getTotalPlants() {
+    private final ValueWrapper<Integer> totalPlants;
+    private final ValueWrapper<Integer> thinningRatio;
+
+    public PlantThinningTaskDetail(int totalPlants, int thinningRatio) {
+        this.totalPlants = new ValueWrapper<>(totalPlants);
+        this.thinningRatio = new ValueWrapper<>(thinningRatio);
+    }
+
+    public ValueWrapper<Integer> getTotalPlants() {
         return totalPlants;
     }
-
-    public void setTotalPlants(int totalPlants) {
-        this.totalPlants = totalPlants;
-    }
-
-    public int getRaminingPlants() {
-        return raminingPlants;
-    }
-
-    public void setRaminingPlants(int raminingPlants) {
-        this.raminingPlants = raminingPlants;
-    }
     
-    public int getThinningRatio() {
+    public ValueWrapper<Integer> getThinningRatio() {
         return thinningRatio;
     }
 
-    public void setThinningRatio(int thinningRatio) {
-        this.thinningRatio = thinningRatio;
-    }
-  
-     @Override
+    @Override
     public TaskType getType() {
         return TaskType.PLANT_THINNING;
-    } 
+    }
 }
