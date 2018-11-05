@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.fertiliser.FertiliserFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.fertiliser.FertiliserFXMLController">
     <stylesheets>
-        <URL value="@/styles/other/fertiliserfxml.css"/>
+        <URL value="@/styles/other/fertiliserfxml.css" />
     </stylesheets>
         <children>
         <VBox>
@@ -32,17 +32,17 @@
                                             <children>
                                                 <HBox spacing="10.0">
                                                     <children>
-                                                        <Label prefHeight="20.0" prefWidth="28.0" text="Title:">
+                                                        <Label prefHeight="20.0" prefWidth="95.0" text="Title:">
                                                             <padding>
                                                                 <Insets top="3.0" />
                                                             </padding>
                                                         </Label>
-                                                        <TextField fx:id="titleTextField" HBox.hgrow="ALWAYS" />
+                                                        <TextField fx:id="titleTextField" prefHeight="25.0" prefWidth="478.0" HBox.hgrow="ALWAYS" />
                                                     </children>
                                                 </HBox>
                                                 <HBox spacing="10.0">
                                                     <children>
-                                                        <Label prefHeight="20.0" prefWidth="28.0" text="Manufacturer:">
+                                                        <Label prefHeight="20.0" prefWidth="95.0" text="Manufacturer:">
                                                             <padding>
                                                                 <Insets top="3.0" />
                                                             </padding>
@@ -50,14 +50,13 @@
                                                         <TextField fx:id="manufacturerTextField" HBox.hgrow="ALWAYS" />
                                                     </children>
                                                 </HBox>
-                                                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                                <HBox fx:id="puchaseDateHBox" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                                     <children>
-                                                        <Label prefHeight="20.0" prefWidth="30.0" text="Type">
+                                                        <Label prefHeight="20.0" prefWidth="95.0" text="Date purchased:">
                                                             <padding>
                                                                 <Insets top="3.0" />
                                                             </padding>
                                                         </Label>
-                                                        <ComboBox fx:id="typeComboBox" prefHeight="25.0" prefWidth="546.0" />
                                                     </children>
                                                 </HBox>
                                                 <Label text="Information" />
@@ -72,61 +71,289 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab fx:id="majorNutritionTab" text="Major nutritions" />
-                        <Tab text="Trace elements">
-                            <content>
-                                <VBox layoutX="137.0" layoutY="34.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <HBox fx:id="startTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Start Time:">
-                                                    <padding>
-                                                        <Insets top="3.0" />
-                                                    </padding>
-                                                </Label>
-                                            </children>
-                                        </HBox>
-                                        <HBox fx:id="endTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
-                                            <children>
-                                                <Label text="End Time:">
-                                                    <padding>
-                                                        <Insets top="3.0" />
-                                                    </padding>
-                                                </Label>
-                                            </children>
-                                        </HBox>
-                              <HBox fx:id="endTimeHbox1" layoutX="20.0" layoutY="50.0" spacing="10.0">
+                        <Tab fx:id="majorNutritionTab" text="Major nutritions">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                           <children>
+                              <HBox spacing="10.0">
                                  <children>
-                                    <CheckBox fx:id="repeatYearlyCheckBox" mnemonicParsing="false" text="Repeat yearly" />
+                                    <CheckBox fx:id="nitrogenCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="129.0" text="Nitrogen (N)">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="nitrogenTexField" prefHeight="25.0" prefWidth="79.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </VBox.margin>
                               </HBox>
-                                        <HBox fx:id="notificationHbox" layoutX="20.0" layoutY="50.0" spacing="10.0">
-                                            <children>
-                                                <Label text="Notifictions">
-                                                    <padding>
-                                                        <Insets top="3.0" />
-                                                    </padding>
-                                                </Label>
-                                    <Button fx:id="addNotificationButton" mnemonicParsing="false" text="add" />
-                                    <Button fx:id="editNotificationButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" text="edit" />
-                                    <Button fx:id="removeNotificationButton" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="remove" />
-                                            </children>
-                                        </HBox>
-                                        <ScrollPane prefHeight="459.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
-                                            <content>
-                                                <ListView fx:id="notificationListView" prefHeight="457.0" prefWidth="576.0" />
-                                            </content>
-                                        </ScrollPane>
-                                    </children>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                    <padding>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                    </padding>
-                                </VBox>
-                            </content>
-                        </Tab>
+                              <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="phosphorusCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="127.0" text="Phosphorus (P):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="phosphorusTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="45.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="potassiumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Potassium (K):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="potassiumTexField" prefHeight="25.0" prefWidth="79.0">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="70.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="sulphurCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Sulphur (S):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="sulphurTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="95.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="calciumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Calcium (Ca):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="calciumTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="120.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="magnusiumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="124.0" text="Magnesium (Mg):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="magnusiumTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content></Tab>
+                  <Tab fx:id="majorNutritionTab1" text="Minor Nutrients and Ph">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                           <children>
+                              <HBox layoutX="10.0" layoutY="120.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="aluminiumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Aluminium (Al):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="aluminiumTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="boronCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Boron (B):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="boronTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="95.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="chlorineCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Chlorine (Cl):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="chlorineTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="230.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="cobaltCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Cobalt (Cr):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="cobaltTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="copperCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Copper (Cu):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="copperTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="45.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="ironCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Iron (Fe):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="ironTexField" prefHeight="25.0" prefWidth="79.0">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="265.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="mangansesCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Manganses (Mn):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="mangansesTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="70.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="molybdenumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Molybdenum (Mo):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="molybdenumTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="300.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="nickelCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Nickel (Ni):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="nickelTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="335.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="seleniumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text=" Selenium (Se):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="seleniumTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="405.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="sodiumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Sodium (Na):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="sodiumTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="370.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="vanadiumCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Vanadium (V):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="vanadiumTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="440.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="zincCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Zinc (Zn):">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="zincTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="20.0" layoutY="195.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="phCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="PH:">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="phTexField" prefHeight="25.0" prefWidth="79.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
                         <Tab text="Images">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
