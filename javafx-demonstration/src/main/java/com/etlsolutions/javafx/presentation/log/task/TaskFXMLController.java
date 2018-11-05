@@ -1,35 +1,27 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.log.Notification;
-import com.etlsolutions.javafx.data.log.gvent.GventType;
+import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.ComponentsFXMLControllerNodeWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel;
-import static com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.NOTIFICATION_REMOVE_EVENT_ID;
+import static com.etlsolutions.javafx.presentation.log.task.AbstractTaskDataModel.*;
 import static com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_NOTIFICATION_PROPERTY;
 import static com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_TYPE_PROPERTY;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.AddGventNotificationEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.EditGventNotificationEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.EndTimeChangeAdapter;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.GventDetailDataModel;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.GventTypeSelectionAdapter;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.NotificationListChangeAdapter;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.SelectedNotificationChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.AddNotificationEventHandler;
+import com.etlsolutions.javafx.presentation.log.EditNotificationEventHandler;
+import com.etlsolutions.javafx.presentation.log.NotificationListChangeAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.SelectedNotificationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.SelectedTypePropertyAdapter;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.StartTimeChangeAdapter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -51,7 +43,7 @@ import org.apache.log4j.Logger;
  *
  * @author zc
  */
-public class AddTaskFXMLController extends DataUnitFXMLController<AbstractGventDataModel> {
+public class TaskFXMLController extends DataUnitFXMLController<AbstractTaskDataModel> {
 
     @FXML
     private TextField titleTextField;
@@ -96,7 +88,7 @@ public class AddTaskFXMLController extends DataUnitFXMLController<AbstractGventD
     private TabPane mainTabPane;
 
     @FXML
-    private ComboBox<GventType> typeComboBox;
+    private ComboBox<TaskType> typeComboBox;
 
     @FXML
     private Tab detailTab;
@@ -122,16 +114,16 @@ public class AddTaskFXMLController extends DataUnitFXMLController<AbstractGventD
     @FXML
     private Button removeNotificationButton;    
 
-    private final Map<GventType, ComponentsFXMLControllerNodeWrapper<GventDetailDataModel>> map = new HashMap<>();
+    private final Map<TaskType, ComponentsFXMLControllerNodeWrapper<TaskDetailDataModel>> map = new HashMap<>();
 
     @Override
     public void initializeComponents() {
         try {
-            for (GventType type : GventType.values()) {
-                if (type != GventType.CUSTOM) {
+            for (TaskType type : TaskType.values()) {
+                if (type != TaskType.CUSTOM) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getDetailDataModel(type).getFxmlPath()));
                     Node node = (AnchorPane) loader.load();
-                    AbstractComponentsFXMLController<GventDetailDataModel> controller = loader.getController();
+                    AbstractComponentsFXMLController<TaskDetailDataModel> controller = loader.getController();
                     controller.setModel(model.getDetailDataModel(type));
                     controller.initializeComponents();
                     map.put(type, new ComponentsFXMLControllerNodeWrapper<>(controller, node));
@@ -141,21 +133,21 @@ public class AddTaskFXMLController extends DataUnitFXMLController<AbstractGventD
             initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
             DateTimePicker startTimePicker = new DateTimePicker();
-            startTimePicker.setDateTimeValue(model.getStartTime());
+            startTimePicker.setDateTimeValue(model.getStartTime().getValue());
             DateTimePicker endTimePicker = new DateTimePicker();
-            endTimePicker.setDateTimeValue(model.getEndTime());
+            endTimePicker.setDateTimeValue(model.getEndTime().getValue());
             startTimeHbox.getChildren().add(startTimePicker);
             endTimeHbox.getChildren().add(endTimePicker);
 
             typeComboBox.setItems(model.getTypes());
-            GventType type = model.getSelectedType();
+            TaskType type = model.getSelectedType().getValue();
             typeComboBox.getSelectionModel().select(type);
             switch (type) {
                 case CUSTOM:
                     mainTabPane.getTabs().remove(detailTab);
                     break;
-                case FLOWERING:
-                case FRUITING:
+                case FERTILZATION:
+                case HARVESTING:
                     if (!mainTabPane.getTabs().contains(detailTab)) {
                         mainTabPane.getTabs().add(1, detailTab);
                     }
@@ -167,23 +159,23 @@ public class AddTaskFXMLController extends DataUnitFXMLController<AbstractGventD
             
             notificationListView.setItems(model.getNotifications());
             notificationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-            notificationListView.getSelectionModel().select(model.getSelectedNotification());
+            notificationListView.getSelectionModel().select(model.getSelectedNotification().getValue());
             
             boolean hasNoSelectedNotification = model.getSelectedNotification() == null;
             editNotificationButton.setDisable(hasNoSelectedNotification);
             removeNotificationButton.setDisable(hasNoSelectedNotification);
             
             //Add listeners to components
-            startTimePicker.dateTimeValueProperty().addListener(new StartTimeChangeAdapter(model));
-            endTimePicker.dateTimeValueProperty().addListener(new EndTimeChangeAdapter(model));
-            typeComboBox.getSelectionModel().selectedItemProperty().addListener(new GventTypeSelectionAdapter(model));
-            notificationListView.getSelectionModel().selectedItemProperty().addListener(new SelectedNotificationChangeAdapter(model));
-            addNotificationButton.setOnAction(new AddGventNotificationEventHandler(model));
-            editNotificationButton.setOnAction(new EditGventNotificationEventHandler(model));
+            startTimePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getStartTime()));
+            endTimePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getEndTime()));
+            typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedType()));
+            notificationListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedNotification()));
+            addNotificationButton.setOnAction(new AddNotificationEventHandler(model));
+            editNotificationButton.setOnAction(new EditNotificationEventHandler(model));
             removeNotificationButton.setOnAction(new RemoveEventHandler(model, NOTIFICATION_REMOVE_EVENT_ID));
             
             //Add losteners to data model.
-            model.addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new SelectedTypePropertyAdapter(mainTabPane, detailTab, map));
+            model.getSelectedType().addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new SelectedTaskTypePropertyAdapter(mainTabPane, detailTab, map));
             model.getNotifications().addListener(new NotificationListChangeAdapter(model, notificationListView));
             model.addPropertyChangeListener(SELECTED_NOTIFICATION_PROPERTY, new SelectedNotificationPropertyChangeAdapter(notificationListView, editNotificationButton, removeNotificationButton));
 

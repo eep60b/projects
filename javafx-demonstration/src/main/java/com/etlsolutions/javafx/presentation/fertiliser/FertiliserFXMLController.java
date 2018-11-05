@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.log.task;
+package com.etlsolutions.javafx.presentation.fertiliser;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,9 +7,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author Zhipeng
+ * @author zc
  */
-public class HarvestingTaskFXMLController implements Initializable {
+public class FertiliserFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.

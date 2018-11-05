@@ -12,6 +12,7 @@ import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
 import com.etlsolutions.javafx.data.log.LogFactory;
+import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -75,6 +76,7 @@ public final class ProjectManager {
             contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
             contents.setFlowerTypes(LogFactory.getInstance().getDefaultFlowerTypes());
             contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
+            contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
         } else {
             //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
@@ -87,6 +89,7 @@ public final class ProjectManager {
             contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
             contents.setFruitShapes(LogFactory.getInstance().getDefaultFruitShapes());
             contents.setFruitColors(LogFactory.getInstance().getDefaultFruitColors());
+            contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());            
         }
 
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());

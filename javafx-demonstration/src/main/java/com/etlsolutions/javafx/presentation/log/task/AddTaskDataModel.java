@@ -1,5 +1,8 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
+import com.etlsolutions.javafx.data.log.LogFactory;
+import com.etlsolutions.javafx.system.ProjectManager;
+
 /**
  *
  * @author zc
@@ -8,7 +11,9 @@ public class AddTaskDataModel extends AbstractTaskDataModel {
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        task = LogFactory.getInstance().createTask(title, information, imageLinks, logoPath, 
+                selectedType.getValue(), notifications, detailDataModel.getDetail());
+        ProjectManager.getInstance().getProject().getLogGroupRoot().getTasks().addLog(task);
     }
     
 }

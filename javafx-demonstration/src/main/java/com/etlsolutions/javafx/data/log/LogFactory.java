@@ -3,6 +3,9 @@ package com.etlsolutions.javafx.data.log;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.gvent.Gvents;
+import com.etlsolutions.javafx.data.log.task.Task;
+import com.etlsolutions.javafx.data.log.task.TaskDetail;
+import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.data.log.task.Tasks;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
 import java.time.LocalDateTime;
@@ -136,5 +139,9 @@ public class LogFactory {
         String[] types = {"Red", "White", "Yellow", "Blue", "Purple", "Pink", "Orange"};
 
         return new ObservableListWrapperA<>(types);
+    }
+
+    public Task createTask(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, String logoPath, TaskType value, ObservableListWrapperA<Notification> notifications, TaskDetail detail) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

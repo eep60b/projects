@@ -10,12 +10,12 @@ import com.etlsolutions.javafx.data.other.Fertiliser;
 public class FertilisationTaskDetail implements TaskDetail {
 
     private final ValueWrapper<Fertiliser> fertiliser;
-    private final ValueWrapper<Double> amount;
+    private final ValueWrapper<String> amount;
     private final ValueWrapper<String> uom;
 
     public FertilisationTaskDetail(Fertiliser fertiliser, double amount, String uom) {
         this.fertiliser = new ValueWrapper<>(fertiliser);
-        this.amount = new ValueWrapper<>(amount);
+        this.amount = new ValueWrapper<>(String.valueOf(amount));
         this.uom = new ValueWrapper<>(uom);
     }
 
@@ -23,7 +23,7 @@ public class FertilisationTaskDetail implements TaskDetail {
         return fertiliser;
     }
 
-    public ValueWrapper<Double> getAmount() {
+    public ValueWrapper<String> getAmount() {
         return amount;
     }
 

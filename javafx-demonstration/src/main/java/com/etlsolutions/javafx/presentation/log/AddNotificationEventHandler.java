@@ -1,6 +1,7 @@
-package com.etlsolutions.javafx.presentation.menu.add.gvent;
+package com.etlsolutions.javafx.presentation.log;
 
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.javafx.presentation.log.Notifiable;
 import com.etlsolutions.javafx.presentation.log.NotificationDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,11 +10,11 @@ import javafx.event.EventHandler;
  *
  * @author zc
  */
-public class AddGventNotificationEventHandler implements EventHandler<ActionEvent> {
+public class AddNotificationEventHandler implements EventHandler<ActionEvent> {
 
-    private final AbstractGventDataModel model;
+    private final Notifiable model;
 
-    public AddGventNotificationEventHandler(AbstractGventDataModel model) {
+    public AddNotificationEventHandler(Notifiable model) {
         
         this.model = model;
     }

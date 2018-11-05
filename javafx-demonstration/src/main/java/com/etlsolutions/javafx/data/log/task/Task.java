@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.Notification;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  *
  * @author zc
  */
-public abstract class Task {
+public abstract class Task extends Log {
 
     private List<Notification> notifications;
     

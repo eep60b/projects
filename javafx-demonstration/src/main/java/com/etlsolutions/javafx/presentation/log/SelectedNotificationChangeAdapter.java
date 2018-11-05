@@ -1,6 +1,7 @@
-package com.etlsolutions.javafx.presentation.menu.add.gvent;
+package com.etlsolutions.javafx.presentation.log;
 
 import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -18,6 +19,6 @@ public class SelectedNotificationChangeAdapter implements ChangeListener<Notific
 
     @Override
     public void changed(ObservableValue<? extends Notification> observable, Notification oldValue, Notification newValue) {
-        model.setSelectedNotification(newValue);
+        model.getSelectedNotification().setValue(newValue);
     }
 }

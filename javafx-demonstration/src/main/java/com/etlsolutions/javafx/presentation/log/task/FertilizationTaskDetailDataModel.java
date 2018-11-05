@@ -4,7 +4,9 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.FertilisationTaskDetail;
 import com.etlsolutions.javafx.data.other.Fertiliser;
+import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectManager;
+import java.util.Objects;
 
 /**
  *
@@ -12,56 +14,51 @@ import com.etlsolutions.javafx.system.ProjectManager;
  */
 public class FertilizationTaskDetailDataModel extends TaskDetailDataModel<FertilisationTaskDetail> {
 
+    public static final RemoveEventId FERTILISER_REMOVE_EVENT_ID = new RemoveEventId(AbstractTaskDataModel.class.getName() + "FERTILISER_REMOVE_EVENT_ID", "remove fertiliser");
+
     private final ObservableListWrapperA<Fertiliser> fertilisers;
-    private final ValueWrapper<Fertiliser> selectedFertiliser;
-    private final ValueWrapper<Double> amount;
     private final ObservableListWrapperA<String> uoms;
-    private final ValueWrapper<String> selectedUom;
-    
+
     public FertilizationTaskDetailDataModel(FertilisationTaskDetail fertilisationTaskDetail) {
-        
+
         super(fertilisationTaskDetail);
         fertilisers = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFertilisers());
-        selectedFertiliser = fertilisationTaskDetail.getFertiliser();
-        amount = fertilisationTaskDetail.getAmount();
         uoms = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFertiliserUoms());
-        selectedUom = fertilisationTaskDetail.getUom();
     }
 
     public ObservableListWrapperA<Fertiliser> getFertilisers() {
         return fertilisers;
     }
 
-    public Fertiliser getSelectedFertiliser() {
-        return selectedFertiliser.getValue();
+    public ValueWrapper<Fertiliser> getSelectedFertiliser() {
+        return detail.getFertiliser();
     }
 
-    public void setSelectedFertiliser(Fertiliser selectedFertiliser) {
-        this.selectedFertiliser.setValue(selectedFertiliser);
-    }
-
-    public String getAmount() {
-        return String.valueOf(amount.getValue());
-    }
-
-    public void setAmount(String amount) {
-        this.amount.setValue(Double.parseDouble(amount));
+    public ValueWrapper<String> getAmount() {
+        return detail.getAmount();
     }
 
     public ObservableListWrapperA<String> getUoms() {
         return uoms;
     }
 
-    public String getSelectedUom() {
-        return selectedUom.getValue();
-    }
-
-    public void setSelectedUom(String selectedUom) {
-        this.selectedUom.setValue(selectedUom);
+    public ValueWrapper<String> getSelectedUom() {
+        return detail.getUom();
     }
 
     @Override
     public String getFxmlPath() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "/fxml/log/FertilisationTaskFXML.fxml";
+    }
+
+    @Override
+    public void remove(RemoveEventId id) {
+        if (Objects.equals(id, FERTILISER_REMOVE_EVENT_ID)) {
+            
+            int index = fertilisers.indexOf(detail.getFertiliser());
+            fertilisers.remove(index);
+            index = index == fertilisers.size() ? index - 1 : index;
+            detail.getFertiliser().setValue(fertilisers.get(index));
+        }
     }
 }

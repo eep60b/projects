@@ -9,11 +9,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.log.task.TaskFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.fertiliser.FertiliserFXMLController">
     <stylesheets>
-        <URL value="@/styles/log/taskfxml.css" />
+        <URL value="@/styles/other/fertiliserfxml.css"/>
     </stylesheets>
-    <children>
+        <children>
         <VBox>
             <children>
                 <TabPane fx:id="mainTabPane" prefHeight="622.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -32,12 +32,22 @@
                                             <children>
                                                 <HBox spacing="10.0">
                                                     <children>
-                                                        <Label prefHeight="20.0" prefWidth="28.0" text="Title">
+                                                        <Label prefHeight="20.0" prefWidth="28.0" text="Title:">
                                                             <padding>
                                                                 <Insets top="3.0" />
                                                             </padding>
                                                         </Label>
                                                         <TextField fx:id="titleTextField" HBox.hgrow="ALWAYS" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="10.0">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="28.0" text="Manufacturer:">
+                                                            <padding>
+                                                                <Insets top="3.0" />
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="manufacturerTextField" HBox.hgrow="ALWAYS" />
                                                     </children>
                                                 </HBox>
                                                 <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
@@ -62,8 +72,8 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab fx:id="detailTab" text="Details" />
-                        <Tab text="Time">
+                        <Tab fx:id="majorNutritionTab" text="Major nutritions" />
+                        <Tab text="Trace elements">
                             <content>
                                 <VBox layoutX="137.0" layoutY="34.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
@@ -85,11 +95,11 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <HBox fx:id="endTimeHbox1" layoutX="20.0" layoutY="50.0" spacing="10.0">
-                                            <children>
-                                    <ComboBox fx:id="repeatComboBox" prefHeight="34.0" prefWidth="221.0" />
-                                            </children>
-                                        </HBox>
+                              <HBox fx:id="endTimeHbox1" layoutX="20.0" layoutY="50.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="repeatYearlyCheckBox" mnemonicParsing="false" text="Repeat yearly" />
+                                 </children>
+                              </HBox>
                                         <HBox fx:id="notificationHbox" layoutX="20.0" layoutY="50.0" spacing="10.0">
                                             <children>
                                                 <Label text="Notifictions">
@@ -97,9 +107,9 @@
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
-                                                <Button fx:id="addNotificationButton" mnemonicParsing="false" text="add" />
-                                                <Button fx:id="editNotificationButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" text="edit" />
-                                                <Button fx:id="removeNotificationButton" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="remove" />
+                                    <Button fx:id="addNotificationButton" mnemonicParsing="false" text="add" />
+                                    <Button fx:id="editNotificationButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" text="edit" />
+                                    <Button fx:id="removeNotificationButton" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="remove" />
                                             </children>
                                         </HBox>
                                         <ScrollPane prefHeight="459.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">

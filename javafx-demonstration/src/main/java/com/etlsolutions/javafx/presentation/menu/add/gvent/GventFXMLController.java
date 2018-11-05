@@ -1,5 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
+import com.etlsolutions.javafx.presentation.log.SelectedNotificationChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.NotificationListChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.AddNotificationEventHandler;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
@@ -7,6 +10,7 @@ import com.etlsolutions.javafx.presentation.ComponentsFXMLControllerNodeWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
+import com.etlsolutions.javafx.presentation.log.EditNotificationEventHandler;
 import static com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.*;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
@@ -151,7 +155,7 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
             
             notificationListView.setItems(model.getNotifications());
             notificationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-            notificationListView.getSelectionModel().select(model.getSelectedNotification());
+            notificationListView.getSelectionModel().select(model.getSelectedNotification().getValue());
             
             boolean hasNoSelectedNotification = model.getSelectedNotification() == null;
             editNotificationButton.setDisable(hasNoSelectedNotification);
@@ -162,8 +166,8 @@ public class GventFXMLController extends DataUnitFXMLController<AbstractGventDat
             endTimePicker.dateTimeValueProperty().addListener(new EndTimeChangeAdapter(model));
             typeComboBox.getSelectionModel().selectedItemProperty().addListener(new GventTypeSelectionAdapter(model));
             notificationListView.getSelectionModel().selectedItemProperty().addListener(new SelectedNotificationChangeAdapter(model));
-            addNotificationButton.setOnAction(new AddGventNotificationEventHandler(model));
-            editNotificationButton.setOnAction(new EditGventNotificationEventHandler(model));
+            addNotificationButton.setOnAction(new AddNotificationEventHandler(model));
+            editNotificationButton.setOnAction(new EditNotificationEventHandler(model));
             removeNotificationButton.setOnAction(new RemoveEventHandler(model, NOTIFICATION_REMOVE_EVENT_ID));
             
             //Add losteners to data model.

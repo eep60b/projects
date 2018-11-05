@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.javafx.presentation.log.Notifiable;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;
@@ -25,8 +26,8 @@ public class SelectedNotificationPropertyChangeAdapter implements PropertyChange
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         
-        AbstractGventDataModel model = (AbstractGventDataModel) evt.getSource();
-        Notification n = model.getSelectedNotification();
+        Notifiable model = (Notifiable) evt.getSource();
+        Notification n = model.getSelectedNotification().getValue();
         notificationListView.getSelectionModel().select(n);
         editNotificationButton.setDisable(n == null);
         removeNotificationButton.setDisable(n == null);

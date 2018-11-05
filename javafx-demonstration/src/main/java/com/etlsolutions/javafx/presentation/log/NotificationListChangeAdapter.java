@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.menu.add.gvent;
+package com.etlsolutions.javafx.presentation.log;
 
 import com.etlsolutions.javafx.data.log.Notification;
 import javafx.collections.ListChangeListener;
@@ -10,10 +10,10 @@ import javafx.scene.control.ListView;
  */
 public class NotificationListChangeAdapter implements ListChangeListener<Notification> {
 
-    private final AbstractGventDataModel model;
+    private final Notifiable model;
     private final ListView<Notification> notificationListView;
 
-    public NotificationListChangeAdapter(AbstractGventDataModel model, ListView<Notification> notificationListView) {
+    public NotificationListChangeAdapter(Notifiable model, ListView<Notification> notificationListView) {
         this.model = model;
         this.notificationListView = notificationListView;
     }

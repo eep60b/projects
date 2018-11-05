@@ -5,7 +5,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.Notification;
 import java.time.LocalDateTime;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**

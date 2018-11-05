@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.log.task.TaskDetail;
 import com.etlsolutions.javafx.data.log.task.TaskType;
+import com.etlsolutions.javafx.presentation.RemoveEventId;
 
 /**
  *
@@ -25,4 +26,6 @@ public abstract class TaskDetailDataModel <T extends TaskDetail> {
     public T getDetail() {
         return detail;
     }
+
+    public abstract void remove(RemoveEventId id);
 }

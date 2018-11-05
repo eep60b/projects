@@ -39,9 +39,9 @@
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="addAreaMenuItem" mnemonicParsing="false" text="Add an area" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Add an event" />
+                        <MenuItem fx:id="addGventMenuItem" mnemonicParsing="false" text="Add an event" />
                         <MenuItem fx:id="addIssueMenuItem" mnemonicParsing="false" text="Add an Issue Record" />
-                        <MenuItem mnemonicParsing="false" text="Add a note" />
+                        <MenuItem fx:id="addNoteMenuItem" mnemonicParsing="false" text="Add a note" />
                         <MenuItem fx:id="addReferenceMenuItem" mnemonicParsing="false" text="Add a reference" />
                         <MenuItem fx:id="addTaskMenuItem" mnemonicParsing="false" text="Add a task" />
                         <MenuItem fx:id="addWeatherRecordMenuItem" mnemonicParsing="false" text="Add a weather record" />
