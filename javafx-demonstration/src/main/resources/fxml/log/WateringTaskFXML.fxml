@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.log.task.WateringTaskFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.task.WateringTaskFXMLController">
     <stylesheets>
         <URL value="@/styles/log/wateringtaskfxml.css" />
     </stylesheets>
@@ -17,14 +17,53 @@
             <children>
                 <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                     <children>
-                        <Label text="Amount:" />
-                  <TextField fx:id="fertiliserAmountTextField" prefHeight="25.0" prefWidth="356.0" />
-                  <ComboBox fx:id="wateringUomComboBox" prefHeight="25.0" prefWidth="155.0" />
+                  <RadioButton fx:id="useWaterCanRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="100.0" text="Use water can">
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <TextField fx:id="fertiliserAmountTextField" prefHeight="25.0" prefWidth="86.0" />
+                  <ComboBox fx:id="useWaterCanComboBox" prefHeight="25.0" prefWidth="83.0" />
+                  <RadioButton fx:id="tapWaterRadioButton" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="81.0" text="Tap water">
+                     <HBox.margin>
+                        <Insets left="30.0" top="4.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="rainWaterRadioButton" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="119.0" text="Rain water">
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </RadioButton>
                     </children>
                     <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
+            <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+               <children>
+                  <RadioButton fx:id="useHoseCanRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="97.0" text="Use hose">
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <TextField fx:id="fertiliserAmountTextField1" prefHeight="25.0" prefWidth="87.0" />
+                  <ComboBox fx:id="useWHoseComboBox" prefHeight="25.0" prefWidth="83.0" />
+                  <Label layoutX="406.0" layoutY="10.0" text="Duration:">
+                     <HBox.margin>
+                        <Insets left="20.0" top="4.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="fertiliserAmountTextField11" layoutX="113.0" layoutY="10.0" prefHeight="25.0" prefWidth="76.0" />
+                  <Label text="Minutes">
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
             </children>
         </VBox>
     </children>

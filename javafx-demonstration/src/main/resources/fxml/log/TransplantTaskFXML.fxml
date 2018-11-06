@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.log.task.TransplantTaskFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.task.TransplantTaskFXMLController">
     <stylesheets>
         <URL value="@/styles/log/transplanttaskfxml.css" />
     </stylesheets>
@@ -16,10 +16,15 @@
     <children>
         <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
+            <Label text="From:">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
                 <HBox spacing="10.0">
                     <children>
-                        <Label prefHeight="17.0" prefWidth="80.0" text="From location:" />
-                        <ComboBox fx:id="fromAreaComboBox" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="443.0" />
+                        <Label prefHeight="17.0" prefWidth="55.0" text="Area:" />
+                        <ComboBox fx:id="fromAreaComboBox" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="420.0" />
                         <Button fx:id="addFromAreaButton" mnemonicParsing="false" text="Add" />
                         <Button fx:id="editFromAreaButton" mnemonicParsing="false" text="Edit" />               
                     </children>
@@ -29,8 +34,8 @@
                 </HBox>
                 <HBox spacing="10.0">
                     <children>
-                        <Label prefHeight="17.0" prefWidth="80.0" text="From location:" />
-                        <ComboBox fx:id="fromSubAreaComboBox" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="443.0" />
+                        <Label prefHeight="17.0" prefWidth="55.0" text="Area part:" />
+                        <ComboBox fx:id="fromSubAreaComboBox" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="420.0" />
                         <Button fx:id="addFromSubAreaButton" mnemonicParsing="false" text="Add" />
                         <Button fx:id="editFromSubAreaButton" mnemonicParsing="false" text="Edit" />                
                     </children>
@@ -40,8 +45,8 @@
                 </HBox>
                 <HBox spacing="10.0">
                     <children>
-                        <Label prefHeight="17.0" prefWidth="80.0" text="From location:" />
-                        <ComboBox fx:id="fromLocatoinComboBox" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="443.0" />
+                        <Label prefHeight="17.0" prefWidth="55.0" text="Location:" />
+                        <ComboBox fx:id="fromLocatoinComboBox" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="420.0" />
                         <Button fx:id="addFromLocationButton" mnemonicParsing="false" text="Add" />
                         <Button fx:id="editFromLocationButton" mnemonicParsing="false" text="Edit" />              
                     </children>
@@ -49,38 +54,43 @@
                         <Insets left="10.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
+            <Label layoutX="20.0" layoutY="20.0" text="To:">
+               <VBox.margin>
+                  <Insets left="10.0" top="50.0" />
+               </VBox.margin>
+            </Label>
                 <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                     <children>
-                        <Label prefHeight="17.0" prefWidth="79.0" text="To location:">
+                        <Label prefHeight="17.0" prefWidth="55.0" text="Area:">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="toAreaComboBox" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="444.0" />
+                        <ComboBox fx:id="toAreaComboBox" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="420.0" />
                         <Button fx:id="addToAreaButton" mnemonicParsing="false" text="Add" />
                         <Button fx:id="editToAreaButton" mnemonicParsing="false" text="Edit" />
                     </children>
                 </HBox>
                                 <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                     <children>
-                        <Label prefHeight="17.0" prefWidth="79.0" text="To location:">
+                        <Label prefHeight="17.0" prefWidth="55.0" text="Area part:">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="toSubAreaComBox" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="444.0" />
+                        <ComboBox fx:id="toSubAreaComBox" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="420.0" />
                         <Button fx:id="addToSubAreaButton" mnemonicParsing="false" text="Add" />
                         <Button fx:id="editToSubAreaButton" mnemonicParsing="false" text="Edit" />
                     </children>
                 </HBox>                                
                 <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                     <children>
-                        <Label prefHeight="17.0" prefWidth="79.0" text="To location:">
+                        <Label prefHeight="17.0" prefWidth="55.0" text="Location">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>
                         </Label>
-                        <ComboBox fx:id="toLocatoinComboBox" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="444.0" />
+                        <ComboBox fx:id="toLocatoinComboBox" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="420.0" />
                         <Button fx:id="addToLocationButton" mnemonicParsing="false" text="Add" />
                         <Button fx:id="editToLocationButton" mnemonicParsing="false" text="Edit" />
                     </children>
