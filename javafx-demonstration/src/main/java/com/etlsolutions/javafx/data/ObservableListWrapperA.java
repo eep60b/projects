@@ -41,4 +41,13 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
         super(new ArrayList<E>(), extractor);
         addAll(list);
     }
+    
+    public E removeAndGetNext(E e) {
+        
+        int index = indexOf(e);
+        remove(e);
+        index = index == size() ? index - 1 : index;
+        
+        return index == -1 ? null : get(index);
+    }
 }

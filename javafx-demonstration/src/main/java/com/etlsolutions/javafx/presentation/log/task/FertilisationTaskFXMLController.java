@@ -15,7 +15,7 @@ import javafx.scene.control.TextFormatter;
  *
  * @author Zhipeng
  */
-public class FertilisationTaskFXMLController extends AbstractComponentsFXMLController<FertilizationTaskDetailDataModel> {
+public class FertilisationTaskFXMLController extends AbstractComponentsFXMLController<FertilisationTaskDetailDataModel> {
 
     @FXML
     private ComboBox<Fertiliser> fertiliserComboBox;

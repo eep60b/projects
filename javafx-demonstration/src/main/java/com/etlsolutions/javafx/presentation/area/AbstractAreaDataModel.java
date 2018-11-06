@@ -7,6 +7,7 @@ import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.Getable;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import java.util.Objects;
 import javafx.collections.ObservableList;
@@ -15,7 +16,7 @@ import javafx.collections.ObservableList;
  *
  * @author Zhipeng
  */
-public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
+public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel implements Getable<Area> {
 
     public static final String LONGITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LONGITUDE_PROPERTY";
     public static final String LATITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LATITUDE_PROPERTY";
@@ -45,7 +46,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel {
         selectedSubArea = subAreas.isEmpty() ? null : subAreas.get(0);
     }
 
-    public Area getArea() {
+    public Area get() {
         return area;
     }
 

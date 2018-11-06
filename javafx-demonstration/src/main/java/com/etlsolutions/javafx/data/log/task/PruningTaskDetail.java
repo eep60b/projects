@@ -8,19 +8,25 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  */
 public class PruningTaskDetail implements TaskDetail {
 
-    private final ValueWrapper<Integer> overAllPercentageTaken;
+    private final ValueWrapper<String> orverallRemoved;
+    private final ValueWrapper<String> eachBranchRemoved;
 
-    public PruningTaskDetail(ValueWrapper<Integer> overAllPercentageTaken) {
-        this.overAllPercentageTaken = overAllPercentageTaken;
+    public PruningTaskDetail(double orverallRemoved, double eachBranchRemoved) {
+        this.orverallRemoved = new ValueWrapper<>(String.valueOf(orverallRemoved));
+        this.eachBranchRemoved = new ValueWrapper<>(String.valueOf(eachBranchRemoved));
     }
 
-    public ValueWrapper<Integer> getOverAllPercentageTaken() {
-        return overAllPercentageTaken;
+    public ValueWrapper<String> getOrverallRemoved() {
+        return orverallRemoved;
+    }
+
+    public ValueWrapper<String> getEachBranchRemoved() {
+        return eachBranchRemoved;
     }
     
     @Override
     public TaskType getType() {
         return TaskType.PRUNING;
     }
-    
+
 }

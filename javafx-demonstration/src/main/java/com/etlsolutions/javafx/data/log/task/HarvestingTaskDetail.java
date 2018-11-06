@@ -9,12 +9,12 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 public class HarvestingTaskDetail implements TaskDetail {
 
     private final ValueWrapper<String> quality;
-    private final ValueWrapper<Double> quatantity;
+    private final ValueWrapper<String> quatantity;
     private final ValueWrapper<String> uom;
 
     public HarvestingTaskDetail(String quality, double quatantity, String uom) {
         this.quality = new ValueWrapper<>(quality);
-        this.quatantity = new ValueWrapper<>(quatantity);
+        this.quatantity = new ValueWrapper<>(String.valueOf(quatantity));
         this.uom = new ValueWrapper<>(uom);
     }
 
@@ -22,7 +22,7 @@ public class HarvestingTaskDetail implements TaskDetail {
         return quality;
     }
 
-    public ValueWrapper<Double> getQuatantity() {
+    public ValueWrapper<String> getQuatantity() {
         return quatantity;
     }
     

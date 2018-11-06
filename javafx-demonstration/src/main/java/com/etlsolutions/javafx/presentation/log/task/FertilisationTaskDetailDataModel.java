@@ -12,14 +12,14 @@ import java.util.Objects;
  *
  * @author Zhipeng
  */
-public class FertilizationTaskDetailDataModel extends TaskDetailDataModel<FertilisationTaskDetail> {
+public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<FertilisationTaskDetail> {
 
     public static final RemoveEventId FERTILISER_REMOVE_EVENT_ID = new RemoveEventId(AbstractTaskDataModel.class.getName() + "FERTILISER_REMOVE_EVENT_ID", "remove fertiliser");
 
     private final ObservableListWrapperA<Fertiliser> fertilisers;
     private final ObservableListWrapperA<String> uoms;
 
-    public FertilizationTaskDetailDataModel(FertilisationTaskDetail fertilisationTaskDetail) {
+    public FertilisationTaskDetailDataModel(FertilisationTaskDetail fertilisationTaskDetail) {
 
         super(fertilisationTaskDetail);
         fertilisers = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFertilisers());
@@ -54,16 +54,19 @@ public class FertilizationTaskDetailDataModel extends TaskDetailDataModel<Fertil
     @Override
     public void remove(RemoveEventId id) {
         if (Objects.equals(id, FERTILISER_REMOVE_EVENT_ID)) {
-            
-            int index = fertilisers.indexOf(detail.getFertiliser());
-            fertilisers.remove(index);
-            index = index == fertilisers.size() ? index - 1 : index;
-            detail.getFertiliser().setValue(fertilisers.get(index));
+            Fertiliser f = fertilisers.removeAndGetNext(detail.getFertiliser().getValue());
+            detail.getFertiliser().setValue(f);
         }
     }
 
     @Override
     public void save() {
-        ProjectManager.getInstance().getProject().getFertiliserUoms().add(detail.getUom().getValue());
+        ObservableListWrapperA<String> ums = ProjectManager.getInstance().getProject().getFertiliserUoms();
+        String um = detail.getUom().getValue();
+        if(ums.contains(um)) {
+            return;
+        }
+        
+        ums.add(um);
     }
 }

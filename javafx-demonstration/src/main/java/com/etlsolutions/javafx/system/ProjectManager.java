@@ -177,8 +177,8 @@ public final class ProjectManager {
         return propertyChangeSupport.hasListeners(propertyName);
     }
 
-    public DataUnit getItem(int id) {
-        return dataMap.get(id);
+    public <T extends DataUnit> T getItem(int id) {
+        return (T) dataMap.get(id);
     }
 
     public void addItem(DataUnit unit) {

@@ -1,27 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.presentation.log.task;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.DigitalFilter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 
 /**
  * FXML Controller class
  *
  * @author Zhipeng
  */
-public class PruningTaskFXMLController implements Initializable {
+public class PruningTaskFXMLController  extends AbstractComponentsFXMLController<PruningTaskDataModel> {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    @FXML
+    private TextField orverallRemovedTextField;
     
+    @FXML
+    private TextField eachBranchRemovedTextField;    
+
+    @Override
+    public void initializeComponents() {
+
+        orverallRemovedTextField.setText(String.valueOf(model.getOverallRemoved().getValue()));
+        orverallRemovedTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        orverallRemovedTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getOverallRemoved()));           
+        
+        eachBranchRemovedTextField.setText(String.valueOf(model.getEachBranchRemoved().getValue()));
+        eachBranchRemovedTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        eachBranchRemovedTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getEachBranchRemoved()));   
+    }
 }

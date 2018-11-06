@@ -29,6 +29,8 @@ public class ProjectContents {
     private ObservableListWrapperA<String> fruitShapes;
     private ObservableListWrapperA<String> fruitColors;
     private ObservableListWrapperA<String> fertiliserUoms;
+    private ObservableListWrapperA<String> harvestingQualities;
+    private ObservableListWrapperA<String> harvestingUoms;    
     
     public AreaRoot getAreaRoot() {
         return areaRoot;
@@ -137,6 +139,20 @@ public class ProjectContents {
     public void setFertiliserUoms(ObservableListWrapperA<String> fertiliserUoms) {
         this.fertiliserUoms = fertiliserUoms;
     }
-    
-    
+
+    public ObservableListWrapperA<String> getHarvestingQualities() {
+        return harvestingQualities;
+    }
+
+    public void setHarvestingQualities(ObservableListWrapperA<String> harvestingQualities) {
+        this.harvestingQualities = harvestingQualities;
+    }
+
+    public ObservableListWrapperA<String> getHarvestingUoms() {
+        return harvestingUoms;
+    }
+
+    public void setHarvestingUoms(ObservableListWrapperA<String> harvestingUoms) {
+        this.harvestingUoms = harvestingUoms;
+    }    
 }

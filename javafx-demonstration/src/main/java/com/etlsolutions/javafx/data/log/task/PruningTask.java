@@ -6,20 +6,27 @@ package com.etlsolutions.javafx.data.log.task;
  */
 public class PruningTask extends Task {
 
-    private double overAllPercentageTaken;
+    private double overallRemoved;
+    private double eachBranchRemoved;
     
     @Override
     public TaskType getType() {
         return TaskType.PRUNING;
     }
 
-    public double getOverAllPercentageTaken() {
-        return overAllPercentageTaken;
+    public double getOverallRemoved() {
+        return overallRemoved;
     }
 
-    public void setOverAllPercentageTaken(double overAllPercentageTaken) {
-        this.overAllPercentageTaken = overAllPercentageTaken;
+    public void setOverallRemoved(double overallRemoved) {
+        this.overallRemoved = overallRemoved;
     }
-  
-    
+
+    public double getEachBranchRemoved() {
+        return eachBranchRemoved;
+    }
+
+    public void setEachBranchRemoved(double eachBranchRemoved) {
+        this.eachBranchRemoved = eachBranchRemoved;
+    }  
 }

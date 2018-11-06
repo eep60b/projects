@@ -25,7 +25,7 @@ public class LocationAreaEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         FXMLActionEventHandler<AbstractAreaDataModel> eventHandler = new FXMLActionEventHandler<>(areaModel);
         eventHandler.handle(event);
-        Area area = areaModel.getArea();
+        Area area = areaModel.get();
         if(area == null) {
             return;
         }        

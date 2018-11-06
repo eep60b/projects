@@ -1,28 +1,28 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
+
 /**
  *
  * @author zc
  */
 public class TransplantTaskDetail implements TaskDetail {
      
-  public int fromLocationId;
-  public int toLocationId;
+  public final ValueWrapper<Location> fromLocation;
+  public final ValueWrapper<Location> toLocation;
 
-    public int getFromLocationId() {
-        return fromLocationId;
+    public TransplantTaskDetail(Location fromLocation, Location toLocation) {
+        this.fromLocation = new ValueWrapper(fromLocation);
+        this.toLocation =  new ValueWrapper(toLocation);
     }
 
-    public void setFromLocationId(int fromLocationId) {
-        this.fromLocationId = fromLocationId;
+    public ValueWrapper<Location> getFromLocation() {
+        return fromLocation;
     }
 
-    public int getToLocationId() {
-        return toLocationId;
-    }
-
-    public void setToLocationId(int toLocationId) {
-        this.toLocationId = toLocationId;
+    public ValueWrapper<Location> getToLocation() {
+        return toLocation;
     }
 
     @Override
