@@ -21,6 +21,10 @@ public class FertiliserFactory {
         return new SolidFertiliser();
     }
     
+    public LiquidFertiliser getDefaultLiquidFertiliser() {
+        return new LiquidFertiliser();
+    }
+    
     public ObservableListWrapperA<String> getDefaultFertiliserUoms() {
         return new ObservableListWrapperA<>("g", "kg", "litre", "ml", "ounce", "pound", "gallon");
     }

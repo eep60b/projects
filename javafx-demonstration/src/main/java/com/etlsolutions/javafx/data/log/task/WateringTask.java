@@ -10,9 +10,11 @@ public class WateringTask extends Task {
     private WaterType waterType;
     private boolean fertilised;
     private int fertiliserId;
-    private double duration = 0.5;
     private double amount;
-    private String uom;
+    private String amountUom;
+    private double flux;
+    private String fluxUom;
+    private int duration;
 
     public WateringType getWateringType() {
         return wateringType;
@@ -46,14 +48,6 @@ public class WateringTask extends Task {
         this.fertiliserId = fertiliserId;
     }
     
-    public double getDuration() {
-        return duration;
-    }
-
-    public void setDuration(double duration) {
-        this.duration = duration;
-    }
-
     public double getAmount() {
         return amount;
     }
@@ -62,14 +56,38 @@ public class WateringTask extends Task {
         this.amount = amount;
     }
 
-    public String getUom() {
-        return uom;
+    public String getAmountUom() {
+        return amountUom;
     }
 
-    public void setUom(String uom) {
-        this.uom = uom;
+    public void setAmountUom(String amountUom) {
+        this.amountUom = amountUom;
     }
 
+    public double getFlux() {
+        return flux;
+    }
+
+    public void setFlux(double flux) {
+        this.flux = flux;
+    }
+
+    public String getFluxUom() {
+        return fluxUom;
+    }
+
+    public void setFluxUom(String fluxUom) {
+        this.fluxUom = fluxUom;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    
     @Override
     public TaskType getType() {
         return TaskType.WATERING;

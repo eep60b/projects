@@ -8,6 +8,9 @@ import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.log.task.TaskDetail;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.data.log.task.Tasks;
+import com.etlsolutions.javafx.data.log.task.WaterType;
+import com.etlsolutions.javafx.data.log.task.WateringTaskDetail;
+import com.etlsolutions.javafx.data.log.task.WateringType;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
 import java.time.LocalDateTime;
 
@@ -148,5 +151,18 @@ public class LogFactory {
 
     public Task createTask(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, String logoPath, TaskType value, ObservableListWrapperA<Notification> notifications, TaskDetail detail) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public WateringTaskDetail getDefaultWateringTaskDetail() {
+        return new WateringTaskDetail(WateringType.USE_WATER_CAN, WaterType.TAP_WATER, false, null, 1.0, getDefaultWaterAmountUoms().get(0), 
+                1.0, getDefaultWaterFluxUoms().get(0), 3);
+    }
+    
+    public ObservableListWrapperA<String> getDefaultWaterAmountUoms() {
+        return new ObservableListWrapperA<>("litre", "gallon");
+    }
+    
+    public ObservableListWrapperA<String> getDefaultWaterFluxUoms() {
+        return new ObservableListWrapperA<>("litre/minute", "gallon/minute");
     }
 }

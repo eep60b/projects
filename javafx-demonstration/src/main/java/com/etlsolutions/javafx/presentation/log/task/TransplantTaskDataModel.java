@@ -120,7 +120,7 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
    
     @Override
     public String getFxmlPath() {
-        return "/fxml/log/FertilisationTaskFXML.fxml";
+        return "/fxml/log/TransplantTaskFXML.fxml";
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
+import com.etlsolutions.javafx.presentation.EditItemEventHandler;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
@@ -7,6 +8,11 @@ import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
+import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.EditSubAreaDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.location.EditLocationDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -99,9 +105,24 @@ public class TransplantTaskFXMLController extends AbstractComponentsFXMLControll
         toLocationComboBox.setItems(model.getToLocations());
         toLocationComboBox.getSelectionModel().select(model.getToLocation().getValue());
         toLocationComboBox.valueProperty().addListener(new ValueChangeAdapter<>(model.getToLocation())); 
+                
+        addFromAreaButton.setOnAction(new AddItemEventHandler<>(model.getFromAreas(), model.getSelectedFromArea(), new AddAreaDataModel()));
+        editFromAreaButton.setOnAction(new EditItemEventHandler<>(new EditAreaDataModel(model.getSelectedFromArea().getValue())));
         
-        addFromAreaButton.setOnAction(new AddItemEventHandler(model.getFromAreas(), model.getSelectedFromArea(), new AddAreaDataModel()));
+        addFromSubAreaButton.setOnAction(new AddItemEventHandler<>(model.getFromSubAreas(), model.getSelectedFromSubArea(), new AddSubAreaDataModel(model.getSelectedFromArea().getValue())));
+        editFromSubAreaButton.setOnAction(new EditItemEventHandler<>(new EditSubAreaDataModel(model.getSelectedFromArea().getValue(), model.getSelectedFromSubArea().getValue())));
+  
+        addFromLocationButton.setOnAction(new AddItemEventHandler<>(model.getFromLocations(), model.getFromLocation(), new AddLocationDataModel()));
+        editFromLocationButton.setOnAction(new EditItemEventHandler<>(new EditLocationDataModel(model.getSelectedFromArea().getValue(), model.getSelectedFromSubArea().getValue(), model.getFromLocation().getValue())));
         
+        addToAreaButton.setOnAction(new AddItemEventHandler<>(model.getToAreas(), model.getSelectedToArea(), new AddAreaDataModel()));
+        editToAreaButton.setOnAction(new EditItemEventHandler<>(new EditAreaDataModel(model.getSelectedToArea().getValue())));
+        
+        addToSubAreaButton.setOnAction(new AddItemEventHandler<>(model.getToSubAreas(), model.getSelectedToSubArea(), new AddSubAreaDataModel(model.getSelectedToArea().getValue())));
+        editToSubAreaButton.setOnAction(new EditItemEventHandler<>(new EditSubAreaDataModel(model.getSelectedToArea().getValue(), model.getSelectedToSubArea().getValue())));
+  
+        addToLocationButton.setOnAction(new AddItemEventHandler<>(model.getToLocations(), model.getToLocation(), new AddLocationDataModel()));
+        editToLocationButton.setOnAction(new EditItemEventHandler<>(new EditLocationDataModel(model.getSelectedToArea().getValue(), model.getSelectedToSubArea().getValue(), model.getToLocation().getValue())));
         
         model.getFromAreas().addListener(new ListChangeAdapter<>(model.getFromAreas(), fromAreaComboBox));
         model.getSelectedFromArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TransplantTaskFromAreaPropertyChangeAdapter(model, fromAreaComboBox));

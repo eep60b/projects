@@ -24,4 +24,9 @@ public class SolidFertiliser extends Fertiliser
     public void setDensityUom(String densityUom) {
         this.densityUom = densityUom;
     }
+    
+    @Override
+    public FertiliserType getType() {
+        return FertiliserType.LIQUID;
+    }    
 }

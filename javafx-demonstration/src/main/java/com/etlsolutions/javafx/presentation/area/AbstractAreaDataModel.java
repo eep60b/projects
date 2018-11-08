@@ -7,7 +7,6 @@ import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.Getable;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import java.util.Objects;
 import javafx.collections.ObservableList;
@@ -25,7 +24,6 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
 
     public static final RemoveEventId SELECTED_SUB_AREA_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.area.AbstractAreaDataModel.SELECTED_SUB_AREA_REMOVE_EVENT_ID", "selected area part");
     
-    protected Area area;
     protected final ObservableList<AreaType> areaTypes;
     protected AreaType selectedAreaType;
     private double longitude;
@@ -42,7 +40,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         areaShapes = new ObservableListWrapperA<>(selectedAreaType.getShapes());
         selectedAreaShape = areaShapes.get(0);
         this.measurementDataModel = new AreaMeasurementDataModel(measurement);
-        subAreas = area == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(area.getAllSubAreas());
+        subAreas = item == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(item.getAllSubAreas());
         selectedSubArea = subAreas.isEmpty() ? null : subAreas.get(0);
     }
 

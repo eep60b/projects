@@ -77,6 +77,8 @@ public final class ProjectManager {
             contents.setFlowerTypes(LogFactory.getInstance().getDefaultFlowerTypes());
             contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
             contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
+            contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
+            contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
         } else {
             //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
@@ -89,7 +91,9 @@ public final class ProjectManager {
             contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
             contents.setFruitShapes(LogFactory.getInstance().getDefaultFruitShapes());
             contents.setFruitColors(LogFactory.getInstance().getDefaultFruitColors());
-            contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());            
+            contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
+            contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
+            contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
         }
 
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());

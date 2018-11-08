@@ -37,6 +37,8 @@ public abstract class Fertiliser extends DataUnit {
   private double vanadium;
   private double zinc;
 
+  public abstract FertiliserType getType();
+  
   public String getManufacturer() {
     return manufacturer;
   }

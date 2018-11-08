@@ -21,7 +21,7 @@ public class AddAreaDataModel extends AbstractAreaDataModel {
 
     @Override
     public void save() {
-        area = AreaFactory.getInstance().createArea(selectedAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", getLongitude(), getLatitude(), measurementDataModel.getMeasurement(), selectedAreaShape);
-        ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().add(area);
+        item = AreaFactory.getInstance().createArea(selectedAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", getLongitude(), getLatitude(), measurementDataModel.getMeasurement(), selectedAreaShape);
+        ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas().add(item);
     }
 }

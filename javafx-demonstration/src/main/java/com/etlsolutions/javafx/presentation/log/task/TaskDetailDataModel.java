@@ -3,7 +3,6 @@ package com.etlsolutions.javafx.presentation.log.task;
 import com.etlsolutions.javafx.data.log.task.TaskDetail;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.presentation.Removable;
-import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.Savable;
 
 /**

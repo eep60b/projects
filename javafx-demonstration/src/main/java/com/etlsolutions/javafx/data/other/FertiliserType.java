@@ -1,16 +1,16 @@
-package com.etlsolutions.javafx.data.log.task;
+package com.etlsolutions.javafx.data.other;
 
 /**
  *
  * @author zc
  */
-public enum WateringType {
+public enum FertiliserType {
     
-    USE_WATER_CAN ("Use water can"), USE_HOSE("Use hose");
+    SOLID ("Solid"), LIQUID ("Liquid");
     
     private final String displayString;
     
-    private WateringType(String displayString) {
+    private FertiliserType(String displayString) {
         this.displayString = displayString;
     }
 

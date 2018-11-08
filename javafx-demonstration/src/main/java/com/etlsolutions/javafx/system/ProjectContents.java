@@ -5,6 +5,7 @@ import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import javafx.collections.ObservableList;
 
@@ -20,6 +21,7 @@ public class ProjectContents {
     private LogGroupRoot logGroupRoot;
     private ObservableListWrapperA<GrowingMedium> growingMediums;
     private ObservableListWrapperA<Fertiliser> fertilisers;
+    private ObservableListWrapperA<LiquidFertiliser> liquidFertilisers;
     
     private ObservableListWrapperA<String> locationReferencePoints;
     private ObservableListWrapperA<String> locationDirections;
@@ -31,7 +33,8 @@ public class ProjectContents {
     private ObservableListWrapperA<String> fertiliserUoms;
     private ObservableListWrapperA<String> harvestingQualities;
     private ObservableListWrapperA<String> harvestingUoms;    
-    
+    private ObservableListWrapperA<String> wateringAmountUoms; 
+    private ObservableListWrapperA<String> wateringFluxUoms;     
     public AreaRoot getAreaRoot() {
         return areaRoot;
     }
@@ -76,6 +79,14 @@ public class ProjectContents {
         this.fertilisers = fertilisers;
     }
 
+    public ObservableListWrapperA<LiquidFertiliser> getLiquidFertilisers() {
+        return liquidFertilisers;
+    }
+
+    public void setLiquidFertilisers(ObservableListWrapperA<LiquidFertiliser> liquidFertilisers) {
+        this.liquidFertilisers = liquidFertilisers;
+    }
+    
     public ObservableListWrapperA<String> getLocationReferencePoints() {
         return locationReferencePoints;
     }
@@ -154,5 +165,21 @@ public class ProjectContents {
 
     public void setHarvestingUoms(ObservableListWrapperA<String> harvestingUoms) {
         this.harvestingUoms = harvestingUoms;
+    }
+
+    public ObservableListWrapperA<String> getWateringAmountUoms() {
+        return wateringAmountUoms;
+    }
+
+    public void setWateringAmountUoms(ObservableListWrapperA<String> wateringAmountUoms) {
+        this.wateringAmountUoms = wateringAmountUoms;
+    }
+
+    public ObservableListWrapperA<String> getWateringFluxUoms() {
+        return wateringFluxUoms;
+    }
+
+    public void setWateringFluxUoms(ObservableListWrapperA<String> wateringFluxUoms) {
+        this.wateringFluxUoms = wateringFluxUoms;
     }    
 }
