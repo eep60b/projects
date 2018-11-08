@@ -16,7 +16,7 @@ import java.util.Objects;
  *
  * @author zc
  */
-public class AddPlantTypeDataModel extends DataUnitFXMLDataModel implements GroupSelectable {
+public class AddPlantTypeDataModel extends DataUnitFXMLDataModel<PlantType> implements GroupSelectable {
 
     public static final String SELECTED_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.SELECTED_VARIETY_PROPERTY";
     public static final String VARIETY_CHANGE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.VARIETY_CHANGE_PROPERTY";
@@ -28,8 +28,6 @@ public class AddPlantTypeDataModel extends DataUnitFXMLDataModel implements Grou
     
     private final ObservableListWrapperA<PlantGroup> plantGroups;
     private PlantGroup selectedPlantGroup;
-    
-    private PlantType plantType;
     
     private final ObservableListWrapperA<PlantVariety> varieties;
     private PlantVariety selectedVariety;
@@ -70,9 +68,9 @@ public class AddPlantTypeDataModel extends DataUnitFXMLDataModel implements Grou
     @Override
     public void save() {
         
-        plantType = PlantsFactory.getInstance().creatPlantsType(0, new ObservableListWrapperA<Plants>(), varieties, title, information, imageLinks, 0, logoPath);        
-        selectedPlantGroup.getPlantsTypes().add(plantType);
-        manager.addItem(plantType);
+        item = PlantsFactory.getInstance().creatPlantsType(0, new ObservableListWrapperA<Plants>(), varieties, title, information, imageLinks, 0, logoPath);        
+        selectedPlantGroup.getPlantsTypes().add(item);
+        manager.addItem(item);
     }
 
     public void addSelectedPlantVariety(PlantVariety variety) {        
@@ -105,11 +103,7 @@ public class AddPlantTypeDataModel extends DataUnitFXMLDataModel implements Grou
     public String getFxmlPath() {
           return "/fxml/menu/add/AddPlantTypeFXML.fxml";
     }
-
-    public PlantType getPlantType() {
-        return plantType;
-    }
-
+    
     public void updateVariety() {
         support.firePropertyChange(VARIETY_CHANGE_PROPERTY);
     }

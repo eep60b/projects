@@ -14,7 +14,7 @@ public class EditSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
 
     public EditSubAreaDataModel(Area area, SubArea subArea) {
         super(area, new SubAreaType[]{subArea.getType()}, new SubAreaMeasurement(subArea.getMeasurement()));
-        this.subArea = subArea;
+        this.item = subArea;
         this.title = subArea.getTitle();
         this.information = subArea.getInformation();
         this.imageLinks = new ObservableListWrapperA<>(subArea.getImageLinks());
@@ -23,11 +23,11 @@ public class EditSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
 
     @Override
     public void save() {
-        subArea.setTitle(title);
-        subArea.setInformation(information);
+        item.setTitle(title);
+        item.setInformation(information);
         area.getImageLinks().clear();
         area.getImageLinks().addAll(imageLinks);
-        subArea.setMeasurement(measurementDataModel.getMeasurement());
-        subArea.setShape(selectedSubAreaShape);
+       item.setMeasurement(measurementDataModel.getMeasurement());
+        item.setShape(selectedSubAreaShape);
     }
 }

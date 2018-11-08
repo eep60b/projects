@@ -15,8 +15,8 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
 
     @Override
     public void save() {
-        location = LocationFactory.getInstance().createLocation(selectedType);
-        selectedSubArea.getLocations(selectedType).add(location);
+        item = LocationFactory.getInstance().createLocation(selectedType);
+        selectedSubArea.getLocations(selectedType).add(item);
     }
 
     @Override

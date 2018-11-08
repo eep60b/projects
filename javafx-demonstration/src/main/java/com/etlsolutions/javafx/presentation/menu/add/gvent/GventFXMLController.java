@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.presentation.log.SelectedNotificationChangeAdapte
 import com.etlsolutions.javafx.presentation.log.NotificationListChangeAdapter;
 import com.etlsolutions.javafx.presentation.log.AddNotificationEventHandler;
 import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.ComponentsFXMLControllerNodeWrapper;
@@ -39,7 +40,7 @@ import org.apache.log4j.Logger;
  *
  * @author zc
  */
-public class GventFXMLController extends DataUnitFXMLController<AbstractGventDataModel> {
+public class GventFXMLController extends DataUnitFXMLController<Gvent, AbstractGventDataModel> {
 
     @FXML
     private TextField titleTextField;

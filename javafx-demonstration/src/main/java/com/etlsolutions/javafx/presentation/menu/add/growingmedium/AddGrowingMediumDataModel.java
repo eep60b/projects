@@ -21,8 +21,8 @@ public class AddGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
     @Override
     public void save() {
         
-        growingMedium = GrowingMediumFactory.getInstance().createGrowingMedium(title, information, imageLinks, 0, title, 
+        item = GrowingMediumFactory.getInstance().createGrowingMedium(title, information, imageLinks, 0, title, 
                 new double[]{sandPercentage, siltPercentage, clayPercentage, organicPercentage, stonePercentage, waterStoragePercentage, ph}, true);
-        ProjectManager.getInstance().getProject().getGrowingMediums().add(growingMedium);
+        ProjectManager.getInstance().getProject().getGrowingMediums().add(item);
     }
 }

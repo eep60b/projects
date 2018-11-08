@@ -16,7 +16,7 @@ import javafx.collections.ObservableList;
  *
  * @author Zhipeng
  */
-public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel implements Getable<Area> {
+public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> {
 
     public static final String LONGITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LONGITUDE_PROPERTY";
     public static final String LATITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LATITUDE_PROPERTY";
@@ -44,10 +44,6 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel implem
         this.measurementDataModel = new AreaMeasurementDataModel(measurement);
         subAreas = area == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(area.getAllSubAreas());
         selectedSubArea = subAreas.isEmpty() ? null : subAreas.get(0);
-    }
-
-    public Area get() {
-        return area;
     }
 
     public ObservableList<AreaType> getAreaTypes() {

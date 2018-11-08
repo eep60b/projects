@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingissue;
 
+import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author Zhipeng
  */
-public class AddGrowingIssueFXMLController extends DataUnitFXMLController<AddGrowingIssueDataModel>{
+public class AddGrowingIssueFXMLController extends DataUnitFXMLController<GrowingIssue, AddGrowingIssueDataModel>{
 
     @FXML
     private TextField titleTextField;

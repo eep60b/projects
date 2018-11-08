@@ -32,7 +32,7 @@ public class EditPlantLocationEventHandler implements EventHandler<ActionEvent> 
             AddLocationDataModel addLocationDataModel = new AddLocationDataModel();
             FXMLActionEventHandler<AddLocationDataModel> eventHandler = new FXMLActionEventHandler<>(addLocationDataModel);
             eventHandler.handle(event);
-            model.setLocation(addLocationDataModel.getLocation());
+            model.setLocation(addLocationDataModel.get());
             return;
         }
         

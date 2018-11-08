@@ -15,12 +15,12 @@ public class EditVarietyDataModel extends AbstractVarietyDataModel {
 
     @Override
     public void save() {
-        variety.setTitle(title);
-        variety.setInformation(information);
-        variety.getImageLinks().clear();
-        variety.getImageLinks().addAll(imageLinks);
-        variety.setLatinName(latinName);
-        variety.getAliases().clear();
-        variety.getAliases().addAll(aliases);
+        item.setTitle(title);
+        item.setInformation(information);
+        item.getImageLinks().clear();
+        item.getImageLinks().addAll(imageLinks);
+        item.setLatinName(latinName);
+        item.getAliases().clear();
+        item.getAliases().addAll(aliases);
     }
 }

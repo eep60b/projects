@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
  *
  * @author zc
  */
-public class AddGrowingIssueDataModel extends DataUnitFXMLDataModel {
+public class AddGrowingIssueDataModel extends DataUnitFXMLDataModel<GrowingIssue> {
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -51,10 +51,6 @@ public class AddGrowingIssueDataModel extends DataUnitFXMLDataModel {
 
     public void setEffectiveness(String effectiveness) {
         this.effectiveness = effectiveness;
-    }
-    
-    public GrowingIssue getGrowingIssue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

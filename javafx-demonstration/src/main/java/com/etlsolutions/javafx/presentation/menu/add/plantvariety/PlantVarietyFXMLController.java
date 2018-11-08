@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
+import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import static com.etlsolutions.javafx.presentation.menu.add.plantvariety.AbstractVarietyDataModel.*;
@@ -14,11 +15,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 /**
- * PlantVarietyFXMLController is an FXML Controller class which control the save plant variety dialog.
+ * PlantVarietyFXMLController is an FXML Controller class which control the save plant item dialog.
  *
  * @author zc
  */
-public class PlantVarietyFXMLController extends DataUnitFXMLController<AbstractVarietyDataModel> {
+public class PlantVarietyFXMLController extends DataUnitFXMLController<PlantVariety, AbstractVarietyDataModel> {
     
   
     

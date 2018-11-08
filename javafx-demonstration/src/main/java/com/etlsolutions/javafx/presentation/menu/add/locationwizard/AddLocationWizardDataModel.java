@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddLocationWizardDataModel extends DataUnitFXMLDataModel implements WizardDataModel {
+public class AddLocationWizardDataModel extends DataUnitFXMLDataModel<Location> implements WizardDataModel {
 
     private int currentIndex;
     private final ObservableList<Area> areas;
@@ -143,5 +143,4 @@ public class AddLocationWizardDataModel extends DataUnitFXMLDataModel implements
     public String getFxmlPath() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

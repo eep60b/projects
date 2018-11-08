@@ -17,14 +17,13 @@ import java.util.Objects;
  *
  * @author Zhipeng
  */
-public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel implements Notifiable{
+public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> implements Notifiable{
 
     public static final String SELECTED_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_TYPE_PROPERTY";
     public static final String SELECTED_NOTIFICATION_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_NOTIFICATION_PROPERTY";
 
     public static final RemoveEventId NOTIFICATION_REMOVE_EVENT_ID = new RemoveEventId(AbstractTaskDataModel.class.getName() + "NOTIFICATION_REMOVE_EVENT_ID", "remove notification");
 
-    protected Task task;
     private final ObservableListWrapperA<TaskType> types;
     protected ValueWrapper<TaskType> selectedType;
     protected ValueWrapper<LocalDateTime> startTime;
@@ -45,7 +44,7 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel implem
         this.notifications = new ObservableListWrapperA<>(task.getNotifications());
         types = new ObservableListWrapperA<>(task.getType());
         selectedType = new ValueWrapper<>(task.getType());
-        this.task = task;
+        this.item = task;
         detailDataModel = getDetailDataModel(selectedType.getValue());
     }
 
@@ -81,10 +80,6 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel implem
 
     public void setDetailDataModel(TaskDetailDataModel detailDataModel) {
         this.detailDataModel = detailDataModel;
-    }
-
-    public Task getTask() {
-        return task;
     }
 
     @Override

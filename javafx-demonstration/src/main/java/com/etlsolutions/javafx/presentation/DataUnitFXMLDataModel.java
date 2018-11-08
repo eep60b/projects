@@ -4,23 +4,23 @@ import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import java.beans.PropertyChangeListener;
 import java.util.Objects;
-import javafx.collections.ObservableList;
 
 /**
  * The DataUnitFXMLDataModel class is designed to button action to start a
  * dialog with title field, information text area, images and OK and Cancel
- * buttons. To use it:
- *
- * 1. Create a empty FXML file with controller which extends
- * DataUnitFXMLController.
- *
- * 2. Create a data model class extents this class.
- *
- * 3. Add a bundle entry to com.etlsolutions.javafx.presentation.ActionEvent
+ * buttons.To use it:
+
+ 1. Create a empty FXML file with controller which extends
+ DataUnitFXMLController.
+
+ 2. Create a data model class extents this class.
+
+ 3. Add a bundle entry to com.etlsolutions.javafx.presentation.ActionEvent
  *
  * @author zc
+ * @param <E>
  */
-public abstract class DataUnitFXMLDataModel implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable {
+public abstract class DataUnitFXMLDataModel<E> implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable, Getable<E> {
 
     public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";
@@ -38,6 +38,8 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
     protected String errorMessage;
     private boolean noOrFirstImage;
     private boolean noOrLastImage;
+    
+    protected E item;
 
     protected final DataUnitPropertyChangeSupport support = new DataUnitPropertyChangeSupport(this);
 
@@ -74,7 +76,7 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
         return information;
     }
 
-    public ObservableList<ImageLink> getImageLinks() {
+    public ObservableListWrapperA<ImageLink> getImageLinks() {
         return imageLinks;
     }
 
@@ -152,5 +154,10 @@ public abstract class DataUnitFXMLDataModel implements TitleDataModel, Informati
     protected void validate() {
         invalid = title == null || title.trim().isEmpty();
         errorMessage = invalid ? "Please enter title." : "";
+    }
+    
+    @Override
+    public final E get() {
+        return item;
     }
 }

@@ -24,7 +24,7 @@ public class CreatePlantVarietyEventhandler implements EventHandler<ActionEvent>
         CreateVarietyDataModel varietyDataModel = new CreateVarietyDataModel();        
         new FXMLActionEventHandler<>(varietyDataModel).handle(event);
         
-        PlantVariety variety = varietyDataModel.getVariety();
+        PlantVariety variety = varietyDataModel.get();
         
         if(variety == null) {
             return;

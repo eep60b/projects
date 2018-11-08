@@ -12,9 +12,8 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
+public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel<SubArea> {
 
-    protected SubArea subArea;
     protected final ObservableListWrapperA<SubAreaType> subAreaTypes;
     protected SubAreaType selectedSubAreaType;
     protected final ObservableListWrapperA<SubAreaShape> subAreaShapes;
@@ -29,9 +28,6 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel {
         measurementDataModel = new SubAreaMeasurementDataModel(measurement);
     }
 
-    public SubArea getSubArea() {
-        return subArea;
-    }
 
     public ObservableList<SubAreaType> getSubAreaTypes() {
         return subAreaTypes;

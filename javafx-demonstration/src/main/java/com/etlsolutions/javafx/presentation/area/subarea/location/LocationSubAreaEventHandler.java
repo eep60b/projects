@@ -27,7 +27,7 @@ public class LocationSubAreaEventHandler implements EventHandler<ActionEvent> {
         
         FXMLActionEventHandler<AbstractSubAreaDataModel> eventHandler = new FXMLActionEventHandler<>(addSubAreaDataModel);
         eventHandler.handle(event);
-        SubArea subArea = addSubAreaDataModel.getSubArea();
+        SubArea subArea = addSubAreaDataModel.get();
         if (subArea == null) {
             return;
         }

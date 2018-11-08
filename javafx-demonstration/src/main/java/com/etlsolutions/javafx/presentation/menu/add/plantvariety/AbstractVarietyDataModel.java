@@ -10,13 +10,12 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AbstractVarietyDataModel extends DataUnitFXMLDataModel {
+public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<PlantVariety> {
     
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";
     public static final String SELECTED_ALIAS_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.SELECTED_ALIAS_PROPERTY";
     
-    protected PlantVariety variety;
     protected String latinName;
     protected final ObservableListWrapperA<String> aliases;
     private String selectedAlias;
@@ -27,7 +26,7 @@ public class AbstractVarietyDataModel extends DataUnitFXMLDataModel {
 
     public AbstractVarietyDataModel(PlantVariety variety) {
         this();
-        this.variety = variety;
+        this.item = variety;
     }
     
     
@@ -77,12 +76,7 @@ public class AbstractVarietyDataModel extends DataUnitFXMLDataModel {
     
     @Override
     public void save() {
-        variety = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks());
-    }
-
-
-    public PlantVariety getVariety() {
-        return variety;
+        item = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks());
     }
     
     @Override

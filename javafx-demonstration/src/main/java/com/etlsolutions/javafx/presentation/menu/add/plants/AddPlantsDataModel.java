@@ -11,6 +11,7 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
@@ -26,7 +27,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class AddPlantsDataModel extends DataUnitFXMLDataModel implements GroupSelectable {
+public class AddPlantsDataModel extends DataUnitFXMLDataModel<Plants> implements GroupSelectable {
 
     public static final String SELECTED_PLANT_GROUP_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.SELECTED_PLANT_GROUP_PROPERTY ";    
     public static final String PLANT_TYPES_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.PLANT_TYPES_PROPERTY";    

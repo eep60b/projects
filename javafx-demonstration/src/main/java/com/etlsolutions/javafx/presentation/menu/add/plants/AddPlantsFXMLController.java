@@ -10,6 +10,7 @@ import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import static com.etlsolutions.javafx.data.plant.PlantsQuantity.Type.SINGLE;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
@@ -38,7 +39,7 @@ import javafx.scene.layout.Pane;
  *
  * @author zc
  */
-public class AddPlantsFXMLController extends DataUnitFXMLController<AddPlantsDataModel> {
+public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddPlantsDataModel> {
 
     @FXML
     private TextField titleTextField;

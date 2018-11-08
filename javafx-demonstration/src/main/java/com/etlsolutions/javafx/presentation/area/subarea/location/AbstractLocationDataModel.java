@@ -15,7 +15,7 @@ import com.etlsolutions.javafx.system.ProjectManager;
  *
  * @author zc
  */
-public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel {
+public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Location> {
 
     public static final String SELECTED_AREA_PROPERTY = "com.etlsolutions.javafx.presentation.area.subarea.location.AbstractLocationDataModel.SELECTED_AREA_PROPERTY";
     public static final String SELECTED_SUBAREA_PROPERTY = "com.etlsolutions.javafx.presentation.area.subarea.location.AbstractLocationDataModel.SELECTED_SUBAREA_PROPERTY";
@@ -27,7 +27,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel {
     protected SubArea selectedSubArea;
     private final ObservableListWrapperA<LocationType> types;
     protected LocationType selectedType;
-    protected Location location;
+    protected Location item;
     protected LocationMeasurementDataModel measurementDataModel;
 
     public AbstractLocationDataModel() {
@@ -44,7 +44,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel {
         selectedArea = area;
         subAreas = new ObservableListWrapperA<>(subArea);
         selectedSubArea = subArea;
-        this.location = location;
+        this.item = location;
         selectedType = location.getType();
         types = new ObservableListWrapperA<>(selectedType);
     }
@@ -97,11 +97,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel {
         this.selectedType = selectedType;
         support.firePropertyChange(SELECTED_TYPE_PROPERTY, oldValue, this.selectedType);        
     }
-
-    public Location getLocation() {
-        return location;
-    }
-
+    
     @Override
     public String getFxmlPath() {
         return "/fxml/menu/add/AddGventFXML.fxml";

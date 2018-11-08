@@ -22,7 +22,7 @@
                         <Insets top="4.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <TextField fx:id="fertiliserAmountTextField" prefHeight="25.0" prefWidth="86.0" />
+                  <TextField fx:id="useWaterCanTextField" prefHeight="25.0" prefWidth="86.0" />
                   <ComboBox fx:id="useWaterCanComboBox" prefHeight="25.0" prefWidth="83.0" />
                   <RadioButton fx:id="tapWaterRadioButton" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="81.0" text="Tap water">
                      <HBox.margin>
@@ -46,14 +46,14 @@
                         <Insets top="4.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <TextField fx:id="fertiliserAmountTextField1" prefHeight="25.0" prefWidth="87.0" />
-                  <ComboBox fx:id="useWHoseComboBox" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="useHoseFluxTextField" prefHeight="25.0" prefWidth="87.0" />
+                  <ComboBox fx:id="useHoseComboBox" prefHeight="25.0" prefWidth="83.0" />
                   <Label layoutX="406.0" layoutY="10.0" text="Duration:">
                      <HBox.margin>
                         <Insets left="20.0" top="4.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="fertiliserAmountTextField11" layoutX="113.0" layoutY="10.0" prefHeight="25.0" prefWidth="76.0" />
+                  <TextField fx:id="useHoseMinuteTextField" layoutX="113.0" layoutY="10.0" prefHeight="25.0" prefWidth="76.0" />
                   <Label text="Minutes">
                      <HBox.margin>
                         <Insets top="4.0" />

@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.edit.plantvariety;
 
+import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyAddable;
@@ -12,7 +13,7 @@ import javafx.collections.ObservableList;
  *
  * @author zc
  */
-public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel {
+public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel<PlantVariety> {
     
     public static final String LATIN_NAME_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.plantvariety.VarietyDialogDataModel.LATIN_NAME_PROPERTY";
     public static final String ALIASES_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.VarietyDialogDataModel.ALIASES_PROPERTY";

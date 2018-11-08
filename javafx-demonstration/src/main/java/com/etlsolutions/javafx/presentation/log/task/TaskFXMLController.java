@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.ComponentsFXMLControllerNodeWrapper;
@@ -14,7 +15,6 @@ import com.etlsolutions.javafx.presentation.log.AddNotificationEventHandler;
 import com.etlsolutions.javafx.presentation.log.EditNotificationEventHandler;
 import com.etlsolutions.javafx.presentation.log.NotificationListChangeAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.SelectedNotificationPropertyChangeAdapter;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.SelectedTypePropertyAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
@@ -43,7 +43,7 @@ import org.apache.log4j.Logger;
  *
  * @author zc
  */
-public class TaskFXMLController extends DataUnitFXMLController<AbstractTaskDataModel> {
+public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTaskDataModel> {
 
     @FXML
     private TextField titleTextField;

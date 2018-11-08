@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.area.subarea;
 
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
@@ -24,7 +25,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class SubAreaFXMLController extends DataUnitFXMLController<AbstractSubAreaDataModel> {
+public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, AbstractSubAreaDataModel> {
 
     @FXML
     private TextField titleTextField;

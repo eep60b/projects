@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.area;
 
+import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
@@ -29,7 +30,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author Zhipeng
  */
-public class AreaFXMLController extends DataUnitFXMLController<AbstractAreaDataModel> {
+public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAreaDataModel> {
     
     @FXML
     private TextField titleTextField;

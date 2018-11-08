@@ -23,7 +23,7 @@ public class AddPlantsObservationEventHandler implements EventHandler<ActionEven
         AddGrowingObservationDataModel observationModel = new AddGrowingObservationDataModel();
         FXMLActionEventHandler<AddGrowingObservationDataModel> handler = new FXMLActionEventHandler<>(observationModel);
         handler.handle(event);
-        GrowingObservation observation = observationModel.getGrowingObservation();
+        GrowingObservation observation = observationModel.get();
         model.getObservations().add(observation);
         model.setSelectedGrowingObservation(observation);
     }

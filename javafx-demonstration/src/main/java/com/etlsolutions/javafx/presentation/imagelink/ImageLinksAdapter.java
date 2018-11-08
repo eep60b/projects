@@ -13,13 +13,14 @@ import javafx.scene.layout.HBox;
 /**
  *
  * @author zc
+ * @param <E>
  */
-public class ImageLinksAdapter implements ListChangeListener<ImageLink> {
+public class ImageLinksAdapter<E> implements ListChangeListener<ImageLink> {
 
-    private final DataUnitFXMLDataModel model;
+    private final DataUnitFXMLDataModel<E> model;
     private final HBox imagesHbox;
 
-    public ImageLinksAdapter(DataUnitFXMLDataModel model, HBox imagesHbox) {
+    public ImageLinksAdapter(DataUnitFXMLDataModel<E> model, HBox imagesHbox) {
         this.model = model;
         this.imagesHbox = imagesHbox;
     }

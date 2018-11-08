@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.presentation.Validatable;
  *
  * @author zc
  */
-public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel implements Validatable {
+public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel<String> implements Validatable {
 
     private final AbstractVarietyDataModel parentModel;
     private final String oldTitle;
@@ -53,5 +53,4 @@ public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel implements V
     public String getFxmlPath() {
         return "/fxml/menu/add/AddVarietyAliasFXML.fxml";
     }
-
 }

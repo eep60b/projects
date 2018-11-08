@@ -8,18 +8,16 @@ import java.time.LocalDateTime;
  *
  * @author zc
  */
-public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDataModel {
+public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDataModel<GrowingObservation> {
 
     protected LocalDateTime startTime;
     protected LocalDateTime endTime;
-    
-    protected GrowingObservation growingObservation;
 
     public AbstractGrowingObservationDataModel() {
     }
 
     public AbstractGrowingObservationDataModel(GrowingObservation growingObservation) {
-        this.growingObservation = growingObservation;
+        item = growingObservation;
     }
     
     public LocalDateTime getStartTime() {
@@ -41,9 +39,5 @@ public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDa
     @Override
     public String getFxmlPath() {
         return "/fxml/log/GrowingIssueObservation.fxml";
-    }
-
-    public GrowingObservation getGrowingObservation() {
-        return growingObservation;
     }
 }

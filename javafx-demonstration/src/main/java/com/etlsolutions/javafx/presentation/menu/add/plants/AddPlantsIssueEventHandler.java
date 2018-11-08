@@ -23,7 +23,7 @@ public class AddPlantsIssueEventHandler implements EventHandler<ActionEvent> {
         AddGrowingIssueDataModel issueModel = new AddGrowingIssueDataModel();
         FXMLActionEventHandler<AddGrowingIssueDataModel> handler = new FXMLActionEventHandler<>(issueModel);
         handler.handle(event);
-        GrowingIssue issue = issueModel.getGrowingIssue();
+        GrowingIssue issue = issueModel.get();
         model.getIssues().add(issue);
         model.setSelectedGrowingIssue(issue);
     }

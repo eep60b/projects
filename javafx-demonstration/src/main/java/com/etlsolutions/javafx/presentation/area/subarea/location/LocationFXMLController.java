@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
@@ -34,7 +35,7 @@ import org.apache.log4j.Logger;
  *
  * @author zc
  */
-public class LocationFXMLController extends DataUnitFXMLController<AbstractLocationDataModel> {
+public class LocationFXMLController extends DataUnitFXMLController<Location, AbstractLocationDataModel> {
 
     @FXML
     private TextField titleTextField;

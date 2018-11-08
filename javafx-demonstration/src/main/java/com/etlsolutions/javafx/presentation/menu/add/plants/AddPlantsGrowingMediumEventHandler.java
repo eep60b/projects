@@ -28,7 +28,7 @@ public class AddPlantsGrowingMediumEventHandler implements EventHandler<ActionEv
 
         FXMLActionEventHandler<AddGrowingMediumDataModel> handler = new FXMLActionEventHandler<>(growingMediumDataModel);
         handler.handle(event);
-        GrowingMedium g = growingMediumDataModel.getGrowingMedium();
+        GrowingMedium g = growingMediumDataModel.get();
         model.setSelectedGrowingMedium(g);
     }
 

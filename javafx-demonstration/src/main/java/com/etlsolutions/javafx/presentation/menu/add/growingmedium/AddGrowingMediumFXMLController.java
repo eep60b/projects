@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
+import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class AddGrowingMediumFXMLController extends DataUnitFXMLController<AddGrowingMediumDataModel> {
+public class AddGrowingMediumFXMLController extends DataUnitFXMLController<GrowingMedium, AddGrowingMediumDataModel> {
 
     @FXML
     private TextField titleTextField;

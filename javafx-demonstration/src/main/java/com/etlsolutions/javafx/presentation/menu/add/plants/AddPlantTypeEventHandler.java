@@ -25,7 +25,7 @@ public class AddPlantTypeEventHandler implements EventHandler<ActionEvent> {
         AddPlantTypeDataModel addPlantTypeDataModel = new AddPlantTypeDataModel();        
         new FXMLActionEventHandler<>(addPlantTypeDataModel).handle(event);
         
-        PlantType type = addPlantTypeDataModel.getPlantType();
+        PlantType type = addPlantTypeDataModel.get();
         if(type != null) {
             model.getPlantTypes().add(type);
             model.setSelectedPlantType(type);

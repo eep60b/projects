@@ -16,18 +16,18 @@ public class EditGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
                 growingMedium.getStonepaencentage(),
                 growingMedium.getWaterStoragePercentage(),
                 growingMedium.getPh());
-        this.growingMedium = growingMedium;
+        this.item = growingMedium;
     }
 
     @Override
     public void save() {
 
-        growingMedium.setSandPercentage(sandPercentage);
-        growingMedium.setSiltPercentage(siltPercentage);
-        growingMedium.setClayPercentage(clayPercentage);
-        growingMedium.setOrganicPercentage(organicPercentage);
-        growingMedium.setStonepaencentage(stonePercentage);
-        growingMedium.setWaterStoragePercentage(waterStoragePercentage);
-        growingMedium.setPh(ph);
+        item.setSandPercentage(sandPercentage);
+        item.setSiltPercentage(siltPercentage);
+        item.setClayPercentage(clayPercentage);
+        item.setOrganicPercentage(organicPercentage);
+        item.setStonepaencentage(stonePercentage);
+        item.setWaterStoragePercentage(waterStoragePercentage);
+        item.setPh(ph);
     }
 }

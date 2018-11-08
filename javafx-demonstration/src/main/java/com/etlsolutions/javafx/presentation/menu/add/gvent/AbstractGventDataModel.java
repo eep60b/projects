@@ -17,14 +17,13 @@ import java.util.Objects;
  *
  * @author zc
  */
-public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel implements Notifiable {
+public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent> implements Notifiable {
 
     public static final String SELECTED_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_TYPE_PROPERTY";
     public static final String SELECTED_NOTIFICATION_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_NOTIFICATION_PROPERTY";
 
     public static final RemoveEventId NOTIFICATION_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.NOTIFICATION_REMOVE_EVENT_ID", "remove notification");
 
-    protected Gvent gvent;
     private final ObservableListWrapperA<GventType> types;
     protected GventType selectedType;
     protected LocalDateTime startTime;
@@ -47,7 +46,7 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel imple
         selectedNotification = new ValueWrapper<>(notifications.get(0));
         types = new ObservableListWrapperA<>(gvent.getType());
         selectedType = gvent.getType();
-        this.gvent = gvent;
+        item = gvent;
         detailDataModel = getDetailDataModel(selectedType);
     }
 
@@ -99,16 +98,12 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel imple
     public void setDetailDataModel(GventDetailDataModel detailDataModel) {
         this.detailDataModel = detailDataModel;
     }
-        
-    public Gvent getGvent() {
-        return gvent;
-    }
 
     @Override
     public void remove(RemoveEventId id) {
 
         if (Objects.equals(id, NOTIFICATION_REMOVE_EVENT_ID)) {
-            notifications.remove(selectedNotification);
+            notifications.remove(selectedNotification.getValue());
         }
 
         super.remove(id);

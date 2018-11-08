@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingobservation;
 
+import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author Zhipeng
  */
-public class GrowingObservationFXMLController extends DataUnitFXMLController<AbstractGrowingObservationDataModel>{
+public class GrowingObservationFXMLController extends DataUnitFXMLController<GrowingObservation, AbstractGrowingObservationDataModel>{
 
     @FXML
     private TextField titleTextField;

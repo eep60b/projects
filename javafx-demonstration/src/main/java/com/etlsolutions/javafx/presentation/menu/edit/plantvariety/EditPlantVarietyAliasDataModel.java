@@ -1,18 +1,13 @@
 package com.etlsolutions.javafx.presentation.menu.edit.plantvariety;
 
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.TitleDataModel;
-import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.menu.add.plantvariety.AbstractVarietyDataModel;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import com.etlsolutions.javafx.presentation.Savable;
 
 /**
  *
  * @author zc
  */
-public class EditPlantVarietyAliasDataModel extends DataUnitFXMLDataModel {
+public class EditPlantVarietyAliasDataModel extends DataUnitFXMLDataModel<String> {
 
     private final AbstractVarietyDataModel parentModel;
     private final String oldTitle;

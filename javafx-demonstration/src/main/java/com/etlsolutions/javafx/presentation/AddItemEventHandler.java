@@ -14,9 +14,9 @@ public class AddItemEventHandler<T> implements EventHandler<ActionEvent> {
 
     private final ObservableListWrapperA<T> list;
     private final ValueWrapper<T> item;
-    private final Getable<T> model;
+    private final DataUnitFXMLDataModel<T> model;
 
-    public AddItemEventHandler(ObservableListWrapperA<T> list, ValueWrapper<T> item, Getable<T> model) {
+    public AddItemEventHandler(ObservableListWrapperA<T> list, ValueWrapper<T> item, DataUnitFXMLDataModel<T> model) {
         this.list = list;
         this.item = item;
         this.model = model;
@@ -25,7 +25,7 @@ public class AddItemEventHandler<T> implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
 
-        new FXMLActionEventHandler<>((DataUnitFXMLDataModel) model).handle(event);
+        new FXMLActionEventHandler<>(model).handle(event);
         T t = model.get();
         if (t != null) {
             list.add(t);

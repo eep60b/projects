@@ -23,7 +23,7 @@ public class AddPlantsGventEventHandler implements EventHandler<ActionEvent> {
         AddGventDataModel eventModel = new AddGventDataModel();
         FXMLActionEventHandler<AddGventDataModel> handler = new FXMLActionEventHandler<>(eventModel);
         handler.handle(event);
-        Gvent e = eventModel.getGvent();
+        Gvent e = eventModel.get();
         model.getEvents().add(e);
         model.setSelectedEvent(e);
     }

@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
  *
  * @author zc
  */
-public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataModel {
+public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataModel<GrowingMedium> {
 
     protected double sandPercentage;
     protected double siltPercentage;
@@ -17,7 +17,6 @@ public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataMod
     protected double waterStoragePercentage;
     protected double ph;
     
-    protected GrowingMedium growingMedium;
 
     public AbstractGrowingMediumDataModel(double sandPercentage, double siltPercentage, double clayPercentage, double organicPercentage, double stonePercentage, double waterStoragePercentage, double ph) {
         this.sandPercentage = sandPercentage;
@@ -88,9 +87,5 @@ public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataMod
     @Override
     public String getFxmlPath() {
         return "/fxml/menu/add/GrowingMediumFXML.fxml";
-    }
-    
-    public GrowingMedium getGrowingMedium() {
-        return growingMedium;
     }
 }

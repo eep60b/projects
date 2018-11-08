@@ -23,7 +23,7 @@ public class AddVarityToPlantEventHandler implements EventHandler<ActionEvent> {
         AddVarietyDataModel varietyDataModel = new AddVarietyDataModel(model.getSelectedPlantType());
         new FXMLActionEventHandler<>(varietyDataModel).handle(event);
         
-        PlantVariety variety = varietyDataModel.getVariety();
+        PlantVariety variety = varietyDataModel.get();
         if(variety != null) {
             model.getPlantVarieties().add(variety);
             model.setSelectedVariety(variety);

@@ -16,6 +16,6 @@ public class CreateSubAreaDataModel extends AbstractSubAreaDataModel {
 
     @Override
     public void save() {
-        subArea = SubAreaFactory.getInstance().createSubArea(selectedSubAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", selectedSubAreaShape, measurementDataModel.getMeasurement());
+        item = SubAreaFactory.getInstance().createSubArea(selectedSubAreaType, title, information, imageLinks, imageLinks.indexOf(getSelectedImageLink()), "", selectedSubAreaShape, measurementDataModel.getMeasurement());
     }
 }
