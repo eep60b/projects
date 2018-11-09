@@ -6,8 +6,9 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public abstract class FertiliserDetail {
+public class FertiliserValueWrapper {
 
+    private final ValueWrapper<FertiliserType> type;
     private final ValueWrapper<String> manufacturer;
     private final ValueWrapper<String> suggestedUsageAmount;
     private final ValueWrapper<String> usageUom;
@@ -32,7 +33,8 @@ public abstract class FertiliserDetail {
     private final ValueWrapper<String> vanadium;
     private final ValueWrapper<String> zinc;
 
-    public FertiliserDetail(String manufacturer, double suggestedUsageAmount, String usageUom, double ph, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc) {
+    public FertiliserValueWrapper(FertiliserType type, String manufacturer, double suggestedUsageAmount, String usageUom, double ph, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc) {
+        this.type = new ValueWrapper<>(type);
         this.manufacturer = new ValueWrapper<>(manufacturer);
         this.suggestedUsageAmount = new ValueWrapper<>(String.valueOf(suggestedUsageAmount));
         this.usageUom = new ValueWrapper<>(usageUom);
@@ -57,9 +59,11 @@ public abstract class FertiliserDetail {
         this.vanadium = new ValueWrapper<>(String.valueOf(vanadium));
         this.zinc = new ValueWrapper<>(String.valueOf(zinc));
     }
-    
-    public abstract FertiliserType getType();
 
+    public ValueWrapper<FertiliserType> getType() {
+        return type;
+    }
+    
     public ValueWrapper<String> getManufacturer() {
         return manufacturer;
     }

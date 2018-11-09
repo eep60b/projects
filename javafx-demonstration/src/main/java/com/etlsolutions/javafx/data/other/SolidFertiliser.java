@@ -4,10 +4,10 @@ package com.etlsolutions.javafx.data.other;
  *
  * @author zc
  */
-public class SolidFertiliser extends Fertiliser
-{
-  private double density;
-  private String densityUom;
+public class SolidFertiliser extends Fertiliser {
+
+    private double density;
+    private String densityUom;
 
     public double getDensity() {
         return density;
@@ -24,9 +24,9 @@ public class SolidFertiliser extends Fertiliser
     public void setDensityUom(String densityUom) {
         this.densityUom = densityUom;
     }
-    
+
     @Override
     public FertiliserType getType() {
         return FertiliserType.LIQUID;
-    }    
+    }
 }

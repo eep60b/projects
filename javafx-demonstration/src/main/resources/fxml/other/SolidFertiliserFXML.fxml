@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +8,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.fertiliser.SolidFertiliserFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.fertiliser.SolidFertiliserFXMLController">
     <stylesheets>
-        <URL value="@/styles/other/solidfertiliserfxml.css"/>
+        <URL value="@/styles/other/solidfertiliserfxml.css" />
     </stylesheets>
+        
+    <children>
+        <VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox layoutX="20.0" layoutY="40.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="17.0" prefWidth="55.0" text="Density:">
+                            <HBox.margin>
+                                <Insets left="10.0" top="4.0" />
+                            </HBox.margin>
+                        </Label>
+                        <TextField fx:id="densityTextField" prefHeight="25.0" prefWidth="422.0">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </TextField>
+                        <ComboBox fx:id="densityComboBox" prefHeight="25.0" prefWidth="83.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

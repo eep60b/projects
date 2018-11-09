@@ -7,8 +7,8 @@ package com.etlsolutions.javafx.data.other;
 public class LiquidFertiliser extends Fertiliser
 {
     private boolean diluted;
-    private double dilutedWaterAmount;
-    private String dilutedWaterUom;
+    private double dilutionRatio;
+    private String dilutionRatioUom;
 
     public boolean isDiluted() {
         return diluted;
@@ -18,20 +18,20 @@ public class LiquidFertiliser extends Fertiliser
         this.diluted = diluted;
     }
 
-    public double getDilutedWaterAmount() {
-        return dilutedWaterAmount;
+    public double getDilutionRatio() {
+        return dilutionRatio;
     }
 
-    public void setDilutedWaterAmount(double dilutedWaterAmount) {
-        this.dilutedWaterAmount = dilutedWaterAmount;
+    public void setDilutionRatio(double dilutionRatio) {
+        this.dilutionRatio = dilutionRatio;
     }
 
-    public String getDilutedWaterUom() {
-        return dilutedWaterUom;
+    public String getDilutionRatioUom() {
+        return dilutionRatioUom;
     }
 
-    public void setDilutedWaterUom(String dilutedWaterUom) {
-        this.dilutedWaterUom = dilutedWaterUom;
+    public void setDilutionRatioUom(String dilutionRatioUom) {
+        this.dilutionRatioUom = dilutionRatioUom;
     }
     
     @Override
