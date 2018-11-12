@@ -14,7 +14,9 @@ public class AddFertiliserDataModel extends AbstractFertiliserDataModel {
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        item = FertiliserFactory.getInstance().createFertiliser(title, information, imageLinks, selectedImageLink, logoPath, valueWrapper, partModel.getItemPartValueWrapper());
+        
+        
     }
     
 }

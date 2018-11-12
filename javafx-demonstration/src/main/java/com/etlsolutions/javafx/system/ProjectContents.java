@@ -34,7 +34,11 @@ public class ProjectContents {
     private ObservableListWrapperA<String> harvestingQualities;
     private ObservableListWrapperA<String> harvestingUoms;    
     private ObservableListWrapperA<String> wateringAmountUoms; 
-    private ObservableListWrapperA<String> wateringFluxUoms;     
+    private ObservableListWrapperA<String> wateringFluxUoms;  
+    private ObservableListWrapperA<String> solidFertiliserDensityUoms;
+    
+    
+    
     public AreaRoot getAreaRoot() {
         return areaRoot;
     }
@@ -181,5 +185,15 @@ public class ProjectContents {
 
     public void setWateringFluxUoms(ObservableListWrapperA<String> wateringFluxUoms) {
         this.wateringFluxUoms = wateringFluxUoms;
-    }    
+    }  
+
+    public ObservableListWrapperA<String> getSolidFertiliserDensityUoms() {
+        return solidFertiliserDensityUoms;
+    }
+
+    public void setSolidFertiliserDensityUoms(ObservableListWrapperA<String> solidFertiliserDensityUoms) {
+        this.solidFertiliserDensityUoms = solidFertiliserDensityUoms;
+    }
+    
+    
 }

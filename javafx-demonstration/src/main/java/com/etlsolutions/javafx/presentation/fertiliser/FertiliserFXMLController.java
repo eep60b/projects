@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.presentation.fertiliser;
 
+import com.etlsolutions.javafx.presentation.PartDataModel;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.data.other.FertiliserType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
@@ -228,167 +230,161 @@ public class FertiliserFXMLController extends DataUnitFXMLController<Fertiliser,
             aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
             aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
 
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            boronCheckBox.selectedProperty().setValue(Double.parseDouble(model.getBoron().getValue()) != 0);
+            boronCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getBoron(), boronTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            boronTextField.setVisible(Double.parseDouble(model.getBoron().getValue()) != 0);
+            boronTextField.setText(model.getBoron().getValue());
+            boronTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            boronTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getBoron()));
 
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            calciumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getCalcium().getValue()) != 0);
+            calciumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getCalcium(), calciumTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            calciumTextField.setVisible(Double.parseDouble(model.getCalcium().getValue()) != 0);
+            calciumTextField.setText(model.getCalcium().getValue());
+            calciumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            calciumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getCalcium()));
 
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            chlorineCheckBox.selectedProperty().setValue(Double.parseDouble(model.getChlorine().getValue()) != 0);
+            chlorineCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getChlorine(), chlorineTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            chlorineTextField.setVisible(Double.parseDouble(model.getChlorine().getValue()) != 0);
+            chlorineTextField.setText(model.getChlorine().getValue());
+            chlorineTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            chlorineTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getChlorine()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            cobaltCheckBox.selectedProperty().setValue(Double.parseDouble(model.getCobalt().getValue()) != 0);
+            cobaltCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getCobalt(), cobaltTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            cobaltTextField.setVisible(Double.parseDouble(model.getCobalt().getValue()) != 0);
+            cobaltTextField.setText(model.getCobalt().getValue());
+            cobaltTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            cobaltTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getCobalt()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            copperCheckBox.selectedProperty().setValue(Double.parseDouble(model.getCopper().getValue()) != 0);
+            copperCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getCopper(), copperTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            copperTextField.setVisible(Double.parseDouble(model.getCopper().getValue()) != 0);
+            copperTextField.setText(model.getCopper().getValue());
+            copperTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            copperTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getCopper()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            ironCheckBox.selectedProperty().setValue(Double.parseDouble(model.getIron().getValue()) != 0);
+            ironCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getIron(), ironTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            ironTextField.setVisible(Double.parseDouble(model.getIron().getValue()) != 0);
+            ironTextField.setText(model.getIron().getValue());
+            ironTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            ironTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getIron()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            magnesiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getMagnesium().getValue()) != 0);
+            magnesiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getMagnesium(), magnesiumTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            magnesiumTextField.setVisible(Double.parseDouble(model.getMagnesium().getValue()) != 0);
+            magnesiumTextField.setText(model.getMagnesium().getValue());
+            magnesiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            magnesiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getMagnesium()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            manganeseCheckBox.selectedProperty().setValue(Double.parseDouble(model.getManganese().getValue()) != 0);
+            manganeseCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getManganese(), manganeseTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            manganeseTextField.setVisible(Double.parseDouble(model.getManganese().getValue()) != 0);
+            manganeseTextField.setText(model.getManganese().getValue());
+            manganeseTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            manganeseTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getManganese()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            molybdenumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getMolybdenum().getValue()) != 0);
+            molybdenumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getMolybdenum(), molybdenumTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            molybdenumTextField.setVisible(Double.parseDouble(model.getMolybdenum().getValue()) != 0);
+            molybdenumTextField.setText(model.getMolybdenum().getValue());
+            molybdenumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            molybdenumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getMolybdenum()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            nitrogenCheckBox.selectedProperty().setValue(Double.parseDouble(model.getNitrogen().getValue()) != 0);
+            nitrogenCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getNitrogen(), nitrogenTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            nitrogenTextField.setVisible(Double.parseDouble(model.getNitrogen().getValue()) != 0);
+            nitrogenTextField.setText(model.getNitrogen().getValue());
+            nitrogenTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            nitrogenTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getNitrogen()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            nickelCheckBox.selectedProperty().setValue(Double.parseDouble(model.getNickel().getValue()) != 0);
+            nickelCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getNickel(), nickelTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            nickelTextField.setVisible(Double.parseDouble(model.getNickel().getValue()) != 0);
+            nickelTextField.setText(model.getNickel().getValue());
+            nickelTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            nickelTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getNickel()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            phosphorusCheckBox.selectedProperty().setValue(Double.parseDouble(model.getPhosphorus().getValue()) != 0);
+            phosphorusCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getPhosphorus(), phosphorusTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            phosphorusTextField.setVisible(Double.parseDouble(model.getPhosphorus().getValue()) != 0);
+            phosphorusTextField.setText(model.getPhosphorus().getValue());
+            phosphorusTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            phosphorusTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getPhosphorus()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            potassiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getPotassium().getValue()) != 0);
+            potassiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getPotassium(), potassiumTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            potassiumTextField.setVisible(Double.parseDouble(model.getPotassium().getValue()) != 0);
+            potassiumTextField.setText(model.getPotassium().getValue());
+            potassiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            potassiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getPotassium()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            seleniumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getSelenium().getValue()) != 0);
+            seleniumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getSelenium(), seleniumTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            seleniumTextField.setVisible(Double.parseDouble(model.getSelenium().getValue()) != 0);
+            seleniumTextField.setText(model.getSelenium().getValue());
+            seleniumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            seleniumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getSelenium()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            sodiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getSodium().getValue()) != 0);
+            sodiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getSodium(), sodiumTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            sodiumTextField.setVisible(Double.parseDouble(model.getSodium().getValue()) != 0);
+            sodiumTextField.setText(model.getSodium().getValue());
+            sodiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            sodiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getSodium()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            sulphurCheckBox.selectedProperty().setValue(Double.parseDouble(model.getSulphur().getValue()) != 0);
+            sulphurCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getSulphur(), sulphurTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            sulphurTextField.setVisible(Double.parseDouble(model.getSulphur().getValue()) != 0);
+            sulphurTextField.setText(model.getSulphur().getValue());
+            sulphurTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            sulphurTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getSulphur()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            vanadiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getVanadium().getValue()) != 0);
+            vanadiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getVanadium(), vanadiumTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            vanadiumTextField.setVisible(Double.parseDouble(model.getVanadium().getValue()) != 0);
+            vanadiumTextField.setText(model.getVanadium().getValue());
+            vanadiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            vanadiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getVanadium()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            zincCheckBox.selectedProperty().setValue(Double.parseDouble(model.getZinc().getValue()) != 0);
+            zincCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getZinc(), zincTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            zincTextField.setVisible(Double.parseDouble(model.getZinc().getValue()) != 0);
+            zincTextField.setText(model.getZinc().getValue());
+            zincTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            zincTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getZinc()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
+            phCheckBox.selectedProperty().setValue(Double.parseDouble(model.getPh().getValue()) != 0);
+            phCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getPh(), phTextField));
 
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
+            phTextField.setVisible(Double.parseDouble(model.getPh().getValue()) != 0);
+            phTextField.setText(model.getPh().getValue());
+            phTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+            phTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getPh()));
+
+            additionalInformationTab.setContent(map.get(model.getPartDataModel().getItemPartValueWrapper().getType()));
             
-            aluminiumCheckBox.selectedProperty().setValue(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumCheckBox.selectedProperty().addListener(new BooleanValueNodeChangeAdapter(model.getAluminium(), aluminiumTextField));
-
-            aluminiumTextField.setVisible(Double.parseDouble(model.getAluminium().getValue()) != 0);
-            aluminiumTextField.setText(model.getAluminium().getValue());
-            aluminiumTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-            aluminiumTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAluminium()));
-
-            additionalInformationTab.setContent(map.get(model.getPartDataModel().getType()));
+            model.getType().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TypePropertyChangeAdapter(map, additionalInformationTab));
 
         } catch (IOException ex) {
             Logger.getLogger(getClass()).error(ex);

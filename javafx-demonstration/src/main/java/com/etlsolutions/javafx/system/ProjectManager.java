@@ -79,6 +79,7 @@ public final class ProjectManager {
             contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
             contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
             contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
+            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
         } else {
             //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
@@ -94,6 +95,7 @@ public final class ProjectManager {
             contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
             contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
             contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
+            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());            
         }
 
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());

@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.fertiliser;
 
+import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;
@@ -15,9 +16,9 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
  */
 public abstract class AbstractFertiliserDataModel extends DataUnitFXMLDataModel<Fertiliser> {
 
-    private final FertiliserValueWrapper valueWrapper;
+    protected final FertiliserValueWrapper valueWrapper;
     private final ObservableListWrapperA<FertiliserType> types;
-    private PartDataModel partModel;
+    protected final PartDataModel partModel;
 
     public AbstractFertiliserDataModel(FertiliserValueWrapper valueWrapper, FertiliserType...types) {
         this.valueWrapper = valueWrapper;
@@ -127,7 +128,7 @@ public abstract class AbstractFertiliserDataModel extends DataUnitFXMLDataModel<
 
     @Override
     public String getFxmlPath() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "/fxml/other/FertiliserFXML.fxml";
     }
 
     public final PartDataModel getPartDataModel(FertiliserType type) {
