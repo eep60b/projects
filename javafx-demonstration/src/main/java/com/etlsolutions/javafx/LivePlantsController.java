@@ -22,7 +22,7 @@ public class LivePlantsController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
         
-        PlantGroupRoot r = ProjectManager.getInstance().getProject().getPlantsGroupRoot();       
+        PlantGroupRoot r = ProjectManager.getInstance().getContents().getPlantsGroupRoot();       
         livePlantsTreeView.setRoot(new PlantsGroupRootTreeItem(r));
         MenuItem createPlantsGroupMenuItem = new MenuItem("New Group");   
         livePlantsTreeView.setContextMenu(new ContextMenu(createPlantsGroupMenuItem));

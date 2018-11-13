@@ -31,7 +31,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     protected LocationMeasurementDataModel measurementDataModel;
 
     public AbstractLocationDataModel() {
-        areas = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas());
+        areas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
         selectedArea = this.areas.get(0);
         subAreas = selectedArea.getAllSubAreas();
         selectedSubArea = subAreas.isEmpty() ? null : subAreas.get(0);

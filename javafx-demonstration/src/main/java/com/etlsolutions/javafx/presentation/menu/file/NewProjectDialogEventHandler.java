@@ -28,7 +28,7 @@ public class NewProjectDialogEventHandler implements EventHandler<ActionEvent> {
 
         try {
 
-            if (ProjectManager.getInstance().getProject().isModified()) {
+            if (ProjectManager.getInstance().getConfiguration().isModified()) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save change for the current project?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                 ButtonType result = alert.getResult();
                 if (result == ButtonType.YES) {

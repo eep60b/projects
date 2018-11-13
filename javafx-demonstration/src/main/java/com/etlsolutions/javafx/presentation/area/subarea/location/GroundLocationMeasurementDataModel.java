@@ -16,7 +16,7 @@ public class GroundLocationMeasurementDataModel extends LocationMeasurementDataM
     
     public GroundLocationMeasurementDataModel(GroundLocationMeasurement measurement) {
         super(measurement);
-        ProjectContents project = ProjectManager.getInstance().getProject();
+        ProjectContents project = ProjectManager.getInstance().getContents();
         referencePoints = new ObservableListWrapperA<>(project.getLocationReferencePoints());
         directions = new ObservableListWrapperA<>(project.getLocationDirections());
     }

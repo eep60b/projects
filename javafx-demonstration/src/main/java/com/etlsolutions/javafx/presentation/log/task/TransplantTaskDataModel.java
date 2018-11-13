@@ -40,24 +40,24 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
         fromLocations = selectedFromSubArea.getValue().getAllLocations();
         selectedFromArea = new ValueWrapper<>((Area) p.getItem(selectedFromSubArea.getValue().getParentId()));       
         fromSubAreas = selectedFromArea.getValue().getAllSubAreas();
-        fromAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas());
+        fromAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
  
         selectedToSubArea = new ValueWrapper<>((SubArea)p.getItem(detail.getToLocation().getValue().getParentId()));
         toLocations = selectedToSubArea.getValue().getAllLocations();
         selectedToArea = new ValueWrapper<>((Area) p.getItem(selectedToSubArea.getValue().getParentId()));       
         toSubAreas = selectedToArea.getValue().getAllSubAreas();
-        toAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas());
+        toAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
     }    
     
     public TransplantTaskDataModel() {
 
         super(new TransplantTaskDetail(null, null));
-        fromAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas());
+        fromAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
         selectedFromArea = new ValueWrapper<>(fromAreas.get(0));
         fromSubAreas = selectedFromArea.getValue().getAllSubAreas();
         selectedFromSubArea = new ValueWrapper<>(fromSubAreas.get(0));
         fromLocations = selectedFromSubArea.getValue().getAllLocations();
-        toAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getAreaRoot().getAllAreas());
+        toAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
         selectedToArea = new ValueWrapper<>(toAreas.get(0));
         toSubAreas = selectedToArea.getValue().getAllSubAreas();
         selectedToSubArea = new ValueWrapper<>(toSubAreas.get(0));

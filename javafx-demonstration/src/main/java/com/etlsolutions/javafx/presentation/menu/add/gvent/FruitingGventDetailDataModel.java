@@ -16,8 +16,8 @@ public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingG
 
     public FruitingGventDetailDataModel(FruitingGventDetail fruitingGventDetail) {
         super(fruitingGventDetail);
-        fruitShapes = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFruitShapes());
-        fruitColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFruitColors());
+        fruitShapes = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFruitShapes());
+        fruitColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFruitColors());
     }
 
     public ObservableListWrapperA<String> getFruitShapes() {

@@ -63,10 +63,6 @@ public class ProjectContents {
         this.logGroupRoot = logGroupRoot;
     }    
 
-    public boolean isModified() {
-        return false;
-    }
-
     public ObservableList<GrowingMedium> getGrowingMediums() {
         return growingMediums;
     }

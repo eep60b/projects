@@ -33,7 +33,7 @@ public class AddPlantTypeDataModel extends DataUnitFXMLDataModel<PlantType> impl
     private PlantVariety selectedVariety;
 
     public AddPlantTypeDataModel() {
-        plantGroups = new ObservableListWrapperA<>(manager.getProject().getPlantsGroupRoot().getPlantGroups());
+        plantGroups = new ObservableListWrapperA<>(manager.getContents().getPlantsGroupRoot().getPlantGroups());
         selectedPlantGroup = plantGroups.get(0);
         varieties = new ObservableListWrapperA<>();
     }

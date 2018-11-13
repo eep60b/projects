@@ -21,7 +21,7 @@ public class LogsController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
-        LogGroupRoot r = ProjectManager.getInstance().getProject().getLogGroupRoot();
+        LogGroupRoot r = ProjectManager.getInstance().getContents().getLogGroupRoot();
         logsTreeView.setRoot(new LogGroupRootTreeItem(r));
     }
 }

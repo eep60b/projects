@@ -17,7 +17,7 @@ public class SolidFertiliserPartDataModel extends PartDataModel<FertiliserType, 
     
     public SolidFertiliserPartDataModel(SolidFertiliserSpecialValueWrapper itemPartValueWrapper) {
         super(itemPartValueWrapper);
-        densityUoms = ProjectManager.getInstance().getProject().getSolidFertiliserDensityUoms();
+        densityUoms = ProjectManager.getInstance().getContents().getSolidFertiliserDensityUoms();
     }
 
     public ObservableListWrapperA<String> getDensityUoms() {

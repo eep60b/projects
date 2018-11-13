@@ -22,8 +22,8 @@ public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<Fertil
     public FertilisationTaskDetailDataModel(FertilisationTaskDetail fertilisationTaskDetail) {
 
         super(fertilisationTaskDetail);
-        fertilisers = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFertilisers());
-        uoms = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFertiliserUoms());
+        fertilisers = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFertilisers());
+        uoms = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFertiliserUoms());
     }
 
     public ObservableListWrapperA<Fertiliser> getFertilisers() {
@@ -61,7 +61,7 @@ public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<Fertil
 
     @Override
     public void save() {
-        ObservableListWrapperA<String> ums = ProjectManager.getInstance().getProject().getFertiliserUoms();
+        ObservableListWrapperA<String> ums = ProjectManager.getInstance().getContents().getFertiliserUoms();
         String um = detail.getUom().getValue();
         if(ums.contains(um)) {
             return;

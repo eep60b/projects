@@ -69,7 +69,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel<Plants> implements
      */
     public AddPlantsDataModel() {
         
-        ProjectContents project = ProjectManager.getInstance().getProject();
+        ProjectContents project = ProjectManager.getInstance().getContents();
         
         plantGroups = project.getPlantsGroupRoot().getPlantGroups();
         selectedPlantGroup = plantGroups.get(0);        

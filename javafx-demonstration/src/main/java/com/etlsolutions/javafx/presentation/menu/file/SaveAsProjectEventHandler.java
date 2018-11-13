@@ -7,7 +7,7 @@ import javafx.event.EventHandler;
  *
  * @author zc
  */
-public class OpenProjectEventHnadler implements EventHandler<ActionEvent> {
+public class SaveAsProjectEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {

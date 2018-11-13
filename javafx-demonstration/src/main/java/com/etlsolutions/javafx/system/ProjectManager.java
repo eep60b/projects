@@ -96,8 +96,8 @@ public final class ProjectManager {
             contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
             contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
             contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
-            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());       
-            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());            
+            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
+            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
         }
 
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
@@ -140,7 +140,11 @@ public final class ProjectManager {
         return configuration;
     }
 
-    public ProjectContents getProject() {
+    public ProjectConfiguration getConfiguration() {
+        return configuration;
+    }
+
+    public ProjectContents getContents() {
         return contents;
     }
 
@@ -154,11 +158,15 @@ public final class ProjectManager {
     }
 
     public void saveProject() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION), contents);
+        } catch (IOException ex) {
+            throw new CustomLevelErrorRuntimeExceiption(ex);
+        }
     }
 
     public void exit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.exit(0);
     }
 
     public void close() {
@@ -191,5 +199,9 @@ public final class ProjectManager {
 
     public void addItem(DataUnit unit) {
         dataMap.put(unit.getId(), unit);
+    }
+
+    public void removeItem(DataUnit unit) {
+        dataMap.remove(unit.getId(), unit);
     }
 }

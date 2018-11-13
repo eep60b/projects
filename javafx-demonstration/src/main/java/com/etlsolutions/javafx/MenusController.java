@@ -6,7 +6,12 @@ import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMed
 import com.etlsolutions.javafx.presentation.menu.add.gvent.AddGventDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDataModel;
+import com.etlsolutions.javafx.presentation.menu.file.CloseProjectEventHnadler;
+import com.etlsolutions.javafx.presentation.menu.file.ExitApplicationEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
+import com.etlsolutions.javafx.presentation.menu.file.OpenProjectEventHnadler;
+import com.etlsolutions.javafx.presentation.menu.file.SaveAsProjectEventHandler;
+import com.etlsolutions.javafx.presentation.menu.file.SaveProjectEventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 
@@ -20,6 +25,24 @@ public class MenusController extends AbstractFXMLController {
     //The file menu
     @FXML
     private MenuItem newProjectMenuItem;
+    
+    @FXML
+    private MenuItem openProjectMenuItem;
+    
+    @FXML
+    private MenuItem closeProjectMenuItem;
+    
+    @FXML
+    private MenuItem saveMenuItem;
+    
+    @FXML
+    private MenuItem saveAsMenuItem;
+    
+    @FXML
+    private MenuItem printMenuItem;
+    
+    @FXML
+    private MenuItem exitMenuItem;
 
     //The save menu
     @FXML
@@ -48,23 +71,32 @@ public class MenusController extends AbstractFXMLController {
     
     @FXML
     private MenuItem addWeatherRecordMenuItem;
-            
+    
     @FXML
     private MenuItem addGrowingMediumMenuItem;
     
     @FXML
     private MenuItem addFertiliserMenuItem;
 
+    //Edit menu
+    @FXML
+    private MenuItem deleteMenuItem;
+    
     @Override
     public void initializeComponents() {
-
+        
         newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
-
+        openProjectMenuItem.setOnAction(new OpenProjectEventHnadler());
+        saveMenuItem.setOnAction(new SaveProjectEventHandler());
+        saveAsMenuItem.setOnAction(new SaveAsProjectEventHandler());
+        closeProjectMenuItem.setOnAction(new CloseProjectEventHnadler());
+        exitMenuItem.setOnAction(new ExitApplicationEventHandler());
+        
         addPlantsMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantsDataModel()));
         addPlantTypeMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantTypeDataModel()));
         addAreaMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddAreaDataModel()));
-              
-        addGrowingMediumMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddGrowingMediumDataModel())); 
+        
+        addGrowingMediumMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddGrowingMediumDataModel()));        
         addGventMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddGventDataModel()));
     }
 }

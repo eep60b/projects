@@ -17,7 +17,7 @@ public class LiquidFertiliserPartDataModel extends PartDataModel<FertiliserType,
     
     public LiquidFertiliserPartDataModel(LiquidFertiliserSpecialValueWrapper itemPartValueWrapper) {
         super(itemPartValueWrapper);
-        dilutionRationUoms = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFertiliserDelutionRatioUoms());
+        dilutionRationUoms = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFertiliserDelutionRatioUoms());
     }
 
     public ObservableListWrapperA<String> getDilutionRationUoms() {

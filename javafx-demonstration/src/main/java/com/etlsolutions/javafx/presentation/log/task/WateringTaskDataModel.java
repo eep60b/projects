@@ -35,7 +35,7 @@ public class WateringTaskDataModel extends TaskDetailDataModel<WateringTaskDetai
     private WateringTaskDataModel(WateringTaskDetail detail) {
         
         super(detail);
-        ProjectContents p = ProjectManager.getInstance().getProject();
+        ProjectContents p = ProjectManager.getInstance().getContents();
         wateringAmountUoms = new ObservableListWrapperA<>(p.getWateringAmountUoms());
         wateringFluxUoms = new ObservableListWrapperA<>(p.getWateringFluxUoms());
         fertilisers = new ObservableListWrapperA<>(p.getLiquidFertilisers());

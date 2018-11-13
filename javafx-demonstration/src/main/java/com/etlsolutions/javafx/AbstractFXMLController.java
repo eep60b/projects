@@ -11,7 +11,7 @@ import javafx.fxml.Initializable;
  */
 public abstract class AbstractFXMLController implements Initializable {
 
-    public abstract void initializeComponents();
+    public abstract void initializeComponents()throws Exception;
 
     /**
      * Initializes the controller class.

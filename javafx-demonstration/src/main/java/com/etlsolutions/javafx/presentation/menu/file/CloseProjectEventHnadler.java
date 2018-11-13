@@ -14,7 +14,7 @@ public class CloseProjectEventHnadler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        if (ProjectManager.getInstance().getProject().isModified()) {
+        if (ProjectManager.getInstance().getConfiguration().isModified()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save the changes?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
             ButtonType result = alert.getResult();
             if (result == ButtonType.YES) {

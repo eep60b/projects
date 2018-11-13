@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.system;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.File;
 
 /**
@@ -10,11 +9,9 @@ import java.io.File;
  */
 public class ProjectConfiguration {
 
-    @JsonIgnore
     private String name;
-    @JsonIgnore
     private String parentPath;
-    @JsonIgnore    
+    private boolean modified;
     private boolean encrypted;
     
     public String getName() {
@@ -56,4 +53,12 @@ public class ProjectConfiguration {
     public void setEncrypted(boolean encrypted) {
         this.encrypted = encrypted;
     }
+
+    public boolean isModified() {
+        return modified;
+    }
+
+    public void setModified(boolean modified) {
+        this.modified = modified;
+    }    
 }

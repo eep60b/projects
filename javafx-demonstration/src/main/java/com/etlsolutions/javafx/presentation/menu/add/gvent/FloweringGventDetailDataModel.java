@@ -15,8 +15,8 @@ public class FloweringGventDetailDataModel extends GventDetailDataModel<Flowerin
     
     public FloweringGventDetailDataModel(FloweringGventDetail floweringGventDetail) {
         super(floweringGventDetail);
-        flowerTypes = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFlowerTypes());
-        flowerColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFlowerColors());
+        flowerTypes = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFlowerTypes());
+        flowerColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFlowerColors());
     }
 
     public ObservableListWrapperA<String> getFlowerTypes() {

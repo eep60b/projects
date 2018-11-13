@@ -23,7 +23,7 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
     public void remove(RemoveEventId id) {
         
         if(id == SELECTED_AREA_REMOVE_EVENT_ID) {
-           ProjectManager.getInstance().getProject().getAreaRoot().remove(selectedArea);
+           ProjectManager.getInstance().getContents().getAreaRoot().remove(selectedArea);
         }
         
         if(id == SELECTED_SUBAREA_REMOVE_EVENT_ID) {

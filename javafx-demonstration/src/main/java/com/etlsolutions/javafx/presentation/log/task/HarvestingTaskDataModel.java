@@ -18,8 +18,8 @@ public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskD
     private final ObservableListWrapperA<String> harvestingUoms;
 
     public HarvestingTaskDataModel() {
-        this(new HarvestingTaskDetail(ProjectManager.getInstance().getProject().getHarvestingQualities().get(0), 
-                0, ProjectManager.getInstance().getProject().getHarvestingUoms().get(0)));
+        this(new HarvestingTaskDetail(ProjectManager.getInstance().getContents().getHarvestingQualities().get(0), 
+                0, ProjectManager.getInstance().getContents().getHarvestingUoms().get(0)));
     }    
     
     public HarvestingTaskDataModel(HarvestingTask task) {
@@ -28,7 +28,7 @@ public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskD
     
     private HarvestingTaskDataModel(HarvestingTaskDetail detail) {
         super(detail);
-        ProjectContents p = ProjectManager.getInstance().getProject();
+        ProjectContents p = ProjectManager.getInstance().getContents();
         harvestingQualities = new ObservableListWrapperA<>(p.getHarvestingQualities());
         harvestingUoms = new ObservableListWrapperA<>(p.getHarvestingUoms());
     }
