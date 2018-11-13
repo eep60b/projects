@@ -1,8 +1,6 @@
 package com.etlsolutions.javafx.data;
 
-import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ResourceBundle;
 
 /**
  * The DataUnit class represents objects which are data units. The the ID for
@@ -21,8 +19,6 @@ public abstract class DataUnit {
     public static final String SELECTED_ING_LINK_INDEX_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.SELECTED_ING_LINK_INDEX_PROPERTY";
     @JsonIgnore
     public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.LOGO_PATH_PROPERTY";
-    @JsonIgnore
-    public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(DATAUNIT_BUNDLE_PATH);
 
     private int id;
     private String title;

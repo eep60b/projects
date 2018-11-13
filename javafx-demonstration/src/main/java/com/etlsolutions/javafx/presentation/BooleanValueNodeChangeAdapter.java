@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.fertiliser;
+package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
 import javafx.beans.value.ChangeListener;

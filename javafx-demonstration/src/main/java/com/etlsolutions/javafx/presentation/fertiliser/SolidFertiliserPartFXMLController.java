@@ -13,7 +13,7 @@ import javafx.scene.control.TextFormatter;
  *
  * @author zc
  */
-public class SolidFertiliserFXMLController extends AbstractComponentsFXMLController<SolidFertiliserDataModel> {
+public class SolidFertiliserPartFXMLController extends AbstractComponentsFXMLController<SolidFertiliserPartDataModel> {
 
     @FXML
     private TextField densityTextField;

@@ -1,23 +1,12 @@
 package com.etlsolutions.javafx.data.plant;
 
-import static com.etlsolutions.javafx.data.DataUnit.BUNDLE;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.log.GrowingIssue;
-import com.etlsolutions.javafx.data.log.GrowingObservation;
-import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
-import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
-import com.etlsolutions.javafx.data.log.task.FertilisationTask;
-import com.etlsolutions.javafx.data.log.task.HarvestingTask;
-import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
-import com.etlsolutions.javafx.data.log.task.TransplantTask;
-import com.etlsolutions.javafx.data.log.task.WateringTask;
 
 import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_SEPARATER;
-import java.util.ArrayList;
-import java.util.Date;
+import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import java.util.List;
-import javafx.collections.ObservableList;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -25,6 +14,8 @@ import javafx.collections.ObservableList;
  */
 public class PlantsFactory {
 
+    public static final ResourceBundle BUNDLE = ResourceBundle.getBundle(DATAUNIT_BUNDLE_PATH);
+    
     private static final PlantsFactory INSTANCE = new PlantsFactory();
     
     public static PlantsFactory getInstance() {

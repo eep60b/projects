@@ -23,8 +23,8 @@ public class FertiliserFactory {
         return new SolidFertiliser();
     }
     
-    public FertiliserValueWrapper getDefaultFertiliserValueWrapper() {
-        return new FertiliserValueWrapper(FertiliserType.SOLID, "Unspecified", 0, "", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 0, 7.0, 7.0, 0, 0, 0, 0, 0, 0);
+    public FertiliserValueWrapper getDefaultFertiliserValueWrapper(FertiliserType fertiliserType) {
+        return new FertiliserValueWrapper(fertiliserType, "Unspecified", 0, "", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 0, 7.0, 7.0, 0, 0, 0, 0, 0, 0);
     }
     
     public LiquidFertiliser getDefaultLiquidFertiliser() {
@@ -35,11 +35,11 @@ public class FertiliserFactory {
         return new ObservableListWrapperA<>("g", "kg", "litre", "ml", "ounce", "pound", "gallon");
     }
 
-    public LiquidFertiliserDetailValueWrapper getDefaultLiquidFertiliserValueWrapper() {
+    public LiquidFertiliserSpecialValueWrapper getDefaultLiquidFertiliserValueWrapper() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public SolidFertiliserDetailValueWrapper getDefaultSolidFertiliserValueWrapper() {
+    public SolidFertiliserSpecialValueWrapper getDefaultSolidFertiliserValueWrapper() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

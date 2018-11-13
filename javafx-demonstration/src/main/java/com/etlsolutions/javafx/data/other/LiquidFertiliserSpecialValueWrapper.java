@@ -6,13 +6,13 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public class LiquidFertiliserDetailValueWrapper implements FertiliserDetailValueWrapper {
+public class LiquidFertiliserSpecialValueWrapper implements FertiliserSpecialValueWrapper {
 
     private final ValueWrapper<Boolean> diluted;
     private final ValueWrapper<String> dilutionRatio;
     private final ValueWrapper<String> dilutionRatioUom;
 
-    public LiquidFertiliserDetailValueWrapper(boolean diluted, double dilutionRatio, String dilutionRatioUom) {
+    public LiquidFertiliserSpecialValueWrapper(boolean diluted, double dilutionRatio, String dilutionRatioUom) {
         this.diluted = new ValueWrapper<>(diluted);
         this.dilutionRatio = new ValueWrapper<>(String.valueOf(dilutionRatio));
         this.dilutionRatioUom = new ValueWrapper<>(dilutionRatioUom);

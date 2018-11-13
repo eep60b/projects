@@ -6,12 +6,12 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public class SolidFertiliserDetailValueWrapper implements FertiliserDetailValueWrapper {
+public class SolidFertiliserSpecialValueWrapper implements FertiliserSpecialValueWrapper {
 
     private final ValueWrapper<String> density;
     private final ValueWrapper<String> densityUom;
 
-    public SolidFertiliserDetailValueWrapper(double density, String densityUom) {
+    public SolidFertiliserSpecialValueWrapper(double density, String densityUom) {
         this.density = new ValueWrapper<>(String.valueOf(density));
         this.densityUom = new ValueWrapper<>(densityUom);
     }

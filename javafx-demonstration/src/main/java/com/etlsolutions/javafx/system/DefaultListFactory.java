@@ -23,4 +23,8 @@ public class DefaultListFactory {
         return new ObservableListWrapperA<>("g/ml", "kg/l");
     }
 
+    public ObservableListWrapperA<String> getDefaultFertiliserDilusionRatioUoms() {
+        return new ObservableListWrapperA<>("ml/L", "mg/L");
+    }
+
 }

@@ -4,11 +4,11 @@ import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;
-import com.etlsolutions.javafx.data.other.FertiliserDetailValueWrapper;
 import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.javafx.data.other.FertiliserType;
 import com.etlsolutions.javafx.data.other.FertiliserValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.data.other.FertiliserSpecialValueWrapper;
 
 /**
  *
@@ -134,15 +134,15 @@ public abstract class AbstractFertiliserDataModel extends DataUnitFXMLDataModel<
     public final PartDataModel getPartDataModel(FertiliserType type) {
         switch (type) {
             case LIQUID:
-                return new LiquidFertiliserDataModel(FertiliserFactory.getInstance().getDefaultLiquidFertiliserValueWrapper());
+                return new LiquidFertiliserPartDataModel(FertiliserFactory.getInstance().getDefaultLiquidFertiliserValueWrapper());
             case SOLID:
-                return new SolidFertiliserDataModel(FertiliserFactory.getInstance().getDefaultSolidFertiliserValueWrapper());
+                return new SolidFertiliserPartDataModel(FertiliserFactory.getInstance().getDefaultSolidFertiliserValueWrapper());
             default:
                 throw new IllegalStateException("Invalid fertiliser type.");
         }
     }
 
-    public PartDataModel<FertiliserType, ? extends FertiliserDetailValueWrapper> getPartDataModel() {
+    public PartDataModel<FertiliserType, ? extends FertiliserSpecialValueWrapper> getPartDataModel() {
         return partModel;
     }
 }

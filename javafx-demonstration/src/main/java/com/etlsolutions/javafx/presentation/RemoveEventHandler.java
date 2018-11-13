@@ -11,10 +11,10 @@ import javafx.scene.control.ButtonType;
  */
 public class RemoveEventHandler implements EventHandler<ActionEvent> {
 
-    private final DataUnitFXMLDataModel model;
+    private final Removable model;
     private final RemoveEventId id;
 
-    public RemoveEventHandler(DataUnitFXMLDataModel model, RemoveEventId id) {
+    public RemoveEventHandler(Removable model, RemoveEventId id) {
         this.model = model;
         this.id = id;
     }

@@ -4,19 +4,20 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.javafx.data.other.FertiliserType;
-import com.etlsolutions.javafx.data.other.LiquidFertiliserDetailValueWrapper;
+import com.etlsolutions.javafx.data.other.LiquidFertiliserSpecialValueWrapper;
+import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
  * @author zc
  */
-public class LiquidFertiliserDataModel extends PartDataModel<FertiliserType, LiquidFertiliserDetailValueWrapper> {
+public class LiquidFertiliserPartDataModel extends PartDataModel<FertiliserType, LiquidFertiliserSpecialValueWrapper> {
 
-    private ObservableListWrapperA<String> dilutionRationUoms;
+    private final ObservableListWrapperA<String> dilutionRationUoms;
     
-    public LiquidFertiliserDataModel(LiquidFertiliserDetailValueWrapper itemPartValueWrapper) {
+    public LiquidFertiliserPartDataModel(LiquidFertiliserSpecialValueWrapper itemPartValueWrapper) {
         super(itemPartValueWrapper);
-     
+        dilutionRationUoms = new ObservableListWrapperA<>(ProjectManager.getInstance().getProject().getFertiliserDelutionRatioUoms());
     }
 
     public ObservableListWrapperA<String> getDilutionRationUoms() {

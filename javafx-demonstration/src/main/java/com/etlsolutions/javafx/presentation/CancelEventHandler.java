@@ -24,6 +24,5 @@ public class CancelEventHandler implements EventHandler<ActionEvent> {
         for(Closable closable : closables) {
             closable.close();
         }
-    }
-    
+    } 
 }

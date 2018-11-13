@@ -4,18 +4,18 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.javafx.data.other.FertiliserType;
-import com.etlsolutions.javafx.data.other.SolidFertiliserDetailValueWrapper;
+import com.etlsolutions.javafx.data.other.SolidFertiliserSpecialValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
  * @author zc
  */
-public class SolidFertiliserDataModel extends PartDataModel<FertiliserType, SolidFertiliserDetailValueWrapper>{
+public class SolidFertiliserPartDataModel extends PartDataModel<FertiliserType, SolidFertiliserSpecialValueWrapper>{
 
     private final ObservableListWrapperA<String> densityUoms;
     
-    public SolidFertiliserDataModel(SolidFertiliserDetailValueWrapper itemPartValueWrapper) {
+    public SolidFertiliserPartDataModel(SolidFertiliserSpecialValueWrapper itemPartValueWrapper) {
         super(itemPartValueWrapper);
         densityUoms = ProjectManager.getInstance().getProject().getSolidFertiliserDensityUoms();
     }

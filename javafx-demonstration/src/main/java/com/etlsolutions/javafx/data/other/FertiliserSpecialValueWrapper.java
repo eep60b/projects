@@ -6,6 +6,6 @@ import com.etlsolutions.javafx.data.TypedItem;
  *
  * @author zc
  */
-public interface FertiliserDetailValueWrapper extends TypedItem<FertiliserType>{
+public interface FertiliserSpecialValueWrapper extends TypedItem<FertiliserType>{
 
 }
