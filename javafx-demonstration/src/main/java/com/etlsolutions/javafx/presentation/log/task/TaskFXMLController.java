@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.log.task.TaskType;
@@ -9,15 +10,12 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import static com.etlsolutions.javafx.presentation.log.task.AbstractTaskDataModel.*;
-import static com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_NOTIFICATION_PROPERTY;
 import static com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_TYPE_PROPERTY;
 import com.etlsolutions.javafx.presentation.log.AddNotificationEventHandler;
 import com.etlsolutions.javafx.presentation.log.EditNotificationEventHandler;
 import com.etlsolutions.javafx.presentation.log.NotificationListChangeAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.SelectedNotificationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
-import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.fxml.FXML;
@@ -36,7 +34,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
-import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -177,6 +174,6 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
             //Add losteners to data model.
             model.getSelectedType().addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new SelectedTaskTypePropertyAdapter(mainTabPane, detailTab, map));
             model.getNotifications().addListener(new NotificationListChangeAdapter(model, notificationListView));
-            model.addPropertyChangeListener(SELECTED_NOTIFICATION_PROPERTY, new SelectedNotificationPropertyChangeAdapter(notificationListView, editNotificationButton, removeNotificationButton));
+            model.getSelectedNotification().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new SelectedNotificationPropertyChangeAdapter(model, notificationListView, editNotificationButton, removeNotificationButton));
     }
 }

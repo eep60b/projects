@@ -1,8 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
-import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.other.GrowingMediumFactory;
-import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
@@ -14,15 +12,14 @@ public class AddGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
 
 
     public AddGrowingMediumDataModel() {
-       super(32, 32, 16, 20, 0, 20, 6.8);
+       super(32, 32, 16, 20, 0, 20, 6.8, false);
                 
     }
 
     @Override
     public void save() {
         
-        item = GrowingMediumFactory.getInstance().createGrowingMedium(title, information, imageLinks, 0, title, 
-                new double[]{sandPercentage, siltPercentage, clayPercentage, organicPercentage, stonePercentage, waterStoragePercentage, ph}, true);
-        ProjectManager.getInstance().getContents().getGrowingMediums().add(item);
+        dataUnit = GrowingMediumFactory.getInstance().createGrowingMedium(commonValueWrapper, specialValueWrapper);
+        ProjectManager.getInstance().getContents().getGrowingMediums().add(dataUnit);
     }
 }

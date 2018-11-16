@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import static com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel.*;
 import com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel;
 import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel;
@@ -8,6 +10,7 @@ import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventH
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -19,19 +22,19 @@ import javafx.scene.layout.Pane;
 /**
  *
  * @author zc
- * @param <E>
+ * @param <D>
  * @param <T> - The data model type.
  */
-public abstract class DataUnitFXMLController<E, T extends DataUnitFXMLDataModel<E>> extends AbstractComponentStageFXMLController<T> {
+public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataUnitFXMLDataModel<D>> extends AbstractComponentStageFXMLController<T> {
 
     protected void initCommonComponents(TextField titleTextField, TextArea informationTextArea, Pane imageTilePane, Button addImageButton,
             Button editImageButton, Button moveToBeginImageButton, Button moveToLeftImageButton, Button moveToRightImageButton, Button moveToEndImageButton, Button removeImageButton,
             Label errorMessageLabel, Button okButton, Button cancelButton) {
 
-        titleTextField.setText(model.getTitle());
-        informationTextArea.setText(model.getInformation());
+        titleTextField.setText(model.getTitle().getValue());
+        informationTextArea.setText(model.getInformation().getValue());
 
-        ImageLink selectedImageLink = model.getSelectedImageLink();
+        ImageLink selectedImageLink = model.getSelectedImageLinkWrapper().getValue();
         removeImageButton.setDisable(selectedImageLink == null);        
         editImageButton.setDisable(selectedImageLink == null);
         moveToBeginImageButton.setDisable(model.isNoOrFirstImage());
@@ -46,8 +49,8 @@ public abstract class DataUnitFXMLController<E, T extends DataUnitFXMLDataModel<
         errorMessageLabel.setText(model.getErrorMessage());
         okButton.setDisable(model.isInvalid());
 
-        titleTextField.textProperty().addListener(new TitleChangeAdapter(model));
-        informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
+        titleTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getTitle()));
+        informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformation()));
 
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
         removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));
@@ -55,13 +58,13 @@ public abstract class DataUnitFXMLController<E, T extends DataUnitFXMLDataModel<
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
         moveToRightImageButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
-        editImageButton.setOnAction(new FXMLActionEventHandler<>(new EditImageInformationDataModel(model.getSelectedImageLink())));
+        editImageButton.setOnAction(new FXMLActionEventHandler<>(new EditImageInformationDataModel(model.getSelectedImageLinkWrapper().getValue())));
 
         okButton.setOnAction(new SaveExitEventHandler(model, stage));
         cancelButton.setOnAction(new CancelEventHandler(stage));
 
         //Add change listeners to model.
-        model.addPropertyChangeListener(TITLE_PROPERTY, new ValidationPropertyChangeAdapter(errorMessageLabel, okButton));
-        model.addPropertyChangeListener(SELECTED_IMAGE_LINK_PROPERTY, new ImageSelectionChangeAdapter(removeImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton));
+        model.getTitle().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValidationPropertyChangeAdapter(model, errorMessageLabel, okButton));
+        model.getSelectedImageLinkWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ImageSelectionChangeAdapter(model, removeImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton));
     }
 }

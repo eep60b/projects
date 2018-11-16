@@ -13,7 +13,7 @@ public class EditAreaDataModel extends AbstractAreaDataModel {
 
     public EditAreaDataModel(Area area) {
         super(new ObservableListWrapperA<>(area.getType()), new  AreaMeasurement(area.getMeasurement()));
-        item = area;
+        dataUnit = area;
         selectedAreaType = area.getType();
         selectedAreaShape = area.getShape();
     }
@@ -21,14 +21,14 @@ public class EditAreaDataModel extends AbstractAreaDataModel {
    
     @Override
     public void save() {        
-        item.setTitle(title);
-        item.setInformation(information);
-        item.getImageLinks().clear();
-        item.getImageLinks().addAll(imageLinks);
-        item.setSelectedImgLinkIndex(imageLinks.indexOf(getSelectedImageLink()));
-        item.setLongitude(getLongitude());
-        item.setLatitude(getLatitude());
-        item.setMeasurement(measurementDataModel.getMeasurement());
-        item.setShape(selectedAreaShape);
+        dataUnit.setTitle(getTitle().getValue());
+        dataUnit.setInformation(getInformation().getValue());
+        dataUnit.getImageLinks().clear();
+        dataUnit.getImageLinks().addAll(getImageLinks());
+        dataUnit.setSelectedImgLinkIndex(getImageLinks().indexOf(getSelectedImageLinkWrapper().getValue()));
+        dataUnit.setLongitude(getLongitude());
+        dataUnit.setLatitude(getLatitude());
+        dataUnit.setMeasurement(measurementDataModel.getMeasurement());
+        dataUnit.setShape(selectedAreaShape);
     }
 }

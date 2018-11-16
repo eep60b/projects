@@ -9,7 +9,7 @@ import com.etlsolutions.javafx.presentation.InformationDataModel;
  *
  * @author zc
  */
-public class ImageLink implements InformationDataModel {
+public class ImageLink {
 
     @JsonIgnore
     public static final String LINK_PROPERTY = "com.etlsolutions.javafx.data.ImageLink.LINK_PROPERTY";
@@ -39,13 +39,11 @@ public class ImageLink implements InformationDataModel {
         this.link = link;
         support.fireChange(LINK_PROPERTY, oldValue, this.link);
     }
-
-    @Override
+    
     public String getInformation() {
         return information;
     }
 
-    @Override
     public void setInformation(String information) {
         String oldValue = this.information;
         this.information = information;

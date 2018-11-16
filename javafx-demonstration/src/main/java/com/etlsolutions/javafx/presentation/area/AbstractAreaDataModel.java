@@ -40,7 +40,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         areaShapes = new ObservableListWrapperA<>(selectedAreaType.getShapes());
         selectedAreaShape = areaShapes.get(0);
         this.measurementDataModel = new AreaMeasurementDataModel(measurement);
-        subAreas = item == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(item.getAllSubAreas());
+        subAreas = dataUnit == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(dataUnit.getAllSubAreas());
         selectedSubArea = subAreas.isEmpty() ? null : subAreas.get(0);
     }
 

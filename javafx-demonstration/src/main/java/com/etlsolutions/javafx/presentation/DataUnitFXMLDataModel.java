@@ -1,137 +1,93 @@
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import java.beans.PropertyChangeListener;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import java.util.Objects;
 
 /**
  * The DataUnitFXMLDataModel class is designed to button action to start a
  * dialog with title field, information text area, images and OK and Cancel
  * buttons.To use it:
-
- 1. Create a empty FXML file with controller which extends
- DataUnitFXMLController.
-
- 2. Create a data model class extents this class.
-
- 3. Add a bundle entry to com.etlsolutions.javafx.presentation.ActionEvent
+ *
+ * 1. Create a empty FXML file with controller which extends
+ * DataUnitFXMLController.
+ *
+ * 2. Create a data model class extents this class.
+ *
+ * 3. Add a bundle entry to com.etlsolutions.javafx.presentation.ActionEvent
  *
  * @author zc
- * @param <E>
+ * @param <D>
  */
-public abstract class DataUnitFXMLDataModel<E> implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable, Getable<E> {
-
-    public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_TITLE_PROPERTY";
-    public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.IMG_INFORMATION_PROPERTY";
-    public static final String SELECTED_IMAGE_LINK_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.SELECTED_IMAGE_LINK_PROPERTY";
-    public static final String LOGO_PATH_PROPERTY = "com.etlsolutions.javafx.presentation.DataUnitDataModel.LOGO_PATH_PROPERTY";
+public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable, Getable<D> {
 
     public static final RemoveEventId SELECTED_IMAGE_LINK_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.selectedImageLink", "Selected Image");
-    
-    protected ObservableListWrapperA<ImageLink> imageLinks;
-    protected String title;
-    protected String information;
-    protected ImageLink selectedImageLink;
-    protected String logoPath;
+
+    protected final DataUnitCommonValueWrapper commonValueWrapper;
     protected boolean invalid;
     protected String errorMessage;
     private boolean noOrFirstImage;
     private boolean noOrLastImage;
-    
-    protected E item;
+
+    protected D dataUnit;
 
     protected final DataUnitPropertyChangeSupport support = new DataUnitPropertyChangeSupport(this);
 
+    public DataUnitFXMLDataModel(D dataUnit) {
+        this(dataUnit.getTitle(), dataUnit.getInformation(), dataUnit.getImageLinks(), 
+                dataUnit.getImageLinks().isEmpty() ? null : dataUnit.getImageLinks().get(dataUnit.getSelectedImgLinkIndex()), dataUnit.getLogoPath());
+    }
+
     public DataUnitFXMLDataModel() {
-        this.imageLinks = new ObservableListWrapperA<>();
+        this("", "", new ObservableListWrapperA<ImageLink>(), null, "");
+    }
+
+    public DataUnitFXMLDataModel(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImageLink, String logoPath) {
+        
+        commonValueWrapper = new DataUnitCommonValueWrapper(title, information, imageLinks, selectedImageLink, logoPath);
+        String titleValue = commonValueWrapper.getTitleWrapper().getValue();
+        invalid = title == null || titleValue.trim().isEmpty();
+        errorMessage = invalid ? "Please enter title." : "";
         noOrFirstImage = true;
         noOrLastImage = true;
-        invalid = true;
     }
 
     @Override
-    public String getTitle() {
-        return title;
+    public ValueWrapper<String> getTitle() {
+        return commonValueWrapper.getTitleWrapper();
     }
 
     @Override
-    public void setTitle(String title) {
-
-        String oldValue = this.title;
-        this.title = title;
-        validate();
-        support.firePropertyChange(TITLE_PROPERTY, oldValue, this.title);
-    }
-
-    @Override
-    public void setInformation(String information) {
-        String oldValue = this.information;
-        this.information = information;
-        support.firePropertyChange(INFORMATION_PROPERTY, oldValue, this.information);
-    }
-
-    @Override
-    public String getInformation() {
-        return information;
+    public ValueWrapper<String> getInformation() {
+        return commonValueWrapper.getInformationWrapper();
     }
 
     public ObservableListWrapperA<ImageLink> getImageLinks() {
-        return imageLinks;
+        return commonValueWrapper.getImageLinks();
     }
 
-    public ImageLink getSelectedImageLink() {
-        return selectedImageLink;
+    public ValueWrapper<ImageLink> getSelectedImageLinkWrapper() {
+        return commonValueWrapper.getSelectedImageLinkWrapper();
     }
 
-    public void setSelectedImageLink(ImageLink selectedImageLink) {
-
-        ImageLink oldValue = this.selectedImageLink;
-        this.selectedImageLink = selectedImageLink;
-        noOrFirstImage = selectedImageLink == null || selectedImageLink == imageLinks.get(0);
-        noOrLastImage = selectedImageLink == null || selectedImageLink == imageLinks.get(imageLinks.size() - 1);
-        support.firePropertyChange(SELECTED_IMAGE_LINK_PROPERTY, oldValue, this.selectedImageLink);
-    }
-
-    public String getLogoPath() {
-        return logoPath;
-    }
-
-    public void setLogoPath(String logoPath) {
-
-        String oldValue = this.logoPath;
-        this.logoPath = logoPath;
-        support.firePropertyChange(LOGO_PATH_PROPERTY, oldValue, this.logoPath);
-    }
-
-    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
-        support.addPropertyChangeListener(propertyName, listener);
-    }
-
-    public void incrementSelectedImageLinkIndex() {
-        setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) + 1));
+    public ValueWrapper<String> getLogoPath() {
+        return commonValueWrapper.getLogoPathWrapper();
     }
 
     @Override
     public void remove(RemoveEventId id) {
+        
+        ObservableListWrapperA<ImageLink> imageLinks = getImageLinks();
+        
         if (Objects.equals(id, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID)) {
-            int index = imageLinks.indexOf(selectedImageLink);
+            int index = imageLinks.indexOf(getSelectedImageLinkWrapper().getValue());
             imageLinks.remove(index);
-            setSelectedImageLink(imageLinks.isEmpty() ? null : imageLinks.get(index == imageLinks.size() ? index - 1 : index));
+            getSelectedImageLinkWrapper().setValue(imageLinks.isEmpty() ? null : imageLinks.get(index == imageLinks.size() ? index - 1 : index));
         }
-    }
-
-    public void setSelectedImageLinkToFirst() {
-        setSelectedImageLink(imageLinks.get(0));
-    }
-
-    public void setSelectedImageLinkToLast() {
-        setSelectedImageLink(imageLinks.get(imageLinks.size() - 1));
-    }
-
-    public void decrementSelectedImageLinkIndex() {
-        setSelectedImageLink(imageLinks.get(imageLinks.indexOf(selectedImageLink) - 1));
-    }
+    } 
 
     @Override
     public boolean isInvalid() {
@@ -152,12 +108,13 @@ public abstract class DataUnitFXMLDataModel<E> implements TitleDataModel, Inform
     }
 
     protected void validate() {
+        String title = getTitle().getValue();
         invalid = title == null || title.trim().isEmpty();
         errorMessage = invalid ? "Please enter title." : "";
     }
-    
+
     @Override
-    public final E get() {
-        return item;
+    public final D get() {
+        return dataUnit;
     }
 }

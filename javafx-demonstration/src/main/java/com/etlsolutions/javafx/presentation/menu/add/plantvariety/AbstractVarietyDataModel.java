@@ -26,7 +26,7 @@ public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<Pla
 
     public AbstractVarietyDataModel(PlantVariety variety) {
         this();
-        this.item = variety;
+        this.dataUnit = variety;
     }
     
     
@@ -76,7 +76,7 @@ public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<Pla
     
     @Override
     public void save() {
-        item = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks());
+        dataUnit = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks());
     }
     
     @Override

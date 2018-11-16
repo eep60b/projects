@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
@@ -67,10 +68,12 @@ public final class AreaFactory {
         return new PatioArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
     }
 
-    public Area createArea(AreaType type, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
+    public Area createArea(AreaType type, DataUnitCommonValueWrapper commonValueWrapper, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
         switch (type) {
             case ALLOTMENT:
-                return createAllotmentArea(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
+                return createAllotmentArea(commonValueWrapper.getTitleWrapper().getValue(), 
+                        commonValueWrapper.getInformationWrapper().getValue(), commonValueWrapper.getImageLinks(), commonValueWrapper.getImageLinks().indexOf(commonValueWrapper.getSelectedImageLinkWrapper().getValue()), 
+                        commonValueWrapper.getLogoPathWrapper().getValue(), longitude, latitude, measurement, shape);
 
             default:
                 throw new IllegalArgumentException("Invalid area type.");

@@ -1,15 +1,19 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.InformationDataModel;
+import com.etlsolutions.javafx.presentation.Savable;
+import com.etlsolutions.javafx.presentation.TitleDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
 
 /**
  *
  * @author zc
  */
-public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel<String> implements Validatable {
+public class AddVarietyAliasDataModel implements TitleDataModel, InformationDataModel, Validatable, Savable {
 
     private final AbstractVarietyDataModel parentModel;
+    private String title;
     private final String oldTitle;
 
  
@@ -44,13 +48,32 @@ public class AddVarietyAliasDataModel extends DataUnitFXMLDataModel<String> impl
         return "Please enter alias name.";
     }
 
-    @Override
     protected void validate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+
     public String getFxmlPath() {
         return "/fxml/menu/add/AddVarietyAliasFXML.fxml";
+    }
+
+    @Override
+    public String getTitle() {
+        return title;
+    }
+
+    @Override
+    public void setTitle(String title) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setInformation(String information) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getInformation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

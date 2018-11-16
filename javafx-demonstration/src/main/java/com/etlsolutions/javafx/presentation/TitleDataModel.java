@@ -1,12 +1,12 @@
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+
 /**
  *
  * @author zc
  */
 public interface TitleDataModel {
     
-    String getTitle();
-    
-    void setTitle(String title);
+    ValueWrapper<String> getTitle();
 }

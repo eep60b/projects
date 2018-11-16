@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.other;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,7 +33,7 @@ public class GrowingMedium extends DataUnit {
     private double siltPercentage;
     private double clayPercentage;
     private double organicPercentage;
-    private double stonepaencentage;
+    private double stonePercentage;
     private double waterStoragePercentage;
     private double ph;
     private boolean fertilised;
@@ -40,29 +41,41 @@ public class GrowingMedium extends DataUnit {
     public GrowingMedium() {
     }
 
+    public GrowingMedium(DataUnitCommonValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
+        super(commonValueWrapper);
+        sandPercentage = Double.parseDouble(specialValueWrapper.getSandPercentageWrapper().getValue());
+        siltPercentage = Double.parseDouble(specialValueWrapper.getSiltPercentageWrapper().getValue());
+        clayPercentage = Double.parseDouble(specialValueWrapper.getClayPercentageWrapper().getValue());
+        organicPercentage = Double.parseDouble(specialValueWrapper.getOrganicPercentageWrapper().getValue());
+        stonePercentage = Double.parseDouble(specialValueWrapper.getStonePercentageWrapper().getValue());
+        waterStoragePercentage = Double.parseDouble(specialValueWrapper.getWaterStoragePercentageWrapper().getValue());
+        ph = Double.parseDouble(specialValueWrapper.getPhWrapper().getValue());
+        fertilised = specialValueWrapper.getFertilisedWrapper().getValue();
+    }
+
     GrowingMedium(String title, String information, double[] compositions, boolean fertilised) {
         super(title, information);
-        
+
         int i = 0;
         sandPercentage = compositions[i];
         siltPercentage = compositions[i++];
         clayPercentage = compositions[i++];
         organicPercentage = compositions[i++];
-        stonepaencentage = compositions[i++];
+        stonePercentage = compositions[i++];
         waterStoragePercentage = compositions[i++];
         ph = compositions[i++];
         this.fertilised = fertilised;
     }
-    
+
     GrowingMedium(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        
+
         int i = 0;
         sandPercentage = compositions[i];
         siltPercentage = compositions[i++];
         clayPercentage = compositions[i++];
         organicPercentage = compositions[i++];
-        stonepaencentage = compositions[i++];
+        stonePercentage = compositions[i++];
         waterStoragePercentage = compositions[i++];
         ph = compositions[i++];
         this.fertilised = fertilised;
@@ -75,7 +88,7 @@ public class GrowingMedium extends DataUnit {
         siltPercentage = compositions[i++];
         clayPercentage = compositions[i++];
         organicPercentage = compositions[i++];
-        stonepaencentage = compositions[i++];
+        stonePercentage = compositions[i++];
         waterStoragePercentage = compositions[i++];
         ph = compositions[i++];
         this.fertilised = fertilised;
@@ -121,14 +134,14 @@ public class GrowingMedium extends DataUnit {
         fireChange(ORGANIC_PERCENTAGE_PROPERTY, oldValue, this.organicPercentage);
     }
 
-    public double getStonepaencentage() {
-        return stonepaencentage;
+    public double getStonePercentage() {
+        return stonePercentage;
     }
 
-    public void setStonepaencentage(double stonepaencentage) {
-        double oldValue = this.stonepaencentage;
-        this.stonepaencentage = stonepaencentage;
-        fireChange(STONE_PERCENTAGE_PROPERTY, oldValue, this.stonepaencentage);
+    public void setStonePercentage(double stonePercentage) {
+        double oldValue = this.stonePercentage;
+        this.stonePercentage = stonePercentage;
+        fireChange(STONE_PERCENTAGE_PROPERTY, oldValue, this.stonePercentage);
     }
 
     public double getWaterStoragePercentage() {
@@ -159,5 +172,19 @@ public class GrowingMedium extends DataUnit {
         boolean oldValue = this.fertilised;
         this.fertilised = fertilised;
         fireChange(FERTILISED_PROPERTY, oldValue, this.fertilised);
+    }
+    
+    public void setValues(DataUnitCommonValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
+        
+        setCommonValues(commonValueWrapper);
+        
+        setSandPercentage(specialValueWrapper.getSandPercentage());
+        setSiltPercentage(specialValueWrapper.getSiltPercentage());
+        setClayPercentage(specialValueWrapper.getClayPercentage());
+        setOrganicPercentage(specialValueWrapper.getOrganicPercentage());
+        setStonePercentage(specialValueWrapper.getStonePercentage());
+        setWaterStoragePercentage(specialValueWrapper.getWaterStoragePercentage());
+        setPh(specialValueWrapper.getPh());
+        setFertilised(specialValueWrapper.isFertilised());
     }
 }

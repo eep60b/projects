@@ -15,19 +15,19 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
 
     @Override
     public void save() {
-        item = LocationFactory.getInstance().createLocation(selectedType);
-        selectedSubArea.getLocations(selectedType).add(item);
+        dataUnit = LocationFactory.getInstance().createLocation(selectedType.getValue());
+        selectedSubArea.getValue().getLocations(selectedType.getValue()).add(dataUnit);
     }
 
     @Override
     public void remove(RemoveEventId id) {
         
         if(id == SELECTED_AREA_REMOVE_EVENT_ID) {
-           ProjectManager.getInstance().getContents().getAreaRoot().remove(selectedArea);
+           ProjectManager.getInstance().getContents().getAreaRoot().remove(selectedArea.getValue());
         }
         
         if(id == SELECTED_SUBAREA_REMOVE_EVENT_ID) {
-            selectedArea.remove(selectedSubArea);
+            selectedArea.getValue().remove(selectedSubArea.getValue());
         }
         
         super.remove(id);

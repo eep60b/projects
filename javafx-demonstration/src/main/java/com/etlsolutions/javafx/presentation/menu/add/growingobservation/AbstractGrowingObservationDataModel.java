@@ -17,7 +17,7 @@ public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDa
     }
 
     public AbstractGrowingObservationDataModel(GrowingObservation growingObservation) {
-        item = growingObservation;
+        super(growingObservation);
     }
     
     public LocalDateTime getStartTime() {

@@ -13,11 +13,13 @@ import javafx.scene.control.ListView;
  */
 public class SelectedNotificationPropertyChangeAdapter implements PropertyChangeListener {
 
+    private final Notifiable model;
     private final ListView<Notification> notificationListView;
     private final Button editNotificationButton;
     private final Button removeNotificationButton;
 
-    public SelectedNotificationPropertyChangeAdapter(ListView<Notification> notificationListView, Button editNotificationButton, Button removeNotificationButton) {
+    public SelectedNotificationPropertyChangeAdapter(Notifiable model, ListView<Notification> notificationListView, Button editNotificationButton, Button removeNotificationButton) {
+        this.model = model;
         this.notificationListView = notificationListView;
         this.editNotificationButton = editNotificationButton;
         this.removeNotificationButton = removeNotificationButton;
@@ -25,8 +27,7 @@ public class SelectedNotificationPropertyChangeAdapter implements PropertyChange
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        
-        Notifiable model = (Notifiable) evt.getSource();
+ 
         Notification n = model.getSelectedNotification().getValue();
         notificationListView.getSelectionModel().select(n);
         editNotificationButton.setDisable(n == null);

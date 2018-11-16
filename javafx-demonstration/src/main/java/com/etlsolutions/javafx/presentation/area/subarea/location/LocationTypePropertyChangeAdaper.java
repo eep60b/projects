@@ -16,12 +16,14 @@ import javafx.scene.control.Tab;
  */
 public class LocationTypePropertyChangeAdaper implements PropertyChangeListener {
 
+    private final AbstractLocationDataModel model;
     private final Button okButton;
     private final Label errorMessageLabel;
     private final Tab measurementTab;
     private final Map<LocationMeasurementType, Node> map;
 
-    public LocationTypePropertyChangeAdaper(Button okButton, Label errorMessageLabel, Tab measurementTab, Map<LocationMeasurementType, Node> map) {
+    public LocationTypePropertyChangeAdaper(AbstractLocationDataModel model, Button okButton, Label errorMessageLabel, Tab measurementTab, Map<LocationMeasurementType, Node> map) {
+        this.model = model;
         this.okButton = okButton;
         this.errorMessageLabel = errorMessageLabel;
         this.measurementTab = measurementTab;
@@ -30,7 +32,6 @@ public class LocationTypePropertyChangeAdaper implements PropertyChangeListener 
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        AbstractLocationDataModel model = (AbstractLocationDataModel) evt.getSource();
         okButton.setDisable(!model.isInvalid());
         errorMessageLabel.setDisable(!model.isInvalid());
         errorMessageLabel.setText(model.getErrorMessage());

@@ -59,6 +59,14 @@ public abstract class DataUnit {
         this.logoPath = logoPath;
     }
 
+    public DataUnit(DataUnitCommonValueWrapper commonValueWrapper) {
+        this(commonValueWrapper.getTitleWrapper().getValue(), commonValueWrapper.getInformationWrapper().getValue(), commonValueWrapper.getImageLinks(), 
+                commonValueWrapper.getImageLinks().isEmpty() ? 0 : commonValueWrapper.getImageLinks().indexOf(commonValueWrapper.getSelectedImageLinkWrapper().getValue()),
+        commonValueWrapper.getLogoPathWrapper().getValue());
+    }
+    
+    
+
     /**
      * Get the ID for this data unit.
      *
@@ -146,6 +154,16 @@ public abstract class DataUnit {
         String oldValue = this.logoPath;
         this.logoPath = logoPath;
         fireChange(LOGO_PATH_PROPERTY, oldValue, this.logoPath);
+    }
+    
+    public void setCommonValues(DataUnitCommonValueWrapper commonValueWrapper) {
+        
+        title = commonValueWrapper.getTitle();
+        information = commonValueWrapper.getInformation();
+        imageLinks.clear();
+        imageLinks.addAll(commonValueWrapper.getImageLinks());
+        selectedImgLinkIndex = commonValueWrapper.getSelectedImgLinkIndex();
+        logoPath = commonValueWrapper.getLogoPath();
     }
 
     public void addListener(String property, DataUnitChangeListener listener) {

@@ -10,18 +10,19 @@ import javafx.scene.control.ComboBox;
  * @author zc
  */
 public class AreaSelectionPropertyChangeAdapter implements PropertyChangeListener {
-
+    
+    private final AbstractLocationDataModel model;
     private final ComboBox<SubArea> subareaComboBox;
 
-    public AreaSelectionPropertyChangeAdapter(ComboBox<SubArea> subareaComboBox) {
+    public AreaSelectionPropertyChangeAdapter(AbstractLocationDataModel model, ComboBox<SubArea> subareaComboBox) {
+        this.model = model;
         this.subareaComboBox = subareaComboBox;
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        
-        AbstractLocationDataModel model = (AbstractLocationDataModel) evt.getSource();
+
         subareaComboBox.setItems(model.getSubAreas());
-        subareaComboBox.getSelectionModel().select(model.getSelectedSubArea());
+        subareaComboBox.getSelectionModel().select(model.getSelectedSubArea().getValue());
     }  
 }

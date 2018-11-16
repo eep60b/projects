@@ -68,9 +68,9 @@ public class AddPlantTypeDataModel extends DataUnitFXMLDataModel<PlantSubGroup> 
     @Override
     public void save() {
         
-        item = PlantsFactory.getInstance().creatPlantsType(0, new ObservableListWrapperA<Plants>(), varieties, title, information, imageLinks, 0, logoPath);        
-        selectedPlantGroup.getPlantsSubGroups().add(item);
-        manager.addItem(item);
+        dataUnit = PlantsFactory.getInstance().creatPlantsType(0, new ObservableListWrapperA<Plants>(), varieties, title, information, imageLinks, 0, logoPath);        
+        selectedPlantGroup.getPlantsSubGroups().add(dataUnit);
+        manager.addItem(dataUnit);
     }
 
     public void addSelectedPlantVariety(PlantVariety variety) {        

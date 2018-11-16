@@ -22,7 +22,7 @@ public abstract class AbstractPlantGroupDataModel extends DataUnitFXMLDataModel<
 
     public AbstractPlantGroupDataModel(PlantGroup item) {
         plantSubGroups = new ObservableListWrapperA<>(item.getPlantsSubGroups());
-        this.item = item;
+        this.dataUnit = item;
         selectedPlantSubGroup = new ValueWrapper<>(plantSubGroups.isEmpty() ? null : plantSubGroups.get(0));
     }
 

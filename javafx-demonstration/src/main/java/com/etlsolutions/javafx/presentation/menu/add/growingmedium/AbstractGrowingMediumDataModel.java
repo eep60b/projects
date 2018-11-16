@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingmedium;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
+import com.etlsolutions.javafx.data.other.GrowingMediumSpecialValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 
 /**
@@ -9,81 +11,49 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
  */
 public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataModel<GrowingMedium> {
 
-    protected double sandPercentage;
-    protected double siltPercentage;
-    protected double clayPercentage;
-    protected double organicPercentage;
-    protected double stonePercentage;
-    protected double waterStoragePercentage;
-    protected double ph;
-    
+    protected GrowingMediumSpecialValueWrapper specialValueWrapper;
 
-    public AbstractGrowingMediumDataModel(double sandPercentage, double siltPercentage, double clayPercentage, double organicPercentage, double stonePercentage, double waterStoragePercentage, double ph) {
-        this.sandPercentage = sandPercentage;
-        this.siltPercentage = siltPercentage;
-        this.clayPercentage = clayPercentage;
-        this.organicPercentage = organicPercentage;
-        this.stonePercentage = stonePercentage;
-        this.waterStoragePercentage = waterStoragePercentage;
-        this.ph = ph;
+    public AbstractGrowingMediumDataModel(GrowingMedium dataUnit) {
+        super(dataUnit);
+        specialValueWrapper = new GrowingMediumSpecialValueWrapper(dataUnit);
     }
     
-    public double getSandPercentage() {
-        return sandPercentage;
+    public AbstractGrowingMediumDataModel(double sandPercentage, double siltPercentage, double clayPercentage, double organicPercentage, double stonePercentage, double waterStoragePercentage, double ph, boolean fertilised) {
+        specialValueWrapper = new GrowingMediumSpecialValueWrapper(sandPercentage, siltPercentage, clayPercentage, organicPercentage, stonePercentage, waterStoragePercentage, ph, fertilised);
     }
 
-    public void setSandPercentage(double sandPercentage) {
-        this.sandPercentage = sandPercentage;
+    public ValueWrapper<String> getSandPercentage() {
+        return specialValueWrapper.getSandPercentageWrapper();
     }
 
-    public double getSiltPercentage() {
-        return siltPercentage;
+    public ValueWrapper<String> getSiltPercentage() {
+        return specialValueWrapper.getSiltPercentageWrapper();
     }
 
-    public void setSiltPercentage(double siltPercentage) {
-        this.siltPercentage = siltPercentage;
+    public ValueWrapper<String> getClayPercentage() {
+        return specialValueWrapper.getClayPercentageWrapper();
     }
 
-    public double getClayPercentage() {
-        return clayPercentage;
+    public ValueWrapper<String> getOrganicPercentage() {
+        return specialValueWrapper.getOrganicPercentageWrapper();
     }
 
-    public void setClayPercentage(double clayPercentage) {
-        this.clayPercentage = clayPercentage;
+    public ValueWrapper<String> getStonePercentage() {
+        return specialValueWrapper.getStonePercentageWrapper();
     }
 
-    public double getOrganicPercentage() {
-        return organicPercentage;
+    public ValueWrapper<String> getWaterStoragePercentage() {
+        return specialValueWrapper.getWaterStoragePercentageWrapper();
     }
 
-    public void setOrganicPercentage(double organicPercentage) {
-        this.organicPercentage = organicPercentage;
+    public ValueWrapper<String> getPh() {
+        return specialValueWrapper.getPhWrapper();
     }
-
-    public double getStonePercentage() {
-        return stonePercentage;
+    
+    public ValueWrapper<Boolean> getFertilised() {
+        return specialValueWrapper.getFertilisedWrapper();
     }
-
-    public void setStonePercentage(double stonePercentage) {
-        this.stonePercentage = stonePercentage;
-    }
-
-    public double getWaterStoragePercentage() {
-        return waterStoragePercentage;
-    }
-
-    public void setWaterStoragePercentage(double waterStoragePercentage) {
-        this.waterStoragePercentage = waterStoragePercentage;
-    }
-
-    public double getPh() {
-        return ph;
-    }
-
-    public void setPh(double ph) {
-        this.ph = ph;
-    }
-
+    
     @Override
     public String getFxmlPath() {
         return "/fxml/menu/add/GrowingMediumFXML.fxml";

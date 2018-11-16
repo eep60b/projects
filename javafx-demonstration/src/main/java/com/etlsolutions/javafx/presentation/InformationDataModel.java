@@ -1,11 +1,12 @@
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+
 /**
  *
  * @author zc
  */
 public interface InformationDataModel {
     
-    void setInformation(String information);
-    String getInformation();
+    ValueWrapper<String> getInformation();
 }

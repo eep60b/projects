@@ -16,12 +16,12 @@ public class EditGrowingObservationDataModel extends AbstractGrowingObservationD
     
     @Override
     public void save() {
-        item.setTitle(title);
-        item.setInformation(information);
-        item.setImageLinks(imageLinks);
-        item.setSelectedImgLinkIndex(imageLinks.indexOf(selectedImageLink));
-        item.setLogoPath(logoPath);
-        item.setStartTime(startTime);
-        item.setEndTime(endTime);
+        dataUnit.setTitle(title);
+        dataUnit.setInformation(information);
+        dataUnit.setImageLinks(imageLinks);
+        dataUnit.setSelectedImgLinkIndex(imageLinks.indexOf(selectedImageLink));
+        dataUnit.setLogoPath(logoPath);
+        dataUnit.setStartTime(startTime);
+        dataUnit.setEndTime(endTime);
     }
 }
