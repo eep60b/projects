@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
@@ -16,7 +16,7 @@ import java.util.Objects;
  *
  * @author zc
  */
-public class AddPlantTypeDataModel extends DataUnitFXMLDataModel<PlantType> implements GroupSelectable {
+public class AddPlantTypeDataModel extends DataUnitFXMLDataModel<PlantSubGroup> implements GroupSelectable {
 
     public static final String SELECTED_VARIETY_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.SELECTED_VARIETY_PROPERTY";
     public static final String VARIETY_CHANGE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDialogDataModel.VARIETY_CHANGE_PROPERTY";
@@ -69,7 +69,7 @@ public class AddPlantTypeDataModel extends DataUnitFXMLDataModel<PlantType> impl
     public void save() {
         
         item = PlantsFactory.getInstance().creatPlantsType(0, new ObservableListWrapperA<Plants>(), varieties, title, information, imageLinks, 0, logoPath);        
-        selectedPlantGroup.getPlantsTypes().add(item);
+        selectedPlantGroup.getPlantsSubGroups().add(item);
         manager.addItem(item);
     }
 

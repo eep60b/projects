@@ -20,16 +20,16 @@
                   <items>
                     <MenuItem fx:id="newProjectMenuItem" mnemonicParsing="false" text="New Project" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Open Project" />
+                        <MenuItem fx:id="openProjectMenuItem" mnemonicParsing="false" text="Open Project" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close Project" />
+                        <MenuItem fx:id="closeProjectMenuItem" mnemonicParsing="false" text="Close Project" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save as..." />
+                        <MenuItem fx:id="saveProjectMenuItem" mnemonicParsing="false" text="Save" />
+                        <MenuItem fx:id="saveAsProjectMenuItem" mnemonicParsing="false" text="Save as..." />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Print" />
+                        <MenuItem fx:id="printMenuItem" mnemonicParsing="false" text="Print" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Exit" />
+                        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Add">
@@ -52,52 +52,52 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
+                    <MenuItem fx:id="undoMenuItem" mnemonicParsing="false" text="Undo" />
+                        <MenuItem fx:id="redoMenuItem" mnemonicParsing="false" text="Redo" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem fx:id="cutMenuItem" mnemonicParsing="false" text="Cut" />
+                        <MenuItem fx:id="copyMenuItem" mnemonicParsing="false" text="Copy" />
+                        <MenuItem fx:id="pasteMenuItem" mnemonicParsing="false" text="Paste" />
+                        <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" text="Delete" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
+                        <MenuItem fx:id="selectAllMenuItem" mnemonicParsing="false" text="Select All" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="View">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Zoom in" />
-                        <MenuItem mnemonicParsing="false" text="Zoom out" />
+                        <MenuItem fx:id="zoomInMenuItem" mnemonicParsing="false" text="Zoom in" />
+                        <MenuItem fx:id="zoomOutMenuItem" mnemonicParsing="false" text="Zoom out" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Reset" />
-                        <MenuItem mnemonicParsing="false" text="Hide toolbar" />
+                        <MenuItem fx:id="resetMenuItem" mnemonicParsing="false" text="Reset" />
+                        <MenuItem fx:id="hideTooBarMenuItem" mnemonicParsing="false" text="Hide toolbar" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Tools">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Options" />
+                        <MenuItem fx:id="optionsMenuItem" mnemonicParsing="false" text="Options" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Help">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Help contents" />
-                        <MenuItem mnemonicParsing="false" text="Frequently Ask Questions" />
-                        <MenuItem mnemonicParsing="false" text="Contacts" />
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem fx:id="helpContentsMenuItem" mnemonicParsing="false" text="Help contents" />
+                        <MenuItem fx:id="faqMenuItem" mnemonicParsing="false" text="Frequently Ask Questions" />
+                        <MenuItem fx:id="contatctsMenuItem" mnemonicParsing="false" text="Contacts" />
+                        <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="About" />
                      </items>
                   </Menu>
               </menus>
             </MenuBar>
             <ToolBar prefHeight="35.0" prefWidth="613.0">
               <items>
-                <Button mnemonicParsing="false" text="New" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Open" />
-                  <Button layoutX="54.0" layoutY="10.0" mnemonicParsing="false" text="Save" />
-                  <Button layoutX="98.0" layoutY="10.0" mnemonicParsing="false" text="Delete" />
-                  <Button layoutX="142.0" layoutY="10.0" mnemonicParsing="false" text="Cut" />
-                  <Button layoutX="186.0" layoutY="10.0" mnemonicParsing="false" text="Copy" />
-                  <Button layoutX="204.0" layoutY="10.0" mnemonicParsing="false" text="Paste" />
-                  <TextField />
-                  <Button mnemonicParsing="false" text="Search" />
+                <Button fx:id="newProjectToolbarButton" mnemonicParsing="false" text="New" />
+                  <Button fx:id="openProjectToolbarButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Open" />
+                  <Button fx:id="saveProjectToolbarButton" layoutX="54.0" layoutY="10.0" mnemonicParsing="false" text="Save" />
+                  <Button fx:id="deleteToolbarButton" layoutX="98.0" layoutY="10.0" mnemonicParsing="false" text="Delete" />
+                  <Button fx:id="cutToolbarButton" layoutX="142.0" layoutY="10.0" mnemonicParsing="false" text="Cut" />
+                  <Button fx:id="copyToolbarButton" layoutX="186.0" layoutY="10.0" mnemonicParsing="false" text="Copy" />
+                  <Button fx:id="pasteToolbarButton" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" text="Paste" />
+                  <TextField fx:id="searchTextField" />
+                  <Button fx:id="searchToolbarButton" mnemonicParsing="false" text="Search" />
               </items>
             </ToolBar>
          </children>

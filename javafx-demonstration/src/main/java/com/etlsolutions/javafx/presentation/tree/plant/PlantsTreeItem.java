@@ -1,14 +1,13 @@
 package com.etlsolutions.javafx.presentation.tree.plant;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.plant.Plants;
-import javafx.scene.control.TreeItem;
+import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
 
 /**
  *
  * @author zc
  */
-class PlantsTreeItem extends TreeItem<DataUnit> {
+class PlantsTreeItem extends MenuedTreeItem {
 
     private final Plants model;
 

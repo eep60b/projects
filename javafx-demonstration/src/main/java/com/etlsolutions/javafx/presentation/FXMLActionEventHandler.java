@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import static com.etlsolutions.javafx.system.SettingConstants.*;
-import java.io.IOException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -63,7 +62,7 @@ public class FXMLActionEventHandler<T extends FXMLActionDataModel> implements Ev
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             logger.error(message, ex);
             throw new CustomLevelErrorRuntimeExceiption(message);
         }

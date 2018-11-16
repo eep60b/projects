@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.menu.add.planttype;
 
 import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import static com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDataModel.*;
@@ -21,7 +21,7 @@ import javafx.scene.layout.Pane;
  *
  * @author zc
  */
-public class AddPlantTypeFXMLController extends DataUnitFXMLController<PlantType, AddPlantTypeDataModel> {
+public class AddPlantTypeFXMLController extends DataUnitFXMLController<PlantSubGroup, AddPlantTypeDataModel> {
 
     @FXML
     private TextField titleTextField;

@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TreeView;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the location view.
  *
  * @author zc
  */

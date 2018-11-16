@@ -95,91 +95,86 @@ public class GventFXMLController extends DataUnitFXMLController<Gvent, AbstractG
 
     @FXML
     private HBox endTimeHbox;
-    
+
     @FXML
     private CheckBox repeatYearlyCheckBox;
-    
+
     @FXML
     private ListView<Notification> notificationListView;
-    
+
     @FXML
     private Button addNotificationButton;
-    
+
     @FXML
     private Button editNotificationButton;
-    
+
     @FXML
-    private Button removeNotificationButton;    
+    private Button removeNotificationButton;
 
     private final Map<GventType, ComponentsFXMLControllerNodeWrapper<GventDetailDataModel>> map = new HashMap<>();
 
     @Override
-    public void initializeComponents() {
-        try {
-            for (GventType type : GventType.values()) {
-                if (type != GventType.CUSTOM) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getDetailDataModel(type).getFxmlPath()));
-                    Node node = (AnchorPane) loader.load();
-                    AbstractComponentsFXMLController<GventDetailDataModel> controller = loader.getController();
-                    controller.setModel(model.getDetailDataModel(type));
-                    controller.initializeComponents();
-                    map.put(type, new ComponentsFXMLControllerNodeWrapper<>(controller, node));
-                }
+    public void initializeComponents() throws Exception {
+
+        for (GventType type : GventType.values()) {
+            if (type != GventType.CUSTOM) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getDetailDataModel(type).getFxmlPath()));
+                Node node = (AnchorPane) loader.load();
+                AbstractComponentsFXMLController<GventDetailDataModel> controller = loader.getController();
+                controller.setModel(model.getDetailDataModel(type));
+                controller.initializeComponents();
+                map.put(type, new ComponentsFXMLControllerNodeWrapper<>(controller, node));
             }
-
-            initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
-
-            DateTimePicker startTimePicker = new DateTimePicker();
-            startTimePicker.setDateTimeValue(model.getStartTime());
-            DateTimePicker endTimePicker = new DateTimePicker();
-            endTimePicker.setDateTimeValue(model.getEndTime());
-            startTimeHbox.getChildren().add(startTimePicker);
-            endTimeHbox.getChildren().add(endTimePicker);
-
-            typeComboBox.setItems(model.getTypes());
-            GventType type = model.getSelectedType();
-            typeComboBox.getSelectionModel().select(type);
-            switch (type) {
-                case CUSTOM:
-                    mainTabPane.getTabs().remove(detailTab);
-                    break;
-                case FLOWERING:
-                case FRUITING:
-                    if (!mainTabPane.getTabs().contains(detailTab)) {
-                        mainTabPane.getTabs().add(1, detailTab);
-                    }
-                    detailTab.setContent(map.get(type).getNode());
-                    break;
-                default:
-                    throw new IllegalArgumentException("Ivalid gvent type.");
-            }
-            
-            notificationListView.setItems(model.getNotifications());
-            notificationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-            notificationListView.getSelectionModel().select(model.getSelectedNotification().getValue());
-            
-            boolean hasNoSelectedNotification = model.getSelectedNotification() == null;
-            editNotificationButton.setDisable(hasNoSelectedNotification);
-            removeNotificationButton.setDisable(hasNoSelectedNotification);
-            
-            //Add listeners to components
-            startTimePicker.dateTimeValueProperty().addListener(new StartTimeChangeAdapter(model));
-            endTimePicker.dateTimeValueProperty().addListener(new EndTimeChangeAdapter(model));
-            typeComboBox.getSelectionModel().selectedItemProperty().addListener(new GventTypeSelectionAdapter(model));
-            notificationListView.getSelectionModel().selectedItemProperty().addListener(new SelectedNotificationChangeAdapter(model));
-            addNotificationButton.setOnAction(new AddNotificationEventHandler(model));
-            editNotificationButton.setOnAction(new EditNotificationEventHandler(model));
-            removeNotificationButton.setOnAction(new RemoveEventHandler(model, NOTIFICATION_REMOVE_EVENT_ID));
-            
-            //Add losteners to data model.
-            model.addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new SelectedTypePropertyAdapter(mainTabPane, detailTab, map));
-            model.getNotifications().addListener(new NotificationListChangeAdapter(model, notificationListView));
-            model.addPropertyChangeListener(SELECTED_NOTIFICATION_PROPERTY, new SelectedNotificationPropertyChangeAdapter(notificationListView, editNotificationButton, removeNotificationButton));
-
-        } catch (IOException ex) {
-            Logger.getLogger(getClass()).error(ex);
-            throw new CustomLevelErrorRuntimeExceiption(ex);
         }
+
+        initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
+
+        DateTimePicker startTimePicker = new DateTimePicker();
+        startTimePicker.setDateTimeValue(model.getStartTime());
+        DateTimePicker endTimePicker = new DateTimePicker();
+        endTimePicker.setDateTimeValue(model.getEndTime());
+        startTimeHbox.getChildren().add(startTimePicker);
+        endTimeHbox.getChildren().add(endTimePicker);
+
+        typeComboBox.setItems(model.getTypes());
+        GventType type = model.getSelectedType();
+        typeComboBox.getSelectionModel().select(type);
+        switch (type) {
+            case CUSTOM:
+                mainTabPane.getTabs().remove(detailTab);
+                break;
+            case FLOWERING:
+            case FRUITING:
+                if (!mainTabPane.getTabs().contains(detailTab)) {
+                    mainTabPane.getTabs().add(1, detailTab);
+                }
+                detailTab.setContent(map.get(type).getNode());
+                break;
+            default:
+                throw new IllegalArgumentException("Ivalid gvent type.");
+        }
+
+        notificationListView.setItems(model.getNotifications());
+        notificationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        notificationListView.getSelectionModel().select(model.getSelectedNotification().getValue());
+
+        boolean hasNoSelectedNotification = model.getSelectedNotification() == null;
+        editNotificationButton.setDisable(hasNoSelectedNotification);
+        removeNotificationButton.setDisable(hasNoSelectedNotification);
+
+        //Add listeners to components
+        startTimePicker.dateTimeValueProperty().addListener(new StartTimeChangeAdapter(model));
+        endTimePicker.dateTimeValueProperty().addListener(new EndTimeChangeAdapter(model));
+        typeComboBox.getSelectionModel().selectedItemProperty().addListener(new GventTypeSelectionAdapter(model));
+        notificationListView.getSelectionModel().selectedItemProperty().addListener(new SelectedNotificationChangeAdapter(model));
+        addNotificationButton.setOnAction(new AddNotificationEventHandler(model));
+        editNotificationButton.setOnAction(new EditNotificationEventHandler(model));
+        removeNotificationButton.setOnAction(new RemoveEventHandler(model, NOTIFICATION_REMOVE_EVENT_ID));
+
+        //Add losteners to data model.
+        model.addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new SelectedTypePropertyAdapter(mainTabPane, detailTab, map));
+        model.getNotifications().addListener(new NotificationListChangeAdapter(model, notificationListView));
+        model.addPropertyChangeListener(SELECTED_NOTIFICATION_PROPERTY, new SelectedNotificationPropertyChangeAdapter(notificationListView, editNotificationButton, removeNotificationButton));
     }
 
 }

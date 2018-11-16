@@ -10,7 +10,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
@@ -43,8 +43,8 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel<Plants> implements
     private final ObservableList<GrowingMedium> growingMediums;
     private PlantGroup selectedPlantGroup;
     private GrowingMedium selectedGrowingMedium;    
-    private final ObservableListWrapperA<PlantType> plantTypes;    
-    private PlantType selectedPlantType;
+    private final ObservableListWrapperA<PlantSubGroup> plantTypes;    
+    private PlantSubGroup selectedPlantType;
     private ObservableList<PlantVariety> plantVarieties;
     private PlantVariety selectedVariety;
     private final PlantsQuantity quantity;
@@ -75,7 +75,7 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel<Plants> implements
         selectedPlantGroup = plantGroups.get(0);        
         growingMediums = project.getGrowingMediums();
         selectedGrowingMedium = growingMediums.get(0);
-        plantTypes = new ObservableListWrapperA<>(selectedPlantGroup.getPlantsTypes());
+        plantTypes = new ObservableListWrapperA<>(selectedPlantGroup.getPlantsSubGroups());
         selectedPlantType = plantTypes.get(0);
         plantVarieties = selectedPlantType.getPlantVarieties();
         if(!plantVarieties.isEmpty()) {
@@ -108,14 +108,14 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel<Plants> implements
         }
 
         this.selectedPlantGroup = selectedPlantGroup;
-        setPlantTypes(this.selectedPlantGroup.getPlantsTypes());
+        setPlantTypes(this.selectedPlantGroup.getPlantsSubGroups());
     }
 
-    public ObservableListWrapperA<PlantType> getPlantTypes() {
+    public ObservableListWrapperA<PlantSubGroup> getPlantTypes() {
         return plantTypes;
     }
 
-    public void setPlantTypes(ObservableList<PlantType> plantTypes) {
+    public void setPlantTypes(ObservableList<PlantSubGroup> plantTypes) {
         this.plantTypes.clear();
         this.plantTypes.addAll(plantTypes);
         if(!this.plantTypes.isEmpty() && !this.plantTypes.contains(selectedPlantType)) {
@@ -142,12 +142,12 @@ public class AddPlantsDataModel extends DataUnitFXMLDataModel<Plants> implements
         return added;
     }
       
-    public PlantType getSelectedPlantType() {
+    public PlantSubGroup getSelectedPlantType() {
         return selectedPlantType;
     }
 
-    public void setSelectedPlantType(PlantType selectedPlantType) {
-        PlantType oldValue = this.selectedPlantType;        
+    public void setSelectedPlantType(PlantSubGroup selectedPlantType) {
+        PlantSubGroup oldValue = this.selectedPlantType;        
         this.selectedPlantType = selectedPlantType;
         support.firePropertyChange(SELECTED_PLANT_TYPE_PROPERTY, oldValue, this.selectedPlantType);
         if(selectedPlantType != null) {

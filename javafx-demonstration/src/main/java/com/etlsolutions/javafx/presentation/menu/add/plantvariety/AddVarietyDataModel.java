@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plantvariety;
 
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 
 /**
@@ -9,9 +9,9 @@ import com.etlsolutions.javafx.data.plant.PlantsFactory;
  */
 public class AddVarietyDataModel extends AbstractVarietyDataModel {
     
-    private final PlantType plantType;
+    private final PlantSubGroup plantType;
 
-    public AddVarietyDataModel(PlantType plantType) {
+    public AddVarietyDataModel(PlantSubGroup plantType) {
         this.plantType = plantType;
     }
     

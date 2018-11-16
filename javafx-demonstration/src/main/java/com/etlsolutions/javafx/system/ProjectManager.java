@@ -28,7 +28,7 @@ import javax.imageio.IIOException;
  */
 public final class ProjectManager {
 
-    public static final String NEW_PROJECT_PROPERTY = "com.etlsolutions.javafx.system.ProjectManager.NEW_PROJECT_PROPERTY";
+    public static final String PROJECT_PROPERTY = ProjectManager.class.getName() + ".PROJECT_PROPERTY";
 
     private static final ProjectManager INSTANCE = new ProjectManager();
 
@@ -135,7 +135,7 @@ public final class ProjectManager {
             throw new CustomLevelErrorRuntimeExceiption("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
         }
 
-        propertyChangeSupport.firePropertyChange(NEW_PROJECT_PROPERTY, false, true);
+        propertyChangeSupport.firePropertyChange(PROJECT_PROPERTY, false, true);
 
         return configuration;
     }

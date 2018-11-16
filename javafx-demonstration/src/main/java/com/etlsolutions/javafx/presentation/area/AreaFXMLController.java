@@ -105,7 +105,7 @@ public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAre
      *
      */
     @Override
-    public void initializeComponents() {
+    public void initializeComponents() throws Exception {
         
         for (AreaShape shape : AreaShape.values()) {
             map.put(shape, getNode(shape));
@@ -138,7 +138,7 @@ public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAre
         editSubAreaButton.setOnAction(new EditSubAreaEventHandler(model));
     }
     
-    private Node getNode(AreaShape shape) {
+    private Node getNode(AreaShape shape) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getMeasurementDataModel().getFxmlPath(shape)));
             Node node = (AnchorPane) loader.load();

@@ -9,7 +9,7 @@ public abstract class AbstractComponentsFXMLController<T> {
 
     protected T model;
     
-    public abstract void initializeComponents();    
+    public abstract void initializeComponents() throws Exception;    
     
     public final T getModel() {
         return model;

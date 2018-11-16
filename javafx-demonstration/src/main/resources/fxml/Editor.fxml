@@ -7,8 +7,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.EditorController">
+<AnchorPane id="AnchorPane" fx:id="editorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.EditorController">
   <stylesheets>
-    <URL value="@/styles/editor.css"/>
+    <URL value="@/styles/editor.css" />
   </stylesheets>
 </AnchorPane>

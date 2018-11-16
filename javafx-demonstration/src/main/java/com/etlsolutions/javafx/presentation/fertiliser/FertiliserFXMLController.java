@@ -9,7 +9,6 @@ import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
-import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +25,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
-import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -203,9 +201,8 @@ public class FertiliserFXMLController extends DataUnitFXMLController<Fertiliser,
     private final Map<FertiliserType, Node> map = new HashMap<>();
 
     @Override
-    public void initializeComponents() {
+    public void initializeComponents() throws IOException, Exception {
 
-        try {
 
             for (FertiliserType type : FertiliserType.values()) {
                 PartDataModel m = model.getPartDataModel(type);
@@ -386,11 +383,6 @@ public class FertiliserFXMLController extends DataUnitFXMLController<Fertiliser,
             additionalInformationTab.setContent(map.get(model.getPartDataModel().getItemPartValueWrapper().getType()));
             
             model.getType().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TypePropertyChangeAdapter(map, additionalInformationTab));
-
-        } catch (IOException ex) {
-            Logger.getLogger(getClass()).error(ex);
-            throw new CustomLevelErrorRuntimeExceiption(ex);
-        }
     }
 
 }

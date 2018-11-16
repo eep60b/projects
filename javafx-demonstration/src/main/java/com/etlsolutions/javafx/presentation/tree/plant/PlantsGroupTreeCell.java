@@ -12,7 +12,8 @@ import javafx.scene.control.cell.TextFieldTreeCell;
  * @author zc
  */
 public class PlantsGroupTreeCell extends TextFieldTreeCell<String> {
-    private ContextMenu rootContextMenu;
+
+    private final ContextMenu rootContextMenu;
 
     public PlantsGroupTreeCell() {
         // instantiate the root context menu

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDataModel;
 import javafx.event.ActionEvent;
@@ -25,7 +25,7 @@ public class AddPlantTypeEventHandler implements EventHandler<ActionEvent> {
         AddPlantTypeDataModel addPlantTypeDataModel = new AddPlantTypeDataModel();        
         new FXMLActionEventHandler<>(addPlantTypeDataModel).handle(event);
         
-        PlantType type = addPlantTypeDataModel.get();
+        PlantSubGroup type = addPlantTypeDataModel.get();
         if(type != null) {
             model.getPlantTypes().add(type);
             model.setSelectedPlantType(type);

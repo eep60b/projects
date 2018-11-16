@@ -9,7 +9,7 @@ import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import static com.etlsolutions.javafx.data.plant.PlantsQuantity.Type.SINGLE;
@@ -51,7 +51,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
     private ComboBox<PlantGroup> plantGroupCombox;
 
     @FXML
-    private ComboBox<PlantType> plantTypeCombox;
+    private ComboBox<PlantSubGroup> plantTypeCombox;
 
     @FXML
     private Button addPlantTypeButton;

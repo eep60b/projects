@@ -33,10 +33,10 @@ public class MenusController extends AbstractFXMLController {
     private MenuItem closeProjectMenuItem;
     
     @FXML
-    private MenuItem saveMenuItem;
+    private MenuItem saveProjectMenuItem;
     
     @FXML
-    private MenuItem saveAsMenuItem;
+    private MenuItem saveAsProjectMenuItem;
     
     @FXML
     private MenuItem printMenuItem;
@@ -87,8 +87,8 @@ public class MenusController extends AbstractFXMLController {
         
         newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
         openProjectMenuItem.setOnAction(new OpenProjectEventHnadler());
-        saveMenuItem.setOnAction(new SaveProjectEventHandler());
-        saveAsMenuItem.setOnAction(new SaveAsProjectEventHandler());
+        saveProjectMenuItem.setOnAction(new SaveProjectEventHandler());
+        saveAsProjectMenuItem.setOnAction(new SaveAsProjectEventHandler());
         closeProjectMenuItem.setOnAction(new CloseProjectEventHnadler());
         exitMenuItem.setOnAction(new ExitApplicationEventHandler());
         

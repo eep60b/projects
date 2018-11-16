@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.ComboBox;
@@ -11,9 +11,9 @@ import javafx.scene.control.ComboBox;
  */
 public class PlantTypeSelectionPropertyChangeAdapter implements PropertyChangeListener {
 
-    private final ComboBox<PlantType> plantTypeCombox;
+    private final ComboBox<PlantSubGroup> plantTypeCombox;
 
-    public PlantTypeSelectionPropertyChangeAdapter(ComboBox<PlantType> plantTypeCombox) {
+    public PlantTypeSelectionPropertyChangeAdapter(ComboBox<PlantSubGroup> plantTypeCombox) {
         
         this.plantTypeCombox = plantTypeCombox;
     }

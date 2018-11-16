@@ -81,7 +81,7 @@ public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, Abstr
      *
      */
     @Override
-    public void initializeComponents() {
+    public void initializeComponents() throws Exception {
 
         for (SubAreaShape shape : SubAreaShape.values()) {
             map.put(shape, getNode(shape));
@@ -101,7 +101,7 @@ public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, Abstr
 
     }
     
-    private Node getNode(SubAreaShape shape) {
+    private Node getNode(SubAreaShape shape) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getMeasurementDataModel().getFxmlPath(shape)));
             Node node = (AnchorPane) loader.load();

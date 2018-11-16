@@ -27,18 +27,21 @@ public class PlantsFactory {
         String[] defaultTitles = BUNDLE.getString("com.etlsolutions.javafx.data.plant.PlantsFactory.defaultPlantsGroup.Titles").split(BUNDLE_SEPARATER);
 
         for (String title : defaultTitles) {
-            PlantGroup group = createPlantsGroup(title, "");
+            
+            title = title.trim();
+            
+            PlantGroup group = new PlantGroup(title, "", new ObservableListWrapperA<ImageLink>(), 0, "");
             if(title.equals("Annual Plants")) {
-                group.getPlantsTypes().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Tomato", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
+                group.getPlantsSubGroups().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Tomato", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
             }
             if(title.equals("Biennial Plants")) {
-                group.getPlantsTypes().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Unset", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
+                group.getPlantsSubGroups().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Unset", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
             }
             if(title.equals("Perennial Plants")) {
-                group.getPlantsTypes().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Garlic Chive", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
+                group.getPlantsSubGroups().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Garlic Chive", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
             }
             if(title.equals("Trees")) {
-                group.getPlantsTypes().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Apple", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
+                group.getPlantsSubGroups().add(creatPlantsType(0, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>(), "Apple", "", new ObservableListWrapperA<ImageLink>(), 0, ""));
             }            
             r.getPlantGroups().add(group);
             
@@ -47,21 +50,18 @@ public class PlantsFactory {
         return r;
     }
 
-    public PlantGroup createPlantsGroup() {
-        return createPlantsGroup("untitled", "");
+    public PlantGroup createDefaultPlantGroup() {
+        return new PlantGroup("untitled", "", new ObservableListWrapperA<ImageLink>(), 0, "");
     }
 
-    public PlantGroup createPlantsGroup(String title, String information) {
-        return new PlantGroup(title, information);
-    }
 
     
-    public PlantType creatPlantsType(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        return new PlantType(plantGroupId, plantsList, plantVarieties, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public PlantSubGroup creatPlantsType(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        return new PlantSubGroup(plantGroupId, plantsList, plantVarieties, title, information, imageLinks, selectedImgLinkIndex, logoPath);
     }
 
-    public PlantType creatPlantsType() {
-        PlantType t = new PlantType();
+    public PlantSubGroup creatPlantsType() {
+        PlantSubGroup t = new PlantSubGroup();
 
         t.setTitle("untitled");
         t.setInformation("");

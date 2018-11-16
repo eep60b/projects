@@ -14,6 +14,7 @@ public enum RepositoryUtils {
     ;
 
     public static void initRepository(String... args) throws IOException {
+        
         File repositoryDirectory = new File(SettingConstants.REPOSITORY_LOCATION);
 
         if (!repositoryDirectory.isDirectory()) {

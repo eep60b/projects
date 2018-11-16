@@ -117,8 +117,8 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
     private final Map<TaskType, ComponentsFXMLControllerNodeWrapper<TaskDetailDataModel>> map = new HashMap<>();
 
     @Override
-    public void initializeComponents() {
-        try {
+    public void initializeComponents() throws Exception {
+    
             for (TaskType type : TaskType.values()) {
                 if (type != TaskType.CUSTOM) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getDetailDataModel(type).getFxmlPath()));
@@ -178,11 +178,5 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
             model.getSelectedType().addPropertyChangeListener(SELECTED_TYPE_PROPERTY, new SelectedTaskTypePropertyAdapter(mainTabPane, detailTab, map));
             model.getNotifications().addListener(new NotificationListChangeAdapter(model, notificationListView));
             model.addPropertyChangeListener(SELECTED_NOTIFICATION_PROPERTY, new SelectedNotificationPropertyChangeAdapter(notificationListView, editNotificationButton, removeNotificationButton));
-
-        } catch (IOException ex) {
-            Logger.getLogger(getClass()).error(ex);
-            throw new CustomLevelErrorRuntimeExceiption(ex);
-        }
     }
-
 }

@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
  *
  * @author zc
  */
-public class PlantType extends DataUnit {
+public class PlantSubGroup extends DataUnit {
     
     private int plantGroupId;
     private ObservableListWrapperA<Plants> plantsList;
@@ -19,17 +19,17 @@ public class PlantType extends DataUnit {
     //This property will not be shown in the tree.  
     private ObservableListWrapperA<PlantVariety> plantVarieties;
     
-    public PlantType() {
+    public PlantSubGroup() {
     }
 
-    public PlantType(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public PlantSubGroup(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.plantGroupId = plantGroupId;
         this.plantsList = plantsList;
         this.plantVarieties = plantVarieties;
     }
 
-    public PlantType(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public PlantSubGroup(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.plantGroupId = plantGroupId;
         this.plantsList = plantsList;

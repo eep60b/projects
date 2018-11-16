@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.plantgroup.PlantGroupFXMLController">
+    <stylesheets>
+        <URL value="@/styles/plant/plantgroupfxml.css" />
+    </stylesheets>
+    <children>
+        <VBox>
+            <children>
+                <TabPane fx:id="mainTabPane" prefHeight="622.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                        <Tab text="General">
+                            <content>
+                                <AnchorPane prefHeight="582.0" prefWidth="600.0">
+                                    <children>
+                                        <VBox prefHeight="574.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <opaqueInsets>
+                                                <Insets />
+                                            </opaqueInsets>
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </padding>
+                                            <children>
+                                                <HBox spacing="10.0">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="28.0" text="Title">
+                                                            <padding>
+                                                                <Insets top="3.0" />
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="titleTextField" HBox.hgrow="ALWAYS" />
+                                                    </children>
+                                                </HBox>
+                                                <Label text="Information" />
+                                                <ScrollPane prefHeight="479.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">
+                                                    <content>
+                                                        <TextArea fx:id="informationTextArea" prefHeight="479.0" prefWidth="571.0" />
+                                                    </content>
+                                                </ScrollPane>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="contentsTab" text="Contents">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="405.0" text="Plant types">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Button fx:id="addPlantSubGroupButton" mnemonicParsing="false" text="Add">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="editPlantSubGroupButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="removePlantSubGroupButton" layoutX="48.0" layoutY="10.0" mnemonicParsing="false" text="Remove">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="20.0">
+                                 <children>
+                                    <ScrollPane prefViewportHeight="509.0" prefViewportWidth="599.0">
+                                       <content>
+                                          <ListView fx:id="plantSubGroupListView" prefHeight="509.0" prefWidth="599.0" />
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content></Tab>
+                        <Tab text="Images">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <VBox prefHeight="608.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <HBox spacing="10.0">
+                                                    <children>
+                                                        <Button fx:id="addImageButton" mnemonicParsing="false" text="Add" />
+                                                        <Button fx:id="removeImageButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                        <Button fx:id="editImageButton" layoutX="48.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                        <Button fx:id="moveToBeginImageButton" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
+                                                        <Button fx:id="moveToLeftImageButton" layoutX="124.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
+                                                        <Button fx:id="moveToRightImageButton" layoutX="162.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
+                                                        <Button fx:id="moveToEndImageButton" layoutX="200.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+                                                    </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                                </HBox>
+                                                <TilePane fx:id="imagePane" prefHeight="585.0" prefWidth="600.0" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <HBox>
+                    <children>
+                        <Label fx:id="errorMessageLabel" text="Error Message" textFill="#f20404">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="657.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
+                        <Button fx:id="cancelButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel">
+                            <HBox.margin>
+                                <Insets right="10.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

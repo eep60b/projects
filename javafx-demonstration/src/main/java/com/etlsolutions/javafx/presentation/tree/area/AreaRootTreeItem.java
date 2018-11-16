@@ -9,6 +9,7 @@ import com.etlsolutions.javafx.data.area.FarmArea;
 import com.etlsolutions.javafx.data.area.GardenArea;
 import com.etlsolutions.javafx.data.area.IndoorArea;
 import com.etlsolutions.javafx.data.area.PatioArea;
+import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
 import java.util.List;
 import javafx.scene.control.TreeItem;
 
@@ -16,7 +17,7 @@ import javafx.scene.control.TreeItem;
  *
  * @author zc
  */
-public class AreaRootTreeItem extends TreeItem<DataUnit> {
+public class AreaRootTreeItem extends MenuedTreeItem {
 
     private final AreaRoot model;
 

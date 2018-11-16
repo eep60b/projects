@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
-import com.etlsolutions.javafx.data.plant.PlantType;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -8,7 +8,7 @@ import javafx.beans.value.ObservableValue;
  *
  * @author zc
  */
-class PlantTypeChangeAdapter implements ChangeListener<PlantType> {
+class PlantTypeChangeAdapter implements ChangeListener<PlantSubGroup> {
 
     private final AddPlantsDataModel model;
 
@@ -17,7 +17,7 @@ class PlantTypeChangeAdapter implements ChangeListener<PlantType> {
     }
 
     @Override
-    public void changed(ObservableValue<? extends PlantType> observable, PlantType oldValue, PlantType newValue) {
+    public void changed(ObservableValue<? extends PlantSubGroup> observable, PlantSubGroup oldValue, PlantSubGroup newValue) {
         model.setSelectedPlantType(newValue);
     }
 }

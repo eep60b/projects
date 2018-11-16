@@ -109,7 +109,7 @@ public class LocationFXMLController extends DataUnitFXMLController<Location, Abs
     private final Map<LocationMeasurementType, Node> map = new HashMap<>();
 
     @Override
-    public void initializeComponents() {
+    public void initializeComponents() throws Exception {
 
         try {
 
