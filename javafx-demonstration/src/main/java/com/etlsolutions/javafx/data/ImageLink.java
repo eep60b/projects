@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Objects;
-import com.etlsolutions.javafx.presentation.InformationDataModel;
 
 /**
  * The ImageLink class represents the path to a image on and its information.

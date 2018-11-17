@@ -59,10 +59,9 @@ public abstract class DataUnit {
         this.logoPath = logoPath;
     }
 
-    public DataUnit(DataUnitCommonValueWrapper commonValueWrapper) {
-        this(commonValueWrapper.getTitleWrapper().getValue(), commonValueWrapper.getInformationWrapper().getValue(), commonValueWrapper.getImageLinks(), 
-                commonValueWrapper.getImageLinks().isEmpty() ? 0 : commonValueWrapper.getImageLinks().indexOf(commonValueWrapper.getSelectedImageLinkWrapper().getValue()),
-        commonValueWrapper.getLogoPathWrapper().getValue());
+    public DataUnit(DataUnitValueWrapper valueWrapper) {
+        this(valueWrapper.getTitle(), valueWrapper.getInformation(), valueWrapper.getImageLinks(), 
+                valueWrapper.getSelectedImgLinkIndex(), valueWrapper.getLogoPath());
     }
     
     
@@ -156,7 +155,7 @@ public abstract class DataUnit {
         fireChange(LOGO_PATH_PROPERTY, oldValue, this.logoPath);
     }
     
-    public void setCommonValues(DataUnitCommonValueWrapper commonValueWrapper) {
+    public void setCommonValues(DataUnitValueWrapper commonValueWrapper) {
         
         title = commonValueWrapper.getTitle();
         information = commonValueWrapper.getInformation();

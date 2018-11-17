@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
@@ -26,7 +26,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
 
     public static final RemoveEventId SELECTED_IMAGE_LINK_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.selectedImageLink", "Selected Image");
 
-    protected final DataUnitCommonValueWrapper commonValueWrapper;
+    protected final DataUnitValueWrapper commonValueWrapper;
     protected boolean invalid;
     protected String errorMessage;
     private boolean noOrFirstImage;
@@ -47,7 +47,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
 
     public DataUnitFXMLDataModel(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImageLink, String logoPath) {
         
-        commonValueWrapper = new DataUnitCommonValueWrapper(title, information, imageLinks, selectedImageLink, logoPath);
+        commonValueWrapper = new DataUnitValueWrapper(title, information, imageLinks, selectedImageLink, logoPath);
         String titleValue = commonValueWrapper.getTitleWrapper().getValue();
         invalid = title == null || titleValue.trim().isEmpty();
         errorMessage = invalid ? "Please enter title." : "";

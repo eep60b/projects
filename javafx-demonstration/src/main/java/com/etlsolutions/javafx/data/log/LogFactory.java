@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.log;
 
-import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.gvent.Gvents;
@@ -150,7 +150,7 @@ public class LogFactory {
         return new PruningTaskDetail(25, 25);
     }
 
-    public Task createTask(DataUnitCommonValueWrapper commonValueWrapper, TaskType value, ObservableListWrapperA<Notification> notifications, TaskDetail detail) {
+    public Task createTask(DataUnitValueWrapper commonValueWrapper, TaskType value, ObservableListWrapperA<Notification> notifications, TaskDetail detail) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

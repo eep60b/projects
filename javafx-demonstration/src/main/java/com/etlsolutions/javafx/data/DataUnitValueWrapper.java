@@ -4,7 +4,7 @@ package com.etlsolutions.javafx.data;
  *
  * @author zc
  */
-public class DataUnitCommonValueWrapper {
+public class DataUnitValueWrapper {
 
     private final ValueWrapper<String> titleWrapper;
     private final ValueWrapper<String> informationWrapper;
@@ -12,7 +12,7 @@ public class DataUnitCommonValueWrapper {
     private final ValueWrapper<ImageLink> selectedImageLinkWrapper;
     private final ValueWrapper<String> logoPathWrapper;
 
-    public DataUnitCommonValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath) {
+    public DataUnitValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath) {
         this.titleWrapper = new ValueWrapper<>(title);
         this.informationWrapper = new ValueWrapper<>(information);
         this.imageLinks = new ObservableListWrapperA<>(imageLinks);
@@ -56,7 +56,7 @@ public class DataUnitCommonValueWrapper {
         return logoPathWrapper.getValue();
     }
 
-    int getSelectedImgLinkIndex() {
+    public int getSelectedImgLinkIndex() {
         return imageLinks.isEmpty() ? 0 : imageLinks.indexOf(getSelectedImageLink());
     }
 }

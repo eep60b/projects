@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.other;
 
-import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
@@ -21,7 +21,7 @@ public class GrowingMediumFactory {
         return new GrowingMedium(id, title, information, imageLinks, selectedImgLinkIndex, logoPath, compositions, fertilised);
     }
 
-    public GrowingMedium createGrowingMedium(DataUnitCommonValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
+    public GrowingMedium createGrowingMedium(DataUnitValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
 
         return new GrowingMedium(commonValueWrapper, specialValueWrapper);
     }    

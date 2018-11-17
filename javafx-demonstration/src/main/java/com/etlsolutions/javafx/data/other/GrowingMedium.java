@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.other;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -41,7 +41,7 @@ public class GrowingMedium extends DataUnit {
     public GrowingMedium() {
     }
 
-    public GrowingMedium(DataUnitCommonValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
+    public GrowingMedium(DataUnitValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
         super(commonValueWrapper);
         sandPercentage = Double.parseDouble(specialValueWrapper.getSandPercentageWrapper().getValue());
         siltPercentage = Double.parseDouble(specialValueWrapper.getSiltPercentageWrapper().getValue());
@@ -174,7 +174,7 @@ public class GrowingMedium extends DataUnit {
         fireChange(FERTILISED_PROPERTY, oldValue, this.fertilised);
     }
     
-    public void setValues(DataUnitCommonValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
+    public void setValues(DataUnitValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
         
         setCommonValues(commonValueWrapper);
         

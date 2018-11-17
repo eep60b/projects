@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
-import com.etlsolutions.javafx.data.DataUnitCommonValueWrapper;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
@@ -57,7 +57,7 @@ public class SubAreaFactory {
         return r;
     }
 
-    public SubArea createSubArea(SubAreaType selectedSubAreaType, DataUnitCommonValueWrapper commonValueWrapper, SubAreaShape selectedSubAreaShape, SubAreaMeasurement measurement) {
+    public SubArea createSubArea(SubAreaType selectedSubAreaType, DataUnitValueWrapper commonValueWrapper, SubAreaShape selectedSubAreaShape, SubAreaMeasurement measurement) {
         
         String title = commonValueWrapper.getTitleWrapper().getValue();
         String information = commonValueWrapper.getInformationWrapper().getValue();
