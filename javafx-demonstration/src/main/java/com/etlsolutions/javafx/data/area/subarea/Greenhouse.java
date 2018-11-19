@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseGroundLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
@@ -20,16 +21,10 @@ public class Greenhouse extends SubArea {
     public Greenhouse() {
     }
 
-    public Greenhouse(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        locations = new ObservableListWrapperA<>();
-        containers = new ObservableListWrapperA<>();
-    }
-
-    public Greenhouse(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        locations = new ObservableListWrapperA<>();
-        containers = new ObservableListWrapperA<>();
+    public Greenhouse(Measurement measurement, DataUnitValueWrapper valueWrapper) {
+        super(measurement, valueWrapper);
+        this.locations = new ObservableListWrapperA<>();
+        this.containers = new ObservableListWrapperA<>();
     }
 
     public ObservableList<GreenHouseGroundLocation> getLocations() {

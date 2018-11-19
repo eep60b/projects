@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.AreaFactory;
-import com.etlsolutions.javafx.data.area.AreaMeasurement;
+import com.etlsolutions.javafx.data.area.Measurement;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class AddAreaDataModel extends AbstractAreaDataModel {
 
     public AddAreaDataModel() {
-        super(new ObservableListWrapperA<>(Arrays.asList(AreaType.values())), new AreaMeasurement());
+        super(new ObservableListWrapperA<>(Arrays.asList(AreaType.values())), new Measurement());
         selectedAreaType = areaTypes.get(0);
         selectedAreaShape = areaShapes.get(0);
     }

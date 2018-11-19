@@ -1,12 +1,15 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.BorderMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import static javax.swing.Spring.width;
+import static jdk.nashorn.internal.objects.NativeRegExpExecResult.length;
 
 /**
  *
@@ -19,37 +22,22 @@ public class Border extends SubArea {
     @JsonIgnore
     public static final String WIDTH_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.PlantBedBorder.WIDTH_PROPERTY";
 
-    private double length;
-    private double width;
-    private final ObservableList<BorderLocation> locations;
+    private ObservableListWrapperA<BorderLocation> locations;
 
     public Border() {
-        locations = FXCollections.observableArrayList();
     }
 
-    public double getLength() {
-        return length;
+    public Border(BorderMeasurement measurement, DataUnitValueWrapper valueWrapper) {
+        super(measurement, valueWrapper);
+        this.locations = new ObservableListWrapperA<BorderLocation>();
     }
 
-    public void setLength(double length) {
-        double oldValue = this.length;
-        this.length = length;
-        fireChange(LENGTH_PROPERTY, oldValue, this.length);
-
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        double oldValue = this.width;
-        this.width = width;
-        fireChange(WIDTH_PROPERTY, oldValue, this.width);
-    }
-
-    public ObservableList<BorderLocation> getLocations() {
+    public ObservableListWrapperA<BorderLocation> getLocations() {
         return locations;
+    }
+
+    public void setLocations(ObservableListWrapperA<BorderLocation> locations) {
+        this.locations = locations;
     }
 
     @Override

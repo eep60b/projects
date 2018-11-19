@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
@@ -18,14 +19,9 @@ public class Pond extends SubArea {
 
     }
 
-    public Pond(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        locations = new ObservableListWrapperA<>();
-    }
-
-    public Pond(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        locations = new ObservableListWrapperA<>();
+    public Pond(Measurement measurement, DataUnitValueWrapper valueWrapper) {
+        super(measurement, valueWrapper);
+        this.locations = new ObservableListWrapperA<>();
     }
 
     public ObservableListWrapperA<PondLocation> getLocations() {
@@ -46,7 +42,7 @@ public class Pond extends SubArea {
 
     @Override
     public ObservableListWrapperA<Location> getLocations(LocationType type) {
-        
+
         ObservableListWrapperA<Location> list = new ObservableListWrapperA<>();
         switch (type) {
 
@@ -56,9 +52,10 @@ public class Pond extends SubArea {
         }
         return list;
     }
-        @Override
+
+    @Override
     public ObservableListWrapperA<LocationType> getLocationTypes() {
         return new ObservableListWrapperA<>(LocationType.POND_LOCATION);
     }
-    
+
 }

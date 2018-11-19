@@ -3,6 +3,10 @@ package com.etlsolutions.javafx.data.area.subarea;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.area.measurement.BorderMeasurement;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
+import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
 
 /**
  *
@@ -31,8 +35,10 @@ public class SubAreaFactory {
         return g;
     }
 
-    public static PlantBed createPlantBed() {
-        PlantBed b = new PlantBed();
+    public PlantBed createDefaultPlantBed() {
+        DataUnitValueWrapper dataUnitValueWrapper = new DataUnitValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "");
+        
+        PlantBed b = new PlantBed(new RectangleMeasurement(), dataUnitValueWrapper);
         return b;
     }
 
@@ -57,35 +63,29 @@ public class SubAreaFactory {
         return r;
     }
 
-    public SubArea createSubArea(SubAreaType selectedSubAreaType, DataUnitValueWrapper commonValueWrapper, SubAreaShape selectedSubAreaShape, SubAreaMeasurement measurement) {
-        
-        String title = commonValueWrapper.getTitleWrapper().getValue();
-        String information = commonValueWrapper.getInformationWrapper().getValue();
-        ObservableListWrapperA<ImageLink> imageLinks = commonValueWrapper.getImageLinks();
-        int indexOf = imageLinks.indexOf(commonValueWrapper.getSelectedImageLinkWrapper().getValue());
-        String string = commonValueWrapper.getLogoPathWrapper().getValue();
-        
+    public SubArea createSubArea(SubAreaType selectedSubAreaType, DataUnitValueWrapper commonValueWrapper, SubAreaValueWrapper subAreaValueWrapper, SubAreaShape selectedSubAreaShape, Measurement measurement) {
+
         switch (selectedSubAreaType) {
             case BORDER:
-                return new Border();
+                return new Border((BorderMeasurement)measurement, commonValueWrapper);
             case CONTAINTER_SET:
-                return new ContainerSet();
+                return new ContainerSet(((ContainerSetValueWrapper)subAreaValueWrapper).getContainerValueWrapper().getValue(), measurement, commonValueWrapper);
             case CUSTOM:
-                return new CustomSubArea(measurement, selectedSubAreaShape, title, information, imageLinks, indexOf, string);
+                return new CustomSubArea(measurement, commonValueWrapper);
             case GREEN_HOUSE:
-                return new Greenhouse(measurement, selectedSubAreaShape, title, information, imageLinks, indexOf, string);
+                return new Greenhouse(measurement, commonValueWrapper);
             case LAWN:
-                return new Lawn(measurement, selectedSubAreaShape, title, information, imageLinks, indexOf, string);
+                return new Lawn(measurement, commonValueWrapper);
             case PLANT_BED:
-                return new PlantBed(measurement, selectedSubAreaShape, title, information, imageLinks, indexOf, string);
+                return new PlantBed(measurement, commonValueWrapper);
             case POND:
-                return new Pond(measurement, selectedSubAreaShape, title, information, imageLinks, indexOf, string);
+                return new Pond(measurement, commonValueWrapper);
             case RAISED_PLANT_BED:
-                return new RaisedPlantBed(measurement, selectedSubAreaShape, title, information, imageLinks, indexOf, string);
+                return new RaisedPlantBed(measurement, commonValueWrapper);
             case ROOM:
-                return new Room();
+                return new Room(measurement, commonValueWrapper);
             case SINGLE_CONTAINTER:
-                return new SingleContainer();
+                return new SingleContainer(((SingleContainerValueWrapper)subAreaValueWrapper).getContainerValueWrapper().getValue(), commonValueWrapper);
             default:
                 throw new IllegalArgumentException("Invalid sub area type.");
         }

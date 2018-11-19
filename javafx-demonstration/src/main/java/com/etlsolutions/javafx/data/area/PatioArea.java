@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
@@ -27,14 +28,13 @@ public class PatioArea extends Area {
 
     }
 
-    public PatioArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
-
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
-        raisedPlantBeds = new ObservableListWrapperA<>();
-        greenhouses = new ObservableListWrapperA<>();
-        singleContainers = new ObservableListWrapperA<>();
-        containerSets = new ObservableListWrapperA<>();
-        customSubareas = new ObservableListWrapperA<>();
+    public PatioArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, PatioAreaValueWrapper patioAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
+        raisedPlantBeds = new ObservableListWrapperA<>(patioAreaValueWrapper.getRaisedPlantBeds());
+        greenhouses = new ObservableListWrapperA<>(patioAreaValueWrapper.getGreenhouses());
+        singleContainers = new ObservableListWrapperA<>(patioAreaValueWrapper.getSingleContainers());
+        containerSets = new ObservableListWrapperA<>(patioAreaValueWrapper.getContainerSets());
+        customSubareas = new ObservableListWrapperA<>(patioAreaValueWrapper.getCustomSubareas());
     }
 
     public ObservableListWrapperA<RaisedPlantBed> getRaisedPlantBeds() {
@@ -58,14 +58,15 @@ public class PatioArea extends Area {
     }
 
     @Override
-    public void updateAllSubAreas() {
+    public ObservableListWrapperA<SubArea> getAllSubAreas() {
         
-        allSubAreas.clear();
+        ObservableListWrapperA<SubArea> allSubAreas = new ObservableListWrapperA<>();
         allSubAreas.addAll(raisedPlantBeds);
         allSubAreas.addAll(greenhouses);
         allSubAreas.addAll(containerSets);
         allSubAreas.addAll(singleContainers);
         allSubAreas.addAll(customSubareas);
+        return allSubAreas;
     }
 
     @Override

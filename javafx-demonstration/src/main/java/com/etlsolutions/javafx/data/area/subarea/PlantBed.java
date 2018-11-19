@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
@@ -18,14 +19,9 @@ public class PlantBed extends SubArea {
     public PlantBed() {
     }
 
-    public PlantBed(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(measurement, shape, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        locations = new ObservableListWrapperA<>();
-    }
-
-    public PlantBed(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(measurement, shape, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        locations = new ObservableListWrapperA<>();
+    public PlantBed(Measurement measurement, DataUnitValueWrapper valueWrapper) {
+        super(measurement, valueWrapper);
+        this.locations = new ObservableListWrapperA<>();
     }
 
     public ObservableList<PlantBedLocation> getLocations() {

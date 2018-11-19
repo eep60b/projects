@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.Room;
@@ -24,12 +25,12 @@ public class IndoorArea extends Area {
     public IndoorArea() {
     }
 
-    protected IndoorArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
-        containerSets = new ObservableListWrapperA<>();
-        singleContainers = new ObservableListWrapperA<>();
-        rooms = new ObservableListWrapperA<>();
-        customSubareas = new ObservableListWrapperA<>();
+    public IndoorArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, IndoorAreaValueWrapper indoorAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
+        containerSets = new ObservableListWrapperA<>(indoorAreaValueWrapper.getContainerSets());
+        singleContainers = new ObservableListWrapperA<>(indoorAreaValueWrapper.getSingleContainers());
+        rooms = new ObservableListWrapperA<>(indoorAreaValueWrapper.getRooms());
+        customSubareas = new ObservableListWrapperA<>(indoorAreaValueWrapper.getCustomSubareas());
     }
 
     public ObservableListWrapperA<ContainerSet> getContainerSets() {
@@ -49,13 +50,15 @@ public class IndoorArea extends Area {
     }
 
     @Override
-    public void updateAllSubAreas() {
+    public ObservableListWrapperA<SubArea> getAllSubAreas() {
 
-        allSubAreas.clear();
+        ObservableListWrapperA<SubArea> allSubAreas = new ObservableListWrapperA<>();
         allSubAreas.addAll(containerSets);
         allSubAreas.addAll(singleContainers);
         allSubAreas.addAll(rooms);
         allSubAreas.addAll(customSubareas);
+        
+        return allSubAreas;
     }
 
     @Override

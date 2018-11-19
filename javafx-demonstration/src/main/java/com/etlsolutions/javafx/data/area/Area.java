@@ -1,8 +1,11 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,40 +24,28 @@ public abstract class Area extends DataUnit {
     public static final String MEASUREMENT_PROPERTY = "com.etlsolutions.javafx.data.area.Area.MEASUREMENT_PROPERTY";
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.SHAPE_PROPERTY";
-    
-    protected ObservableListWrapperA<SubArea> allSubAreas;
+
     private double longitude;
     private double latitude;
-    private AreaMeasurement measurement;
+    private Measurement measurement;
     private AreaShape shape;
 
     public Area() {
     }
 
-    protected Area(String title, String information) {
-        super(title, information);
-        this.allSubAreas = new ObservableListWrapperA<>();
-    }
-
-    protected Area(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.allSubAreas = new ObservableListWrapperA<>();
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.measurement = measurement;
-        this.shape = shape;
+    public Area(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper);
+        longitude = areaValueWrapper.getLongitude();
+        latitude = areaValueWrapper.getLatitude();
+        measurement = MeasurementFactory.getInstance().getMeasurement(measurementValueWrapper);
     }
 
     public abstract AreaType getType();
 
-    public abstract void updateAllSubAreas();
-
     public abstract ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type);
 
-    public ObservableListWrapperA<SubArea> getAllSubAreas() {
-        return allSubAreas;
-    }
-
+    public abstract ObservableListWrapperA<SubArea> getAllSubAreas();
+    
     public double getLongitude() {
         return longitude;
     }
@@ -75,11 +66,11 @@ public abstract class Area extends DataUnit {
         fireChange(LATITUTE_PROPERTY, oldValue, this.latitude);
     }
 
-    public AreaMeasurement getMeasurement() {
+    public Measurement getMeasurement() {
         return measurement;
     }
 
-    public void setMeasurement(AreaMeasurement measurement) {
+    public void setMeasurement(Measurement measurement) {
         this.measurement = measurement;
         fireChange(MEASUREMENT_PROPERTY);
     }

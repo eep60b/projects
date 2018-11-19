@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
@@ -35,17 +36,17 @@ public class GardenArea extends Area {
 
     }
 
-    protected GardenArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
-        plantBeds = new ObservableListWrapperA<>();
-        raisedPlantBeds = new ObservableListWrapperA<>();
-        lawns = new ObservableListWrapperA<>();
-        borders = new ObservableListWrapperA<>();
-        greenhouses = new ObservableListWrapperA<>();
-        containerSets = new ObservableListWrapperA<>();
-        singleContainers = new ObservableListWrapperA<>();
-        ponds = new ObservableListWrapperA<>();
-        customSubareas = new ObservableListWrapperA<>();
+    public GardenArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, GardenAreaValueWrapper gardenAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
+        plantBeds = new ObservableListWrapperA<>(gardenAreaValueWrapper.getPlantBeds());
+        raisedPlantBeds = new ObservableListWrapperA<>(gardenAreaValueWrapper.getRaisedPlantBeds());
+        lawns = new ObservableListWrapperA<>(gardenAreaValueWrapper.getLawns());
+        borders = new ObservableListWrapperA<>(gardenAreaValueWrapper.getBorders());
+        greenhouses = new ObservableListWrapperA<>(gardenAreaValueWrapper.getGreenhouses());
+        containerSets = new ObservableListWrapperA<>(gardenAreaValueWrapper.getContainerSets());
+        singleContainers = new ObservableListWrapperA<>(gardenAreaValueWrapper.getSingleContainers());
+        ponds = new ObservableListWrapperA<>(gardenAreaValueWrapper.getPonds());
+        customSubareas = new ObservableListWrapperA<>(gardenAreaValueWrapper.getCustomSubareas());
     }
 
     public ObservableListWrapperA<PlantBed> getPlantBeds() {
@@ -85,9 +86,9 @@ public class GardenArea extends Area {
     }
 
     @Override
-    public void updateAllSubAreas() {
-
-        allSubAreas.clear();
+    public ObservableListWrapperA<SubArea> getAllSubAreas() {
+        
+        ObservableListWrapperA<SubArea> allSubAreas = new ObservableListWrapperA<>();
         allSubAreas.addAll(plantBeds);
         allSubAreas.addAll(raisedPlantBeds);
         allSubAreas.addAll(lawns);
@@ -97,6 +98,7 @@ public class GardenArea extends Area {
         allSubAreas.addAll(singleContainers);
         allSubAreas.addAll(ponds);
         allSubAreas.addAll(customSubareas);
+        return allSubAreas;
     }
 
     @Override

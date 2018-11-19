@@ -7,11 +7,11 @@ package com.etlsolutions.javafx.data;
 public class DoubleValueWrapper {
     
     
-    protected ValueWrapper<String> getWrapper(double value) {
+    protected final ValueWrapper<String> getWrapper(double value) {
         return new ValueWrapper<>(String.valueOf(value));
     }
     
-    protected double getValue(ValueWrapper<String> wrapper) {
+    protected final double getValue(ValueWrapper<String> wrapper) {
         return Double.parseDouble(wrapper.getValue());
     }
 }

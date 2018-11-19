@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.Border;
@@ -22,34 +23,52 @@ public class FarmArea extends Area {
     public FarmArea() {
     }
 
-    protected FarmArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude,measurement, shape);
+    public FarmArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, FarmAreaValueWrapper farmAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
 
-        plantBeds = new ObservableListWrapperA<>();
-        borders = new ObservableListWrapperA<>();
-        customSubareas = new ObservableListWrapperA<>();
+        plantBeds = new ObservableListWrapperA<>(farmAreaValueWrapper.getPlantBeds());
+        borders = new ObservableListWrapperA<>(farmAreaValueWrapper.getBorders());
+        customSubareas = new ObservableListWrapperA<>(farmAreaValueWrapper.getCustomSubareas());
     }
 
     public ObservableListWrapperA<PlantBed> getPlantBeds() {
         return plantBeds;
     }
 
+    public void setPlantBeds(ObservableListWrapperA<PlantBed> plantBeds) {
+        this.plantBeds = plantBeds;
+    }
+
     public ObservableListWrapperA<Border> getBorders() {
         return borders;
     }
 
-    @Override
-    public void updateAllSubAreas() {
+    public void setBorders(ObservableListWrapperA<Border> borders) {
+        this.borders = borders;
+    }
 
-        allSubAreas.clear();
+    public ObservableListWrapperA<CustomSubArea> getCustomSubareas() {
+        return customSubareas;
+    }
+
+    public void setCustomSubareas(ObservableListWrapperA<CustomSubArea> customSubareas) {
+        this.customSubareas = customSubareas;
+    }
+
+    @Override
+    public ObservableListWrapperA<SubArea> getAllSubAreas() {
+
+        ObservableListWrapperA<SubArea> allSubAreas = new ObservableListWrapperA<>();
+
         allSubAreas.addAll(plantBeds);
         allSubAreas.addAll(borders);
         allSubAreas.addAll(customSubareas);
+        return allSubAreas;
     }
 
     @Override
     public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
-        
+
         ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         switch (type) {
             case PLANT_BED:

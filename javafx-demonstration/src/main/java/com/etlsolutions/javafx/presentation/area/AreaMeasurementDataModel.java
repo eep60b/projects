@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.area;
 
-import com.etlsolutions.javafx.data.area.AreaMeasurement;
+import com.etlsolutions.javafx.data.area.Measurement;
 import com.etlsolutions.javafx.data.area.AreaShape;
 
 /**
@@ -9,13 +9,13 @@ import com.etlsolutions.javafx.data.area.AreaShape;
  */
 public class AreaMeasurementDataModel implements LengthWidthDataModel, SquareDataModel, CircleDataModel, TriangleDataModel, AreaValueDataModel {
 
-    private final AreaMeasurement measurement;
+    private final Measurement measurement;
 
-    public AreaMeasurementDataModel(AreaMeasurement measurement) {
+    public AreaMeasurementDataModel(Measurement measurement) {
         this.measurement = measurement;
     }
 
-    public AreaMeasurement getMeasurement() {
+    public Measurement getMeasurement() {
         return measurement;
     }
 

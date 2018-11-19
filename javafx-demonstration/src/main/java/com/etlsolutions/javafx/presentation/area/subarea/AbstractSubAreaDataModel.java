@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.area.subarea;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
-import com.etlsolutions.javafx.data.area.subarea.SubAreaMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
@@ -20,7 +20,7 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel<Sub
     protected SubAreaShape selectedSubAreaShape;
     protected final SubAreaMeasurementDataModel measurementDataModel;
 
-    public AbstractSubAreaDataModel(SubAreaType[] subAreaTypes, SubAreaMeasurement measurement) {   
+    public AbstractSubAreaDataModel(SubAreaType[] subAreaTypes, Measurement measurement) {   
         this.subAreaTypes = new ObservableListWrapperA<>(subAreaTypes);
         selectedSubAreaType = this.subAreaTypes.get(0);
         subAreaShapes = new ObservableListWrapperA<>(selectedSubAreaType.getShapes());

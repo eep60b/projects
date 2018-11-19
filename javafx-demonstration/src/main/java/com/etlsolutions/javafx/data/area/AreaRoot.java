@@ -52,34 +52,62 @@ public class AreaRoot extends DataUnit {
         return gardenAreas;
     }
 
+    public void setGardenAreas(ObservableListWrapperA<GardenArea> gardenAreas) {
+        this.gardenAreas = gardenAreas;
+    }
+
     public ObservableListWrapperA<IndoorArea> getIndoorAreas() {
         return indoorAreas;
+    }
+
+    public void setIndoorAreas(ObservableListWrapperA<IndoorArea> indoorAreas) {
+        this.indoorAreas = indoorAreas;
     }
 
     public ObservableListWrapperA<PatioArea> getPatioAreas() {
         return patioAreas;
     }
 
+    public void setPatioAreas(ObservableListWrapperA<PatioArea> patioAreas) {
+        this.patioAreas = patioAreas;
+    }
+
     public ObservableListWrapperA<BalconyArea> getBalconyAreas() {
         return balconyAreas;
+    }
+
+    public void setBalconyAreas(ObservableListWrapperA<BalconyArea> balconyAreas) {
+        this.balconyAreas = balconyAreas;
     }
 
     public ObservableListWrapperA<AllotmentArea> getAllotmentAreas() {
         return allotmentAreas;
     }
 
+    public void setAllotmentAreas(ObservableListWrapperA<AllotmentArea> allotmentAreas) {
+        this.allotmentAreas = allotmentAreas;
+    }
+
     public ObservableListWrapperA<FarmArea> getFarmAreas() {
         return farmAreas;
+    }
+
+    public void setFarmAreas(ObservableListWrapperA<FarmArea> farmAreas) {
+        this.farmAreas = farmAreas;
     }
 
     public ObservableListWrapperA<CustomArea> getCustomAreas() {
         return customAreas;
     }
 
+    public void setCustomAreas(ObservableListWrapperA<CustomArea> customAreas) {
+        this.customAreas = customAreas;
+    }
+
     public ObservableListWrapperA<Area> getAllAreas() {
         return allAreas;
     }
-
+    
     public void remove(Area selectedArea) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

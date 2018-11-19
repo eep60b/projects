@@ -32,7 +32,7 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
         addAll(items);
     }
     
-    public ObservableListWrapperA(List<E> list) {
+    public ObservableListWrapperA(List<? extends E> list) {
         super(new ArrayList<E>());
         addAll(list);
     }

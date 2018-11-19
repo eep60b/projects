@@ -1,8 +1,10 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,7 +21,7 @@ public abstract class SubArea extends DataUnit {
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.SHAPE_PROPERTY";
     
-    protected SubAreaMeasurement measurement;
+    protected Measurement measurement;
     protected SubAreaShape shape;
     private int parentId;    
     
@@ -27,16 +29,9 @@ public abstract class SubArea extends DataUnit {
 
     }
 
-    public SubArea(SubAreaMeasurement measurement, SubAreaShape shape, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public SubArea(Measurement measurement, DataUnitValueWrapper valueWrapper) {
+        super(valueWrapper);
         this.measurement = measurement;
-        this.shape = shape;
-    }
-
-    public SubArea(SubAreaMeasurement measurement, SubAreaShape shape, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.measurement = measurement;
-        this.shape = shape;
     }
 
     public abstract SubAreaType getType();
@@ -47,11 +42,11 @@ public abstract class SubArea extends DataUnit {
     
     public abstract ObservableListWrapperA<LocationType> getLocationTypes();
 
-    public SubAreaMeasurement getMeasurement() {
+    public Measurement getMeasurement() {
         return measurement;
     }
 
-    public void setMeasurement(SubAreaMeasurement measurement) {
+    public void setMeasurement(Measurement measurement) {
         this.measurement = measurement;
         support.fireChange(MEASUREMENT_PROPERTY);
     }

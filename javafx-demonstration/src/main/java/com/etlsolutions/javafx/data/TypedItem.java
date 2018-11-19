@@ -6,6 +6,6 @@ package com.etlsolutions.javafx.data;
  * @param <T>
  */
 public interface TypedItem<T> {
- 
+
     T getType();
 }

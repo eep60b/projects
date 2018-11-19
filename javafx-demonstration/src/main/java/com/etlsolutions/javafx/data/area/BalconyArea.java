@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
@@ -21,37 +22,59 @@ public class BalconyArea extends Area {
     public BalconyArea() {
     }
 
-    protected BalconyArea(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaMeasurement measurement, AreaShape shape) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, longitude, latitude, measurement, shape);
-        containerSets = new ObservableListWrapperA<>();
-        singleContainers = new ObservableListWrapperA<>();
-        customSubareas = new ObservableListWrapperA<>();
+    public BalconyArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, BalconyAreaValueWrapper balconyAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
+        containerSets = new ObservableListWrapperA<>(balconyAreaValueWrapper.getContainerSets());
+        singleContainers = new ObservableListWrapperA<>(balconyAreaValueWrapper.getSingleContainers());
+        customSubareas = new ObservableListWrapperA<>(balconyAreaValueWrapper.getCustomSubareas());
     }
 
     public ObservableListWrapperA<ContainerSet> getContainerSets() {
         return containerSets;
     }
 
+    public void setContainerSets(ObservableListWrapperA<ContainerSet> containerSets) {
+        this.containerSets = containerSets;
+    }
+
     public ObservableListWrapperA<SingleContainer> getSingleContainers() {
         return singleContainers;
+    }
+
+    public void setSingleContainers(ObservableListWrapperA<SingleContainer> singleContainers) {
+        this.singleContainers = singleContainers;
     }
 
     public ObservableListWrapperA<CustomSubArea> getCustomSubareas() {
         return customSubareas;
     }
 
-    @Override
-    public void updateAllSubAreas() {
-        
-        allSubAreas.clear();
-        allSubAreas.addAll(containerSets);
-        allSubAreas.addAll(singleContainers);
-        allSubAreas.addAll(customSubareas);
+    public void setCustomSubareas(ObservableListWrapperA<CustomSubArea> customSubareas) {
+        this.customSubareas = customSubareas;
     }
-    
+
+    @Override
+    public ObservableListWrapperA<SubArea> getAllSubAreas() {
+
+        ObservableListWrapperA<SubArea> sas = new ObservableListWrapperA<>();
+        sas.addAll(containerSets);
+        sas.addAll(singleContainers);
+        sas.addAll(customSubareas);
+        return sas;
+    }
+
     @Override
     public ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch (type) {
+            case CONTAINTER_SET:
+                return new ObservableListWrapperA<SubArea>(containerSets);
+            case SINGLE_CONTAINTER:
+                return new ObservableListWrapperA<SubArea>(singleContainers);
+            case CUSTOM:
+                return new ObservableListWrapperA<SubArea>(customSubareas);
+            default:
+                return new ObservableListWrapperA<>();
+        }
     }
 
     @Override
