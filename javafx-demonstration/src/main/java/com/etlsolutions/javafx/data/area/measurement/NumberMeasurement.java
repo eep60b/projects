@@ -10,7 +10,11 @@ public class NumberMeasurement implements Measurement {
 
     public NumberMeasurement() {
     }
-
+    
+    public NumberMeasurement(NumberMeasurementValueWrapper wrapper) {
+        number = wrapper.getNumberValueWrapper().getValue();
+    }
+    
     public NumberMeasurement(int number) {
         this.number = number;
     }

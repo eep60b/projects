@@ -14,6 +14,9 @@ public class RectangleMeasurement implements Measurement {
     }
 
     public RectangleMeasurement(RectangleMeasurementValueWrapper wrapper) {
+        length = wrapper.getLength();
+        width = wrapper.getWidth();
+        height = wrapper.getHeight();
     }
 
     public double getLength() {

@@ -13,10 +13,14 @@ public class RectangleMeasurementValueWrapper extends DoubleValueWrapper impleme
     private final ValueWrapper<String> widthValueWrapper;
     private final ValueWrapper<String> heightValueWrapper;
 
-    public RectangleMeasurementValueWrapper(double length, double width, double height) {
-        lengthValueWrapper = getWrapper(length);
-        widthValueWrapper = getWrapper(width);
-        heightValueWrapper = getWrapper(height);
+    public RectangleMeasurementValueWrapper(RectangleMeasurement measurement) {
+        lengthValueWrapper = getWrapper(measurement.getLength());
+        widthValueWrapper = getWrapper(measurement.getWidth());
+        heightValueWrapper = getWrapper(measurement.getHeight());
+    }
+    
+    public RectangleMeasurementValueWrapper() {
+        this(new RectangleMeasurement());
     }
 
     public ValueWrapper<String> getLengthValueWrapper() {

@@ -7,20 +7,12 @@ import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
-import static javax.swing.Spring.width;
-import static jdk.nashorn.internal.objects.NativeRegExpExecResult.length;
 
 /**
  *
  * @author zc
  */
 public class Border extends SubArea {
-
-    @JsonIgnore
-    public static final String LENGTH_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.PlantBedBorder.LENGTH_PROPERTY";
-    @JsonIgnore
-    public static final String WIDTH_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.PlantBedBorder.WIDTH_PROPERTY";
 
     private ObservableListWrapperA<BorderLocation> locations;
 
@@ -29,7 +21,7 @@ public class Border extends SubArea {
 
     public Border(BorderMeasurement measurement, DataUnitValueWrapper valueWrapper) {
         super(measurement, valueWrapper);
-        this.locations = new ObservableListWrapperA<BorderLocation>();
+        this.locations = new ObservableListWrapperA<>();
     }
 
     public ObservableListWrapperA<BorderLocation> getLocations() {

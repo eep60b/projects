@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.data.area.measurement;
 
 /**
@@ -11,12 +6,25 @@ package com.etlsolutions.javafx.data.area.measurement;
  */
 public class MeasurementFactory {
 
+    private static final MeasurementFactory INSTANCE = new MeasurementFactory();
+
+    private MeasurementFactory() {
+
+    }
+
     public static MeasurementFactory getInstance() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return INSTANCE;
     }
 
     public Measurement getMeasurement(MeasurementValueWrapper measurementValueWrapper) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch (measurementValueWrapper.getType()) {
+            case BORDER:
+                return new BorderMeasurement((BorderMeasurementValueWrapper) measurementValueWrapper);
+            case CIRCLE:
+                return new CircleMeasurement((CircleMeasurementValueWrapper) measurementValueWrapper);
+            default:
+                throw new IllegalArgumentException("Invalid measuerment type.");
+        }
     }
-    
+
 }
