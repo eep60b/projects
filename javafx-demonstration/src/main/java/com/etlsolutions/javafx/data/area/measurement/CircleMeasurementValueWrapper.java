@@ -38,12 +38,18 @@ public class CircleMeasurementValueWrapper extends DoubleValueWrapper implements
         return getValue(heightValueWrapper);
     }
 
+    @Override
     public String getAreaString() {
         return String.valueOf(PI*getDiameter()*getDiameter()/4);
     }
     
     @Override
-    public MeasurementType getType() {
-        return MeasurementType.CIRCLE;
+    public ValueWrapper<MeasurementType> getType() {
+        return new ValueWrapper<>(MeasurementType.CIRCLE);
+    }
+
+    @Override
+    public Measurement getMeasurement() {
+        return new CircleMeasurement(this);
     }
 }

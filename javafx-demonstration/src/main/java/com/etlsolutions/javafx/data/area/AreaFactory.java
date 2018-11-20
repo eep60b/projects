@@ -3,10 +3,12 @@ package com.etlsolutions.javafx.data.area;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaFactory;
 
 /**
@@ -49,13 +51,11 @@ public final class AreaFactory {
         return a;
     }
 
-    public Area createArea(AreaType type, DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, AreaSpecialValueWrapper specialValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
-        switch (type) {
-            case ALLOTMENT:
-                return new AllotmentArea(valueWrapper, areaValueWrapper, (AllotmentAreaValueWrapper) specialValueWrapper, measurementValueWrapper);
-
-            default:
-                throw new IllegalArgumentException("Invalid area type.");
+    public Area createArea(AreaType type, DataUnitValueWrapper commonValueWrapper, AreaValueWrapper areaValueWrapper ,MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
+        switch(type){
+            case ALLOTMENT: return new AllotmentArea(commonValueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+            
+            default:throw new IllegalArgumentException("Invalid area type.");
         }
     }
 }

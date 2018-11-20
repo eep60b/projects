@@ -6,7 +6,6 @@ import com.etlsolutions.javafx.data.area.measurement.BorderMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *

@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.CreateSubAreaDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

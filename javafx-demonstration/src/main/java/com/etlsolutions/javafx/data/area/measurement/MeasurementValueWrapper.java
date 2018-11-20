@@ -1,11 +1,14 @@
 package com.etlsolutions.javafx.data.area.measurement;
 
-import com.etlsolutions.javafx.data.TypedItem;
+import com.etlsolutions.javafx.data.ValueWrapper;
 
 /**
  *
  * @author zc
  */
-public interface MeasurementValueWrapper extends TypedItem<MeasurementType> {
+public interface MeasurementValueWrapper {
 
+    ValueWrapper<MeasurementType> getType();
+    
+    Measurement getMeasurement();
 }

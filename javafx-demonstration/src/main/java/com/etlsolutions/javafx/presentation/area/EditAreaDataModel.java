@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.area;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 
 /**
  *
@@ -10,15 +11,11 @@ import com.etlsolutions.javafx.data.area.measurement.Measurement;
  */
 public class EditAreaDataModel extends AbstractAreaDataModel {
 
-
     public EditAreaDataModel(Area area) {
-        super(new ObservableListWrapperA<>(area.getType()), new  Measurement(area.getMeasurement()));
+        super(new ObservableListWrapperA<>(area.getType()), area.getMeasurement());
         dataUnit = area;
-        selectedAreaType = area.getType();
-        selectedAreaShape = area.getShape();
     }
-
-   
+    
     @Override
     public void save() {        
         dataUnit.setTitle(getTitle().getValue());
@@ -26,9 +23,8 @@ public class EditAreaDataModel extends AbstractAreaDataModel {
         dataUnit.getImageLinks().clear();
         dataUnit.getImageLinks().addAll(getImageLinks());
         dataUnit.setSelectedImgLinkIndex(getImageLinks().indexOf(getSelectedImageLinkWrapper().getValue()));
-        dataUnit.setLongitude(getLongitude());
-        dataUnit.setLatitude(getLatitude());
-        dataUnit.setMeasurement(measurementDataModel.getMeasurement());
-        dataUnit.setShape(selectedAreaShape);
+        dataUnit.setLongitude(areaValueWrapper.getLongitude());
+        dataUnit.setLatitude(areaValueWrapper.getLatitude());
+        dataUnit.setMeasurement(measurementDataModelValueWrapper.getValue().getMeasurementValueWrapper().getMeasurement());
     }
 }

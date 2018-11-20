@@ -38,12 +38,17 @@ public class IrregularMeasurementValueWrapper extends DoubleValueWrapper impleme
     }
 
     @Override
-    public MeasurementType getType() {
-        return MeasurementType.IRREGULAR;
+    public ValueWrapper<MeasurementType> getType() {
+        return new ValueWrapper<>(MeasurementType.IRREGULAR);
     }
 
     @Override
     public String getAreaString() {
         return String.valueOf(getArea());
+    }
+
+    @Override
+    public Measurement getMeasurement() {
+        return new IrregularMeasurement(this);
     }
 }

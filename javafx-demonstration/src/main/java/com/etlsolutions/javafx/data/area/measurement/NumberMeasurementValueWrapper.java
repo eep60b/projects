@@ -23,8 +23,13 @@ public class NumberMeasurementValueWrapper implements MeasurementValueWrapper {
     }
 
     @Override
-    public MeasurementType getType() {
-        return MeasurementType.NUMBER;
+    public ValueWrapper<MeasurementType> getType() {
+        return new ValueWrapper<>(MeasurementType.NUMBER);
+    }
+
+    @Override
+    public Measurement getMeasurement() {
+        return new NumberMeasurement(this);
     }
 
 }
