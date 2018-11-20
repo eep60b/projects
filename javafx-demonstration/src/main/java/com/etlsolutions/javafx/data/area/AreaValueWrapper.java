@@ -11,16 +11,22 @@ public class AreaValueWrapper {
     private final ValueWrapper<String> longitudeValueWrapper;
     private final ValueWrapper<String> latitudeValueWrapper;
     private final ValueWrapper<AreaShape> shapeValueWrapper;
-
-    public AreaValueWrapper(double longitude, double latitude, AreaShape shape) {
+    
+    public AreaValueWrapper(Area area) {
         
-        this.longitudeValueWrapper = new ValueWrapper<>(String.valueOf(longitude));
-        this.latitudeValueWrapper = new ValueWrapper<>(String.valueOf(latitude));
-        this.shapeValueWrapper = new ValueWrapper<>(shape);
+        longitudeValueWrapper = new ValueWrapper<>(String.valueOf(area.getLongitude()));
+        latitudeValueWrapper = new ValueWrapper<>(String.valueOf(area.getLatitude()));
+        shapeValueWrapper = new ValueWrapper<>(area.getShape());
         
     }
 
-
+    public AreaValueWrapper() {
+        
+        longitudeValueWrapper = new ValueWrapper<>("0");
+        latitudeValueWrapper = new ValueWrapper<>("0");
+        shapeValueWrapper = new ValueWrapper<>(AreaShape.RECTANGLE);        
+    }
+    
     public ValueWrapper<String> getLongitudeValueWrapper() {
         return longitudeValueWrapper;
     }

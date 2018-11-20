@@ -1,21 +1,42 @@
 package com.etlsolutions.javafx.presentation.area;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.area.measurement.TriangleMeasurement;
+import com.etlsolutions.javafx.data.area.measurement.TriangleMeasurementValueWrapper;
+
 /**
  *
  * @author zc
  */
-public interface TriangleDataModel extends AreaValueDataModel {
+public class TriangleDataModel extends MeasurementDataModel<TriangleMeasurementValueWrapper> {
 
-    String getA();
+    public TriangleDataModel(TriangleMeasurement measurement) {
+        super(new TriangleMeasurementValueWrapper(measurement));
+    }
 
-    String getB();
+    public ValueWrapper<String> getAValueWrapper() {
+        return measurementValueWrapper.getAValueWrapper();
+    }
 
-    String getC();
+    public ValueWrapper<String> getBValueWrapper() {
+        return measurementValueWrapper.getBValueWrapper();
+    }
 
-    void setA(String a);
+    public ValueWrapper<String> getCValueWrapper() {
+        return measurementValueWrapper.getCValueWrapper();
+    }
 
-    void setB(String b);
+    public ValueWrapper<String> getHeightValueWrapper() {
+        return measurementValueWrapper.getHeightValueWrapper();
+    }
 
-    void setC(String c);
-    
+    public String getArea() {
+        return measurementValueWrapper.getAreaString();
+    }
+
+    @Override
+    public String getFxmlPath() {
+
+        return "/fxml/area/TriangleFXML.fxml";
+    }
 }

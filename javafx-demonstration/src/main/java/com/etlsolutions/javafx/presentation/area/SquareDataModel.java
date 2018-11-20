@@ -1,13 +1,33 @@
 package com.etlsolutions.javafx.presentation.area;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.area.measurement.SquareMeasurement;
+import com.etlsolutions.javafx.data.area.measurement.SquareMeasurementValueWrapper;
+
 /**
  *
  * @author zc
  */
-public interface SquareDataModel extends AreaValueDataModel {
+public class SquareDataModel extends MeasurementDataModel<SquareMeasurementValueWrapper> {
 
-    String getSide();
+    public SquareDataModel(SquareMeasurement measurement) {
+        super(new SquareMeasurementValueWrapper(measurement));
+    }
 
-    void setSide(String side);
+    public ValueWrapper<String> getSideValueWrapper() {
+        return measurementValueWrapper.getSideValueWrapper();
+    }
+
+    public String getAreaString() {
+        return measurementValueWrapper.getAreaString();
+    }
+
+    public ValueWrapper<String> getHeightValueWrapper() {
+        return measurementValueWrapper.getHeightValueWrapper();
+    }
     
+    @Override
+    public String getFxmlPath() {
+        return "/fxml/area/SquareFXML.fxml";
+    }
 }

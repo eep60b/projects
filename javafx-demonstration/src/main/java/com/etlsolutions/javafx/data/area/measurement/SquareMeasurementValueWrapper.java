@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public class SquareMeasurementValueWrapper extends DoubleValueWrapper implements MeasurementValueWrapper {
+public class SquareMeasurementValueWrapper extends DoubleValueWrapper implements AreaMeasurable {
     
     private final ValueWrapper<String> sideValueWrapper;
     private final ValueWrapper<String> heightValueWrapper;
@@ -35,6 +35,11 @@ public class SquareMeasurementValueWrapper extends DoubleValueWrapper implements
 
     public double getHeight() {
         return getValue(heightValueWrapper);
+    }
+    
+    @Override
+    public String getAreaString() {
+        return String.valueOf(getSide() * getSide());
     }
     
     @Override

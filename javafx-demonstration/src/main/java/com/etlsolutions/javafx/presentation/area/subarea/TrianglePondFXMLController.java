@@ -37,7 +37,7 @@ public class TrianglePondFXMLController extends AbstractComponentsFXMLController
         areaValueTextField.setDisable(true);
         areaValueTextField.setText(model.getAreaValue());
 
-        aTextField.setText(model.getA());
+        aTextField.setText(model.getDepth());
         aTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         aTextField.textProperty().addListener(new TriangleaChangeAdapter(model, areaValueTextField));
         

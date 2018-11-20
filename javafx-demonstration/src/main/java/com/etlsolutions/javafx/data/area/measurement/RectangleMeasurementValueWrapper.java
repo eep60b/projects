@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public class RectangleMeasurementValueWrapper extends DoubleValueWrapper implements MeasurementValueWrapper {
+public class RectangleMeasurementValueWrapper extends DoubleValueWrapper implements AreaMeasurable {
 
     private final ValueWrapper<String> lengthValueWrapper;
     private final ValueWrapper<String> widthValueWrapper;
@@ -47,6 +47,11 @@ public class RectangleMeasurementValueWrapper extends DoubleValueWrapper impleme
         return getValue(heightValueWrapper);
     }
 
+    @Override
+    public String getAreaString() {
+        return String.valueOf(getLength() * getWidth());
+    }
+    
     @Override
     public MeasurementType getType() {
         return MeasurementType.RECTANGLE;

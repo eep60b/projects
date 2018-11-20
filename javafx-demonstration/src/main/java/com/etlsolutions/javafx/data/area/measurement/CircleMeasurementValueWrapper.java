@@ -2,19 +2,20 @@ package com.etlsolutions.javafx.data.area.measurement;
 
 import com.etlsolutions.javafx.data.DoubleValueWrapper;
 import com.etlsolutions.javafx.data.ValueWrapper;
+import static com.etlsolutions.javafx.system.SettingConstants.PI;
 
 /**
  *
  * @author zc
  */
-public class CircleMeasurementValueWrapper extends DoubleValueWrapper implements Measurement {
+public class CircleMeasurementValueWrapper extends DoubleValueWrapper implements AreaMeasurable {
 
     private final ValueWrapper<String> diameterValueWrapper;
     private final ValueWrapper<String> heightValueWrapper;
 
     public CircleMeasurementValueWrapper(CircleMeasurement measurement) {
-        this.diameterValueWrapper = getWrapper(measurement.getDiameter());
-        this.heightValueWrapper = getWrapper(measurement.getHeight());
+        diameterValueWrapper = getWrapper(measurement.getDiameter());
+        heightValueWrapper = getWrapper(measurement.getHeight());
     }
 
     public CircleMeasurementValueWrapper() {
@@ -37,6 +38,10 @@ public class CircleMeasurementValueWrapper extends DoubleValueWrapper implements
         return getValue(heightValueWrapper);
     }
 
+    public String getAreaString() {
+        return String.valueOf(PI*getDiameter()*getDiameter()/4);
+    }
+    
     @Override
     public MeasurementType getType() {
         return MeasurementType.CIRCLE;

@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -11,21 +12,24 @@ import javafx.scene.control.TextFormatter;
  *
  * @author zc
  */
-public class SquareFXMLController extends AbstractComponentsFXMLController<SquareDataModel>{
-    
+public class SquareFXMLController extends AbstractComponentsFXMLController<SquareDataModel> {
+
     @FXML
     private TextField sideTextField;
-    
+
     @FXML
     private TextField areaValueTextField;
 
     @Override
     public void initializeComponents() {
         areaValueTextField.setDisable(true);
-        areaValueTextField.setText(model.getAreaValue());
-        
-        sideTextField.setText(model.getSide());
+        areaValueTextField.setText(model.getAreaString());
+
+        sideTextField.setText(model.getSideValueWrapper().getValue());
         sideTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        sideTextField.textProperty().addListener(new SideChangeAdapter(model, areaValueTextField));
-    }    
+        sideTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getSideValueWrapper()));
+
+        AreaMeasurablePropertyChangeAdapter adapter = new AreaMeasurablePropertyChangeAdapter(model.getMeasurementValueWrapper(), areaValueTextField);
+        model.getSideValueWrapper().addPropertyChangeListener(adapter);
+    }
 }

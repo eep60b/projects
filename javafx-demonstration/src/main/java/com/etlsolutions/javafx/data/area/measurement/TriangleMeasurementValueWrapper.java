@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public class TriangleMeasurementValueWrapper extends DoubleValueWrapper implements MeasurementValueWrapper {
+public class TriangleMeasurementValueWrapper extends DoubleValueWrapper implements AreaMeasurable {
 
     private final ValueWrapper<String> aValueWrapper;
     private final ValueWrapper<String> bValueWrapper;
@@ -25,15 +25,15 @@ public class TriangleMeasurementValueWrapper extends DoubleValueWrapper implemen
         this(new TriangleMeasurement());
     }
 
-    public ValueWrapper<String> getaValueWrapper() {
+    public ValueWrapper<String> getAValueWrapper() {
         return aValueWrapper;
     }
 
-    public ValueWrapper<String> getbValueWrapper() {
+    public ValueWrapper<String> getBValueWrapper() {
         return bValueWrapper;
     }
 
-    public ValueWrapper<String> getcValueWrapper() {
+    public ValueWrapper<String> getCValueWrapper() {
         return cValueWrapper;
     }
 
@@ -58,6 +58,18 @@ public class TriangleMeasurementValueWrapper extends DoubleValueWrapper implemen
         return getValue(heightValueWrapper);
     }
 
+    @Override
+    public String getAreaString() {
+        double a = getA();
+        double b = getB();
+        double c = getC();
+        double s = a + b + c;
+        
+        return String.valueOf(Math.sqrt(s *(s-a) * (s-b) * (s-c))/2);
+        
+        
+    }
+    
     @Override
     public MeasurementType getType() {
         return MeasurementType.TRIANGLE;

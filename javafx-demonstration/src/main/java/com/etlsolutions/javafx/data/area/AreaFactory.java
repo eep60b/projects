@@ -25,7 +25,7 @@ public final class AreaFactory {
 
         PlantBed plantBed = SubAreaFactory.getInstance().createDefaultPlantBed();
         DataUnitValueWrapper gardenAreaDataUnitValueWrapper = new DataUnitValueWrapper("My Garden", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        AreaValueWrapper areaValueWrapper = new AreaValueWrapper(0, 0, AreaShape.RECTANGLE);
+        AreaValueWrapper areaValueWrapper = new AreaValueWrapper();
 
         GardenAreaValueWrapper gardenAreaValueWrapper = new GardenAreaValueWrapper();
         RectangleMeasurementValueWrapper measurementValueWrapper = new RectangleMeasurementValueWrapper();
@@ -37,13 +37,13 @@ public final class AreaFactory {
         a.getGardenAreas().add(gardenArea);
 
         DataUnitValueWrapper bedRoomDataUnitValueWrapper = new DataUnitValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        IndoorArea bedRoom = new IndoorArea(bedRoomDataUnitValueWrapper, new AreaValueWrapper(0, 0, AreaShape.RECTANGLE), new IndoorAreaValueWrapper(), new RectangleMeasurementValueWrapper());
+        IndoorArea bedRoom = new IndoorArea(bedRoomDataUnitValueWrapper, new AreaValueWrapper(), new IndoorAreaValueWrapper(), new RectangleMeasurementValueWrapper());
 
         DataUnitValueWrapper livingRoomDataUnitValueWrapper = new DataUnitValueWrapper("Living Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        IndoorArea livingRoom = new IndoorArea(livingRoomDataUnitValueWrapper, new AreaValueWrapper(0, 0, AreaShape.RECTANGLE), new IndoorAreaValueWrapper(), new RectangleMeasurementValueWrapper());
+        IndoorArea livingRoom = new IndoorArea(livingRoomDataUnitValueWrapper, new AreaValueWrapper(), new IndoorAreaValueWrapper(), new RectangleMeasurementValueWrapper());
 
         DataUnitValueWrapper kitchenRoomDataUnitValueWrapper = new DataUnitValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        IndoorArea kitchen = new IndoorArea(kitchenRoomDataUnitValueWrapper, new AreaValueWrapper(0, 0, AreaShape.RECTANGLE), new IndoorAreaValueWrapper(), new RectangleMeasurementValueWrapper());
+        IndoorArea kitchen = new IndoorArea(kitchenRoomDataUnitValueWrapper, new AreaValueWrapper(), new IndoorAreaValueWrapper(), new RectangleMeasurementValueWrapper());
 
         a.getIndoorAreas().addAll(bedRoom, livingRoom, kitchen);
         return a;

@@ -2,8 +2,8 @@ package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.AreaFactory;
-import com.etlsolutions.javafx.data.area.Measurement;
 import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.util.Arrays;
 

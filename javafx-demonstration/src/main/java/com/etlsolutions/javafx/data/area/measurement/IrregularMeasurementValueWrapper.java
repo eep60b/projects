@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.etlsolutions.javafx.data.area.measurement;
 
 import com.etlsolutions.javafx.data.DoubleValueWrapper;
@@ -12,7 +7,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public class IrregularMeasurementValueWrapper extends DoubleValueWrapper implements MeasurementValueWrapper {
+public class IrregularMeasurementValueWrapper extends DoubleValueWrapper implements AreaMeasurable {
     
     private final ValueWrapper<String> areaValueWrapper;
     private final ValueWrapper<String> heightValueWrapper;
@@ -45,5 +40,10 @@ public class IrregularMeasurementValueWrapper extends DoubleValueWrapper impleme
     @Override
     public MeasurementType getType() {
         return MeasurementType.IRREGULAR;
+    }
+
+    @Override
+    public String getAreaString() {
+        return String.valueOf(getArea());
     }
 }
