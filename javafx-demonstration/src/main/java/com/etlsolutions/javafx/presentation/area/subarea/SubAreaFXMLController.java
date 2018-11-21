@@ -1,15 +1,16 @@
 package com.etlsolutions.javafx.presentation.area.subarea;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
-import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
-import java.io.IOException;
+import com.etlsolutions.javafx.presentation.area.AreaShapePropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.area.NodeGenerator;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -17,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 
 /**
@@ -34,14 +34,14 @@ public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, Abstr
     private ComboBox<SubAreaType> typeComboBox;
 
     @FXML
-    private ComboBox<SubAreaShape> shapeComboBox;
+    private ComboBox<MeasurementType> shapeComboBox;
 
     @FXML
     private TextArea informationTextArea;
-    
+
     @FXML
-    private Tab measurementTab;    
-   
+    private Tab measurementTab;
+
     @FXML
     private Button addImageButton;
 
@@ -75,42 +75,32 @@ public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, Abstr
     @FXML
     private Button cancelButton;
 
-    private final Map<SubAreaShape, Node> map = new HashMap<>();    
     /**
      * Initialises the components in this dialog.
      *
+     * @throws java.lang.Exception
      */
     @Override
     public void initializeComponents() throws Exception {
 
-        for (SubAreaShape shape : SubAreaShape.values()) {
-            map.put(shape, getNode(shape));
-        }        
-        
+        Map<MeasurementType, Node> map = new HashMap<>();
+        NodeGenerator nodeGenerator = new NodeGenerator(model, map);
+
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
         typeComboBox.setItems(model.getSubAreaTypes());
-        typeComboBox.getSelectionModel().select(model.getSelectedSubAreaType());
+        typeComboBox.getSelectionModel().select(model.getSelectedSubAreaType().getValue());
         typeComboBox.setDisable(model.getSubAreaTypes().size() <= 1);
-        shapeComboBox.setItems(model.getShapes());
-        shapeComboBox.getSelectionModel().select(model.getSelectedSubAreaShape());
-        measurementTab.setContent(map.get(model.getSelectedSubAreaShape()));
+        typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedSubAreaType()));
 
-        typeComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaTypeChangeAdapter(model, shapeComboBox));
-        shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new SubAreaShapeChangeAdapter(model, measurementTab, map));
+        ValueWrapper<MeasurementType> typeValueWrapper = model.getMeasurementDataModelValueWrapper().getValue().getMeasurementValueWrapper().getTypeValueWrapper();
+        measurementTab.setContent(nodeGenerator.getNode(typeValueWrapper.getValue()));
+        shapeComboBox.setItems(model.getSubAreaShapes());
+        shapeComboBox.getSelectionModel().select(typeValueWrapper.getValue());
+        shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(typeValueWrapper));
+        typeValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaShapePropertyChangeAdapter(nodeGenerator, measurementTab));
+
+
 
     }
-    
-    private Node getNode(SubAreaShape shape) throws Exception {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getMeasurementDataModel().getFxmlPath(shape)));
-            Node node = (AnchorPane) loader.load();
-            AbstractComponentsFXMLController<SubAreaMeasurementDataModel> controller = loader.getController();
-            controller.setModel(model.getMeasurementDataModel());
-            controller.initializeComponents();
-            return node;
-        } catch (IOException ex) {
-            throw new IllegalStateException(ex);
-        }
-    }    
 }

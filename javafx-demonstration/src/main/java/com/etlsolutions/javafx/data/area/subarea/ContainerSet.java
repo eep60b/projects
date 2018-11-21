@@ -1,10 +1,8 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.area.measurement.Measurement;
-import com.etlsolutions.javafx.data.area.measurement.NumberMeasurement;
+import com.etlsolutions.javafx.data.area.measurement.ContainerSetMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
@@ -20,7 +18,7 @@ public class ContainerSet extends SubArea {
     public ContainerSet() {
     }
 
-    public ContainerSet(Container container, Measurement measurement, DataUnitValueWrapper valueWrapper) {
+    public ContainerSet(Container container, ContainerSetMeasurement measurement, DataUnitValueWrapper valueWrapper) {
         super(measurement, valueWrapper);
         this.container = container;
     }

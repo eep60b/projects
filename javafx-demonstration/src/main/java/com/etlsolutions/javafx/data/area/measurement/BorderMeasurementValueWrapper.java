@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  *
  * @author zc
  */
-public class BorderMeasurementValueWrapper extends DoubleValueWrapper implements Measurement {
+public class BorderMeasurementValueWrapper extends DoubleValueWrapper implements MeasurementValueWrapper {
 
     private final ValueWrapper<String> lengthValueWrapper;
     private final ValueWrapper<String> widthValueWrapper;
@@ -39,8 +39,12 @@ public class BorderMeasurementValueWrapper extends DoubleValueWrapper implements
     }
 
     @Override
-    public MeasurementType getType() {
+    public ValueWrapper<MeasurementType> getTypeValueWrapper() {
+        return new ValueWrapper<>(MeasurementType.BORDER);
+    }
 
-        return MeasurementType.BORDER;
+    @Override
+    public Measurement getMeasurement() {
+        return new BorderMeasurement(this);
     }
 }

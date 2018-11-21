@@ -26,10 +26,6 @@ public class TriangleDataModel extends MeasurementDataModel<TriangleMeasurementV
         return measurementValueWrapper.getCValueWrapper();
     }
 
-    public ValueWrapper<String> getHeightValueWrapper() {
-        return measurementValueWrapper.getHeightValueWrapper();
-    }
-
     public String getArea() {
         return measurementValueWrapper.getAreaString();
     }

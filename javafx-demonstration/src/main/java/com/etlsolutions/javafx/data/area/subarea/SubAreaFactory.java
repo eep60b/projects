@@ -3,10 +3,11 @@ package com.etlsolutions.javafx.data.area.subarea;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.BorderMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
+import com.etlsolutions.javafx.data.area.measurement.ContainerSetMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
+import com.etlsolutions.javafx.data.area.subarea.location.Container;
 
 /**
  *
@@ -63,13 +64,13 @@ public class SubAreaFactory {
         return r;
     }
 
-    public SubArea createSubArea(SubAreaType selectedSubAreaType, DataUnitValueWrapper commonValueWrapper, SubAreaValueWrapper subAreaValueWrapper, SubAreaShape selectedSubAreaShape, Measurement measurement) {
+    public SubArea createSubArea(SubAreaType selectedSubAreaType, DataUnitValueWrapper commonValueWrapper, Measurement measurement, Container... containers) {
 
         switch (selectedSubAreaType) {
             case BORDER:
                 return new Border((BorderMeasurement)measurement, commonValueWrapper);
             case CONTAINTER_SET:
-                return new ContainerSet(((ContainerSetValueWrapper)subAreaValueWrapper).getContainerValueWrapper().getValue(), measurement, commonValueWrapper);
+                return new ContainerSet(containers[0], (ContainerSetMeasurement)measurement, commonValueWrapper);
             case CUSTOM:
                 return new CustomSubArea(measurement, commonValueWrapper);
             case GREEN_HOUSE:
@@ -85,7 +86,7 @@ public class SubAreaFactory {
             case ROOM:
                 return new Room(measurement, commonValueWrapper);
             case SINGLE_CONTAINTER:
-                return new SingleContainer(((SingleContainerValueWrapper)subAreaValueWrapper).getContainerValueWrapper().getValue(), commonValueWrapper);
+                return new SingleContainer(containers[0], commonValueWrapper);
             default:
                 throw new IllegalArgumentException("Invalid sub area type.");
         }

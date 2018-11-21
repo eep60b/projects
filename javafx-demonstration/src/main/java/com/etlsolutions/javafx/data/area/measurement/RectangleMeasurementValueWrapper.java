@@ -53,7 +53,7 @@ public class RectangleMeasurementValueWrapper extends DoubleValueWrapper impleme
     }
     
     @Override
-    public ValueWrapper<MeasurementType> getType() {
+    public ValueWrapper<MeasurementType> getTypeValueWrapper() {
         return new ValueWrapper<>(MeasurementType.RECTANGLE);
     }
 

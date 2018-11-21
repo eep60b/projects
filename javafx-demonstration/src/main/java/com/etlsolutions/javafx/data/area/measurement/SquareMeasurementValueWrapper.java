@@ -43,7 +43,7 @@ public class SquareMeasurementValueWrapper extends DoubleValueWrapper implements
     }
     
     @Override
-    public ValueWrapper<MeasurementType> getType() {
+    public ValueWrapper<MeasurementType> getTypeValueWrapper() {
         
         return new ValueWrapper<>(MeasurementType.SQUARE);
     }

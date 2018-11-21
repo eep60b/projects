@@ -71,7 +71,7 @@ public class TriangleMeasurementValueWrapper extends DoubleValueWrapper implemen
     }
     
     @Override
-    public ValueWrapper<MeasurementType> getType() {
+    public ValueWrapper<MeasurementType> getTypeValueWrapper() {
         return new ValueWrapper<>(MeasurementType.TRIANGLE);
     }
 

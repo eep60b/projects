@@ -27,7 +27,6 @@ public class AllotmentArea extends Area {
     private ObservableListWrapperA<CustomSubArea> customSubareas;
 
     public AllotmentArea() {
-
     }
 
     public AllotmentArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {

@@ -3,12 +3,12 @@ package com.etlsolutions.javafx.presentation.area;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.data.area.AreaShape;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.AreaValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.CircleMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.IrregularMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
+import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.SquareMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.TriangleMeasurement;
@@ -22,7 +22,7 @@ import javafx.collections.ObservableList;
  *
  * @author Zhipeng
  */
-public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> {
+public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> implements MeasurementWrappable {
 
     public static final String LONGITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LONGITUDE_PROPERTY";
     public static final String LATITUDE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.area.AddAreaDialogDataModel.LATITUDE_PROPERTY";
@@ -33,20 +33,20 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
 
     protected final ObservableList<AreaType> areaTypes;
     protected final ValueWrapper<AreaType> selectedAreaTypeValueWrapper;
-    protected final ObservableList<AreaShape> areaShapes;
+    protected final ObservableList<MeasurementType> areaShapes;
     protected AreaValueWrapper areaValueWrapper;
     protected ValueWrapper<MeasurementDataModel> measurementDataModelValueWrapper;
     protected final ObservableListWrapperA<SubArea> subAreas;
-    private SubArea selectedSubArea;
+    private final ValueWrapper<SubArea> selectedSubArea;
 
     public AbstractAreaDataModel(ObservableList<AreaType> areaTypes, Measurement measurement) {
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
-        areaShapes = new ObservableListWrapperA<>(selectedAreaTypeValueWrapper.getValue().getShapes());
+        areaShapes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
         areaValueWrapper = dataUnit == null ? new AreaValueWrapper() : new AreaValueWrapper(dataUnit);
         measurementDataModelValueWrapper = new ValueWrapper<>(getMeasurementDataModel(measurement));
         subAreas = dataUnit == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(dataUnit.getAllSubAreas());
-        selectedSubArea = subAreas.isEmpty() ? null : subAreas.get(0);
+        selectedSubArea = new ValueWrapper<>(subAreas.isEmpty() ? null : subAreas.get(0));
     }
 
     private MeasurementDataModel getMeasurementDataModel(Measurement measurement) {
@@ -74,7 +74,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         return selectedAreaTypeValueWrapper;
     }
 
-    public ObservableList<AreaShape> getAreaShapes() {
+    public ObservableList<MeasurementType> getAreaShapes() {
         return areaShapes;
     }
 
@@ -86,14 +86,11 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         return subAreas;
     }
 
-    public SubArea getSelectedSubArea() {
+    public ValueWrapper<SubArea> getSelectedSubArea() {
         return selectedSubArea;
     }
 
-    public void setSelectedSubArea(SubArea selectedSubArea) {
-        this.selectedSubArea = selectedSubArea;
-    }
-
+    @Override
     public ValueWrapper<MeasurementDataModel> getMeasurementDataModelValueWrapper() {
         return measurementDataModelValueWrapper;
     }
@@ -102,7 +99,11 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
     public void remove(RemoveEventId id) {
 
         if (Objects.equals(id, SELECTED_SUB_AREA_REMOVE_EVENT_ID)) {
-            subAreas.remove(selectedSubArea);
+            
+            int index = subAreas.indexOf(selectedSubArea.getValue());            
+            subAreas.remove(index);
+            
+            selectedSubArea.setValue(subAreas.isEmpty() ? null : subAreas.get(index == subAreas.size() ? index - 1 : index));
             return;
         }
 

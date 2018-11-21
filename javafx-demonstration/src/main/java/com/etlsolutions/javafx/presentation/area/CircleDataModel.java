@@ -18,10 +18,6 @@ public class CircleDataModel extends MeasurementDataModel<CircleMeasurementValue
         return measurementValueWrapper.getDiameterValueWrapper();
     }
 
-    public ValueWrapper<String> getHeightValueWrapper() {
-        return measurementValueWrapper.getHeightValueWrapper();
-    }
-
     public String getAreaString() {
         return measurementValueWrapper.getAreaString();
     }

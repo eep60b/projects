@@ -2,7 +2,8 @@ package com.etlsolutions.javafx.presentation.area.subarea;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
-import com.etlsolutions.javafx.presentation.area.SideChangeAdapter;
+import com.etlsolutions.javafx.presentation.area.AreaMeasurablePropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -16,25 +17,29 @@ public class SquarePondFXMLController extends AbstractComponentsFXMLController<S
 
     @FXML
     private TextField sideTextField;
-    
+
     @FXML
     private TextField depthTextField;
-    
+
     @FXML
     private TextField areaValueTextField;
 
     @Override
     public void initializeComponents() {
-        
+
         areaValueTextField.setDisable(true);
-        areaValueTextField.setText(model.getAreaValue());
+        areaValueTextField.setText(model.getAreaString());
 
-        sideTextField.setText(model.getSide());
+        sideTextField.setText(model.getSideValueWrapper().getValue());
         sideTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        sideTextField.textProperty().addListener(new SideChangeAdapter(model, areaValueTextField));
+        sideTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getSideValueWrapper()));
 
-        depthTextField.setText(model.getDepth());
+        depthTextField.setText(model.getHeightValueWrapper().getValue());
         depthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        depthTextField.textProperty().addListener(new DepthChangeAdapter(model));
+        depthTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getHeightValueWrapper()));
+
+        AreaMeasurablePropertyChangeAdapter adapter = new AreaMeasurablePropertyChangeAdapter(model.getMeasurementValueWrapper(), areaValueTextField);
+        model.getSideValueWrapper().addPropertyChangeListener(adapter);
+
     }
 }

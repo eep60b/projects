@@ -21,10 +21,6 @@ public class SquareDataModel extends MeasurementDataModel<SquareMeasurementValue
     public String getAreaString() {
         return measurementValueWrapper.getAreaString();
     }
-
-    public ValueWrapper<String> getHeightValueWrapper() {
-        return measurementValueWrapper.getHeightValueWrapper();
-    }
     
     @Override
     public String getFxmlPath() {

@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  */
 public interface MeasurementValueWrapper {
 
-    ValueWrapper<MeasurementType> getType();
+    ValueWrapper<MeasurementType> getTypeValueWrapper();
     
     Measurement getMeasurement();
 }

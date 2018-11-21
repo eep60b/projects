@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.area.subarea;
 
+import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaFactory;
-import com.etlsolutions.javafx.data.area.subarea.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 
 /**
@@ -11,11 +11,11 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 public class CreateSubAreaDataModel extends AbstractSubAreaDataModel {
 
     public CreateSubAreaDataModel(SubAreaType[] subAreaTypes) {
-        super(subAreaTypes, new Measurement());
+        super(subAreaTypes, new RectangleMeasurement());
     }
 
     @Override
     public void save() {
-        dataUnit = SubAreaFactory.getInstance().createSubArea(selectedSubAreaType, commonValueWrapper, selectedSubAreaShape, measurementDataModel.getMeasurement());
+        dataUnit = SubAreaFactory.getInstance().createSubArea(selectedSubAreaType.getValue(), commonValueWrapper,  measurementDataModel.getValue().getMeasurementValueWrapper().getMeasurement());
     }
 }

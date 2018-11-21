@@ -2,8 +2,8 @@ package com.etlsolutions.javafx.presentation.area.subarea;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
-import com.etlsolutions.javafx.presentation.area.LengthChangeAdapter;
-import com.etlsolutions.javafx.presentation.area.WidthChangeAdapter;
+import com.etlsolutions.javafx.presentation.area.AreaMeasurablePropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -30,18 +30,22 @@ public class BoxFXMLController extends AbstractComponentsFXMLController<BoxDataM
     @Override
     public void initializeComponents() {
         areaValueTextField.setDisable(true);
-        areaValueTextField.setText(model.getAreaValue());
+        areaValueTextField.setText(model.getAreaString());
         
-        lengthTextField.setText(model.getLength());
+        lengthTextField.setText(model.getLengthValueWrapper().getValue());
         lengthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        lengthTextField.textProperty().addListener(new LengthChangeAdapter(model, areaValueTextField));
+        lengthTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getLengthValueWrapper()));
 
-        widthTextField.setText(model.getWidth());
+        widthTextField.setText(model.getWidthValueWrapper().getValue());
         widthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        widthTextField.textProperty().addListener(new WidthChangeAdapter(model, areaValueTextField));
+        widthTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getWidthValueWrapper()));
  
-        heightTextField.setText(model.getHeight());
+        heightTextField.setText(model.getHeightValueWrapper().getValue());
         heightTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        heightTextField.textProperty().addListener(new HeightChangeAdapter(model));        
+        heightTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getHeightValueWrapper()));
+        
+        AreaMeasurablePropertyChangeAdapter adapter = new AreaMeasurablePropertyChangeAdapter(model.getMeasurementValueWrapper(), areaValueTextField);
+        model.getLengthValueWrapper().addPropertyChangeListener(adapter);
+        model.getWidthValueWrapper().addPropertyChangeListener(adapter);  
     }
 }

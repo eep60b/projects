@@ -17,7 +17,7 @@ public class MeasurementFactory {
     }
 
     public Measurement getMeasurement(MeasurementValueWrapper measurementValueWrapper) {
-        switch (measurementValueWrapper.getType().getValue()) {
+        switch (measurementValueWrapper.getTypeValueWrapper().getValue()) {
             case BORDER:
                 return new BorderMeasurement((BorderMeasurementValueWrapper) measurementValueWrapper);
             case CIRCLE:

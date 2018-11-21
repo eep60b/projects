@@ -44,7 +44,7 @@ public class CircleMeasurementValueWrapper extends DoubleValueWrapper implements
     }
     
     @Override
-    public ValueWrapper<MeasurementType> getType() {
+    public ValueWrapper<MeasurementType> getTypeValueWrapper() {
         return new ValueWrapper<>(MeasurementType.CIRCLE);
     }
 

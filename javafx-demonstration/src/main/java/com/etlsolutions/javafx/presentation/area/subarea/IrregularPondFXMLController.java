@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.area.subarea;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
-import com.etlsolutions.javafx.presentation.area.AreaValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -23,12 +23,12 @@ public class IrregularPondFXMLController extends AbstractComponentsFXMLControlle
     @Override
     public void initializeComponents() {
 
-        areaValueTextField.setText(model.getAreaValue());
+        areaValueTextField.setText(model.getAreaValueWrapper().getValue());
         areaValueTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        areaValueTextField.textProperty().addListener(new AreaValueChangeAdapter(model));
+        areaValueTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getAreaValueWrapper()));
 
-        depthTextField.setText(model.getDepth());
+        depthTextField.setText(model.getHeightValueWrapper().getValue());
         depthTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        depthTextField.textProperty().addListener(new DepthChangeAdapter(model));
+        depthTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getHeightValueWrapper()));
     }
 }

@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.area.subarea;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -27,16 +28,16 @@ public class ContainerSetFXMLController extends AbstractComponentsFXMLController
     public void initializeComponents() {
 
         
-        volumeTextField.setText(model.getVolume());
+        volumeTextField.setText(model.getVolumeValueWrapper().getValue());
         volumeTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        volumeTextField.textProperty().addListener(new VolumeChangeAdapter(model));
+        volumeTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getVolumeValueWrapper()));
 
-        numberTextField.setText(model.getNumber());
-        numberTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        numberTextField.textProperty().addListener(new NumberChangeAdapter(model));
+//        numberTextField.setText(model.getNumberValueWrapper().getValue());
+//        numberTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+//        numberTextField.textProperty().addListener(new NumberChangeAdapter(model));
  
-        heightTextField.setText(model.getHeight());
+        heightTextField.setText(model.getHeightValueWrapper().getValue());
         heightTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        heightTextField.textProperty().addListener(new HeightChangeAdapter(model));        
+        heightTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getHeightValueWrapper()));        
     }
 }

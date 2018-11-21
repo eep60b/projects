@@ -18,10 +18,6 @@ public class AreaValueDataModel extends MeasurementDataModel<IrregularMeasuremen
         return measurementValueWrapper.getAreaValueWrapper();
     }
     
-    public ValueWrapper<String> getHeightValueWrapper() {
-        return measurementValueWrapper.getHeightValueWrapper();
-    }    
-    
     @Override
     public String getFxmlPath() {
         return "/fxml/area/AreaValueFXML.fxml";
