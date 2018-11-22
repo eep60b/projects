@@ -1,7 +1,9 @@
 package com.etlsolutions.javafx.presentation.area.subarea.location;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationSpecialValueWrapper;
 
 /**
  *
@@ -10,15 +12,15 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementTyp
  */
 public abstract class LocationMeasurementDataModel<T extends LocationMeasurement> {
 
-    protected T measurement;
+    protected ValueWrapper<T> measurement;
 
     public LocationMeasurementDataModel(T measurement) {
-        this.measurement = measurement;
+        this.measurement = new ValueWrapper<>(measurement);
     }
     
     public abstract String getFxmlPath();
 
     public LocationMeasurementType getType(){
-        return measurement.getType();
+        return measurement.getValue().getType();
     }
 }

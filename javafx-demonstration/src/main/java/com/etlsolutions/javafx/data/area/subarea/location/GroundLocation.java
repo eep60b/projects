@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -19,37 +18,28 @@ public abstract class GroundLocation extends Location {
     @JsonIgnore
     public static final String OCCUPIED_AREA_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.GroundLocation.OCCUPIED_AREA_PROPERTY";
 
-    private LocationReferencePoint referencePoint;
-    private LocationDirection direction;
+    private String referencePoint;
+    private String direction;
     private double distance;
     private double occupiedArea;
 
     public GroundLocation() {
     }
 
-    public GroundLocation(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.referencePoint = referencePoint;
-        this.direction = direction;
-        this.distance = distance;
-        this.occupiedArea = occupiedArea;
-
+    public GroundLocation(DataUnitValueWrapper dataUnitCommonDataValueWrapper, LocationValueWrapper locationValueWrapper, GroundLocationMeasurement measurement) {
+        super(dataUnitCommonDataValueWrapper, locationValueWrapper);
+        this.referencePoint = measurement.getReferencePoint();
+        this.direction = measurement.getDirection();
+        this.distance = measurement.getDistance();
+        this.occupiedArea = measurement.getOccupiedArea();
     }
 
-    public GroundLocation(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.referencePoint = referencePoint;
-        this.direction = direction;
-        this.distance = distance;
-        this.occupiedArea = occupiedArea;
-    }
-
-    public LocationReferencePoint getReferencePoint() {
+    public String getReferencePoint() {
         return referencePoint;
     }
 
-    public void setReferencePoint(LocationReferencePoint referencePoint) {
-        LocationReferencePoint oldValue = this.referencePoint;
+    public void setReferencePoint(String referencePoint) {
+        String oldValue = this.referencePoint;
         this.referencePoint = referencePoint;
         fireChange(REFERENCE_POINT_PROPERTY, oldValue, this.referencePoint);
     }
@@ -58,13 +48,13 @@ public abstract class GroundLocation extends Location {
         return distance;
     }
 
-    public LocationDirection getDirection() {
+    public String getDirection() {
         return direction;
     }
 
-    public void setDirection(LocationDirection direction) {
+    public void setDirection(String direction) {
 
-        LocationDirection oldValue = this.direction;
+        String oldValue = this.direction;
         this.direction = direction;
         fireChange(DIRECTION_PROPERTY, oldValue, this.direction);
     }

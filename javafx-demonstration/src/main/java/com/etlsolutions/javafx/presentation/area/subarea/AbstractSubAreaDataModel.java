@@ -114,10 +114,11 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel<Sub
         return subAreaShapes;
     }
 
-    public ValueWrapper<MeasurementDataModel> getMeasurementDataModel() {
+    @Override
+    public ValueWrapper<MeasurementDataModel> getMeasurementDataModelValueWrapper() {
         return measurementDataModel;
     }
-
+    
     @Override
     public String getFxmlPath() {
         return "/fxml/area/SubAreaFXML.fxml";

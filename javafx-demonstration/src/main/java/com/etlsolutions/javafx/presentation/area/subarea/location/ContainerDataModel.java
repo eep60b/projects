@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.area.subarea.location;
 
-import com.etlsolutions.javafx.data.area.subarea.location.ContainterMeasurement;
+import com.etlsolutions.javafx.data.area.subarea.location.ContainterMeasurementValueWrapper;
 import com.etlsolutions.javafx.presentation.area.subarea.HeightDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.VolumeDataModel;
 
@@ -8,9 +8,9 @@ import com.etlsolutions.javafx.presentation.area.subarea.VolumeDataModel;
  *
  * @author zc
  */
-public class ContainerDataModel extends LocationMeasurementDataModel<ContainterMeasurement> implements HeightDataModel, VolumeDataModel {
+public class ContainerDataModel extends LocationMeasurementDataModel<ContainterMeasurementValueWrapper> implements HeightDataModel, VolumeDataModel {
 
-    public ContainerDataModel(ContainterMeasurement measurement) {
+    public ContainerDataModel(ContainterMeasurementValueWrapper measurement) {
         super(measurement);
     }
 

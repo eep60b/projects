@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.area;
 
+import com.etlsolutions.javafx.presentation.ValueChangeButtonPropertyChangeAdapter;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaType;
@@ -110,7 +111,7 @@ public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAre
 
         typeComboBox.setItems(model.getAreaTypes());
         typeComboBox.getSelectionModel().select(model.getSelectedAreaTypeValueWrapper().getValue());
-        typeComboBox.setDisable(model.getAreaTypes().size() <= 1);
+        typeComboBox.setDisable(model.getAreaTypes().size() <= 1); 
         typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedAreaTypeValueWrapper()));
 
         ValueWrapper<MeasurementType> typeValueWrapper = model.getMeasurementDataModelValueWrapper().getValue().getMeasurementValueWrapper().getTypeValueWrapper();
@@ -137,5 +138,8 @@ public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAre
         addSubAreaButton.setOnAction(new AddSubAreaEventHandler(model, subAreaListView));
         removeSubAreaButton.setOnAction(new RemoveEventHandler(model, AbstractAreaDataModel.SELECTED_SUB_AREA_REMOVE_EVENT_ID));
         editSubAreaButton.setOnAction(new EditSubAreaEventHandler(model));
+        
+        model.getSubAreas().addListener(new SubArealistChangeAdapter(model, subAreaListView));
+        model.getSelectedSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValueChangeButtonPropertyChangeAdapter<SubArea>(removeSubAreaButton, editSubAreaButton));
     }
 }

@@ -4,26 +4,26 @@ package com.etlsolutions.javafx.data.area.subarea.location;
  *
  * @author zc
  */
-public class ContainterMeasurement implements LocationMeasurement {
+public class ContainerMeasurement implements LocationMeasurement {
 
-    private ContainerShape shape;
+    private String shape;
     private double height;
     private double volume;
 
-    public ContainterMeasurement() {
+    public ContainerMeasurement() {
     }
 
-    public ContainterMeasurement(ContainerShape shape, int height, int volume) {
-        this.shape = shape;
-        this.height = height;
-        this.volume = volume;
+    public ContainerMeasurement(ContainterMeasurementValueWrapper wrapper) {
+        shape = wrapper.getShapeValueWrapper().getValue();
+        height = wrapper.getHeight();
+        volume = wrapper.getVolume();
     }
 
-    public ContainerShape getShape() {
+    public String getShape() {
         return shape;
     }
 
-    public void setShape(ContainerShape shape) {
+    public void setShape(String shape) {
         this.shape = shape;
     }
 

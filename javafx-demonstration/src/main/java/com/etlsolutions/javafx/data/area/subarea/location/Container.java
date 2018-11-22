@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -17,33 +16,26 @@ public class Container extends Location {
     @JsonIgnore
     public static final String VOLUMN_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.location.Container.VOLUMN_PROPERTY";
         
-    private ContainerShape shape;
+    private String shape;
     private double height;
     private double volume;
 
     public Container() {
     }
 
-    public Container(ContainerShape shape, double height, double volumn, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.shape = shape;
-        this.height = height;
-        this.volume = volumn;
+    public Container(DataUnitValueWrapper dataUnitCommonDataValueWrapper, LocationValueWrapper locationValueWrapper, ContainerMeasurement measurement) {
+        super(dataUnitCommonDataValueWrapper, locationValueWrapper);
+        shape = measurement.getShape();
+        height = measurement.getHeight();
+        volume = measurement.getVolume();
     }
 
-    public Container(ContainerShape shape, double height, double volumn, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.shape = shape;
-        this.height = height;
-        this.volume = volumn;
-    }
-
-    public ContainerShape getShape() {
+    public String getShape() {
         return shape;
     }
 
-    public void setShape(ContainerShape shape) {
-        ContainerShape oldValue = this.shape;
+    public void setShape(String shape) {
+        String oldValue = this.shape;
         this.shape = shape;
         fireChange(SHAPE_PROPERTY, oldValue, this.shape);
     }

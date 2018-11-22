@@ -13,9 +13,13 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
     public static final RemoveEventId SELECTED_AREA_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.location.LocationDataModel.selectedArea", "selected area");
     public static final RemoveEventId SELECTED_SUBAREA_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.location.LocationDataModel.selectedSubArea", "selected area part");
 
+    public AddLocationDataModel(int plantId) {
+        super(plantId);
+    }
+
     @Override
     public void save() {
-        dataUnit = LocationFactory.getInstance().createLocation(selectedType.getValue());
+        dataUnit = LocationFactory.getInstance().createLocation(commonValueWrapper, locationValueWrapper, measurementDataModel.getValue());
         selectedSubArea.getValue().getLocations(selectedType.getValue()).add(dataUnit);
     }
 

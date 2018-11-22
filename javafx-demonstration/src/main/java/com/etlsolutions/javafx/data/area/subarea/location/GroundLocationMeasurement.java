@@ -6,39 +6,34 @@ package com.etlsolutions.javafx.data.area.subarea.location;
  */
 public class GroundLocationMeasurement implements LocationMeasurement {
 
-    private LocationReferencePoint referencePoint;
-    private LocationDirection direction;
+    private String referencePoint;
+    private String direction;
     private double distance;
     private double occupiedArea;
 
     public GroundLocationMeasurement() {
     }
 
-    public GroundLocationMeasurement(LocationReferencePoint referencePoint, LocationDirection direction, double distance, double occupiedArea) {
-        this.referencePoint = referencePoint;
-        this.direction = direction;
-        this.distance = distance;
-        this.occupiedArea = occupiedArea;
+    public GroundLocationMeasurement(GroundLocationMeasurementValueWrapper wrapper) {
+        referencePoint = wrapper.getReferencePointValueWrapper().getValue();
+        direction = wrapper.getDirectionValueWrapper().getValue();
+        distance = wrapper.getDistance();
+        occupiedArea = wrapper.getOccupiedArea();
     }
 
-    @Override
-    public LocationMeasurementType getType() {
-        return LocationMeasurementType.GROUND_LOCATION;
-    }
-
-    public LocationReferencePoint getReferencePoint() {
+    public String getReferencePoint() {
         return referencePoint;
     }
 
-    public void setReferencePoint(LocationReferencePoint referencePoint) {
+    public void setReferencePoint(String referencePoint) {
         this.referencePoint = referencePoint;
     }
 
-    public LocationDirection getDirection() {
+    public String getDirection() {
         return direction;
     }
 
-    public void setDirection(LocationDirection direction) {
+    public void setDirection(String direction) {
         this.direction = direction;
     }
 
@@ -57,6 +52,10 @@ public class GroundLocationMeasurement implements LocationMeasurement {
     public void setOccupiedArea(double occupiedArea) {
         this.occupiedArea = occupiedArea;
     }
-    
-    
+
+    @Override
+    public LocationMeasurementType getType() {
+        return LocationMeasurementType.GROUND_LOCATION;
+    }
+
 }

@@ -1,8 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -22,13 +21,12 @@ public abstract class Location extends DataUnit {
     public Location() {
     }
 
-    public Location(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public Location(DataUnitValueWrapper dataUnitCommonDataValueWrapper, LocationValueWrapper locationValueWrapper) {
+        super(dataUnitCommonDataValueWrapper);
+        plantId = locationValueWrapper.getPlantIdValueWrapper().getValue();
+        parentId = locationValueWrapper.getParentIdValueWrapper().getValue();
     }
 
-    public Location(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-    }
 
     public abstract LocationType getType();
 

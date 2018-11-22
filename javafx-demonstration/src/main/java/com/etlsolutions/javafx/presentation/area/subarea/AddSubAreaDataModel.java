@@ -1,8 +1,10 @@
 package com.etlsolutions.javafx.presentation.area.subarea;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaFactory;
+import com.etlsolutions.javafx.presentation.area.MeasurementDataModel;
 
 /**
  *
