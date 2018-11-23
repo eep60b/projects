@@ -32,7 +32,7 @@ public class SelectImageFileEventHandler implements EventHandler<ActionEvent> {
 
         File selectedFile = chooser.showOpenDialog(ownerStage);
         if (selectedFile != null) {
-            model.setImageFileLink(selectedFile.getAbsolutePath());
+            model.getImageFileLinkValueWrapper().setValue(selectedFile.getAbsolutePath());
         }
     }
 

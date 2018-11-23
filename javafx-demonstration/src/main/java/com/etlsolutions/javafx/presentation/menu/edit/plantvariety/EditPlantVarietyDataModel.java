@@ -79,7 +79,7 @@ public class EditPlantVarietyDataModel extends DataUnitFXMLDataModel<PlantVariet
     
     @Override
     public void save() {
-        parentModel.addVariety(PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks()));
+        parentModel.addVariety(PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformationValueWrapper(), getAliases(), getImageLinks()));
     }
 
     public void replaceAlias(String oldAlias, String newAlias) {

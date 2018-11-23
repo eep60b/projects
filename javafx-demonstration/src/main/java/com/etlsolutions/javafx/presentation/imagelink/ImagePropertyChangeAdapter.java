@@ -19,7 +19,7 @@ public class ImagePropertyChangeAdapter implements PropertyChangeListener {
     private final Label errorMessageLabel;
     private final Button okButton;
 
-    public ImagePropertyChangeAdapter(HBox imageHbox,  Label errorMessageLabel, Button okButton) {
+    public ImagePropertyChangeAdapter(HBox imageHbox, Label errorMessageLabel, Button okButton) {
         this.okButton = okButton;
         this.errorMessageLabel = errorMessageLabel;
         this.imageHbox = imageHbox;
@@ -32,12 +32,12 @@ public class ImagePropertyChangeAdapter implements PropertyChangeListener {
         okButton.setDisable(valid);
         errorMessageLabel.setVisible(!valid);
         errorMessageLabel.setText(model.getErrorMessage());
-        
-        if(valid) {
-        ObservableList<Node> children = imageHbox.getChildren();        
-        children.clear();
-        children.add(new ImageView(model.getImageFileLink()));
+
+        if (valid) {
+            ObservableList<Node> children = imageHbox.getChildren();
+            children.clear();
+            children.add(new ImageView(model.getImageFileLinkValueWrapper().getValue()));
         }
     }
-    
+
 }

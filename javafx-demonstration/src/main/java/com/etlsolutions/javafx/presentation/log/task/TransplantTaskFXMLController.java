@@ -112,7 +112,7 @@ public class TransplantTaskFXMLController extends AbstractComponentsFXMLControll
         addFromSubAreaButton.setOnAction(new AddItemEventHandler<>(model.getFromSubAreas(), model.getSelectedFromSubArea(), new AddSubAreaDataModel(model.getSelectedFromArea().getValue())));
         editFromSubAreaButton.setOnAction(new EditItemEventHandler<>(new EditSubAreaDataModel(model.getSelectedFromArea().getValue(), model.getSelectedFromSubArea().getValue())));
   
-        addFromLocationButton.setOnAction(new AddItemEventHandler<>(model.getFromLocations(), model.getFromLocation(), new AddLocationDataModel()));
+        addFromLocationButton.setOnAction(new AddItemEventHandler<>(model.getFromLocations(), model.getFromLocation(), new AddLocationDataModel(model.getPlantId())));
         editFromLocationButton.setOnAction(new EditItemEventHandler<>(new EditLocationDataModel(model.getSelectedFromArea().getValue(), model.getSelectedFromSubArea().getValue(), model.getFromLocation().getValue())));
         
         addToAreaButton.setOnAction(new AddItemEventHandler<>(model.getToAreas(), model.getSelectedToArea(), new AddAreaDataModel()));
@@ -121,7 +121,7 @@ public class TransplantTaskFXMLController extends AbstractComponentsFXMLControll
         addToSubAreaButton.setOnAction(new AddItemEventHandler<>(model.getToSubAreas(), model.getSelectedToSubArea(), new AddSubAreaDataModel(model.getSelectedToArea().getValue())));
         editToSubAreaButton.setOnAction(new EditItemEventHandler<>(new EditSubAreaDataModel(model.getSelectedToArea().getValue(), model.getSelectedToSubArea().getValue())));
   
-        addToLocationButton.setOnAction(new AddItemEventHandler<>(model.getToLocations(), model.getToLocation(), new AddLocationDataModel()));
+        addToLocationButton.setOnAction(new AddItemEventHandler<>(model.getToLocations(), model.getToLocation(), new AddLocationDataModel(model.getPlantId())));
         editToLocationButton.setOnAction(new EditItemEventHandler<>(new EditLocationDataModel(model.getSelectedToArea().getValue(), model.getSelectedToSubArea().getValue(), model.getToLocation().getValue())));
         
         model.getFromAreas().addListener(new ListChangeAdapter<>(model.getFromAreas(), fromAreaComboBox));

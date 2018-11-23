@@ -73,7 +73,7 @@ public class AddVarietyAliasDataModel implements TitleDataModel, InformationData
     }
 
     @Override
-    public String getInformation() {
+    public String getInformationValueWrapper() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

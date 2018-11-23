@@ -1,71 +1,29 @@
 package com.etlsolutions.javafx.presentation.menu.add.growingissue;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
+import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.system.ProjectManager;
 import java.time.LocalDateTime;
 
 /**
  *
  * @author zc
  */
-public class AddGrowingIssueDataModel extends DataUnitFXMLDataModel<GrowingIssue> {
-
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
-    private String solution;    
-    private String effectiveness;
+public class AddGrowingIssueDataModel extends AbstractGrowingIssueDataModel {
     
     public AddGrowingIssueDataModel() {
-        startTime = LocalDateTime.now();
-        solution = "";
-        effectiveness = "";
+
     }
 
-    public LocalDateTime getStartTime() {
-        return startTime;
-    }
 
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getSolution() {
-        return solution;
-    }
-
-    public void setSolution(String solution) {
-        this.solution = solution;
-    }
-
-    public String getEffectiveness() {
-        return effectiveness;
-    }
-
-    public void setEffectiveness(String effectiveness) {
-        this.effectiveness = effectiveness;
-    }
-
-    @Override
-    protected void validate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       dataUnit = LogFactory.getInstance().createGrowingIssue(commonValueWrapper, startTime, endTime, errorMessage, errorMessage);
+       ProjectManager.getInstance().getContents().getLogGroupRoot().getIssues().addLog(dataUnit);
     }
 
-    @Override
-    public String getFxmlPath() {
-        return "/fxml/menu/add/AddGrowingIssueFXML.fxml";
-    }
     
 }

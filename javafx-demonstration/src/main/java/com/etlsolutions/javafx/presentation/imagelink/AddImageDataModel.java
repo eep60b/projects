@@ -1,14 +1,13 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.io.File;
 import com.etlsolutions.javafx.presentation.InformationDataModel;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.presentation.Savable;
+import java.io.File;
 
 /**
  *
@@ -18,65 +17,48 @@ public class AddImageDataModel implements InformationDataModel, FXMLActionDataMo
 
     public static final String IMAGE_FILE_LINK_PROPERTY = "com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel.IMAGE_FILE_LINK_PROPERTY";
 
-    private String imageFileLink;
-    private String information;
-    private boolean valid;
-    private String errorMessage;
-    
+    private final ValueWrapper<String> imageFileLinkValueWrapper;
+    private final ValueWrapper<String> informationValueWrapper;
+
     private final DataUnitFXMLDataModel parentModel;
 
     public AddImageDataModel(DataUnitFXMLDataModel parentModel) {
-        imageFileLink = "";
-        information = "";
-        valid = false;
+        imageFileLinkValueWrapper = new ValueWrapper<>("");
+        informationValueWrapper = new ValueWrapper<>("");
         this.parentModel = parentModel;
     }
 
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
-
-    public String getImageFileLink() {
-        return imageFileLink;
-    }
-
-    public void setImageFileLink(String imageFileLink) {
-        String oldValue = this.imageFileLink;
-        this.imageFileLink = imageFileLink;
-        valid = imageFileLink != null && new File(imageFileLink).isFile();
-        errorMessage = valid ? "" : "The image cannot be loaded.";
-        support.firePropertyChange(IMAGE_FILE_LINK_PROPERTY, oldValue, this.imageFileLink);
-    }
-        
-    @Override
-    public String getInformation() {
-        return information;
+    public ValueWrapper<String> getImageFileLinkValueWrapper() {
+        return imageFileLinkValueWrapper;
     }
 
     @Override
-    public void setInformation(String information) {
-        this.information = information;
-    }
-
-    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
-        support.addPropertyChangeListener(propertyName, listener);
+    public ValueWrapper<String> getInformationValueWrapper() {
+        return informationValueWrapper;
     }
 
     @Override
     public String getFxmlPath() {
         return "/fxml/imagelink/AddImageLinkDialogFXML.fxml";
-    }    
+    }
 
     @Override
     public void save() {
-        parentModel.getImageLinks().add(new ImageLink(imageFileLink, information));
+        parentModel.getImageLinks().add(new ImageLink(imageFileLinkValueWrapper.getValue(), informationValueWrapper.getValue()));
     }
 
     @Override
     public boolean isInvalid() {
-        return valid;
+        String link = imageFileLinkValueWrapper.getValue();
+        return link == null || link.trim().isEmpty() || !new File(link).isFile();
     }
 
     @Override
     public String getErrorMessage() {
-        return errorMessage;
+
+        if (isInvalid()) {
+            return "Invalid image link.";
+        }
+        return "";
     }
 }

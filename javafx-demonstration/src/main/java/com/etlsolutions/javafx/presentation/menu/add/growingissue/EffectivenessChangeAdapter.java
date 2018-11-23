@@ -9,9 +9,9 @@ import javafx.beans.value.ObservableValue;
  */
 public class EffectivenessChangeAdapter implements ChangeListener<String> {
 
-    private final AddGrowingIssueDataModel model;
+    private final AbstractGrowingIssueDataModel model;
 
-    public EffectivenessChangeAdapter(AddGrowingIssueDataModel model) {
+    public EffectivenessChangeAdapter(AbstractGrowingIssueDataModel model) {
         this.model = model;
     }
 

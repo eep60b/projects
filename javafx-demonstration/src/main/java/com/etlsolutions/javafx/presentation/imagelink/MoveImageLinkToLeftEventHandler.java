@@ -1,5 +1,8 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,7 +21,8 @@ public class MoveImageLinkToLeftEventHandler implements EventHandler<ActionEvent
 
     @Override
     public void handle(ActionEvent event) {
-        model.decrementSelectedImageLinkIndex();
-    }
-    
+        ValueWrapper<ImageLink> wrapper = model.getSelectedImageLinkWrapper();
+        ObservableListWrapperA<ImageLink> list = model.getImageLinks();
+        wrapper.setValue(list.get(list.indexOf(wrapper.getValue()) - 1));
+    }    
 }

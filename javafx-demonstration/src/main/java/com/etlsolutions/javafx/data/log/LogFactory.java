@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.task.PruningTaskDetail;
@@ -82,14 +81,14 @@ public class LogFactory {
         return new WeatherRecords("Weather", "");
     }
 
-    public GrowingIssue createGrowingIssue(LocalDateTime endTime, String solution, String effectiveness, LocalDateTime modifiedTime, LocalDateTime startTime, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        GrowingIssue g = new GrowingIssue(endTime, solution, effectiveness, modifiedTime, startTime, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        return g;
+    public GrowingIssue createGrowingIssue(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime, String solution, String effectiveness) {
+
+        return new GrowingIssue(valueWrapper, startTime, endTime, solution, effectiveness);
     }
 
-    public GrowingObservation createGrowingObservation(LocalDateTime endTime, LocalDateTime modifiedTime, LocalDateTime startTime, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        GrowingObservation g = new GrowingObservation(endTime, modifiedTime, startTime, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        return g;
+    public GrowingObservation createGrowingObservation(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime) {
+
+        return new GrowingObservation(valueWrapper, startTime, endTime);
     }
 
     /**

@@ -61,7 +61,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     }
 
     @Override
-    public ValueWrapper<String> getInformation() {
+    public ValueWrapper<String> getInformationValueWrapper() {
         return commonValueWrapper.getInformationWrapper();
     }
 

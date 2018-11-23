@@ -6,8 +6,9 @@ import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
-import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
+import com.etlsolutions.javafx.presentation.EditItemEventHandler;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
@@ -15,12 +16,9 @@ import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.EditSubAreaDataModel;
 import static com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel.*;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
-import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -28,9 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
-import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -108,59 +104,45 @@ public class LocationFXMLController extends DataUnitFXMLController<Location, Abs
     @FXML
     private Tab measurementTab;
 
-    private final Map<LocationMeasurementType, Node> map = new HashMap<>();
-
     @Override
     public void initializeComponents() throws Exception {
 
-        try {
+        Map<LocationMeasurementType, Node> map = new HashMap<>();
+        NodeGenerator nodeGenerator = new NodeGenerator(model, map);
 
-            for (LocationMeasurementType type : LocationMeasurementType.values()) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(model.getMeasurementDataModel(type).getFxmlPath()));
-                Node node = (AnchorPane) loader.load();
-                AbstractComponentsFXMLController<LocationMeasurementDataModel> controller = loader.getController();
-                controller.setModel(model.getMeasurementDataModel());
-                controller.initializeComponents();
-                map.put(type, node);
-            }
+        initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
-            initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
+        areaComboBox.setItems(model.getAreas());
+        areaComboBox.getSelectionModel().select(model.getSelectedArea().getValue());
+        removeAreaButton.setDisable(model.getAreas().size() <= 1);
+        editAreaButton.setDisable(model.getAreas().size() < 1);
+        subareaComboBox.setItems(model.getSubAreas());
+        subareaComboBox.getSelectionModel().select(model.getSelectedSubArea().getValue());
+        removeSubareaButton.setDisable(model.getSubAreas().size() <= 1);
+        editSubareaButton.setDisable(model.getSubAreas().size() < 1);
 
-            areaComboBox.setItems(model.getAreas());
-            areaComboBox.getSelectionModel().select(model.getSelectedArea().getValue());
-            removeAreaButton.setDisable(model.getAreas().size() <= 1);
-            editAreaButton.setDisable(model.getAreas().size() < 1);
-            subareaComboBox.setItems(model.getSubAreas());
-            subareaComboBox.getSelectionModel().select(model.getSelectedSubArea().getValue());
-            removeSubareaButton.setDisable(model.getSubAreas().size() <= 1);
-            editSubareaButton.setDisable(model.getSubAreas().size() < 1);
+        locationTypeComboBox.setItems(model.getTypes());
+        locationTypeComboBox.getSelectionModel().select(model.getLocationValueWrapper().getTypeValueWrapper().getValue());
 
-            locationTypeComboBox.setItems(model.getTypes());
-            locationTypeComboBox.getSelectionModel().select(model.getSelectedType().getValue());
+        measurementTab.setContent(nodeGenerator.getNode((LocationMeasurementType)model.getMeasurementDataModelValueWrapper().getValue().getTypeValueWrapper().getValue()));
 
-            measurementTab.setContent(map.get(model.getMeasurementDataModel().getType()));
+        areaComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedArea()));
+        addAreaButton.setOnAction(new AddItemEventHandler<>(model.getAreas(), model.getSelectedArea(), new AddAreaDataModel()));
+        removeAreaButton.setOnAction(new RemoveEventHandler(model, SELECTED_AREA_REMOVE_EVENT_ID));
+        editAreaButton.setOnAction(new EditItemEventHandler<>(new EditAreaDataModel(model.getSelectedArea().getValue())));
+        subareaComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedSubArea()));
+        addSubareaButton.setOnAction(new AddItemEventHandler<>(model.getSubAreas(), model.getSelectedSubArea(), new AddSubAreaDataModel(model.getSelectedArea().getValue())));
+        removeSubareaButton.setOnAction(new RemoveEventHandler(model, SELECTED_SUBAREA_REMOVE_EVENT_ID));
+        editSubareaButton.setOnAction(new EditItemEventHandler<>(new EditSubAreaDataModel(model.getSelectedArea().getValue(), model.getSelectedSubArea().getValue())));
+        locationTypeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>( model.getMeasurementDataModelValueWrapper().getValue().getTypeValueWrapper()));
 
-            areaComboBox.getSelectionModel().selectedItemProperty().addListener(new AreaSelectionChangeAdaper(model));
-            addAreaButton.setOnAction(new LocationAreaEventHandler(model, new AddAreaDataModel()));
-            removeAreaButton.setOnAction(new RemoveEventHandler(model, SELECTED_AREA_REMOVE_EVENT_ID));
-            editAreaButton.setOnAction(new LocationAreaEventHandler(model, new EditAreaDataModel(model.getSelectedArea().getValue())));
-            subareaComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedSubArea()));
-            addSubareaButton.setOnAction(new LocationSubAreaEventHandler(model, new AddSubAreaDataModel(model.getSelectedArea().getValue())));
-            removeSubareaButton.setOnAction(new RemoveEventHandler(model, SELECTED_SUBAREA_REMOVE_EVENT_ID));
-            editSubareaButton.setOnAction(new LocationSubAreaEventHandler(model, new EditSubAreaDataModel(model.getSelectedArea().getValue(), model.getSelectedSubArea().getValue())));
-            locationTypeComboBox.getSelectionModel().selectedItemProperty().addListener(new LocationTypeSelectionChangeAdaper(model));
-            
-            model.getAreas().addListener(new AreaListChangeAdapter(areaComboBox, removeAreaButton, editAreaButton, model));
-            model.getSelectedArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaSelectionPropertyChangeAdapter(model, subareaComboBox));
-            model.getSubAreas().addListener(new SubAreaListChangeAdapter(subareaComboBox, removeSubareaButton, editSubareaButton, model));
-            model.getSelectedSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new SubAreaSelectionPropertyChangeAdapter(model, locationTypeComboBox));
-            model.getTypes().addListener(new LocationTypeListChangeAdapter(locationTypeComboBox, model));
-            model.getSelectedType().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new LocationTypePropertyChangeAdaper(model, okButton, errorMessageLabel, measurementTab, map));
+        model.getAreas().addListener(new AreaListChangeAdapter(areaComboBox, removeAreaButton, editAreaButton, model));
+        model.getSelectedArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaSelectionPropertyChangeAdapter(model, subareaComboBox));
+        model.getSubAreas().addListener(new SubAreaListChangeAdapter(subareaComboBox, removeSubareaButton, editSubareaButton, model));
+        model.getSelectedSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new SubAreaSelectionPropertyChangeAdapter(model, locationTypeComboBox));
+        model.getTypes().addListener(new LocationTypeListChangeAdapter(locationTypeComboBox, model));
+        model.getLocationValueWrapper().getTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new LocationTypePropertyChangeAdaper(model, okButton, errorMessageLabel, measurementTab, nodeGenerator));
 
-        } catch (IOException ex) {
-            Logger.getLogger(getClass()).error(ex);
-            throw new CustomLevelErrorRuntimeExceiption(ex);
-        }
     }
 
 }

@@ -18,7 +18,7 @@ public class EditSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
     @Override
     public void save() {
         dataUnit.setTitle(getTitle().getValue());
-        dataUnit.setInformation(getInformation().getValue());
+        dataUnit.setInformation(getInformationValueWrapper().getValue());
         area.getImageLinks().clear();
         area.getImageLinks().addAll(getImageLinks());
         dataUnit.setMeasurement(measurementDataModel.getValue().getMeasurementValueWrapper().getMeasurement());

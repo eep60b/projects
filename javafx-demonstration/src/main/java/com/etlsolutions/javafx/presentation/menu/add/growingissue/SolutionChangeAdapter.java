@@ -10,9 +10,9 @@ import javafx.beans.value.ObservableValue;
  */
 public class SolutionChangeAdapter implements ChangeListener<String> {
 
-    private final AddGrowingIssueDataModel model;
+    private final AbstractGrowingIssueDataModel model;
 
-    public SolutionChangeAdapter(AddGrowingIssueDataModel model) {
+    public SolutionChangeAdapter(AbstractGrowingIssueDataModel model) {
         this.model = model;
     }
 

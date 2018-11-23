@@ -1,8 +1,7 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 
@@ -28,17 +27,9 @@ public class Log extends DataUnit {
 
     }
 
-    public Log(LocalDateTime modifiedTime, LocalDateTime startTime, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        createdTime = LocalDateTime.now();
-        this.modifiedTime = modifiedTime;
-        this.startTime = startTime;
-    }
-
-    public Log(LocalDateTime modifiedTime, LocalDateTime startTime, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        createdTime = LocalDateTime.now();
-        this.modifiedTime = modifiedTime;
+    public Log(DataUnitValueWrapper valueWrapper, LocalDateTime startTime) {
+        super(valueWrapper);
+        modifiedTime = createdTime = LocalDateTime.now();
         this.startTime = startTime;
     }
 

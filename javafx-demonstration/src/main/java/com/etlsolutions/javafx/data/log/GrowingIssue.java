@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.log;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,21 +26,12 @@ public class GrowingIssue extends Log {
     public GrowingIssue() {
     }
 
-    public GrowingIssue(LocalDateTime endTime, String solution, String effectiveness, LocalDateTime modifiedTime, LocalDateTime startTime, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(modifiedTime, startTime, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public GrowingIssue(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime, String solution, String effectiveness) {
+        super(valueWrapper, startTime);
         this.endTime = endTime;
         this.solution = solution;
         this.effectiveness = effectiveness;
     }
-
-    public GrowingIssue(LocalDateTime endTime, String solution, String effectiveness, LocalDateTime modifiedTime, LocalDateTime startTime, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(modifiedTime, startTime, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.endTime = endTime;
-        this.solution = solution;
-        this.effectiveness = effectiveness;
-    }
-
-
 
     public LocalDateTime getEndTime() {
         return endTime;

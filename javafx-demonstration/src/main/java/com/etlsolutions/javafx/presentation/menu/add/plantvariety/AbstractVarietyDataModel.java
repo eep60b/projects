@@ -76,7 +76,7 @@ public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<Pla
     
     @Override
     public void save() {
-        dataUnit = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks());
+        dataUnit = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformationValueWrapper(), getAliases(), getImageLinks());
     }
     
     @Override

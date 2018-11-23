@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -29,21 +30,21 @@ public class GroundLocationFXMLController extends AbstractComponentsFXMLControll
     public void initializeComponents() {
 
         referencePointComboBox.setEditable(true);
-        referencePointComboBox.setPromptText(model.getReferencePoint());
-        referencePointComboBox.valueProperty().addListener(new ReferencePointChangeAdapter(model));
+        referencePointComboBox.setPromptText(model.getReferencePointValueWrapper().getValue());
+        referencePointComboBox.valueProperty().addListener(new ValueChangeAdapter<>(model.getReferencePointValueWrapper()));
         referencePointComboBox.setItems(model.getReferencePoints());
         
         directionComboBox.setEditable(true);
-        directionComboBox.setPromptText(model.getDirection());
-        directionComboBox.valueProperty().addListener(new DirectionChangeAdapter(model));
+        directionComboBox.setPromptText(model.getDirectionValueWrapper().getValue());
+        directionComboBox.valueProperty().addListener(new ValueChangeAdapter<>(model.getDirectionValueWrapper()));
         directionComboBox.setItems(model.getDirections());
         
-        distanceTextField.setText(model.getDistance());
+        distanceTextField.setText(model.getDistanceValueWrapper().getValue());
         distanceTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        distanceTextField.textProperty().addListener(new DistanceChangeAdapter(model));
+        distanceTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getDistanceValueWrapper()));
                  
-        occupiedArea.setText(model.getOccupiedArea());
+        occupiedArea.setText(model.getOccupiedAreaValueWrapper().getValue());
         occupiedArea.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        occupiedArea.textProperty().addListener(new OccupiedAreaChangeAdapter(model));       
+        occupiedArea.textProperty().addListener(new ValueChangeAdapter<>(model.getOccupiedAreaValueWrapper()));       
     }
 }

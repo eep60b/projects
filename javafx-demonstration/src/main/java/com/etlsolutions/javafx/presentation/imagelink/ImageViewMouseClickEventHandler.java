@@ -20,6 +20,6 @@ public class ImageViewMouseClickEventHandler implements EventHandler<MouseEvent>
     @Override
     public void handle(MouseEvent event) {
         LocallyLinkedImage image = (LocallyLinkedImage) ((ImageView) event.getSource()).getImage();
-        model.setSelectedImageLink(image.getLink());
+        model.getSelectedImageLinkWrapper().setValue(image.getLink());
     }
 }

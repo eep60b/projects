@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
-import com.etlsolutions.javafx.presentation.InformationChangeAdapter;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
-import static com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel.*;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -40,15 +40,15 @@ public class AddImageLinkDialogFXMLController extends AbstractComponentStageFXML
     public void initializeComponents() {
   
         selectImageButton.setOnAction(new SelectImageFileEventHandler(model, stage));
-        informationTextArea.setText(model.getInformation());
+        informationTextArea.setText(model.getInformationValueWrapper().getValue());
         errorMessageLabel.setText(model.getErrorMessage());
-        boolean valid = model.isInvalid();
-        okButton.setDisable(valid);
-        errorMessageLabel.setVisible(!valid);
+        boolean invalid = model.isInvalid();
+        okButton.setDisable(invalid);
+        errorMessageLabel.setVisible(!invalid);
         errorMessageLabel.setText(model.getErrorMessage());
        
-        model.addPropertyChangeListener(IMAGE_FILE_LINK_PROPERTY, new ImagePropertyChangeAdapter(imageHbox, errorMessageLabel, okButton));
-        informationTextArea.textProperty().addListener(new InformationChangeAdapter(model));
+        model.getImageFileLinkValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ImagePropertyChangeAdapter(imageHbox, errorMessageLabel, okButton));
+        informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformationValueWrapper()));
         okButton.setOnAction(new SaveExitEventHandler(model, stage));
         cancelButton.setOnAction(new CancelEventHandler(stage));
     }

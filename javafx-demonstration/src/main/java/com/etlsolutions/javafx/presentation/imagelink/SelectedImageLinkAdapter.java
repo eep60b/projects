@@ -39,7 +39,7 @@ public class SelectedImageLinkAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         DataUnitFXMLDataModel model = (DataUnitFXMLDataModel) evt.getSource();
-        ImageLink selectedImageLink = model.getSelectedImageLink();
+        ImageLink selectedImageLink = (ImageLink)model.getSelectedImageLinkWrapper().getValue();
         removeImageButton.setDisable(selectedImageLink == null);
         editImageInformationButton.setDisable(selectedImageLink == null);
         List<ImageLink> imageLinks = model.getImageLinks();
@@ -53,7 +53,7 @@ public class SelectedImageLinkAdapter implements PropertyChangeListener {
         for(Node child : children) {
             ImageView i = (ImageView) child;
             ImageLink link = ((LocallyLinkedImage)i.getImage()).getLink();
-            if(link.equals(model.getSelectedImageLink())) {
+            if(link.equals(model.getSelectedImageLinkWrapper().getValue())) {
                 i.setStyle("-fx-background-color: BLACK");
             } else {
                 i.setStyle("-fx-background-color: WHITE");

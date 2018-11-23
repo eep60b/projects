@@ -17,7 +17,7 @@ public class AddVarietyDataModel extends AbstractVarietyDataModel {
     
     @Override
     public void save() {
-        dataUnit = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformation(), getAliases(), getImageLinks());
+        dataUnit = PlantsFactory.getInstance().createPlantVariety(getTitle(), getLatinName(), getInformationValueWrapper(), getAliases(), getImageLinks());
         plantType.getPlantVarieties().add(dataUnit);
     }
 }

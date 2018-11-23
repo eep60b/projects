@@ -2,8 +2,7 @@ package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
-import com.etlsolutions.javafx.presentation.area.subarea.HeightChangeAdapter;
-import com.etlsolutions.javafx.presentation.area.subarea.VolumeChangeAdapter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -28,16 +27,16 @@ public class ContainerFXMLController extends AbstractComponentsFXMLController<Co
     @Override
     public void initializeComponents() {
 
-        shapecComboBox.setPromptText(model.getShape());
+        shapecComboBox.setPromptText(model.getShapeValueWrapper().getValue());
         shapecComboBox.setEditable(true);
-        shapecComboBox.valueProperty().addListener(new ShapeChangeAdapter(model));
+        shapecComboBox.valueProperty().addListener(new ValueChangeAdapter<>(model.getShapeValueWrapper()));
 
-        volumeTextField.setText(model.getVolume());
+        volumeTextField.setText(model.getVolumeValueWrapper().getValue());
         volumeTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        volumeTextField.textProperty().addListener(new VolumeChangeAdapter(model));
+        volumeTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getVolumeValueWrapper()));
 
-        heightTextField.setText(model.getHeight());
+        heightTextField.setText(model.getHeightValueWrapper().getValue());
         heightTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        heightTextField.textProperty().addListener(new HeightChangeAdapter(model));
+        heightTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getHeightValueWrapper()));
     }
 }

@@ -32,7 +32,7 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
             Label errorMessageLabel, Button okButton, Button cancelButton) {
 
         titleTextField.setText(model.getTitle().getValue());
-        informationTextArea.setText(model.getInformation().getValue());
+        informationTextArea.setText(model.getInformationValueWrapper().getValue());
 
         ImageLink selectedImageLink = model.getSelectedImageLinkWrapper().getValue();
         removeImageButton.setDisable(selectedImageLink == null);        
@@ -50,7 +50,7 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
         okButton.setDisable(model.isInvalid());
 
         titleTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getTitle()));
-        informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformation()));
+        informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformationValueWrapper()));
 
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
         removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));

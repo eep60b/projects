@@ -18,6 +18,7 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
 
     public static final RemoveEventId AREA_REMOVE_EVENT_ID = new RemoveEventId(TransplantTaskDataModel.class.getName() + "AREA_REMOVE_EVENT_ID", "remove area");
 
+    private int plantId;
     private final ObservableListWrapperA<Area> fromAreas;
     private final ValueWrapper<Area> selectedFromArea;
     private final ObservableListWrapperA<SubArea> fromSubAreas;
@@ -29,29 +30,30 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
     private final ValueWrapper<SubArea> selectedToSubArea;
     private final ObservableListWrapperA<Location> toLocations;
 
+    public TransplantTaskDataModel(int plantId, TransplantTask task) {
 
-    public TransplantTaskDataModel(TransplantTask task) {
+        super(new TransplantTaskDetail((Location) ProjectManager.getInstance().getItem(task.fromLocationId),
+                (Location) ProjectManager.getInstance().getItem(task.fromLocationId)));
 
-        super(new TransplantTaskDetail((Location)ProjectManager.getInstance().getItem(task.fromLocationId), 
-                (Location)ProjectManager.getInstance().getItem(task.fromLocationId)));
-        
+        this.plantId = plantId;
         ProjectManager p = ProjectManager.getInstance();
-        selectedFromSubArea = new ValueWrapper<>((SubArea)p.getItem(detail.getFromLocation().getValue().getParentId()));
+        selectedFromSubArea = new ValueWrapper<>((SubArea) p.getItem(detail.getFromLocation().getValue().getParentId()));
         fromLocations = selectedFromSubArea.getValue().getAllLocations();
-        selectedFromArea = new ValueWrapper<>((Area) p.getItem(selectedFromSubArea.getValue().getParentId()));       
+        selectedFromArea = new ValueWrapper<>((Area) p.getItem(selectedFromSubArea.getValue().getParentId()));
         fromSubAreas = selectedFromArea.getValue().getAllSubAreas();
         fromAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
- 
-        selectedToSubArea = new ValueWrapper<>((SubArea)p.getItem(detail.getToLocation().getValue().getParentId()));
+
+        selectedToSubArea = new ValueWrapper<>((SubArea) p.getItem(detail.getToLocation().getValue().getParentId()));
         toLocations = selectedToSubArea.getValue().getAllLocations();
-        selectedToArea = new ValueWrapper<>((Area) p.getItem(selectedToSubArea.getValue().getParentId()));       
+        selectedToArea = new ValueWrapper<>((Area) p.getItem(selectedToSubArea.getValue().getParentId()));
         toSubAreas = selectedToArea.getValue().getAllSubAreas();
         toAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
-    }    
-    
+    }
+
     public TransplantTaskDataModel() {
 
         super(new TransplantTaskDetail(null, null));
+        this.plantId = plantId;
         fromAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
         selectedFromArea = new ValueWrapper<>(fromAreas.get(0));
         fromSubAreas = selectedFromArea.getValue().getAllSubAreas();
@@ -64,6 +66,10 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
         toLocations = selectedToSubArea.getValue().getAllLocations();
         detail.getFromLocation().setValue(fromLocations.get(0));
         detail.getToLocation().setValue(toLocations.get(0));
+    }
+
+    public int getPlantId() {
+        return plantId;
     }
 
     public ObservableListWrapperA<Location> getFromLocations() {
@@ -89,11 +95,11 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
     public ValueWrapper<SubArea> getSelectedFromSubArea() {
         return selectedFromSubArea;
     }
-   
+
     public ValueWrapper<Location> getFromLocation() {
         return detail.getFromLocation();
     }
-   
+
     public ObservableListWrapperA<Area> getToAreas() {
         return toAreas;
     }
@@ -113,11 +119,11 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
     public ObservableListWrapperA<Location> getToLocations() {
         return toLocations;
     }
-    
-   public ValueWrapper<Location> getToLocation() {
+
+    public ValueWrapper<Location> getToLocation() {
         return detail.getToLocation();
     }
-   
+
     @Override
     public String getFxmlPath() {
         return "/fxml/log/TransplantTaskFXML.fxml";
@@ -131,6 +137,5 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
     @Override
     public void save() {
     }
-
 
 }

@@ -2,8 +2,6 @@ package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.data.area.measurement.Measurement;
-import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 
 /**
  *
@@ -19,7 +17,7 @@ public class EditAreaDataModel extends AbstractAreaDataModel {
     @Override
     public void save() {        
         dataUnit.setTitle(getTitle().getValue());
-        dataUnit.setInformation(getInformation().getValue());
+        dataUnit.setInformation(getInformationValueWrapper().getValue());
         dataUnit.getImageLinks().clear();
         dataUnit.getImageLinks().addAll(getImageLinks());
         dataUnit.setSelectedImgLinkIndex(getImageLinks().indexOf(getSelectedImageLinkWrapper().getValue()));

@@ -16,7 +16,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author Zhipeng
  */
-public class AddGrowingIssueFXMLController extends DataUnitFXMLController<GrowingIssue, AddGrowingIssueDataModel>{
+public class AddGrowingIssueFXMLController extends DataUnitFXMLController<GrowingIssue, AbstractGrowingIssueDataModel>{
 
     @FXML
     private TextField titleTextField;
@@ -68,6 +68,7 @@ public class AddGrowingIssueFXMLController extends DataUnitFXMLController<Growin
     
     @Override
     public void initializeComponents() {
+        
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
         
         Label startTimeLabel = new Label("Start Time");
@@ -79,8 +80,8 @@ public class AddGrowingIssueFXMLController extends DataUnitFXMLController<Growin
         timeHbox.getChildren().clear();
         timeHbox.getChildren().addAll(startTimeLabel, startTimePicker, endTimeLabel,endTimePicker);
         
-        solutionTextArea.setText(model.getSolution());
-        effectivenessTextArea.setText(model.getEffectiveness());
+        solutionTextArea.setText(model.getSolutionValueWrapper());
+        effectivenessTextArea.setText(model.getEffectivenessValueWrapper());
         
         solutionTextArea.textProperty().addListener(new SolutionChangeAdapter(model));
         effectivenessTextArea.textProperty().addListener(new EffectivenessChangeAdapter(model));

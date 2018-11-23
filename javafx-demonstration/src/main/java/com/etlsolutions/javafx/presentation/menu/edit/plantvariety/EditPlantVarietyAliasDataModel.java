@@ -74,7 +74,7 @@ public class EditPlantVarietyAliasDataModel implements TitleDataModel, Informati
     }
 
     @Override
-    public String getInformation() {
+    public String getInformationValueWrapper() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

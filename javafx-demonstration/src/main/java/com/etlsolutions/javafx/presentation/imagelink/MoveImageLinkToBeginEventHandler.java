@@ -18,6 +18,6 @@ public class MoveImageLinkToBeginEventHandler implements EventHandler<ActionEven
 
     @Override
     public void handle(ActionEvent event) {
-        model.setSelectedImageLinkToFirst();
+        model.getSelectedImageLinkWrapper().setValue(model.getImageLinks().get(0));
     } 
 }

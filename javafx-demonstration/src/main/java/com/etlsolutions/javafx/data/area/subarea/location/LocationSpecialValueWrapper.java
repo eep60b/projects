@@ -5,10 +5,11 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 /**
  *
  * @author zc
+ * @param <T>
  */
-public interface LocationSpecialValueWrapper {
+public interface LocationSpecialValueWrapper<T> {
     
-    ValueWrapper<LocationMeasurementType> getTypeValueWrapper();
+    ValueWrapper<T> getTypeValueWrapper();
     
     LocationMeasurement getMeasurement();
 }

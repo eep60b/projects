@@ -8,5 +8,5 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  */
 public interface InformationDataModel {
     
-    ValueWrapper<String> getInformation();
+    ValueWrapper<String> getInformationValueWrapper();
 }

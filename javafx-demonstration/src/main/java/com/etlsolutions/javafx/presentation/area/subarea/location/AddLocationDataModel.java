@@ -19,8 +19,8 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
 
     @Override
     public void save() {
-        dataUnit = LocationFactory.getInstance().createLocation(commonValueWrapper, locationValueWrapper, measurementDataModel.getValue());
-        selectedSubArea.getValue().getLocations(selectedType.getValue()).add(dataUnit);
+        dataUnit = LocationFactory.getInstance().createLocation(commonValueWrapper, locationValueWrapper, measurementDataModelValueWrapper.getValue().getMeasurement());
+        selectedSubArea.getValue().getLocations(locationValueWrapper.getTypeValueWrapper().getValue()).add(dataUnit);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
     @Override
     protected void validate() {
 
-        if (selectedType == null) {
+        if (locationValueWrapper.getTypeValueWrapper().getValue() == null) {
             invalid = false;
             errorMessage = "Create an area part for the location.";
         }
