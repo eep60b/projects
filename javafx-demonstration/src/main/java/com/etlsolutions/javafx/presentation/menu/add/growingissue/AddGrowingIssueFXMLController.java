@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.menu.add.growingissue;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -80,10 +81,10 @@ public class AddGrowingIssueFXMLController extends DataUnitFXMLController<Growin
         timeHbox.getChildren().clear();
         timeHbox.getChildren().addAll(startTimeLabel, startTimePicker, endTimeLabel,endTimePicker);
         
-        solutionTextArea.setText(model.getSolutionValueWrapper());
-        effectivenessTextArea.setText(model.getEffectivenessValueWrapper());
+        solutionTextArea.setText(model.getSolutionValueWrapper().getValue());
+        effectivenessTextArea.setText(model.getEffectivenessValueWrapper().getValue());
         
-        solutionTextArea.textProperty().addListener(new SolutionChangeAdapter(model));
-        effectivenessTextArea.textProperty().addListener(new EffectivenessChangeAdapter(model));
+        solutionTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getSolutionValueWrapper()));
+        effectivenessTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getEffectivenessValueWrapper()));
     }
 }

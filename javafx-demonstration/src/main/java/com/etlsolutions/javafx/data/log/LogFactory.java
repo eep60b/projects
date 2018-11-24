@@ -81,9 +81,9 @@ public class LogFactory {
         return new WeatherRecords("Weather", "");
     }
 
-    public GrowingIssue createGrowingIssue(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime, String solution, String effectiveness) {
+    public GrowingIssue createGrowingIssue(DataUnitValueWrapper valueWrapper, GrowingIssueValueWrapper growingIssueValueWrapper) {
 
-        return new GrowingIssue(valueWrapper, startTime, endTime, solution, effectiveness);
+        return new GrowingIssue(valueWrapper, growingIssueValueWrapper);
     }
 
     public GrowingObservation createGrowingObservation(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime) {
