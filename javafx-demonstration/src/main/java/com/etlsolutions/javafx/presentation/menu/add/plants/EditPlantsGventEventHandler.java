@@ -25,7 +25,7 @@ public class EditPlantsGventEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         
-        Gvent e = model.getSelectedEvent();
+        Gvent e = model.getSelectedEventValueWrapper().getValue();
         EditGventDataModel m = new EditGventDataModel(e);        
         FXMLActionEventHandler<EditGventDataModel> handler = new FXMLActionEventHandler<>(m);
         handler.handle(event);

@@ -19,7 +19,7 @@ public class PlantNumberTypeChangeAdapter implements ChangeListener<Toggle>{
 
     @Override
     public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-        model.setQuantityType(((QuantityTypeRadioButton)newValue).getType());
+        model.getQuantityTypeValueWrapper().setValue(((QuantityTypeRadioButton)newValue).getType());
     }
 
 

@@ -17,6 +17,7 @@ import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.time.LocalDateTime;
@@ -27,6 +28,8 @@ import javafx.collections.ObservableList;
  * @author zc
  */
 public class AddPlantsDataModel extends DataUnitFXMLDataModel<Plants> {
+    
+    public static final RemoveEventId REMOVE_GVENT_ID = new RemoveEventId(AddPlantsDataModel.class.getName() + "REMOVE_GVENT_ID", "event");
     
     private final ObservableList<PlantGroup> plantGroups;
     private final ObservableListWrapperA<PlantSubGroup> plantTypes;

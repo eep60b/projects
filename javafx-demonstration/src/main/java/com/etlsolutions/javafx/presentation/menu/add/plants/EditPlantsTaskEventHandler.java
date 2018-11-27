@@ -25,7 +25,7 @@ public class EditPlantsTaskEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         
-        Task task = model.getSelectedTask();
+        Task task = model.getSelectedTaskValueWrapper().getValue();
         EditTaskDataModel m = new EditTaskDataModel(task);        
         EditTaskEventHandler handler = new EditTaskEventHandler(m);
         handler.handle(event);

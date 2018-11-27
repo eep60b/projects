@@ -17,7 +17,9 @@ import static com.etlsolutions.javafx.data.plant.PlantsQuantity.Type.SINGLE;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
+import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.REMOVE_GVENT_ID;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -191,8 +193,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         plantGroupCombox.getSelectionModel().select(model.getPlantGroupValueWrapper().getValue());
         plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getPlantGroupValueWrapper()));
         model.getPlantGroupValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new PlantGroupPropertyChangeAdapter(model));
-
-        
+      
         plantTypeCombox.setItems(model.getPlantTypes());
         plantTypeCombox.getSelectionModel().select(model.getPlantSubGroupValueWrapper().getValue());
         model.getPlantTypes().addListener(new PlantTypeListChangeAdapter(plantTypeCombox, model));
@@ -306,26 +307,30 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         addGrowingMediumButton.setOnAction(new AddPlantsGrowingMediumEventHandler(model));
 
         toggleGroup.selectedToggleProperty().addListener(new PlantNumberTypeChangeAdapter(model));
-        plantNumberSpinner.valueProperty().addListener(new PlantNumberChangeAdapter(model));
+        plantNumberSpinner.valueProperty().addListener(new ValueChangeAdapter<>(model.getQuantityValueWrapper()));
 
-        datePlantedPicker.dateTimeValueProperty().addListener(new PlantedDateChangeAdapter(model));
-        growingMediumCombobox.selectionModelProperty().addListener(new GrowingMediumChangeAdapter(model));
+        datePlantedPicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getStartTimeValueWrapper()));
+        growingMediumCombobox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getGrowingMediumValueWrapper()));
         editLocationButton.setOnAction(new EditPlantLocationEventHandler(model));
-        isAliveCheckBox.selectedProperty().addListener(new IsAliveChangeAdapter(model));
-        terminationDatePicker.dateTimeValueProperty().addListener(new TerminationDateChangeAdapter(model));
-        terminationTextArea.textProperty().addListener(new TerminationReasonChangeAdapter(model));
-        eventListView.selectionModelProperty().addListener(new EventSelectionChangeAdapter(model));
+        isAliveCheckBox.selectedProperty().addListener(new ValueChangeAdapter<>(model.getIsAliveValueWrapper()));
+        terminationDatePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getTerminationTimeValueWrapper()));
+        terminationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getTerminationReasonValueWrapper()));
+
+        eventListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedEventValueWrapper()));
         addEventButton.setOnAction(new AddPlantsGventEventHandler(model));
         editEventButton.setOnAction(new EditPlantsGventEventHandler(model, eventListView));
-        removeEventButton.setOnAction(new RemovePlantsEventEventHandler(model));
-        eventListView.selectionModelProperty().addListener(new EventSelectionChangeAdapter(model));
+        removeEventButton.setOnAction(new RemoveEventHandler(model, REMOVE_GVENT_ID));
+
         addTaskButton.setOnAction(new AddPlantsTaskEventHandler(model));
         editTaskButton.setOnAction(new EditPlantsTaskEventHandler(model, taskListView));
         removeEventButton.setOnAction(new RemovePlantsTaskEventHandler(model));
-        taskListView.selectionModelProperty().addListener(new TaskSelectionChangeAdapter(model));
+        taskListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedTaskValueWrapper()));
+
+        eventListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedEventValueWrapper()));        
         addIssueButton.setOnAction(new AddPlantsIssueEventHandler(model));
         editIssueButton.setOnAction(new EditPlantsIssueEventHandler(model, issueListView));
         removeIssueButton.setOnAction(new RemovePlantsIssueEventHandler(model));
+
         observationListView.selectionModelProperty().addListener(new ObservationSelectionChangeAdapter(model));
         addObservationButton.setOnAction(new AddPlantsObservationEventHandler(model));
         editObservationButton.setOnAction(new EditPlantsObservationEventHandler(model, observationListView));

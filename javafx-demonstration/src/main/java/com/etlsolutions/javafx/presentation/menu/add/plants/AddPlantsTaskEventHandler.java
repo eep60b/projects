@@ -24,6 +24,6 @@ public class AddPlantsTaskEventHandler implements EventHandler<ActionEvent> {
 //        handler.handle(event);
         Task issue = taskModel.get();
         model.getTasks().add(issue);
-        model.setSelectedTask(issue);
+        model.getSelectedTaskValueWrapper().setValue(issue);
     }
 }
