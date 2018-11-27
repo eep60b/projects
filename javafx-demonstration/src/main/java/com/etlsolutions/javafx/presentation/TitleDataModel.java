@@ -8,5 +8,5 @@ import com.etlsolutions.javafx.data.ValueWrapper;
  */
 public interface TitleDataModel {
     
-    ValueWrapper<String> getTitle();
+    ValueWrapper<String> getTitleValueWrapper();
 }

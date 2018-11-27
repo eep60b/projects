@@ -56,7 +56,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     }
 
     @Override
-    public ValueWrapper<String> getTitle() {
+    public ValueWrapper<String> getTitleValueWrapper() {
         return commonValueWrapper.getTitleWrapper();
     }
 
@@ -73,7 +73,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
         return commonValueWrapper.getSelectedImageLinkWrapper();
     }
 
-    public ValueWrapper<String> getLogoPath() {
+    public ValueWrapper<String> getLogoPathValueWrapper() {
         return commonValueWrapper.getLogoPathWrapper();
     }
 
@@ -108,7 +108,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     }
 
     protected void validate() {
-        String title = getTitle().getValue();
+        String title = getTitleValueWrapper().getValue();
         invalid = title == null || title.trim().isEmpty();
         errorMessage = invalid ? "Please enter title." : "";
     }
@@ -117,4 +117,14 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     public final D get() {
         return dataUnit;
     }
+
+    @Override
+    public void save() {
+        dataUnit.setTitle(getTitleValueWrapper().getValue());
+        dataUnit.setInformation(getInformationValueWrapper().getValue());
+        ObservableListWrapperA<ImageLink> list = getImageLinks();
+        dataUnit.setImageLinks(list);
+        dataUnit.setSelectedImgLinkIndex(list.isEmpty() ? 0 : list.indexOf(getSelectedImageLinkWrapper().getValue()));
+        dataUnit.setLogoPath(getLogoPathValueWrapper().getValue());
+    }    
 }

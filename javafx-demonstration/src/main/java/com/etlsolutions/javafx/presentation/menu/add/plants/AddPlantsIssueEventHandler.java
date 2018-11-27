@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.menu.add.plants;
 
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.menu.add.growingissue.AbstractGrowingIssueDataModel;
+import com.etlsolutions.javafx.presentation.log.growingissue.AbstractGrowingIssueDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

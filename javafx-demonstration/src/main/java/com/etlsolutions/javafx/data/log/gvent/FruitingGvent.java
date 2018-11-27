@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.log.gvent;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+
 /**
  *
  * @author zc
@@ -12,6 +14,13 @@ public class FruitingGvent extends Gvent {
     private double averageSize;
     private double averageLength;
     private double averageWeight;
+
+    public FruitingGvent() {
+    }
+
+    public FruitingGvent(DataUnitValueWrapper valueWrapper, FruitingGventDetailValueWrapper fgdvw) {
+        super(valueWrapper, fgdvw.getStartTimeValueWrapper().getValue(), fgdvw.getEndTimeValueWrapper().getValue(), fgdvw.getNotifications());
+    }
 
     public int getNumberPerPlant() {
         return NumberPerPlant;

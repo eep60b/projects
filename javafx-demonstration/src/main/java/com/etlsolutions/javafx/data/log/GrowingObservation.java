@@ -20,9 +20,9 @@ public class GrowingObservation extends Note {
     public GrowingObservation() {
     }
 
-    public GrowingObservation(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime) {
-        super(valueWrapper, startTime);
-        this.endTime = endTime;
+    public GrowingObservation(DataUnitValueWrapper valueWrapper, GrowingObservationValueWrapper growingObservationValueWrapper) {
+        super(valueWrapper, growingObservationValueWrapper.getStartTimeValueWrapper().getValue());
+        this.endTime = growingObservationValueWrapper.getEndTimeValueWrapper().getValue();
     }
 
     public LocalDateTime getEndTime() {

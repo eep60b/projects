@@ -32,25 +32,25 @@ public class FloweringGventFXMLController extends AbstractComponentsFXMLControll
 
         Spinner<Integer> countSpinner = new Spinner<>();
         IntegerSpinnerValueFactory lengthBeforeFactory = new IntegerSpinnerValueFactory(0, 100000);
-        lengthBeforeFactory.setValue(model.getCount());
+        lengthBeforeFactory.setValue(model.getNumberPerPlantValueWrapper().getValue());
         countSpinner.setValueFactory(lengthBeforeFactory);
         countHBox.getChildren().add(countSpinner);
 
         flowerTypeComboBox.setItems(model.getFlowerTypes());
         flowerTypeComboBox.setEditable(true);
-        flowerTypeComboBox.getSelectionModel().select(model.getFlowerType());
-        flowerTypeComboBox.valueProperty().addListener(new FlowerTypeChangeAdapter(model));
+        flowerTypeComboBox.getSelectionModel().select(model.getFlowerTypeValueWrapper().getValue());
+        flowerTypeComboBox.valueProperty().addListener(new ValueChangeAdapter<>(model.getFlowerTypeValueWrapper()));
 
         flowerColorComboBox.setItems(model.getFlowerColors());
         flowerColorComboBox.setEditable(true);
-        flowerColorComboBox.getSelectionModel().select(model.getColor());
-        flowerColorComboBox.valueProperty().addListener(new FlowerColorChangeAdapter(model));
+        flowerColorComboBox.getSelectionModel().select(model.getColorValueWrapper().getValue());
+        flowerColorComboBox.valueProperty().addListener(new ValueChangeAdapter<>(model.getColorValueWrapper()));
 
-        boolean countable = model.getCount() >= 0;
+        boolean countable = model.getNumberPerPlantValueWrapper().getValue()>= 0;
         countableCheckBox.selectedProperty().setValue(countable);
         countableCheckBox.selectedProperty().addListener(new CountableChangeAdapter(model, countHBox));
         countHBox.setVisible(countable);
 
-        countSpinner.valueProperty().addListener(new CountChangeAdapter(model));
+        countSpinner.valueProperty().addListener(new ValueChangeAdapter<>(model.getNumberPerPlantValueWrapper()));
     }
 }

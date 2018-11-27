@@ -1,19 +1,20 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetail;
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetailValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
  * @author zc
  */
-public class FloweringGventDetailDataModel extends GventDetailDataModel<FloweringGventDetail> {
+public class FloweringGventDetailDataModel extends GventDetailDataModel<FloweringGventDetailValueWrapper> {
     
     private final ObservableListWrapperA<String> flowerTypes;
     private final ObservableListWrapperA<String> flowerColors;
     
-    public FloweringGventDetailDataModel(FloweringGventDetail floweringGventDetail) {
+    public FloweringGventDetailDataModel(FloweringGventDetailValueWrapper floweringGventDetail) {
         super(floweringGventDetail);
         flowerTypes = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFlowerTypes());
         flowerColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFlowerColors());
@@ -27,32 +28,19 @@ public class FloweringGventDetailDataModel extends GventDetailDataModel<Flowerin
         return flowerColors;
     }
     
-    public String getFlowerType() {
-        return detail.getFlowerType();
+    public ValueWrapper<String> getFlowerTypeValueWrapper() {
+        return detail.getFlowerTypeValueWrapper();
     }
 
-    public void setFlowerType(String flowerType) {
-        detail.setFlowerType(flowerType);
-    }    
 
-    public int getCount() {
-        return detail.getCount();
+    public ValueWrapper<String> getColorValueWrapper() {
+        return detail.getColorValueWrapper();
     }
 
-    public void setCount(int count) {
-        detail.setCount(count);
+    public ValueWrapper<Integer> getNumberPerPlantValueWrapper() {
+        return detail.getNumberPerPlantValueWrapper();
     }
-
-    public String getColor() {
-        return detail.getColor();
-    }
-
-    public void setColor(String color) {
-        detail.setColor(color);
-    }
-    
-    
-    
+  
     @Override
     public String getFxmlPath() {
         return "/fxml/log/FloweringGventFXML.fxml";

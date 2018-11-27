@@ -1,8 +1,6 @@
 package com.etlsolutions.javafx.data.log.gvent;
 
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import java.time.LocalDateTime;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 
 /**
  *
@@ -17,18 +15,11 @@ public class FloweringGvent extends Gvent {
     public FloweringGvent() {
     }
 
-    public FloweringGvent(String flowerType, int numberPerPlant, String color, LocalDateTime endTime, LocalDateTime modifiedTime, LocalDateTime startTime, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(endTime, modifiedTime, startTime, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.flowerType = flowerType;
-        this.count = numberPerPlant;
-        this.color = color;
-    }
-
-    public FloweringGvent(String flowerType, int count, String color, LocalDateTime endTime, LocalDateTime modifiedTime, LocalDateTime startTime, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(endTime, modifiedTime, startTime, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.flowerType = flowerType;
-        this.count = count;
-        this.color = color;
+    public FloweringGvent(DataUnitValueWrapper valueWrapper, FloweringGventDetailValueWrapper fgdvw) {
+        super(valueWrapper, fgdvw.getStartTimeValueWrapper().getValue(), fgdvw.getEndTimeValueWrapper().getValue(), fgdvw.getNotifications());
+        flowerType = fgdvw.getFlowerTypeValueWrapper().getValue();
+        count = fgdvw.getNumberPerPlantValueWrapper().getValue();
+        color = fgdvw.getColorValueWrapper().getValue();
     }
 
     public String getFlowerType() {

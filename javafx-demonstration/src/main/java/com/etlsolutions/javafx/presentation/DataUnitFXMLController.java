@@ -31,7 +31,7 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
             Button editImageButton, Button moveToBeginImageButton, Button moveToLeftImageButton, Button moveToRightImageButton, Button moveToEndImageButton, Button removeImageButton,
             Label errorMessageLabel, Button okButton, Button cancelButton) {
 
-        titleTextField.setText(model.getTitle().getValue());
+        titleTextField.setText(model.getTitleValueWrapper().getValue());
         informationTextArea.setText(model.getInformationValueWrapper().getValue());
 
         ImageLink selectedImageLink = model.getSelectedImageLinkWrapper().getValue();
@@ -49,7 +49,7 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
         errorMessageLabel.setText(model.getErrorMessage());
         okButton.setDisable(model.isInvalid());
 
-        titleTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getTitle()));
+        titleTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getTitleValueWrapper()));
         informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformationValueWrapper()));
 
         addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
@@ -64,7 +64,7 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
         cancelButton.setOnAction(new CancelEventHandler(stage));
 
         //Add change listeners to model.
-        model.getTitle().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValidationPropertyChangeAdapter(model, errorMessageLabel, okButton));
+        model.getTitleValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValidationPropertyChangeAdapter(model, errorMessageLabel, okButton));
         model.getSelectedImageLinkWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ImageSelectionChangeAdapter(model, removeImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton));
     }
 }

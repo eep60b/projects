@@ -1,9 +1,5 @@
 package com.etlsolutions.javafx.data.plant;
 
-import com.etlsolutions.javafx.data.DataUnitPart;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.Date;
-
 /**
  *
  * @author zc

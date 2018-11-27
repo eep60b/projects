@@ -66,10 +66,10 @@ public class GrowingObservationFXMLController extends DataUnitFXMLController<Gro
         
         Label startTimeLabel = new Label("Start Time");
         DateTimePicker startTimePicker = new DateTimePicker();
-        startTimePicker.setDateTimeValue(model.getStartTime());
+        startTimePicker.setDateTimeValue(model.getStartTimeValueWrapper().getValue());
         Label endTimeLabel = new Label("End Time");        
         DateTimePicker endTimePicker = new DateTimePicker();
-        endTimePicker.setDateTimeValue(model.getEndTime());
+        endTimePicker.setDateTimeValue(model.getEndTimeValueWrapper().getValue());
         timeHbox.getChildren().clear();
         timeHbox.getChildren().addAll(startTimeLabel, startTimePicker, endTimeLabel,endTimePicker);
     }

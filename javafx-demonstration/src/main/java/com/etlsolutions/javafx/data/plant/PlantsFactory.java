@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
@@ -69,8 +70,8 @@ public class PlantsFactory {
         return t;
     }
 
-    public Plants creatPlants() {
-        Plants p = new Plants();        
+    public Plants creatPlant(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {
+        Plants p = new Plants(valueWrapper, plantValueWrapper);        
 
         return p;
     }

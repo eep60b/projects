@@ -34,7 +34,7 @@ public class AddVarietyAliasFXMLController extends AbstractComponentStageFXMLCon
     public void initializeComponents() {
 
         AddVarietyAliasDataModel model = new AddVarietyAliasDataModel(this.model);
-        titleTextField.setText(model.getTitle());
+        titleTextField.setText(model.getTitleValueWrapper());
         errorMessageLabel.setText(model.getErrorMessage());
         okButton.setDisable(!model.isInvalid());
         

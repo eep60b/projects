@@ -9,39 +9,31 @@ import java.time.LocalDateTime;
  */
 public class GrowingIssueValueWrapper {
 
-    protected LocalDateTime startTime;
-    protected LocalDateTime endTime;
+    protected final ValueWrapper<LocalDateTime> startTimeValueWrapper;
+    protected final ValueWrapper<LocalDateTime> endTimeValueWrapper;
     protected final ValueWrapper<String> solutionValueWrapper;
     protected final ValueWrapper<String> effectivenessValueWrapper;
 
     public GrowingIssueValueWrapper() {
-        startTime = LocalDateTime.now();
-        endTime = LocalDateTime.now();
+        startTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
+        endTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
         solutionValueWrapper = new ValueWrapper<>("");
         effectivenessValueWrapper = new ValueWrapper<>("");
     }
 
     public GrowingIssueValueWrapper(GrowingIssue issue) {
-        startTime = issue.getStartTime();
-        endTime = issue.getEndTime();
+        startTimeValueWrapper = new ValueWrapper<>(issue.getStartTime());
+        endTimeValueWrapper = new ValueWrapper<>(issue.getEndTime());
         solutionValueWrapper = new ValueWrapper<>(issue.getSolution());
         effectivenessValueWrapper = new ValueWrapper<>(issue.getEffectiveness());
     }
 
-    public LocalDateTime getStartTime() {
-        return startTime;
+    public ValueWrapper<LocalDateTime> getStartTimeValueWrapper() {
+        return startTimeValueWrapper;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
+    public ValueWrapper<LocalDateTime> getEndTimeValueWrapper() {
+        return endTimeValueWrapper;
     }
 
     public ValueWrapper<String> getSolutionValueWrapper() {

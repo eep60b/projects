@@ -28,7 +28,7 @@ public class AddPlantTypeEventHandler implements EventHandler<ActionEvent> {
         PlantSubGroup type = addPlantTypeDataModel.get();
         if(type != null) {
             model.getPlantTypes().add(type);
-            model.setSelectedPlantType(type);
+            model.getPlantSubGroupValueWrapper().setValue(type);
         }
     }
 }

@@ -1,8 +1,11 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -22,13 +25,15 @@ public class Plants extends DataUnit {
     @JsonIgnore
     public static final String GROWING_DETAILS_PROPERTY = "com.etlsolutions.javafx.data.plant.Plants.GROWING_DETAILS_PROPERTY";
 
-    private boolean isAlive;
+    private int plantSubGroupId;
+    private int locationId;
+    private boolean alive;
     private GrowingStartPoint growingStartPoint;
     private Date startTime;
     private int growingMediumId;
     private int plantVarietyId;
     private int quantity;
-    private PlantsQuantity.Type quantityType;    
+    private PlantsQuantity.Type quantityType;
     private String terminationReason; //Harvested. destroied by disease, insecte, cold weather, hot weather, droupht, tater log, high wind, over-fertiliser.
     private Date terminationTime;
     private ObservableListWrapperA<Integer> eventIds;
@@ -36,12 +41,50 @@ public class Plants extends DataUnit {
     private ObservableListWrapperA<Integer> observationIds;
     private ObservableListWrapperA<Integer> taskIds;
 
-    public boolean isIsAlive() {
-        return isAlive;
+    public Plants() {
     }
 
-    public void setIsAlive(boolean isAlive) {
-        this.isAlive = isAlive;
+    public Plants(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {
+        super(valueWrapper);
+        plantSubGroupId = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getId();
+        locationId = plantValueWrapper.getLocationValueWrapper().getValue().getId();
+        alive = plantValueWrapper.getIsAliveValueWrapper().getValue();
+        growingStartPoint = plantValueWrapper.getGrowingStartPointValueWrapper().getValue();
+        Calendar c = Calendar.getInstance();
+        LocalDateTime st = plantValueWrapper.getStartTimeValueWrapper().getValue();
+        c.set(st.getYear(), st.getMonthValue(), st.getDayOfMonth(), st.getHour(), st.getMinute());
+        startTime = c.getTime();
+        plantVarietyId = plantValueWrapper.getPlantVarietyValueWrapper().getValue().getId();
+        quantity = plantValueWrapper.getQuantityValueWrapper().getValue();
+        quantityType = plantValueWrapper.getQuantityTypeValueWrapper().getValue();
+        terminationReason = plantValueWrapper.getTerminationReasonValueWrapper().getValue();
+        LocalDateTime t = plantValueWrapper.getStartTimeValueWrapper().getValue();
+        c.set(t.getYear(), t.getMonthValue(), t.getDayOfMonth(), t.getHour(), t.getMinute());
+        terminationTime = c.getTime();
+    }
+
+    public int getPlantSubGroupId() {
+        return plantSubGroupId;
+    }
+
+    public void setPlantSubGroupId(int plantSubGroupId) {
+        this.plantSubGroupId = plantSubGroupId;
+    }
+
+    public int getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
     }
 
     public GrowingStartPoint getGrowingStartPoint() {
@@ -140,6 +183,4 @@ public class Plants extends DataUnit {
         this.taskIds = taskIds;
     }
 
-    
-    
 }

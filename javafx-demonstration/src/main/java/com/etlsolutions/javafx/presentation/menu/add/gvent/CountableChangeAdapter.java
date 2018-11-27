@@ -24,10 +24,10 @@ public class CountableChangeAdapter implements ChangeListener<Boolean> {
         countHBox.setVisible(newValue);
         
         if (newValue) {
-            model.setCount(0);
+            model.getNumberPerPlantValueWrapper().setValue(0);
             return;
         }
-        model.setCount(-1);
+         model.getNumberPerPlantValueWrapper().setValue(-1);
     }
     
 }

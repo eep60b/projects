@@ -20,7 +20,7 @@ public abstract class Gvent extends Log {
 
     public abstract GventType getType();
 
-    public Gvent(ObservableList<Notification> notifications, LocalDateTime endTime, DataUnitValueWrapper valueWrapper, LocalDateTime startTime) {
+    public Gvent(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime, ObservableList<Notification> notifications) {
         super(valueWrapper, startTime);
         this.notifications = notifications;
         this.endTime = endTime;

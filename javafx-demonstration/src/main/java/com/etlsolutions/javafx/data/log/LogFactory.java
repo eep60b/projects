@@ -86,9 +86,9 @@ public class LogFactory {
         return new GrowingIssue(valueWrapper, growingIssueValueWrapper);
     }
 
-    public GrowingObservation createGrowingObservation(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime) {
+    public GrowingObservation createGrowingObservation(DataUnitValueWrapper valueWrapper, GrowingObservationValueWrapper govw) {
 
-        return new GrowingObservation(valueWrapper, startTime, endTime);
+        return new GrowingObservation(valueWrapper, govw);
     }
 
     /**

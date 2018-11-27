@@ -1,14 +1,14 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
-import com.etlsolutions.javafx.data.log.gvent.GventDetail;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
+import com.etlsolutions.javafx.data.log.gvent.GventDetailValueWrapper;
 
 /**
  *
  * @author zc
  * @param <T>
  */
-public abstract class GventDetailDataModel<T extends GventDetail> {
+public abstract class GventDetailDataModel<T extends GventDetailValueWrapper> {
 
     protected final T detail;
 

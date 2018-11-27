@@ -2,19 +2,19 @@ package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetail;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
  * @author zc
  */
-public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingGventDetail> {
+public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingGventDetailValueWrapper> {
 
     private final ObservableListWrapperA<String> fruitShapes;
     private final ObservableListWrapperA<String> fruitColors;
 
-    public FruitingGventDetailDataModel(FruitingGventDetail fruitingGventDetail) {
+    public FruitingGventDetailDataModel(FruitingGventDetailValueWrapper fruitingGventDetail) {
         super(fruitingGventDetail);
         fruitShapes = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFruitShapes());
         fruitColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFruitColors());
@@ -30,27 +30,27 @@ public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingG
     }
     
     public ValueWrapper<Boolean> getCountable() {
-        return detail.getCountable();
+        return detail.getCountableValueWrapper();
     }    
     
     public ValueWrapper<Integer> getCount() {
-        return detail.getCount();
+        return detail.getCountValueWrapper();
     }
 
     public ValueWrapper<String> getColor() {
-        return detail.getColor();
+        return detail.getColorValueWrapper();
     }
 
     public ValueWrapper<String> getShape() {
-        return detail.getShape();
+        return detail.getShapeValueWrapper();
     }
 
     public ValueWrapper<String> getAverageSize() {
-        return detail.getAverageSize();
+        return detail.getAverageSizeValueWrapper();
     }
 
     public ValueWrapper<String> getAverageWeight() {
-        return detail.getAverageWeight();
+        return detail.getAverageWeightValueWrapper();
     }
 
     @Override

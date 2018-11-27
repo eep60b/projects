@@ -21,7 +21,7 @@ public class PlantTypesChangeAdapter extends DataUnitChangeAdapter {
         
         PlantGroup group = (PlantGroup)getSource();
         
-        if(group == model.getSelectedPlantGroup()) {
+        if(group == model.getSelectedPlantGroupValueWrapper()) {
             model.setPlantTypes(group.getPlantsSubGroups());
         }
     }

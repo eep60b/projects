@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.add.plants;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.CurrentMaxDayCellFactory;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
@@ -16,8 +17,7 @@ import static com.etlsolutions.javafx.data.plant.PlantsQuantity.Type.SINGLE;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
-import static com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsDataModel.*;
-import com.etlsolutions.javafx.presentation.plant.SelectPlantGroupChangeAdapter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -188,11 +188,22 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
         plantGroupCombox.setItems(model.getPlantGroups());
-        plantGroupCombox.getSelectionModel().select(model.getSelectedPlantGroup());
+        plantGroupCombox.getSelectionModel().select(model.getPlantGroupValueWrapper().getValue());
+        plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getPlantGroupValueWrapper()));
+        model.getPlantGroupValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new PlantGroupPropertyChangeAdapter(model));
+
+        
         plantTypeCombox.setItems(model.getPlantTypes());
-        plantTypeCombox.getSelectionModel().select(model.getSelectedPlantType());
+        plantTypeCombox.getSelectionModel().select(model.getPlantSubGroupValueWrapper().getValue());
+        model.getPlantTypes().addListener(new PlantTypeListChangeAdapter(plantTypeCombox, model));
+        model.getPlantSubGroupValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new PlantTypeSelectionPropertyChangeAdapter(model, plantTypeCombox));
+        plantTypeCombox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getPlantSubGroupValueWrapper())); 
+        
         plantVarietyCombobox.setItems(model.getPlantVarieties());
-        plantVarietyCombobox.getSelectionModel().select(model.getSelectedVariety());
+        plantVarietyCombobox.getSelectionModel().select(model.getPlantVarietyValueWrapper().getValue());        
+        plantVarietyCombobox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getPlantVarietyValueWrapper()));
+        model.getPlantVarieties().addListener(new PlantVarietyListChangeAdapter(plantVarietyCombobox, model));
+        model.getPlantVarietyValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new PlantVarietyPropertyChangeAdapter(plantVarietyCombobox));
 
         QuantityTypeRadioButton singlePlantRadioButton = new QuantityTypeRadioButton();
         QuantityTypeRadioButton multiplePlantRadioButton = new QuantityTypeRadioButton();
@@ -204,7 +215,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         estimatedPlantRadioButton.setType(PlantsQuantity.Type.ESTIMATION);
         notCountingRadioButton.setType(PlantsQuantity.Type.NO_COUNTING);
 
-        switch (model.getQuantityType()) {
+        switch (model.getQuantityTypeValueWrapper().getValue()) {
             case SINGLE:
                 singlePlantRadioButton.setSelected(true);
                 break;
@@ -224,25 +235,25 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         Spinner<Integer> plantNumberSpinner = new Spinner<>();
         plantNumberHbox.getChildren().add(plantNumberSpinner);
         IntegerSpinnerValueFactory factory = new IntegerSpinnerValueFactory(0, 100000);
-        factory.setValue(model.getPlantNumber());
+        factory.setValue(model.getQuantityValueWrapper().getValue());
         plantNumberSpinner.setValueFactory(factory);
-        PlantsQuantity.Type type = model.getQuantityType();
+        PlantsQuantity.Type type = model.getQuantityTypeValueWrapper().getValue();
         plantNumberSpinner.setDisable(type == PlantsQuantity.Type.SINGLE || type == PlantsQuantity.Type.NO_COUNTING);
         ((IntegerSpinnerValueFactory) plantNumberSpinner.getValueFactory()).setMin(0);
 
         DateTimePicker datePlantedPicker = new DateTimePicker();
         datePlantedHbox.getChildren().add(datePlantedPicker);
-        datePlantedPicker.setDateTimeValue(model.getPlantedDate());
+        datePlantedPicker.setDateTimeValue(model.getStartTimeValueWrapper().getValue());
 
         growingMediumCombobox.setItems(model.getGrowingMediums());
-        growingMediumCombobox.getSelectionModel().select(model.getSelectedGrowingMedium());
+        growingMediumCombobox.getSelectionModel().select(model.getGrowingMediumValueWrapper().getValue());
 
-        Location location = model.getLocation();
+        Location location = model.getLocationValueWrapper().getValue();
         locationTitleLabel.setText(location == null ? "Not Specified" : location.getTitle());
         locationInformationTextArea.setText(location == null ? "" : location.getInformation());
         locationInformationTextArea.setDisable(true);
         editLocationButton.setText(location == null ? "Add Location" : "Edit Location");
-        boolean isAlive = model.isAlive();
+        boolean isAlive = model.getIsAliveValueWrapper().getValue();
         DateTimePicker terminationDatePicker = new DateTimePicker();
         terminationDateHbox.getChildren().add(terminationDatePicker);
         if (!isAlive) {
@@ -253,32 +264,32 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         terminationDatePicker.setVisible(!isAlive);
         terminationTextArea.setVisible(!isAlive);
         isAliveCheckBox.setSelected(isAlive);
-        terminationDatePicker.setDateTimeValue(model.getTerminationDate());
+        terminationDatePicker.setDateTimeValue(model.getTerminationTimeValueWrapper().getValue());
         terminationDatePicker.setDayCellFactory(new CurrentMaxDayCellFactory());
 
-        eventListView.setItems(model.getEvents());
+        eventListView.setItems(model.getGvents());
         eventListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        eventListView.getSelectionModel().select(model.getSelectedEvent());
-        editEventButton.setDisable(model.getSelectedEvent() == null);
-        removeEventButton.setDisable(model.getSelectedEvent() == null);
+        eventListView.getSelectionModel().select(model.getSelectedEventValueWrapper().getValue());
+        editEventButton.setDisable(model.getSelectedEventValueWrapper().getValue() == null);
+        removeEventButton.setDisable(model.getSelectedEventValueWrapper().getValue() == null);
 
         taskListView.setItems(model.getTasks());
         taskListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        taskListView.getSelectionModel().select(model.getSelectedTask());
-        editTaskButton.setDisable(model.getSelectedTask() == null);
-        removeTaskButton.setDisable(model.getSelectedTask() == null);
+        taskListView.getSelectionModel().select(model.getSelectedTaskValueWrapper().getValue());
+        editTaskButton.setDisable(model.getSelectedTaskValueWrapper().getValue() == null);
+        removeTaskButton.setDisable(model.getSelectedTaskValueWrapper().getValue() == null);
 
-        issueListView.setItems(model.getIssues());
+        issueListView.setItems(model.getGrowingIssues());
         issueListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        issueListView.getSelectionModel().select(model.getSelectedGrowingIssue());
-        editIssueButton.setDisable(model.getSelectedGrowingIssue() == null);
-        removeIssueButton.setDisable(model.getSelectedGrowingIssue() == null);
+        issueListView.getSelectionModel().select(model.getSelectedGrowingIssueValueWrapper().getValue());
+        editIssueButton.setDisable(model.getSelectedGrowingIssueValueWrapper().getValue() == null);
+        removeIssueButton.setDisable(model.getSelectedGrowingIssueValueWrapper().getValue() == null);
 
-        observationListView.setItems(model.getObservations());
+        observationListView.setItems(model.getGrowingObservations());
         observationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        observationListView.getSelectionModel().select(model.getSelectedGrowingObservation());
-        editObservationButton.setDisable(model.getSelectedGrowingObservation() == null);
-        removeObservationButton.setDisable(model.getSelectedGrowingObservation() == null);
+        observationListView.getSelectionModel().select(model.getSelectedGrowingObservationValueWrapper().getValue());
+        editObservationButton.setDisable(model.getSelectedGrowingObservationValueWrapper().getValue() == null);
+        removeObservationButton.setDisable(model.getSelectedGrowingObservationValueWrapper().getValue() == null);
 
         //Group the radio buttons.
         ToggleGroup toggleGroup = new ToggleGroup();
@@ -288,9 +299,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         notCountingRadioButton.setToggleGroup(toggleGroup);
 
         //Add change listeners to components.
-        plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new SelectPlantGroupChangeAdapter(model));
-                
-        plantTypeCombox.getSelectionModel().selectedItemProperty().addListener(new PlantTypeChangeAdapter(model));        
+       
         addPlantTypeButton.setOnAction(new AddPlantTypeEventHandler(model));
         
         addPlantVarietyButton.setOnAction(new AddVarityToPlantEventHandler(model));
@@ -323,8 +332,7 @@ public class AddPlantsFXMLController extends DataUnitFXMLController<Plants, AddP
         removeObservationButton.setOnAction(new RemovePlantsObservationEventHandler(model));
 
         //Add change listeners to model.
-        model.getPlantTypes().addListener(new PlantTypeListChangeAdapter(plantTypeCombox, model));
-        model.addPropertyChangeListener(SELECTED_PLANT_TYPE_PROPERTY, new PlantTypeSelectionPropertyChangeAdapter(plantTypeCombox));
+
         
         model.addPropertyChangeListener(QUANTITY_TYPE_PROPERTY, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
         model.addPropertyChangeListener(SELECTED_GROWING_MEDIUM_RPOPERTY, new GrowingMediumSelectionPropertyChangeDapter(growingMediumCombobox));

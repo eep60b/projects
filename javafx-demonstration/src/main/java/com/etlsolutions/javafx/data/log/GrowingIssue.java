@@ -25,10 +25,10 @@ public class GrowingIssue extends Log {
     }
 
     public GrowingIssue(DataUnitValueWrapper valueWrapper, GrowingIssueValueWrapper growingIssueValueWrapper) {
-        super(valueWrapper, growingIssueValueWrapper.getStartTime());
-        this.endTime = growingIssueValueWrapper.getEndTime();
-        this.solution = growingIssueValueWrapper.getSolutionValueWrapper().getValue();
-        this.effectiveness = growingIssueValueWrapper.getEffectivenessValueWrapper().getValue();
+        super(valueWrapper, growingIssueValueWrapper.getStartTimeValueWrapper().getValue());
+        endTime = growingIssueValueWrapper.getEndTimeValueWrapper().getValue();
+        solution = growingIssueValueWrapper.getSolutionValueWrapper().getValue();
+        effectiveness = growingIssueValueWrapper.getEffectivenessValueWrapper().getValue();
     }
 
     public LocalDateTime getEndTime() {

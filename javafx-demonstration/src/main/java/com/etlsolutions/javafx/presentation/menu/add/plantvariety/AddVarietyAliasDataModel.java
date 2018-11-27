@@ -58,7 +58,7 @@ public class AddVarietyAliasDataModel implements TitleDataModel, InformationData
     }
 
     @Override
-    public String getTitle() {
+    public String getTitleValueWrapper() {
         return title;
     }
 
