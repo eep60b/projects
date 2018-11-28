@@ -10,12 +10,13 @@ import com.etlsolutions.javafx.data.other.FertiliserValueWrapper;
 public class EditFertiliserDataModel  extends AbstractFertiliserDataModel {
 
     public EditFertiliserDataModel(Fertiliser fertiliser) {
-        super(new FertiliserValueWrapper(fertiliser), fertiliser.getType());
+        super(fertiliser, new FertiliserValueWrapper(fertiliser), fertiliser.getType());
     }
 
     @Override
     public void save() {
-        dataUnit.setTitle(getTitleValueWrapper().getValue());
+        Fertiliser dataUnit = get();
+        dataUnit.setCommonValues(commonValueWrapper);
         dataUnit.setAluminium(Double.parseDouble(valueWrapper.getAluminium().getValue()));
     }
 }

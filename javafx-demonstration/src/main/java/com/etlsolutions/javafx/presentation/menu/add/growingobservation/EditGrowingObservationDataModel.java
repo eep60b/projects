@@ -11,15 +11,12 @@ public class EditGrowingObservationDataModel extends AbstractGrowingObservationD
     public EditGrowingObservationDataModel(GrowingObservation growingObservation) {
         super(growingObservation);
     }
-
-    
     
     @Override
     public void save() {
-        
+        GrowingObservation dataUnit = get();
+        dataUnit.setCommonValues(commonValueWrapper);
         dataUnit.setStartTime(getStartTimeValueWrapper().getValue());
         dataUnit.setEndTime(getEndTimeValueWrapper().getValue());
-        super.save();
-        
     }
 }

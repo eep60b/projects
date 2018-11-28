@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,25 +15,17 @@ public class PlantVariety extends DataUnit {
     public static final String LATINNAME_PROPERTY = "com.etlsolutions.javafx.data.plant.PlantVariety.LATINNAME_PROPERTY";
 
     private ObservableListWrapperA<String> aliases;
-    private String latinName;
-    
-    private int plantTypeId;
+    private String latinName;    
+    private int plantSubGroupId;
 
     public PlantVariety() {
     }
 
-    public PlantVariety(ObservableListWrapperA<String> aliases, String latinName, int PlantTypeId, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public PlantVariety(DataUnitValueWrapper valueWrapper, int plantSubGroupId, String latinName, ObservableListWrapperA<String> aliases) {
+        super(valueWrapper);
         this.aliases = aliases;
         this.latinName = latinName;
-        this.plantTypeId = PlantTypeId;
-    }
-
-    public PlantVariety(ObservableListWrapperA<String> aliases, String latinName, int PlantTypeId, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.aliases = aliases;
-        this.latinName = latinName;
-        this.plantTypeId = PlantTypeId;
+        this.plantSubGroupId = plantSubGroupId;
     }
 
     public ObservableListWrapperA<String> getAliases() {
@@ -54,11 +46,11 @@ public class PlantVariety extends DataUnit {
         fireChange(LATINNAME_PROPERTY, oldValue, this.latinName);
     }
 
-    public int getPlantTypeId() {
-        return plantTypeId;
+    public int getPlantSubGroupId() {
+        return plantSubGroupId;
     }
 
-    public void setPlantTypeId(int plantTypeId) {
-        this.plantTypeId = plantTypeId;
+    public void setPlantSubGroupId(int plantSubGroupId) {
+        this.plantSubGroupId = plantSubGroupId;
     }
 }

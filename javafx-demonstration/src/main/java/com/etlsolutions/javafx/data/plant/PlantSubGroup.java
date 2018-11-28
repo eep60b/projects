@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
@@ -22,20 +22,13 @@ public class PlantSubGroup extends DataUnit {
     public PlantSubGroup() {
     }
 
-    public PlantSubGroup(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public PlantSubGroup(DataUnitValueWrapper valueWrapper, int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties) {
+        super(valueWrapper);
         this.plantGroupId = plantGroupId;
         this.plantsList = plantsList;
         this.plantVarieties = plantVarieties;
     }
-
-    public PlantSubGroup(int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties, int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.plantGroupId = plantGroupId;
-        this.plantsList = plantsList;
-        this.plantVarieties = plantVarieties;
-    }
-
+    
     public int getPlantGroupId() {
         return plantGroupId;
     }

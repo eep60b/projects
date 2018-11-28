@@ -32,9 +32,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     private boolean noOrFirstImage;
     private boolean noOrLastImage;
 
-    protected D dataUnit;
-
-    protected final DataUnitPropertyChangeSupport support = new DataUnitPropertyChangeSupport(this);
+    private D dataUnit;
 
     public DataUnitFXMLDataModel(D dataUnit) {
         this(dataUnit.getTitle(), dataUnit.getInformation(), dataUnit.getImageLinks(), 
@@ -116,15 +114,9 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     @Override
     public final D get() {
         return dataUnit;
+    } 
+    
+    public final void set(D dataUnit) {
+        this.dataUnit = dataUnit;
     }
-
-    @Override
-    public void save() {
-        dataUnit.setTitle(getTitleValueWrapper().getValue());
-        dataUnit.setInformation(getInformationValueWrapper().getValue());
-        ObservableListWrapperA<ImageLink> list = getImageLinks();
-        dataUnit.setImageLinks(list);
-        dataUnit.setSelectedImgLinkIndex(list.isEmpty() ? 0 : list.indexOf(getSelectedImageLinkWrapper().getValue()));
-        dataUnit.setLogoPath(getLogoPathValueWrapper().getValue());
-    }    
 }

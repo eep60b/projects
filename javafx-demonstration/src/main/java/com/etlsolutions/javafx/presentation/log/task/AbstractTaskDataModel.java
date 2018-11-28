@@ -41,10 +41,10 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> 
     }
 
     public AbstractTaskDataModel(Task task) {
+        super(task);
         this.notifications = new ObservableListWrapperA<>(task.getNotifications());
         types = new ObservableListWrapperA<>(task.getType());
         selectedType = new ValueWrapper<>(task.getType());
-        this.dataUnit = task;
         detailDataModel = getDetailDataModel(selectedType.getValue());
     }
 

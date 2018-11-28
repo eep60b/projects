@@ -42,6 +42,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     }
 
     public AbstractLocationDataModel(Area area, SubArea subArea, Location location) {
+        super(location);
         areas = new ObservableListWrapperA<>(area);
         selectedArea = new ValueWrapper<>(area);
         subAreas = new ObservableListWrapperA<>(subArea);

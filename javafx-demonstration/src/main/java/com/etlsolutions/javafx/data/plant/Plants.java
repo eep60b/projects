@@ -4,8 +4,6 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -36,9 +34,9 @@ public class Plants extends DataUnit {
     private PlantsQuantity.Type quantityType;
     private String terminationReason; //Harvested. destroied by disease, insecte, cold weather, hot weather, droupht, tater log, high wind, over-fertiliser.
     private Date terminationTime;
-    private ObservableListWrapperA<Integer> eventIds;
-    private ObservableListWrapperA<Integer> issueIds;
-    private ObservableListWrapperA<Integer> observationIds;
+    private ObservableListWrapperA<Integer> gventIds;
+    private ObservableListWrapperA<Integer> growingIssueIds;
+    private ObservableListWrapperA<Integer> growingObservationIds;
     private ObservableListWrapperA<Integer> taskIds;
 
     public Plants() {
@@ -49,18 +47,17 @@ public class Plants extends DataUnit {
         plantSubGroupId = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getId();
         locationId = plantValueWrapper.getLocationValueWrapper().getValue().getId();
         alive = plantValueWrapper.getIsAliveValueWrapper().getValue();
-        growingStartPoint = plantValueWrapper.getGrowingStartPointValueWrapper().getValue();
-        Calendar c = Calendar.getInstance();
-        LocalDateTime st = plantValueWrapper.getStartTimeValueWrapper().getValue();
-        c.set(st.getYear(), st.getMonthValue(), st.getDayOfMonth(), st.getHour(), st.getMinute());
-        startTime = c.getTime();
+        growingStartPoint = plantValueWrapper.getGrowingStartPointValueWrapper().getValue();        
+        startTime = plantValueWrapper.getStartTime();
         plantVarietyId = plantValueWrapper.getPlantVarietyValueWrapper().getValue().getId();
         quantity = plantValueWrapper.getQuantityValueWrapper().getValue();
         quantityType = plantValueWrapper.getQuantityTypeValueWrapper().getValue();
         terminationReason = plantValueWrapper.getTerminationReasonValueWrapper().getValue();
-        LocalDateTime t = plantValueWrapper.getStartTimeValueWrapper().getValue();
-        c.set(t.getYear(), t.getMonthValue(), t.getDayOfMonth(), t.getHour(), t.getMinute());
-        terminationTime = c.getTime();
+        terminationTime = plantValueWrapper.getTerminationTime();
+        gventIds = plantValueWrapper.getGventIds();
+        growingIssueIds = plantValueWrapper.getGrowingIssueIds();
+        growingObservationIds = plantValueWrapper.getGrowingObservationIds();
+        taskIds = plantValueWrapper.getTaskIds();
     }
 
     public int getPlantSubGroupId() {
@@ -151,28 +148,28 @@ public class Plants extends DataUnit {
         this.terminationTime = terminationTime;
     }
 
-    public ObservableListWrapperA<Integer> getEventIds() {
-        return eventIds;
+    public ObservableListWrapperA<Integer> getGventIds() {
+        return gventIds;
     }
 
-    public void setEventIds(ObservableListWrapperA<Integer> eventIds) {
-        this.eventIds = eventIds;
+    public void setGventIds(ObservableListWrapperA<Integer> gventIds) {
+        this.gventIds = gventIds;
     }
 
-    public ObservableListWrapperA<Integer> getIssueIds() {
-        return issueIds;
+    public ObservableListWrapperA<Integer> getGrowingIssueIds() {
+        return growingIssueIds;
     }
 
-    public void setIssueIds(ObservableListWrapperA<Integer> issueIds) {
-        this.issueIds = issueIds;
+    public void setGrowingIssueIds(ObservableListWrapperA<Integer> growingIssueIds) {
+        this.growingIssueIds = growingIssueIds;
     }
 
-    public ObservableListWrapperA<Integer> getObservationIds() {
-        return observationIds;
+    public ObservableListWrapperA<Integer> getGrowingObservationIds() {
+        return growingObservationIds;
     }
 
-    public void setObservationIds(ObservableListWrapperA<Integer> observationIds) {
-        this.observationIds = observationIds;
+    public void setGrowingObservationIds(ObservableListWrapperA<Integer> growingObservationIds) {
+        this.growingObservationIds = growingObservationIds;
     }
 
     public ObservableListWrapperA<Integer> getTaskIds() {

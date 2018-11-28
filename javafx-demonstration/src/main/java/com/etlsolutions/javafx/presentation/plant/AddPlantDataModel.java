@@ -1,0 +1,61 @@
+package com.etlsolutions.javafx.presentation.plant;
+
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.plant.PlantGroup;
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.data.plant.PlantsFactory;
+import com.etlsolutions.javafx.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectManager;
+import javafx.collections.ObservableList;
+
+/**
+ *
+ * @author zc
+ */
+public class AddPlantDataModel extends AbstractPlantDataModel {
+
+
+    private final ObservableList<PlantGroup> plantGroups;
+    private final ObservableListWrapperA<PlantSubGroup> plantTypes;
+
+    /**
+     * Construct an object.
+     *
+     * @throws IndexOutOfBoundsException if no plant group can be selected from
+     * the plant group list.
+     */
+    public AddPlantDataModel() {
+
+        ProjectContents pc = ProjectManager.getInstance().getContents();
+        plantGroups = pc.getPlantsGroupRoot().getPlantGroups();
+        plantTypes = new ObservableListWrapperA<>(plantValueWrapper.getPlantGroupValueWrapper().getValue().getPlantsSubGroups());
+    }
+
+    public ObservableList<PlantGroup> getPlantGroups() {
+        return plantGroups;
+    }
+
+    public ObservableListWrapperA<PlantSubGroup> getPlantTypes() {
+        return plantTypes;
+    }
+
+    public ValueWrapper<PlantGroup> getPlantGroupValueWrapper() {
+        return plantValueWrapper.getPlantGroupValueWrapper();
+    }
+
+    public ValueWrapper<PlantSubGroup> getPlantSubGroupValueWrapper() {
+        return plantValueWrapper.getPlantSubGroupValueWrapper();
+    }
+
+    @Override
+    public void save() {
+        set(PlantsFactory.getInstance().creatPlant(commonValueWrapper, plantValueWrapper));
+        getPlantSubGroupValueWrapper().getValue().getPlantsList().add(get());
+    }
+
+    @Override
+    public String getFxmlPath() {
+        return "/fxml/menu/plant/AddPlantFXML.fxml";
+    }
+}

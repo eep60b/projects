@@ -19,7 +19,7 @@ public class AddGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
     @Override
     public void save() {
         
-        dataUnit = GrowingMediumFactory.getInstance().createGrowingMedium(commonValueWrapper, specialValueWrapper);
-        ProjectManager.getInstance().getContents().getGrowingMediums().add(dataUnit);
+        set(GrowingMediumFactory.getInstance().createGrowingMedium(commonValueWrapper, specialValueWrapper));
+        ProjectManager.getInstance().getContents().getGrowingMediums().add(get());
     }
 }

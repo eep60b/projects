@@ -41,6 +41,16 @@ public abstract class AbstractSubAreaDataModel extends DataUnitFXMLDataModel<Sub
 
         measurementDataModel = new ValueWrapper<>(getMeasurementDataModel(selectedSubAreaType.getValue(), measurement));
     }
+    
+
+    public AbstractSubAreaDataModel(SubArea subArea, SubAreaType[] subAreaTypes, Measurement measurement) {
+        super(subArea);
+        this.subAreaTypes = new ObservableListWrapperA<>(subAreaTypes);
+        selectedSubAreaType = new ValueWrapper<>(this.subAreaTypes.get(0));
+        subAreaShapes = new ObservableListWrapperA<>(MeasurementType.values());
+
+        measurementDataModel = new ValueWrapper<>(getMeasurementDataModel(selectedSubAreaType.getValue(), measurement));
+    }
 
     private MeasurementDataModel getMeasurementDataModel(SubAreaType type, Measurement measurement) {
 

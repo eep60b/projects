@@ -10,11 +10,11 @@ public class EditGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
 
     public EditGrowingMediumDataModel(GrowingMedium growingMedium) {
         super(growingMedium);
-        this.dataUnit = growingMedium;
     }
 
     @Override
     public void save() {
-        dataUnit.setValues(commonValueWrapper, specialValueWrapper);
+        
+        get().setValues(commonValueWrapper, specialValueWrapper);
     }
 }

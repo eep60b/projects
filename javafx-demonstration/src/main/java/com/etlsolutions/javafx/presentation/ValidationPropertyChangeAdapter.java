@@ -11,11 +11,11 @@ import javafx.scene.control.Label;
  */
 public class ValidationPropertyChangeAdapter implements PropertyChangeListener {
 
-    private final DataUnitFXMLDataModel model;
+    private final Validatable model;
     private final Label errorMessageLabel;
     private final Button[] buttons;
 
-    public ValidationPropertyChangeAdapter(DataUnitFXMLDataModel model, Label errorMessageLabel, Button... buttons) {
+    public ValidationPropertyChangeAdapter(Validatable model, Label errorMessageLabel, Button... buttons) {
         
         this.model = model;
         this.errorMessageLabel = errorMessageLabel;

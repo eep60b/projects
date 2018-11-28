@@ -41,12 +41,11 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     }
 
     public AbstractGventDataModel(Gvent gvent) {
-
+        super(gvent);
         detailDataModelValueWrapper = getDetailDataModel(gvent);
         selectedNotification = new ValueWrapper<>(gvent.getNotifications().get(0));
         types = new ObservableListWrapperA<>(gvent.getType());
         selectedTypeValueWrapper = new ValueWrapper<>(gvent.getType());
-        dataUnit = gvent;
     }
 
     private GventDetailDataModel getDetailDataModel(GventType type) {

@@ -43,12 +43,23 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
         areaShapes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
-        areaValueWrapper = dataUnit == null ? new AreaValueWrapper() : new AreaValueWrapper(dataUnit);
+        areaValueWrapper = new AreaValueWrapper();
         measurementDataModelValueWrapper = new ValueWrapper<>(getMeasurementDataModel(measurement));
-        subAreas = dataUnit == null ? new ObservableListWrapperA<SubArea>() : new ObservableListWrapperA<>(dataUnit.getAllSubAreas());
+        subAreas = new ObservableListWrapperA<>();
+        selectedSubArea = new ValueWrapper<>(null);
+    }
+    
+    public AbstractAreaDataModel(Area area, ObservableList<AreaType> areaTypes, Measurement measurement) {
+        super(area);
+        this.areaTypes = areaTypes;
+        selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
+        areaShapes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
+        areaValueWrapper = new AreaValueWrapper(area);
+        measurementDataModelValueWrapper = new ValueWrapper<>(getMeasurementDataModel(measurement));
+        subAreas = new ObservableListWrapperA<>(area.getAllSubAreas());
         selectedSubArea = new ValueWrapper<>(subAreas.isEmpty() ? null : subAreas.get(0));
     }
-
+    
     private MeasurementDataModel getMeasurementDataModel(Measurement measurement) {
         switch (measurement.getType()) {
             case CIRCLE:

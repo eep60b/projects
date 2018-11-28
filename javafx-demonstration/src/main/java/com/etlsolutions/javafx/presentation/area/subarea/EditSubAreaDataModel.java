@@ -11,16 +11,15 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 public class EditSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
 
     public EditSubAreaDataModel(Area area, SubArea subArea) {
-        super(area, new SubAreaType[]{subArea.getType()}, subArea.getMeasurement());
-        this.dataUnit = subArea;
+        super(subArea, area, new SubAreaType[]{subArea.getType()}, subArea.getMeasurement());
+
     }
 
     @Override
     public void save() {
-        dataUnit.setTitle(getTitleValueWrapper().getValue());
-        dataUnit.setInformation(getInformationValueWrapper().getValue());
-        area.getImageLinks().clear();
-        area.getImageLinks().addAll(getImageLinks());
+
+        SubArea dataUnit = get();
+        dataUnit.setCommonValues(commonValueWrapper);
         dataUnit.setMeasurement(measurementDataModel.getValue().getMeasurementValueWrapper().getMeasurement());
     }
 }

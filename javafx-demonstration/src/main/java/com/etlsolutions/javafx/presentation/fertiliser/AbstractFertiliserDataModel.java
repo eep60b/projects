@@ -25,6 +25,13 @@ public abstract class AbstractFertiliserDataModel extends DataUnitFXMLDataModel<
         this.types = new ObservableListWrapperA<>(types);
         partModel = getPartDataModel(getType().getValue());
     }
+
+    public AbstractFertiliserDataModel(Fertiliser fertiliser, FertiliserValueWrapper valueWrapper, FertiliserType...types) {
+        super(fertiliser);
+        this.valueWrapper = valueWrapper;
+        this.types = new ObservableListWrapperA<>(types);
+        partModel = getPartDataModel(getType().getValue());
+    }
     
     public ObservableListWrapperA<FertiliserType> getTypes() {
         return types;

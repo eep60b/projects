@@ -19,6 +19,7 @@ public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDa
     }
 
     public AbstractGrowingObservationDataModel(GrowingObservation growingObservation) {
+        super(growingObservation);
         growingObservationValueWrapper = new GrowingObservationValueWrapper(growingObservation);
     }
 

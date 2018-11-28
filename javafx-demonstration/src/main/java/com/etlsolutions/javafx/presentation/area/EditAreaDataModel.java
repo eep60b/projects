@@ -10,12 +10,12 @@ import com.etlsolutions.javafx.data.area.Area;
 public class EditAreaDataModel extends AbstractAreaDataModel {
 
     public EditAreaDataModel(Area area) {
-        super(new ObservableListWrapperA<>(area.getType()), area.getMeasurement());
-        dataUnit = area;
+        super(area, new ObservableListWrapperA<>(area.getType()), area.getMeasurement());
     }
     
     @Override
-    public void save() {        
+    public void save() {    
+        Area dataUnit = get();
         dataUnit.setTitle(getTitleValueWrapper().getValue());
         dataUnit.setInformation(getInformationValueWrapper().getValue());
         dataUnit.getImageLinks().clear();
