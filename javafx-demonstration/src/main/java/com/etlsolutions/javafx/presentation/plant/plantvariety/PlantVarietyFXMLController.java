@@ -5,6 +5,7 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
+import com.etlsolutions.javafx.presentation.ValueChangeButtonPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -105,6 +106,6 @@ public class PlantVarietyFXMLController extends DataUnitFXMLController<PlantVari
         
         aliasListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedAliasWalueWrapper()));
       
-        model.getSelectedAliasWalueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new SelectedAliasChangeAdapter(removeAliasButton, aliasListView));
+        model.getSelectedAliasWalueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValueChangeButtonPropertyChangeAdapter<>(editAliasButton, removeAliasButton));
     }    
 }

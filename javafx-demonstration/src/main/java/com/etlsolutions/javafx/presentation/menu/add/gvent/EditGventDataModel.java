@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu.add.gvent;
 
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -14,6 +15,12 @@ public class EditGventDataModel extends AbstractGventDataModel {
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        Gvent gvent = get();
+        gvent.setCommonValues(commonValueWrapper);
+        gvent.setEndTime(getEndTimeValueWrapper().getValue());
+        gvent.setModifiedTime(LocalDateTime.now());
+        gvent.setStartTime(getStartTimeValueWrapper().getValue());
+        support.firePropertyChange(LIST_CHANGE_PROPERTY, true, false);        
     }
 }

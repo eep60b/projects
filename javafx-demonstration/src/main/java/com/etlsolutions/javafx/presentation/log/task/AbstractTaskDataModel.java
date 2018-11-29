@@ -56,11 +56,11 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> 
         return selectedType;
     }
 
-    public ValueWrapper<LocalDateTime> getStartTime() {
+    public ValueWrapper<LocalDateTime> getStartTimeValueWrapper() {
         return startTime;
     }
 
-    public ValueWrapper<LocalDateTime> getEndTime() {
+    public ValueWrapper<LocalDateTime> getEndTimeValueWrapper() {
         return endTime;
     }
 

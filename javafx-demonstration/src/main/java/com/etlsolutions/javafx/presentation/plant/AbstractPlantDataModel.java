@@ -32,9 +32,7 @@ public abstract class AbstractPlantDataModel extends DataUnitFXMLDataModel<Plant
     public static final RemoveEventId REMOVE_ISSUE_ID = new RemoveEventId(AbstractPlantDataModel.class.getName() + "REMOVE_ISSUE_ID", "event");
     public static final RemoveEventId REMOVE_OBSERVATION_ID = new RemoveEventId(AbstractPlantDataModel.class.getName() + "REMOVE_OBSERVATION_ID", "event");
 
-    private final ObservableList<GrowingMedium> growingMediums;
-    private final ObservableList<PlantVariety> plantVarieties;
-
+    private final ObservableListWrapperA<GrowingMedium> growingMediums;
     protected final PlantValueWrapper plantValueWrapper;
 
     private final ValueWrapper<Gvent> selectedEventValueWrapper;
@@ -62,18 +60,13 @@ public abstract class AbstractPlantDataModel extends DataUnitFXMLDataModel<Plant
         this.plantValueWrapper = plantValueWrapper;
         ProjectContents pc = ProjectManager.getInstance().getContents();
         growingMediums = pc.getGrowingMediums();
-        plantVarieties = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getPlantVarieties();
         selectedEventValueWrapper = new ValueWrapper<>(plantValueWrapper.getGvents().isEmpty() ? null : plantValueWrapper.getGvents().get(0));
         selectedGrowingIssueValueWrapper = new ValueWrapper<>(plantValueWrapper.getGrowingIssues().isEmpty() ? null : plantValueWrapper.getGrowingIssues().get(0));
         selectedTaskValueWrapper = new ValueWrapper<>(plantValueWrapper.getTasks().isEmpty() ? null : plantValueWrapper.getTasks().get(0));
         selectedGrowingObservationValueWrapper = new ValueWrapper<>(plantValueWrapper.getGrowingObservations().isEmpty() ? null : plantValueWrapper.getGrowingObservations().get(0));
     }
-
-    public ObservableList<PlantVariety> getPlantVarieties() {
-        return plantVarieties;
-    }
-
-    public ObservableList<GrowingMedium> getGrowingMediums() {
+    
+    public ObservableListWrapperA<GrowingMedium> getGrowingMediums() {
         return growingMediums;
     }
 
@@ -91,10 +84,6 @@ public abstract class AbstractPlantDataModel extends DataUnitFXMLDataModel<Plant
 
     public ValueWrapper<GrowingMedium> getGrowingMediumValueWrapper() {
         return plantValueWrapper.getGrowingMediumValueWrapper();
-    }
-
-    public ValueWrapper<PlantVariety> getPlantVarietyValueWrapper() {
-        return plantValueWrapper.getPlantVarietyValueWrapper();
     }
 
     public ValueWrapper<LocalDateTime> getStartTimeValueWrapper() {

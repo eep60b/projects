@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
+import com.etlsolutions.javafx.presentation.ComboBoxListChangeAdapter;
 import com.etlsolutions.javafx.presentation.EditItemEventHandler;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.data.ValueWrapper;
@@ -7,6 +8,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
+import com.etlsolutions.javafx.presentation.ComboBoxSelectionPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
@@ -124,18 +126,18 @@ public class TransplantTaskFXMLController extends AbstractComponentsFXMLControll
         addToLocationButton.setOnAction(new AddItemEventHandler<>(model.getToLocations(), model.getToLocation(), new AddLocationDataModel(model.getPlantId())));
         editToLocationButton.setOnAction(new EditItemEventHandler<>(new EditLocationDataModel(model.getSelectedToArea().getValue(), model.getSelectedToSubArea().getValue(), model.getToLocation().getValue())));
         
-        model.getFromAreas().addListener(new ListChangeAdapter<>(model.getFromAreas(), fromAreaComboBox));
-        model.getSelectedFromArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TransplantTaskFromAreaPropertyChangeAdapter(model, fromAreaComboBox));
-        model.getFromSubAreas().addListener(new ListChangeAdapter<>(model.getFromSubAreas(), fromSubAreaComboBox));
-        model.getSelectedFromSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TransplantTaskFromSubAreaPropertyChangeAdapter(model, fromSubAreaComboBox));
-        model.getFromLocations().addListener(new ListChangeAdapter<>(model.getFromLocations(), fromLocationComboBox));
-        model.getFromLocation().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TransplantTaskFromLocationPropertyChangeAdapter(model, fromLocationComboBox));
+        model.getFromAreas().addListener(new ComboBoxListChangeAdapter<>(model.getFromAreas(), fromAreaComboBox, model.getSelectedFromArea()));
+        model.getSelectedFromArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter(fromAreaComboBox));
+        model.getFromSubAreas().addListener(new ComboBoxListChangeAdapter<>(model.getFromSubAreas(), fromSubAreaComboBox, model.getSelectedFromSubArea()));
+        model.getSelectedFromSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter(fromSubAreaComboBox));
+        model.getFromLocations().addListener(new ComboBoxListChangeAdapter<>(model.getFromLocations(), fromLocationComboBox, model.getFromLocation()));
+        model.getFromLocation().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter(fromLocationComboBox));
 
-        model.getToAreas().addListener(new ListChangeAdapter<>(model.getToAreas(), fromAreaComboBox));
-        model.getSelectedToArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TransplantTaskToAreaPropertyChangeAdapter(model, fromAreaComboBox));
-        model.getToSubAreas().addListener(new ListChangeAdapter<>(model.getToSubAreas(), fromSubAreaComboBox));
-        model.getSelectedToSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TransplantTaskToSubAreaPropertyChangeAdapter(model, fromSubAreaComboBox));
-        model.getToLocations().addListener(new ListChangeAdapter<>(model.getToLocations(), fromLocationComboBox));
-        model.getToLocation().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new TransplantTaskToLocationPropertyChangeAdapter(model, fromLocationComboBox));
+        model.getToAreas().addListener(new ComboBoxListChangeAdapter<>(model.getToAreas(), toAreaComboBox, model.getSelectedToArea()));
+        model.getSelectedToArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter(toAreaComboBox));
+        model.getToSubAreas().addListener(new ComboBoxListChangeAdapter<>(model.getToSubAreas(), toSubAreaComboBox, model.getSelectedToSubArea()));
+        model.getSelectedToSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter(toSubAreaComboBox));
+        model.getToLocations().addListener(new ComboBoxListChangeAdapter<>(model.getToLocations(), toLocationComboBox, model.getToLocation()));
+        model.getToLocation().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter(toLocationComboBox));
     }
 }

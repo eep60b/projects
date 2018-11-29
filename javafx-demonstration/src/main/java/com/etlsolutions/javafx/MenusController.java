@@ -5,13 +5,13 @@ import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.growingmedium.AddGrowingMediumDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.AddGventDataModel;
 import com.etlsolutions.javafx.presentation.plant.AddPlantDataModel;
-import com.etlsolutions.javafx.presentation.plant.subgroup.AbstractPlantSubGroupDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.CloseProjectEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.ExitApplicationEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.OpenProjectEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveAsProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveProjectEventHandler;
+import com.etlsolutions.javafx.presentation.plant.subgroup.AddPlantSubGroupDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 
@@ -93,7 +93,7 @@ public class MenusController extends AbstractFXMLController {
         exitMenuItem.setOnAction(new ExitApplicationEventHandler());
         
         addPlantsMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantDataModel()));
-        addPlantTypeMenuItem.setOnAction(new FXMLActionEventHandler<>(new AbstractPlantSubGroupDataModel()));
+        addPlantTypeMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantSubGroupDataModel()));
         addAreaMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddAreaDataModel()));
         
         addGrowingMediumMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddGrowingMediumDataModel()));        

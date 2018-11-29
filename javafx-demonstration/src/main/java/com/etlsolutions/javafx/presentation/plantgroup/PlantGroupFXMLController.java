@@ -1,17 +1,26 @@
 package com.etlsolutions.javafx.presentation.plantgroup;
 
-import com.etlsolutions.javafx.data.other.FertiliserType;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
+import com.etlsolutions.javafx.presentation.EditItemEventHandler;
+import com.etlsolutions.javafx.presentation.EditListViewPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.ListViewListChangeAdapter;
+import com.etlsolutions.javafx.presentation.RemoveEventHandler;
+import com.etlsolutions.javafx.presentation.ValueChangeButtonPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.plant.plantvariety.EditVarietyDataModel;
+import static com.etlsolutions.javafx.presentation.plant.subgroup.AbstractPlantSubGroupDataModel.REMOVE_VARIETY_ID;
+import com.etlsolutions.javafx.presentation.plant.subgroup.AddPlantSubGroupDataModel;
+import com.etlsolutions.javafx.presentation.plant.subgroup.EditPlantSubGroupDataModel;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.TilePane;
@@ -79,6 +88,21 @@ public class PlantGroupFXMLController extends DataUnitFXMLController<PlantGroup,
 
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
+        removeSubGroupButton.setDisable(model.getSelectedPlantSubGroup().getValue() == null);
+        editSubGroupButton.setDisable(model.getSelectedPlantSubGroup().getValue() == null);
+        plantSubGroupListView.setItems(model.getPlantSubGroups());
+        plantSubGroupListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        plantSubGroupListView.getSelectionModel().select(model.getSelectedPlantSubGroup().getValue());
+        plantSubGroupListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedPlantSubGroup()));
+        addSubGroupButton.setOnAction(new AddItemEventHandler<>(model.getPlantSubGroups(), model.getSelectedPlantSubGroup(), new AddPlantSubGroupDataModel()));        
+        EditPlantSubGroupDataModel vm = new EditPlantSubGroupDataModel(model.getSelectedPlantSubGroup().getValue());
+        vm.addPropertyChangeListener( EditVarietyDataModel.LIST_CHANGE_PROPERTY, new EditListViewPropertyChangeAdapter(plantSubGroupListView));        
+        editSubGroupButton.setOnAction(new EditItemEventHandler(vm));
+        removeSubGroupButton.setOnAction(new RemoveEventHandler(model, REMOVE_VARIETY_ID));
+        model.getSelectedPlantSubGroup().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValueChangeButtonPropertyChangeAdapter<>(editSubGroupButton, removeSubGroupButton));
+        model.getPlantSubGroups().addListener(new ListViewListChangeAdapter<>(model.getPlantSubGroups(), plantSubGroupListView, model.getSelectedPlantSubGroup()));
+        
+        
     }
 
 }

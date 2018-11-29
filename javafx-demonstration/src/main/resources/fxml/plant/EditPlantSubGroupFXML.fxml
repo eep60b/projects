@@ -47,7 +47,11 @@
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
-                                                <ComboBox fx:id="plantGroupCombox" layoutX="100.0" prefHeight="25.0" prefWidth="492.0" HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="plantGroupTitleLabel" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="78.0" text="Group Title">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
                                             </children>
                                         </HBox>
                                         <Label layoutX="20.0" layoutY="135.0" text="Descriptio:n:" />

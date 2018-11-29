@@ -30,7 +30,7 @@ public class PlantsFactory {
 
             title = title.trim();
 
-            PlantGroup group = new PlantGroup(title, "", new ObservableListWrapperA<ImageLink>(), 0, "");
+            PlantGroup group = createDefaultPlantGroup(title);
             if (title.equals("Annual Plants")) {
                 group.getPlantsSubGroups().add(createTitledEmptyPlantSubGroup(group.getId(), "Tomato"));
             }
@@ -51,8 +51,18 @@ public class PlantsFactory {
         return r;
     }
 
-    public PlantGroup createDefaultPlantGroup() {
-        return new PlantGroup("untitled", "", new ObservableListWrapperA<ImageLink>(), 0, "");
+    public PlantGroup createPlantGroup(DataUnitValueWrapper valueWrapper, ObservableListWrapperA<PlantSubGroup> plantsSubGroups) {
+        return new PlantGroup(valueWrapper, plantsSubGroups);
+    }
+
+    public PlantGroup createDefaultPlantGroup(String title) {
+        PlantGroup g = new PlantGroup();
+        g.setTitle(title);
+        g.setInformation("");
+        g.setImageLinks(new ObservableListWrapperA<ImageLink>());
+        g.setSelectedImgLinkIndex(0);
+        g.setLogoPath("");
+        return g;
     }
 
     public PlantSubGroup creatPlantSubGroup(DataUnitValueWrapper valueWrapper, int plantGroupId, ObservableListWrapperA<PlantVariety> plantVarieties) {
@@ -71,7 +81,7 @@ public class PlantsFactory {
 
     public Plants creatPlant(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {
         Plants plant = new Plants(valueWrapper, plantValueWrapper);
-        plantValueWrapper.getLocationValueWrapper().getValue().setPlantId(plant.getId());        
+        plantValueWrapper.getLocationValueWrapper().getValue().setPlantId(plant.getId());
         return plant;
     }
 

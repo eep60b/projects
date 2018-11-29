@@ -3,9 +3,17 @@ package com.etlsolutions.javafx.presentation.plant.subgroup;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
+import com.etlsolutions.javafx.presentation.EditItemEventHandler;
+import com.etlsolutions.javafx.presentation.EditListViewPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.ListViewListChangeAdapter;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
+import com.etlsolutions.javafx.presentation.ValueChangeButtonPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.growingissue.EditGrowingIssueDataModel;
 import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.plant.plantvariety.CreateVarietyDataModel;
+import com.etlsolutions.javafx.presentation.plant.plantvariety.EditVarietyDataModel;
 import static com.etlsolutions.javafx.presentation.plant.subgroup.AbstractPlantSubGroupDataModel.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -85,21 +93,20 @@ public class AddPlantTypeFXMLController extends DataUnitFXMLController<PlantSubG
 
         plantGroupCombox.setItems(model.getPlantGroups());
         plantGroupCombox.getSelectionModel().select(model.getSelectedPlantGroupValueWrapper().getValue());
-
+        plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedPlantGroupValueWrapper()));
+        
         removePlantVarietyButton.setDisable(model.getSelectedVarietyValueWrapper() == null);
         editPlantVarietyButton.setDisable(model.getSelectedVarietyValueWrapper() == null);
         plantVarityListView.setItems(model.getVarieties());
         plantVarityListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         plantVarityListView.getSelectionModel().select(model.getSelectedVarietyValueWrapper().getValue());
-
-        plantGroupCombox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedPlantGroupValueWrapper()));
-        addPlantVarietyButton.setOnAction(new CreatePlantVarietyEventhandler(model));
-        removePlantVarietyButton.setOnAction(new RemoveEventHandler(model, REMOVE_VARIETY_ID));
-        editPlantVarietyButton.setOnAction(new EditPlantVarietyEventhandler(model,removePlantVarietyButton, editPlantVarietyButton, plantVarityListView));
         plantVarityListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedVarietyValueWrapper()));
-
-        model.getSelectedVarietyValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new PlantVarietySelectionProertyChangeAdapter(editPlantVarietyButton, removePlantVarietyButton, plantVarityListView));
-        model.getVarieties().addListener(new VarietyListChangeAdapter(model, plantVarityListView));
-        model.getSelectedVarietyValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new VarietyPropertyChangeAdapter(plantVarityListView));
+        addPlantVarietyButton.setOnAction(new AddItemEventHandler<>(model.getVarieties(), model.getSelectedVarietyValueWrapper(), new CreateVarietyDataModel()));        
+        EditVarietyDataModel vm = new EditVarietyDataModel(model.getSelectedVarietyValueWrapper().getValue());
+        vm.addPropertyChangeListener( EditVarietyDataModel.LIST_CHANGE_PROPERTY, new EditListViewPropertyChangeAdapter(plantVarityListView));        
+        editPlantVarietyButton.setOnAction(new EditItemEventHandler(vm));
+        removePlantVarietyButton.setOnAction(new RemoveEventHandler(model, REMOVE_VARIETY_ID));
+        model.getSelectedVarietyValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValueChangeButtonPropertyChangeAdapter<>(editPlantVarietyButton, removePlantVarietyButton));
+        model.getVarieties().addListener(new ListViewListChangeAdapter<>(model.getVarieties(), plantVarityListView, model.getSelectedVarietyValueWrapper()));
     }
 }

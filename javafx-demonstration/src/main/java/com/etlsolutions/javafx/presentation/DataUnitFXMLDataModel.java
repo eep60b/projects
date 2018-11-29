@@ -5,6 +5,8 @@ import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Objects;
 
 /**
@@ -24,6 +26,7 @@ import java.util.Objects;
  */
 public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable, Getable<D> {
 
+    public static final String LIST_CHANGE_PROPERTY = DataUnitFXMLDataModel.class.getName() + "LIST_CHANGE_PROPERTY ";
     public static final RemoveEventId SELECTED_IMAGE_LINK_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.selectedImageLink", "Selected Image");
 
     protected final DataUnitValueWrapper commonValueWrapper;
@@ -34,6 +37,8 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
 
     private D dataUnit;
 
+    protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
+    
     public DataUnitFXMLDataModel(D dataUnit) {
         this(dataUnit.getTitle(), dataUnit.getInformation(), dataUnit.getImageLinks(), 
                 dataUnit.getImageLinks().isEmpty() ? null : dataUnit.getImageLinks().get(dataUnit.getSelectedImgLinkIndex()), dataUnit.getLogoPath());
@@ -119,4 +124,24 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     public final void set(D dataUnit) {
         this.dataUnit = dataUnit;
     }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        support.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        support.removePropertyChangeListener(listener);
+    }
+
+    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(propertyName, listener);
+    }
+
+    public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        support.removePropertyChangeListener(propertyName, listener);
+    }
+
+    public boolean hasListeners(String propertyName) {
+        return support.hasListeners(propertyName);
+    } 
 }

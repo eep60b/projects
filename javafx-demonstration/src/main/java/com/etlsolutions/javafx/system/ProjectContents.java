@@ -7,7 +7,6 @@ import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
-import javafx.collections.ObservableList;
 
 /**
  * The ProjectConfiguration class contains all the information about a project to run the application.
@@ -63,7 +62,7 @@ public class ProjectContents {
         this.logGroupRoot = logGroupRoot;
     }    
 
-    public ObservableList<GrowingMedium> getGrowingMediums() {
+    public ObservableListWrapperA<GrowingMedium> getGrowingMediums() {
         return growingMediums;
     }
 

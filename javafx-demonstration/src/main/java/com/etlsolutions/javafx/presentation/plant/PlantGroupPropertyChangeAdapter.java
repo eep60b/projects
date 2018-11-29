@@ -20,7 +20,7 @@ public class PlantGroupPropertyChangeAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         ValueWrapper<PlantGroup> groupValueWrapper = (ValueWrapper<PlantGroup>) evt.getSource();
-        model.getPlantTypes().clear();
-        model.getPlantTypes().addAll(groupValueWrapper.getValue().getPlantsSubGroups());        
+        model.getPlantSubGroups().clear();
+        model.getPlantSubGroups().addAll(groupValueWrapper.getValue().getPlantsSubGroups());        
     } 
 }

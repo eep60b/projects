@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -16,8 +17,9 @@ import javafx.collections.ObservableList;
 public class AddPlantDataModel extends AbstractPlantDataModel {
 
 
-    private final ObservableList<PlantGroup> plantGroups;
+    private final ObservableListWrapperA<PlantGroup> plantGroups;
     private final ObservableListWrapperA<PlantSubGroup> plantTypes;
+    private final ObservableListWrapperA<PlantVariety> plantVarieties;    
 
     /**
      * Construct an object.
@@ -30,13 +32,14 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
         ProjectContents pc = ProjectManager.getInstance().getContents();
         plantGroups = pc.getPlantsGroupRoot().getPlantGroups();
         plantTypes = new ObservableListWrapperA<>(plantValueWrapper.getPlantGroupValueWrapper().getValue().getPlantsSubGroups());
+        plantVarieties = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getPlantVarieties();        
     }
 
     public ObservableList<PlantGroup> getPlantGroups() {
         return plantGroups;
     }
 
-    public ObservableListWrapperA<PlantSubGroup> getPlantTypes() {
+    public ObservableListWrapperA<PlantSubGroup> getPlantSubGroups() {
         return plantTypes;
     }
 
@@ -47,6 +50,15 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
     public ValueWrapper<PlantSubGroup> getPlantSubGroupValueWrapper() {
         return plantValueWrapper.getPlantSubGroupValueWrapper();
     }
+    
+
+    public ObservableListWrapperA<PlantVariety> getPlantVarieties() {
+        return plantVarieties;
+    }
+    
+    public ValueWrapper<PlantVariety> getPlantVarietyValueWrapper() {
+        return plantValueWrapper.getPlantVarietyValueWrapper();
+    }    
 
     @Override
     public void save() {

@@ -11,9 +11,9 @@ import javafx.scene.control.Toggle;
  */
 public class PlantNumberTypeChangeAdapter implements ChangeListener<Toggle>{
 
-    private final AddPlantDataModel model;
+    private final AbstractPlantDataModel model;
 
-    public PlantNumberTypeChangeAdapter(AddPlantDataModel model) {
+    public PlantNumberTypeChangeAdapter(AbstractPlantDataModel model) {
         this.model = model;
     }
 

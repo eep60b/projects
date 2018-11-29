@@ -22,6 +22,10 @@ public class AddPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
         selectedPlantGroupValueWrapper = new ValueWrapper<>(plantGroups.get(0));
     }
 
+    public AddPlantSubGroupDataModel(PlantGroup value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public ValueWrapper<PlantGroup> getSelectedPlantGroupValueWrapper() {
         return selectedPlantGroupValueWrapper;
     }

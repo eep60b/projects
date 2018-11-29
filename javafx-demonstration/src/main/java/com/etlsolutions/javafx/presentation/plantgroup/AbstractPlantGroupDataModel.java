@@ -12,8 +12,8 @@ import com.etlsolutions.javafx.data.plant.PlantSubGroup;
  */
 public abstract class AbstractPlantGroupDataModel extends DataUnitFXMLDataModel<PlantGroup> {
 
-    private final ObservableListWrapperA<PlantSubGroup> plantSubGroups;
-    protected final ValueWrapper<PlantSubGroup> selectedPlantSubGroup;
+    protected final ObservableListWrapperA<PlantSubGroup> plantSubGroups;
+    private final ValueWrapper<PlantSubGroup> selectedPlantSubGroup;
 
     public AbstractPlantGroupDataModel() {
         plantSubGroups = new ObservableListWrapperA<>();
@@ -21,8 +21,8 @@ public abstract class AbstractPlantGroupDataModel extends DataUnitFXMLDataModel<
     }
 
     public AbstractPlantGroupDataModel(PlantGroup item) {
+        super(item);
         plantSubGroups = new ObservableListWrapperA<>(item.getPlantsSubGroups());
-        this.dataUnit = item;
         selectedPlantSubGroup = new ValueWrapper<>(plantSubGroups.isEmpty() ? null : plantSubGroups.get(0));
     }
 

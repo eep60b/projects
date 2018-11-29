@@ -130,9 +130,9 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
             initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
             DateTimePicker startTimePicker = new DateTimePicker();
-            startTimePicker.setDateTimeValue(model.getStartTime().getValue());
+            startTimePicker.setDateTimeValue(model.getStartTimeValueWrapper().getValue());
             DateTimePicker endTimePicker = new DateTimePicker();
-            endTimePicker.setDateTimeValue(model.getEndTime().getValue());
+            endTimePicker.setDateTimeValue(model.getEndTimeValueWrapper().getValue());
             startTimeHbox.getChildren().add(startTimePicker);
             endTimeHbox.getChildren().add(endTimePicker);
 
@@ -163,8 +163,8 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
             removeNotificationButton.setDisable(hasNoSelectedNotification);
             
             //Add listeners to components
-            startTimePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getStartTime()));
-            endTimePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getEndTime()));
+            startTimePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getStartTimeValueWrapper()));
+            endTimePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getEndTimeValueWrapper()));
             typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedType()));
             notificationListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedNotification()));
             addNotificationButton.setOnAction(new AddNotificationEventHandler(model));

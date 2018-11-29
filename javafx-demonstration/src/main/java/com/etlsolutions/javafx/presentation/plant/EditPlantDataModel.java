@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.plant;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.Plants;
 
 /**
@@ -30,17 +30,13 @@ public class EditPlantDataModel extends AbstractPlantDataModel {
         return plantValueWrapper.getPlantSubGroupValueWrapper().getValue();
     }
 
-    public ValueWrapper<PlantGroup> getPlantGroupValueWrapper() {
-        return plantValueWrapper.getPlantGroupValueWrapper();
-    }
-
-    public ValueWrapper<PlantSubGroup> getPlantSubGroupValueWrapper() {
-        return plantValueWrapper.getPlantSubGroupValueWrapper();
+    public PlantVariety getPlantVariety() {
+        return plantValueWrapper.getPlantVarietyValueWrapper().getValue();
     }
 
     @Override
     public void save() {
-
+        Plants dataUnit = get();
         dataUnit.setCommonValues(commonValueWrapper);        
         dataUnit.setAlive(plantValueWrapper.getIsAliveValueWrapper().getValue());
         dataUnit.setGrowingIssueIds(plantValueWrapper.getGrowingIssueIds());
