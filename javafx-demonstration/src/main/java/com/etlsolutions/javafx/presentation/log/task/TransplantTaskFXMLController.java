@@ -15,7 +15,7 @@ import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.EditSubAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.location.EditLocationDataModel;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;

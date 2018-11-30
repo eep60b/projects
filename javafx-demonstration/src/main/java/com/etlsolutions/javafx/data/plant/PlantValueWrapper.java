@@ -52,7 +52,8 @@ public class PlantValueWrapper {
         growingStartPointValueWrapper = new ValueWrapper<>(GrowingStartPoint.SEED);
         startTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
         growingMediumValueWrapper = new ValueWrapper<>(pc.getGrowingMediums().get(0));
-        plantVarietyValueWrapper = new ValueWrapper<>(sg.getPlantVarieties().get(0));
+        ObservableListWrapperA<PlantVariety> varieties = sg.getPlantVarieties();
+        plantVarietyValueWrapper = new ValueWrapper<>(varieties.isEmpty() ? null : varieties.get(0));
         quantityValueWrapper = new ValueWrapper<>(0);
         quantityTypeValueWrapper = new ValueWrapper<>(PlantsQuantity.Type.SINGLE);
         terminationReasonValueWrapper = new ValueWrapper<>("");

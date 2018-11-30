@@ -56,6 +56,6 @@ public class EditPlantDataModel extends AbstractPlantDataModel {
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/plant/EditPlantFXML.fxml";
+        return "/fxml/plant/EditPlantFXML.fxml";
     }
 }

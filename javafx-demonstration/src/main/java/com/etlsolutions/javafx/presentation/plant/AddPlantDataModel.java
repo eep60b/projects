@@ -18,7 +18,7 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
 
 
     private final ObservableListWrapperA<PlantGroup> plantGroups;
-    private final ObservableListWrapperA<PlantSubGroup> plantTypes;
+    private final ObservableListWrapperA<PlantSubGroup> plantSubGroups;
     private final ObservableListWrapperA<PlantVariety> plantVarieties;    
 
     /**
@@ -31,7 +31,7 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
 
         ProjectContents pc = ProjectManager.getInstance().getContents();
         plantGroups = pc.getPlantsGroupRoot().getPlantGroups();
-        plantTypes = new ObservableListWrapperA<>(plantValueWrapper.getPlantGroupValueWrapper().getValue().getPlantsSubGroups());
+        plantSubGroups = new ObservableListWrapperA<>(plantValueWrapper.getPlantGroupValueWrapper().getValue().getPlantsSubGroups());
         plantVarieties = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getPlantVarieties();        
     }
 
@@ -40,7 +40,7 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
     }
 
     public ObservableListWrapperA<PlantSubGroup> getPlantSubGroups() {
-        return plantTypes;
+        return plantSubGroups;
     }
 
     public ValueWrapper<PlantGroup> getPlantGroupValueWrapper() {
@@ -68,6 +68,6 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/plant/AddPlantFXML.fxml";
+        return "/fxml/plant/AddPlantFXML.fxml";
     }
 }

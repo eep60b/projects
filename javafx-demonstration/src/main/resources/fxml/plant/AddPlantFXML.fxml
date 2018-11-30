@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.plants.AddPlantsFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.plant.AddPlantFXMLController">
     <stylesheets>
-        <URL value="@/styles/menu/add/addplantsdialogfxml.css" />
+        <URL value="@styles/plant/addplantfxml.css" />
     </stylesheets>
     <children>
         <VBox prefHeight="640.0" prefWidth="689.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -56,8 +56,8 @@
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
-                                                <ComboBox fx:id="plantTypeCombox" layoutX="100.0" prefHeight="25.0" prefWidth="419.0" HBox.hgrow="ALWAYS" />
-                                                <Button fx:id="addPlantTypeButton" mnemonicParsing="false" text="Add type" />
+                                                <ComboBox fx:id="plantSubGroupCombox" layoutX="100.0" prefHeight="25.0" prefWidth="419.0" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="addPlantSubGroupButton" mnemonicParsing="false" text="Add type" />
                                             </children>
                                         </HBox>
                                         <HBox layoutX="20.0" layoutY="65.0" spacing="10.0">
@@ -199,14 +199,14 @@
                                                     <children>
                                                         <ScrollPane prefViewportHeight="200.0" prefViewportWidth="635.0" VBox.vgrow="ALWAYS">
                                                             <content>
-                                                                <ListView fx:id="eventListView" prefHeight="80.0" prefWidth="571.0" />
+                                                                <ListView fx:id="gventListView" prefHeight="80.0" prefWidth="571.0" />
                                                             </content>
                                                         </ScrollPane>
                                                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                                             <children>
-                                                                <Button fx:id="addEventButton" mnemonicParsing="false" text="Add" />
-                                                                <Button fx:id="editEventButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                                <Button fx:id="removeEventButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                                                <Button fx:id="addGventButton" mnemonicParsing="false" text="Add" />
+                                                                <Button fx:id="editGventButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                                <Button fx:id="removeGventButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
                                                             </children>
                                                         </HBox>
                                                     </children>

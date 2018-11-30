@@ -3,9 +3,8 @@ package com.etlsolutions.javafx.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * The DataUnit class represents objects which are data units. The the ID for
- * this data unit. Keep the implementation as simple as possible so they can be
- * serialised easily.
+ * The DataUnit class represents objects which are data units. Keep the
+ * implementation as simple as possible so they can be serialised easily.
  *
  * @author zc
  */
@@ -60,11 +59,9 @@ public abstract class DataUnit {
     }
 
     public DataUnit(DataUnitValueWrapper valueWrapper) {
-        this(valueWrapper.getTitle(), valueWrapper.getInformation(), valueWrapper.getImageLinks(), 
+        this(valueWrapper.getTitle(), valueWrapper.getInformation(), valueWrapper.getImageLinks(),
                 valueWrapper.getSelectedImgLinkIndex(), valueWrapper.getLogoPath());
     }
-    
-    
 
     /**
      * Get the ID for this data unit.
@@ -134,7 +131,6 @@ public abstract class DataUnit {
         this.imageLinks = imageLinks;
     }
 
-    
     public int getSelectedImgLinkIndex() {
         return selectedImgLinkIndex;
     }
@@ -154,9 +150,9 @@ public abstract class DataUnit {
         this.logoPath = logoPath;
         fireChange(LOGO_PATH_PROPERTY, oldValue, this.logoPath);
     }
-    
+
     public void setCommonValues(DataUnitValueWrapper commonValueWrapper) {
-        
+
         title = commonValueWrapper.getTitle();
         information = commonValueWrapper.getInformation();
         imageLinks.clear();

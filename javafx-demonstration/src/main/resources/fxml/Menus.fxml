@@ -35,7 +35,7 @@
                 <Menu mnemonicParsing="false" text="Add">
                   <items>
                     <MenuItem fx:id="addPlantsMenuItem" mnemonicParsing="false" text="Add plants" />
-                        <MenuItem fx:id="addPlantTypeMenuItem" mnemonicParsing="false" text="Add a plant type" />
+                        <MenuItem fx:id="addPlantSubGroupMenuItem" mnemonicParsing="false" text="Add a plant type" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="addAreaMenuItem" mnemonicParsing="false" text="Add an area" />
                         <SeparatorMenuItem mnemonicParsing="false" />

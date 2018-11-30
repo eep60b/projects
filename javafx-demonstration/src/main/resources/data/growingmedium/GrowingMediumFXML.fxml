@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.growingmedium.AddGrowingMediumFXMLController">
+  <stylesheets>
+    <URL value="@/styles/growingmedium/growingmediumfxml.css" />
+  </stylesheets>
+   <children>
+      <VBox prefHeight="572.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TabPane prefHeight="564.0" prefWidth="600.0">
+               <tabs>
+                  <Tab text="General">
+                     <content>
+                        <VBox layoutX="137.0" layoutY="34.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Label text="Title">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="titleTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0" />
+                              <Label text="Information" />
+                              <ScrollPane prefViewportHeight="200.0" prefViewportWidth="580.0">
+                                 <content>
+                                    <TextArea fx:id="informationTextArea" prefHeight="199.0" prefWidth="578.0" />
+                                 </content>
+                              </ScrollPane>
+                              <HBox fx:id="timeHbox1" layoutX="20.0" layoutY="55.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="107.0" text="Sand (%):">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="sandPercentageTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox11" layoutX="20.0" layoutY="304.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="114.0" text="Silt (%):">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="siltPercentageTextField" prefHeight="25.0" prefWidth="470.0" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox111" layoutX="20.0" layoutY="339.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="106.0" text="Clay(%):">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="clayPercentageTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox1111" layoutX="20.0" layoutY="374.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Organic Material(%):">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="organicPercentageTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox11111" layoutX="20.0" layoutY="409.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="stonePercentageLabel" prefHeight="20.0" prefWidth="109.0" text="Stone(%):">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="stonePercentageTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox111111" layoutX="20.0" layoutY="444.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="waterPercentageTextField" prefHeight="20.0" prefWidth="108.0" text="Water Storage(%):">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="waterStoragePercentageTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="timeHbox1111111" layoutX="20.0" layoutY="448.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="phLabel" prefHeight="20.0" prefWidth="109.0" text="PH:">
+                                       <padding>
+                                          <Insets top="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="phTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab text="Images">
+                     <content>
+                        <VBox layoutX="137.0" layoutY="34.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="addImageButton" mnemonicParsing="false" text="Add" />
+                                    <Button fx:id="reniveImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                    <Button fx:id="editImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                    <Button fx:id="moveToBeginImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
+                                    <Button fx:id="moveToLeftImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />
+                                    <Button fx:id="moveToRightImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="&gt;" />
+                                    <Button fx:id="moveToEndImageButton" layoutX="239.0" layoutY="10.0" mnemonicParsing="false" text="&gt;|" />
+                                 </children>
+                              </HBox>
+                              <TilePane fx:id="imageTilePane" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <Label fx:id="errorMessageButton" text="Error message" textFill="#f20808">
+               <padding>
+                  <Insets left="10.0" />
+               </padding></Label>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
+                  <Button fx:id="cancelButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -62,6 +62,7 @@ public class PlantsFactory {
         g.setImageLinks(new ObservableListWrapperA<ImageLink>());
         g.setSelectedImgLinkIndex(0);
         g.setLogoPath("");
+        g.setPlantsSubGroups(new ObservableListWrapperA<PlantSubGroup>());
         return g;
     }
 
@@ -71,12 +72,8 @@ public class PlantsFactory {
 
     private PlantSubGroup createTitledEmptyPlantSubGroup(int groupId, String title) {
 
-        PlantSubGroup sg = new PlantSubGroup();
-        sg.setPlantGroupId(groupId);
-        sg.setTitle(title);
-        sg.setInformation("");
-        sg.setLogoPath("");
-        return sg;
+        DataUnitValueWrapper valueWrapper = new DataUnitValueWrapper(title, "", new ObservableListWrapperA<ImageLink>(), null, "");
+        return new PlantSubGroup(valueWrapper, groupId, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>());
     }
 
     public Plants creatPlant(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {

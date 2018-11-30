@@ -1,14 +1,28 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
+import com.etlsolutions.javafx.data.log.task.Task;
+import static com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel.LIST_CHANGE_PROPERTY;
+import java.time.LocalDateTime;
+
 /**
  *
  * @author zc
  */
 public class EditTaskDataModel extends AbstractTaskDataModel {
 
+    public EditTaskDataModel(Task task) {
+        super(task);
+    }
+
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        Task task = get();
+        task.setCommonValues(commonValueWrapper);
+        task.setNotifications(notifications);
+        task.setModifiedTime(LocalDateTime.now());
+        task.setStartTime(getStartTimeValueWrapper().getValue());
+        support.firePropertyChange(LIST_CHANGE_PROPERTY, true, false);        
     }
-    
 }
+

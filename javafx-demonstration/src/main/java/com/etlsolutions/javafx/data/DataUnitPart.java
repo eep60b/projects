@@ -5,9 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ResourceBundle;
 
 /**
- *
+ * 
  * @author zc
  */
+@Deprecated
 public abstract class DataUnitPart {
 
   @JsonIgnore

@@ -10,7 +10,7 @@ import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.fertiliser.AddFertiliserDataModel;
 import com.etlsolutions.javafx.presentation.fertiliser.EditFertiliserDataModel;
 import static com.etlsolutions.javafx.presentation.log.task.FertilisationTaskDetailDataModel.FERTILISER_REMOVE_EVENT_ID;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;

@@ -21,7 +21,8 @@ public final class ThrowableHandler {
 
     public void handle(Throwable th, Class<?> klass) {
         Logger.getLogger(klass).error(th);
-        Alert alert = new Alert(Alert.AlertType.ERROR, "Error: the project is corrupted.", ButtonType.CLOSE);
+        th.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.ERROR, "Error: the project is corrupted.");
         alert.showAndWait();
         System.exit(-1);
     }

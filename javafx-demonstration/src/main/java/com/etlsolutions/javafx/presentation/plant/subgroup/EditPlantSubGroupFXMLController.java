@@ -9,7 +9,7 @@ import com.etlsolutions.javafx.presentation.EditListViewPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.ListViewListChangeAdapter;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.ValueChangeButtonPropertyChangeAdapter;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import com.etlsolutions.javafx.presentation.plant.plantvariety.CreateVarietyDataModel;
 import com.etlsolutions.javafx.presentation.plant.plantvariety.EditVarietyDataModel;
 import static com.etlsolutions.javafx.presentation.plant.subgroup.AbstractPlantSubGroupDataModel.*;

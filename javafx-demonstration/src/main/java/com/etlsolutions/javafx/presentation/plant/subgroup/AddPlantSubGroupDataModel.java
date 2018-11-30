@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.plant.subgroup;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
@@ -14,36 +13,26 @@ public class AddPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
 
     private final ProjectManager manager = ProjectManager.getInstance();
 
-    private final ObservableListWrapperA<PlantGroup> plantGroups;
-    private final ValueWrapper<PlantGroup> selectedPlantGroupValueWrapper;
+    private final PlantGroup group;
 
-    public AddPlantSubGroupDataModel() {
-        plantGroups = new ObservableListWrapperA<>(manager.getContents().getPlantsGroupRoot().getPlantGroups());
-        selectedPlantGroupValueWrapper = new ValueWrapper<>(plantGroups.get(0));
+    public AddPlantSubGroupDataModel(PlantGroup group) {
+        this.group = group;
     }
 
-    public AddPlantSubGroupDataModel(PlantGroup value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public ValueWrapper<PlantGroup> getSelectedPlantGroupValueWrapper() {
-        return selectedPlantGroupValueWrapper;
-    }
-
-    public ObservableListWrapperA<PlantGroup> getPlantGroups() {
-        return plantGroups;
+    public PlantGroup getGroup() {
+        return group;
     }
 
     @Override
     public void save() {
 
-        set(PlantsFactory.getInstance().creatPlantSubGroup(commonValueWrapper, selectedPlantGroupValueWrapper.getValue().getId(), getVarieties()));
-        selectedPlantGroupValueWrapper.getValue().getPlantsSubGroups().add(get());
+        set(PlantsFactory.getInstance().creatPlantSubGroup(commonValueWrapper, group.getId(), getVarieties()));
+        group.getPlantsSubGroups().add(get());
         manager.addItem(get());
     }
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/AddPlantTypeFXML.fxml";
+        return "/fxml/plant/AddPlantSubGroupFXML.fxml";
     }
 }

@@ -22,7 +22,7 @@ public class EditImageInformationDataModel implements InformationDataModel, FXML
             
     public EditImageInformationDataModel(ImageLink imageLink) {
         this.imageLink = imageLink;
-        informationValueWrapper = new ValueWrapper<>(imageLink.getInformation());
+        informationValueWrapper = new ValueWrapper<>(imageLink == null ? "" : imageLink.getInformation());
     }
 
     public String getImageLink() {

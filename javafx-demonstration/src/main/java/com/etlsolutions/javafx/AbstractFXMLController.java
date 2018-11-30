@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 /**
- *
+ * AbstractFXMLController is a super class of framework controllers.
  * @author zc
  */
 public abstract class AbstractFXMLController implements Initializable {

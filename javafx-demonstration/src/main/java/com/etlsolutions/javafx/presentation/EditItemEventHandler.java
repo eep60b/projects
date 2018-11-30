@@ -17,6 +17,10 @@ public class EditItemEventHandler<D extends DataUnit> implements EventHandler<Ac
         this.model = model;
     }
 
+    public DataUnitFXMLDataModel<D> getModel() {
+        return model;
+    }
+    
     @Override
     public void handle(ActionEvent event) {
         new FXMLActionEventHandler<>(model).handle(event);

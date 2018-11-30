@@ -15,7 +15,7 @@ import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.EditSubAreaDataModel;
 import static com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel.*;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.ValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.fxml.FXML;

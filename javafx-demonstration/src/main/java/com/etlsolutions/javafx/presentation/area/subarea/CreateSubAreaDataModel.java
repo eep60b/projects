@@ -5,6 +5,8 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaFactory;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 
 /**
+ * The CreateSubAreaDataModel class can be used to create a SubArea without
+ * parent. Its parent id should be 0 when created and it has to be set later.
  *
  * @author zc
  */
@@ -16,6 +18,6 @@ public class CreateSubAreaDataModel extends AbstractSubAreaDataModel {
 
     @Override
     public void save() {
-        set(SubAreaFactory.getInstance().createSubArea(selectedSubAreaType.getValue(), commonValueWrapper,  measurementDataModel.getValue().getMeasurementValueWrapper().getMeasurement()));
+        set(SubAreaFactory.getInstance().createSubArea(selectedSubAreaType.getValue(), commonValueWrapper, measurementDataModel.getValue().getMeasurementValueWrapper().getMeasurement()));
     }
 }

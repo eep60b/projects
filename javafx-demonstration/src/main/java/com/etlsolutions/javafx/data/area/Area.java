@@ -37,7 +37,7 @@ public abstract class Area extends DataUnit {
         super(valueWrapper);
         longitude = areaValueWrapper.getLongitude();
         latitude = areaValueWrapper.getLatitude();
-        measurement = MeasurementFactory.getInstance().getMeasurement(measurementValueWrapper);
+        measurement = MeasurementFactory.getInstance().getAreaMeasurement(measurementValueWrapper);
     }
 
     public abstract AreaType getType();

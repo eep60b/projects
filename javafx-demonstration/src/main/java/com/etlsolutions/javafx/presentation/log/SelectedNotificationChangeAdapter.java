@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.log;
 
 import com.etlsolutions.javafx.data.log.Notification;
-import com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel;
+import com.etlsolutions.javafx.presentation.log.gvent.AbstractGventDataModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 

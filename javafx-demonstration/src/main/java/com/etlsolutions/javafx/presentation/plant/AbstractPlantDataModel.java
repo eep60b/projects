@@ -9,7 +9,6 @@ import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.GrowingStartPoint;
-import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantValueWrapper;
 import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
@@ -19,7 +18,6 @@ import com.etlsolutions.javafx.presentation.RemoveFromListUtil;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.time.LocalDateTime;
-import javafx.collections.ObservableList;
 
 /**
  *
