@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.plant.subgroup.AddPlantSubGroupFXMLController">
     <stylesheets>
-        <URL value="@/styles/plant/addplanttypefxml.css" />
+        <URL value="@/styles/plant/addplantsubgroupfxml.css" />
     </stylesheets>
     <children>
         <VBox prefHeight="640.0" prefWidth="689.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

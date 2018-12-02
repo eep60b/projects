@@ -38,10 +38,10 @@ public class ImageSelectionChangeAdapter<D extends DataUnit> implements Property
         ImageLink selectedImageLink = model.getSelectedImageLinkWrapper().getValue();
         removeImageButton.setDisable(selectedImageLink == null);
         editImageButton.setDisable(selectedImageLink == null);
-        moveToBeginImageButton.setDisable(model.isNoOrFirstImage());
-        moveToLeftImageButton.setDisable(model.isNoOrFirstImage());
-        moveToEndImageButton.setDisable(model.isNoOrLastImage());
-        moveToRightImageButton.setDisable(model.isNoOrLastImage());
+        moveToBeginImageButton.setDisable(model.getSelectedImgLinkIndex() < 1);
+        moveToLeftImageButton.setDisable(model.getSelectedImgLinkIndex() < 1);
+        moveToEndImageButton.setDisable(model.getSelectedImgLinkIndex() == model.getImageLinks().size() - 1);
+        moveToRightImageButton.setDisable(model.getSelectedImgLinkIndex() == model.getImageLinks().size() - 1);
     }
 
 }

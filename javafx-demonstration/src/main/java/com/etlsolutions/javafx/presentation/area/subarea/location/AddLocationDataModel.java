@@ -36,15 +36,4 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
         
         super.remove(id);
     }
-
-    @Override
-    protected void validate() {
-
-        if (locationValueWrapper.getTypeValueWrapper().getValue() == null) {
-            invalid = false;
-            errorMessage = "Create an area part for the location.";
-        }
-
-        super.validate();
-    }
 }

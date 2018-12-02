@@ -19,16 +19,12 @@ import com.etlsolutions.javafx.presentation.ComboBoxListChangeAdapter;
 import com.etlsolutions.javafx.presentation.ComboBoxSelectionPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
-import com.etlsolutions.javafx.presentation.EditItemEventHandler;
-import com.etlsolutions.javafx.presentation.EditListViewPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.log.growingissue.AddGrowingIssueDataModel;
-import com.etlsolutions.javafx.presentation.log.growingissue.EditGrowingIssueDataModel;
 import com.etlsolutions.javafx.presentation.log.task.AddTaskDataModel;
 import com.etlsolutions.javafx.presentation.growingmedium.AddGrowingMediumDataModel;
 import com.etlsolutions.javafx.presentation.log.growingobservation.AddGrowingObservationDataModel;
-import com.etlsolutions.javafx.presentation.log.growingobservation.EditGrowingObservationDataModel;
 import com.etlsolutions.javafx.presentation.log.gvent.AddGventDataModel;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import static com.etlsolutions.javafx.presentation.plant.AddPlantDataModel.*;
@@ -248,7 +244,13 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
             default:
                 throw new IllegalStateException("Invalid type");
         }
-
+        ToggleGroup toggleGroup = new ToggleGroup();
+        singlePlantRadioButton.setToggleGroup(toggleGroup);
+        multiplePlantRadioButton.setToggleGroup(toggleGroup);
+        estimatedPlantRadioButton.setToggleGroup(toggleGroup);
+        notCountingRadioButton.setToggleGroup(toggleGroup);
+        toggleGroup.selectedToggleProperty().addListener(new PlantNumberTypeChangeAdapter(model));
+        
         Spinner<Integer> plantNumberSpinner = new Spinner<>();
         plantNumberHbox.getChildren().add(plantNumberSpinner);
         IntegerSpinnerValueFactory factory = new IntegerSpinnerValueFactory(0, 100000);
@@ -257,11 +259,14 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         PlantsQuantity.Type type = model.getQuantityTypeValueWrapper().getValue();
         plantNumberSpinner.setDisable(type == PlantsQuantity.Type.SINGLE || type == PlantsQuantity.Type.NO_COUNTING);
         ((IntegerSpinnerValueFactory) plantNumberSpinner.getValueFactory()).setMin(0);
-
+        plantNumberSpinner.valueProperty().addListener(new ValueChangeAdapter<>(model.getQuantityValueWrapper()));
+        model.getQuantityTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
+        
         DateTimePicker datePlantedPicker = new DateTimePicker();
         datePlantedHbox.getChildren().add(datePlantedPicker);
         datePlantedPicker.setDateTimeValue(model.getStartTimeValueWrapper().getValue());
-
+        datePlantedPicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getStartTimeValueWrapper()));
+        
         growingMediumCombobox.setItems(model.getGrowingMediums());
         growingMediumCombobox.getSelectionModel().select(model.getGrowingMediumValueWrapper().getValue());
         model.getGrowingMediumValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter<>(growingMediumCombobox));
@@ -284,13 +289,18 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         editLocationButton.setOnAction(new EditPlantLocationEventHandler(model, locationTitleLabel, locationInformationTextArea));
 
         terminationDatePicker.setVisible(!isAlive);
-        terminationTextArea.setVisible(!isAlive);
+
         isAliveCheckBox.setSelected(isAlive);
         model.getIsAliveValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AlivePropertyChangeAdapter(terminationDatePicker, terminationTextArea, terminationDatePickerLabel, terminationReasonTextAreaLabel));
-
+        isAliveCheckBox.selectedProperty().addListener(new ValueChangeAdapter<>(model.getIsAliveValueWrapper()));
+        
+        terminationDatePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getTerminationTimeValueWrapper()));        
         terminationDatePicker.setDateTimeValue(model.getTerminationTimeValueWrapper().getValue());
         terminationDatePicker.setDayCellFactory(new CurrentMaxDayCellFactory());
-
+        
+        terminationTextArea.setVisible(!isAlive);
+        terminationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getTerminationReasonValueWrapper()));
+        
         gventListView.setItems(model.getGvents());
         gventListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         gventListView.getSelectionModel().select(model.getSelectedEventValueWrapper().getValue());
@@ -317,39 +327,18 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         issueListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedGrowingIssueValueWrapper()));
         addIssueButton.setOnAction(new AddItemEventHandler<>(model.getGrowingIssues(), model.getSelectedGrowingIssueValueWrapper(), new AddGrowingIssueDataModel()));
         removeIssueButton.setOnAction(new RemoveEventHandler(model, REMOVE_ISSUE_ID));            
-        PlantIssuePropertyChangeAdapter issueAdapter = new PlantIssuePropertyChangeAdapter(issueListView, editIssueButton, removeIssueButton);    
+        PlantGrowingIssuePropertyChangeAdapter issueAdapter = new PlantGrowingIssuePropertyChangeAdapter(issueListView, editIssueButton, removeIssueButton);    
         issueAdapter.process(model.getSelectedGrowingIssueValueWrapper());
         model.getSelectedGrowingIssueValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, issueAdapter);
-    
-        
-
+   
         observationListView.setItems(model.getGrowingObservations());
         observationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         observationListView.getSelectionModel().select(model.getSelectedGrowingObservationValueWrapper().getValue());
         observationListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedGrowingObservationValueWrapper()));
         addObservationButton.setOnAction(new AddItemEventHandler<>(model.getGrowingObservations(), model.getSelectedGrowingObservationValueWrapper(), new AddGrowingObservationDataModel()));
         removeObservationButton.setOnAction(new RemoveEventHandler(model, REMOVE_OBSERVATION_ID));
-        PlantTaskPropertyChangeAdapter taskAdapter = new PlantTaskPropertyChangeAdapter(taskListView, editTaskButton, removeTaskButton);    
-        taskAdapter.process(model.getSelectedTaskValueWrapper());
-        model.getSelectedTaskValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, taskAdapter);
-
-        
-        //Group the radio buttons.
-        ToggleGroup toggleGroup = new ToggleGroup();
-        singlePlantRadioButton.setToggleGroup(toggleGroup);
-        multiplePlantRadioButton.setToggleGroup(toggleGroup);
-        estimatedPlantRadioButton.setToggleGroup(toggleGroup);
-        notCountingRadioButton.setToggleGroup(toggleGroup);
-
-        //Add change listeners to components.  
-        toggleGroup.selectedToggleProperty().addListener(new PlantNumberTypeChangeAdapter(model));
-        plantNumberSpinner.valueProperty().addListener(new ValueChangeAdapter<>(model.getQuantityValueWrapper()));
-        model.getQuantityTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
-
-        datePlantedPicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getStartTimeValueWrapper()));
-
-        isAliveCheckBox.selectedProperty().addListener(new ValueChangeAdapter<>(model.getIsAliveValueWrapper()));
-        terminationDatePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getTerminationTimeValueWrapper()));
-        terminationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getTerminationReasonValueWrapper()));
+        PlantObservationPropertyChangeAdapter observationAdapter = new PlantObservationPropertyChangeAdapter(observationListView, editObservationButton, removeObservationButton);    
+        observationAdapter.process(model.getSelectedGrowingObservationValueWrapper());
+        model.getSelectedGrowingObservationValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, observationAdapter);
     }
 }

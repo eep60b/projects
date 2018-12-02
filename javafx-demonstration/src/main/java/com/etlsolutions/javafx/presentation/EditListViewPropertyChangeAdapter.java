@@ -19,6 +19,6 @@ public class EditListViewPropertyChangeAdapter implements PropertyChangeListener
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         
-        listView.refresh();
+      //  listView.refresh();
     }
 }

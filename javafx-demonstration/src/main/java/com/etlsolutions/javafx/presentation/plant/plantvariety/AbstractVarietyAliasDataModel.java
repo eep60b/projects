@@ -42,7 +42,7 @@ public abstract class AbstractVarietyAliasDataModel implements TitleDataModel, V
     
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/VarietyAliasFXML.fxml";
+        return "/fxml/plant/VarietyAliasFXML.fxml";
     }    
 
     @Override

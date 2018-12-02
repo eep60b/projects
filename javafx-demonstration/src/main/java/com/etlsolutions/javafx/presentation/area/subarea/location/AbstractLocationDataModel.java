@@ -50,7 +50,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
         locationValueWrapper = new LocationValueWrapper(location);
         types = new ObservableListWrapperA<>(location.getType());
     }
-    
+
     public ObservableListWrapperA<Area> getAreas() {
         return areas;
     }
@@ -60,7 +60,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     }
 
     public void setSelectedArea(Area selectedArea) {
-        
+
         this.selectedArea = new ValueWrapper<>(selectedArea);
         subAreas.clear();
         subAreas.addAll(this.selectedArea.getValue().getAllSubAreas());
@@ -76,7 +76,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     }
 
     public void setSelectedSubArea(SubArea selectedSubArea) {
-        
+
         this.selectedSubArea = new ValueWrapper<>(selectedSubArea);
         types.clear();
         types.addAll(this.selectedSubArea.getValue().getLocationTypes());
@@ -86,21 +86,10 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     public ObservableListWrapperA<LocationType> getTypes() {
         return types;
     }
-    
+
     @Override
     public String getFxmlPath() {
         return "/fxml/menu/add/AddGventFXML.fxml";
-    }
-
-    @Override
-    protected void validate() {
-
-        if (locationValueWrapper.getTypeValueWrapper().getValue() == null) {
-            invalid = false;
-            errorMessage = "Create an area part for the location.";
-        }
-
-        super.validate();
     }
 
     public final LocationMeasurementDataModel getMeasurementDataModel(LocationMeasurementType type) {
@@ -121,4 +110,23 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     public ValueWrapper<LocationMeasurementDataModel> getMeasurementDataModelValueWrapper() {
         return measurementDataModelValueWrapper;
     }
+
+    @Override
+    public String getErrorMessage() {
+        
+        if (locationValueWrapper.getTypeValueWrapper().getValue() == null) {
+            return "No area part available.";
+        }
+        return super.getErrorMessage();
+    }
+
+    @Override
+    public boolean isInvalid() {
+        
+        if (locationValueWrapper.getTypeValueWrapper().getValue() == null) {
+            return true;
+        }
+        return super.isInvalid();
+    }
+
 }

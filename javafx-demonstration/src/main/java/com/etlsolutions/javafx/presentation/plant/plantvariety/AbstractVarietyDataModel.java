@@ -56,6 +56,6 @@ public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<Pla
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/PlantVarietyFXML.fxml";
+        return "/fxml/menu/plant/PlantVarietyFXML.fxml";
     }
 }

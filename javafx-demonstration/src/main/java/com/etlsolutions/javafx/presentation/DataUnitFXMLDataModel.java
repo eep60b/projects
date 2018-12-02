@@ -30,17 +30,12 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     public static final RemoveEventId SELECTED_IMAGE_LINK_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.selectedImageLink", "Selected Image");
 
     protected final DataUnitValueWrapper commonValueWrapper;
-    protected boolean invalid;
-    protected String errorMessage;
-    private boolean noOrFirstImage;
-    private boolean noOrLastImage;
-
     private D dataUnit;
 
     protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
-    
+
     public DataUnitFXMLDataModel(D dataUnit) {
-        this(dataUnit.getTitle(), dataUnit.getInformation(), dataUnit.getImageLinks(), 
+        this(dataUnit.getTitle(), dataUnit.getInformation(), dataUnit.getImageLinks(),
                 dataUnit.getImageLinks().isEmpty() ? null : dataUnit.getImageLinks().get(dataUnit.getSelectedImgLinkIndex()), dataUnit.getLogoPath());
     }
 
@@ -51,11 +46,6 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     public DataUnitFXMLDataModel(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImageLink, String logoPath) {
         
         commonValueWrapper = new DataUnitValueWrapper(title, information, imageLinks, selectedImageLink, logoPath);
-        String titleValue = commonValueWrapper.getTitleWrapper().getValue();
-        invalid = title == null || titleValue.trim().isEmpty();
-        errorMessage = invalid ? "Please enter title." : "";
-        noOrFirstImage = true;
-        noOrLastImage = true;
     }
 
     @Override
@@ -80,47 +70,42 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
         return commonValueWrapper.getLogoPathWrapper();
     }
 
+    public int getSelectedImgLinkIndex() {
+        return commonValueWrapper.getSelectedImgLinkIndex();
+    }
+
     @Override
     public void remove(RemoveEventId id) {
-        
+
         ObservableListWrapperA<ImageLink> imageLinks = getImageLinks();
-        
+
         if (Objects.equals(id, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID)) {
             int index = imageLinks.indexOf(getSelectedImageLinkWrapper().getValue());
             imageLinks.remove(index);
             getSelectedImageLinkWrapper().setValue(imageLinks.isEmpty() ? null : imageLinks.get(index == imageLinks.size() ? index - 1 : index));
         }
-    } 
+    }
 
     @Override
     public boolean isInvalid() {
-        return invalid;
+        String title = commonValueWrapper.getTitleWrapper().getValue();
+        return title == null || title.trim().isEmpty();
     }
 
     @Override
     public String getErrorMessage() {
-        return errorMessage;
-    }
 
-    public boolean isNoOrFirstImage() {
-        return noOrFirstImage;
-    }
-
-    public boolean isNoOrLastImage() {
-        return noOrLastImage;
-    }
-
-    protected void validate() {
-        String title = getTitleValueWrapper().getValue();
-        invalid = title == null || title.trim().isEmpty();
-        errorMessage = invalid ? "Please enter title." : "";
+        if (isInvalid()) {
+            return "Please enter title.";
+        }
+        return "";
     }
 
     @Override
     public final D get() {
         return dataUnit;
-    } 
-    
+    }
+
     public final void set(D dataUnit) {
         this.dataUnit = dataUnit;
     }
@@ -143,5 +128,5 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
 
     public boolean hasListeners(String propertyName) {
         return support.hasListeners(propertyName);
-    } 
+    }
 }
