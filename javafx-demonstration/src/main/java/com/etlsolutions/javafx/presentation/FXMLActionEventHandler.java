@@ -64,7 +64,7 @@ public class FXMLActionEventHandler<T extends FXMLActionDataModel> implements Ev
             stage.showAndWait();
         } catch (Exception ex) {
             logger.error(message, ex);
-            throw new CustomLevelErrorRuntimeExceiption(message);
+            throw new CustomLevelErrorRuntimeExceiption(message, ex);
         }
     }
 }

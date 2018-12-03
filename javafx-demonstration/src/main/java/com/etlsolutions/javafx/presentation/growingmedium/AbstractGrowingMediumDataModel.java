@@ -56,6 +56,6 @@ public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataMod
     
     @Override
     public String getFxmlPath() {
-        return "/fxml/menu/add/GrowingMediumFXML.fxml";
+        return "/fxml/other/GrowingMediumFXML.fxml";
     }
 }

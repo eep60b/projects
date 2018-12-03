@@ -59,7 +59,7 @@ public class FertilisationTaskFXMLController extends AbstractComponentsFXMLContr
         fertiliserUomComboBox.valueProperty().addListener(new ValueChangeAdapter<>(model.getSelectedUom()));
         
         addFertiliserButton.setOnAction(new AddItemEventHandler<>(model.getFertilisers(), model.getSelectedFertiliser(), new AddFertiliserDataModel(FertiliserType.LIQUID)));
-        editFertiliserButton.setOnAction(new EditItemEventHandler<>(new EditFertiliserDataModel(model.getSelectedFertiliser().getValue())));
+        editFertiliserButton.setOnAction(new EDitFertiliserEventHandler(model));
         removeFertiliserButton.setOnAction(new RemoveEventHandler(model, FERTILISER_REMOVE_EVENT_ID));
     }
 }

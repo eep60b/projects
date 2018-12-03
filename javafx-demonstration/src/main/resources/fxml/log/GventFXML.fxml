@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.gvent.GventFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.gvent.GventFXMLController">
     <stylesheets>
         <URL value="@/styles/log/gventfxml.css" />
     </stylesheets>
@@ -69,7 +69,7 @@
                                     <children>
                                         <HBox fx:id="startTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="Start Time:">
+                                                <Label prefHeight="20.0" prefWidth="58.0" text="Start Time:">
                                                     <padding>
                                                         <Insets top="3.0" />
                                                     </padding>
@@ -78,7 +78,7 @@
                                         </HBox>
                                         <HBox fx:id="endTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="End Time:">
+                                                <Label prefHeight="20.0" prefWidth="58.0" text="End Time:">
                                                     <padding>
                                                         <Insets top="3.0" />
                                                     </padding>
@@ -97,9 +97,10 @@
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
+                                    <Region HBox.hgrow="ALWAYS" />
                                     <Button fx:id="addNotificationButton" mnemonicParsing="false" text="add" />
                                     <Button fx:id="editNotificationButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" text="edit" />
-                                    <Button fx:id="removeNotificationButton" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="remove" />
+                                    <Button fx:id="removeNotificationButton" alignment="CENTER_RIGHT" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="remove" />
                                             </children>
                                         </HBox>
                                         <ScrollPane prefHeight="459.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">

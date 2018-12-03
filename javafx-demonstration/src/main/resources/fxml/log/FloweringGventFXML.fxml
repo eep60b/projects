@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.menu.add.gvent.FloweringGventFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.gvent.FloweringGventFXMLController">
     <stylesheets>
         <URL value="@/styles/log/floweringgventfxml.css" />
     </stylesheets>
@@ -17,8 +17,8 @@
          <children>
             <HBox spacing="10.0">
                <children>
-                  <Label text="Flower type:" />
-                  <ComboBox fx:id="flowerTypeComboBox" prefHeight="25.0" prefWidth="503.0" HBox.hgrow="ALWAYS" />
+                  <Label prefHeight="17.0" prefWidth="68.0" text="Flower type:" />
+                  <ComboBox fx:id="flowerTypeComboBox" prefHeight="25.0" prefWidth="499.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
@@ -47,7 +47,7 @@
             </HBox>
             <HBox fx:id="countHBox" layoutX="20.0" layoutY="90.0" spacing="10.0">
                <children>
-                  <Label text="How many per plant:" />
+                  <Label text="How many flowers per plant:" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" />

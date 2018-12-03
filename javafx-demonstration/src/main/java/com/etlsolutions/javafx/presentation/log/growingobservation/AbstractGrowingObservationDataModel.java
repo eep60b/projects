@@ -33,6 +33,6 @@ public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDa
         
     @Override
     public String getFxmlPath() {
-        return "/fxml/log/GrowingIssueObservation.fxml";
+        return "/fxml/log/GrowingObservationFXML.fxml";
     }
 }

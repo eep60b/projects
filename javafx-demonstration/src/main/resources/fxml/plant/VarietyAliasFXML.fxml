@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="125.0" prefWidth="431.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.plantvariety.AddVarietyAliasFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="125.0" prefWidth="431.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.plant.plantvariety.VarietyAliasFXMLController">
   <stylesheets>
     <URL value="@/styles/menu/add/addvarietyaliasfxml.css" />
   </stylesheets>
@@ -29,7 +29,7 @@
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" spacing="10.0">
                <children>
                   <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="cancelButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
                </children>
             </HBox>
          </children>

@@ -120,6 +120,8 @@ public class GventFXMLController extends DataUnitFXMLController<Gvent, AbstractG
         startTimeHbox.getChildren().add(startTimePicker);
         endTimeHbox.getChildren().add(endTimePicker);
 
+        repeatYearlyCheckBox.setSelected(true);
+        
         typeComboBox.setItems(model.getTypes());
         GventType type = model.getSelectedTypeValueWrapper().getValue();
         typeComboBox.getSelectionModel().select(type);

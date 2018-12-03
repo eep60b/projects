@@ -15,10 +15,6 @@ public class AddVarietyDataModel extends AbstractVarietyDataModel {
         this.plantSubGroup = plantType;
     }
 
-    public AddVarietyDataModel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     @Override
     public void save() {
         set(PlantsFactory.getInstance().createPlantVariety(commonValueWrapper, plantSubGroup.getId(), getLatinNameValueWrapper().getValue(), aliases));

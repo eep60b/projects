@@ -10,6 +10,7 @@ import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.log.Notifiable;
@@ -81,7 +82,7 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     }
 
     @Override
-    public void setContentModel(Object model) {
+    public void setContentModel(FXMLActionDataModel model) {
         detailDataModelValueWrapper = (GventDetailDataModel) model;
     }
     

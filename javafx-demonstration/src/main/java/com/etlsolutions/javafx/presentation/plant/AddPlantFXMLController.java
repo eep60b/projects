@@ -219,9 +219,13 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         addPlantVarietyButton.setOnAction(new AddItemEventHandler<>(model.getPlantVarieties(), model.getPlantVarietyValueWrapper(), new AddVarietyDataModel(model.getPlantSubGroupValueWrapper().getValue())));
 
         QuantityTypeRadioButton singlePlantRadioButton = new QuantityTypeRadioButton();
+        singlePlantRadioButton.setText("Single plant");
         QuantityTypeRadioButton multiplePlantRadioButton = new QuantityTypeRadioButton();
+        multiplePlantRadioButton.setText("Exact number");
         QuantityTypeRadioButton estimatedPlantRadioButton = new QuantityTypeRadioButton();
+        estimatedPlantRadioButton.setText("Estimated number");
         QuantityTypeRadioButton notCountingRadioButton = new QuantityTypeRadioButton();
+        notCountingRadioButton.setText("Uncountable");
         plantNumberTypeHbox.getChildren().addAll(singlePlantRadioButton, multiplePlantRadioButton, estimatedPlantRadioButton, notCountingRadioButton);
         singlePlantRadioButton.setType(PlantsQuantity.Type.SINGLE);
         multiplePlantRadioButton.setType(PlantsQuantity.Type.MULTIPLE);
@@ -252,7 +256,7 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         toggleGroup.selectedToggleProperty().addListener(new PlantNumberTypeChangeAdapter(model));
         
         Spinner<Integer> plantNumberSpinner = new Spinner<>();
-        plantNumberHbox.getChildren().add(plantNumberSpinner);
+        plantNumberTypeHbox.getChildren().add(plantNumberSpinner);
         IntegerSpinnerValueFactory factory = new IntegerSpinnerValueFactory(0, 100000);
         factory.setValue(model.getQuantityValueWrapper().getValue());
         plantNumberSpinner.setValueFactory(factory);
@@ -260,7 +264,7 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         plantNumberSpinner.setDisable(type == PlantsQuantity.Type.SINGLE || type == PlantsQuantity.Type.NO_COUNTING);
         ((IntegerSpinnerValueFactory) plantNumberSpinner.getValueFactory()).setMin(0);
         plantNumberSpinner.valueProperty().addListener(new ValueChangeAdapter<>(model.getQuantityValueWrapper()));
-        model.getQuantityTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new QuantityTypePropertyChangeAdapter(plantNumberSpinner));
+        model.getQuantityTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new QuantityTypePropertyChangeAdapter(model, plantNumberSpinner));
         
         DateTimePicker datePlantedPicker = new DateTimePicker();
         datePlantedHbox.getChildren().add(datePlantedPicker);

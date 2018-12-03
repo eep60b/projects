@@ -28,11 +28,11 @@ public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingG
     public ObservableListWrapperA<String> getFruitColors() {
         return fruitColors;
     }
-    
+
     public ValueWrapper<Boolean> getCountable() {
         return detail.getCountableValueWrapper();
-    }    
-    
+    }
+
     public ValueWrapper<Integer> getCount() {
         return detail.getCountValueWrapper();
     }
@@ -57,6 +57,4 @@ public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingG
     public String getFxmlPath() {
         return "/fxml/log/FruitingGventFXML.fxml";
     }
-
-
 }

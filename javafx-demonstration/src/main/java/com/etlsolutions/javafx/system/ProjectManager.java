@@ -71,6 +71,7 @@ public final class ProjectManager {
             configuration.setParentPath(projectDirectory.getParent());
             configuration.setName(projectDirectory.getName());
             contents.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
+            contents.setFertilisers(FertiliserFactory.getInstance().getDefaultFertilisers());
             contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
             contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
             contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
@@ -80,12 +81,13 @@ public final class ProjectManager {
             contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
             contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
             contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
-            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
+            contents.setFertiliserDelutionRatioUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
         } else {
             //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
             //manually set things up for now.
             contents.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
+            contents.setFertilisers(FertiliserFactory.getInstance().getDefaultFertilisers());
             contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
             contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
             contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
@@ -97,7 +99,7 @@ public final class ProjectManager {
             contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
             contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
             contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
-            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
+            contents.setFertiliserDelutionRatioUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
         }
 
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());

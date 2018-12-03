@@ -97,9 +97,6 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
     private HBox endTimeHbox;
     
     @FXML
-    private CheckBox repeatYearlyCheckBox;
-    
-    @FXML
     private ListView<Notification> notificationListView;
     
     @FXML

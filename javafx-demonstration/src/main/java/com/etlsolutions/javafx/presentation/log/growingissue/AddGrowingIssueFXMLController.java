@@ -23,7 +23,10 @@ public class AddGrowingIssueFXMLController extends DataUnitFXMLController<Growin
     private TextField titleTextField;
 
     @FXML
-    private HBox timeHbox;
+    private HBox startTimeHbox;
+
+    @FXML
+    private HBox endTimeHbox;
     
     @FXML
     private TextArea informationTextArea;
@@ -72,14 +75,14 @@ public class AddGrowingIssueFXMLController extends DataUnitFXMLController<Growin
         
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
         
-        Label startTimeLabel = new Label("Start Time");
         DateTimePicker startTimePicker = new DateTimePicker();
-        startTimePicker.setDateTimeValue(model.getStartTimeValueWrapper().getValue());
-        Label endTimeLabel = new Label("End Time");        
+        startTimePicker.setDateTimeValue(model.getStartTimeValueWrapper().getValue()); 
+        startTimeHbox.getChildren().add(startTimePicker);
+        
         DateTimePicker endTimePicker = new DateTimePicker();
         endTimePicker.setDateTimeValue(model.getEndTimeValueWrapper().getValue());
-        timeHbox.getChildren().clear();
-        timeHbox.getChildren().addAll(startTimeLabel, startTimePicker, endTimeLabel,endTimePicker);
+        endTimeHbox.getChildren().add(endTimePicker);        
+        
         
         solutionTextArea.setText(model.getSolutionValueWrapper().getValue());
         effectivenessTextArea.setText(model.getEffectivenessValueWrapper().getValue());

@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.other;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.TypedItem;
 
@@ -37,14 +36,18 @@ public class FertiliserFactory {
     }
 
     public LiquidFertiliserSpecialValueWrapper getDefaultLiquidFertiliserValueWrapper() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new LiquidFertiliserSpecialValueWrapper(true, 0, "ml/L");
     }
 
     public SolidFertiliserSpecialValueWrapper getDefaultSolidFertiliserValueWrapper() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new SolidFertiliserSpecialValueWrapper(0, "g/ml");
     }
 
     public Fertiliser createFertiliser(DataUnitValueWrapper commonValueWrapper, FertiliserValueWrapper valueWrapper, TypedItem itemPartValueWrapper) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getDefaultFertiliser();
+    }
+
+    public ObservableListWrapperA<Fertiliser> getDefaultFertilisers() {
+        return new ObservableListWrapperA<>(getDefaultFertiliser());
     }
 }

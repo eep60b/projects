@@ -78,9 +78,9 @@
                                           <Insets top="3.0" />
                                        </padding>
                                     </Label>
-                                    <Button fx:id="addPlantVarietyButton1" mnemonicParsing="false" text="Add" />
-                                    <Button fx:id="editPlantVarietyButton1" layoutX="96.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                    <Button fx:id="removePlantVarietyButton1" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                    <Button fx:id="addPlantVarietyButton" mnemonicParsing="false" text="Add" />
+                                    <Button fx:id="editPlantVarietyButton" layoutX="96.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                    <Button fx:id="removePlantVarietyButton" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
                                  </children>
                               </HBox>
                               <ScrollPane prefHeight="515.0" prefViewportHeight="126.0" prefViewportWidth="590.0" prefWidth="590.0">

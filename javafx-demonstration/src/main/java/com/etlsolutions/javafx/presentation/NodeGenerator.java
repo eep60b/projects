@@ -15,7 +15,6 @@ import javafx.scene.layout.AnchorPane;
  * @author zc
  * @param <P> - The parent parentModel;
  * @param <T> - The data unit type.
- * @param <M> - The parentModel for nodeWrapper;
  * 
  */
 public class NodeGenerator <P extends FXMLContentActionDataModel, T> {
@@ -34,13 +33,13 @@ public class NodeGenerator <P extends FXMLContentActionDataModel, T> {
 
             if (nodeWrapper == null) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(parentModel.getFxmlPath()));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(parentModel.getContentModel().getFxmlPath()));
                 AnchorPane node = (AnchorPane) loader.load();
                 AbstractComponentsFXMLController controller = loader.getController();
                 
                 controller.setModel(parentModel.getContentModel());
                 controller.initializeComponents();
-                nodeWrapper = new NodeWrapper(type, node);
+                nodeWrapper = new NodeWrapper(parentModel.getContentModel(), node);
                 map.put(type, nodeWrapper);
             }
 
@@ -49,5 +48,4 @@ public class NodeGenerator <P extends FXMLContentActionDataModel, T> {
             throw new CustomLevelErrorRuntimeExceiption("Cannot find node.", ex);
         }
     }
-
 }

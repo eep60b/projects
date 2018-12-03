@@ -5,7 +5,6 @@ import javafx.scene.Node;
 /**
  *
  * @author zc
- * @param <M> - The model type.
  */
 public class NodeWrapper {
     
