@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.log.NotificationFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.NotificationFXMLController">
     <stylesheets>
         <URL value="@/styles/log/notificationfxml.css" />
     </stylesheets>
@@ -21,7 +21,7 @@
             <HBox fx:id="notificationHbox" spacing="10.0">
                <children>
                   <Label text="Notification:" />
-                  <ComboBox fx:id="timeUnitComboBox" prefWidth="150.0" />
+                  <ComboBox fx:id="timeUnitComboBox" prefHeight="25.0" prefWidth="305.0" />
                </children>
                <VBox.margin>
                   <Insets top="30.0" />

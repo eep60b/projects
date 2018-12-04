@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandl
 import com.etlsolutions.javafx.presentation.menu.file.OpenProjectEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveAsProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveProjectEventHandler;
-import com.etlsolutions.javafx.presentation.plant.subgroup.CreatePlantSubGroupDataModel;
+import com.etlsolutions.javafx.presentation.plant.subgroup.CreateRootedPlantSubGroupDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 
@@ -93,7 +93,7 @@ public class MenusController extends AbstractFXMLController {
         exitMenuItem.setOnAction(new ExitApplicationEventHandler());
         
         addPlantsMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddPlantDataModel()));
-        addPlantSubGroupMenuItem.setOnAction(new FXMLActionEventHandler<>(new CreatePlantSubGroupDataModel()));
+        addPlantSubGroupMenuItem.setOnAction(new FXMLActionEventHandler<>(new CreateRootedPlantSubGroupDataModel()));
         addAreaMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddAreaDataModel()));
         
         addGrowingMediumMenuItem.setOnAction(new FXMLActionEventHandler<>(new AddGrowingMediumDataModel()));        

@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.log.task.TaskDetail;
 import com.etlsolutions.javafx.data.log.task.TaskType;
+import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.Removable;
 import com.etlsolutions.javafx.presentation.Savable;
 
@@ -10,7 +11,7 @@ import com.etlsolutions.javafx.presentation.Savable;
  * @author Zhipeng
  * @param <T>
  */
-public abstract class TaskDetailDataModel <T extends TaskDetail> implements Savable, Removable {
+public abstract class TaskDetailDataModel <T extends TaskDetail> implements Savable, Removable, FXMLActionDataModel {
 
     protected final T detail;
 
@@ -18,6 +19,7 @@ public abstract class TaskDetailDataModel <T extends TaskDetail> implements Sava
         this.detail = detail;
     }
 
+    @Override
     public abstract String getFxmlPath();
     
     public TaskType getType() {

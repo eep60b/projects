@@ -22,7 +22,10 @@ public class GrowingObservationFXMLController extends DataUnitFXMLController<Gro
     private TextField titleTextField;
 
     @FXML
-    private HBox timeHbox;
+    private HBox startTimeHbox;
+
+    @FXML
+    private HBox endTimeHbox;
     
     @FXML
     private TextArea informationTextArea;
@@ -63,14 +66,13 @@ public class GrowingObservationFXMLController extends DataUnitFXMLController<Gro
     @Override
     public void initializeComponents() {
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
-        
-        Label startTimeLabel = new Label("Start Time");
+
         DateTimePicker startTimePicker = new DateTimePicker();
         startTimePicker.setDateTimeValue(model.getStartTimeValueWrapper().getValue());
-        Label endTimeLabel = new Label("End Time");        
+        startTimeHbox.getChildren().addAll(startTimePicker);
+        
         DateTimePicker endTimePicker = new DateTimePicker();
         endTimePicker.setDateTimeValue(model.getEndTimeValueWrapper().getValue());
-        timeHbox.getChildren().clear();
-        timeHbox.getChildren().addAll(startTimeLabel, startTimePicker, endTimeLabel,endTimePicker);
+        endTimeHbox.getChildren().addAll(endTimePicker);
     }
 }

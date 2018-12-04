@@ -22,11 +22,11 @@ public class BalconyArea extends Area {
     public BalconyArea() {
     }
 
-    public BalconyArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, BalconyAreaValueWrapper balconyAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+    public BalconyArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper subAreas, MeasurementValueWrapper measurementValueWrapper) {
         super(valueWrapper, areaValueWrapper, measurementValueWrapper);
-        containerSets = new ObservableListWrapperA<>(balconyAreaValueWrapper.getContainerSets());
-        singleContainers = new ObservableListWrapperA<>(balconyAreaValueWrapper.getSingleContainers());
-        customSubareas = new ObservableListWrapperA<>(balconyAreaValueWrapper.getCustomSubareas());
+        containerSets = new ObservableListWrapperA<>(subAreas.getContainerSets());
+        singleContainers = new ObservableListWrapperA<>(subAreas.getSingleContainers());
+        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
     }
 
     public ObservableListWrapperA<ContainerSet> getContainerSets() {

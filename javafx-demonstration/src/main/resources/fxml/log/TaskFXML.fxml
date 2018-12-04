@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.log.task.TaskFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.task.TaskFXMLController">
     <stylesheets>
         <URL value="@/styles/log/taskfxml.css" />
     </stylesheets>
@@ -97,9 +97,10 @@
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
-                                                <Button fx:id="addNotificationButton" mnemonicParsing="false" text="add" />
-                                                <Button fx:id="editNotificationButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" text="edit" />
-                                                <Button fx:id="removeNotificationButton" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="remove" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="addNotificationButton" mnemonicParsing="false" text="Add" />
+                                                <Button fx:id="editNotificationButton" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                                <Button fx:id="removeNotificationButton" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
                                             </children>
                                         </HBox>
                                         <ScrollPane prefHeight="459.0" prefViewportHeight="200.0" prefViewportWidth="580.0" prefWidth="580.0">

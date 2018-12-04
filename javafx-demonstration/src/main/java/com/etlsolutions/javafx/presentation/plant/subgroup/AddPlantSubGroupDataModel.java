@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.plant.subgroup;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.system.ProjectManager;

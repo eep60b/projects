@@ -8,6 +8,8 @@ import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
+import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
+import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.log.Notifiable;
 import java.time.LocalDateTime;
@@ -17,7 +19,7 @@ import java.util.Objects;
  *
  * @author Zhipeng
  */
-public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> implements Notifiable{
+public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> implements Notifiable, FXMLContentActionDataModel{
 
     public static final String SELECTED_TYPE_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_TYPE_PROPERTY";
     public static final String SELECTED_NOTIFICATION_PROPERTY = "com.etlsolutions.javafx.presentation.menu.add.gvent.AbstractGventDataModel.SELECTED_NOTIFICATION_PROPERTY";
@@ -37,6 +39,9 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> 
         this.notifications = new ObservableListWrapperA<>();
         this.types = new ObservableListWrapperA<>(TaskType.values());
         selectedType = new ValueWrapper<>(types.get(0));
+        startTime = new ValueWrapper<>(LocalDateTime.now());
+        endTime = new ValueWrapper<>(LocalDateTime.now());
+        selectedNotification = new ValueWrapper<>(null);
         detailDataModel = getDetailDataModel(selectedType.getValue());
     }
 
@@ -52,7 +57,7 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> 
         return types;
     }
 
-    public ValueWrapper<TaskType> getSelectedType() {
+    public ValueWrapper<TaskType> getSelectedTypeValueWrapper() {
         return selectedType;
     }
 
@@ -103,11 +108,22 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> 
     public String getFxmlPath() {
         return "/fxml/log/TaskFXML.fxml";
     }
+    
+    @Override
+    public TaskDetailDataModel getContentModel() {
+        return detailDataModel;
+    }
 
+    @Override
+    public void setContentModel(FXMLActionDataModel detailDataModel) {
+        this.detailDataModel = (TaskDetailDataModel) detailDataModel;
+    }
+    
+    
     public final TaskDetailDataModel getDetailDataModel(TaskType type) {
         switch (type) {
             case CUSTOM:
-                return new CustomTaskDetailDataModel();
+                return new CustomTaskDetailDataModel(FertiliserFactory.getInstance().getDefaultCustomDetail());
             case FERTILZATION:
                 return new FertilisationTaskDetailDataModel(
                         new FertilisationTaskDetail(FertiliserFactory.getInstance().getDefaultFertiliser(), 0.0, "growmore"));

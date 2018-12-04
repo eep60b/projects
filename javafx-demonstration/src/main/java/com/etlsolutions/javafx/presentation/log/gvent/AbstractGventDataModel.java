@@ -49,7 +49,7 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
         selectedTypeValueWrapper = new ValueWrapper<>(gvent.getType());
     }
 
-    private GventDetailDataModel getDetailDataModel(GventType type) {
+    public final GventDetailDataModel getDetailDataModel(GventType type) {
         switch (type) {
             case FLOWERING:
                 return new FloweringGventDetailDataModel(new FloweringGventDetailValueWrapper());

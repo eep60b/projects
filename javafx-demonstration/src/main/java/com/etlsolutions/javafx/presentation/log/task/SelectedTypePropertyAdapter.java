@@ -1,6 +1,6 @@
-package com.etlsolutions.javafx.presentation.log.gvent;
+package com.etlsolutions.javafx.presentation.log.task;
 
-import com.etlsolutions.javafx.data.log.gvent.GventType;
+import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -17,7 +17,7 @@ public class SelectedTypePropertyAdapter implements PropertyChangeListener {
     private final Tab detailTab;
     private final NodeGenerator generator;
 
-    public SelectedTypePropertyAdapter(TabPane mainTabPane, Tab detailTab, NodeGenerator<AbstractGventDataModel, GventType> generator) {
+    public SelectedTypePropertyAdapter(TabPane mainTabPane, Tab detailTab, NodeGenerator<AbstractTaskDataModel, TaskType> generator) {
         this.mainTabPane = mainTabPane;
         this.detailTab = detailTab;
         this.generator = generator;
@@ -26,15 +26,15 @@ public class SelectedTypePropertyAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        AbstractGventDataModel model = (AbstractGventDataModel) evt.getSource();
-        GventType type = model.getSelectedTypeValueWrapper().getValue();
-        model.setContentModel(model.getDetailDataModel(type));        
+        AbstractTaskDataModel model = (AbstractTaskDataModel) evt.getSource();
+        TaskType type = model.getSelectedTypeValueWrapper().getValue(); 
+        model.setContentModel(model.getDetailDataModel(type));
         switch (type) {
             case CUSTOM:
                 mainTabPane.getTabs().remove(detailTab);
                 return;
-            case FLOWERING:
-            case FRUITING:
+            case FERTILZATION:
+            case HARVESTING:
                 if (!mainTabPane.getTabs().contains(detailTab)) {
                     mainTabPane.getTabs().add(1, detailTab);
                 }

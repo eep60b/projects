@@ -10,5 +10,4 @@ public class CustomTaskDetail implements TaskDetail {
     public TaskType getType() {
         return TaskType.CUSTOM;
     }
-    
 }

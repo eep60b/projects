@@ -25,12 +25,12 @@ public class IndoorArea extends Area {
     public IndoorArea() {
     }
 
-    public IndoorArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, IndoorAreaValueWrapper indoorAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+    public IndoorArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper subAreas, MeasurementValueWrapper measurementValueWrapper) {
         super(valueWrapper, areaValueWrapper, measurementValueWrapper);
-        containerSets = new ObservableListWrapperA<>(indoorAreaValueWrapper.getContainerSets());
-        singleContainers = new ObservableListWrapperA<>(indoorAreaValueWrapper.getSingleContainers());
-        rooms = new ObservableListWrapperA<>(indoorAreaValueWrapper.getRooms());
-        customSubareas = new ObservableListWrapperA<>(indoorAreaValueWrapper.getCustomSubareas());
+        containerSets = new ObservableListWrapperA<>(subAreas.getContainerSets());
+        singleContainers = new ObservableListWrapperA<>(subAreas.getSingleContainers());
+        rooms = new ObservableListWrapperA<>(subAreas.getRooms());
+        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
     }
 
     public ObservableListWrapperA<ContainerSet> getContainerSets() {

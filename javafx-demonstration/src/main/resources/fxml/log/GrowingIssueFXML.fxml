@@ -54,7 +54,7 @@
                                     <children>
                                         <HBox fx:id="startTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="Start Time:">
+                                                <Label prefHeight="20.0" prefWidth="60.0" text="Start Time:">
                                                     <padding>
                                                         <Insets top="3.0" />
                                                     </padding>
@@ -63,7 +63,7 @@
                                         </HBox>
                                         <HBox fx:id="endTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="End Time:">
+                                                <Label prefHeight="20.0" prefWidth="60.0" text="End Time:">
                                                     <padding>
                                                         <Insets top="3.0" />
                                                     </padding>

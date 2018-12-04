@@ -36,7 +36,7 @@ public class CustomArea extends Area {
     public CustomArea() {
     }
 
-    public CustomArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, CustomAreaValueWrapper customAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+    public CustomArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper customAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
         
         super(valueWrapper, areaValueWrapper, measurementValueWrapper);
         plantBeds = new ObservableListWrapperA<>(customAreaValueWrapper.getPlantBeds());
