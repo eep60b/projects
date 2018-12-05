@@ -27,7 +27,7 @@ public class NewProjectDialogBrowseButtonEventHandler implements EventHandler<Ac
         if (f == null) {
             return;
         }
-        model.setPath(f.getAbsolutePath());
+        model.getPathValueWrapper().setValue(f.getAbsolutePath());
     }
 
 }

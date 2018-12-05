@@ -19,7 +19,7 @@ public class NewProjectDialogOkButtonEventHandler implements EventHandler<Action
 
     @Override
     public void handle(ActionEvent event) {
-        ProjectManager.getInstance().createProject(model.getPath(), model.getName());
+        ProjectManager.getInstance().createProject(model.getPathValueWrapper().getValue(), model.getNameValueWrapper().getValue());
         StageManager.getInstance().closeAndRemove(StageManager.NEW_PROJECT_DIALOG_STAGE);
     }
 }
