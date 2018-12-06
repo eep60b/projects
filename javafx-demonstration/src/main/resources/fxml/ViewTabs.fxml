@@ -7,16 +7,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.ViewTabsController">
+<AnchorPane id="AnchorPane" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.ViewTabsController">
   <stylesheets>
     <URL value="@/styles/viewtabs.css" />
   </stylesheets>
    <children>
-      <TabPane layoutX="33.0" prefHeight="592.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane layoutX="33.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Plants">
             <content>
-                  <AnchorPane prefHeight="363.0" prefWidth="587.0">
+                  <AnchorPane>
                      <children>
                         <fx:include source="Plants.fxml" />
                      </children>
@@ -25,7 +25,7 @@
           </Tab>
           <Tab text="Locations">
             <content>
-                  <AnchorPane prefHeight="558.0" prefWidth="595.0">
+                  <AnchorPane>
                      <children>
                         <fx:include source="Locations.fxml" />
                      </children>

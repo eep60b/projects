@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.GrowingMediumFactory;
 import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.area.AreaFactory;
@@ -36,7 +37,7 @@ public final class ProjectManager {
 
     private final ObjectMapper mapper = new ObjectMapper();
     private ProjectConfiguration configuration;
-    private ProjectContents contents;
+    private final ValueWrapper<ProjectContents> contentsValueWrapper = new ValueWrapper<>(null);
     private final Map<Integer, DataUnit> dataMap = new HashMap<>();
 
     private ProjectManager() {
@@ -48,10 +49,11 @@ public final class ProjectManager {
 
     void init(Properties properties) throws IOException {
 
-        configuration = new ProjectConfiguration();
-        contents = new ProjectContents();
         String path = properties.getProperty(CURRENT_RPOJECT_PATH_KEY);
         if (path != null) {
+            configuration = new ProjectConfiguration();
+            ProjectContents contents = new ProjectContents();
+            contentsValueWrapper.setValue(contents);
             File directory = new File(path);
             if (directory.isDirectory()) {
                 loadProject(path);
@@ -82,29 +84,40 @@ public final class ProjectManager {
             contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
             contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
             contents.setFertiliserDelutionRatioUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
+            contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
+            contents.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
+            contents.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
         } else {
-            //      createProject(projectDirectory.getParent(), projectDirectory.getName());
 
-            //manually set things up for now.
-            contents.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
-            contents.setFertilisers(FertiliserFactory.getInstance().getDefaultFertilisers());
-            contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
-            contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
-            contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
-            contents.setFlowerTypes(LogFactory.getInstance().getDefaultFlowerTypes());
-            contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
-            contents.setFruitShapes(LogFactory.getInstance().getDefaultFruitShapes());
-            contents.setFruitColors(LogFactory.getInstance().getDefaultFruitColors());
-            contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
-            contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
-            contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
-            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
-            contents.setFertiliserDelutionRatioUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
+            configuration = new ProjectConfiguration();
+   
+            //      createProject(projectDirectory.getParent(), projectDirectory.getName());
+            initContents();
         }
 
+    }
+
+    private void initContents() throws IOException {
+
+        ProjectContents contents = new ProjectContents();
+        contents.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
+        contents.setFertilisers(FertiliserFactory.getInstance().getDefaultFertilisers());
+        contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
+        contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
+        contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
+        contents.setFlowerTypes(LogFactory.getInstance().getDefaultFlowerTypes());
+        contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
+        contents.setFruitShapes(LogFactory.getInstance().getDefaultFruitShapes());
+        contents.setFruitColors(LogFactory.getInstance().getDefaultFruitColors());
+        contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
+        contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
+        contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
+        contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
+        contents.setFertiliserDelutionRatioUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
         contents.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
         contents.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
+        contentsValueWrapper.setValue(contents);
     }
 
     public ProjectConfiguration loadProject(String projectPath) throws IOException {
@@ -124,30 +137,35 @@ public final class ProjectManager {
         return configuration;
     }
 
-    public ProjectConfiguration createProject(String parentPath, String name) {
+    public void createProject(String parentPath, String name) {
 
         configuration = new ProjectConfiguration();
         configuration.setParentPath(parentPath);
         configuration.setName(name);
-        contents.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
         File file = new File(configuration.getProjectPath());
         boolean success = file.mkdirs();
 
         if (!success) {
             throw new CustomLevelErrorRuntimeExceiption("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
         }
-
-        propertyChangeSupport.firePropertyChange(PROJECT_PROPERTY, false, true);
-
-        return configuration;
+        try {
+            initContents();
+        } catch(IOException ex) {
+            throw new CustomLevelErrorRuntimeExceiption(ex);
+        }
+        
     }
 
     public ProjectConfiguration getConfiguration() {
         return configuration;
     }
 
+    public ValueWrapper<ProjectContents> getContentsValueWrapper() {
+        return contentsValueWrapper;
+    }
+
     public ProjectContents getContents() {
-        return contents;
+        return contentsValueWrapper.getValue();
     }
 
     public void deleteProject(ProjectConfiguration configuration) {
@@ -161,7 +179,7 @@ public final class ProjectManager {
 
     public void saveProject() {
         try {
-            mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION), contents);
+            mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION), contentsValueWrapper.getValue());
         } catch (IOException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }

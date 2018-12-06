@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.presentation.StageManager;
 import static com.etlsolutions.javafx.presentation.StageManager.NEW_PROJECT_DIALOG_STAGE;
 import com.etlsolutions.javafx.system.ProjectManager;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
+import com.etlsolutions.javafx.system.ProjectConfiguration;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,7 +29,9 @@ public class NewProjectDialogEventHandler implements EventHandler<ActionEvent> {
 
         try {
 
-            if (ProjectManager.getInstance().getConfiguration().isModified()) {
+            ProjectConfiguration c = ProjectManager.getInstance().getConfiguration();
+            
+            if (c != null && c.isModified()) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save change for the current project?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                 ButtonType result = alert.getResult();
                 if (result == ButtonType.YES) {

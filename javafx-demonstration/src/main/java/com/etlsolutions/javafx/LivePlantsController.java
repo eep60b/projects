@@ -41,7 +41,12 @@ public class LivePlantsController extends AbstractFXMLController {
         ProjectManager manager = ProjectManager.getInstance();
 
         ProjectContents projectContents = manager.getContents();
-        PlantGroupRoot plantGroupRoot = projectContents == null ? null : projectContents.getPlantsGroupRoot();
+        
+        if(projectContents == null) {
+            return;
+        }
+        
+        PlantGroupRoot plantGroupRoot = projectContents.getPlantsGroupRoot();
         MenuedTreeItem plantGroupRootTreeItem = new PlantsGroupRootTreeItem(plantGroupContextMenu, plantGroupRoot);
         livePlantsTreeView.setRoot(plantGroupRootTreeItem);
         manager.addPropertyChangeListener(PROJECT_PROPERTY, new ProjectPorpertyChangeAdapter(plantGroupRootTreeItem));

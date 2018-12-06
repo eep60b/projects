@@ -3,6 +3,7 @@ package com.etlsolutions.javafx;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.presentation.tree.log.LogGroupRootTreeItem;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.TreeView;
@@ -21,7 +22,12 @@ public class LogsController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
-        LogGroupRoot r = ProjectManager.getInstance().getContents().getLogGroupRoot();
+        ProjectContents p = ProjectManager.getInstance().getContents();
+
+        if (p == null) {
+            return;
+        }
+        LogGroupRoot r = p.getLogGroupRoot();
         logsTreeView.setRoot(new LogGroupRootTreeItem(r));
     }
 }

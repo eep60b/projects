@@ -9,11 +9,18 @@ import java.util.Properties;
  *
  * @author zc
  */
-public enum RepositoryUtils {
+public final class RepositoryUtils {
 
-    ;
+    private static final RepositoryUtils INSTANCE = new RepositoryUtils();
+    
+    private RepositoryUtils() {
+    }
 
-    public static void initRepository(String... args) throws IOException {
+    public static RepositoryUtils getInstance() {
+        return INSTANCE;
+    }
+    
+    public void initRepository(String... args) throws IOException {
         
         File repositoryDirectory = new File(SettingConstants.REPOSITORY_LOCATION);
 
@@ -35,6 +42,5 @@ public enum RepositoryUtils {
         }
 
         ProjectManager.getInstance().init(properties);
-
     }
 }

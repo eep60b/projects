@@ -48,7 +48,7 @@ public class MainApp extends Application {
     public static void main(String[] args) {
 
         try {
-            RepositoryUtils.initRepository(args);
+            RepositoryUtils.getInstance().initRepository(args);
             launch(args);
         } catch (Throwable th) {
             ThrowableHandler.getInstance().handle(th, MainApp.class);
