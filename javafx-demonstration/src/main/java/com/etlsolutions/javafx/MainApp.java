@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx;
 
-import com.etlsolutions.javafx.system.RepositoryUtils;
+import com.etlsolutions.javafx.system.GwiseRepository;
 import com.etlsolutions.javafx.system.ThrowableHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +48,7 @@ public class MainApp extends Application {
     public static void main(String[] args) {
 
         try {
-            RepositoryUtils.getInstance().initRepository(args);
+            GwiseRepository.getInstance().initRepository(args);
             launch(args);
         } catch (Throwable th) {
             ThrowableHandler.getInstance().handle(th, MainApp.class);

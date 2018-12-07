@@ -11,11 +11,11 @@ import java.beans.PropertyChangeSupport;
 public class ValueWrapper<T> {
 
     public static final String VALUE_CHANGE = ValueWrapper.class.getName() + "VALUE_CHANGE";
-    
+
     private T value;
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
-    
+
     public ValueWrapper(T value) {
         this.value = value;
     }
@@ -48,5 +48,13 @@ public class ValueWrapper<T> {
 
     public boolean hasListeners(String propertyName) {
         return support.hasListeners(propertyName);
+    }
+
+    public void removePropertyChangeListeners() {
+
+        PropertyChangeListener[] listeners = support.getPropertyChangeListeners();
+        for (int i = listeners.length - 1; i >= 0; i--) {
+            support.removePropertyChangeListener(listeners[i]);
+        }
     }
 }

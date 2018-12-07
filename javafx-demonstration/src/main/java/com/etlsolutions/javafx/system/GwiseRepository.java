@@ -9,14 +9,16 @@ import java.util.Properties;
  *
  * @author zc
  */
-public final class RepositoryUtils {
+public final class GwiseRepository {
 
-    private static final RepositoryUtils INSTANCE = new RepositoryUtils();
+    private static final GwiseRepository INSTANCE = new GwiseRepository();
     
-    private RepositoryUtils() {
+    private final Properties properties = new Properties();
+    
+    private GwiseRepository() {
     }
 
-    public static RepositoryUtils getInstance() {
+    public static GwiseRepository getInstance() {
         return INSTANCE;
     }
     
@@ -34,13 +36,17 @@ public final class RepositoryUtils {
         }
 
         File configFile = new File(SettingConstants.REPOSITORY_CONFIG_FILE_PATH);
-        Properties properties = new Properties();
+        
         if (configFile.exists()) {
             try (FileInputStream in = new FileInputStream(configFile)) {
                 properties.load(in);
             }
         }
 
-        ProjectManager.getInstance().init(properties);
+ //       ProjectManager.getInstance().init(properties);
     }
+
+    public Properties getProperties() {
+        return properties;
+    }    
 }

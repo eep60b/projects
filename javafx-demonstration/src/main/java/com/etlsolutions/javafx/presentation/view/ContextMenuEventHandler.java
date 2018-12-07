@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx;
+package com.etlsolutions.javafx.presentation.view;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

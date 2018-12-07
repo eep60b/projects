@@ -1,19 +1,23 @@
 package com.etlsolutions.javafx.presentation.menu.file;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.presentation.Closable;
+import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
+import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
+import com.etlsolutions.javafx.system.ProjectManager;
 import java.io.File;
 
 /**
  *
  * @author zc
  */
-public class NewProjectDialogDataModel implements Validatable {
+public class NewProjectDataModel implements Validatable, Savable, FXMLActionDataModel, Closable {
 
     private final ValueWrapper<String> nameValueWrapper;
     private final ValueWrapper<String> pathValueWrapper;
 
-    public NewProjectDialogDataModel() {
+    public NewProjectDataModel() {
         nameValueWrapper = new ValueWrapper<>("");
         pathValueWrapper = new ValueWrapper<>("");
     }
@@ -56,5 +60,24 @@ public class NewProjectDialogDataModel implements Validatable {
         }
 
         return "";
+    }
+
+    @Override
+    public void save() {
+        ProjectManager.getInstance().createProject(pathValueWrapper.getValue(), nameValueWrapper.getValue());
+        close();
+    }
+
+    @Override
+    public String getFxmlPath() {
+        return "/fxml/menu/file/NewProjectDialigFXML.fxml";
+    }
+
+    @Override
+    public void close() {
+        nameValueWrapper.removePropertyChangeListeners();
+        pathValueWrapper.removePropertyChangeListeners();
+        nameValueWrapper.setValue("");
+        pathValueWrapper.setValue("");
     }
 }

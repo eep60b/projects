@@ -4,11 +4,8 @@ import static com.etlsolutions.javafx.system.SettingConstants.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.other.GrowingMediumFactory;
 import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
@@ -17,10 +14,10 @@ import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import javax.imageio.IIOException;
 
 /**
  * ProjectManager ONLY manage the currently-opened project.
@@ -39,6 +36,7 @@ public final class ProjectManager {
     private ProjectConfiguration configuration;
     private final ValueWrapper<ProjectContents> contentsValueWrapper = new ValueWrapper<>(null);
     private final Map<Integer, DataUnit> dataMap = new HashMap<>();
+    private final Properties properties = GwiseRepository.getInstance().getProperties();
 
     private ProjectManager() {
     }
@@ -47,7 +45,7 @@ public final class ProjectManager {
         return INSTANCE;
     }
 
-    void init(Properties properties) throws IOException {
+    void init() throws IOException {
 
         String path = properties.getProperty(CURRENT_RPOJECT_PATH_KEY);
         if (path != null) {
@@ -57,41 +55,10 @@ public final class ProjectManager {
             File directory = new File(path);
             if (directory.isDirectory()) {
                 loadProject(path);
-                return;
             }
-
-            if (directory.isFile()) {
-                throw new IIOException("The specified path is already used by a file.");
-            }
-
-            File projectDirectory = new File(path);
-
-            if (!projectDirectory.mkdirs()) {
-                throw new IIOException("Failed to create directory.");
-            }
-
-            configuration.setParentPath(projectDirectory.getParent());
-            configuration.setName(projectDirectory.getName());
-            contents.setGrowingMediums(GrowingMediumFactory.getInstance().createDefaultGrowingMediums());
-            contents.setFertilisers(FertiliserFactory.getInstance().getDefaultFertilisers());
-            contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
-            contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
-            contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
-            contents.setFlowerTypes(LogFactory.getInstance().getDefaultFlowerTypes());
-            contents.setFlowerColors(LogFactory.getInstance().getDefaultFlowerColors());
-            contents.setFertiliserUoms(FertiliserFactory.getInstance().getDefaultFertiliserUoms());
-            contents.setWateringAmountUoms(LogFactory.getInstance().getDefaultWaterAmountUoms());
-            contents.setWateringFluxUoms(LogFactory.getInstance().getDefaultWaterFluxUoms());
-            contents.setSolidFertiliserDensityUoms(DefaultListFactory.getInstance().getDefaultSolidFertiliserDensityUoms());
-            contents.setFertiliserDelutionRatioUoms(DefaultListFactory.getInstance().getDefaultFertiliserDilusionRatioUoms());
-            contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
-            contents.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
-            contents.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
         } else {
 
             configuration = new ProjectConfiguration();
-   
-            //      createProject(projectDirectory.getParent(), projectDirectory.getName());
             initContents();
         }
 
@@ -120,21 +87,22 @@ public final class ProjectManager {
         contentsValueWrapper.setValue(contents);
     }
 
-    public ProjectConfiguration loadProject(String projectPath) throws IOException {
+    public void loadProject(String projectPath) throws IOException {
 
         File file = new File(projectPath);
+        configuration = new ProjectConfiguration();
         configuration.setParentPath(file.getParent());
         configuration.setName(file.getName());
-        File jsonDataDir = new File(configuration.getJsonDataPath());
-        List<File> jsonFiles = new ArrayList<>();
 
-        for (File child : file.listFiles()) {
-            if (child.getName().endsWith(JSON_FILE_EXTENSION)) {
+        File contentsFile = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
 
-            }
+        if (contentsFile.isFile()) {
+
+            contentsValueWrapper.setValue((ProjectContents) mapper.reader().readValue(contentsFile));
+            return;
         }
-
-        return configuration;
+        configuration.setParentPath("");
+        configuration.setName("");
     }
 
     public void createProject(String parentPath, String name) {
@@ -142,18 +110,27 @@ public final class ProjectManager {
         configuration = new ProjectConfiguration();
         configuration.setParentPath(parentPath);
         configuration.setName(name);
-        File file = new File(configuration.getProjectPath());
+        String path = configuration.getProjectPath();
+        File file = new File(path);
+
         boolean success = file.mkdirs();
 
         if (!success) {
             throw new CustomLevelErrorRuntimeExceiption("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
         }
         try {
+            properties.setProperty(CURRENT_RPOJECT_PATH_KEY, path);
+            saveProperties(properties, "");
             initContents();
-        } catch(IOException ex) {
+        } catch (IOException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }
-        
+    }
+
+    private void saveProperties(Properties properties, String comment) throws IOException {
+        try (FileOutputStream out = new FileOutputStream(new File(SettingConstants.REPOSITORY_CONFIG_FILE_PATH));) {
+            properties.store(out, comment);
+        }
     }
 
     public ProjectConfiguration getConfiguration() {
@@ -190,7 +167,7 @@ public final class ProjectManager {
     }
 
     public void close() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        contentsValueWrapper.setValue(null);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

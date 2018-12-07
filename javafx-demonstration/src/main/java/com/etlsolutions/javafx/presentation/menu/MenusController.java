@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.AbstractFXMLController;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.menu.file.CloseProjectEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.ExitApplicationEventHandler;
+import com.etlsolutions.javafx.presentation.menu.file.NewProjectDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.OpenProjectEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveAsProjectEventHandler;
@@ -85,7 +86,7 @@ public class MenusController extends AbstractFXMLController {
 
         ValueWrapper<ProjectContents> valueWrapper = ProjectManager.getInstance().getContentsValueWrapper();
 
-        newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler());
+        newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler(new NewProjectDataModel()));
         openProjectMenuItem.setOnAction(new OpenProjectEventHnadler());
 
         saveProjectMenuItem.setOnAction(new SaveProjectEventHandler());

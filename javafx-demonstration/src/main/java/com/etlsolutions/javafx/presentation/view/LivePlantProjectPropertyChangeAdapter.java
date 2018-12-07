@@ -1,6 +1,7 @@
-package com.etlsolutions.javafx;
+package com.etlsolutions.javafx.presentation.view;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.plantgroup.AddPlantGroupDataModel;
@@ -8,26 +9,31 @@ import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
 import com.etlsolutions.javafx.presentation.tree.TreeCellFactory;
 import com.etlsolutions.javafx.presentation.tree.plant.PlantsGroupRootTreeItem;
 import com.etlsolutions.javafx.system.ProjectContents;
-import com.etlsolutions.javafx.system.ProjectManager;
-import static com.etlsolutions.javafx.system.ProjectManager.PROJECT_PROPERTY;
-import javafx.fxml.FXML;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeView;
 
 /**
- * FXML Controller class
  *
  * @author zc
  */
-public class LivePlantsController extends AbstractFXMLController {
+public class LivePlantProjectPropertyChangeAdapter implements PropertyChangeListener {
 
-    @FXML
-    private TreeView<DataUnit> livePlantsTreeView;
+    private final TreeView<DataUnit> livePlantsTreeView;
 
-    @Override
-    public void initializeComponents() {
+    public LivePlantProjectPropertyChangeAdapter(TreeView<DataUnit> livePlantsTreeView) {
+        this.livePlantsTreeView = livePlantsTreeView;
+    }
 
+    public void process(ProjectContents contents) {
+
+        if (contents == null) {
+            livePlantsTreeView.setRoot(null);
+            return;
+        }
+        
         MenuItem plantGroupMenuItem = new MenuItem("New plant group");
         ContextMenu plantGroupContextMenu = new ContextMenu(plantGroupMenuItem);
 //        livePlantsTreeView.setContextMenu(new ContextMenu(plantGroupMenuItem));
@@ -37,18 +43,16 @@ public class LivePlantsController extends AbstractFXMLController {
         // livePlantsTreeView.getContextMenu().getItems().add(editPlantsGroupMenuItem);
         // editPlantsGroupMenuItem.setOnAction(new FXMLActionEventHandler<>(new EditPlantGroupDataModel()));  
         livePlantsTreeView.setCellFactory(new TreeCellFactory());
-
-        ProjectManager manager = ProjectManager.getInstance();
-
-        ProjectContents projectContents = manager.getContents();
-        
-        if(projectContents == null) {
-            return;
-        }
-        
-        PlantGroupRoot plantGroupRoot = projectContents.getPlantsGroupRoot();
+        PlantGroupRoot plantGroupRoot = contents.getPlantsGroupRoot();
         MenuedTreeItem plantGroupRootTreeItem = new PlantsGroupRootTreeItem(plantGroupContextMenu, plantGroupRoot);
         livePlantsTreeView.setRoot(plantGroupRootTreeItem);
-        manager.addPropertyChangeListener(PROJECT_PROPERTY, new ProjectPorpertyChangeAdapter(plantGroupRootTreeItem));
     }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
+        ProjectContents contents = ((ValueWrapper<ProjectContents>) evt.getSource()).getValue();
+        process(contents);
+    }
+
 }

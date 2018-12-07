@@ -3,6 +3,8 @@ package com.etlsolutions.javafx.presentation.menu.file;
 import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.TextField;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -12,22 +14,22 @@ import javafx.stage.Stage;
  */
 public class NewProjectDialogBrowseButtonEventHandler implements EventHandler<ActionEvent> {
 
-    private final NewProjectDialogDataModel model;
+    private final TextField pathTextField;
 
-    public NewProjectDialogBrowseButtonEventHandler(NewProjectDialogDataModel model) {
-        this.model = model;
+    public NewProjectDialogBrowseButtonEventHandler(TextField pathTextField) {
+        this.pathTextField = pathTextField;
     }
 
     @Override
     public void handle(ActionEvent event) {
 
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-        File f = fileChooser.showOpenDialog(new Stage());
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+        File f = directoryChooser.showDialog(new Stage());
         if (f == null) {
             return;
         }
-        model.getPathValueWrapper().setValue(f.getAbsolutePath());
+        pathTextField.setText(f.getAbsolutePath());
     }
 
 }
