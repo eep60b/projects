@@ -13,16 +13,13 @@ import javafx.scene.control.TreeItem;
  */
 public class PlantsGroupItem extends MenuedTreeItem {
 
-    private final PlantGroup model;
-
     public PlantsGroupItem(PlantGroup model) {
         super(model);
-        this.model = model;
         List<TreeItem<DataUnit>> children = getChildren();
         for (PlantSubGroup type : model.getPlantsSubGroups()) {
-            if (!type.getPlantsList().isEmpty()) {
+    
                 children.add(new PlantsTypeTreeItem(type));
-            }
+            
         }
     }
 

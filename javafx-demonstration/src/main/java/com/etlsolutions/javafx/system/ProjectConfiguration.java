@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.system;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import java.io.File;
 import java.util.Objects;
 
@@ -10,59 +11,49 @@ import java.util.Objects;
  */
 public class ProjectConfiguration {
 
-    private String name;
-    private String parentPath;
-    private boolean modified;
-    private boolean encrypted;
-    
+    private final String name;
+    private final String parentPath;
+    private final ValueWrapper<Boolean> modified = new ValueWrapper<>(true);
+    private final ValueWrapper<Boolean> encrypted = new ValueWrapper<>(true);
+
+    public ProjectConfiguration(String name, String parentPath) {
+        this.name = name;
+        this.parentPath = parentPath;
+    }
+       
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getParentPath() {
         return parentPath;
     }
 
-    public void setParentPath(String parentPath) {
-        this.parentPath = parentPath;
+    public ValueWrapper<Boolean> getModified() {
+        return modified;
     }
 
-    public boolean isPasswordProtected() {
+    public ValueWrapper<Boolean> getEncrypted() {
         return encrypted;
     }
 
-    public void setPasswordProtected(boolean passwordProtected) {
-        this.encrypted = passwordProtected;
-    }
 
     public String getProjectPath() {
+        
+        if(parentPath == null || parentPath.trim().isEmpty() || name == null || name.trim().isEmpty()) {
+            return null;
+        }
+        
         return parentPath + File.separator + name;
     }
 
     public String getJsonDataPath() {
-        return getProjectPath() + File.separator + "data" + File.separator + "json";
+        
+        String projectPath = getProjectPath();
+        return projectPath == null ? null : getProjectPath() + File.separator + "data" + File.separator + "json";
     }
-
-    public boolean isEncrypted() {
-        return encrypted;
-    }
-
-    public void setEncrypted(boolean encrypted) {
-        this.encrypted = encrypted;
-    }
-
-    public boolean isModified() {
-        return modified;
-    }
-
-    public void setModified(boolean modified) {
-        this.modified = modified;
-    }    
-
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;

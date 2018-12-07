@@ -49,16 +49,16 @@ public final class ProjectManager {
 
         String path = properties.getProperty(CURRENT_RPOJECT_PATH_KEY);
         if (path != null) {
-            configuration = new ProjectConfiguration();
-            ProjectContents contents = new ProjectContents();
-            contentsValueWrapper.setValue(contents);
             File directory = new File(path);
             if (directory.isDirectory()) {
-                loadProject(path);
+                boolean success = loadProject(path);
+                if(!success && directory.list().length == 0) {
+                    initContents();
+                }
             }
         } else {
 
-            configuration = new ProjectConfiguration();
+            configuration = new ProjectConfiguration(null, null);
             initContents();
         }
 
@@ -87,29 +87,25 @@ public final class ProjectManager {
         contentsValueWrapper.setValue(contents);
     }
 
-    public void loadProject(String projectPath) throws IOException {
+    public boolean loadProject(String projectPath) throws IOException {
 
         File file = new File(projectPath);
-        configuration = new ProjectConfiguration();
-        configuration.setParentPath(file.getParent());
-        configuration.setName(file.getName());
+        configuration = new ProjectConfiguration(file.getParent(), file.getName());
 
         File contentsFile = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
 
         if (contentsFile.isFile()) {
 
             contentsValueWrapper.setValue((ProjectContents) mapper.reader().readValue(contentsFile));
-            return;
+            return true;
         }
-        configuration.setParentPath("");
-        configuration.setName("");
+        configuration = new ProjectConfiguration(null, null);
+        return false;
     }
 
     public void createProject(String parentPath, String name) {
 
-        configuration = new ProjectConfiguration();
-        configuration.setParentPath(parentPath);
-        configuration.setName(name);
+        configuration = new ProjectConfiguration(name, parentPath);
         String path = configuration.getProjectPath();
         File file = new File(path);
 

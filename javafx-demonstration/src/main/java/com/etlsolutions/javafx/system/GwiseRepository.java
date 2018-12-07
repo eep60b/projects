@@ -43,7 +43,7 @@ public final class GwiseRepository {
             }
         }
 
- //       ProjectManager.getInstance().init(properties);
+        ProjectManager.getInstance().init();
     }
 
     public Properties getProperties() {
