@@ -12,7 +12,9 @@ import com.etlsolutions.javafx.presentation.menu.file.SaveProjectEventHandler;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -77,9 +79,37 @@ public class MenusController extends AbstractFXMLController {
     @FXML
     private MenuItem addFertiliserMenuItem;
 
-    //Edit menu
+    //Edit menus
     @FXML
     private MenuItem deleteMenuItem;
+
+    //Toobar items:
+    @FXML
+    private Button newProjectToolbarButton;
+
+    @FXML
+    private Button openProjectToolbarButton;
+
+    @FXML
+    private Button saveProjectToolbarButton;
+
+    @FXML
+    private Button deleteToolbarButton;
+
+    @FXML
+    private Button cutToolbarButton;
+
+    @FXML
+    private Button copyToolbarButton;
+
+    @FXML
+    private Button pasteToolbarButton;
+
+    @FXML
+    private TextField searchTextField;
+
+    @FXML
+    private Button searchToolbarButton;
 
     @Override
     public void initializeComponents() {
@@ -95,6 +125,10 @@ public class MenusController extends AbstractFXMLController {
         closeProjectMenuItem.setOnAction(new CloseProjectEventHnadler());
         exitMenuItem.setOnAction(new ExitApplicationEventHandler());
 
+        newProjectToolbarButton.setOnAction(new NewProjectDialogEventHandler(new NewProjectDataModel()));
+        openProjectToolbarButton.setOnAction(new OpenProjectEventHnadler());
+        saveProjectToolbarButton.setOnAction(new SaveProjectEventHandler());
+        
         valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new MenuItemPropertyChangeAdapter(valueWrapper, saveProjectMenuItem, saveAsProjectMenuItem, closeProjectMenuItem));
         valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddPlantsPropertyChangeAdapter(addPlantsMenuItem, valueWrapper));
         valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddPlantSubGroupPropertyChangeAdapter(addPlantSubGroupMenuItem, valueWrapper));
@@ -102,6 +136,5 @@ public class MenusController extends AbstractFXMLController {
         valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddGrowingMediumPropertyChangeAdapter(addGrowingMediumMenuItem, valueWrapper));
         valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddGventPropertyChangeAdapter(addGventMenuItem, valueWrapper));
 
-        
     }
 }
