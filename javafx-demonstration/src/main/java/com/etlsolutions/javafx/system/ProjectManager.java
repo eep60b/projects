@@ -52,7 +52,7 @@ public final class ProjectManager {
             File directory = new File(path);
             if (directory.isDirectory()) {
                 boolean success = loadProject(path);
-                if(!success && directory.list().length == 0) {
+                if (!success && directory.list().length == 0) {
                     initContents();
                 }
             }
@@ -68,7 +68,8 @@ public final class ProjectManager {
 
         ProjectContents contents = new ProjectContents();
         contents.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
-        contents.setFertilisers(FertiliserFactory.getInstance().getDefaultFertilisers());
+        contents.setSolidFertilisers(FertiliserFactory.getInstance().getDefaultSolidFertilisers());
+        contents.setLiquidFertilisers(FertiliserFactory.getInstance().getDefaultLiquidFertilisers());
         contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
         contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());
         contents.setContainerShapes(LocationFactory.getInstance().getDefaultContainerShape());
@@ -90,16 +91,15 @@ public final class ProjectManager {
     public boolean loadProject(String projectPath) throws IOException {
 
         File file = new File(projectPath);
-        configuration = new ProjectConfiguration(file.getParent(), file.getName());
+        configuration = new ProjectConfiguration(file.getName(), file.getParent());
 
         File contentsFile = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
 
-        if (contentsFile.isFile()) {
-
-            contentsValueWrapper.setValue((ProjectContents) mapper.reader().readValue(contentsFile));
+        if (contentsFile.isFile()) {            
+            contentsValueWrapper.setValue(mapper.readValue(contentsFile, ProjectContents.class));
             return true;
-        }
-        configuration = new ProjectConfiguration(null, null);
+        }        
+        contentsValueWrapper.setValue(null);
         return false;
     }
 
@@ -152,8 +152,17 @@ public final class ProjectManager {
 
     public void saveProject() {
         try {
-            mapper.writer().writeValue(new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION), contentsValueWrapper.getValue());
+            
+            File file = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
+            
+            if(!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            
+            mapper.writer().writeValue(file, contentsValueWrapper.getValue());
         } catch (IOException ex) {
+            ThrowableHandler.getInstance().handle(ex, getClass(), "Failed to save the project.");
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }
     }
@@ -196,5 +205,9 @@ public final class ProjectManager {
 
     public void removeItem(DataUnit unit) {
         dataMap.remove(unit.getId(), unit);
+    }
+
+    public void openProject(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

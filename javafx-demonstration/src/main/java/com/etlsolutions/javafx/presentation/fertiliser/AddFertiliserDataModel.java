@@ -2,6 +2,8 @@ package com.etlsolutions.javafx.presentation.fertiliser;
 
 import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.javafx.data.other.FertiliserType;
+import com.etlsolutions.javafx.data.other.LiquidFertiliser;
+import com.etlsolutions.javafx.data.other.SolidFertiliser;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
@@ -22,6 +24,12 @@ public class AddFertiliserDataModel extends AbstractFertiliserDataModel {
     public void save() {
 
         set(FertiliserFactory.getInstance().createFertiliser(commonValueWrapper, valueWrapper, partModel.getItemPartValueWrapper()));
-        ProjectManager.getInstance().getContents().getFertilisers().add(get());
+        switch (get().type()) {
+            case LIQUID:
+                ProjectManager.getInstance().getContents().getLiquidFertilisers().add((LiquidFertiliser) get());
+            case SOLID:
+                ProjectManager.getInstance().getContents().getSolidFertilisers().add((SolidFertiliser) get());
+        }
+
     }
 }

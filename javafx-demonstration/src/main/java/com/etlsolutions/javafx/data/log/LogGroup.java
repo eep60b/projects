@@ -3,7 +3,6 @@ package com.etlsolutions.javafx.data.log;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -17,23 +16,26 @@ public class LogGroup extends DataUnit {
     public static final String YEARS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.YEARS_PROPERTY";
 
     @JsonIgnore
-    private ObservableList<Log> cache;
+    private final ObservableListWrapperA<Log> cache = new ObservableListWrapperA<>();
 
-    private ObservableList<LogYear> years;
+    private ObservableListWrapperA<LogYear> years;
 
     public LogGroup() {
     }
 
     protected LogGroup(String title, String information) {
         super(title, information);
-        cache = new ObservableListWrapperA<>();
         years = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<LogYear> getYears() {
+    public ObservableListWrapperA<LogYear> getYears() {
         return years;
     }
-    
+
+    public void setYears(ObservableListWrapperA<LogYear> years) {
+        this.years = years;
+    }
+
     public boolean addLog(Log log) {
         int year = log.getYear();
         for (LogYear l : years) {
@@ -78,7 +80,8 @@ public class LogGroup extends DataUnit {
         fireChange(LOGS_PROPERTY);
     }
 
-    public ObservableList<Log> getLogs() {
+    @JsonIgnore
+    public ObservableListWrapperA<Log> getLogs() {
         return cache;
     }
 }

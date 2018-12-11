@@ -60,12 +60,15 @@ public class Log extends DataUnit {
         this.startTime = startTime;
         support.fireChange(STARTTIME_PROPERTY, oldValue, this.startTime);
     }
-
+    
+    @JsonIgnore
     public int getYear() {
         return startTime.getYear();
     }
-
+    
+    @JsonIgnore
     public int getMonth() {
         return startTime.getMonth().getValue();
     }
+    
 }

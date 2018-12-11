@@ -6,7 +6,6 @@ import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -24,7 +23,7 @@ public class PlantBed extends SubArea {
         this.locations = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<PlantBedLocation> getLocations() {
+    public ObservableListWrapperA<PlantBedLocation> getLocations() {
         return locations;
     }
 

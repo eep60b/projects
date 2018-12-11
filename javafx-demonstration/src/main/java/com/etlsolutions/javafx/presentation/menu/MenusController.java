@@ -6,7 +6,8 @@ import com.etlsolutions.javafx.presentation.menu.file.CloseProjectEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.ExitApplicationEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
-import com.etlsolutions.javafx.presentation.menu.file.OpenProjectEventHnadler;
+import com.etlsolutions.javafx.presentation.menu.file.OpenProjectDataModel;
+import com.etlsolutions.javafx.presentation.menu.file.OpenProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveAsProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveProjectEventHandler;
 import com.etlsolutions.javafx.system.ProjectContents;
@@ -117,7 +118,7 @@ public class MenusController extends AbstractFXMLController {
         ValueWrapper<ProjectContents> valueWrapper = ProjectManager.getInstance().getContentsValueWrapper();
 
         newProjectMenuItem.setOnAction(new NewProjectDialogEventHandler(new NewProjectDataModel()));
-        openProjectMenuItem.setOnAction(new OpenProjectEventHnadler());
+        openProjectMenuItem.setOnAction(new OpenProjectEventHandler(new OpenProjectDataModel()));
 
         saveProjectMenuItem.setOnAction(new SaveProjectEventHandler());
 
@@ -126,7 +127,7 @@ public class MenusController extends AbstractFXMLController {
         exitMenuItem.setOnAction(new ExitApplicationEventHandler());
 
         newProjectToolbarButton.setOnAction(new NewProjectDialogEventHandler(new NewProjectDataModel()));
-        openProjectToolbarButton.setOnAction(new OpenProjectEventHnadler());
+        openProjectToolbarButton.setOnAction(new OpenProjectEventHandler(new OpenProjectDataModel()));
         saveProjectToolbarButton.setOnAction(new SaveProjectEventHandler());
         
         valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new MenuItemPropertyChangeAdapter(valueWrapper, saveProjectMenuItem, saveAsProjectMenuItem, closeProjectMenuItem));

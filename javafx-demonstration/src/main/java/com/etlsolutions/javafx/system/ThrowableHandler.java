@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.system;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import org.apache.log4j.Logger;
 
 /**
@@ -19,11 +18,16 @@ public final class ThrowableHandler {
         return INSTANCE;
     }
 
-    public void handle(Throwable th, Class<?> klass) {
+    public void handle(Throwable th, Class<?> klass, String message) {
         Logger.getLogger(klass).error(th);
         th.printStackTrace();
-        Alert alert = new Alert(Alert.AlertType.ERROR, "Error: the project is corrupted.");
+        Alert alert = new Alert(Alert.AlertType.ERROR, message);
         alert.showAndWait();
         System.exit(-1);
+    }    
+    
+    public void handle(Throwable th, Class<?> klass) {
+        
+        handle(th, klass, "Error: the project is corrupted.");
     }
 }

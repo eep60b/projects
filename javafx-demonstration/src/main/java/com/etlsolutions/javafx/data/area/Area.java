@@ -6,14 +6,37 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
+import com.etlsolutions.javafx.data.area.subarea.Border;
+import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
+import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
+import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
+import com.etlsolutions.javafx.data.area.subarea.Lawn;
+import com.etlsolutions.javafx.data.area.subarea.PlantBed;
+import com.etlsolutions.javafx.data.area.subarea.Pond;
+import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
+import com.etlsolutions.javafx.data.area.subarea.Room;
+import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
  *
  * @author zc
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+        @JsonSubTypes.Type(name = "BalconyArea", value = BalconyArea.class),
+        @JsonSubTypes.Type(name = "CustomArea", value = CustomArea.class),
+        @JsonSubTypes.Type(name = "FarmArea", value = FarmArea.class),
+        @JsonSubTypes.Type(name = "GardenArea", value = GardenArea.class),
+        @JsonSubTypes.Type(name = "IndoorArea", value = IndoorArea.class),
+        @JsonSubTypes.Type(name = "PatioArea", value = PatioArea.class)
+})
 public abstract class Area extends DataUnit {
 
     @JsonIgnore
@@ -40,6 +63,7 @@ public abstract class Area extends DataUnit {
         measurement = MeasurementFactory.getInstance().getAreaMeasurement(measurementValueWrapper);
     }
 
+    @JsonIgnore
     public abstract AreaType getType();
 
     public abstract ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type);

@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.DataUnitPart;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
@@ -15,7 +16,6 @@ import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -75,7 +75,7 @@ public class GrowingDetail extends DataUnitPart {
     private List<HarvestingTask> harvestingTasks;
     private List<GrowingIssue> growingIssues;
     private List<GrowingObservation> growingObservations;
-    private ObservableList<Location> locations;
+    private ObservableListWrapperA<Location> locations;
 
     public boolean isIsAlive() {
         return isAlive;

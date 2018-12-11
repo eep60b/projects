@@ -20,7 +20,7 @@ public class FertiliserFactory {
         return new FertiliserFactory();
     }  
     
-    public Fertiliser getDefaultFertiliser() {
+    public  SolidFertiliser getDefaultSolidFertiliser() {
         return new SolidFertiliser();
     }
     
@@ -45,14 +45,18 @@ public class FertiliserFactory {
     }
 
     public Fertiliser createFertiliser(DataUnitValueWrapper commonValueWrapper, FertiliserValueWrapper valueWrapper, TypedItem itemPartValueWrapper) {
-        return getDefaultFertiliser();
+        return getDefaultSolidFertiliser();
     }
 
-    public ObservableListWrapperA<Fertiliser> getDefaultFertilisers() {
-        return new ObservableListWrapperA<>(getDefaultFertiliser());
+    public ObservableListWrapperA< SolidFertiliser> getDefaultSolidFertilisers() {
+        return new ObservableListWrapperA<>(getDefaultSolidFertiliser());
     }
 
     public CustomTaskDetail getDefaultCustomDetail() {
         return new CustomTaskDetail();
+    }
+
+    public ObservableListWrapperA<LiquidFertiliser> getDefaultLiquidFertilisers() {
+        return new ObservableListWrapperA<>(new LiquidFertiliser());
     }
 }

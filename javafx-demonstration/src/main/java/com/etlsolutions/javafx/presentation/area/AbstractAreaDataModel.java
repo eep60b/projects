@@ -16,7 +16,6 @@ import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import java.util.Objects;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -31,15 +30,15 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
 
     public static final RemoveEventId SELECTED_SUB_AREA_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.area.AbstractAreaDataModel.SELECTED_SUB_AREA_REMOVE_EVENT_ID", "selected area part");
 
-    protected final ObservableList<AreaType> areaTypes;
+    protected final ObservableListWrapperA<AreaType> areaTypes;
     protected final ValueWrapper<AreaType> selectedAreaTypeValueWrapper;
-    protected final ObservableList<MeasurementType> areaShapes;
+    protected final ObservableListWrapperA<MeasurementType> areaShapes;
     protected AreaValueWrapper areaValueWrapper;
     protected ValueWrapper<MeasurementDataModel> measurementDataModelValueWrapper;
     protected final ObservableListWrapperA<SubArea> subAreas;
     private final ValueWrapper<SubArea> selectedSubArea;
 
-    public AbstractAreaDataModel(ObservableList<AreaType> areaTypes, Measurement measurement) {
+    public AbstractAreaDataModel(ObservableListWrapperA<AreaType> areaTypes, Measurement measurement) {
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
         areaShapes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
@@ -49,7 +48,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         selectedSubArea = new ValueWrapper<>(null);
     }
     
-    public AbstractAreaDataModel(Area area, ObservableList<AreaType> areaTypes, Measurement measurement) {
+    public AbstractAreaDataModel(Area area, ObservableListWrapperA<AreaType> areaTypes, Measurement measurement) {
         super(area);
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
@@ -77,7 +76,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         }
     }
 
-    public ObservableList<AreaType> getAreaTypes() {
+    public ObservableListWrapperA<AreaType> getAreaTypes() {
         return areaTypes;
     }
 
@@ -85,7 +84,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         return selectedAreaTypeValueWrapper;
     }
 
-    public ObservableList<MeasurementType> getAreaShapes() {
+    public ObservableListWrapperA<MeasurementType> getAreaShapes() {
         return areaShapes;
     }
 

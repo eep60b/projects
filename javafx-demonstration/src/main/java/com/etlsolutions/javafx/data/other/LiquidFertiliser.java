@@ -35,7 +35,7 @@ public class LiquidFertiliser extends Fertiliser
     }
     
     @Override
-    public FertiliserType getType() {
+    public FertiliserType type() {
         return FertiliserType.LIQUID;
     }
 }

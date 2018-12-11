@@ -61,7 +61,7 @@ public class FertiliserValueWrapper {
     }
 
     public FertiliserValueWrapper(Fertiliser fertiliser) {
-        this(fertiliser.getType(), fertiliser.getManufacturer(), fertiliser.getSuggestedUsageAmount(), fertiliser.getUsageUom(),
+        this(fertiliser.type(), fertiliser.getManufacturer(), fertiliser.getSuggestedUsageAmount(), fertiliser.getUsageUom(),
                 fertiliser.getPh(), fertiliser.getAluminium(), fertiliser.getBoron(), fertiliser.getCalcium(), fertiliser.getChlorine(),
                 fertiliser.getCobalt(), fertiliser.getCopper(), fertiliser.getIron(), fertiliser.getMagnesium(), fertiliser.getManganese(),
                 fertiliser.getMolybdenum(), fertiliser.getNitrogen(), fertiliser.getNickel(), fertiliser.getPhosphorus(), fertiliser.getPotassium(),

@@ -12,12 +12,8 @@ public class LogGroupTreeItem extends MenuedTreeItem {
     
     public LogGroupTreeItem(LogGroup value) {
         super(value);
-        
-        
         for(Log log : value.getLogs()) {
             getChildren().add(new LogTreeItem(log));
-        }
-       
-        
+        }        
     }    
 }

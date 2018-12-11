@@ -3,9 +3,8 @@ package com.etlsolutions.javafx.presentation.menu.file;
 import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -14,10 +13,10 @@ import javafx.stage.Stage;
  */
 public class NewProjectDialogBrowseButtonEventHandler implements EventHandler<ActionEvent> {
 
-    private final TextField pathTextField;
+    private final Label label;
 
-    public NewProjectDialogBrowseButtonEventHandler(TextField pathTextField) {
-        this.pathTextField = pathTextField;
+    public NewProjectDialogBrowseButtonEventHandler(Label label) {
+        this.label = label;
     }
 
     @Override
@@ -29,7 +28,7 @@ public class NewProjectDialogBrowseButtonEventHandler implements EventHandler<Ac
         if (f == null) {
             return;
         }
-        pathTextField.setText(f.getAbsolutePath());
+        label.setText(f.getAbsolutePath());
     }
 
 }

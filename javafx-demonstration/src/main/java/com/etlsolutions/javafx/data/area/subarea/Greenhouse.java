@@ -7,7 +7,6 @@ import com.etlsolutions.javafx.data.area.subarea.location.Container;
 import com.etlsolutions.javafx.data.area.subarea.location.GreenHouseGroundLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -15,8 +14,8 @@ import javafx.collections.ObservableList;
  */
 public class Greenhouse extends SubArea {
 
-    private ObservableList<GreenHouseGroundLocation> locations;
-    private ObservableList<Container> containers;
+    private ObservableListWrapperA<GreenHouseGroundLocation> locations;
+    private ObservableListWrapperA<Container> containers;
 
     public Greenhouse() {
     }
@@ -27,11 +26,11 @@ public class Greenhouse extends SubArea {
         this.containers = new ObservableListWrapperA<>();
     }
 
-    public ObservableList<GreenHouseGroundLocation> getLocations() {
+    public ObservableListWrapperA<GreenHouseGroundLocation> getLocations() {
         return locations;
     }
 
-    public ObservableList<Container> getContainers() {
+    public ObservableListWrapperA<Container> getContainers() {
         return containers;
     }
 

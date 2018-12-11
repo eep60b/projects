@@ -125,7 +125,7 @@
                               <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
                                  <children>
                                     <Button fx:id="addImageButton" mnemonicParsing="false" text="Add" />
-                                    <Button fx:id="reniveImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                    <Button fx:id="removeImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
                                     <Button fx:id="editImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
                                     <Button fx:id="moveToBeginImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="|&lt;" />
                                     <Button fx:id="moveToLeftImageButton" layoutX="53.0" layoutY="10.0" mnemonicParsing="false" text="&lt;" />

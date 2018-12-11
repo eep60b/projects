@@ -9,20 +9,17 @@ import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author zc
  */
-public class NewProjectDialigFXMLController extends AbstractComponentStageFXMLController<NewProjectDataModel> {
+public class OpenProjectFXMLController extends AbstractComponentStageFXMLController<OpenProjectDataModel> {
 
-    @FXML
-    private TextField nameTextField;
     
     @FXML
-    private Label parentLocationLabel;
+    private Label locationLabel;
 
     @FXML
     private Button browseButton;
@@ -38,15 +35,12 @@ public class NewProjectDialigFXMLController extends AbstractComponentStageFXMLCo
 
     @Override
     public void initializeComponents() {        
-        nameTextField.setText(model.getNameValueWrapper().getValue());
-        nameTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getNameValueWrapper()));
-        model.getNameValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValidationPropertyChangeAdapter(model, errorMessageLabel, okButton));
         
-        parentLocationLabel.setText(model.getPathValueWrapper().getValue());
-        parentLocationLabel.textProperty().addListener(new ValueChangeAdapter<>(model.getPathValueWrapper()));
+        locationLabel.setText(model.getPathValueWrapper().getValue());
+        locationLabel.textProperty().addListener(new ValueChangeAdapter<>(model.getPathValueWrapper()));
         model.getPathValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValidationPropertyChangeAdapter(model, errorMessageLabel, okButton));        
         
-        browseButton.setOnAction(new NewProjectDialogBrowseButtonEventHandler(parentLocationLabel));        
+        browseButton.setOnAction(new NewProjectDialogBrowseButtonEventHandler(locationLabel));        
         errorMessageLabel.setDisable(model.isInvalid());
         errorMessageLabel.setText(model.getErrorMessage());
         

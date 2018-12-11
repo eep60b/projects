@@ -1,11 +1,13 @@
 package com.etlsolutions.javafx.system;
 
-import com.etlsolutions.javafx.data.other.Fertiliser;
+
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
+import com.etlsolutions.javafx.data.other.SolidFertiliser;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 
 /**
@@ -19,7 +21,7 @@ public class ProjectContents {
     private PlantGroupRoot plantsGroupRoot;
     private LogGroupRoot logGroupRoot;
     private ObservableListWrapperA<GrowingMedium> growingMediums;
-    private ObservableListWrapperA<Fertiliser> fertilisers;
+    private ObservableListWrapperA<SolidFertiliser> solidFertilisers;
     private ObservableListWrapperA<LiquidFertiliser> liquidFertilisers;
     
     private ObservableListWrapperA<String> locationReferencePoints;
@@ -70,12 +72,20 @@ public class ProjectContents {
         this.growingMediums = growingMediums;
     }
 
-    public ObservableListWrapperA<Fertiliser> getFertilisers() {
+    public ObservableListWrapperA<Fertiliser> fertilisers() {
+        
+        ObservableListWrapperA<Fertiliser> fertilisers = new ObservableListWrapperA<>();
+        fertilisers.addAll(solidFertilisers);
+        fertilisers.addAll(liquidFertilisers);
         return fertilisers;
     }
 
-    public void setFertilisers(ObservableListWrapperA<Fertiliser> fertilisers) {
-        this.fertilisers = fertilisers;
+    public ObservableListWrapperA<SolidFertiliser> getSolidFertilisers() {
+        return solidFertilisers;
+    }
+
+    public void setSolidFertilisers(ObservableListWrapperA<SolidFertiliser> solidFertilisers) {
+        this.solidFertilisers = solidFertilisers;
     }
 
     public ObservableListWrapperA<LiquidFertiliser> getLiquidFertilisers() {
@@ -196,5 +206,5 @@ public class ProjectContents {
 
     public void setFertiliserDelutionRatioUoms(ObservableListWrapperA<String> fertiliserDelutionRatioUoms) {
         this.fertiliserDelutionRatioUoms = fertiliserDelutionRatioUoms;
-    }    
+    }       
 }

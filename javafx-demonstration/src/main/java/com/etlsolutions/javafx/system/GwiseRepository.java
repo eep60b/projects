@@ -23,7 +23,7 @@ public final class GwiseRepository {
     }
     
     public void initRepository(String... args) throws IOException {
-        
+ 
         File repositoryDirectory = new File(SettingConstants.REPOSITORY_LOCATION);
 
         if (!repositoryDirectory.isDirectory()) {

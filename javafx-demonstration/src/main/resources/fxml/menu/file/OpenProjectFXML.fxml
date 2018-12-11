@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="87.0" prefWidth="408.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.menu.file.OpenProjectFXMLController">
+    <stylesheets>
+        <URL value="@/styles/menu/file/openprojectfxml.css" />
+    </stylesheets>
+       <children>
+      <VBox layoutX="43.0" layoutY="74.0" prefHeight="180.0" prefWidth="369.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Open Project">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding></Label>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" spacing="10.0">
+               <children>
+                  <Label text="Location:">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="locationLabel" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="257.0" text="Location:" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="browseButton" mnemonicParsing="false" text="Browse">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="37.0" spacing="10.0">
+               <children>
+                  <Label fx:id="errorMessageLabel" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="253.0" text="Error message" textFill="#fc0000" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="107.0" prefHeight="68.0" prefWidth="578.0" spacing="10.0">
+               <children>
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
+                  <Button fx:id="cancelButton" layoutX="385.0" layoutY="10.0" mnemonicParsing="false" text="Cancel">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+</AnchorPane>

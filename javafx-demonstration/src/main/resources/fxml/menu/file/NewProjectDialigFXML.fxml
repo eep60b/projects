@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="463.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.file.NewProjectDialigFXMLController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="465.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.file.NewProjectDialigFXMLController">
   <stylesheets>
     <URL value="@/styles/menu/file/newprojectdialigfxml.css" />
   </stylesheets>
@@ -22,10 +23,13 @@
                         <Insets left="10.0" />
                      </padding></Label>
                </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </HBox>
             <HBox layoutX="10.0" layoutY="37.0" spacing="10.0">
                <children>
-                  <Label minWidth="10.0" prefHeight="20.0" prefWidth="99.0" text="Project Name:">
+                  <Label minWidth="10.0" prefHeight="20.0" prefWidth="105.0" text="Project Name:">
                      <padding>
                         <Insets left="10.0" top="3.0" />
                      </padding>
@@ -42,18 +46,18 @@
             </HBox>
             <HBox spacing="10.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label minWidth="10.0" text="Project Location:">
+                  <Label minWidth="10.0" prefHeight="20.0" prefWidth="105.0" text="Project Location:">
                      <padding>
                         <Insets left="10.0" top="3.0" />
                      </padding>
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Label>
-                  <TextField fx:id="parentLocationTextField" HBox.hgrow="ALWAYS">
+                  <Label fx:id="parentLocationLabel" prefHeight="17.0" prefWidth="246.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
-                     </HBox.margin></TextField>
-                  <Button fx:id="browseButton" mnemonicParsing="false" text="Browse">
+                     </HBox.margin></Label>
+                  <Button fx:id="browseButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Browse">
                      <HBox.margin>
                         <Insets right="40.0" />
                      </HBox.margin>
@@ -65,14 +69,22 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Label fx:id="errorMessageLabel" text="Error message" textFill="#56b92c">
+                  <Label fx:id="errorMessageLabel" text="Error message">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#fc2003" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="107.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="107.0" prefHeight="32.0" prefWidth="437.0" spacing="10.0">
                <children>
                   <Button fx:id="okButton" mnemonicParsing="false" text="OK">
                      <HBox.margin>
@@ -89,7 +101,4 @@
          </children>
       </VBox>
    </children>
-   <padding>
-      <Insets top="10.0" />
-   </padding>
 </AnchorPane>

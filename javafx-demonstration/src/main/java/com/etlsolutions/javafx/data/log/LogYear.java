@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -14,7 +14,7 @@ public class LogYear extends DataUnit {
     public static final String LOGS_PROPERTY = "com.etlsolutions.javafx.data.log.LogYear.LOGS_PROPERTY";
 
     private int year;
-    private ObservableList<LogMonth> months;
+    private ObservableListWrapperA<LogMonth> months;
 
     public LogYear() {
     }
@@ -27,7 +27,7 @@ public class LogYear extends DataUnit {
         return year;
     }
 
-    public ObservableList<LogMonth> getMonths() {
+    public ObservableListWrapperA<LogMonth> getMonths() {
         return months;
     }
 
