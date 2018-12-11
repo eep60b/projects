@@ -126,7 +126,7 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> 
                 return new CustomTaskDetailDataModel(FertiliserFactory.getInstance().getDefaultCustomDetail());
             case FERTILZATION:
                 return new FertilisationTaskDetailDataModel(
-                        new FertilisationTaskDetail(FertiliserFactory.getInstance().getDefaultSolidFertiliser(), 0.0, "growmore"));
+                        new FertilisationTaskDetail(FertiliserFactory.getInstance().getDefaultFertiliser(), 0.0, "growmore"));
             default:
                 return null;
         }

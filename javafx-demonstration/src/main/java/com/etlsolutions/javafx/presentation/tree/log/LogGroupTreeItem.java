@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.tree.log;
 
-import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.LogGroup;
+import com.etlsolutions.javafx.data.log.LogYear;
 import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
 
 /**
@@ -10,10 +10,10 @@ import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
  */
 public class LogGroupTreeItem extends MenuedTreeItem {
     
-    public LogGroupTreeItem(LogGroup value) {
-        super(value);
-        for(Log log : value.getLogs()) {
-            getChildren().add(new LogTreeItem(log));
+    public LogGroupTreeItem(LogGroup group) {
+        super(group);
+        for(LogYear year : group.getYears()) {
+            getChildren().add(new LogYearTreeItem(year));
         }        
     }    
 }

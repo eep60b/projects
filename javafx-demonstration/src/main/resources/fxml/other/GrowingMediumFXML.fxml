@@ -146,7 +146,7 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <Label fx:id="errorMessageButton" text="Error message" textFill="#f20808">
+            <Label fx:id="errorMessageLabel" text="Error message" textFill="#f20808">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>

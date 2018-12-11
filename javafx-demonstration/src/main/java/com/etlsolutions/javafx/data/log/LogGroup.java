@@ -14,7 +14,6 @@ public class LogGroup extends DataUnit {
     public static final String LOGS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.LOGS_PROPERTY";
     @JsonIgnore
     public static final String YEARS_PROPERTY = "com.etlsolutions.javafx.data.log.LogGroup.YEARS_PROPERTY";
-
     @JsonIgnore
     private final ObservableListWrapperA<Log> cache = new ObservableListWrapperA<>();
 
@@ -83,5 +82,13 @@ public class LogGroup extends DataUnit {
     @JsonIgnore
     public ObservableListWrapperA<Log> getLogs() {
         return cache;
+    }
+    
+    public void refreshCache() {
+        
+        for(LogYear year :years) {
+            
+            cache.addAll(year.getLogs());
+        }
     }
 }

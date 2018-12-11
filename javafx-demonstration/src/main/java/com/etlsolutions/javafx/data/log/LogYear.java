@@ -21,14 +21,23 @@ public class LogYear extends DataUnit {
 
     protected LogYear(int year) {
         super(String.valueOf(year), String.valueOf(year));
+        months = new ObservableListWrapperA<>();
     }
 
     public int getYear() {
         return year;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public ObservableListWrapperA<LogMonth> getMonths() {
         return months;
+    }
+
+    public void setMonths(ObservableListWrapperA<LogMonth> months) {
+        this.months = months;
     }
 
     public LogMonth getMonth(int month) {
@@ -86,5 +95,17 @@ public class LogYear extends DataUnit {
 
     boolean isEmpty() {
         return months.isEmpty();
+    }
+    
+    @JsonIgnore
+    public ObservableListWrapperA<Log> getLogs() {
+        
+        ObservableListWrapperA<Log> logs = new ObservableListWrapperA<Log>();
+        
+        for(LogMonth month : months) {
+            logs.addAll(month.getLogs());
+        }
+        
+        return logs;
     }
 }

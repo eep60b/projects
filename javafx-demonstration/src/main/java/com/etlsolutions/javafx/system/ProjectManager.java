@@ -68,7 +68,7 @@ public final class ProjectManager {
 
         ProjectContents contents = new ProjectContents();
         contents.setGrowingMediums(RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class.getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GrowingMediumGroup.class).getGrowingMediums());
-        contents.setSolidFertilisers(FertiliserFactory.getInstance().getDefaultSolidFertilisers());
+        contents.setFertilisers(FertiliserFactory.getInstance().getDefaultFertilisers());
         contents.setLiquidFertilisers(FertiliserFactory.getInstance().getDefaultLiquidFertilisers());
         contents.setLocationDirections(LocationFactory.getInstance().getDefaultLocationDirections());
         contents.setLocationReferencePoints(LocationFactory.getInstance().getDefaultLocationReferencePoints());

@@ -7,7 +7,6 @@ import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
-import com.etlsolutions.javafx.data.other.SolidFertiliser;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 
 /**
@@ -21,7 +20,7 @@ public class ProjectContents {
     private PlantGroupRoot plantsGroupRoot;
     private LogGroupRoot logGroupRoot;
     private ObservableListWrapperA<GrowingMedium> growingMediums;
-    private ObservableListWrapperA<SolidFertiliser> solidFertilisers;
+    private ObservableListWrapperA<Fertiliser> fertilisers;
     private ObservableListWrapperA<LiquidFertiliser> liquidFertilisers;
     
     private ObservableListWrapperA<String> locationReferencePoints;
@@ -72,20 +71,12 @@ public class ProjectContents {
         this.growingMediums = growingMediums;
     }
 
-    public ObservableListWrapperA<Fertiliser> fertilisers() {
-        
-        ObservableListWrapperA<Fertiliser> fertilisers = new ObservableListWrapperA<>();
-        fertilisers.addAll(solidFertilisers);
-        fertilisers.addAll(liquidFertilisers);
+    public ObservableListWrapperA<Fertiliser> getFertilisers() {
         return fertilisers;
     }
 
-    public ObservableListWrapperA<SolidFertiliser> getSolidFertilisers() {
-        return solidFertilisers;
-    }
-
-    public void setSolidFertilisers(ObservableListWrapperA<SolidFertiliser> solidFertilisers) {
-        this.solidFertilisers = solidFertilisers;
+    public void setFertilisers(ObservableListWrapperA<Fertiliser> fertilisers) {
+        this.fertilisers = fertilisers;
     }
 
     public ObservableListWrapperA<LiquidFertiliser> getLiquidFertilisers() {

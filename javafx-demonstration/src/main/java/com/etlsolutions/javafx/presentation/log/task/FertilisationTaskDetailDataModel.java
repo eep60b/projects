@@ -22,7 +22,7 @@ public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<Fertil
     public FertilisationTaskDetailDataModel(FertilisationTaskDetail fertilisationTaskDetail) {
 
         super(fertilisationTaskDetail);
-        fertilisers = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().fertilisers());
+        fertilisers = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFertilisers());
         uoms = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFertiliserUoms());
     }
 

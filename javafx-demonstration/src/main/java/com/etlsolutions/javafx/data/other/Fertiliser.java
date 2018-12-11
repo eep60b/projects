@@ -1,12 +1,22 @@
 package com.etlsolutions.javafx.data.other;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.util.Date;
 
 /**
  *
  * @author zc
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+    @JsonSubTypes.Type(name = "LiquidFertiliser", value = LiquidFertiliser.class),
+    @JsonSubTypes.Type(name = "SolidFertiliser", value = SolidFertiliser.class)
+})
 public abstract class Fertiliser extends DataUnit {
 
   private String manufacturer = "Not specified";
@@ -37,7 +47,8 @@ public abstract class Fertiliser extends DataUnit {
   private double vanadium;
   private double zinc;
 
-  public abstract FertiliserType type();
+  @JsonIgnore
+  public abstract FertiliserType getType();
   
   public String getManufacturer() {
     return manufacturer;
