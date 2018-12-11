@@ -1,0 +1,10 @@
+1. Install the application.
+2. Start the application.
+3. Trees:
+    Nothing.
+4. Disabled menu items:
+    File Menu: Save, Save As, Print, Close. 
+    Edit Menu: All.
+
+5. Disabled toolbar buttons:
+

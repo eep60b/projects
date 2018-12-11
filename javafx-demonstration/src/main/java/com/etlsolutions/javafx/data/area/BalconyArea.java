@@ -81,4 +81,9 @@ public class BalconyArea extends Area {
     public AreaType getType() {
         return AreaType.BALCONY;
     }
+
+    @Override
+    public void remove(SubArea selectedSubArea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

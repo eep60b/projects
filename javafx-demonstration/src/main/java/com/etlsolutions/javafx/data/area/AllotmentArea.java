@@ -122,4 +122,16 @@ public class AllotmentArea extends Area {
         sas.addAll(customSubareas);
         return sas;
     }
+
+    @Override
+    public void remove(SubArea subArea) {
+        switch (subArea.getType()) {
+            case PLANT_BED:
+                plantBeds.remove(subArea);
+                return;
+                
+        }
+
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

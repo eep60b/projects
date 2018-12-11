@@ -157,4 +157,9 @@ public class CustomArea extends Area {
     public AreaType getType() {
         return AreaType.CUSTOM;
     }
+
+    @Override
+    public void remove(SubArea selectedSubArea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

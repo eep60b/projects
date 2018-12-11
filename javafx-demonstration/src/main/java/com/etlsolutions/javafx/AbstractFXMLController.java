@@ -7,11 +7,12 @@ import javafx.fxml.Initializable;
 
 /**
  * AbstractFXMLController is a super class of framework controllers.
+ *
  * @author zc
  */
 public abstract class AbstractFXMLController implements Initializable {
 
-    public abstract void initializeComponents()throws Exception;
+    public abstract void initializeComponents() throws Exception;
 
     /**
      * Initializes the controller class.
@@ -28,5 +29,4 @@ public abstract class AbstractFXMLController implements Initializable {
             ThrowableHandler.getInstance().handle(th, getClass());
         }
     }
-
 }

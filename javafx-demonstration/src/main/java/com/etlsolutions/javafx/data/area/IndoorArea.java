@@ -86,4 +86,9 @@ public class IndoorArea extends Area {
     public AreaType getType() {
         return AreaType.INDOOR;
     }
+
+    @Override
+    public void remove(SubArea selectedSubArea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

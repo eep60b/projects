@@ -6,16 +6,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
-import com.etlsolutions.javafx.data.area.subarea.Border;
-import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
-import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
-import com.etlsolutions.javafx.data.area.subarea.Greenhouse;
-import com.etlsolutions.javafx.data.area.subarea.Lawn;
-import com.etlsolutions.javafx.data.area.subarea.PlantBed;
-import com.etlsolutions.javafx.data.area.subarea.Pond;
-import com.etlsolutions.javafx.data.area.subarea.RaisedPlantBed;
-import com.etlsolutions.javafx.data.area.subarea.Room;
-import com.etlsolutions.javafx.data.area.subarea.SingleContainer;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,12 +20,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({
-        @JsonSubTypes.Type(name = "BalconyArea", value = BalconyArea.class),
-        @JsonSubTypes.Type(name = "CustomArea", value = CustomArea.class),
-        @JsonSubTypes.Type(name = "FarmArea", value = FarmArea.class),
-        @JsonSubTypes.Type(name = "GardenArea", value = GardenArea.class),
-        @JsonSubTypes.Type(name = "IndoorArea", value = IndoorArea.class),
-        @JsonSubTypes.Type(name = "PatioArea", value = PatioArea.class)
+    @JsonSubTypes.Type(name = "BalconyArea", value = BalconyArea.class),
+    @JsonSubTypes.Type(name = "CustomArea", value = CustomArea.class),
+    @JsonSubTypes.Type(name = "FarmArea", value = FarmArea.class),
+    @JsonSubTypes.Type(name = "GardenArea", value = GardenArea.class),
+    @JsonSubTypes.Type(name = "IndoorArea", value = IndoorArea.class),
+    @JsonSubTypes.Type(name = "PatioArea", value = PatioArea.class)
 })
 public abstract class Area extends DataUnit {
 
@@ -68,8 +58,16 @@ public abstract class Area extends DataUnit {
 
     public abstract ObservableListWrapperA<SubArea> getSubAreas(SubAreaType type);
 
+    @JsonIgnore
     public abstract ObservableListWrapperA<SubArea> getAllSubAreas();
-    
+
+    /**
+     * Remove the specified SubArea object.
+     *
+     * @param selectedSubArea - The object to be removed.
+     */
+    public abstract void remove(SubArea selectedSubArea);
+
     public double getLongitude() {
         return longitude;
     }
@@ -107,9 +105,5 @@ public abstract class Area extends DataUnit {
         AreaShape oldValue = this.shape;
         this.shape = shape;
         fireChange(SHAPE_PROPERTY, oldValue, this.shape);
-    }
-
-    public void remove(SubArea selectedSubArea) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
