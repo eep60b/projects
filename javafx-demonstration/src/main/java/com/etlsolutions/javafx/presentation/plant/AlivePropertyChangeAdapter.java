@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.plant;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -26,8 +27,8 @@ public class AlivePropertyChangeAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        AddPlantDataModel model = (AddPlantDataModel) evt.getSource();
-        boolean isAlive = model.getIsAliveValueWrapper().getValue();
+        ValueWrapper<Boolean> model = (ValueWrapper<Boolean>) evt.getSource();
+        boolean isAlive = model.getValue();
         if(!isAlive){
             terminationDatePicker.setDateTimeValue(LocalDateTime.now());
             terminationTextArea.setText("");

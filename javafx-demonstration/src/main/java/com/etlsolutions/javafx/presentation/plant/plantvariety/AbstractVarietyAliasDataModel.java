@@ -11,18 +11,18 @@ import com.etlsolutions.javafx.presentation.Validatable;
  * @author zc
  */
 public abstract class AbstractVarietyAliasDataModel implements TitleDataModel, Validatable, Savable, FXMLActionDataModel {
-    
-    private final AbstractVarietyDataModel parentModel;
-    private final ValueWrapper<String> aliasValueWrapper;
+
+    protected final AbstractVarietyDataModel parentModel;
+    protected final ValueWrapper<String> aliasValueWrapper;
 
     public AbstractVarietyAliasDataModel(AbstractVarietyDataModel parentModel) {
         this.parentModel = parentModel;
         aliasValueWrapper = new ValueWrapper<>(parentModel.getSelectedAliasWalueWrapper().getValue());
     }
-    
+
     @Override
     public boolean isInvalid() {
-        String alias = aliasValueWrapper.getValue();        
+        String alias = aliasValueWrapper.getValue();
         return alias == null || alias.trim().isEmpty();
     }
 
@@ -30,23 +30,19 @@ public abstract class AbstractVarietyAliasDataModel implements TitleDataModel, V
     public String getErrorMessage() {
 
         if (isInvalid()) {
-            return "";
+
+            return "Please enter alias name.";
         }
-        return "Please enter alias name.";
+        return "";
     }
-    
+
     @Override
-    public ValueWrapper<String> getTitleValueWrapper() {
+    public final ValueWrapper<String> getTitleValueWrapper() {
         return aliasValueWrapper;
     }
-    
+
     @Override
     public String getFxmlPath() {
         return "/fxml/plant/VarietyAliasFXML.fxml";
-    }    
-
-    @Override
-    public void save() {
-        parentModel.getSelectedAliasWalueWrapper().setValue(aliasValueWrapper.getValue());
     }
 }

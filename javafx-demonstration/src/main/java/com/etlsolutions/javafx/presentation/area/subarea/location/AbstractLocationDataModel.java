@@ -89,7 +89,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
 
     @Override
     public String getFxmlPath() {
-        return "/fxml/location/LocationFXML.fxml";
+        return "/fxml/area/LocationFXML.fxml";
     }
 
     public final LocationMeasurementDataModel getMeasurementDataModel(LocationMeasurementType type) {

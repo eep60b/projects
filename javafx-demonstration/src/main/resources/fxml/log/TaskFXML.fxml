@@ -69,7 +69,7 @@
                                     <children>
                                         <HBox fx:id="startTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="Start Time:">
+                                                <Label prefHeight="20.0" prefWidth="80.0" text="Start Time:">
                                                     <padding>
                                                         <Insets top="3.0" />
                                                     </padding>
@@ -78,18 +78,24 @@
                                         </HBox>
                                         <HBox fx:id="endTimeHbox" layoutX="20.0" layoutY="20.0" spacing="10.0">
                                             <children>
-                                                <Label text="End Time:">
+                                                <Label prefHeight="20.0" prefWidth="80.0" text="End Time:">
                                                     <padding>
                                                         <Insets top="3.0" />
                                                     </padding>
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <HBox fx:id="endTimeHbox1" layoutX="20.0" layoutY="50.0" spacing="10.0">
+                                        <HBox fx:id="repeatTimeHbox" layoutX="20.0" layoutY="50.0" spacing="10.0">
                                             <children>
-                                    <ComboBox fx:id="repeatComboBox" prefHeight="34.0" prefWidth="221.0" />
+                                    <CheckBox fx:id="repeatCheckBox" mnemonicParsing="false" prefHeight="17.0" prefWidth="80.0" text="Repeat" />
+                                    <ComboBox fx:id="repeatComboBox" prefHeight="25.0" prefWidth="490.0" />
                                             </children>
                                         </HBox>
+                              <Separator prefWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Separator>
                                         <HBox fx:id="notificationHbox" layoutX="20.0" layoutY="50.0" spacing="10.0">
                                             <children>
                                                 <Label text="Notifictions">

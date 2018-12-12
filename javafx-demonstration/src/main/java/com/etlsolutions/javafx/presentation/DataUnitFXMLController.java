@@ -39,8 +39,8 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
         editImageButton.setDisable(selectedImageLink == null);
         moveToBeginImageButton.setDisable(model.getSelectedImgLinkIndex() < 1);
         moveToLeftImageButton.setDisable(model.getSelectedImgLinkIndex() < 1);
-        moveToEndImageButton.setDisable(model.getSelectedImgLinkIndex() == model.getImageLinks().size() - 1);
-        moveToRightImageButton.setDisable(model.getSelectedImgLinkIndex() == model.getImageLinks().size() - 1);
+        moveToEndImageButton.setDisable(model.getSelectedImgLinkIndex() < 1 || model.getSelectedImgLinkIndex() == model.getImageLinks().size() - 1);
+        moveToRightImageButton.setDisable(model.getSelectedImgLinkIndex() < 1 || model.getSelectedImgLinkIndex() == model.getImageLinks().size() - 1);
   
         for (ImageLink link : model.getImageLinks()) {
             imageTilePane.getChildren().addAll(new ImageView(new Image(link.getLink())));

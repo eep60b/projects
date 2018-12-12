@@ -18,7 +18,13 @@ public final class ThrowableHandler {
         return INSTANCE;
     }
 
-    public void handle(Throwable th, Class<?> klass, String message) {
+    public void handleWarning(CustomLevelWarningRuntimeExceiption ex, Class<?> klass) {
+        Logger.getLogger(klass).warn(ex);
+        Alert alert = new Alert(Alert.AlertType.ERROR, ex.getMessage());
+        alert.showAndWait();
+    }      
+    
+    public void handleError(Throwable th, Class<?> klass, String message) {
         Logger.getLogger(klass).error(th);
         th.printStackTrace();
         Alert alert = new Alert(Alert.AlertType.ERROR, message);
@@ -26,8 +32,8 @@ public final class ThrowableHandler {
         System.exit(-1);
     }    
     
-    public void handle(Throwable th, Class<?> klass) {
+    public void handleError(Throwable th, Class<?> klass) {
         
-        handle(th, klass, "Error: the project is corrupted.");
+        handleError(th, klass, "Error: the project is corrupted.");
     }
 }

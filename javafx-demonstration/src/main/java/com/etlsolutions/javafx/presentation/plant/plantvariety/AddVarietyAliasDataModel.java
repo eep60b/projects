@@ -10,4 +10,10 @@ public class AddVarietyAliasDataModel extends AbstractVarietyAliasDataModel{
         super(model);
         getTitleValueWrapper().setValue("");
     }
+   
+    @Override
+    public void save() {
+        parentModel.getAliases().add(aliasValueWrapper.getValue());
+        parentModel.getSelectedAliasWalueWrapper().setValue(aliasValueWrapper.getValue());
+    }    
 }

@@ -33,4 +33,9 @@ public class EditVarietyAliasDataModel extends AbstractVarietyAliasDataModel {
         }
         return super.getErrorMessage();
     }
+    
+    @Override
+    public void save() {
+        parentModel.getSelectedAliasWalueWrapper().setValue(aliasValueWrapper.getValue());
+    }    
 }

@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.menu;
 import com.etlsolutions.javafx.AbstractFXMLController;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.menu.file.CloseProjectEventHnadler;
+import com.etlsolutions.javafx.presentation.menu.file.DeleteProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.ExitApplicationEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.NewProjectDialogEventHandler;
@@ -33,6 +34,9 @@ public class MenusController extends AbstractFXMLController {
 
     @FXML
     private MenuItem closeProjectMenuItem;
+    
+    @FXML
+    private MenuItem deleteProjectMenuItem;
 
     @FXML
     private MenuItem saveProjectMenuItem;
@@ -124,6 +128,7 @@ public class MenusController extends AbstractFXMLController {
 
         saveAsProjectMenuItem.setOnAction(new SaveAsProjectEventHandler());
         closeProjectMenuItem.setOnAction(new CloseProjectEventHnadler());
+        deleteMenuItem.setOnAction(new DeleteProjectEventHandler());
         exitMenuItem.setOnAction(new ExitApplicationEventHandler());
 
         newProjectToolbarButton.setOnAction(new NewProjectDialogEventHandler(new NewProjectDataModel()));

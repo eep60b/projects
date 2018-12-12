@@ -23,6 +23,7 @@
                         <MenuItem fx:id="openProjectMenuItem" mnemonicParsing="false" text="Open Project" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="closeProjectMenuItem" mnemonicParsing="false" text="Close Project" />
+                        <MenuItem fx:id="deleteProjectMenuItem" mnemonicParsing="false" text="Delete Project" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="saveProjectMenuItem" mnemonicParsing="false" text="Save" />
                         <MenuItem fx:id="saveAsProjectMenuItem" mnemonicParsing="false" text="Save as..." />

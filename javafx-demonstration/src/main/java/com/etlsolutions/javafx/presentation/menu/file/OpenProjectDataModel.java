@@ -49,7 +49,7 @@ public class OpenProjectDataModel implements Validatable, Savable, FXMLActionDat
 
     @Override
     public void save() {
-        ProjectManager.getInstance().openProject(pathValueWrapper.getValue());
+        ProjectManager.getInstance().loadProject(pathValueWrapper.getValue());
         close();
     }
 

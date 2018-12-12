@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -90,6 +91,12 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
 
     @FXML
     private HBox endTimeHbox;
+    
+    @FXML
+    private CheckBox repeatCheckBox;
+    
+    @FXML
+    private ComboBox repeatComboBox;
 
     @FXML
     private ListView<Notification> notificationListView;

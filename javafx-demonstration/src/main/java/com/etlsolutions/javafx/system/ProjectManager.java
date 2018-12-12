@@ -88,19 +88,23 @@ public final class ProjectManager {
         contentsValueWrapper.setValue(contents);
     }
 
-    public boolean loadProject(String projectPath) throws IOException {
+    public boolean loadProject(String projectPath) {
 
-        File file = new File(projectPath);
-        configuration = new ProjectConfiguration(file.getName(), file.getParent());
+        try {
+            File file = new File(projectPath);
+            configuration = new ProjectConfiguration(file.getName(), file.getParent());
 
-        File contentsFile = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
+            File contentsFile = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
 
-        if (contentsFile.isFile()) {            
-            contentsValueWrapper.setValue(mapper.readValue(contentsFile, ProjectContents.class));
-            return true;
-        }        
-        contentsValueWrapper.setValue(null);
-        return false;
+            if (contentsFile.isFile()) {
+                contentsValueWrapper.setValue(mapper.readValue(contentsFile, ProjectContents.class));
+                return true;
+            }
+            contentsValueWrapper.setValue(null);
+            return false;
+        } catch (IOException ex) {
+            throw new CustomLevelErrorRuntimeExceiption("Failed to read files from " + projectPath, ex);
+        }
     }
 
     public void createProject(String parentPath, String name) {
@@ -152,18 +156,17 @@ public final class ProjectManager {
 
     public void saveProject() {
         try {
-            
+
             File file = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
-            
-            if(!file.exists()) {
+
+            if (!file.exists()) {
                 file.getParentFile().mkdirs();
                 file.createNewFile();
             }
-            
+
             mapper.writer().writeValue(file, contentsValueWrapper.getValue());
         } catch (IOException ex) {
-            ThrowableHandler.getInstance().handle(ex, getClass(), "Failed to save the project.");
-            throw new CustomLevelErrorRuntimeExceiption(ex);
+            throw new CustomLevelErrorRuntimeExceiption("Failed to save the project.", ex);
         }
     }
 
@@ -173,6 +176,7 @@ public final class ProjectManager {
 
     public void close() {
         contentsValueWrapper.setValue(null);
+        configuration = null;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -207,7 +211,14 @@ public final class ProjectManager {
         dataMap.remove(unit.getId(), unit);
     }
 
-    public void openProject(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteProject() {
+
+        File file = new File(configuration.getProjectPath());
+        close();
+        boolean success = file.delete();
+
+        if (!success) {
+            throw new CustomLevelWarningRuntimeExceiption("Failed to delete " + file.getAbsolutePath());
+        }
     }
 }

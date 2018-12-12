@@ -38,7 +38,7 @@ public class AddGrowingMediumFXMLController extends DataUnitFXMLController<Growi
     private TextField stonePercentageTextField;
 
     @FXML
-    private TextField organicMaterialPercentageTextField;
+    private TextField organicPercentageTextField;
 
     @FXML
     private TextField waterStoragePercentageTextField;
@@ -91,8 +91,8 @@ public class AddGrowingMediumFXMLController extends DataUnitFXMLController<Growi
         clayPercentageTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         stonePercentageTextField.setText(model.getStonePercentage().getValue());
         stonePercentageTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        organicMaterialPercentageTextField.setText(model.getOrganicPercentage().getValue());
-        organicMaterialPercentageTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        organicPercentageTextField.setText(model.getOrganicPercentage().getValue());
+        organicPercentageTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         waterStoragePercentageTextField.setText(model.getWaterStoragePercentage().getValue());
         waterStoragePercentageTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         phTextField.setText(model.getPh().getValue());
@@ -102,7 +102,7 @@ public class AddGrowingMediumFXMLController extends DataUnitFXMLController<Growi
         siltPercentageTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getSiltPercentage()));
         clayPercentageTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getClayPercentage()));
         stonePercentageTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getStonePercentage()));
-        organicMaterialPercentageTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getOrganicPercentage()));
+        organicPercentageTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getOrganicPercentage()));
         waterStoragePercentageTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getWaterStoragePercentage()));
         phTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getPh()));
     }

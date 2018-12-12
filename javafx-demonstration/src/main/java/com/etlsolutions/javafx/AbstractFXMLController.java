@@ -26,7 +26,7 @@ public abstract class AbstractFXMLController implements Initializable {
         try {
             initializeComponents();
         } catch (Throwable th) {
-            ThrowableHandler.getInstance().handle(th, getClass());
+            ThrowableHandler.getInstance().handleError(th, getClass());
         }
     }
 }

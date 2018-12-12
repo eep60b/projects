@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx;
 
+import com.etlsolutions.javafx.system.CustomLevelWarningRuntimeExceiption;
 import com.etlsolutions.javafx.system.GwiseRepository;
 import com.etlsolutions.javafx.system.ThrowableHandler;
 import javafx.application.Application;
@@ -31,8 +32,11 @@ public class MainApp extends Application {
             stage.setTitle("ETL JavaFX POC");
             stage.setScene(scene);
             stage.show();
+            Logger.getLogger(MainApp.class).info("End the applicaiton.\n\n\n\n");            
+        } catch (CustomLevelWarningRuntimeExceiption ex) {
+            ThrowableHandler.getInstance().handleWarning(ex, MainApp.class);
         } catch (Throwable th) {
-            ThrowableHandler.getInstance().handle(th, getClass());
+            ThrowableHandler.getInstance().handleError(th, MainApp.class);
         }
     }
 
@@ -50,8 +54,10 @@ public class MainApp extends Application {
         try {
             GwiseRepository.getInstance().initRepository(args);
             launch(args);
+        } catch (CustomLevelWarningRuntimeExceiption ex) {
+            ThrowableHandler.getInstance().handleWarning(ex, MainApp.class);
         } catch (Throwable th) {
-            ThrowableHandler.getInstance().handle(th, MainApp.class);
+            ThrowableHandler.getInstance().handleError(th, MainApp.class);
         }
     }
 }
