@@ -23,6 +23,6 @@ public class EditAreaDataModel extends AbstractAreaDataModel {
         dataUnit.setSelectedImgLinkIndex(getImageLinks().indexOf(getSelectedImageLinkWrapper().getValue()));
         dataUnit.setLongitude(areaValueWrapper.getLongitude());
         dataUnit.setLatitude(areaValueWrapper.getLatitude());
-        dataUnit.setMeasurement(measurementDataModelValueWrapper.getValue().getMeasurementValueWrapper().getMeasurement());
+        dataUnit.setMeasurement(measurementDataModel.getMeasurementValueWrapper().getMeasurement());
     }
 }

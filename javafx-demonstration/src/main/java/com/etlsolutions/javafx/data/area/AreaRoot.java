@@ -120,5 +120,9 @@ public class AreaRoot extends DataUnit {
                 patioAreas.remove((PatioArea) area);
         }
     }
+
+    public void add(Area area) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

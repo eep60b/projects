@@ -5,8 +5,8 @@ import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
+import com.etlsolutions.javafx.presentation.NodeGenerator;
 import com.etlsolutions.javafx.presentation.area.AreaShapePropertyChangeAdapter;
-import com.etlsolutions.javafx.presentation.area.NodeGenerator;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import java.util.HashMap;
 import java.util.Map;
@@ -93,12 +93,12 @@ public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, Abstr
         typeComboBox.setDisable(model.getSubAreaTypes().size() <= 1);
         typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedSubAreaType()));
 
-        ValueWrapper<MeasurementType> typeValueWrapper = model.getMeasurementDataModelValueWrapper().getValue().getMeasurementValueWrapper().getTypeValueWrapper();
+        ValueWrapper<MeasurementType> typeValueWrapper = model.getContentModel().getMeasurementValueWrapper().getTypeValueWrapper();
         measurementTab.setContent(nodeGenerator.getNode(typeValueWrapper.getValue()));
         shapeComboBox.setItems(model.getSubAreaShapes());
         shapeComboBox.getSelectionModel().select(typeValueWrapper.getValue());
         shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(typeValueWrapper));
-        typeValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaShapePropertyChangeAdapter(nodeGenerator, measurementTab));
+        typeValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaShapePropertyChangeAdapter(model, nodeGenerator, measurementTab));
 
 
 

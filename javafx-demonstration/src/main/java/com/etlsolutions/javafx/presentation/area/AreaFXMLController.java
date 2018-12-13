@@ -8,6 +8,7 @@ import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
+import com.etlsolutions.javafx.presentation.NodeGenerator;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import java.util.HashMap;
@@ -114,12 +115,12 @@ public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAre
         typeComboBox.setDisable(model.getAreaTypes().size() <= 1); 
         typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedAreaTypeValueWrapper()));
 
-        ValueWrapper<MeasurementType> typeValueWrapper = model.getMeasurementDataModelValueWrapper().getValue().getMeasurementValueWrapper().getTypeValueWrapper();
+        ValueWrapper<MeasurementType> typeValueWrapper = model.getContentModel().getMeasurementValueWrapper().getTypeValueWrapper();
         measurementTab.setContent(nodeGenerator.getNode(typeValueWrapper.getValue()));
         shapeComboBox.setItems(model.getAreaShapes());
         shapeComboBox.getSelectionModel().select(typeValueWrapper.getValue());
         shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(typeValueWrapper));
-        typeValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaShapePropertyChangeAdapter(nodeGenerator, measurementTab));
+        typeValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaShapePropertyChangeAdapter(model, nodeGenerator, measurementTab));
 
         longitudeTextField.setText(String.valueOf(model.getAreaValueWrapper().getLongitudeValueWrapper().getValue()));
         longitudeTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));

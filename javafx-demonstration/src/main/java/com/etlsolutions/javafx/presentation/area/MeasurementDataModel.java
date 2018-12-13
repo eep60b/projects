@@ -1,13 +1,14 @@
 package com.etlsolutions.javafx.presentation.area;
 
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
+import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 
 /**
  *
  * @author zc
  * @param <T>
  */
-public abstract class MeasurementDataModel <T extends MeasurementValueWrapper> {
+public abstract class MeasurementDataModel <T extends MeasurementValueWrapper> implements FXMLActionDataModel{
     
     
     protected final T measurementValueWrapper;
@@ -15,9 +16,7 @@ public abstract class MeasurementDataModel <T extends MeasurementValueWrapper> {
     public MeasurementDataModel(T measurementValueWrapper) {
         this.measurementValueWrapper = measurementValueWrapper;
     }    
-    
-    public abstract String getFxmlPath();
-
+ 
     public T getMeasurementValueWrapper() {
         return measurementValueWrapper;
     }

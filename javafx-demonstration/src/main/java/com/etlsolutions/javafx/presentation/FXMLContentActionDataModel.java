@@ -3,10 +3,11 @@ package com.etlsolutions.javafx.presentation;
 /**
  *
  * @author zc
+ * @param <T>
  */
-public interface FXMLContentActionDataModel extends FXMLActionDataModel {
+public interface FXMLContentActionDataModel<T extends FXMLActionDataModel> extends FXMLActionDataModel {
     
-    FXMLActionDataModel getContentModel();
+    T getContentModel();
     
-    void setContentModel(FXMLActionDataModel model);
+    void setContentModel(T model);
 }
