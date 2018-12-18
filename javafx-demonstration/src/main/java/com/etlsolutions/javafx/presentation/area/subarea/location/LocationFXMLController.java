@@ -9,11 +9,11 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.EditItemEventHandler;
+import com.etlsolutions.javafx.presentation.NodeGenerator;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;
-import com.etlsolutions.javafx.presentation.area.subarea.EditSubAreaDataModel;
 import static com.etlsolutions.javafx.presentation.area.subarea.location.AddLocationDataModel.*;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import java.util.HashMap;
@@ -124,7 +124,7 @@ public class LocationFXMLController extends DataUnitFXMLController<Location, Abs
         locationTypeComboBox.setItems(model.getTypes());
         locationTypeComboBox.getSelectionModel().select(model.getLocationValueWrapper().getTypeValueWrapper().getValue());
 
-        measurementTab.setContent(nodeGenerator.getNode((LocationMeasurementType)model.getMeasurementDataModelValueWrapper().getValue().getTypeValueWrapper().getValue()));
+        measurementTab.setContent(nodeGenerator.getNode((LocationMeasurementType)model.getContentModel().getTypeValueWrapper().getValue()));
 
         areaComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedAreaValueWrapper()));
         addAreaButton.setOnAction(new AddItemEventHandler<>(model.getAreas(), model.getSelectedAreaValueWrapper(), new AddAreaDataModel()));
@@ -134,7 +134,7 @@ public class LocationFXMLController extends DataUnitFXMLController<Location, Abs
         addSubAreaButton.setOnAction(new AddItemEventHandler<>(model.getSubAreas(), model.getSelectedSubAreaValueWrapper(), new AddSubAreaDataModel(model.getSelectedAreaValueWrapper().getValue())));
         removeSubAreaButton.setOnAction(new RemoveEventHandler(model, SELECTED_SUBAREA_REMOVE_EVENT_ID));
         editSubAreaButton.setOnAction(new EditSubAreaForLocationEventHandler(model));
-        locationTypeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>( model.getMeasurementDataModelValueWrapper().getValue().getTypeValueWrapper()));
+        locationTypeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>( model.getContentModel().getTypeValueWrapper()));
 
         model.getAreas().addListener(new AreaListChangeAdapter(areaComboBox, removeAreaButton, editAreaButton, model));
         model.getSelectedAreaValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaSelectionPropertyChangeAdapter(model, subAreaComboBox));

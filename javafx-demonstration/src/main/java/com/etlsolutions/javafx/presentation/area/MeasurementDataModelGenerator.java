@@ -15,6 +15,9 @@ import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.SquareMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.TriangleMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import com.etlsolutions.javafx.data.area.subarea.location.ContainterMeasurementValueWrapper;
+import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurementValueWrapper;
+import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
 import com.etlsolutions.javafx.presentation.area.subarea.BorderMeasurementDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.BoxDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.CirclePondDataModel;
@@ -22,6 +25,9 @@ import com.etlsolutions.javafx.presentation.area.subarea.ContainerSetDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.IrregularPondDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.SquarePondDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.TrianglePondDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.location.ContainerDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.location.GroundLocationMeasurementDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.location.LocationMeasurementDataModel;
 
 /**
  *
@@ -114,4 +120,15 @@ public class MeasurementDataModelGenerator {
         }
     }
 
+    
+    public final LocationMeasurementDataModel getMeasurementDataModel(LocationMeasurementType type) {
+        switch (type) {
+            case CONTAINER:
+                return new ContainerDataModel(new ContainterMeasurementValueWrapper());
+            case GROUND_LOCATION:
+                return new GroundLocationMeasurementDataModel(new GroundLocationMeasurementValueWrapper());
+            default:
+                throw new IllegalArgumentException("Invalid type");
+        }
+    }    
 }

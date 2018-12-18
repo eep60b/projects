@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.area.subarea.location;
 
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
+import com.etlsolutions.javafx.presentation.NodeGenerator;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;
@@ -32,7 +33,7 @@ public class LocationTypePropertyChangeAdaper implements PropertyChangeListener 
         okButton.setDisable(!model.isInvalid());
         errorMessageLabel.setDisable(!model.isInvalid());
         errorMessageLabel.setText(model.getErrorMessage());
-        measurementTab.setContent(nodeGenerator.getNode((LocationMeasurementType)model.getMeasurementDataModelValueWrapper().getValue().getTypeValueWrapper().getValue()));
+        measurementTab.setContent(nodeGenerator.getNode((LocationMeasurementType)model.getContentModel().getTypeValueWrapper().getValue()));
     }
 
 }
