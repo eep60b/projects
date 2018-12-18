@@ -20,18 +20,18 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
     @Override
     public void save() {
         set(LocationFactory.getInstance().createLocation(commonValueWrapper, locationValueWrapper, measurementDataModelValueWrapper.getValue().getMeasurement()));
-        selectedSubArea.getValue().getLocations(locationValueWrapper.getTypeValueWrapper().getValue()).add(get());
+        selectedSubAreaValueWrapper.getValue().getLocations().add(get());
     }
 
     @Override
     public void remove(RemoveEventId id) {
         
         if(id == SELECTED_AREA_REMOVE_EVENT_ID) {
-           ProjectManager.getInstance().getContents().getAreaRoot().remove(selectedArea.getValue());
+           ProjectManager.getInstance().getContents().getAreaRoot().remove(selectedAreaValueWrapper.getValue());
         }
         
         if(id == SELECTED_SUBAREA_REMOVE_EVENT_ID) {
-            selectedArea.getValue().remove(selectedSubArea.getValue());
+            selectedAreaValueWrapper.getValue().remove(selectedSubAreaValueWrapper.getValue());
         }
         
         super.remove(id);

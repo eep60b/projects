@@ -24,7 +24,7 @@ public class GroundLocationFXMLController extends AbstractComponentsFXMLControll
     private TextField distanceTextField;
 
     @FXML
-    private TextField occupiedArea;
+    private TextField occupiedAreaTextField;
 
     @Override
     public void initializeComponents() {
@@ -43,8 +43,8 @@ public class GroundLocationFXMLController extends AbstractComponentsFXMLControll
         distanceTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
         distanceTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getDistanceValueWrapper()));
                  
-        occupiedArea.setText(model.getOccupiedAreaValueWrapper().getValue());
-        occupiedArea.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
-        occupiedArea.textProperty().addListener(new ValueChangeAdapter<>(model.getOccupiedAreaValueWrapper()));       
+        occupiedAreaTextField.setText(model.getOccupiedAreaValueWrapper().getValue());
+        occupiedAreaTextField.setTextFormatter(new TextFormatter<>(new DigitalFilter()));
+        occupiedAreaTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getOccupiedAreaValueWrapper()));       
     }
 }

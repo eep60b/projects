@@ -118,7 +118,7 @@ public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAre
 
         ValueWrapper<MeasurementType> typeValueWrapper = model.getContentModel().getMeasurementValueWrapper().getTypeValueWrapper();
         measurementTab.setContent(nodeGenerator.getNode(typeValueWrapper.getValue()));
-        shapeComboBox.setItems(model.getAreaShapes());
+        shapeComboBox.setItems(model.getMeasurementTypes());
         shapeComboBox.getSelectionModel().select(typeValueWrapper.getValue());
         shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(typeValueWrapper));
         typeValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AreaShapePropertyChangeAdapter(model, nodeGenerator, measurementTab));

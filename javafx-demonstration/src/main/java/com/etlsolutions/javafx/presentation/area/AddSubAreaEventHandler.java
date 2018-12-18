@@ -26,6 +26,11 @@ public class AddSubAreaEventHandler implements EventHandler<ActionEvent> {
         CreateSubAreaDataModel subAreaDataModel = new CreateSubAreaDataModel(model.getSelectedAreaTypeValueWrapper().getValue().getSubAreaTypes());
         new FXMLActionEventHandler<>(subAreaDataModel).handle(event);
         SubArea subArea = subAreaDataModel.get();
+        
+        if(subArea == null) {
+            return;
+        }
+        
         model.getSubAreas().add(subArea);
         model.getSelectedSubArea().setValue(subArea);
         subAreaListView.setItems(model.getSubAreas());

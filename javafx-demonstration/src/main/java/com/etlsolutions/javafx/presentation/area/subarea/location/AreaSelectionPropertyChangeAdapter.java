@@ -23,6 +23,6 @@ public class AreaSelectionPropertyChangeAdapter implements PropertyChangeListene
     public void propertyChange(PropertyChangeEvent evt) {
 
         subareaComboBox.setItems(model.getSubAreas());
-        subareaComboBox.getSelectionModel().select(model.getSelectedSubArea().getValue());
+        subareaComboBox.getSelectionModel().select(model.getSelectedSubAreaValueWrapper().getValue());
     }  
 }

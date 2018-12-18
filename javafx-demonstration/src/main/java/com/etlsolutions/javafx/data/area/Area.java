@@ -6,7 +6,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
-import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;

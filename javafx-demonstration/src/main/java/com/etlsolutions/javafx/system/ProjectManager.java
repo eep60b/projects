@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.system;
 
+import com.etlsolutions.javafx.MainApp;
 import static com.etlsolutions.javafx.system.SettingConstants.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
@@ -18,6 +19,7 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import org.apache.log4j.Logger;
 
 /**
  * ProjectManager ONLY manage the currently-opened project.
@@ -171,6 +173,7 @@ public final class ProjectManager {
     }
 
     public void exit() {
+        Logger.getLogger(MainApp.class).info("The applicaiton is ended normally.\n\n\n\n");
         System.exit(0);
     }
 

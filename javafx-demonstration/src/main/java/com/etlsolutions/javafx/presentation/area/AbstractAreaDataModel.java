@@ -28,7 +28,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
 
     protected final ObservableListWrapperA<AreaType> areaTypes;
     protected final ValueWrapper<AreaType> selectedAreaTypeValueWrapper;
-    protected final ObservableListWrapperA<MeasurementType> areaShapes;
+    protected final ObservableListWrapperA<MeasurementType> measurementTypes;
     protected AreaValueWrapper areaValueWrapper;
     protected MeasurementDataModel measurementDataModel;
     protected final ObservableListWrapperA<SubArea> subAreas;
@@ -37,7 +37,7 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
     public AbstractAreaDataModel(ObservableListWrapperA<AreaType> areaTypes, Measurement measurement) {
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
-        areaShapes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
+        measurementTypes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
         areaValueWrapper = new AreaValueWrapper();
         measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(measurement);
         subAreas = new ObservableListWrapperA<>();
@@ -48,10 +48,10 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         super(area);
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
-        areaShapes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
+        measurementTypes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
         areaValueWrapper = new AreaValueWrapper(area);
         measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(measurement);
-        subAreas = new ObservableListWrapperA<>(area.getAllSubAreas());
+        subAreas = new ObservableListWrapperA<>(area.getSubAreas());
         selectedSubArea = new ValueWrapper<>(subAreas.isEmpty() ? null : subAreas.get(0));
     }
 
@@ -63,8 +63,8 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
         return selectedAreaTypeValueWrapper;
     }
 
-    public ObservableListWrapperA<MeasurementType> getAreaShapes() {
-        return areaShapes;
+    public ObservableListWrapperA<MeasurementType> getMeasurementTypes() {
+        return measurementTypes;
     }
 
     public AreaValueWrapper getAreaValueWrapper() {

@@ -34,8 +34,8 @@ public final class AreaFactory {
         GardenArea gardenArea = new GardenArea(gardenAreaDataUnitValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
 
         gardenArea.getPlantBeds().add(plantBed);
-        AreaRoot a = new AreaRoot("", "");
-        a.getGardenAreas().add(gardenArea);
+        AreaRoot root = new AreaRoot("All Areas", "");
+        root.getAreas().add(gardenArea);
 
         DataUnitValueWrapper bedRoomDataUnitValueWrapper = new DataUnitValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
         IndoorArea bedRoom = new IndoorArea(bedRoomDataUnitValueWrapper, new AreaValueWrapper(), subAreas, new RectangleMeasurementValueWrapper());
@@ -46,8 +46,8 @@ public final class AreaFactory {
         DataUnitValueWrapper kitchenRoomDataUnitValueWrapper = new DataUnitValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
         IndoorArea kitchen = new IndoorArea(kitchenRoomDataUnitValueWrapper, new AreaValueWrapper(), subAreas, new RectangleMeasurementValueWrapper());
 
-        a.getIndoorAreas().addAll(bedRoom, livingRoom, kitchen);
-        return a;
+        root.getAreas().addAll(bedRoom, livingRoom, kitchen);
+        return root;
     }
 
     public Area createArea(AreaType type, DataUnitValueWrapper commonValueWrapper, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {

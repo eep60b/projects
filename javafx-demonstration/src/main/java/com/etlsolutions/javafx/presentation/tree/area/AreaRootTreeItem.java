@@ -24,9 +24,7 @@ public class AreaRootTreeItem extends MenuedTreeItem {
         ObservableListWrapperA<Area> areas = root.getAreas();
         
         for (Area area : areas) {
-            if (!area.getAllSubAreas().isEmpty()) {
                 children.add(new AreaTreeItem(area));
-            }
         }
         
         areas.addListener(new DataUnitListChangeAdapter<Area>(children));

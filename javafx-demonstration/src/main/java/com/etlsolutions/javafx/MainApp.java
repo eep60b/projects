@@ -31,8 +31,7 @@ public class MainApp extends Application {
 
             stage.setTitle("ETL JavaFX POC");
             stage.setScene(scene);
-            stage.show();
-            Logger.getLogger(MainApp.class).info("End the applicaiton.\n\n\n\n");            
+            stage.show();     
         } catch (CustomLevelWarningRuntimeExceiption ex) {
             ThrowableHandler.getInstance().handleWarning(ex, MainApp.class);
         } catch (Throwable th) {

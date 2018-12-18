@@ -29,6 +29,7 @@ public final class ThrowableHandler {
         th.printStackTrace();
         Alert alert = new Alert(Alert.AlertType.ERROR, message);
         alert.showAndWait();
+        Logger.getLogger(klass).error("The application is ended with an error.");        
         System.exit(-1);
     }    
     

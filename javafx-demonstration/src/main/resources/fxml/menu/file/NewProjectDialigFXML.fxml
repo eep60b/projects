@@ -97,6 +97,9 @@
                      </HBox.margin>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>

@@ -72,10 +72,10 @@
                                                 <Insets left="10.0" top="3.0" />
                                              </padding>
                                           </Label>
-                                          <ComboBox fx:id="subareaComboBox" prefHeight="25.0" prefWidth="348.0" />
-                                          <Button fx:id="addSubareaButton" mnemonicParsing="false" text="Add" />
-                                          <Button fx:id="removeSubareaButton" layoutX="371.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
-                                          <Button fx:id="editSubareaButton" layoutX="371.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
+                                          <ComboBox fx:id="subAreaComboBox" prefHeight="25.0" prefWidth="348.0" />
+                                          <Button fx:id="addSubAreaButton" mnemonicParsing="false" text="Add" />
+                                          <Button fx:id="removeSubAreaButton" layoutX="371.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                          <Button fx:id="editSubAreaButton" layoutX="371.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
                                        </children>
                                     </HBox>
                                     <Label text="Description:">
