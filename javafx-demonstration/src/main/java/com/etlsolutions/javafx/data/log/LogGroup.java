@@ -86,6 +86,8 @@ public class LogGroup extends DataUnit {
     
     public void refreshCache() {
         
+        cache.clear();
+        
         for(LogYear year :years) {
             
             cache.addAll(year.getLogs());

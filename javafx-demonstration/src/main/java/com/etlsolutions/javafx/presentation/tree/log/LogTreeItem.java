@@ -9,8 +9,7 @@ import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
  */
 public class LogTreeItem extends MenuedTreeItem {
 
-    public LogTreeItem(Log model) {
-        super(model);
-
+    public LogTreeItem(Log log) {
+        super(log);
     }
 }

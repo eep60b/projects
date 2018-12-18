@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.tree.area;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.data.area.AreaRoot;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.tree.DataUnitListChangeAdapter;
 import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
 import java.util.List;
@@ -13,22 +13,18 @@ import javafx.scene.control.TreeItem;
  *
  * @author zc
  */
-public class AreaRootTreeItem extends MenuedTreeItem {
+public class AreaTreeItem extends MenuedTreeItem {
 
-    public AreaRootTreeItem(AreaRoot root) {
+    public AreaTreeItem(Area area) {
 
-        super(root);
-
+        super(area);
         List<TreeItem<DataUnit>> children = getChildren();
-
-        ObservableListWrapperA<Area> areas = root.getAreas();
+        ObservableListWrapperA<SubArea> subAreas = area.getSubAreas();
         
-        for (Area area : areas) {
-            if (!area.getAllSubAreas().isEmpty()) {
-                children.add(new AreaTreeItem(area));
-            }
+        for(SubArea subArea : subAreas) {
+            children.add(new SubAreaTreeItem(subArea));
         }
-        
-        areas.addListener(new DataUnitListChangeAdapter<Area>(children));
+
+        subAreas.addListener(new DataUnitListChangeAdapter<SubArea>(children));
     }
 }

@@ -12,6 +12,6 @@
     <URL value="@/styles/logs.css" />
   </stylesheets>
    <children>
-      <TreeView fx:id="logsTreeView" />
+      <TreeView fx:id="logsTreeView" prefHeight="400.0" prefWidth="247.2135948" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

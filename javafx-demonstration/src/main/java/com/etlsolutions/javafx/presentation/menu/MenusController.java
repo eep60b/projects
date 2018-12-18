@@ -34,7 +34,7 @@ public class MenusController extends AbstractFXMLController {
 
     @FXML
     private MenuItem closeProjectMenuItem;
-    
+
     @FXML
     private MenuItem deleteProjectMenuItem;
 
@@ -134,13 +134,15 @@ public class MenusController extends AbstractFXMLController {
         newProjectToolbarButton.setOnAction(new NewProjectDialogEventHandler(new NewProjectDataModel()));
         openProjectToolbarButton.setOnAction(new OpenProjectEventHandler(new OpenProjectDataModel()));
         saveProjectToolbarButton.setOnAction(new SaveProjectEventHandler());
-        
-        valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new MenuItemPropertyChangeAdapter(valueWrapper, saveProjectMenuItem, saveAsProjectMenuItem, closeProjectMenuItem));
-        valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddPlantsPropertyChangeAdapter(addPlantsMenuItem, valueWrapper));
-        valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddPlantSubGroupPropertyChangeAdapter(addPlantSubGroupMenuItem, valueWrapper));
-        valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddAreaPropertyChangeAdapter(addAreaMenuItem, valueWrapper));
-        valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddGrowingMediumPropertyChangeAdapter(addGrowingMediumMenuItem, valueWrapper));
-        valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new AddGventPropertyChangeAdapter(addGventMenuItem, valueWrapper));
 
+        addPlantsMenuItem.setOnAction(new AddPlantsEventHandler());
+        addPlantSubGroupMenuItem.setOnAction(new AddPlantSubGroupEventHandler());
+        addAreaMenuItem.setOnAction(new AddAreaEventHandler());
+        addGrowingMediumMenuItem.setOnAction(new AddGrowingMediumEventHandler());
+        addGventMenuItem.setOnAction(new AddGventEventHandler());
+
+        valueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new MenuItemPropertyChangeAdapter(valueWrapper,
+                saveProjectMenuItem, saveAsProjectMenuItem, closeProjectMenuItem, addPlantsMenuItem, addPlantSubGroupMenuItem, addAreaMenuItem,
+                addGrowingMediumMenuItem, addGventMenuItem));
     }
 }

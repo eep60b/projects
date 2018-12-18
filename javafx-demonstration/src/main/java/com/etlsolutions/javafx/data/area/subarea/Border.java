@@ -13,8 +13,6 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
  */
 public class Border extends SubArea {
 
-    private ObservableListWrapperA<BorderLocation> locations;
-
     public Border() {
     }
 
@@ -23,13 +21,6 @@ public class Border extends SubArea {
         this.locations = new ObservableListWrapperA<>();
     }
 
-    public ObservableListWrapperA<BorderLocation> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(ObservableListWrapperA<BorderLocation> locations) {
-        this.locations = locations;
-    }
 
     @Override
     public ObservableListWrapperA<Location> getAllLocations() {

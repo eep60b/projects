@@ -8,6 +8,7 @@ import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
+import com.etlsolutions.javafx.presentation.ListViewListChangeAdapter;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
@@ -140,7 +141,7 @@ public class AreaFXMLController extends DataUnitFXMLController<Area, AbstractAre
         removeSubAreaButton.setOnAction(new RemoveEventHandler(model, AbstractAreaDataModel.SELECTED_SUB_AREA_REMOVE_EVENT_ID));
         editSubAreaButton.setOnAction(new EditSubAreaEventHandler(model));
         
-        model.getSubAreas().addListener(new SubArealistChangeAdapter(model, subAreaListView));
+        model.getSubAreas().addListener(new ListViewListChangeAdapter<>(model.getSubAreas(), subAreaListView, model.getSelectedSubArea()));
         model.getSelectedSubArea().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValueChangeButtonPropertyChangeAdapter<SubArea>(removeSubAreaButton, editSubAreaButton));
     }
 }

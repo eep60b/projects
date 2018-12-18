@@ -6,6 +6,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
+import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -42,6 +43,7 @@ public abstract class Area extends DataUnit {
     private double latitude;
     private Measurement measurement;
     private AreaShape shape;
+    private ObservableListWrapperA<SubArea> subAreas;    
 
     public Area() {
     }
@@ -51,6 +53,7 @@ public abstract class Area extends DataUnit {
         longitude = areaValueWrapper.getLongitude();
         latitude = areaValueWrapper.getLatitude();
         measurement = MeasurementFactory.getInstance().getAreaMeasurement(measurementValueWrapper);
+        subAreas = new ObservableListWrapperA<>();
     }
 
     @JsonIgnore
@@ -106,4 +109,12 @@ public abstract class Area extends DataUnit {
         this.shape = shape;
         fireChange(SHAPE_PROPERTY, oldValue, this.shape);
     }
+    
+    public ObservableListWrapperA<SubArea> getSubAreas() {
+        return subAreas;
+    }
+
+    public void setSubAreas(ObservableListWrapperA<SubArea> subAreas) {
+        this.subAreas = subAreas;
+    }    
 }

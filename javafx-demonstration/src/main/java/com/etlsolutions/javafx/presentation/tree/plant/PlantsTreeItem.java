@@ -9,7 +9,7 @@ import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
  */
 class PlantsTreeItem extends MenuedTreeItem {
 
-    public PlantsTreeItem(Plants model) {
-        super(model);
+    public PlantsTreeItem(Plants plants) {
+        super(plants);
     }
 }

@@ -13,8 +13,6 @@ import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
  */
 public class RaisedPlantBed extends SubArea {
 
-    private ObservableListWrapperA<PlantBedLocation> locations;
-
     public RaisedPlantBed() {
     }
 
@@ -22,11 +20,7 @@ public class RaisedPlantBed extends SubArea {
         super(measurement, valueWrapper);
         this.locations = new ObservableListWrapperA<>();
     }
-
-    public ObservableListWrapperA<PlantBedLocation> getLocations() {
-        return locations;
-    }
-
+    
     @Override
     public ObservableListWrapperA<Location> getAllLocations() {
         ObservableListWrapperA list = new ObservableListWrapperA<>();

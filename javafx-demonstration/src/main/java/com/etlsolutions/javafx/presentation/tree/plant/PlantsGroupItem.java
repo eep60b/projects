@@ -1,8 +1,10 @@
 package com.etlsolutions.javafx.presentation.tree.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.presentation.tree.DataUnitListChangeAdapter;
 import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
 import java.util.List;
 import javafx.scene.control.TreeItem;
@@ -14,13 +16,16 @@ import javafx.scene.control.TreeItem;
 public class PlantsGroupItem extends MenuedTreeItem {
 
     public PlantsGroupItem(PlantGroup model) {
+        
         super(model);
         List<TreeItem<DataUnit>> children = getChildren();
-        for (PlantSubGroup type : model.getPlantsSubGroups()) {
+        ObservableListWrapperA<PlantSubGroup> subGroups = model.getPlantsSubGroups();
+        for (PlantSubGroup subGroup : model.getPlantsSubGroups()) {
     
-                children.add(new PlantsTypeTreeItem(type));
-            
+                children.add(new PlantSubGroupTreeItem(subGroup));            
         }
+        
+        subGroups.addListener(new DataUnitListChangeAdapter<PlantSubGroup>(children));
     }
 
 }

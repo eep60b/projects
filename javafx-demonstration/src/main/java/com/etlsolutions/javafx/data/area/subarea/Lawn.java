@@ -13,7 +13,6 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
  */
 public class Lawn extends SubArea {
 
-    private ObservableListWrapperA<CustomLocation> locations;
 
     public Lawn() {
     }
@@ -21,14 +20,6 @@ public class Lawn extends SubArea {
     public Lawn(Measurement measurement, DataUnitValueWrapper valueWrapper) {
         super(measurement, valueWrapper);
         locations = new ObservableListWrapperA<>();
-    }
-
-    public ObservableListWrapperA<CustomLocation> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(ObservableListWrapperA<CustomLocation> locations) {
-        this.locations = locations;
     }
 
     @Override

@@ -38,6 +38,7 @@ public abstract class SubArea extends DataUnit {
     @JsonIgnore
     public static final String SHAPE_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.SHAPE_PROPERTY";
 
+    protected ObservableListWrapperA<Location> locations;
     protected Measurement measurement;
     protected SubAreaShape shape;
     private int parentId;
@@ -62,6 +63,14 @@ public abstract class SubArea extends DataUnit {
     @JsonIgnore
     public abstract ObservableListWrapperA<LocationType> getLocationTypes();
 
+    public ObservableListWrapperA<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(ObservableListWrapperA<Location> locations) {
+        this.locations = locations;
+    }
+    
     public Measurement getMeasurement() {
         return measurement;
     }

@@ -13,8 +13,6 @@ import com.etlsolutions.javafx.data.area.subarea.location.PondLocation;
  */
 public class Pond extends SubArea {
 
-    private ObservableListWrapperA<PondLocation> locations;
-
     public Pond() {
 
     }
@@ -22,10 +20,6 @@ public class Pond extends SubArea {
     public Pond(Measurement measurement, DataUnitValueWrapper valueWrapper) {
         super(measurement, valueWrapper);
         this.locations = new ObservableListWrapperA<>();
-    }
-
-    public ObservableListWrapperA<PondLocation> getLocations() {
-        return locations;
     }
 
     @Override

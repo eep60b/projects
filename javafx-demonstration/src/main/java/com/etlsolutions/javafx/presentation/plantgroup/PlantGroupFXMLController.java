@@ -75,34 +75,32 @@ public class PlantGroupFXMLController extends DataUnitFXMLController<PlantGroup,
     private ListView<PlantSubGroup> plantSubGroupListView;
 
     @FXML
-    private Button addSubGroupButton;
+    private Button addPlantSubGroupButton;
 
     @FXML
-    private Button editSubGroupButton;
+    private Button editPlantSubGroupButton;
 
     @FXML
-    private Button removeSubGroupButton;
+    private Button removePlantSubGroupButton;
 
     @Override
     public void initializeComponents() throws IOException, Exception {
 
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
-        removeSubGroupButton.setDisable(model.getSelectedPlantSubGroup().getValue() == null);
-        editSubGroupButton.setDisable(model.getSelectedPlantSubGroup().getValue() == null);
+        removePlantSubGroupButton.setDisable(model.getSelectedPlantSubGroup().getValue() == null);
+        editPlantSubGroupButton.setDisable(model.getSelectedPlantSubGroup().getValue() == null);
         plantSubGroupListView.setItems(model.getPlantSubGroups());
         plantSubGroupListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         plantSubGroupListView.getSelectionModel().select(model.getSelectedPlantSubGroup().getValue());
         plantSubGroupListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedPlantSubGroup()));
-        addSubGroupButton.setOnAction(new AddItemEventHandler<>(model.getPlantSubGroups(), model.getSelectedPlantSubGroup(), new CreatePlantSubGroupDataModel()));        
+        addPlantSubGroupButton.setOnAction(new AddItemEventHandler<>(model.getPlantSubGroups(), model.getSelectedPlantSubGroup(), new CreatePlantSubGroupDataModel()));        
         EditPlantSubGroupDataModel vm = new EditPlantSubGroupDataModel(model.getSelectedPlantSubGroup().getValue());
         vm.addPropertyChangeListener( EditVarietyDataModel.LIST_CHANGE_PROPERTY, new EditListViewPropertyChangeAdapter(plantSubGroupListView));        
-        editSubGroupButton.setOnAction(new EditItemEventHandler(vm));
-        removeSubGroupButton.setOnAction(new RemoveEventHandler(model, REMOVE_VARIETY_ID));
-        model.getSelectedPlantSubGroup().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValueChangeButtonPropertyChangeAdapter<>(editSubGroupButton, removeSubGroupButton));
-        model.getPlantSubGroups().addListener(new ListViewListChangeAdapter<>(model.getPlantSubGroups(), plantSubGroupListView, model.getSelectedPlantSubGroup()));
-        
-        
+        editPlantSubGroupButton.setOnAction(new EditItemEventHandler(vm));
+        removePlantSubGroupButton.setOnAction(new RemoveEventHandler(model, REMOVE_VARIETY_ID));
+        model.getSelectedPlantSubGroup().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ValueChangeButtonPropertyChangeAdapter<>(editPlantSubGroupButton, removePlantSubGroupButton));
+        model.getPlantSubGroups().addListener(new ListViewListChangeAdapter<>(model.getPlantSubGroups(), plantSubGroupListView, model.getSelectedPlantSubGroup()));        
     }
 
 }
