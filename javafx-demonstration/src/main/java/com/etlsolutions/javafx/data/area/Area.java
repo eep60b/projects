@@ -47,12 +47,12 @@ public abstract class Area extends DataUnit {
     public Area() {
     }
 
-    public Area(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+    public Area(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
         super(valueWrapper);
         longitude = areaValueWrapper.getLongitude();
         latitude = areaValueWrapper.getLatitude();
         measurement = MeasurementFactory.getInstance().getAreaMeasurement(measurementValueWrapper);
-        subAreas = new ObservableListWrapperA<>();
+        this.subAreas = new ObservableListWrapperA<>(subAreas);
     }
 
     @JsonIgnore

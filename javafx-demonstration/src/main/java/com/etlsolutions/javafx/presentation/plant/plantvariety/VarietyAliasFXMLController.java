@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
-import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 
 /**

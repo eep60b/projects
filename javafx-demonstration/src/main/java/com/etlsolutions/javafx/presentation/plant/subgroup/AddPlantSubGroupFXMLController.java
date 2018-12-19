@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
-import com.etlsolutions.javafx.presentation.ListViewListChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ListViewListChangeAdapter;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import com.etlsolutions.javafx.presentation.plant.plantvariety.CreateVarietyDataModel;

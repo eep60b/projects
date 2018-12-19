@@ -31,7 +31,7 @@ public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<Fertil
     }
 
     public ValueWrapper<Fertiliser> getSelectedFertiliser() {
-        return detail.getFertiliser();
+        return detail.getFertiliserValueWrapper();
     }
 
     public ValueWrapper<String> getAmount() {
@@ -54,8 +54,7 @@ public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<Fertil
     @Override
     public void remove(RemoveEventId id) {
         if (Objects.equals(id, FERTILISER_REMOVE_EVENT_ID)) {
-            Fertiliser f = fertilisers.removeAndGetNext(detail.getFertiliser().getValue());
-            detail.getFertiliser().setValue(f);
+            fertilisers.removeAndGetNext(detail.getFertiliserValueWrapper());
         }
     }
 

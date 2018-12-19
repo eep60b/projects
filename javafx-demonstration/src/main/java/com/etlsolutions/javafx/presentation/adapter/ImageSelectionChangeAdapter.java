@@ -1,7 +1,8 @@
-package com.etlsolutions.javafx.presentation;
+package com.etlsolutions.javafx.presentation.adapter;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;

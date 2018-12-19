@@ -19,7 +19,7 @@ public class FertilisationTaskDetail implements TaskDetail {
         this.uom = new ValueWrapper<>(uom);
     }
 
-    public ValueWrapper<Fertiliser> getFertiliser() {
+    public ValueWrapper<Fertiliser> getFertiliserValueWrapper() {
         return fertiliser;
     }
 

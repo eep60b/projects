@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.fertiliser;
 
-import com.etlsolutions.javafx.presentation.BooleanValueNodeChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.BooleanValueNodeChangeAdapter;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;

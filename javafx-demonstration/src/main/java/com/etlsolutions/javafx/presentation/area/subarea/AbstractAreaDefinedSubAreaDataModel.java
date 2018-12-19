@@ -13,8 +13,8 @@ public abstract class AbstractAreaDefinedSubAreaDataModel extends AbstractSubAre
 
     protected Area area;
 
-    public AbstractAreaDefinedSubAreaDataModel(Area area, SubAreaType[] subAreaTypes, Measurement measurement) {
-        super(subAreaTypes, measurement);
+    public AbstractAreaDefinedSubAreaDataModel(Area area) {
+        super(area.getType().getSubAreaTypes());
     }
 
     public AbstractAreaDefinedSubAreaDataModel(SubArea subArea, Area area, SubAreaType[] subAreaTypes, Measurement measurement) {

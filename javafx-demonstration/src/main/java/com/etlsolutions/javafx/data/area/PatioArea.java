@@ -28,13 +28,13 @@ public class PatioArea extends Area {
 
     }
 
-    public PatioArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper subAreas, MeasurementValueWrapper measurementValueWrapper) {
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
-        raisedPlantBeds = new ObservableListWrapperA<>(subAreas.getRaisedPlantBeds());
-        greenhouses = new ObservableListWrapperA<>(subAreas.getGreenhouses());
-        singleContainers = new ObservableListWrapperA<>(subAreas.getSingleContainers());
-        containerSets = new ObservableListWrapperA<>(subAreas.getContainerSets());
-        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
+    public PatioArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+//        raisedPlantBeds = new ObservableListWrapperA<>(subAreas.getRaisedPlantBeds());
+//        greenhouses = new ObservableListWrapperA<>(subAreas.getGreenhouses());
+//        singleContainers = new ObservableListWrapperA<>(subAreas.getSingleContainers());
+//        containerSets = new ObservableListWrapperA<>(subAreas.getContainerSets());
+//        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
     }
 
     public ObservableListWrapperA<RaisedPlantBed> getRaisedPlantBeds() {

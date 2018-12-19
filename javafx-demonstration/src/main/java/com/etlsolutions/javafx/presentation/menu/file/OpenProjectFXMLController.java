@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;
-import com.etlsolutions.javafx.presentation.ValidationPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

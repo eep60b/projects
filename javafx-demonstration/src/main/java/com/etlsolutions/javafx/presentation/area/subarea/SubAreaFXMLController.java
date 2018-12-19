@@ -89,9 +89,9 @@ public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, Abstr
         initCommonComponents(titleTextField, informationTextArea, imageTilePane, addImageButton, editImageButton, moveToBeginImageButton, moveToLeftImageButton, moveToRightImageButton, moveToEndImageButton, removeImageButton, errorMessageLabel, okButton, cancelButton);
 
         typeComboBox.setItems(model.getSubAreaTypes());
-        typeComboBox.getSelectionModel().select(model.getSelectedSubAreaType().getValue());
+        typeComboBox.getSelectionModel().select(model.getSelectedSubAreaTypeValueWrapper().getValue());
         typeComboBox.setDisable(model.getSubAreaTypes().size() <= 1);
-        typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedSubAreaType()));
+        typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedSubAreaTypeValueWrapper()));
 
         ValueWrapper<MeasurementType> typeValueWrapper = model.getContentModel().getMeasurementValueWrapper().getTypeValueWrapper();
         measurementTab.setContent(nodeGenerator.getNode(typeValueWrapper.getValue()));

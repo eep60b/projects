@@ -9,6 +9,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
+import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.area.MeasurementDataModelGenerator;
 import com.etlsolutions.javafx.system.ProjectManager;
 
@@ -16,7 +17,10 @@ import com.etlsolutions.javafx.system.ProjectManager;
  *
  * @author zc
  */
-public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Location> implements FXMLContentActionDataModel<LocationMeasurementDataModel>{
+public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Location> implements FXMLContentActionDataModel<LocationMeasurementDataModel> {
+
+    public static final RemoveEventId REMOVE_AREA_EVENT_ID = new RemoveEventId(AbstractLocationDataModel.class.getName() + "REMOVE_AREA_EVENT_ID", "area");
+    public static final RemoveEventId REMOVE_SUBAREA_EVENT_ID = new RemoveEventId(AbstractLocationDataModel.class.getName() + "REMOVE_SUBAREA_EVENT_ID", "area part");
 
     private final ObservableListWrapperA<Area> areas;
     protected ValueWrapper<Area> selectedAreaValueWrapper;
@@ -32,8 +36,8 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
         subAreas = selectedAreaValueWrapper.getValue().getSubAreas();
         selectedSubAreaValueWrapper = new ValueWrapper<>(subAreas.isEmpty() ? null : subAreas.get(0));
         types = selectedSubAreaValueWrapper.getValue() == null ? new ObservableListWrapperA<LocationType>() : selectedSubAreaValueWrapper.getValue().getLocationTypes();
-        locationValueWrapper = selectedSubAreaValueWrapper.getValue() == null ?(types.isEmpty() ? new LocationValueWrapper() : new LocationValueWrapper(types.get(0), 0, plantId)) : new LocationValueWrapper(types.get(0), selectedSubAreaValueWrapper.getValue().getId(), plantId);
-        measurementDataModel =MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
+        locationValueWrapper = selectedSubAreaValueWrapper.getValue() == null ? (types.isEmpty() ? new LocationValueWrapper() : new LocationValueWrapper(types.get(0), 0, plantId)) : new LocationValueWrapper(types.get(0), selectedSubAreaValueWrapper.getValue().getId(), plantId);
+        measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
     }
 
     public AbstractLocationDataModel(Area area, SubArea subArea, Location location) {
@@ -44,7 +48,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
         selectedSubAreaValueWrapper = new ValueWrapper<>(subArea);
         locationValueWrapper = new LocationValueWrapper(location);
         types = new ObservableListWrapperA<>(location.getType());
-        measurementDataModel =MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
+        measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
     }
 
     public ObservableListWrapperA<Area> getAreas() {
@@ -55,28 +59,12 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
         return selectedAreaValueWrapper;
     }
 
-    public void setSelectedArea(Area selectedArea) {
-
-        this.selectedAreaValueWrapper = new ValueWrapper<>(selectedArea);
-        subAreas.clear();
-        subAreas.addAll(this.selectedAreaValueWrapper.getValue().getAllSubAreas());
-        setSelectedSubArea(subAreas.isEmpty() ? null : subAreas.get(0));
-    }
-
     public ObservableListWrapperA<SubArea> getSubAreas() {
         return subAreas;
     }
 
     public ValueWrapper<SubArea> getSelectedSubAreaValueWrapper() {
         return selectedSubAreaValueWrapper;
-    }
-
-    public void setSelectedSubArea(SubArea selectedSubArea) {
-
-        this.selectedSubAreaValueWrapper = new ValueWrapper<>(selectedSubArea);
-        types.clear();
-        types.addAll(this.selectedSubAreaValueWrapper.getValue().getLocationTypes());
-        locationValueWrapper.getTypeValueWrapper().setValue(types.isEmpty() ? null : types.get(0));
     }
 
     public ObservableListWrapperA<LocationType> getTypes() {
@@ -92,7 +80,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     public void setContentModel(LocationMeasurementDataModel model) {
         this.measurementDataModel = model;
     }
-    
+
     @Override
     public String getFxmlPath() {
         return "/fxml/area/LocationFXML.fxml";
@@ -104,7 +92,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
 
     @Override
     public String getErrorMessage() {
-        
+
         if (locationValueWrapper.getTypeValueWrapper().getValue() == null) {
             return "No area part available.";
         }
@@ -113,11 +101,23 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
 
     @Override
     public boolean isInvalid() {
-        
+
         if (locationValueWrapper.getTypeValueWrapper().getValue() == null) {
             return true;
         }
         return super.isInvalid();
     }
 
+    @Override
+    public void remove(RemoveEventId id) {
+
+        if (id == REMOVE_AREA_EVENT_ID) {
+            areas.removeAndGetNext(selectedAreaValueWrapper);
+        }
+        if (id == REMOVE_SUBAREA_EVENT_ID) {
+            subAreas.removeAndGetNext(selectedSubAreaValueWrapper);
+        }
+
+        super.remove(id);
+    }
 }

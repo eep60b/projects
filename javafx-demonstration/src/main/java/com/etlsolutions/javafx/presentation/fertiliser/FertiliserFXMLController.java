@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.fertiliser;
 
-import com.etlsolutions.javafx.presentation.BooleanValueNodeChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.BooleanValueNodeChangeAdapter;
 import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;

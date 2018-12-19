@@ -36,19 +36,19 @@ public class CustomArea extends Area {
     public CustomArea() {
     }
 
-    public CustomArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper customAreaValueWrapper, MeasurementValueWrapper measurementValueWrapper) {
+    public CustomArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
         
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
-        plantBeds = new ObservableListWrapperA<>(customAreaValueWrapper.getPlantBeds());
-        raisedPlantBeds = new ObservableListWrapperA<>(customAreaValueWrapper.getRaisedPlantBeds());
-        lawns = new ObservableListWrapperA<>(customAreaValueWrapper.getLawns());
-        borders = new ObservableListWrapperA<>(customAreaValueWrapper.getBorders());
-        greenhouses = new ObservableListWrapperA<>(customAreaValueWrapper.getGreenhouses());
-        containerSets = new ObservableListWrapperA<>(customAreaValueWrapper.getContainerSets());
-        singleContainers = new ObservableListWrapperA<>(customAreaValueWrapper.getSingleContainers());
-        ponds = new ObservableListWrapperA<>(customAreaValueWrapper.getPonds());
-        rooms = new ObservableListWrapperA<>(customAreaValueWrapper.getRooms());
-        customSubareas = new ObservableListWrapperA<>(customAreaValueWrapper.getCustomSubareas());
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+//        plantBeds = new ObservableListWrapperA<>(customAreaValueWrapper.getPlantBeds());
+//        raisedPlantBeds = new ObservableListWrapperA<>(customAreaValueWrapper.getRaisedPlantBeds());
+//        lawns = new ObservableListWrapperA<>(customAreaValueWrapper.getLawns());
+//        borders = new ObservableListWrapperA<>(customAreaValueWrapper.getBorders());
+//        greenhouses = new ObservableListWrapperA<>(customAreaValueWrapper.getGreenhouses());
+//        containerSets = new ObservableListWrapperA<>(customAreaValueWrapper.getContainerSets());
+//        singleContainers = new ObservableListWrapperA<>(customAreaValueWrapper.getSingleContainers());
+//        ponds = new ObservableListWrapperA<>(customAreaValueWrapper.getPonds());
+//        rooms = new ObservableListWrapperA<>(customAreaValueWrapper.getRooms());
+//        customSubareas = new ObservableListWrapperA<>(customAreaValueWrapper.getCustomSubareas());
     }
 
     public ObservableListWrapperA<PlantBed> getPlantBeds() {

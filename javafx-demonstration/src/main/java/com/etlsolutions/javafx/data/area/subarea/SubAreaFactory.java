@@ -20,48 +20,11 @@ public class SubAreaFactory {
     public static final SubAreaFactory getInstance() {
         return INSTANCE;
     }
-
-    public ContainerSet createContainerSet() {
-        ContainerSet s = new ContainerSet();
-        return s;
-    }
-
-    public static CustomSubArea createCustomSubarea() {
-        CustomSubArea s = new CustomSubArea();
-        return s;
-    }
-
-    public static Greenhouse createGreenhouse() {
-        Greenhouse g = new Greenhouse();
-        return g;
-    }
-
+    
     public PlantBed createDefaultPlantBed() {
-        DataUnitValueWrapper dataUnitValueWrapper = new DataUnitValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "");
         
-        PlantBed b = new PlantBed(new RectangleMeasurement(), dataUnitValueWrapper);
-        return b;
-    }
-
-    public static Border createPlantBedBorder() {
-
-        Border b = new Border();
-        return b;
-    }
-
-    public static Pond createPond() {
-        Pond p = new Pond();
-        return p;
-    }
-
-    public static RaisedPlantBed createRaisedPlantBed() {
-        RaisedPlantBed r = new RaisedPlantBed();
-        return r;
-    }
-
-    public static Room createRoom() {
-        Room r = new Room();
-        return r;
+        DataUnitValueWrapper dataUnitValueWrapper = new DataUnitValueWrapper("Untitled plant bed", "", new ObservableListWrapperA<ImageLink>(), null, "");
+        return new PlantBed(new RectangleMeasurement(), dataUnitValueWrapper);
     }
 
     public SubArea createSubArea(SubAreaType selectedSubAreaType, DataUnitValueWrapper commonValueWrapper, Measurement measurement, Container... containers) {

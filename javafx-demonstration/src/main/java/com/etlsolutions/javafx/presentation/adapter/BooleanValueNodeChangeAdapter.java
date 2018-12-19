@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation;
+package com.etlsolutions.javafx.presentation.adapter;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
 import javafx.beans.value.ChangeListener;

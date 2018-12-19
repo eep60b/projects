@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.javafx.presentation.adapter.ImageSelectionChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;

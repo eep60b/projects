@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
-import com.etlsolutions.javafx.presentation.ComboBoxListChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ComboBoxListChangeAdapter;
 import com.etlsolutions.javafx.presentation.EditItemEventHandler;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.data.ValueWrapper;
@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
-import com.etlsolutions.javafx.presentation.ComboBoxSelectionPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ComboBoxSelectionPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.area.AddAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.EditAreaDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.AddSubAreaDataModel;

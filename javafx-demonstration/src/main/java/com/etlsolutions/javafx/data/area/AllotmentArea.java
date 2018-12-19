@@ -29,14 +29,14 @@ public class AllotmentArea extends Area {
     public AllotmentArea() {
     }
 
-    public AllotmentArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper subAreas, MeasurementValueWrapper measurementValueWrapper) {
+    public AllotmentArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
 
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
-        plantBeds = subAreas.getPlantBeds();
-        raisedPlantBeds = subAreas.getRaisedPlantBeds();
-        borders = subAreas.getBorders();
-        greenhouses = subAreas.getGreenhouses();
-        customSubareas = subAreas.getCustomSubareas();
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+//        plantBeds = subAreasWr.getPlantBeds();
+//        raisedPlantBeds = subAreasWr.getRaisedPlantBeds();
+//        borders = subAreasWr.getBorders();
+//        greenhouses = subAreasWr.getGreenhouses();
+//        customSubareas = subAreasWr.getCustomSubareas();
     }
 
     public ObservableListWrapperA<PlantBed> getPlantBeds() {

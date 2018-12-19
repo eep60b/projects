@@ -1,28 +1,39 @@
 package com.etlsolutions.javafx.presentation.area.subarea.location;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import javafx.scene.control.ComboBox;
 
 /**
  *
  * @author zc
  */
 public class AreaSelectionPropertyChangeAdapter implements PropertyChangeListener {
-    
-    private final AbstractLocationDataModel model;
-    private final ComboBox<SubArea> subareaComboBox;
 
-    public AreaSelectionPropertyChangeAdapter(AbstractLocationDataModel model, ComboBox<SubArea> subareaComboBox) {
-        this.model = model;
-        this.subareaComboBox = subareaComboBox;
+    private final ObservableListWrapperA<SubArea> children;
+    private final ValueWrapper<SubArea> selectedChildWrapper;
+    
+
+
+    public AreaSelectionPropertyChangeAdapter(ObservableListWrapperA<SubArea> children, ValueWrapper<SubArea> selectedChildWrapper) {
+    
+    this.children = children;
+    this.selectedChildWrapper = selectedChildWrapper;
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        subareaComboBox.setItems(model.getSubAreas());
-        subareaComboBox.getSelectionModel().select(model.getSelectedSubAreaValueWrapper().getValue());
+        ValueWrapper<Area> wrapper = (ValueWrapper<Area>) evt.getSource();
+        children.clear();
+        children.addAll(wrapper.getValue().getSubAreas());
+        SubArea subArea = selectedChildWrapper.getValue();
+        if(children.contains(subArea)) {
+            return;
+        }
+        selectedChildWrapper.setValue(children.isEmpty() ? null : children.get(0));
     }  
 }

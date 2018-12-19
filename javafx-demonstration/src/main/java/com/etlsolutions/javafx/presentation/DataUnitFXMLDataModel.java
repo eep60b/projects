@@ -37,6 +37,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     public DataUnitFXMLDataModel(D dataUnit) {
         this(dataUnit.getTitle(), dataUnit.getInformation(), dataUnit.getImageLinks(),
                 dataUnit.getImageLinks().isEmpty() ? null : dataUnit.getImageLinks().get(dataUnit.getSelectedImgLinkIndex()), dataUnit.getLogoPath());
+        this.dataUnit = dataUnit;
     }
 
     public DataUnitFXMLDataModel() {

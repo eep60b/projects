@@ -28,12 +28,12 @@ public final class AreaFactory {
         DataUnitValueWrapper gardenAreaDataUnitValueWrapper = new DataUnitValueWrapper("My Garden", "", new ObservableListWrapperA<ImageLink>(), null, "");
         AreaValueWrapper areaValueWrapper = new AreaValueWrapper();
 
-        SubAreaListValueWrapper subAreas = new SubAreaListValueWrapper();
+        ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         RectangleMeasurementValueWrapper measurementValueWrapper = new RectangleMeasurementValueWrapper();
 
         GardenArea gardenArea = new GardenArea(gardenAreaDataUnitValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
 
-        gardenArea.getPlantBeds().add(plantBed);
+        gardenArea.getSubAreas().add(plantBed);
         AreaRoot root = new AreaRoot("All Areas", "");
         root.getAreas().add(gardenArea);
 
@@ -56,19 +56,19 @@ public final class AreaFactory {
         
         switch (type) {
             case ALLOTMENT:
-                return new AllotmentArea(commonValueWrapper, areaValueWrapper, salvw, measurementValueWrapper);                
+                return new AllotmentArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);                
             case BALCONY:
-                return new BalconyArea(commonValueWrapper, areaValueWrapper, salvw, measurementValueWrapper);
+                return new BalconyArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
             case CUSTOM:
-                return new CustomArea(commonValueWrapper, areaValueWrapper, salvw, measurementValueWrapper);
+                return new CustomArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
             case FARM:
-                return new FarmArea(commonValueWrapper, areaValueWrapper, salvw, measurementValueWrapper);
+                return new FarmArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
             case GARDEN:
-                return new GardenArea(commonValueWrapper, areaValueWrapper, salvw, measurementValueWrapper);
+                return new GardenArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
             case INDOOR:
-                return new IndoorArea(commonValueWrapper, areaValueWrapper, salvw, measurementValueWrapper);
+                return new IndoorArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
             case PATIO:
-                return new PatioArea(commonValueWrapper, areaValueWrapper, salvw, measurementValueWrapper);
+                return new PatioArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
             default:
                 throw new IllegalArgumentException("Invalid area type.");
         }

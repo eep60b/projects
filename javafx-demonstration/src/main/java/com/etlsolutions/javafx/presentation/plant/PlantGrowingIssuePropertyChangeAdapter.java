@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.plant;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.presentation.EditItemEventHandler;
-import com.etlsolutions.javafx.presentation.EditListViewPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.EditListViewPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.log.growingissue.EditGrowingIssueDataModel;
 import com.etlsolutions.javafx.presentation.log.gvent.EditGventDataModel;
 import java.beans.PropertyChangeEvent;

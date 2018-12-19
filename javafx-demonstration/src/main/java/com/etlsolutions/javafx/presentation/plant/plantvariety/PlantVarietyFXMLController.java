@@ -5,7 +5,7 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
-import com.etlsolutions.javafx.presentation.ValueChangeButtonPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ValueChangeButtonPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

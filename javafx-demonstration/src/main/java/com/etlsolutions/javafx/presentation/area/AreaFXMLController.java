@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.area;
 
-import com.etlsolutions.javafx.presentation.ValueChangeButtonPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ValueChangeButtonPropertyChangeAdapter;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaType;
@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;
-import com.etlsolutions.javafx.presentation.ListViewListChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ListViewListChangeAdapter;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;

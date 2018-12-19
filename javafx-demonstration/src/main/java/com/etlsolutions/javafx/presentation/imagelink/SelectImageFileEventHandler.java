@@ -28,7 +28,7 @@ public class SelectImageFileEventHandler implements EventHandler<ActionEvent> {
         File defaultDirectory = getDirectory(new File(SettingConstants.DEFAULT_IMAGE_DIRECTORY));
         chooser.setInitialDirectory(defaultDirectory);
         
-        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "jpeg", "exif", "tiff", "gif", "bmp", "png"));
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "*.jpg", "*.exif", "*.tiff", "*.gif", "*.bmp", "*.png", "*.JPG", "*.EXIF", "*.TIFF", "*.GIF", "*.BMP", "*.PNG"));
 
         File selectedFile = chooser.showOpenDialog(ownerStage);
         if (selectedFile != null) {

@@ -36,17 +36,17 @@ public class GardenArea extends Area {
 
     }
 
-    public GardenArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper subAreas, MeasurementValueWrapper measurementValueWrapper) {
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
-        plantBeds = new ObservableListWrapperA<>(subAreas.getPlantBeds());
-        raisedPlantBeds = new ObservableListWrapperA<>(subAreas.getRaisedPlantBeds());
-        lawns = new ObservableListWrapperA<>(subAreas.getLawns());
-        borders = new ObservableListWrapperA<>(subAreas.getBorders());
-        greenhouses = new ObservableListWrapperA<>(subAreas.getGreenhouses());
-        containerSets = new ObservableListWrapperA<>(subAreas.getContainerSets());
-        singleContainers = new ObservableListWrapperA<>(subAreas.getSingleContainers());
-        ponds = new ObservableListWrapperA<>(subAreas.getPonds());
-        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
+    public GardenArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+//        plantBeds = new ObservableListWrapperA<>(subAreas.getPlantBeds());
+//        raisedPlantBeds = new ObservableListWrapperA<>(subAreas.getRaisedPlantBeds());
+//        lawns = new ObservableListWrapperA<>(subAreas.getLawns());
+//        borders = new ObservableListWrapperA<>(subAreas.getBorders());
+//        greenhouses = new ObservableListWrapperA<>(subAreas.getGreenhouses());
+//        containerSets = new ObservableListWrapperA<>(subAreas.getContainerSets());
+//        singleContainers = new ObservableListWrapperA<>(subAreas.getSingleContainers());
+//        ponds = new ObservableListWrapperA<>(subAreas.getPonds());
+//        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
     }
 
     public ObservableListWrapperA<PlantBed> getPlantBeds() {

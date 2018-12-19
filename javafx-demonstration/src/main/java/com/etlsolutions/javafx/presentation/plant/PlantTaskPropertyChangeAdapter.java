@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.plant;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.presentation.EditItemEventHandler;
-import com.etlsolutions.javafx.presentation.EditListViewPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.EditListViewPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.log.task.EditTaskDataModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

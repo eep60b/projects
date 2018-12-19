@@ -15,8 +15,8 @@ import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantsQuantity;
 import static com.etlsolutions.javafx.data.plant.PlantsQuantity.Type.SINGLE;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
-import com.etlsolutions.javafx.presentation.ComboBoxListChangeAdapter;
-import com.etlsolutions.javafx.presentation.ComboBoxSelectionPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ComboBoxListChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ComboBoxSelectionPropertyChangeAdapter;
 import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
@@ -32,6 +32,7 @@ import com.etlsolutions.javafx.presentation.plant.plantvariety.AddVarietyDataMod
 import com.etlsolutions.javafx.presentation.plant.subgroup.AddPlantSubGroupDataModel;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -220,6 +221,7 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
 
         QuantityTypeRadioButton singlePlantRadioButton = new QuantityTypeRadioButton();
         singlePlantRadioButton.setText("Single plant");
+        singlePlantRadioButton.setAlignment(Pos.CENTER_LEFT);
         QuantityTypeRadioButton multiplePlantRadioButton = new QuantityTypeRadioButton();
         multiplePlantRadioButton.setText("Exact number");
         QuantityTypeRadioButton estimatedPlantRadioButton = new QuantityTypeRadioButton();

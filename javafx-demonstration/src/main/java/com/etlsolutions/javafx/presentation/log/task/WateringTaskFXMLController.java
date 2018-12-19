@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.log.task.WaterType;
-import com.etlsolutions.javafx.presentation.ValuedBooleanChangeAdapter;
+import com.etlsolutions.javafx.presentation.adapter.ValuedBooleanChangeAdapter;
 import com.etlsolutions.javafx.data.log.task.WateringType;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;

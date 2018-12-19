@@ -1,5 +1,6 @@
-package com.etlsolutions.javafx.presentation;
+package com.etlsolutions.javafx.presentation.adapter;
 
+import com.etlsolutions.javafx.presentation.Validatable;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;

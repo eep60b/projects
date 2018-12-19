@@ -42,12 +42,13 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
         addAll(list);
     }
     
-    public E removeAndGetNext(E e) {
+    public void removeAndGetNext(ValueWrapper<E> wrapper) {
         
+        E e = wrapper.getValue();
         int index = indexOf(e);
         remove(e);
         index = index == size() ? index - 1 : index;
         
-        return index == -1 ? null : get(index);
+        wrapper.setValue(index == -1 ? null : get(index));        
     }
 }

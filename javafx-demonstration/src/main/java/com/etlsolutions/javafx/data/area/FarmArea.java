@@ -23,12 +23,13 @@ public class FarmArea extends Area {
     public FarmArea() {
     }
 
-    public FarmArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, SubAreaListValueWrapper subAreas, MeasurementValueWrapper measurementValueWrapper) {
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper);
-
-        plantBeds = new ObservableListWrapperA<>(subAreas.getPlantBeds());
-        borders = new ObservableListWrapperA<>(subAreas.getBorders());
-        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
+    public FarmArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
+  
+        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+//
+//        plantBeds = new ObservableListWrapperA<>(subAreas.getPlantBeds());
+//        borders = new ObservableListWrapperA<>(subAreas.getBorders());
+//        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
     }
 
     public ObservableListWrapperA<PlantBed> getPlantBeds() {

@@ -29,7 +29,7 @@ public class ContainerSetDataModel extends MeasurementDataModel<ContainerSetMeas
     
     @Override
     public String getFxmlPath() {
-        return "/fxml/area/ContainterSetFXML.fxml";
+        return "/fxml/area/ContainerSetFXML.fxml";
     }
 
 

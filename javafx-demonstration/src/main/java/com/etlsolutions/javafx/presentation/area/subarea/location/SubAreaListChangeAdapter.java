@@ -26,6 +26,7 @@ public class SubAreaListChangeAdapter implements ListChangeListener<SubArea> {
     @Override
     public void onChanged(ListChangeListener.Change<? extends SubArea> c) {
         subareaComboBox.setItems(model.getSubAreas());
+        subareaComboBox.getSelectionModel().select(model.getSelectedSubAreaValueWrapper().getValue());
         removeSubareaButton.setDisable(model.getSubAreas().size() <= 1);
         editSubareaButton.setDisable(model.getSubAreas().size() < 1);
     }
