@@ -1,7 +1,9 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -27,16 +29,20 @@ public class ImagePropertyChangeAdapter implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        AddImageDataModel model = (AddImageDataModel) evt.getSource();
-        boolean valid = model.isInvalid();
-        okButton.setDisable(valid);
-        errorMessageLabel.setVisible(!valid);
-        errorMessageLabel.setText(model.getErrorMessage());
+        process((ValueWrapper<String>) evt.getSource());
+    }
 
-        if (valid) {
+    public void process(ValueWrapper<String> wrapper) {
+        String link = wrapper.getValue(); 
+        boolean invalid = link == null || !new File(link).isFile();
+        okButton.setDisable(invalid);
+        errorMessageLabel.setVisible(!invalid);
+        errorMessageLabel.setText(invalid ? "Invalid image path." : "");
+
+        if (!invalid) {
             ObservableList<Node> children = imageHbox.getChildren();
             children.clear();
-            children.add(new ImageView(model.getImageFileLinkValueWrapper().getValue()));
+            children.add(new ImageView(link));
         }
     }
 

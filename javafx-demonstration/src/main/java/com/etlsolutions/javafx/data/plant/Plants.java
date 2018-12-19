@@ -3,6 +3,8 @@ package com.etlsolutions.javafx.data.plant;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 
@@ -45,11 +47,15 @@ public class Plants extends DataUnit {
     public Plants(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {
         super(valueWrapper);
         plantSubGroupId = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getId();
-        locationId = plantValueWrapper.getLocationValueWrapper().getValue().getId();
+        Location location = plantValueWrapper.getLocationValueWrapper().getValue();
+        locationId = location == null ? 0 : location.getId();
         alive = plantValueWrapper.getIsAliveValueWrapper().getValue();
         growingStartPoint = plantValueWrapper.getGrowingStartPointValueWrapper().getValue();        
         startTime = plantValueWrapper.getStartTime();
-        plantVarietyId = plantValueWrapper.getPlantVarietyValueWrapper().getValue().getId();
+        GrowingMedium medium = plantValueWrapper.getGrowingMediumValueWrapper().getValue();
+        growingMediumId = medium == null ? 0 : medium.getId();
+        PlantVariety variety = plantValueWrapper.getPlantVarietyValueWrapper().getValue();
+        plantVarietyId = variety == null ? 0 : variety.getId();
         quantity = plantValueWrapper.getQuantityValueWrapper().getValue();
         quantityType = plantValueWrapper.getQuantityTypeValueWrapper().getValue();
         terminationReason = plantValueWrapper.getTerminationReasonValueWrapper().getValue();

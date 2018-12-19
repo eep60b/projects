@@ -41,13 +41,11 @@ public class AddImageLinkDialogFXMLController extends AbstractComponentStageFXML
   
         selectImageButton.setOnAction(new SelectImageFileEventHandler(model, stage));
         informationTextArea.setText(model.getInformationValueWrapper().getValue());
-        errorMessageLabel.setText(model.getErrorMessage());
-        boolean invalid = model.isInvalid();
-        okButton.setDisable(invalid);
-        errorMessageLabel.setVisible(!invalid);
-        errorMessageLabel.setText(model.getErrorMessage());
+        
+        ImagePropertyChangeAdapter imagePropertyChangeAdapter = new ImagePropertyChangeAdapter(imageHbox, errorMessageLabel, okButton);
+        imagePropertyChangeAdapter.process(model.getImageFileLinkValueWrapper());
        
-        model.getImageFileLinkValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ImagePropertyChangeAdapter(imageHbox, errorMessageLabel, okButton));
+        model.getImageFileLinkValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, imagePropertyChangeAdapter);
         informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformationValueWrapper()));
         okButton.setOnAction(new SaveExitEventHandler(model, stage));
         cancelButton.setOnAction(new CancelEventHandler(stage));
