@@ -127,20 +127,9 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
         typeComboBox.setItems(model.getTypes());
         TaskType type = model.getSelectedTypeValueWrapper().getValue();
         typeComboBox.getSelectionModel().select(type);
-        switch (type) {
-            case CUSTOM:
-                mainTabPane.getTabs().remove(detailTab);
-                break;
-            case FERTILZATION:
-            case HARVESTING:
-                if (!mainTabPane.getTabs().contains(detailTab)) {
-                    mainTabPane.getTabs().add(1, detailTab);
-                }
-                detailTab.setContent(generator.getNode(model.getSelectedTypeValueWrapper().getValue()));
-                break;
-            default:
-                throw new IllegalArgumentException("Ivalid gvent type.");
-        }
+        SelectedTypePropertyAdapter adapter = new SelectedTypePropertyAdapter(model, mainTabPane, detailTab, generator);
+        adapter.process(model.getSelectedTypeValueWrapper());
+        model.getSelectedTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, adapter);
 
         notificationListView.setItems(model.getNotifications());
         notificationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -160,7 +149,7 @@ public class TaskFXMLController extends DataUnitFXMLController<Task, AbstractTas
         removeNotificationButton.setOnAction(new RemoveEventHandler(model, NOTIFICATION_REMOVE_EVENT_ID));
 
         //Add losteners to data model.
-        model.getSelectedTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new SelectedTypePropertyAdapter(mainTabPane, detailTab, generator));
+
         model.getNotifications().addListener(new NotificationListChangeAdapter(model, notificationListView));
         model.getSelectedNotification().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new SelectedNotificationPropertyChangeAdapter(model, notificationListView, editNotificationButton, removeNotificationButton));
     }

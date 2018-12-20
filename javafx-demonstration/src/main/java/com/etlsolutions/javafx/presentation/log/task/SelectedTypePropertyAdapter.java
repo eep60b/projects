@@ -14,11 +14,13 @@ import javafx.scene.control.TabPane;
  */
 public class SelectedTypePropertyAdapter implements PropertyChangeListener {
 
+    private final AbstractTaskDataModel model;
     private final TabPane mainTabPane;
     private final Tab detailTab;
     private final NodeGenerator generator;
 
-    public SelectedTypePropertyAdapter(TabPane mainTabPane, Tab detailTab, NodeGenerator<AbstractTaskDataModel, TaskType> generator) {
+    public SelectedTypePropertyAdapter(AbstractTaskDataModel model, TabPane mainTabPane, Tab detailTab, NodeGenerator<AbstractTaskDataModel, TaskType> generator) {
+        this.model = model;
         this.mainTabPane = mainTabPane;
         this.detailTab = detailTab;
         this.generator = generator;
@@ -27,9 +29,13 @@ public class SelectedTypePropertyAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        ValueWrapper<TaskType> wrapper = (ValueWrapper<TaskType>) evt.getSource();
+        process((ValueWrapper<TaskType>) evt.getSource());
+    }
+
+    public void process(ValueWrapper<TaskType> wrapper) throws IllegalArgumentException {
+
         TaskType type = wrapper.getValue(); 
-      //  model.setContentModel(model.getDetailDataModel(type));
+        model.setContentModel(model.getDetailDataModel(type));
         switch (type) {
             case CUSTOM:
                 mainTabPane.getTabs().remove(detailTab);
