@@ -11,7 +11,7 @@ public class AddTaskDataModel extends AbstractTaskDataModel {
 
     @Override
     public void save() {
-        set(LogFactory.getInstance().createTask(commonValueWrapper, selectedType.getValue(), notifications, detailDataModel.getDetail()));
+        set(LogFactory.getInstance().createTask(commonValueWrapper, detailDataModel.getDetail()));
         ProjectManager.getInstance().getContents().getLogGroupRoot().getTasks().addLog(get());
         detailDataModel.save();
     }

@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.log.task;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
-import com.etlsolutions.javafx.data.log.task.FertilisationTaskDetail;
+import com.etlsolutions.javafx.data.log.task.FertilisationTaskDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.data.other.FertiliserFactory;
@@ -126,7 +126,7 @@ public abstract class AbstractTaskDataModel extends DataUnitFXMLDataModel<Task> 
                 return new CustomTaskDetailDataModel(FertiliserFactory.getInstance().getDefaultCustomDetail());
             case FERTILZATION:
                 return new FertilisationTaskDetailDataModel(
-                        new FertilisationTaskDetail(FertiliserFactory.getInstance().getDefaultFertiliser(), 0.0, "growmore"));
+                        new FertilisationTaskDetailValueWrapper());
             default:
                 return null;
         }

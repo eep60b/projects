@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+
 /**
  *
  * @author zc
@@ -15,6 +17,22 @@ public class WateringTask extends Task {
     private double flux;
     private String fluxUom;
     private int duration;
+
+    public WateringTask() {
+    }
+
+    public WateringTask(DataUnitValueWrapper valueWrapper, WateringTaskDetailValueWrapper detailValueWrapper) {
+        super(valueWrapper, detailValueWrapper);
+        wateringType = detailValueWrapper.getWateringTypeValueWrapper().getValue();
+        waterType = detailValueWrapper.getWaterTypeValueWrapper().getValue();
+        fertilised = detailValueWrapper.getFertilisedValueWrapper().getValue();
+        fertiliserId = detailValueWrapper.getFertiliserValueWrapper().getValue().getId();
+        amount = detailValueWrapper.getAmount();
+        amountUom = detailValueWrapper.getAmountUomValueWrapper().getValue();
+        flux = detailValueWrapper.getFlux();
+        fluxUom = detailValueWrapper.getFluxUomValueWrapper().getValue();
+        duration = detailValueWrapper.getDurationValueWrapper().getValue();
+    }
 
     public WateringType getWateringType() {
         return wateringType;

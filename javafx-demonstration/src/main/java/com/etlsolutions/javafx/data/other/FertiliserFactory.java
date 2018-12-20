@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.data.other;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.TypedItem;
-import com.etlsolutions.javafx.data.log.task.CustomTaskDetail;
+import com.etlsolutions.javafx.data.log.task.CustomTaskDetailValueWrapper;
 
 /**
  *
@@ -52,8 +52,8 @@ public class FertiliserFactory {
         return new ObservableListWrapperA<>(getDefaultFertiliser());
     }
 
-    public CustomTaskDetail getDefaultCustomDetail() {
-        return new CustomTaskDetail();
+    public CustomTaskDetailValueWrapper getDefaultCustomDetail() {
+        return new CustomTaskDetailValueWrapper();
     }
 
     public ObservableListWrapperA<LiquidFertiliser> getDefaultLiquidFertilisers() {

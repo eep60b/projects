@@ -269,9 +269,9 @@ public class EditPlantFXMLController extends DataUnitFXMLController<Plants, Edit
 
         gventListView.setItems(model.getGvents());
         gventListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        gventListView.getSelectionModel().select(model.getSelectedEventValueWrapper().getValue());
-        editGventButton.setDisable(model.getSelectedEventValueWrapper().getValue() == null);
-        removeGventButton.setDisable(model.getSelectedEventValueWrapper().getValue() == null);
+        gventListView.getSelectionModel().select(model.getSelectedGventValueWrapper().getValue());
+        editGventButton.setDisable(model.getSelectedGventValueWrapper().getValue() == null);
+        removeGventButton.setDisable(model.getSelectedGventValueWrapper().getValue() == null);
 
         taskListView.setItems(model.getTasks());
         taskListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -312,9 +312,9 @@ public class EditPlantFXMLController extends DataUnitFXMLController<Plants, Edit
         terminationDatePicker.dateTimeValueProperty().addListener(new ValueChangeAdapter<>(model.getTerminationTimeValueWrapper()));
         terminationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getTerminationReasonValueWrapper()));
 
-        gventListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedEventValueWrapper()));
-        addGventButton.setOnAction(new AddItemEventHandler<>(model.getGvents(), model.getSelectedEventValueWrapper(), new AddGventDataModel()));
-        EditGventDataModel gm = new EditGventDataModel(model.getSelectedEventValueWrapper().getValue());
+        gventListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedGventValueWrapper()));
+        addGventButton.setOnAction(new AddItemEventHandler<>(model.getGvents(), model.getSelectedGventValueWrapper(), new AddGventDataModel()));
+        EditGventDataModel gm = new EditGventDataModel(model.getSelectedGventValueWrapper().getValue());
         gm.addPropertyChangeListener(EditGventDataModel.LIST_CHANGE_PROPERTY, new EditListViewPropertyChangeAdapter(gventListView));
         editGventButton.setOnAction(new EditItemEventHandler(gm));
         removeGventButton.setOnAction(new RemoveEventHandler(model, REMOVE_GVENT_ID));

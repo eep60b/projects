@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.Notification;
@@ -26,6 +27,14 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public abstract class Task extends Log {
 
     private ObservableListWrapperA<Notification> notifications;
+
+    public Task() {
+    }
+
+    public Task(DataUnitValueWrapper valueWrapper, TaskDetailValueWrapper detailValueWrapper) {
+        super(valueWrapper, detailValueWrapper.getStartTime());
+        this.notifications = new ObservableListWrapperA<>(detailValueWrapper.getNotifications());
+    }
 
     @JsonIgnore
     public abstract TaskType getType();

@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.log.task;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.HarvestingTask;
-import com.etlsolutions.javafx.data.log.task.HarvestingTaskDetail;
+import com.etlsolutions.javafx.data.log.task.HarvestingTaskDetailValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -12,21 +12,20 @@ import com.etlsolutions.javafx.system.ProjectManager;
  *
  * @author zc
  */
-public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskDetail> {
+public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskDetailValueWrapper> {
 
     private final ObservableListWrapperA<String> harvestingQualities;
     private final ObservableListWrapperA<String> harvestingUoms;
 
     public HarvestingTaskDataModel() {
-        this(new HarvestingTaskDetail(ProjectManager.getInstance().getContents().getHarvestingQualities().get(0), 
-                0, ProjectManager.getInstance().getContents().getHarvestingUoms().get(0)));
+        this(new HarvestingTaskDetailValueWrapper());
     }    
     
     public HarvestingTaskDataModel(HarvestingTask task) {
-        this(new HarvestingTaskDetail(task.getQuality(), task.getQuatantity(), task.getUom()));
+        this(new HarvestingTaskDetailValueWrapper(task));
     }    
     
-    private HarvestingTaskDataModel(HarvestingTaskDetail detail) {
+    private HarvestingTaskDataModel(HarvestingTaskDetailValueWrapper detail) {
         super(detail);
         ProjectContents p = ProjectManager.getInstance().getContents();
         harvestingQualities = new ObservableListWrapperA<>(p.getHarvestingQualities());
@@ -46,11 +45,11 @@ public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskD
     }
 
     public ValueWrapper<String> getQuatantity() {
-        return detail.getQuatantity();
+        return detail.getQuatantityValueWrapper();
     }
 
     public ValueWrapper<String> getUom() {
-        return detail.getUom();
+        return detail.getUomValueWrapper();
     }
 
     @Override

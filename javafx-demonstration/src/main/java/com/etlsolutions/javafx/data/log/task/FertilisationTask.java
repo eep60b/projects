@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+
 /**
  *
  * @author zc
@@ -12,6 +14,18 @@ public class FertilisationTask extends Task
   private double amount;
   private String uom;
 
+    public FertilisationTask() {
+    }
+
+    public FertilisationTask(DataUnitValueWrapper valueWrapper, FertilisationTaskDetailValueWrapper detailValueWrapper) {
+        super(valueWrapper, detailValueWrapper);
+        fertiliserId = detailValueWrapper.getFertiliserValueWrapper().getValue().getId();
+        amount = detailValueWrapper.getAmount();
+        uom = detailValueWrapper.getUomValueWrapper().getValue();
+    }
+
+  
+  
     public int getFertiliserId() {
         return fertiliserId;
     }

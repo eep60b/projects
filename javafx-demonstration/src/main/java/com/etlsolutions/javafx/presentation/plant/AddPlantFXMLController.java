@@ -21,11 +21,6 @@ import com.etlsolutions.javafx.presentation.DateTimePicker;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.QuantityTypeRadioButton;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
-import com.etlsolutions.javafx.presentation.log.growingissue.AddGrowingIssueDataModel;
-import com.etlsolutions.javafx.presentation.log.task.AddTaskDataModel;
-import com.etlsolutions.javafx.presentation.growingmedium.AddGrowingMediumDataModel;
-import com.etlsolutions.javafx.presentation.log.growingobservation.AddGrowingObservationDataModel;
-import com.etlsolutions.javafx.presentation.log.gvent.AddGventDataModel;
 import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
 import static com.etlsolutions.javafx.presentation.plant.AddPlantDataModel.*;
 import com.etlsolutions.javafx.presentation.plant.plantvariety.AddVarietyDataModel;
@@ -224,10 +219,13 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         singlePlantRadioButton.setAlignment(Pos.CENTER_LEFT);
         QuantityTypeRadioButton multiplePlantRadioButton = new QuantityTypeRadioButton();
         multiplePlantRadioButton.setText("Exact number");
+        multiplePlantRadioButton.setAlignment(Pos.CENTER_LEFT);
         QuantityTypeRadioButton estimatedPlantRadioButton = new QuantityTypeRadioButton();
         estimatedPlantRadioButton.setText("Estimated number");
+        estimatedPlantRadioButton.setAlignment(Pos.CENTER_LEFT);
         QuantityTypeRadioButton notCountingRadioButton = new QuantityTypeRadioButton();
         notCountingRadioButton.setText("Uncountable");
+        notCountingRadioButton.setAlignment(Pos.CENTER_LEFT);
         plantNumberTypeHbox.getChildren().addAll(singlePlantRadioButton, multiplePlantRadioButton, estimatedPlantRadioButton, notCountingRadioButton);
         singlePlantRadioButton.setType(PlantsQuantity.Type.SINGLE);
         multiplePlantRadioButton.setType(PlantsQuantity.Type.MULTIPLE);
@@ -263,7 +261,7 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         factory.setValue(model.getQuantityValueWrapper().getValue());
         plantNumberSpinner.setValueFactory(factory);
         PlantsQuantity.Type type = model.getQuantityTypeValueWrapper().getValue();
-        plantNumberSpinner.setDisable(type == PlantsQuantity.Type.SINGLE || type == PlantsQuantity.Type.NO_COUNTING);
+        plantNumberSpinner.setVisible(type == PlantsQuantity.Type.MULTIPLE || type == PlantsQuantity.Type.ESTIMATION);
         ((IntegerSpinnerValueFactory) plantNumberSpinner.getValueFactory()).setMin(0);
         plantNumberSpinner.valueProperty().addListener(new ValueChangeAdapter<>(model.getQuantityValueWrapper()));
         model.getQuantityTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new QuantityTypePropertyChangeAdapter(model, plantNumberSpinner));
@@ -277,7 +275,7 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         growingMediumCombobox.getSelectionModel().select(model.getGrowingMediumValueWrapper().getValue());
         model.getGrowingMediumValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new ComboBoxSelectionPropertyChangeAdapter<>(growingMediumCombobox));
         growingMediumCombobox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getGrowingMediumValueWrapper()));
-        addGrowingMediumButton.setOnAction(new AddItemEventHandler<>(model.getGrowingMediums(), model.getGrowingMediumValueWrapper(), new AddGrowingMediumDataModel()));
+        addGrowingMediumButton.setOnAction(new AddGrowingMediumForPlantEventHandler(model));
 
         Location location = model.getLocationValueWrapper().getValue();
         locationTitleLabel.setText(location == null ? "Not Specified" : location.getTitle());
@@ -309,19 +307,21 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         
         gventListView.setItems(model.getGvents());
         gventListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        gventListView.getSelectionModel().select(model.getSelectedEventValueWrapper().getValue());
-        gventListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedEventValueWrapper()));
-        addGventButton.setOnAction(new AddItemEventHandler<>(model.getGvents(), model.getSelectedEventValueWrapper(), new AddGventDataModel()));
+        gventListView.getSelectionModel().select(model.getSelectedGventValueWrapper().getValue());
+        gventListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedGventValueWrapper()));
+        addGventButton.setOnAction(new AddGventForPlantEventHandler(model));
+        editGventButton.setOnAction(new EditGventForPlantEventHandler(model));
         removeGventButton.setOnAction(new RemoveEventHandler(model, REMOVE_GVENT_ID));
         PlantGventPropertyChangeAdapter gventAdapter = new PlantGventPropertyChangeAdapter(gventListView, editGventButton, removeGventButton);    
-        gventAdapter.process(model.getSelectedEventValueWrapper());
-        model.getSelectedEventValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, gventAdapter);
+        gventAdapter.process(model.getSelectedGventValueWrapper());
+        model.getSelectedGventValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, gventAdapter);
                 
         taskListView.setItems(model.getTasks());
         taskListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         taskListView.getSelectionModel().select(model.getSelectedTaskValueWrapper().getValue());
         taskListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedTaskValueWrapper()));
-        addTaskButton.setOnAction(new AddItemEventHandler<>(model.getTasks(), model.getSelectedTaskValueWrapper(), new AddTaskDataModel()));
+        addTaskButton.setOnAction(new AddTaskForPlantEventHandler(model));
+        editTaskButton.setOnAction(new EditTaskForPlantEventHandler(model));
         removeTaskButton.setOnAction(new RemoveEventHandler(model, REMOVE_TASK_ID));
         PlantTaskPropertyChangeAdapter taskAdapter = new PlantTaskPropertyChangeAdapter(taskListView, editTaskButton, removeTaskButton);    
         taskAdapter.process(model.getSelectedTaskValueWrapper());
@@ -331,7 +331,8 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         issueListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         issueListView.getSelectionModel().select(model.getSelectedGrowingIssueValueWrapper().getValue());
         issueListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedGrowingIssueValueWrapper()));
-        addIssueButton.setOnAction(new AddItemEventHandler<>(model.getGrowingIssues(), model.getSelectedGrowingIssueValueWrapper(), new AddGrowingIssueDataModel()));
+        addIssueButton.setOnAction(new AddIssueForPlantEventHandler(model));
+        editIssueButton.setOnAction(new EditIssueForPlantEventHandler(model));
         removeIssueButton.setOnAction(new RemoveEventHandler(model, REMOVE_ISSUE_ID));            
         PlantGrowingIssuePropertyChangeAdapter issueAdapter = new PlantGrowingIssuePropertyChangeAdapter(issueListView, editIssueButton, removeIssueButton);    
         issueAdapter.process(model.getSelectedGrowingIssueValueWrapper());
@@ -341,7 +342,8 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         observationListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         observationListView.getSelectionModel().select(model.getSelectedGrowingObservationValueWrapper().getValue());
         observationListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedGrowingObservationValueWrapper()));
-        addObservationButton.setOnAction(new AddItemEventHandler<>(model.getGrowingObservations(), model.getSelectedGrowingObservationValueWrapper(), new AddGrowingObservationDataModel()));
+        addObservationButton.setOnAction(new AddObservationForPlantEventHandler(model));
+        editObservationButton.setOnAction(new EditGrowingObservationForPlantEventHandler(model));
         removeObservationButton.setOnAction(new RemoveEventHandler(model, REMOVE_OBSERVATION_ID));
         PlantObservationPropertyChangeAdapter observationAdapter = new PlantObservationPropertyChangeAdapter(observationListView, editObservationButton, removeObservationButton);    
         observationAdapter.process(model.getSelectedGrowingObservationValueWrapper());

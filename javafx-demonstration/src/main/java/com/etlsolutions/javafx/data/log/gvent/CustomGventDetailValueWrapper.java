@@ -9,20 +9,20 @@ import java.time.LocalDateTime;
  *
  * @author zc
  */
-public class CustomGventDetail implements GventDetailValueWrapper {
+public class CustomGventDetailValueWrapper implements GventDetailValueWrapper {
 
     private final ValueWrapper<LocalDateTime> startTimeValueWrapper;
     private final ValueWrapper<LocalDateTime> endTimeValueWrapper;
     private final ObservableListWrapperA<Notification> notifications;
     
-    public CustomGventDetail() {
+    public CustomGventDetailValueWrapper() {
 
         startTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
         endTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
         notifications = new ObservableListWrapperA<>();
     }
     
-    public CustomGventDetail(FloweringGvent floweringGvent) {
+    public CustomGventDetailValueWrapper(FloweringGvent floweringGvent) {
         startTimeValueWrapper = new ValueWrapper<>(floweringGvent.getStartTime());
         endTimeValueWrapper = new ValueWrapper<>(floweringGvent.getEndTime());
         notifications = new ObservableListWrapperA<>(floweringGvent.getNotifications());

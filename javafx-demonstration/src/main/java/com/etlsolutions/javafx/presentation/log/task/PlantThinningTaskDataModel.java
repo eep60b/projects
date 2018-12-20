@@ -2,21 +2,21 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
-import com.etlsolutions.javafx.data.log.task.PlantThinningTaskDetail;
+import com.etlsolutions.javafx.data.log.task.PlantThinningTaskDetailValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 
 /**
  *
  * @author zc
  */
-public class PlantThinningTaskDataModel extends TaskDetailDataModel<PlantThinningTaskDetail> {
+public class PlantThinningTaskDataModel extends TaskDetailDataModel<PlantThinningTaskDetailValueWrapper> {
 
     public PlantThinningTaskDataModel() {
-        super(new PlantThinningTaskDetail(1, 1));
+        super(new PlantThinningTaskDetailValueWrapper());
     }
     
     public PlantThinningTaskDataModel(PlantThinningTask task) {
-        super(new PlantThinningTaskDetail(task.getTotalPlants(), task.getThinningRatio()));
+        super(new PlantThinningTaskDetailValueWrapper(task));
     }
 
     public ValueWrapper<Integer> getTotalPlants() {

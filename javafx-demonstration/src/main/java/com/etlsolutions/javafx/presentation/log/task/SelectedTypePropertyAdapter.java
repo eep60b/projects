@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import java.beans.PropertyChangeEvent;
@@ -26,9 +27,9 @@ public class SelectedTypePropertyAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        AbstractTaskDataModel model = (AbstractTaskDataModel) evt.getSource();
-        TaskType type = model.getSelectedTypeValueWrapper().getValue(); 
-        model.setContentModel(model.getDetailDataModel(type));
+        ValueWrapper<TaskType> wrapper = (ValueWrapper<TaskType>) evt.getSource();
+        TaskType type = wrapper.getValue(); 
+      //  model.setContentModel(model.getDetailDataModel(type));
         switch (type) {
             case CUSTOM:
                 mainTabPane.getTabs().remove(detailTab);

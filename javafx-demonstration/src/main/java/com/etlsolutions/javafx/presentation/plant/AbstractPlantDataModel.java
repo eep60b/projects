@@ -120,7 +120,7 @@ public abstract class AbstractPlantDataModel extends DataUnitFXMLDataModel<Plant
         return plantValueWrapper.getTasks();
     }
 
-    public ValueWrapper<Gvent> getSelectedEventValueWrapper() {
+    public ValueWrapper<Gvent> getSelectedGventValueWrapper() {
         return selectedEventValueWrapper;
     }
 

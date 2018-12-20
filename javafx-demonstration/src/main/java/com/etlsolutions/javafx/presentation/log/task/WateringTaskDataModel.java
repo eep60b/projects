@@ -5,7 +5,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.task.WaterType;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
-import com.etlsolutions.javafx.data.log.task.WateringTaskDetail;
+import com.etlsolutions.javafx.data.log.task.WateringTaskDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.task.WateringType;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
@@ -16,23 +16,21 @@ import com.etlsolutions.javafx.system.ProjectManager;
  *
  * @author zc
  */
-public class WateringTaskDataModel extends TaskDetailDataModel<WateringTaskDetail> {
+public class WateringTaskDataModel extends TaskDetailDataModel<WateringTaskDetailValueWrapper> {
 
     private final ObservableListWrapperA<String> wateringAmountUoms;
     private final ObservableListWrapperA<String> wateringFluxUoms;
     private final ObservableListWrapperA<LiquidFertiliser> fertilisers;
     
     public WateringTaskDataModel(WateringTask task) {
-        this(new WateringTaskDetail(task.getWateringType(), task.getWaterType(), task.isFertilised(), 
-                (LiquidFertiliser)ProjectManager.getInstance().getItem(task.getFertiliserId()), task.getAmount(), 
-                task.getAmountUom(), task.getFlux(), task.getFluxUom(), task.getDuration()));
+        this(new WateringTaskDetailValueWrapper(task));
     }
 
     public WateringTaskDataModel() {
         this(LogFactory.getInstance().getDefaultWateringTaskDetail());
     }
 
-    private WateringTaskDataModel(WateringTaskDetail detail) {
+    private WateringTaskDataModel(WateringTaskDetailValueWrapper detail) {
         
         super(detail);
         ProjectContents p = ProjectManager.getInstance().getContents();
@@ -56,39 +54,39 @@ public class WateringTaskDataModel extends TaskDetailDataModel<WateringTaskDetai
     
     
     public ValueWrapper<WateringType> getWateringType() {
-        return detail.getWateringType();
+        return detail.getWateringTypeValueWrapper();
     }
 
     public ValueWrapper<WaterType> getWaterType() {
-        return detail.getWaterType();
+        return detail.getWaterTypeValueWrapper();
     }
 
     public ValueWrapper<Boolean> getFertilised() {
-        return detail.getFertilised();
+        return detail.getFertilisedValueWrapper();
     }
 
     public ValueWrapper<LiquidFertiliser> getFertiliser() {
-        return detail.getFertiliser();
+        return detail.getFertiliserValueWrapper();
     }
 
     public ValueWrapper<String> getAmount() {
-        return detail.getAmount();
+        return detail.getAmountValueWrapper();
     }
 
     public ValueWrapper<String> getAmountUom() {
-        return detail.getAmountUom();
+        return detail.getAmountUomValueWrapper();
     }
 
     public ValueWrapper<String> getFlux() {
-        return detail.getFlux();
+        return detail.getFluxValueWrapper();
     }
 
     public ValueWrapper<String> getFluxUom() {
-        return detail.getFluxUom();
+        return detail.getFluxUomValueWrapper();
     }
 
     public ValueWrapper<Integer> getDuration() {
-        return detail.getDuration();
+        return detail.getDurationValueWrapper();
     }
 
     

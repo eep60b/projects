@@ -25,6 +25,6 @@ public class QuantityTypePropertyChangeAdapter implements PropertyChangeListener
         ValueWrapper<Type> wrapper = (ValueWrapper<Type>) evt.getSource();
         plantNumberSpinner.getValueFactory().setValue(model.getQuantityValueWrapper().getValue());
         Type type = wrapper.getValue();
-        plantNumberSpinner.setDisable(type == Type.SINGLE || type == Type.NO_COUNTING);
+        plantNumberSpinner.setVisible(type == Type.MULTIPLE || type == Type.ESTIMATION);
     }
 }

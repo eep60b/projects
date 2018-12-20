@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+
 /**
  *
  * @author zc
@@ -8,6 +10,15 @@ public class PruningTask extends Task {
 
     private double overallRemoved;
     private double eachBranchRemoved;
+
+    public PruningTask() {
+    }
+
+    public PruningTask(DataUnitValueWrapper valueWrapper, PruningTaskDetailValueWrapper detailValueWrapper) {
+        super(valueWrapper, detailValueWrapper);
+        overallRemoved = detailValueWrapper.getOrverallRemoved();
+        eachBranchRemoved = detailValueWrapper.getEachBranchRemoved();
+    }
     
     @Override
     public TaskType getType() {

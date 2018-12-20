@@ -5,7 +5,7 @@
  */
 package com.etlsolutions.javafx.presentation.log.task;
 
-import com.etlsolutions.javafx.data.log.task.CustomTaskDetail;
+import com.etlsolutions.javafx.data.log.task.CustomTaskDetailValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 
 /**
@@ -14,7 +14,7 @@ import com.etlsolutions.javafx.presentation.RemoveEventId;
  */
 public class CustomTaskDetailDataModel extends TaskDetailDataModel {
 
-    public CustomTaskDetailDataModel(CustomTaskDetail detail) {
+    public CustomTaskDetailDataModel(CustomTaskDetailValueWrapper detail) {
         super(detail);
     }
 

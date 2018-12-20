@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+
 /**
  *
  * @author zc
@@ -9,6 +11,15 @@ public class PlantThinningTask extends Task {
   private int totalPlants;
   private int raminingPlants;
   private int thinningRatio;
+
+    public PlantThinningTask() {
+    }
+
+    public PlantThinningTask(DataUnitValueWrapper valueWrapper, PlantThinningTaskDetailValueWrapper detailValueWrapper) {
+        super(valueWrapper, detailValueWrapper);
+        totalPlants = detailValueWrapper.getTotalPlants().getValue();
+        thinningRatio = detailValueWrapper.getThinningRatio().getValue();
+    }
 
     public int getTotalPlants() {
         return totalPlants;

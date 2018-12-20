@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.plant;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -27,8 +28,9 @@ public class LocationPropertyChangeAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         
-        AddPlantDataModel model = (AddPlantDataModel)evt.getSource();
-        Location location = model.getLocationValueWrapper().getValue();
+        ValueWrapper<Location> wrapper = ( ValueWrapper<Location>) evt.getSource();        
+        Location location = wrapper.getValue();
+        
         locationTitleTabel.setText(location == null ? "Not Specified" : location.getTitle());
         locationInformationTextArea.setText(location == null ? "" : location.getInformation());
         editLocationButton.setText(location == null ? "Add Location" : "Edit Location");

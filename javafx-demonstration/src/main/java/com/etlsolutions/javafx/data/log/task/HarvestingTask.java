@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+
 /**
  *
  * @author zc
@@ -10,6 +12,16 @@ public class HarvestingTask extends Task
   private double quatantity;
   private String uom;
 
+    public HarvestingTask() {
+    }
+
+    public HarvestingTask(DataUnitValueWrapper valueWrapper, HarvestingTaskDetailValueWrapper detailValueWrapper) {
+        super(valueWrapper, detailValueWrapper);
+        quality = detailValueWrapper.getQuality().getValue();
+        quatantity = detailValueWrapper.getQuatantity();
+        uom = detailValueWrapper.getUomValueWrapper().getValue();
+    }
+    
   public String getQuality() {
     return quality;
   }
