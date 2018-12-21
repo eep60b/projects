@@ -1,0 +1,8 @@
+
+
+
+
+100. Validation:
+    100.001 Plants must have a title.
+    100.002 Plants must have a plant subgroup (plant type).
+    100.003 Plants must have a start date.

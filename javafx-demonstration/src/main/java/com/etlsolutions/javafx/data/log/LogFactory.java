@@ -43,6 +43,7 @@ public class LogFactory {
 
         LogGroupRoot l = new LogGroupRoot();
 
+        l.setTitle("All Records");
         l.setEvents(createEvents());
         l.setIssues(createIssues());
         l.setNotes(createNotes());
