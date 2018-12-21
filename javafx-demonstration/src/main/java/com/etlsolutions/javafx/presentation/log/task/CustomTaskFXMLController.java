@@ -1,21 +1,16 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 
 /**
  * FXML Controller class
  *
  * @author zc
  */
-public class CustomTaskFXMLController implements Initializable {
+public class CustomTaskFXMLController extends AbstractComponentsFXMLController<CustomTaskDetailDataModel> {
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initializeComponents() {
         // TODO
     }    
     

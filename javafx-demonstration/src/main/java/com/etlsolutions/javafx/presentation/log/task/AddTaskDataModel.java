@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.log.LogFactory;
+import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
@@ -11,8 +12,10 @@ public class AddTaskDataModel extends AbstractTaskDataModel {
 
     @Override
     public void save() {
-        set(LogFactory.getInstance().createTask(commonValueWrapper, detailDataModel.getDetail()));
-        ProjectManager.getInstance().getContents().getLogGroupRoot().getTasks().addLog(get());
+        Task task = LogFactory.getInstance().createTask(commonValueWrapper, detailDataModel.getDetail());
+        set(task);
+        ProjectManager.getInstance().getContents().getLogGroupRoot().getTasks().addLog(task);
+        ProjectManager.getInstance().addItem(task);
         detailDataModel.save();
     }
     
