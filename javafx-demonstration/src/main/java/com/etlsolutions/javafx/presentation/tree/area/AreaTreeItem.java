@@ -25,6 +25,6 @@ public class AreaTreeItem extends MenuedTreeItem {
             children.add(new SubAreaTreeItem(subArea));
         }
 
-        subAreas.addListener(new DataUnitListChangeAdapter<SubArea>(children));
+        subAreas.addListener(new DataUnitListChangeAdapter<>(children));
     }
 }

@@ -1,9 +1,13 @@
 package com.etlsolutions.javafx.presentation.imagelink;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -43,7 +47,11 @@ public class ImagePropertyChangeAdapter implements PropertyChangeListener {
         if (!invalid) {
             ObservableList<Node> children = imageHbox.getChildren();
             children.clear();
-            children.add(new ImageView(new Image(link)));
+            try {
+                children.add(new ImageView(new Image(new FileInputStream(new File(link)))));
+            } catch (FileNotFoundException ex) {
+                throw new CustomLevelErrorRuntimeExceiption("The image file is missing.", ex);
+            }
         }
     }
 

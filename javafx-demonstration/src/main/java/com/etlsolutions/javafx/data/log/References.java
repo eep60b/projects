@@ -9,7 +9,7 @@ public class References extends LogGroup {
     public References() {
     }
 
-    public References(String title, String information) {
-        super(title, information);
+    public References(String title) {
+        super(title);
     }
 }

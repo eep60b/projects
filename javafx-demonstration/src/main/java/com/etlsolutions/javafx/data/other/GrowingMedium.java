@@ -1,9 +1,6 @@
 package com.etlsolutions.javafx.data.other;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -41,8 +38,8 @@ public class GrowingMedium extends DataUnit {
     public GrowingMedium() {
     }
 
-    public GrowingMedium(DataUnitValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
-        super(commonValueWrapper);
+    public GrowingMedium(GrowingMediumSpecialValueWrapper specialValueWrapper) {
+        super(specialValueWrapper);
         sandPercentage = Double.parseDouble(specialValueWrapper.getSandPercentageWrapper().getValue());
         siltPercentage = Double.parseDouble(specialValueWrapper.getSiltPercentageWrapper().getValue());
         clayPercentage = Double.parseDouble(specialValueWrapper.getClayPercentageWrapper().getValue());
@@ -52,47 +49,11 @@ public class GrowingMedium extends DataUnit {
         ph = Double.parseDouble(specialValueWrapper.getPhWrapper().getValue());
         fertilised = specialValueWrapper.getFertilisedWrapper().getValue();
     }
-
-    GrowingMedium(String title, String information, double[] compositions, boolean fertilised) {
-        super(title, information);
-
-        int i = 0;
-        sandPercentage = compositions[i];
-        siltPercentage = compositions[i++];
-        clayPercentage = compositions[i++];
-        organicPercentage = compositions[i++];
-        stonePercentage = compositions[i++];
-        waterStoragePercentage = compositions[i++];
-        ph = compositions[i++];
-        this.fertilised = fertilised;
-    }
-
-    GrowingMedium(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
-        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
-
-        int i = 0;
-        sandPercentage = compositions[i];
-        siltPercentage = compositions[i++];
-        clayPercentage = compositions[i++];
-        organicPercentage = compositions[i++];
-        stonePercentage = compositions[i++];
-        waterStoragePercentage = compositions[i++];
-        ph = compositions[i++];
-        this.fertilised = fertilised;
-    }
-
-    GrowingMedium(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, double[] compositions, boolean fertilised) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        int i = 0;
-        sandPercentage = compositions[i];
-        siltPercentage = compositions[i++];
-        clayPercentage = compositions[i++];
-        organicPercentage = compositions[i++];
-        stonePercentage = compositions[i++];
-        waterStoragePercentage = compositions[i++];
-        ph = compositions[i++];
-        this.fertilised = fertilised;
-    }
+    
+    public GrowingMedium(int id, GrowingMediumSpecialValueWrapper specialValueWrapper) {
+        this(specialValueWrapper);
+        setId(id);
+    }    
 
     public double getSandPercentage() {
         return sandPercentage;
@@ -174,9 +135,9 @@ public class GrowingMedium extends DataUnit {
         fireChange(FERTILISED_PROPERTY, oldValue, this.fertilised);
     }
     
-    public void setValues(DataUnitValueWrapper commonValueWrapper, GrowingMediumSpecialValueWrapper specialValueWrapper) {
+    public void setValues(GrowingMediumSpecialValueWrapper specialValueWrapper) {
         
-        setCommonValues(commonValueWrapper);
+        super.setCommonValues(specialValueWrapper);
         
         setSandPercentage(specialValueWrapper.getSandPercentage());
         setSiltPercentage(specialValueWrapper.getSiltPercentage());

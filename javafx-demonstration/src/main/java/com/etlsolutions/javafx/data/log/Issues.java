@@ -9,7 +9,7 @@ public class Issues extends LogGroup {
     public Issues() {
     }
 
-    public Issues(String title, String information) {
-        super(title, information);
+    public Issues(String title) {
+        super(title);
     }
 }

@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.data.plant;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
 
 import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_SEPARATER;
 import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
@@ -78,7 +79,11 @@ public class PlantsFactory {
 
     public Plants creatPlant(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {
         Plants plant = new Plants(valueWrapper, plantValueWrapper);
-        plantValueWrapper.getLocationValueWrapper().getValue().setPlantId(plant.getId());
+
+        Location location = plantValueWrapper.getLocationValueWrapper().getValue();
+        if (location != null) {
+            location.setPlantId(plant.getId());
+        }
         return plant;
     }
 

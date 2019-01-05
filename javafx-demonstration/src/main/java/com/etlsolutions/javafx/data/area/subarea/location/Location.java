@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -21,8 +20,8 @@ public abstract class Location extends DataUnit {
     public Location() {
     }
 
-    public Location(DataUnitValueWrapper dataUnitCommonDataValueWrapper, LocationValueWrapper locationValueWrapper) {
-        super(dataUnitCommonDataValueWrapper);
+    public Location(LocationValueWrapper locationValueWrapper) {
+        super(locationValueWrapper);
         plantId = locationValueWrapper.getPlantIdValueWrapper().getValue();
         parentId = locationValueWrapper.getParentIdValueWrapper().getValue();
     }

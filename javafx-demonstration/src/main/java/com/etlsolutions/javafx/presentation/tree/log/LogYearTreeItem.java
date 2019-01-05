@@ -23,6 +23,6 @@ public class LogYearTreeItem extends MenuedTreeItem {
         for (LogMonth month : months) {
             children.add(new LogMonthTreeItem(month));
         }
-        months.addListener(new DataUnitListChangeAdapter<LogMonth>(children));      
+        months.addListener(new DataUnitListChangeAdapter<>(children));      
     }    
 }

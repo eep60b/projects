@@ -22,7 +22,7 @@ public class PlantsGroupRootTreeItem extends MenuedTreeItem {
         List<TreeItem<DataUnit>> children = getChildren();
         for (PlantGroup group : model.getPlantGroups()) {
             if (!group.getPlantsSubGroups().isEmpty()) {
-                children.add(new PlantsGroupItem(group));
+                children.add(new PlantGroupItem(group));
             }
         }
     }

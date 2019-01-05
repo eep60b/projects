@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
@@ -47,8 +46,8 @@ public abstract class Area extends DataUnit {
     public Area() {
     }
 
-    public Area(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
-        super(valueWrapper);
+    public Area(AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
+        super(areaValueWrapper);
         longitude = areaValueWrapper.getLongitude();
         latitude = areaValueWrapper.getLatitude();
         measurement = MeasurementFactory.getInstance().getAreaMeasurement(measurementValueWrapper);

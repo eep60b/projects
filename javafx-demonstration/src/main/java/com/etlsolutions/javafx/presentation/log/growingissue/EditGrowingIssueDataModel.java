@@ -16,7 +16,7 @@ public class EditGrowingIssueDataModel extends AbstractGrowingIssueDataModel {
     @Override
     public void save() {
         GrowingIssue dataUnit = get();
-        dataUnit.setCommonValues(commonValueWrapper);
+        dataUnit.setCommonValues(getValueWrapper);
         dataUnit.setStartTime(getStartTimeValueWrapper().getValue());
         dataUnit.setEndTime(getEndTimeValueWrapper().getValue());
         dataUnit.setSolution(getSolutionValueWrapper().getValue());

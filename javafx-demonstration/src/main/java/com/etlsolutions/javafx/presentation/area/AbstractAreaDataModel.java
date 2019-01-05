@@ -29,28 +29,28 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
     protected final ObservableListWrapperA<AreaType> areaTypes;
     protected final ValueWrapper<AreaType> selectedAreaTypeValueWrapper;
     protected final ObservableListWrapperA<MeasurementType> measurementTypes;
-    protected AreaValueWrapper areaValueWrapper;
+    private final AreaValueWrapper areaValueWrapper;
     protected MeasurementDataModel measurementDataModel;
     protected final ObservableListWrapperA<SubArea> subAreas;
     private final ValueWrapper<SubArea> selectedSubArea;
 
-    public AbstractAreaDataModel(ObservableListWrapperA<AreaType> areaTypes, Measurement measurement) {
+    public AbstractAreaDataModel(AreaValueWrapper areaValueWrapper, ObservableListWrapperA<AreaType> areaTypes, Measurement measurement) {
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
         measurementTypes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
-        areaValueWrapper = new AreaValueWrapper();
-        measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(measurement);
+        this.areaValueWrapper = areaValueWrapper;
+        measurementDataModel = DetailDataModelGenerator.getInstance().getMeasurementDataModel(measurement);
         subAreas = new ObservableListWrapperA<>();
         selectedSubArea = new ValueWrapper<>(null);
     }
 
     public AbstractAreaDataModel(Area area, ObservableListWrapperA<AreaType> areaTypes, Measurement measurement) {
-        super(area);
+        set(area);
         this.areaTypes = areaTypes;
         selectedAreaTypeValueWrapper = new ValueWrapper<>(areaTypes.get(0));
         measurementTypes = new ObservableListWrapperA<>(MeasurementType.RECTANGLE, MeasurementType.SQUARE, MeasurementType.CIRCLE, MeasurementType.TRIANGLE, MeasurementType.IRREGULAR);
         areaValueWrapper = new AreaValueWrapper(area);
-        measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(measurement);
+        measurementDataModel = DetailDataModelGenerator.getInstance().getMeasurementDataModel(measurement);
         subAreas = new ObservableListWrapperA<>(area.getSubAreas());
         selectedSubArea = new ValueWrapper<>(subAreas.isEmpty() ? null : subAreas.get(0));
     }
@@ -87,6 +87,11 @@ public abstract class AbstractAreaDataModel extends DataUnitFXMLDataModel<Area> 
     @Override
     public void setContentModel(MeasurementDataModel measurementDataModel) {
         this.measurementDataModel = measurementDataModel;
+    }
+
+    @Override
+    protected  AreaValueWrapper getValueWrapper() {
+        return areaValueWrapper;
     }
 
     @Override

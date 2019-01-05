@@ -19,7 +19,7 @@ public class LogGroupRoot extends DataUnit {
    private Tests tests;
    private WeatherRecords weatherRecords;
 
-    public Gvents getEvents() {
+    public Gvents getGvents() {
         return events;
     }
 

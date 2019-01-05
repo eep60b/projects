@@ -29,7 +29,7 @@ public class AreaShapePropertyChangeAdapter implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         
         ValueWrapper<MeasurementType> wrapper = (ValueWrapper<MeasurementType>) evt.getSource();
-        model.setContentModel(MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(wrapper.getValue()));
+        model.setContentModel(DetailDataModelGenerator.getInstance().getMeasurementDataModel(wrapper.getValue()));
         measurementTab.setContent(nodeGenerator.getNode(wrapper.getValue()));
     }
 }

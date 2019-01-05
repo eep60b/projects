@@ -25,6 +25,6 @@ public class PlantSubGroupTreeItem extends MenuedTreeItem {
             children.add(new PlantsTreeItem(plants));
         }
         
-        plantsList.addListener(new DataUnitListChangeAdapter<Plants>(children));
+        plantsList.addListener(new DataUnitListChangeAdapter<>(children));
     }   
 }

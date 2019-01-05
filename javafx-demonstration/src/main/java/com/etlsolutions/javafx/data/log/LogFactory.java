@@ -2,6 +2,14 @@ package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.log.gvent.CustomGvent;
+import com.etlsolutions.javafx.data.log.gvent.CustomGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.Gvent;
+import com.etlsolutions.javafx.data.log.gvent.GventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.task.CustomTask;
 import com.etlsolutions.javafx.data.log.task.CustomTaskDetailValueWrapper;
@@ -56,38 +64,52 @@ public class LogFactory {
 
     public Gvents createEvents() {
 
-        return new Gvents("Events", "");
+        return new Gvents("Events");
 
     }
 
     public Issues createIssues() {
-        return new Issues("Issues", "");
+        return new Issues("Issues");
 
     }
 
     public Notes createNotes() {
 
-        return new Notes("Notes", "");
+        return new Notes("Notes");
     }
 
     public References createReferences() {
 
-        return new References("References", "");
+        return new References("References");
     }
 
     public Tasks createTasks() {
 
-        return new Tasks("Tasks", "");
+        return new Tasks("Tasks");
     }
 
     public Tests createTests() {
 
-        return new Tests("Tests", "");
+        return new Tests("Tests");
     }
 
     public WeatherRecords createWeatherRecords() {
 
-        return new WeatherRecords("Weather", "");
+        return new WeatherRecords("Weather");
+    }
+
+    public Gvent createGvent(DataUnitValueWrapper valueWrapper, GventDetailValueWrapper detailValueWrapper) {
+        
+        switch (detailValueWrapper.getType()) {
+            case FLOWERING:
+                return new FloweringGvent(valueWrapper, (FloweringGventDetailValueWrapper) detailValueWrapper);
+            case FRUITING:
+                return new FruitingGvent(valueWrapper, (FruitingGventDetailValueWrapper) detailValueWrapper);
+            case CUSTOM:
+                return new CustomGvent(valueWrapper, (CustomGventDetailValueWrapper) detailValueWrapper);
+            default:
+                throw new IllegalArgumentException("Invalid Event type.");
+        }
     }
 
     public GrowingIssue createGrowingIssue(DataUnitValueWrapper valueWrapper, GrowingIssueValueWrapper growingIssueValueWrapper) {

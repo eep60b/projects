@@ -54,4 +54,8 @@ public class SubAreaFactory {
                 throw new IllegalArgumentException("Invalid sub area type.");
         }
     }
+
+    public SubAreaValueWrapper getDefaultSubAreaValueWrapper() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

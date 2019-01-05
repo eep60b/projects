@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.growingmedium;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.other.GrowingMediumSpecialValueWrapper;
@@ -12,14 +13,9 @@ import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataModel<GrowingMedium> {
 
     protected GrowingMediumSpecialValueWrapper specialValueWrapper;
-
-    public AbstractGrowingMediumDataModel(GrowingMedium dataUnit) {
-        super(dataUnit);
-        specialValueWrapper = new GrowingMediumSpecialValueWrapper(dataUnit);
-    }
     
-    public AbstractGrowingMediumDataModel(double sandPercentage, double siltPercentage, double clayPercentage, double organicPercentage, double stonePercentage, double waterStoragePercentage, double ph, boolean fertilised) {
-        specialValueWrapper = new GrowingMediumSpecialValueWrapper(sandPercentage, siltPercentage, clayPercentage, organicPercentage, stonePercentage, waterStoragePercentage, ph, fertilised);
+    public AbstractGrowingMediumDataModel(GrowingMediumSpecialValueWrapper valueWrapper) {
+        this.specialValueWrapper = valueWrapper;
     }
 
     public ValueWrapper<String> getSandPercentage() {
@@ -53,7 +49,12 @@ public abstract class AbstractGrowingMediumDataModel extends DataUnitFXMLDataMod
     public ValueWrapper<Boolean> getFertilised() {
         return specialValueWrapper.getFertilisedWrapper();
     }
-    
+
+    @Override
+    protected GrowingMediumSpecialValueWrapper getValueWrapper() {
+        return specialValueWrapper;
+    }
+   
     @Override
     public String getFxmlPath() {
         return "/fxml/other/GrowingMediumFXML.fxml";

@@ -29,15 +29,15 @@ public abstract class Gvent extends Log {
     public Gvent() {
     }
 
-    @JsonIgnore
-    public abstract GventType getType();
-
-    public Gvent(DataUnitValueWrapper valueWrapper, LocalDateTime startTime, LocalDateTime endTime, ObservableListWrapperA<Notification> notifications) {
-        super(valueWrapper, startTime);
-        this.notifications = notifications;
-        this.endTime = endTime;
+    public Gvent(DataUnitValueWrapper valueWrapper, GventDetailValueWrapper detailValueWrapper) {
+        super(valueWrapper, detailValueWrapper.getStartTimeValueWrapper().getValue());
+        this.notifications = new ObservableListWrapperA<>(detailValueWrapper.getNotifications());
+        this.endTime = detailValueWrapper.getEndTimeValueWrapper().getValue();
     }
 
+    @JsonIgnore
+    public abstract GventType getType();
+    
     public ObservableListWrapperA<Notification> getNotifications() {
         return notifications;
     }

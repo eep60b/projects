@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -26,8 +25,8 @@ public abstract class GroundLocation extends Location {
     public GroundLocation() {
     }
 
-    public GroundLocation(DataUnitValueWrapper dataUnitCommonDataValueWrapper, LocationValueWrapper locationValueWrapper, GroundLocationMeasurement measurement) {
-        super(dataUnitCommonDataValueWrapper, locationValueWrapper);
+    public GroundLocation(LocationValueWrapper locationValueWrapper, GroundLocationMeasurement measurement) {
+        super(locationValueWrapper);
         this.referencePoint = measurement.getReferencePoint();
         this.direction = measurement.getDirection();
         this.distance = measurement.getDistance();

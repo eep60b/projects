@@ -1,12 +1,15 @@
 package com.etlsolutions.javafx.data.other;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 
 /**
  *
  * @author zc
  */
-public class FertiliserValueWrapper {
+public class FertiliserValueWrapper extends DataUnitValueWrapper {
 
     private final ValueWrapper<FertiliserType> type;
     private final ValueWrapper<String> manufacturer;
@@ -32,14 +35,15 @@ public class FertiliserValueWrapper {
     private final ValueWrapper<String> sulphur;
     private final ValueWrapper<String> vanadium;
     private final ValueWrapper<String> zinc;
-
-    public FertiliserValueWrapper(FertiliserType type, String manufacturer, double suggestedUsageAmount, String usageUom, double ph, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc) {
+    
+    public FertiliserValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath, FertiliserType type, String manufacturer, double suggestedUsageAmount, String usageUom, double ph, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.type = new ValueWrapper<>(type);
         this.manufacturer = new ValueWrapper<>(manufacturer);
         this.suggestedUsageAmount = new ValueWrapper<>(String.valueOf(suggestedUsageAmount));
         this.usageUom = new ValueWrapper<>(usageUom);
         this.ph = new ValueWrapper<>(String.valueOf(ph));
-        this.aluminium = new ValueWrapper<>(String.valueOf(aluminium));
+        this.aluminium = getWrapper(aluminium);
         this.boron = new ValueWrapper<>(String.valueOf(boron));
         this.calcium = new ValueWrapper<>(String.valueOf(calcium));
         this.chlorine = new ValueWrapper<>(String.valueOf(chlorine));
@@ -61,8 +65,13 @@ public class FertiliserValueWrapper {
     }
 
     public FertiliserValueWrapper(Fertiliser fertiliser) {
-        this(fertiliser.getType(), fertiliser.getManufacturer(), fertiliser.getSuggestedUsageAmount(), fertiliser.getUsageUom(),
-                fertiliser.getPh(), fertiliser.getAluminium(), fertiliser.getBoron(), fertiliser.getCalcium(), fertiliser.getChlorine(),
+        super(fertiliser);
+        type = new ValueWrapper<>(fertiliser.getType());
+        manufacturer = new ValueWrapper<>(fertiliser.getManufacturer());
+        suggestedUsageAmount = getWrapper(fertiliser.getSuggestedUsageAmount());
+        usageUom = new ValueWrapper<>(fertiliser.getUsageUom());
+        ph = getWrapper(fertiliser.getPh());
+        , fertiliser.getAluminium(), fertiliser.getBoron(), fertiliser.getCalcium(), fertiliser.getChlorine(),
                 fertiliser.getCobalt(), fertiliser.getCopper(), fertiliser.getIron(), fertiliser.getMagnesium(), fertiliser.getManganese(),
                 fertiliser.getMolybdenum(), fertiliser.getNitrogen(), fertiliser.getNickel(), fertiliser.getPhosphorus(), fertiliser.getPotassium(),
                 fertiliser.getSelenium(), fertiliser.getSodium(), fertiliser.getSulphur(), fertiliser.getVanadium(), fertiliser.getZinc());

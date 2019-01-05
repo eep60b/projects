@@ -4,9 +4,6 @@ import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.InformationDataModel;
-import com.etlsolutions.javafx.presentation.Validatable;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import com.etlsolutions.javafx.presentation.Savable;
 
 /**

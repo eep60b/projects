@@ -29,50 +29,36 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     public static final String LIST_CHANGE_PROPERTY = DataUnitFXMLDataModel.class.getName() + "LIST_CHANGE_PROPERTY ";
     public static final RemoveEventId SELECTED_IMAGE_LINK_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.selectedImageLink", "Selected Image");
 
-    protected final DataUnitValueWrapper commonValueWrapper;
     private D dataUnit;
 
     protected final PropertyChangeSupport support = new PropertyChangeSupport(this);
-
-    public DataUnitFXMLDataModel(D dataUnit) {
-        this(dataUnit.getTitle(), dataUnit.getInformation(), dataUnit.getImageLinks(),
-                dataUnit.getImageLinks().isEmpty() ? null : dataUnit.getImageLinks().get(dataUnit.getSelectedImgLinkIndex()), dataUnit.getLogoPath());
-        this.dataUnit = dataUnit;
-    }
-
-    public DataUnitFXMLDataModel() {
-        this("", "", new ObservableListWrapperA<ImageLink>(), null, "");
-    }
-
-    public DataUnitFXMLDataModel(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImageLink, String logoPath) {
-        
-        commonValueWrapper = new DataUnitValueWrapper(title, information, imageLinks, selectedImageLink, logoPath);
-    }
-
+ 
+    protected abstract DataUnitValueWrapper getValueWrapper();
+    
     @Override
     public ValueWrapper<String> getTitleValueWrapper() {
-        return commonValueWrapper.getTitleWrapper();
+        return getValueWrapper().getTitleWrapper();
     }
 
     @Override
     public ValueWrapper<String> getInformationValueWrapper() {
-        return commonValueWrapper.getInformationWrapper();
+        return getValueWrapper().getInformationWrapper();
     }
 
     public ObservableListWrapperA<ImageLink> getImageLinks() {
-        return commonValueWrapper.getImageLinks();
+        return getValueWrapper().getImageLinks();
     }
 
     public ValueWrapper<ImageLink> getSelectedImageLinkWrapper() {
-        return commonValueWrapper.getSelectedImageLinkWrapper();
+        return getValueWrapper().getSelectedImageLinkWrapper();
     }
 
     public ValueWrapper<String> getLogoPathValueWrapper() {
-        return commonValueWrapper.getLogoPathWrapper();
+        return getValueWrapper().getLogoPathWrapper();
     }
 
     public int getSelectedImgLinkIndex() {
-        return commonValueWrapper.getSelectedImgLinkIndex();
+        return getValueWrapper().getSelectedImgLinkIndex();
     }
 
     @Override
@@ -89,7 +75,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
 
     @Override
     public boolean isInvalid() {
-        String title = commonValueWrapper.getTitleWrapper().getValue();
+        String title = getValueWrapper().getTitleWrapper().getValue();
         return title == null || title.trim().isEmpty();
     }
 

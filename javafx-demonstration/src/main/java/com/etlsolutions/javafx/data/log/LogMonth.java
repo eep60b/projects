@@ -16,7 +16,7 @@ public class LogMonth extends DataUnit {
     }
 
     protected LogMonth(int month) {
-        super(String.valueOf(month), String.valueOf(month));
+        super(String.valueOf(month));
         logs = new ObservableListWrapperA<>();
     }
 

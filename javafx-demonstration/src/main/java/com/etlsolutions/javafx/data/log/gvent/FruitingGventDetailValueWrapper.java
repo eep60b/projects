@@ -5,7 +5,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import java.time.LocalDateTime;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -20,17 +19,19 @@ public class FruitingGventDetailValueWrapper extends DoubleValueWrapper implemen
     private final ValueWrapper<String> colorValueWrapper;
     private final ValueWrapper<String> shapeValueWrapper;
     private final ValueWrapper<String> averageSizeValueWrapper;
+    private final ValueWrapper<String> averageLengThValueWrapper;
     private final ValueWrapper<String> averageWeightValueWrapper;
     private final ObservableListWrapperA<Notification> notifications;
 
     public FruitingGventDetailValueWrapper() {
         startTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
         endTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
-        this.countableValueWrapper = new ValueWrapper<>(true);
-        this.countValueWrapper = new ValueWrapper<>(1);
-        this.colorValueWrapper = new ValueWrapper<>("red");
-        this.shapeValueWrapper = new ValueWrapper<>("round");
-        this.averageSizeValueWrapper = getWrapper(0);
+        countableValueWrapper = new ValueWrapper<>(true);
+        countValueWrapper = new ValueWrapper<>(1);
+        colorValueWrapper = new ValueWrapper<>("red");
+        shapeValueWrapper = new ValueWrapper<>("round");
+        averageSizeValueWrapper = getWrapper(0);
+        averageLengThValueWrapper = getWrapper(0);
         this.averageWeightValueWrapper = getWrapper(0);
         notifications = new ObservableListWrapperA<>();
     }
@@ -43,6 +44,7 @@ public class FruitingGventDetailValueWrapper extends DoubleValueWrapper implemen
         colorValueWrapper = new ValueWrapper<>(gvent.getColor());
         shapeValueWrapper = new ValueWrapper<>(gvent.getShape());
         averageSizeValueWrapper = getWrapper(gvent.getAverageSize());
+        averageLengThValueWrapper = getWrapper(gvent.getAverageSize());        
         averageWeightValueWrapper = getWrapper(gvent.getAverageWeight());
         notifications = new ObservableListWrapperA<>(gvent.getNotifications());
     }
@@ -97,5 +99,9 @@ public class FruitingGventDetailValueWrapper extends DoubleValueWrapper implemen
     @Override
     public GventType getType() {
         return GventType.FRUITING;
+    }
+
+    double getAverageLength() {
+        return getValue(averageLengThValueWrapper);
     }
 }

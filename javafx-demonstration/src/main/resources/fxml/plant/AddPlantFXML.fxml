@@ -193,7 +193,7 @@
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </padding>
                                     <children>
-                                        <TitledPane prefHeight="120.0" prefWidth="659.0" text="Events">
+                                        <TitledPane fx:id="gventTitledPane" prefHeight="120.0" prefWidth="659.0">
                                             <content>
                                                 <VBox prefHeight="0.0" prefWidth="657.0">
                                                     <children>
@@ -202,24 +202,11 @@
                                                                 <ListView fx:id="gventListView" prefHeight="80.0" prefWidth="571.0" />
                                                             </content>
                                                         </ScrollPane>
-                                                        <HBox spacing="10.0">
-                                                            <children>
-                                                                <Button fx:id="addGventButton" mnemonicParsing="false" text="Add" />
-                                                                <Button fx:id="editGventButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Edit" />
-                                                                <Button fx:id="removeGventButton" layoutX="58.0" layoutY="10.0" mnemonicParsing="false" text="Remove">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin></Button>
-                                                            </children>
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                                        </HBox>
                                                     </children>
                                                 </VBox>
                                             </content>
                                         </TitledPane>
-                                        <TitledPane layoutX="20.0" layoutY="20.0" text="Tasks">
+                                        <TitledPane fx:id="taskTitledPane" layoutX="20.0" layoutY="20.0" text="Tasks">
                                             <content>
                                                 <VBox prefHeight="118.0" prefWidth="657.0">
                                                     <children>
@@ -242,7 +229,7 @@
                                                 </VBox>
                                             </content>
                                         </TitledPane>
-                                        <TitledPane layoutX="20.0" layoutY="20.0" text="Issues">
+                                        <TitledPane fx:id="growingIssueTitledPane" layoutX="20.0" layoutY="20.0" text="Issues">
                                             <content>
                                                 <VBox prefHeight="117.0" prefWidth="657.0">
                                                     <children>
@@ -265,7 +252,7 @@
                                                 </VBox>
                                             </content>
                                         </TitledPane>
-                                        <TitledPane layoutX="20.0" layoutY="254.0" text="Observations">
+                                        <TitledPane fx:id="growingObservationTitledPane" layoutX="20.0" layoutY="254.0" text="Observations">
                                             <content>
                                                 <VBox prefHeight="80.0" prefWidth="657.0">
                                                     <children>

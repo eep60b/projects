@@ -14,12 +14,12 @@ import java.util.Arrays;
 public class AddAreaDataModel extends AbstractAreaDataModel {
 
     public AddAreaDataModel() {
-        super(new ObservableListWrapperA<>(Arrays.asList(AreaType.values())), new RectangleMeasurement());
+        super(AreaFactory.getInstance().getDefaultAreaValueWrapper(), new ObservableListWrapperA<>(Arrays.asList(AreaType.values())), new RectangleMeasurement());
     }
 
     @Override
     public void save() {
-        set(AreaFactory.getInstance().createArea(selectedAreaTypeValueWrapper.getValue(), commonValueWrapper, areaValueWrapper, measurementDataModel.getMeasurementValueWrapper(), subAreas));
+        set(AreaFactory.getInstance().createArea(selectedAreaTypeValueWrapper.getValue(), getValueWrapper(), measurementDataModel.getMeasurementValueWrapper(), subAreas));
         ProjectManager.getInstance().getContents().getAreaRoot().add(get());
     }
 }

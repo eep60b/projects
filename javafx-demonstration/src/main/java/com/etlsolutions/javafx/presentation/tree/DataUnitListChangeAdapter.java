@@ -23,8 +23,8 @@ public class DataUnitListChangeAdapter<T extends DataUnit> implements ListChange
     public void onChanged(Change<? extends T> c) {
 
         while(c.next()) {
-            for (T area : c.getAddedSubList()) {
-                children.add(DataUnitTreeItemFactory.getInstance().getTreeItem(area));
+            for (T item : c.getAddedSubList()) {
+                children.add(DataUnitTreeItemFactory.getInstance().getTreeItem(item));
             }
 
             for (T t : c.getRemoved()) {

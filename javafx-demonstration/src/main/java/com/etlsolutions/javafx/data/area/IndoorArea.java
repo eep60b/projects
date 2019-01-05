@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
@@ -25,12 +24,8 @@ public class IndoorArea extends Area {
     public IndoorArea() {
     }
 
-    public IndoorArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
-//        containerSets = new ObservableListWrapperA<>(subAreas.getContainerSets());
-//        singleContainers = new ObservableListWrapperA<>(subAreas.getSingleContainers());
-//        rooms = new ObservableListWrapperA<>(subAreas.getRooms());
-//        customSubareas = new ObservableListWrapperA<>(subAreas.getCustomSubareas());
+    public IndoorArea(AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
+        super(areaValueWrapper, measurementValueWrapper, subAreas);
     }
 
     public ObservableListWrapperA<ContainerSet> getContainerSets() {

@@ -25,6 +25,6 @@ public class LogGroupTreeItem extends MenuedTreeItem {
             children.add(new LogYearTreeItem(year));
         }
 
-        years.addListener(new DataUnitListChangeAdapter<LogYear>(children));
+        years.addListener(new DataUnitListChangeAdapter<>(children));
     }
 }

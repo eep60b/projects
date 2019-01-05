@@ -15,7 +15,7 @@ public class LogGroupRootTreeItem extends MenuedTreeItem {
     public LogGroupRootTreeItem(LogGroupRoot model) {
         super(model);
         List<TreeItem<DataUnit>> children = getChildren();
-        children.add(new LogGroupTreeItem(model.getEvents()));
+        children.add(new LogGroupTreeItem(model.getGvents()));
         children.add(new LogGroupTreeItem(model.getIssues()));
         children.add(new LogGroupTreeItem(model.getNotes()));
         children.add(new LogGroupTreeItem(model.getTasks()));

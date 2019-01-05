@@ -38,9 +38,11 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 
 /**
  * FXML Controller class
@@ -131,19 +133,13 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
     private TextArea terminationTextArea;
 
     @FXML
-    private ListView<Gvent> gventListView;
-
-    @FXML
     private Label terminationReasonTextAreaLabel;
 
     @FXML
-    private Button addGventButton;
+    private ListView<Gvent> gventListView;    
 
     @FXML
-    private Button editGventButton;
-
-    @FXML
-    private Button removeGventButton;
+    private TitledPane gventTitledPane;
 
     @FXML
     private ListView<Task> taskListView;
@@ -309,6 +305,18 @@ public class AddPlantFXMLController extends DataUnitFXMLController<Plants, AddPl
         gventListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         gventListView.getSelectionModel().select(model.getSelectedGventValueWrapper().getValue());
         gventListView.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedGventValueWrapper()));
+        
+        Label gventLabel = new Label("Event");
+        Region gventRegion = new Region();        
+        Button addGventButton = new Button("Add");
+        Button editGventButton = new Button("Edit");
+        Button removeGventButton = new Button("Remove");
+        HBox gventHBox = new HBox();
+        gventHBox.setAlignment(Pos.CENTER_LEFT);
+        gventHBox.setSpacing(10);
+        gventHBox.getChildren().addAll(gventLabel, gventRegion, addGventButton, editGventButton, removeGventButton);
+        gventTitledPane.setGraphic(gventHBox);
+        
         addGventButton.setOnAction(new AddGventForPlantEventHandler(model));
         editGventButton.setOnAction(new EditGventForPlantEventHandler(model));
         removeGventButton.setOnAction(new RemoveEventHandler(model, REMOVE_GVENT_ID));

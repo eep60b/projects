@@ -10,7 +10,7 @@ public class AddPlantGroupDataModel extends AbstractPlantGroupDataModel{
 
     @Override
     public void save() {
-        set(PlantsFactory.getInstance().createPlantGroup(commonValueWrapper, plantSubGroups));
+        set(PlantsFactory.getInstance().createPlantGroup(getValueWrapper, plantSubGroups));
     }
     
 }

@@ -23,8 +23,8 @@ public class Container extends Location {
     public Container() {
     }
 
-    public Container(DataUnitValueWrapper dataUnitCommonDataValueWrapper, LocationValueWrapper locationValueWrapper, ContainerMeasurement measurement) {
-        super(dataUnitCommonDataValueWrapper, locationValueWrapper);
+    public Container(LocationValueWrapper locationValueWrapper, ContainerMeasurement measurement) {
+        super(locationValueWrapper);
         shape = measurement.getShape();
         height = measurement.getHeight();
         volume = measurement.getVolume();

@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import static com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel.*;
-import com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel;
+import com.etlsolutions.javafx.presentation.area.subarea.location.EditAreaForLocationEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventHandler;
 import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
@@ -54,13 +54,13 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
         titleTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getTitleValueWrapper()));
         informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformationValueWrapper()));
 
-        addImageButton.setOnAction(new FXMLActionEventHandler<>(new AddImageDataModel(model)));
+        addImageButton.setOnAction(new AddImageToDataUnitEventHandler(model));
         removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));
         moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));
         moveToEndImageButton.setOnAction(new MoveImageLinkToEndEventHandler(model));
         moveToRightImageButton.setOnAction(new MoveImageLinkToRightEventHandler(model));
-        editImageButton.setOnAction(new FXMLActionEventHandler<>(new EditImageInformationDataModel(model.getSelectedImageLinkWrapper().getValue())));
+        editImageButton.setOnAction(new EditImageToDataUnitEventHandler(model));
 
         okButton.setOnAction(new SaveExitEventHandler(model, stage));
         cancelButton.setOnAction(new CancelEventHandler(stage));

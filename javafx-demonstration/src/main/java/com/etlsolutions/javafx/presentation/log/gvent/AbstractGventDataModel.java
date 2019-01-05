@@ -3,16 +3,13 @@ package com.etlsolutions.javafx.presentation.log.gvent;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
-import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
-import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetailValueWrapper;
-import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
-import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
+import com.etlsolutions.javafx.presentation.area.DetailDataModelGenerator;
 import com.etlsolutions.javafx.presentation.log.Notifiable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -31,46 +28,24 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     private final ObservableListWrapperA<GventType> types;
     private final ValueWrapper<GventType> selectedTypeValueWrapper;
     private final ValueWrapper<Notification> selectedNotification;
-    private GventDetailDataModel detailDataModelValueWrapper;
+    protected GventDetailDataModel detailDataModel;
 
     public AbstractGventDataModel() {
 
         types = new ObservableListWrapperA<>(GventType.values());
         selectedTypeValueWrapper = new ValueWrapper<>(types.get(0));
-        detailDataModelValueWrapper = getDetailDataModel(selectedTypeValueWrapper.getValue());
+        detailDataModel = DetailDataModelGenerator.getInstance().getDetailDataModel(selectedTypeValueWrapper.getValue());
         selectedNotification = new ValueWrapper<>(null);
     }
 
     public AbstractGventDataModel(Gvent gvent) {
         super(gvent);
-        detailDataModelValueWrapper = getDetailDataModel(gvent);
+        detailDataModel = DetailDataModelGenerator.getInstance().getDetailDataModel(gvent);
         selectedNotification = new ValueWrapper<>(gvent.getNotifications().get(0));
         types = new ObservableListWrapperA<>(gvent.getType());
         selectedTypeValueWrapper = new ValueWrapper<>(gvent.getType());
     }
 
-    public final GventDetailDataModel getDetailDataModel(GventType type) {
-        switch (type) {
-            case FLOWERING:
-                return new FloweringGventDetailDataModel(new FloweringGventDetailValueWrapper());
-            case FRUITING:
-                return new FruitingGventDetailDataModel(new FruitingGventDetailValueWrapper());
-            default:
-                return null;
-        }
-    }
-
-    private GventDetailDataModel getDetailDataModel(Gvent gvent) {
-        
-        switch (gvent.getType()) {
-            case FLOWERING:
-                return new FloweringGventDetailDataModel(new FloweringGventDetailValueWrapper((FloweringGvent)gvent));
-            case FRUITING:
-                return new FruitingGventDetailDataModel(new FruitingGventDetailValueWrapper((FruitingGvent)gvent));
-            default:
-                return null;
-        }
-    }
 
     /**
      *
@@ -78,12 +53,12 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
      */
     @Override
     public GventDetailDataModel getContentModel() {
-        return detailDataModelValueWrapper;
+        return detailDataModel;
     }
 
     @Override
     public void setContentModel(FXMLActionDataModel model) {
-        detailDataModelValueWrapper = (GventDetailDataModel) model;
+        detailDataModel = (GventDetailDataModel) model;
     }
     
     public ObservableListWrapperA<GventType> getTypes() {
@@ -95,16 +70,16 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     }
 
     public ValueWrapper<LocalDateTime> getStartTimeValueWrapper() {
-        return detailDataModelValueWrapper.getDetail().getStartTimeValueWrapper();
+        return detailDataModel.getDetail().getStartTimeValueWrapper();
     }
 
     public ValueWrapper<LocalDateTime> getEndTimeValueWrapper() {
-        return detailDataModelValueWrapper.getDetail().getEndTimeValueWrapper();
+        return detailDataModel.getDetail().getEndTimeValueWrapper();
     }
 
     @Override
     public ObservableListWrapperA<Notification> getNotifications() {
-        return detailDataModelValueWrapper.getDetail().getNotifications();
+        return detailDataModel.getDetail().getNotifications();
     }
 
     @Override
@@ -116,7 +91,7 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     public void remove(RemoveEventId id) {
 
         if (Objects.equals(id, NOTIFICATION_REMOVE_EVENT_ID)) {
-            detailDataModelValueWrapper.getDetail().getNotifications().remove(selectedNotification.getValue());
+            detailDataModel.getDetail().getNotifications().remove(selectedNotification.getValue());
         }
 
         super.remove(id);

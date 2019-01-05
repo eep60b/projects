@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.ContainerSet;
@@ -36,8 +35,8 @@ public class GardenArea extends Area {
 
     }
 
-    public GardenArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+    public GardenArea(AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
+        super(areaValueWrapper, measurementValueWrapper, subAreas);
 //        plantBeds = new ObservableListWrapperA<>(subAreas.getPlantBeds());
 //        raisedPlantBeds = new ObservableListWrapperA<>(subAreas.getRaisedPlantBeds());
 //        lawns = new ObservableListWrapperA<>(subAreas.getLawns());

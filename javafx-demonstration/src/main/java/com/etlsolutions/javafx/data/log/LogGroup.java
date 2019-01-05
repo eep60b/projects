@@ -22,8 +22,8 @@ public class LogGroup extends DataUnit {
     public LogGroup() {
     }
 
-    protected LogGroup(String title, String information) {
-        super(title, information);
+    protected LogGroup(String title) {
+        super(title);
         years = new ObservableListWrapperA<>();
     }
 

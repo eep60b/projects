@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.log.gvent;
 
+import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
@@ -10,7 +11,7 @@ public class AddGventDataModel extends AbstractGventDataModel {
 
     @Override
     public void save() {
-        ProjectManager.getInstance().getContents().getFlowerTypes();
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        set(LogFactory.getInstance().createGvent(getValueWrapper, detailDataModel.getDetail()));
+        ProjectManager.getInstance().getContents().getLogGroupRoot().getGvents().addLog(get());
     }
 }

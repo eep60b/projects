@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.fertiliser;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
@@ -27,7 +28,7 @@ public abstract class AbstractFertiliserDataModel extends DataUnitFXMLDataModel<
     }
 
     public AbstractFertiliserDataModel(Fertiliser fertiliser, FertiliserValueWrapper valueWrapper, FertiliserType...types) {
-        super(fertiliser);
+        set(fertiliser);
         this.valueWrapper = valueWrapper;
         this.types = new ObservableListWrapperA<>(types);
         partModel = getPartDataModel(getType().getValue());
@@ -138,6 +139,12 @@ public abstract class AbstractFertiliserDataModel extends DataUnitFXMLDataModel<
         return "/fxml/other/FertiliserFXML.fxml";
     }
 
+    @Override
+    protected FertiliserValueWrapper getValueWrapper() {
+      return valueWrapper;   
+    }
+
+    
     public final PartDataModel getPartDataModel(FertiliserType type) {
         switch (type) {
             case LIQUID:

@@ -16,8 +16,8 @@ public class Tasks  extends LogGroup {
     public Tasks() {
     }
 
-    public Tasks(String title, String information) {
-        super(title, information);
+    public Tasks(String title) {
+        super(title);
     }
 
     public List<Tasks> getTasks() {

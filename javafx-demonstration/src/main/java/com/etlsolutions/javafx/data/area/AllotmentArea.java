@@ -29,9 +29,9 @@ public class AllotmentArea extends Area {
     public AllotmentArea() {
     }
 
-    public AllotmentArea(DataUnitValueWrapper valueWrapper, AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
+    public AllotmentArea(AreaValueWrapper areaValueWrapper, ObservableListWrapperA<SubArea> subAreas, MeasurementValueWrapper measurementValueWrapper) {
 
-        super(valueWrapper, areaValueWrapper, measurementValueWrapper, subAreas);
+        super(areaValueWrapper, measurementValueWrapper, subAreas);
 //        plantBeds = subAreasWr.getPlantBeds();
 //        raisedPlantBeds = subAreasWr.getRaisedPlantBeds();
 //        borders = subAreasWr.getBorders();
@@ -125,13 +125,6 @@ public class AllotmentArea extends Area {
 
     @Override
     public void remove(SubArea subArea) {
-        switch (subArea.getType()) {
-            case PLANT_BED:
-                plantBeds.remove(subArea);
-                return;
-                
-        }
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getSubAreas().remove(subArea);
     }
 }

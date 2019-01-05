@@ -23,7 +23,7 @@ public class EditPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
     
     @Override
     public void save() {
-        get().setCommonValues(commonValueWrapper);
+        get().setCommonValues(getValueWrapper);
         get().setPlantVarieties(getVarieties());
     }
 

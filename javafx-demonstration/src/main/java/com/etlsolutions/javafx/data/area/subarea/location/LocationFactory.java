@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.data.area.subarea.location;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.subarea.SubArea;
 
 /**
  *
@@ -24,9 +25,8 @@ public class LocationFactory {
 
         defaultLocationDirections = new ObservableListWrapperA<>(new String[]{"North", "East", "South", "West", "North east", "North west", "South east", "South west"});
 
-        DataUnitValueWrapper dataUnitValueWrapper = new DataUnitValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        LocationValueWrapper locationValueWrapper = new LocationValueWrapper();
-        defaultLocation = new PlantBedLocation(dataUnitValueWrapper, locationValueWrapper, new GroundLocationMeasurement());
+        LocationValueWrapper locationValueWrapper = new LocationValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocationType.PLANT_BED_LOCATION, 0, 0);
+        defaultLocation = new PlantBedLocation(locationValueWrapper, new GroundLocationMeasurement());
 
         defaultContainerShape = new ObservableListWrapperA<>(new String[]{"Round", "Square", "Rectangle", "Irregular"});
 
@@ -49,21 +49,21 @@ public class LocationFactory {
         return c;
     }
 
-    public Location createLocation(DataUnitValueWrapper dataUnitValueWrapper, LocationValueWrapper locationValueWrapper, LocationSpecialValueWrapper locationSpecialValueWrapper) {
+    public Location createLocation(LocationValueWrapper locationValueWrapper, LocationSpecialValueWrapper locationSpecialValueWrapper) {
         switch (locationValueWrapper.getTypeValueWrapper().getValue()) {
             case BORDER_LOCATION:
-                return new BorderLocation(dataUnitValueWrapper, locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
+                return new BorderLocation(locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
             case CUSTOMER_LOCATION:
-                return new CustomLocation(dataUnitValueWrapper, locationValueWrapper);
+                return new CustomLocation(locationValueWrapper);
             case CONTAINER:
-                return new Container(dataUnitValueWrapper, locationValueWrapper, (ContainerMeasurement) locationSpecialValueWrapper.getMeasurement());
+                return new Container(locationValueWrapper, (ContainerMeasurement) locationSpecialValueWrapper.getMeasurement());
             case GREEN_HOUSE_GROUND_LOCATION:
-                return new GreenHouseGroundLocation(dataUnitValueWrapper, locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
+                return new GreenHouseGroundLocation(locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
             case LAWN_LOCATION:
             case PLANT_BED_LOCATION:
-                return new PlantBedLocation(dataUnitValueWrapper, locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
+                return new PlantBedLocation(locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
             case POND_LOCATION:
-                return new PondLocation(dataUnitValueWrapper, locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
+                return new PondLocation(locationValueWrapper, (GroundLocationMeasurement) locationSpecialValueWrapper.getMeasurement());
             default:
                 throw new IllegalArgumentException("Invalid type.");
         }
@@ -85,8 +85,7 @@ public class LocationFactory {
         return defaultContainerShape;
     }
 
-    public Location createLocation(LocationType selectedType) {
+    public Location createLocation(LocationType type) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

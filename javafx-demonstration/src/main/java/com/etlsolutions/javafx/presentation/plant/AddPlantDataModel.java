@@ -62,7 +62,7 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
 
     @Override
     public void save() {
-        set(PlantsFactory.getInstance().creatPlant(commonValueWrapper, plantValueWrapper));
+        set(PlantsFactory.getInstance().creatPlant(getValueWrapper, plantValueWrapper));
         getPlantSubGroupValueWrapper().getValue().getPlantsList().add(get());
     }
 

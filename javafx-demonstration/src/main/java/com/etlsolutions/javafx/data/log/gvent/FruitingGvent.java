@@ -19,7 +19,12 @@ public class FruitingGvent extends Gvent {
     }
 
     public FruitingGvent(DataUnitValueWrapper valueWrapper, FruitingGventDetailValueWrapper fgdvw) {
-        super(valueWrapper, fgdvw.getStartTimeValueWrapper().getValue(), fgdvw.getEndTimeValueWrapper().getValue(), fgdvw.getNotifications());
+        super(valueWrapper, fgdvw);
+        color = fgdvw.getColorValueWrapper().getValue();
+        shape = fgdvw.getShapeValueWrapper().getValue();
+        averageSize = fgdvw.getAverageSize();
+        averageLength = fgdvw.getAverageLength();
+        averageWeight = fgdvw.getAverageWeight();
     }
 
     public int getNumberPerPlant() {

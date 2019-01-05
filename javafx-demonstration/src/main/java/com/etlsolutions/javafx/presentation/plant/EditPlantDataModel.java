@@ -37,7 +37,7 @@ public class EditPlantDataModel extends AbstractPlantDataModel {
     @Override
     public void save() {
         Plants dataUnit = get();
-        dataUnit.setCommonValues(commonValueWrapper);        
+        dataUnit.setCommonValues(getValueWrapper);        
         dataUnit.setAlive(plantValueWrapper.getIsAliveValueWrapper().getValue());
         dataUnit.setGrowingIssueIds(plantValueWrapper.getGrowingIssueIds());
         dataUnit.setGrowingMediumId(plantValueWrapper.getGrowingMediumValueWrapper().getValue().getId());

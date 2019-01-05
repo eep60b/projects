@@ -18,6 +18,12 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.data.area.subarea.location.ContainterMeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.Gvent;
+import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.area.subarea.BorderMeasurementDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.BoxDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.CirclePondDataModel;
@@ -28,16 +34,19 @@ import com.etlsolutions.javafx.presentation.area.subarea.TrianglePondDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.location.ContainerDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.location.GroundLocationMeasurementDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.location.LocationMeasurementDataModel;
+import com.etlsolutions.javafx.presentation.log.gvent.FloweringGventDetailDataModel;
+import com.etlsolutions.javafx.presentation.log.gvent.FruitingGventDetailDataModel;
+import com.etlsolutions.javafx.presentation.log.gvent.GventDetailDataModel;
 
 /**
  *
  * @author zc
  */
-public class MeasurementDataModelGenerator {
+public class DetailDataModelGenerator {
     
-    private static final MeasurementDataModelGenerator INSTANCE = new MeasurementDataModelGenerator();
+    private static final DetailDataModelGenerator INSTANCE = new DetailDataModelGenerator();
     
-    public static final MeasurementDataModelGenerator getInstance() {
+    public static final DetailDataModelGenerator getInstance() {
         return INSTANCE;
     }
 
@@ -129,6 +138,31 @@ public class MeasurementDataModelGenerator {
                 return new GroundLocationMeasurementDataModel(new GroundLocationMeasurementValueWrapper());
             default:
                 throw new IllegalArgumentException("Invalid type");
+        }
+    }    
+    
+    
+
+    public final GventDetailDataModel getDetailDataModel(GventType type) {
+        switch (type) {
+            case FLOWERING:
+                return new FloweringGventDetailDataModel(new FloweringGventDetailValueWrapper());
+            case FRUITING:
+                return new FruitingGventDetailDataModel(new FruitingGventDetailValueWrapper());
+            default:
+                return null;
+        }
+    }
+
+    public GventDetailDataModel getDetailDataModel(Gvent gvent) {
+        
+        switch (gvent.getType()) {
+            case FLOWERING:
+                return new FloweringGventDetailDataModel(new FloweringGventDetailValueWrapper((FloweringGvent)gvent));
+            case FRUITING:
+                return new FruitingGventDetailDataModel(new FruitingGventDetailValueWrapper((FruitingGvent)gvent));
+            default:
+                return null;
         }
     }    
 }

@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.area.subarea.location;
 
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
@@ -10,7 +11,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.javafx.presentation.area.MeasurementDataModelGenerator;
+import com.etlsolutions.javafx.presentation.area.DetailDataModelGenerator;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
@@ -27,7 +28,7 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
     private final ObservableListWrapperA<SubArea> subAreas;
     protected ValueWrapper<SubArea> selectedSubAreaValueWrapper;
     private final ObservableListWrapperA<LocationType> types;
-    protected final LocationValueWrapper locationValueWrapper;
+    private final LocationValueWrapper locationValueWrapper;
     protected LocationMeasurementDataModel measurementDataModel;
 
     public AbstractLocationDataModel(int plantId) {
@@ -36,19 +37,21 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
         subAreas = selectedAreaValueWrapper.getValue().getSubAreas();
         selectedSubAreaValueWrapper = new ValueWrapper<>(subAreas.isEmpty() ? null : subAreas.get(0));
         types = selectedSubAreaValueWrapper.getValue() == null ? new ObservableListWrapperA<LocationType>() : selectedSubAreaValueWrapper.getValue().getLocationTypes();
-        locationValueWrapper = selectedSubAreaValueWrapper.getValue() == null ? (types.isEmpty() ? new LocationValueWrapper() : new LocationValueWrapper(types.get(0), 0, plantId)) : new LocationValueWrapper(types.get(0), selectedSubAreaValueWrapper.getValue().getId(), plantId);
-        measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
+        
+        locationValueWrapper = new LocationValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", 
+                types.isEmpty() ? null : types.get(0), plantId, selectedAreaValueWrapper.getValue() == null ? 0 : selectedAreaValueWrapper.getValue().getId());
+        measurementDataModel = DetailDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
     }
 
     public AbstractLocationDataModel(Area area, SubArea subArea, Location location) {
-        super(location);
+        set(location);
         areas = new ObservableListWrapperA<>(area);
         selectedAreaValueWrapper = new ValueWrapper<>(area);
         subAreas = new ObservableListWrapperA<>(subArea);
         selectedSubAreaValueWrapper = new ValueWrapper<>(subArea);
         locationValueWrapper = new LocationValueWrapper(location);
         types = new ObservableListWrapperA<>(location.getType());
-        measurementDataModel = MeasurementDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
+        measurementDataModel = DetailDataModelGenerator.getInstance().getMeasurementDataModel(locationValueWrapper.getTypeValueWrapper().getValue().getMeasurementType());
     }
 
     public ObservableListWrapperA<Area> getAreas() {
@@ -90,6 +93,11 @@ public abstract class AbstractLocationDataModel extends DataUnitFXMLDataModel<Lo
         return locationValueWrapper;
     }
 
+    @Override
+    protected LocationValueWrapper getValueWrapper(){
+        return locationValueWrapper;
+    }
+    
     @Override
     public String getErrorMessage() {
 

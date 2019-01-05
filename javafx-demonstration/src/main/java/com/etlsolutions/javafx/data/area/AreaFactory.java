@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
@@ -25,50 +24,51 @@ public final class AreaFactory {
     public AreaRoot createAreaRoot() {
 
         PlantBed plantBed = SubAreaFactory.getInstance().createDefaultPlantBed();
-        DataUnitValueWrapper gardenAreaDataUnitValueWrapper = new DataUnitValueWrapper("My Garden", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        AreaValueWrapper areaValueWrapper = new AreaValueWrapper();
+        AreaValueWrapper areaValueWrapper = new AreaValueWrapper("My Garden", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
 
         ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         RectangleMeasurementValueWrapper measurementValueWrapper = new RectangleMeasurementValueWrapper();
 
-        GardenArea gardenArea = new GardenArea(gardenAreaDataUnitValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
+        GardenArea gardenArea = new GardenArea(areaValueWrapper, subAreas, measurementValueWrapper);
 
         gardenArea.getSubAreas().add(plantBed);
-        AreaRoot root = new AreaRoot("All Areas", "");
+        AreaRoot root = new AreaRoot("All Areas");
         root.getAreas().add(gardenArea);
 
-        DataUnitValueWrapper bedRoomDataUnitValueWrapper = new DataUnitValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        IndoorArea bedRoom = new IndoorArea(bedRoomDataUnitValueWrapper, new AreaValueWrapper(), subAreas, new RectangleMeasurementValueWrapper());
+        AreaValueWrapper bedRoomDataUnitValueWrapper = new AreaValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        IndoorArea bedRoom = new IndoorArea(bedRoomDataUnitValueWrapper, subAreas, new RectangleMeasurementValueWrapper());
 
-        DataUnitValueWrapper livingRoomDataUnitValueWrapper = new DataUnitValueWrapper("Living Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        IndoorArea livingRoom = new IndoorArea(livingRoomDataUnitValueWrapper, new AreaValueWrapper(), subAreas, new RectangleMeasurementValueWrapper());
+        AreaValueWrapper livingRoomDataUnitValueWrapper = new AreaValueWrapper("Living Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        IndoorArea livingRoom = new IndoorArea(livingRoomDataUnitValueWrapper, subAreas, new RectangleMeasurementValueWrapper());
 
-        DataUnitValueWrapper kitchenRoomDataUnitValueWrapper = new DataUnitValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "");
-        IndoorArea kitchen = new IndoorArea(kitchenRoomDataUnitValueWrapper, new AreaValueWrapper(), subAreas, new RectangleMeasurementValueWrapper());
+        AreaValueWrapper kitchenRoomDataUnitValueWrapper = new AreaValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        IndoorArea kitchen = new IndoorArea(kitchenRoomDataUnitValueWrapper, subAreas, new RectangleMeasurementValueWrapper());
 
         root.getAreas().addAll(bedRoom, livingRoom, kitchen);
         return root;
     }
 
-    public Area createArea(AreaType type, DataUnitValueWrapper commonValueWrapper, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
-        
-        SubAreaListValueWrapper salvw = new SubAreaListValueWrapper(subAreas);
-        
+    public AreaValueWrapper getDefaultAreaValueWrapper() {
+        return new AreaValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+    }
+    
+    public Area createArea(AreaType type, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
+                
         switch (type) {
             case ALLOTMENT:
-                return new AllotmentArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);                
+                return new AllotmentArea(areaValueWrapper, subAreas, measurementValueWrapper);                
             case BALCONY:
-                return new BalconyArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
+                return new BalconyArea(areaValueWrapper, subAreas, measurementValueWrapper);
             case CUSTOM:
-                return new CustomArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
+                return new CustomArea(areaValueWrapper, subAreas, measurementValueWrapper);
             case FARM:
-                return new FarmArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
+                return new FarmArea(areaValueWrapper, subAreas, measurementValueWrapper);
             case GARDEN:
-                return new GardenArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
+                return new GardenArea(areaValueWrapper, subAreas, measurementValueWrapper);
             case INDOOR:
-                return new IndoorArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
+                return new IndoorArea(areaValueWrapper, subAreas, measurementValueWrapper);
             case PATIO:
-                return new PatioArea(commonValueWrapper, areaValueWrapper, subAreas, measurementValueWrapper);
+                return new PatioArea(areaValueWrapper, subAreas, measurementValueWrapper);
             default:
                 throw new IllegalArgumentException("Invalid area type.");
         }

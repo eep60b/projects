@@ -11,7 +11,7 @@ public class Gvents extends LogGroup {
     public Gvents() {
     }
 
-    public Gvents(String title, String information) {
-        super(title, information);
+    public Gvents(String title) {
+        super(title);
     }
 }

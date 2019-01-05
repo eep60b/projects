@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.growingmedium;
 
 import com.etlsolutions.javafx.data.other.GrowingMedium;
+import com.etlsolutions.javafx.data.other.GrowingMediumSpecialValueWrapper;
 
 /**
  *
@@ -9,12 +10,12 @@ import com.etlsolutions.javafx.data.other.GrowingMedium;
 public class EditGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
 
     public EditGrowingMediumDataModel(GrowingMedium growingMedium) {
-        super(growingMedium);
+        super(new GrowingMediumSpecialValueWrapper(growingMedium));
+        set(growingMedium);
     }
 
     @Override
-    public void save() {
-        
-        get().setValues(commonValueWrapper, specialValueWrapper);
+    public void save() {        
+        get().setValues(getValueWrapper());
     }
 }

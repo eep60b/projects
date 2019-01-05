@@ -13,9 +13,9 @@ import javafx.scene.control.TreeItem;
  *
  * @author zc
  */
-public class PlantsGroupItem extends MenuedTreeItem {
+public class PlantGroupItem extends MenuedTreeItem {
 
-    public PlantsGroupItem(PlantGroup model) {
+    public PlantGroupItem(PlantGroup model) {
         
         super(model);
         List<TreeItem<DataUnit>> children = getChildren();
@@ -25,7 +25,7 @@ public class PlantsGroupItem extends MenuedTreeItem {
                 children.add(new PlantSubGroupTreeItem(subGroup));            
         }
         
-        subGroups.addListener(new DataUnitListChangeAdapter<PlantSubGroup>(children));
+        subGroups.addListener(new DataUnitListChangeAdapter<>(children));
     }
 
 }

@@ -20,7 +20,7 @@ public class LogYear extends DataUnit {
     }
 
     protected LogYear(int year) {
-        super(String.valueOf(year), String.valueOf(year));
+        super(String.valueOf(year));
         months = new ObservableListWrapperA<>();
     }
 

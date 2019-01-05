@@ -12,7 +12,7 @@ public class AddTaskDataModel extends AbstractTaskDataModel {
 
     @Override
     public void save() {
-        Task task = LogFactory.getInstance().createTask(commonValueWrapper, detailDataModel.getDetail());
+        Task task = LogFactory.getInstance().createTask(getValueWrapper, detailDataModel.getDetail());
         set(task);
         ProjectManager.getInstance().getContents().getLogGroupRoot().getTasks().addLog(task);
         ProjectManager.getInstance().addItem(task);

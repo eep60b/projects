@@ -33,10 +33,6 @@ public class NotificationFXMLController extends AbstractComponentStageFXMLContro
     @FXML
     private Button cancelButton;
 
-    public NotificationFXMLController(NotificationDataModel model) {
-        this.model = model;
-    }
-
     @Override
     public void initializeComponents() {
 

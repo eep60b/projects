@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
  *
  * @author zc
  */
-class PlantsTreeItem extends MenuedTreeItem {
+public class PlantsTreeItem extends MenuedTreeItem {
 
     public PlantsTreeItem(Plants plants) {
         super(plants);

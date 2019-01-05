@@ -19,8 +19,8 @@ public class Tests extends LogGroup {
         
     }
 
-    public Tests(String title, String information) {
-        super(title, information);
+    public Tests(String title) {
+        super(title);
     }
 
     public List<Test> getTests() {

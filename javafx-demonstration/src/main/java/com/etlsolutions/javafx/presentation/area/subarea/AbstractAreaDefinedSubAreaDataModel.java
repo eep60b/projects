@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import com.etlsolutions.javafx.data.area.subarea.SubAreaValueWrapper;
 
 /**
  *
@@ -13,11 +14,11 @@ public abstract class AbstractAreaDefinedSubAreaDataModel extends AbstractSubAre
 
     protected Area area;
 
-    public AbstractAreaDefinedSubAreaDataModel(Area area) {
-        super(area.getType().getSubAreaTypes());
+    public AbstractAreaDefinedSubAreaDataModel(SubAreaValueWrapper subAreaValueWrapper, Area area) {
+        super(subAreaValueWrapper, area.getType().getSubAreaTypes());
     }
 
-    public AbstractAreaDefinedSubAreaDataModel(SubArea subArea, Area area, SubAreaType[] subAreaTypes, Measurement measurement) {
-        super(subArea, subAreaTypes, measurement);
+    public AbstractAreaDefinedSubAreaDataModel(SubAreaValueWrapper subAreaValueWrapper, SubArea subArea, Area area, SubAreaType[] subAreaTypes, Measurement measurement) {
+        super(subAreaValueWrapper, subArea, subAreaTypes, measurement);
     }    
 }

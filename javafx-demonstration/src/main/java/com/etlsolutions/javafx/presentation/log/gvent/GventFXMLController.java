@@ -125,7 +125,7 @@ public class GventFXMLController extends DataUnitFXMLController<Gvent, AbstractG
         typeComboBox.setItems(model.getTypes());
         GventType type = model.getSelectedTypeValueWrapper().getValue();
         typeComboBox.getSelectionModel().select(type);
-        SelectedTypePropertyAdapter adapter = new SelectedTypePropertyAdapter(model, mainTabPane, detailTab, generator);
+        SelectedGventTypePropertyAdapter adapter = new SelectedGventTypePropertyAdapter(model, mainTabPane, detailTab, generator);
         adapter.process(model.getSelectedTypeValueWrapper());
         model.getSelectedTypeValueWrapper().addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, adapter);
         

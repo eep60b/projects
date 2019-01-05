@@ -35,32 +35,21 @@ public abstract class DataUnit {
     public DataUnit() {
     }
 
-    protected DataUnit(int id, String title, String information) {
-        this.id = id;
-        this.title = title;
-        this.information = information;
-    }
 
-    protected DataUnit(String title, String information) {
-        this(DataUnitIdRegistry.getInstance().createNewId(), title, information);
+    protected DataUnit(String title) {
+        this.id = DataUnitIdRegistry.getInstance().createNewId();
+        this.title = title;
+        this.information = "";
         this.imageLinks = new ObservableListWrapperA<>();
     }
 
-    protected DataUnit(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        this(title, information);
-        this.imageLinks = new ObservableListWrapperA<>(imageLinks);
-    }
-
-    protected DataUnit(int id, String title, String information, ObservableListWrapperA<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        this(id, title, information);
-        this.imageLinks = new ObservableListWrapperA<>(imageLinks);
-        this.selectedImgLinkIndex = selectedImgLinkIndex;
-        this.logoPath = logoPath;
-    }
 
     public DataUnit(DataUnitValueWrapper valueWrapper) {
-        this(valueWrapper.getTitle(), valueWrapper.getInformation(), valueWrapper.getImageLinks(),
-                valueWrapper.getSelectedImgLinkIndex(), valueWrapper.getLogoPath());
+        this(valueWrapper.getTitle());
+        this.information = valueWrapper.getInformation();
+        this.imageLinks = new ObservableListWrapperA<>(valueWrapper.getImageLinks());
+        this.selectedImgLinkIndex = valueWrapper.getSelectedImgLinkIndex();
+        this.logoPath = valueWrapper.getLogoPath();
     }
 
     /**

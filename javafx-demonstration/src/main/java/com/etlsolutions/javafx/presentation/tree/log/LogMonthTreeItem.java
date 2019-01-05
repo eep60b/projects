@@ -22,6 +22,6 @@ public class LogMonthTreeItem extends MenuedTreeItem {
         for (Log log : logs) {
             children.add(new LogTreeItem(log));
         }
-        logs.addListener(new DataUnitListChangeAdapter<Log>(children));
+        logs.addListener(new DataUnitListChangeAdapter<>(children));
     }
 }

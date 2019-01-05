@@ -23,8 +23,8 @@ public class AreaRoot extends DataUnit {
 
     }
 
-    public AreaRoot(String title, String information) {
-        super(title, information);
+    public AreaRoot(String title) {
+        super(title);
         gardenAreas = new ObservableListWrapperA<>();
         indoorAreas = new ObservableListWrapperA<>();
         patioAreas = new ObservableListWrapperA<>();

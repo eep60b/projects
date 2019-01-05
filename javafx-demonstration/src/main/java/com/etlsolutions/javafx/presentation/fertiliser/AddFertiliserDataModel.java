@@ -23,7 +23,7 @@ public class AddFertiliserDataModel extends AbstractFertiliserDataModel {
     @Override
     public void save() {
 
-        set(FertiliserFactory.getInstance().createFertiliser(commonValueWrapper, valueWrapper, partModel.getItemPartValueWrapper()));
+        set(FertiliserFactory.getInstance().createFertiliser(getValueWrapper(), partModel.getItemPartValueWrapper()));
         switch (get().getType()) {
             case LIQUID:
                 ProjectManager.getInstance().getContents().getLiquidFertilisers().add((LiquidFertiliser) get());

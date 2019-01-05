@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
@@ -15,8 +14,8 @@ public class PlantGroupRoot extends DataUnit {
     public PlantGroupRoot() {
     }
 
-    public PlantGroupRoot(String logoPath) {
-        super("", "", new ObservableListWrapperA<ImageLink>(), 0, logoPath);
+    public PlantGroupRoot(String title) {
+        super(title);
         plantGroups = new ObservableListWrapperA<>();
     }
 

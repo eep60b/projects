@@ -18,7 +18,7 @@ public class EditTaskDataModel extends AbstractTaskDataModel {
     public void save() {
        
         Task task = get();
-        task.setCommonValues(commonValueWrapper);
+        task.setCommonValues(getValueWrapper);
         task.setNotifications(notifications);
         task.setModifiedTime(LocalDateTime.now());
         task.setStartTime(getStartTimeValueWrapper().getValue());

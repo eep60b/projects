@@ -14,7 +14,7 @@ public class EditVarietyDataModel extends AbstractVarietyDataModel {
 
     @Override
     public void save() {
-        get().setCommonValues(commonValueWrapper);
+        get().setCommonValues(getValueWrapper);
         get().setLatinName(latinNameValueWrapper.getValue());
         get().setAliases(aliases);
     }
