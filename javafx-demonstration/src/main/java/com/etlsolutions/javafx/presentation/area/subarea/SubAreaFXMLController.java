@@ -94,7 +94,7 @@ public class SubAreaFXMLController extends DataUnitFXMLController<SubArea, Abstr
         typeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedSubAreaTypeValueWrapper()));
 
         ValueWrapper<MeasurementType> typeValueWrapper = model.getContentModel().getMeasurementValueWrapper().getTypeValueWrapper();
-        measurementTab.setContent(nodeGenerator.getNode(typeValueWrapper.getValue()));
+        measurementTab.setContent(nodeGenerator.getNode(typeValueWrapper.getValue()).getNode());
         shapeComboBox.setItems(model.getSubAreaShapes());
         shapeComboBox.getSelectionModel().select(typeValueWrapper.getValue());
         shapeComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(typeValueWrapper));

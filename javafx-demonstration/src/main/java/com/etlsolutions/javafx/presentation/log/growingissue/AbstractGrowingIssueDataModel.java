@@ -1,8 +1,10 @@
 package com.etlsolutions.javafx.presentation.log.growingissue;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingIssueValueWrapper;
+import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import java.time.LocalDateTime;
 
@@ -15,11 +17,11 @@ public abstract class AbstractGrowingIssueDataModel extends DataUnitFXMLDataMode
     protected final GrowingIssueValueWrapper growingIssueValueWrapper;
     
     public AbstractGrowingIssueDataModel() {
-        growingIssueValueWrapper = new GrowingIssueValueWrapper();
+        growingIssueValueWrapper = LogFactory.getInstance().createDefaultGrowingIssueValueWrapper();
     }
 
     public AbstractGrowingIssueDataModel(GrowingIssue issue) {
-        super(issue);
+        set(issue);
         growingIssueValueWrapper = new GrowingIssueValueWrapper(issue);
     }    
 
@@ -42,6 +44,11 @@ public abstract class AbstractGrowingIssueDataModel extends DataUnitFXMLDataMode
     @Override
     public String getFxmlPath() {
         return "/fxml/log/GrowingIssueFXML.fxml";
+    }
+
+    @Override
+    protected GrowingIssueValueWrapper getValueWrapper() {
+        return growingIssueValueWrapper;
     }
     
 }

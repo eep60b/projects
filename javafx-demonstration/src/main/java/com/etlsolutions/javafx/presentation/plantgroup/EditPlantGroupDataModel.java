@@ -1,16 +1,22 @@
 package com.etlsolutions.javafx.presentation.plantgroup;
 
+import com.etlsolutions.javafx.data.plant.PlantGroupValueWrapper;
+
 /**
  *
  * @author zc
  */
 public class EditPlantGroupDataModel extends AbstractPlantGroupDataModel{
 
+    public EditPlantGroupDataModel(PlantGroupValueWrapper valueWrapper) {
+        super(valueWrapper);
+    }
+
     
     
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        get().setValue(getValueWrapper());
     }
     
 }

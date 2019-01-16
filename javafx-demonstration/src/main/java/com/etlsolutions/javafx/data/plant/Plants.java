@@ -44,8 +44,8 @@ public class Plants extends DataUnit {
     public Plants() {
     }
 
-    public Plants(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {
-        super(valueWrapper);
+    public Plants(PlantValueWrapper plantValueWrapper) {
+        super(plantValueWrapper);
         plantSubGroupId = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getId();
         Location location = plantValueWrapper.getLocationValueWrapper().getValue();
         locationId = location == null ? 0 : location.getId();
@@ -186,4 +186,22 @@ public class Plants extends DataUnit {
         this.taskIds = taskIds;
     }
 
+    public void setValues(PlantValueWrapper valueWrapper) {
+        setCommonValues(valueWrapper);
+        setAlive(valueWrapper.getIsAliveValueWrapper().getValue());
+        setGrowingIssueIds(valueWrapper.getGrowingIssueIds());
+        setGrowingMediumId(valueWrapper.getGrowingMediumValueWrapper().getValue().getId());
+        setGrowingObservationIds(valueWrapper.getGrowingObservationIds());
+        setGrowingStartPoint(valueWrapper.getGrowingStartPointValueWrapper().getValue());
+        setGventIds(valueWrapper.getGventIds());
+        setLocationId(valueWrapper.getLocationValueWrapper().getValue().getId());
+        setPlantVarietyId(valueWrapper.getPlantVarietyValueWrapper().getValue().getId());
+        setQuantity(valueWrapper.getQuantityValueWrapper().getValue());
+        setQuantityType(valueWrapper.getQuantityTypeValueWrapper().getValue());
+        setStartTime(valueWrapper.getStartTime());
+        setTaskIds(valueWrapper.getTaskIds());
+        setTerminationReason(valueWrapper.getTerminationReasonValueWrapper().getValue());
+        setTerminationTime(valueWrapper.getTerminationTime());
+    }    
+    
 }

@@ -15,9 +15,9 @@ public class HarvestingTask extends Task
     public HarvestingTask() {
     }
 
-    public HarvestingTask(DataUnitValueWrapper valueWrapper, HarvestingTaskDetailValueWrapper detailValueWrapper) {
+    public HarvestingTask(DataUnitValueWrapper valueWrapper, HarvestingTaskValueWrapper detailValueWrapper) {
         super(valueWrapper, detailValueWrapper);
-        quality = detailValueWrapper.getQuality().getValue();
+        quality = detailValueWrapper.getQualityValueWrapper().getValue();
         quatantity = detailValueWrapper.getQuatantity();
         uom = detailValueWrapper.getUomValueWrapper().getValue();
     }

@@ -30,32 +30,17 @@ public abstract class AbstractPlantDataModel extends DataUnitFXMLDataModel<Plant
     public static final RemoveEventId REMOVE_ISSUE_ID = new RemoveEventId(AbstractPlantDataModel.class.getName() + "REMOVE_ISSUE_ID", "event");
     public static final RemoveEventId REMOVE_OBSERVATION_ID = new RemoveEventId(AbstractPlantDataModel.class.getName() + "REMOVE_OBSERVATION_ID", "event");
 
-    private final ObservableListWrapperA<GrowingMedium> growingMediums;
-    protected final PlantValueWrapper plantValueWrapper;
-
+    private final PlantValueWrapper valueWrapper;
+    private final ObservableListWrapperA<GrowingMedium> growingMediums;    
     private final ValueWrapper<Gvent> selectedEventValueWrapper;
     private final ValueWrapper<GrowingIssue> selectedGrowingIssueValueWrapper;
     private final ValueWrapper<Task> selectedTaskValueWrapper;
     private final ValueWrapper<GrowingObservation> selectedGrowingObservationValueWrapper;
 
-    /**
-     * Construct an object.
-     *
-     * @throws IndexOutOfBoundsException if no plant group can be selected from
-     * the plant group list.
-     */
-    public AbstractPlantDataModel() {
-        this(new PlantValueWrapper());
-    }
-
-    public AbstractPlantDataModel(Plants plant) {
-        this(new PlantValueWrapper(plant));
-        set(plant);
-    }
 
     public AbstractPlantDataModel(PlantValueWrapper plantValueWrapper) {
 
-        this.plantValueWrapper = plantValueWrapper;
+        this.valueWrapper = plantValueWrapper;
         ProjectContents pc = ProjectManager.getInstance().getContents();
         growingMediums = pc.getGrowingMediums();
         selectedEventValueWrapper = new ValueWrapper<>(plantValueWrapper.getGvents().isEmpty() ? null : plantValueWrapper.getGvents().get(0));
@@ -63,61 +48,61 @@ public abstract class AbstractPlantDataModel extends DataUnitFXMLDataModel<Plant
         selectedTaskValueWrapper = new ValueWrapper<>(plantValueWrapper.getTasks().isEmpty() ? null : plantValueWrapper.getTasks().get(0));
         selectedGrowingObservationValueWrapper = new ValueWrapper<>(plantValueWrapper.getGrowingObservations().isEmpty() ? null : plantValueWrapper.getGrowingObservations().get(0));
     }
-    
+
     public ObservableListWrapperA<GrowingMedium> getGrowingMediums() {
         return growingMediums;
     }
 
     public ValueWrapper<Location> getLocationValueWrapper() {
-        return plantValueWrapper.getLocationValueWrapper();
+        return valueWrapper.getLocationValueWrapper();
     }
 
     public ValueWrapper<Boolean> getIsAliveValueWrapper() {
-        return plantValueWrapper.getIsAliveValueWrapper();
+        return valueWrapper.getIsAliveValueWrapper();
     }
 
     public ValueWrapper<GrowingStartPoint> getGrowingStartPointValueWrapper() {
-        return plantValueWrapper.getGrowingStartPointValueWrapper();
+        return valueWrapper.getGrowingStartPointValueWrapper();
     }
 
     public ValueWrapper<GrowingMedium> getGrowingMediumValueWrapper() {
-        return plantValueWrapper.getGrowingMediumValueWrapper();
+        return valueWrapper.getGrowingMediumValueWrapper();
     }
 
     public ValueWrapper<LocalDateTime> getStartTimeValueWrapper() {
-        return plantValueWrapper.getStartTimeValueWrapper();
+        return valueWrapper.getStartTimeValueWrapper();
     }
 
     public ValueWrapper<Integer> getQuantityValueWrapper() {
-        return plantValueWrapper.getQuantityValueWrapper();
+        return valueWrapper.getQuantityValueWrapper();
     }
 
     public ValueWrapper<Type> getQuantityTypeValueWrapper() {
-        return plantValueWrapper.getQuantityTypeValueWrapper();
+        return valueWrapper.getQuantityTypeValueWrapper();
     }
 
     public ValueWrapper<String> getTerminationReasonValueWrapper() {
-        return plantValueWrapper.getTerminationReasonValueWrapper();
+        return valueWrapper.getTerminationReasonValueWrapper();
     }
 
     public ValueWrapper<LocalDateTime> getTerminationTimeValueWrapper() {
-        return plantValueWrapper.getTerminationTimeValueWrapper();
+        return valueWrapper.getTerminationTimeValueWrapper();
     }
 
     public ObservableListWrapperA<Gvent> getGvents() {
-        return plantValueWrapper.getGvents();
+        return valueWrapper.getGvents();
     }
 
     public ObservableListWrapperA<GrowingIssue> getGrowingIssues() {
-        return plantValueWrapper.getGrowingIssues();
+        return valueWrapper.getGrowingIssues();
     }
 
     public ObservableListWrapperA<GrowingObservation> getGrowingObservations() {
-        return plantValueWrapper.getGrowingObservations();
+        return valueWrapper.getGrowingObservations();
     }
 
     public ObservableListWrapperA<Task> getTasks() {
-        return plantValueWrapper.getTasks();
+        return valueWrapper.getTasks();
     }
 
     public ValueWrapper<Gvent> getSelectedGventValueWrapper() {
@@ -159,4 +144,10 @@ public abstract class AbstractPlantDataModel extends DataUnitFXMLDataModel<Plant
 
         super.remove(id);
     }
+
+    @Override
+    protected final PlantValueWrapper getValueWrapper() {
+        return valueWrapper;
+    }
+
 }

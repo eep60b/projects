@@ -17,7 +17,7 @@ public class FertilisationTask extends Task
     public FertilisationTask() {
     }
 
-    public FertilisationTask(DataUnitValueWrapper valueWrapper, FertilisationTaskDetailValueWrapper detailValueWrapper) {
+    public FertilisationTask(DataUnitValueWrapper valueWrapper, FertilisationTaskValueWrapper detailValueWrapper) {
         super(valueWrapper, detailValueWrapper);
         fertiliserId = detailValueWrapper.getFertiliserValueWrapper().getValue().getId();
         amount = detailValueWrapper.getAmount();

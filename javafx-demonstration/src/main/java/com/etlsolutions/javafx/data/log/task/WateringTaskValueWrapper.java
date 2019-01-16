@@ -1,15 +1,19 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author zc
  */
-public class WateringTaskDetailValueWrapper extends TaskDetailValueWrapper {
+public class WateringTaskValueWrapper extends TaskValueWrapper {
     
     private final ValueWrapper<WateringType> wateringTypeValueWrapper;
     private final ValueWrapper<WaterType> waterTypeValueWrapper;
@@ -21,20 +25,20 @@ public class WateringTaskDetailValueWrapper extends TaskDetailValueWrapper {
     private final ValueWrapper<String> fluxUomValueWrapper;
     private final ValueWrapper<Integer> durationValueWrapper;
 
-    public WateringTaskDetailValueWrapper() {
-        wateringTypeValueWrapper = new ValueWrapper<>(WateringType.USE_WATER_CAN);
-        waterTypeValueWrapper = new ValueWrapper<>(WaterType.RAIN_WATER);
-        fertilisedValueWrapper = new ValueWrapper<>(false);
-        ProjectContents c = ProjectManager.getInstance().getContents();
-        fertiliserValueWrapper = new ValueWrapper<>(c.getLiquidFertilisers().get(0));
-        amountValueWrapper = new ValueWrapper<>("1.0");
-        amountUomValueWrapper = new ValueWrapper<>(c.getWateringAmountUoms().get(0));
-        fluxValueWrapper = new ValueWrapper<>("1.0");
-        fluxUomValueWrapper = new ValueWrapper<>(c.getWateringFluxUoms().get(0));
-        durationValueWrapper = new ValueWrapper<>(3); 
+    public WateringTaskValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath, LocalDateTime startTime, ObservableListWrapperA<Notification> notifications, WateringType wateringType, WaterType waterType, boolean fertilised, LiquidFertiliser fertiliser, double amount, String amountUom, double flux, String fluxUom, int duration) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, startTime, notifications);
+        wateringTypeValueWrapper = new ValueWrapper<>(wateringType);
+        waterTypeValueWrapper = new ValueWrapper<>(waterType);
+        fertilisedValueWrapper = new ValueWrapper<>(fertilised);
+        fertiliserValueWrapper = new ValueWrapper<>(fertiliser);
+        amountValueWrapper = getWrapper(amount);
+        amountUomValueWrapper = new ValueWrapper<>(amountUom);
+        fluxValueWrapper = getWrapper(flux);
+        fluxUomValueWrapper = new ValueWrapper<>(fluxUom);
+        durationValueWrapper = new ValueWrapper<>(duration); 
     }
 
-    public WateringTaskDetailValueWrapper(WateringTask task) {
+    public WateringTaskValueWrapper(WateringTask task) {
         super(task);
         wateringTypeValueWrapper = new ValueWrapper<>(task.getWateringType());
         waterTypeValueWrapper = new ValueWrapper<>(task.getWaterType());

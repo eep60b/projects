@@ -21,11 +21,12 @@ public class PlantVariety extends DataUnit {
     public PlantVariety() {
     }
 
-    public PlantVariety(DataUnitValueWrapper valueWrapper, int plantSubGroupId, String latinName, ObservableListWrapperA<String> aliases) {
+    public PlantVariety(PlantVarietyValueWrapper valueWrapper) {
         super(valueWrapper);
-        this.aliases = aliases;
-        this.latinName = latinName;
-        this.plantSubGroupId = plantSubGroupId;
+        aliases = new ObservableListWrapperA<>(valueWrapper.getAliases());
+        latinName = valueWrapper.getLatinNameValueWrapper().getValue();
+        PlantSubGroup subGroup = valueWrapper.getPlantSubGroupValueWrapper().getValue();
+        plantSubGroupId = subGroup == null ? 0 : subGroup.getId();
     }
 
     public ObservableListWrapperA<String> getAliases() {
@@ -52,5 +53,12 @@ public class PlantVariety extends DataUnit {
 
     public void setPlantSubGroupId(int plantSubGroupId) {
         this.plantSubGroupId = plantSubGroupId;
+    }
+    
+    public void setValues(PlantVarietyValueWrapper valueWrapper) {
+        setCommonValues(valueWrapper);
+        aliases = new ObservableListWrapperA<>(valueWrapper.getAliases());
+        latinName = valueWrapper.getLatinNameValueWrapper().getValue();
+        plantSubGroupId = valueWrapper.getPlantSubGroupValueWrapper().getValue().getId();
     }
 }

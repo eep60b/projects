@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.log.task;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.HarvestingTask;
-import com.etlsolutions.javafx.data.log.task.HarvestingTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.HarvestingTaskValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -12,20 +12,16 @@ import com.etlsolutions.javafx.system.ProjectManager;
  *
  * @author zc
  */
-public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskDetailValueWrapper> {
+public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskValueWrapper> {
 
     private final ObservableListWrapperA<String> harvestingQualities;
     private final ObservableListWrapperA<String> harvestingUoms;
-
-    public HarvestingTaskDataModel() {
-        this(new HarvestingTaskDetailValueWrapper());
-    }    
     
     public HarvestingTaskDataModel(HarvestingTask task) {
-        this(new HarvestingTaskDetailValueWrapper(task));
+        this(new HarvestingTaskValueWrapper(task));
     }    
     
-    private HarvestingTaskDataModel(HarvestingTaskDetailValueWrapper detail) {
+    public HarvestingTaskDataModel(HarvestingTaskValueWrapper detail) {
         super(detail);
         ProjectContents p = ProjectManager.getInstance().getContents();
         harvestingQualities = new ObservableListWrapperA<>(p.getHarvestingQualities());
@@ -41,7 +37,7 @@ public class HarvestingTaskDataModel extends TaskDetailDataModel<HarvestingTaskD
     }
     
     public ValueWrapper<String> getQuality() {
-        return detail.getQuality();
+        return detail.getQualityValueWrapper();
     }
 
     public ValueWrapper<String> getQuatantity() {

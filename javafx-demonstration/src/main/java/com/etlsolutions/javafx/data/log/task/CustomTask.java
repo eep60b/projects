@@ -11,7 +11,7 @@ public class CustomTask extends Task {
     public CustomTask() {
     }
 
-    public CustomTask(DataUnitValueWrapper valueWrapper, CustomTaskDetailValueWrapper detailValueWrapper) {
+    public CustomTask(DataUnitValueWrapper valueWrapper, CustomTaskValueWrapper detailValueWrapper) {
         super(valueWrapper, detailValueWrapper);
     }
 

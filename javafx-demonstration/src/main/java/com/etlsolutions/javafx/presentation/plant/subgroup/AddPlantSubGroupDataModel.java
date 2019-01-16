@@ -10,12 +10,11 @@ import com.etlsolutions.javafx.system.ProjectManager;
  */
 public class AddPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
 
-    private final ProjectManager manager = ProjectManager.getInstance();
-
     private final PlantGroup group;
 
     public AddPlantSubGroupDataModel(PlantGroup group) {
-        this.group = group;
+        super(PlantsFactory.getInstance().creatDefaultPlantSubGroupValueWrapper(group));
+        this.group = group;        
     }
 
     public PlantGroup getGroup() {
@@ -25,9 +24,9 @@ public class AddPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
     @Override
     public void save() {
 
-        set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper, group.getId(), getVarieties()));
-        group.getPlantsSubGroups().add(get());
-        manager.addItem(get());
+        set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper()));
+        group.getPlantSubGroups().add(get());
+        ProjectManager.getInstance().addItem(get());
     }
 
     @Override

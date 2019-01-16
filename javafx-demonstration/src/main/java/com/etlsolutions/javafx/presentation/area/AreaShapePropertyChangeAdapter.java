@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.area;
 
+import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
@@ -30,6 +31,6 @@ public class AreaShapePropertyChangeAdapter implements PropertyChangeListener {
         
         ValueWrapper<MeasurementType> wrapper = (ValueWrapper<MeasurementType>) evt.getSource();
         model.setContentModel(DetailDataModelGenerator.getInstance().getMeasurementDataModel(wrapper.getValue()));
-        measurementTab.setContent(nodeGenerator.getNode(wrapper.getValue()));
+        measurementTab.setContent(nodeGenerator.getNode(wrapper.getValue()).getNode());
     }
 }

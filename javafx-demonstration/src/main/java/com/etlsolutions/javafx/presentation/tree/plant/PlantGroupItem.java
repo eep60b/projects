@@ -19,8 +19,8 @@ public class PlantGroupItem extends MenuedTreeItem {
         
         super(model);
         List<TreeItem<DataUnit>> children = getChildren();
-        ObservableListWrapperA<PlantSubGroup> subGroups = model.getPlantsSubGroups();
-        for (PlantSubGroup subGroup : model.getPlantsSubGroups()) {
+        ObservableListWrapperA<PlantSubGroup> subGroups = model.getPlantSubGroups();
+        for (PlantSubGroup subGroup : model.getPlantSubGroups()) {
     
                 children.add(new PlantSubGroupTreeItem(subGroup));            
         }

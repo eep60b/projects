@@ -2,34 +2,34 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
-import com.etlsolutions.javafx.data.log.task.PlantThinningTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.PlantThinningTaskValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 
 /**
  *
  * @author zc
  */
-public class PlantThinningTaskDataModel extends TaskDetailDataModel<PlantThinningTaskDetailValueWrapper> {
+public class PlantThinningTaskDataModel extends TaskDetailDataModel<PlantThinningTaskValueWrapper> {
 
-    public PlantThinningTaskDataModel() {
-        super(new PlantThinningTaskDetailValueWrapper());
+    public PlantThinningTaskDataModel(PlantThinningTaskValueWrapper wrapper) {
+        super(wrapper);
     }
     
     public PlantThinningTaskDataModel(PlantThinningTask task) {
-        super(new PlantThinningTaskDetailValueWrapper(task));
+        super(new PlantThinningTaskValueWrapper(task));
     }
 
     public ValueWrapper<Integer> getTotalPlants() {
-        return detail.getTotalPlants();
+        return detail.getTotalPlantsValueWrapper();
     }
 
     public ValueWrapper<Integer> getThinningRatio() {
-        return detail.getThinningRatio();
+        return detail.getThinningRatioValueWrapper();
     }
     
     public String getRemainPlants() {
-        int ratio = detail.getThinningRatio().getValue();
-        return String.valueOf(ratio == 0 ? 0 : detail.getTotalPlants().getValue()/ratio);
+        int ratio = detail.getThinningRatioValueWrapper().getValue();
+        return String.valueOf(ratio == 0 ? 0 : detail.getTotalPlantsValueWrapper().getValue()/ratio);
     }
     
     @Override

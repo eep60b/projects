@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.log.gvent;
 
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import java.time.LocalDateTime;
 
@@ -9,33 +9,14 @@ import java.time.LocalDateTime;
  *
  * @author zc
  */
-public class CustomGventDetailValueWrapper implements GventDetailValueWrapper {
+public class CustomGventDetailValueWrapper extends GventDetailValueWrapper {
 
-    private final ValueWrapper<LocalDateTime> startTimeValueWrapper;
-    private final ValueWrapper<LocalDateTime> endTimeValueWrapper;
-    private final ObservableListWrapperA<Notification> notifications;
-    
-    public CustomGventDetailValueWrapper() {
-
-        startTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
-        endTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
-        notifications = new ObservableListWrapperA<>();
-    }
-    
-    public CustomGventDetailValueWrapper(FloweringGvent floweringGvent) {
-        startTimeValueWrapper = new ValueWrapper<>(floweringGvent.getStartTime());
-        endTimeValueWrapper = new ValueWrapper<>(floweringGvent.getEndTime());
-        notifications = new ObservableListWrapperA<>(floweringGvent.getNotifications());
+    public CustomGventDetailValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath, LocalDateTime startTime, LocalDateTime endTime, ObservableListWrapperA<Notification> notifications) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, startTime, endTime, notifications);
     }
 
-    @Override
-    public ValueWrapper<LocalDateTime> getStartTimeValueWrapper() {
-        return startTimeValueWrapper;
-    }
-
-    @Override
-    public ValueWrapper<LocalDateTime> getEndTimeValueWrapper() {
-        return endTimeValueWrapper;
+    public CustomGventDetailValueWrapper(CustomGvent gvent) {
+        super(gvent);
     }
 
     @Override
@@ -43,8 +24,4 @@ public class CustomGventDetailValueWrapper implements GventDetailValueWrapper {
         return GventType.CUSTOM;
     }
 
-    @Override
-    public ObservableListWrapperA<Notification> getNotifications() {
-        return notifications;
-    }
 }

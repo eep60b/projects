@@ -2,19 +2,19 @@ package com.etlsolutions.javafx.presentation.log.gvent;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGventValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
  * @author zc
  */
-public class FloweringGventDetailDataModel extends GventDetailDataModel<FloweringGventDetailValueWrapper> {
+public class FloweringGventDetailDataModel extends GventDetailDataModel<FloweringGventValueWrapper> {
     
     private final ObservableListWrapperA<String> flowerTypes;
     private final ObservableListWrapperA<String> flowerColors;
     
-    public FloweringGventDetailDataModel(FloweringGventDetailValueWrapper floweringGventDetail) {
+    public FloweringGventDetailDataModel(FloweringGventValueWrapper floweringGventDetail) {
         super(floweringGventDetail);
         flowerTypes = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFlowerTypes());
         flowerColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFlowerColors());

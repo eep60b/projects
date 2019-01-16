@@ -14,7 +14,7 @@ public class TransplantTask extends Task {
     public TransplantTask() {
     }
 
-    public TransplantTask(DataUnitValueWrapper valueWrapper, TransplantTaskDetailValueWrapper detailValueWrapper) {
+    public TransplantTask(DataUnitValueWrapper valueWrapper, TransplantTasklValueWrapper detailValueWrapper) {
         
         super(valueWrapper, detailValueWrapper);
         fromLocationId = detailValueWrapper.getFromLocationValueWrapper().getValue().getId();

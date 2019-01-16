@@ -27,7 +27,7 @@ public class NodeGenerator <P extends FXMLContentActionDataModel, T> {
         this.map = map;
     }
 
-    public Node getNode(T type) {
+    public NodeWrapper getNode(T type) {
         try {
             NodeWrapper nodeWrapper = map.get(type);
 
@@ -43,7 +43,7 @@ public class NodeGenerator <P extends FXMLContentActionDataModel, T> {
                 map.put(type, nodeWrapper);
             }
 
-            return nodeWrapper.getNode();
+            return nodeWrapper;
         } catch (Exception ex) {
             throw new CustomLevelErrorRuntimeExceiption("Cannot find node.", ex);
         }

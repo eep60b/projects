@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.plant.plantvariety;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
+import com.etlsolutions.javafx.data.plant.PlantVarietyValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.RemoveFromListUtil;
@@ -15,30 +16,20 @@ public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<Pla
 
     public static final RemoveEventId REMOVE_ALIAS_ID = new RemoveEventId(AbstractVarietyDataModel.class.getName() + "REMOVE_ALIAS_ID", "alias");
   
-    protected final ValueWrapper<String> latinNameValueWrapper;
-    protected final ObservableListWrapperA<String> aliases;
+    private final PlantVarietyValueWrapper valueWrapper;
     private final ValueWrapper<String> selectedAliasValueWrapper;
 
-
-    public AbstractVarietyDataModel() {
-        latinNameValueWrapper = new ValueWrapper<>("");
-        aliases = new ObservableListWrapperA<>();
-        selectedAliasValueWrapper = new ValueWrapper<>("");
-    }
-
-    public AbstractVarietyDataModel(PlantVariety variety) {
-        super(variety);
-        latinNameValueWrapper = new ValueWrapper<>(variety.getLatinName());
-        aliases = new ObservableListWrapperA<>(variety.getAliases());
-        selectedAliasValueWrapper = new ValueWrapper<>(aliases.isEmpty() ? "" : aliases.get(0));
+    public AbstractVarietyDataModel(PlantVarietyValueWrapper valueWrapper, ValueWrapper<String> selectedAliasValueWrapper) {
+        this.valueWrapper = valueWrapper;
+        this.selectedAliasValueWrapper = selectedAliasValueWrapper;
     }
 
     public ValueWrapper<String> getLatinNameValueWrapper() {
-        return latinNameValueWrapper;
+        return valueWrapper.getLatinNameValueWrapper();
     }
 
     public ObservableListWrapperA<String> getAliases() {
-        return aliases;
+        return valueWrapper.getAliases();
     }
 
     public ValueWrapper<String> getSelectedAliasWalueWrapper() {
@@ -49,7 +40,7 @@ public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<Pla
     public void remove(RemoveEventId id) {
 
         if (id == REMOVE_ALIAS_ID) {
-            RemoveFromListUtil.getInstance().remove(aliases, selectedAliasValueWrapper);
+            RemoveFromListUtil.getInstance().remove(valueWrapper.getAliases(), selectedAliasValueWrapper);
         }
         super.remove(id);
     }
@@ -58,4 +49,9 @@ public abstract class AbstractVarietyDataModel extends DataUnitFXMLDataModel<Pla
     public String getFxmlPath() {
         return "/fxml/plant/PlantVarietyFXML.fxml";
     }
+
+    @Override
+    protected final PlantVarietyValueWrapper getValueWrapper() {
+        return valueWrapper;
+    } 
 }

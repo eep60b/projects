@@ -8,9 +8,14 @@ import com.etlsolutions.javafx.data.plant.PlantsFactory;
  */
 public class AddPlantGroupDataModel extends AbstractPlantGroupDataModel{
 
+    
+    public AddPlantGroupDataModel() {
+        super(PlantsFactory.getInstance().createDefaultPlantGroupValueWrapper());
+    }
+
     @Override
     public void save() {
-        set(PlantsFactory.getInstance().createPlantGroup(getValueWrapper, plantSubGroups));
+        set(PlantsFactory.getInstance().createPlantGroup(getValueWrapper()));
     }
     
 }

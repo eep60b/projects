@@ -29,10 +29,11 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
      */
     public AddPlantDataModel() {
 
+        super(PlantsFactory.getInstance().createDefaultPlantWrapper());        
         ProjectContents pc = ProjectManager.getInstance().getContents();
         plantGroups = pc.getPlantsGroupRoot().getPlantGroups();
-        plantSubGroups = new ObservableListWrapperA<>(plantValueWrapper.getPlantGroupValueWrapper().getValue().getPlantsSubGroups());
-        plantVarieties = plantValueWrapper.getPlantSubGroupValueWrapper().getValue().getPlantVarieties();        
+        plantSubGroups = new ObservableListWrapperA<>(getValueWrapper().getPlantGroupValueWrapper().getValue().getPlantSubGroups());
+        plantVarieties = getValueWrapper().getPlantSubGroupValueWrapper().getValue().getPlantVarieties();        
     }
 
     public ObservableList<PlantGroup> getPlantGroups() {
@@ -44,11 +45,11 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
     }
 
     public ValueWrapper<PlantGroup> getPlantGroupValueWrapper() {
-        return plantValueWrapper.getPlantGroupValueWrapper();
+        return getValueWrapper().getPlantGroupValueWrapper();
     }
 
     public ValueWrapper<PlantSubGroup> getPlantSubGroupValueWrapper() {
-        return plantValueWrapper.getPlantSubGroupValueWrapper();
+        return getValueWrapper().getPlantSubGroupValueWrapper();
     }
     
 
@@ -57,13 +58,13 @@ public class AddPlantDataModel extends AbstractPlantDataModel {
     }
     
     public ValueWrapper<PlantVariety> getPlantVarietyValueWrapper() {
-        return plantValueWrapper.getPlantVarietyValueWrapper();
+        return getValueWrapper().getPlantVarietyValueWrapper();
     }    
 
     @Override
     public void save() {
-        set(PlantsFactory.getInstance().creatPlant(getValueWrapper, plantValueWrapper));
-        getPlantSubGroupValueWrapper().getValue().getPlantsList().add(get());
+        set(PlantsFactory.getInstance().creatPlant(getValueWrapper()));
+        getPlantSubGroupValueWrapper().getValue().getPlants().add(get());
     }
 
     @Override

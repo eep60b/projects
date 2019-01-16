@@ -21,7 +21,7 @@ public class PlantsGroupRootTreeItem extends MenuedTreeItem {
         super(contextMenu, model);
         List<TreeItem<DataUnit>> children = getChildren();
         for (PlantGroup group : model.getPlantGroups()) {
-            if (!group.getPlantsSubGroups().isEmpty()) {
+            if (!group.getPlantSubGroups().isEmpty()) {
                 children.add(new PlantGroupItem(group));
             }
         }

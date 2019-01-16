@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.plant.plantvariety;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 
@@ -11,13 +12,14 @@ public class AddVarietyDataModel extends AbstractVarietyDataModel {
     
     private final PlantSubGroup plantSubGroup;
 
-    public AddVarietyDataModel(PlantSubGroup plantType) {
-        this.plantSubGroup = plantType;
+    public AddVarietyDataModel(PlantSubGroup plantSubGroup) {
+        super(PlantsFactory.getInstance().createDefaultPlantVarietyValueWrapper(plantSubGroup), new ValueWrapper<>(""));
+        this.plantSubGroup = plantSubGroup;
     }
 
     @Override
     public void save() {
-        set(PlantsFactory.getInstance().createPlantVariety(getValueWrapper, plantSubGroup.getId(), getLatinNameValueWrapper().getValue(), aliases));
+        set(PlantsFactory.getInstance().createPlantVariety(getValueWrapper()));
         plantSubGroup.getPlantVarieties().add(get());
     }
 }

@@ -24,8 +24,8 @@ public class GrowingIssue extends Log {
     public GrowingIssue() {
     }
 
-    public GrowingIssue(DataUnitValueWrapper valueWrapper, GrowingIssueValueWrapper growingIssueValueWrapper) {
-        super(valueWrapper, growingIssueValueWrapper.getStartTimeValueWrapper().getValue());
+    public GrowingIssue(GrowingIssueValueWrapper growingIssueValueWrapper) {
+        super(growingIssueValueWrapper, growingIssueValueWrapper.getStartTimeValueWrapper().getValue());
         endTime = growingIssueValueWrapper.getEndTimeValueWrapper().getValue();
         solution = growingIssueValueWrapper.getSolutionValueWrapper().getValue();
         effectiveness = growingIssueValueWrapper.getEffectivenessValueWrapper().getValue();

@@ -2,10 +2,9 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.task.WaterType;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
-import com.etlsolutions.javafx.data.log.task.WateringTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.WateringTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.WateringType;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
@@ -16,23 +15,19 @@ import com.etlsolutions.javafx.system.ProjectManager;
  *
  * @author zc
  */
-public class WateringTaskDataModel extends TaskDetailDataModel<WateringTaskDetailValueWrapper> {
+public class WateringTaskDataModel extends TaskDetailDataModel<WateringTaskValueWrapper> {
 
     private final ObservableListWrapperA<String> wateringAmountUoms;
     private final ObservableListWrapperA<String> wateringFluxUoms;
     private final ObservableListWrapperA<LiquidFertiliser> fertilisers;
     
     public WateringTaskDataModel(WateringTask task) {
-        this(new WateringTaskDetailValueWrapper(task));
+        this(new WateringTaskValueWrapper(task));
     }
 
-    public WateringTaskDataModel() {
-        this(LogFactory.getInstance().getDefaultWateringTaskDetail());
-    }
-
-    private WateringTaskDataModel(WateringTaskDetailValueWrapper detail) {
+    public WateringTaskDataModel(WateringTaskValueWrapper wrapper) {
         
-        super(detail);
+        super(wrapper);
         ProjectContents p = ProjectManager.getInstance().getContents();
         wateringAmountUoms = new ObservableListWrapperA<>(p.getWateringAmountUoms());
         wateringFluxUoms = new ObservableListWrapperA<>(p.getWateringFluxUoms());

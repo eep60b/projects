@@ -4,12 +4,13 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
+import com.etlsolutions.javafx.data.log.gvent.GventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.javafx.presentation.area.DetailDataModelGenerator;
+import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import com.etlsolutions.javafx.presentation.log.Notifiable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -28,7 +29,9 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     private final ObservableListWrapperA<GventType> types;
     private final ValueWrapper<GventType> selectedTypeValueWrapper;
     private final ValueWrapper<Notification> selectedNotification;
+    private GventDetailValueWrapper gventDetailValueWrapper;
     protected GventDetailDataModel detailDataModel;
+    
 
     public AbstractGventDataModel() {
 
@@ -39,7 +42,7 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     }
 
     public AbstractGventDataModel(Gvent gvent) {
-        super(gvent);
+        set(gvent);
         detailDataModel = DetailDataModelGenerator.getInstance().getDetailDataModel(gvent);
         selectedNotification = new ValueWrapper<>(gvent.getNotifications().get(0));
         types = new ObservableListWrapperA<>(gvent.getType());
@@ -100,5 +103,10 @@ public abstract class AbstractGventDataModel extends DataUnitFXMLDataModel<Gvent
     @Override
     public String getFxmlPath() {
         return "/fxml/log/GventFXML.fxml";
+    }
+
+    @Override
+    protected GventDetailValueWrapper getValueWrapper() {
+        return gventDetailValueWrapper;
     }
 }

@@ -3,7 +3,8 @@ package com.etlsolutions.javafx.presentation.log.gvent;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
-import com.etlsolutions.javafx.presentation.area.DetailDataModelGenerator;
+import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
+import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Tab;
@@ -46,7 +47,8 @@ public class SelectedGventTypePropertyAdapter implements PropertyChangeListener 
                 if (!mainTabPane.getTabs().contains(detailTab)) {
                     mainTabPane.getTabs().add(1, detailTab);
                 }
-                detailTab.setContent(generator.getNode(type));
+                detailTab.setContent(generator.getNode(type).getNode());
+                model.setContentModel((FXMLActionDataModel)generator.getNode(type).getModel());                
                 return;
             default:
                 throw new IllegalArgumentException("Ivalid gvent type.");

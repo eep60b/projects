@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.LocationValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.javafx.presentation.area.DetailDataModelGenerator;
+import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**

@@ -119,7 +119,7 @@ public class LocationFXMLController extends DataUnitFXMLController<Location, Abs
         locationTypeComboBox.setItems(model.getTypes());
         locationTypeComboBox.getSelectionModel().select(model.getLocationValueWrapper().getTypeValueWrapper().getValue());
 
-        measurementTab.setContent(nodeGenerator.getNode(model.getContentModel().getTypeValueWrapper().getValue()));
+        measurementTab.setContent(nodeGenerator.getNode(model.getContentModel().getTypeValueWrapper().getValue()).getNode());
 
         areaComboBox.getSelectionModel().selectedItemProperty().addListener(new ValueChangeAdapter<>(model.getSelectedAreaValueWrapper()));
         addAreaButton.setOnAction(new AddAreaForLocationEventHandler(model));

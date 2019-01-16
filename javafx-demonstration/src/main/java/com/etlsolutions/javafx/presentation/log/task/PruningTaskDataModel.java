@@ -1,27 +1,26 @@
 package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.task.PruningTask;
-import com.etlsolutions.javafx.data.log.task.PruningTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.PruningTaskValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 
 /**
  *
  * @author zc
  */
-public class PruningTaskDataModel extends TaskDetailDataModel<PruningTaskDetailValueWrapper> {
+public class PruningTaskDataModel extends TaskDetailDataModel<PruningTaskValueWrapper> {
 
-    public PruningTaskDataModel() {
-        super(LogFactory.getInstance().getDefaultPruningTaskDetail());
+    public PruningTaskDataModel(PruningTaskValueWrapper wrapper) {
+        super(wrapper);
     }    
     
     public PruningTaskDataModel(PruningTask task) {
-        super(new PruningTaskDetailValueWrapper(task));
+        super(new PruningTaskValueWrapper(task));
     }
 
     public ValueWrapper<String> getOverallRemoved() {
-        return detail.getOrverallRemovedValueWrapper();
+        return detail.getOverallRemovedValueWrapper();
     }
 
     public ValueWrapper<String> getEachBranchRemoved() {

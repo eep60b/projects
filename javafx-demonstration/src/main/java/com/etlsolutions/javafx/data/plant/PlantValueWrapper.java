@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
+import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
@@ -9,7 +11,6 @@ import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
-import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.time.LocalDateTime;
 import java.util.Calendar;
@@ -20,7 +21,7 @@ import java.util.Date;
  *
  * @author zc
  */
-public class PlantValueWrapper {
+public class PlantValueWrapper extends DataUnitValueWrapper {
     
     private final Calendar c = Calendar.getInstance();
     
@@ -40,32 +41,31 @@ public class PlantValueWrapper {
     private final ObservableListWrapperA<GrowingIssue> growingIssues;
     private final ObservableListWrapperA<GrowingObservation> growingObservations;
     private final ObservableListWrapperA<Task> tasks;
-    
-    public PlantValueWrapper() {
-        ProjectContents pc = ProjectManager.getInstance().getContents();
-        PlantGroup pg = pc.getPlantsGroupRoot().getPlantGroups().get(0);
-        plantGroupValueWrapper = new ValueWrapper<>(pg);
-        PlantSubGroup sg = pg.getPlantsSubGroups().get(0);
-        plantSubGroupValueWrapper = new ValueWrapper<>(sg);
-        locationValueWrapper = new ValueWrapper<>(null);
-        isAliveValueWrapper = new ValueWrapper<>(true);
-        growingStartPointValueWrapper = new ValueWrapper<>(GrowingStartPoint.SEED);
-        startTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
-        growingMediumValueWrapper = new ValueWrapper<>(pc.getGrowingMediums().get(0));
-        ObservableListWrapperA<PlantVariety> varieties = sg.getPlantVarieties();
-        plantVarietyValueWrapper = new ValueWrapper<>(varieties.isEmpty() ? null : varieties.get(0));
-        quantityValueWrapper = new ValueWrapper<>(0);
-        quantityTypeValueWrapper = new ValueWrapper<>(PlantsQuantity.Type.SINGLE);
-        terminationReasonValueWrapper = new ValueWrapper<>("");
-        terminationTimeValueWrapper = new ValueWrapper<>(LocalDateTime.MAX);
-        gvents = new ObservableListWrapperA<>();
-        growingIssues = new ObservableListWrapperA<>();
-        growingObservations = new ObservableListWrapperA<>();
-        tasks = new ObservableListWrapperA<>();
+
+    public PlantValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLink, String logoPath, PlantGroup plantGroup, PlantSubGroup plantSubGroup, 
+            Location location,boolean isAlive, GrowingStartPoint growingStartPoint, LocalDateTime startTime, GrowingMedium growingMedium, PlantVariety plantVariety, int quantity, PlantsQuantity.Type quantityType, String terminationReason, LocalDateTime terminationTime, ObservableListWrapperA<Gvent> gvents, ObservableListWrapperA<GrowingIssue> growingIssues, ObservableListWrapperA<GrowingObservation> growingObservations, ObservableListWrapperA<Task> tasks) {
+        super(title, information, imageLinks, selectedImgLink, logoPath);
+        plantGroupValueWrapper = new ValueWrapper<>(plantGroup);
+        plantSubGroupValueWrapper = new ValueWrapper<>(plantSubGroup);
+        locationValueWrapper = new ValueWrapper<>(location);
+        isAliveValueWrapper = new ValueWrapper<>(isAlive);
+        growingStartPointValueWrapper = new ValueWrapper<>(growingStartPoint);
+        startTimeValueWrapper = new ValueWrapper<>(startTime);
+        growingMediumValueWrapper = new ValueWrapper<>(growingMedium);
+        plantVarietyValueWrapper = new ValueWrapper<>(plantVariety);
+        quantityValueWrapper = new ValueWrapper<>(quantity);
+        quantityTypeValueWrapper = new ValueWrapper<>(quantityType);
+        terminationReasonValueWrapper = new ValueWrapper<>(terminationReason);
+        terminationTimeValueWrapper = new ValueWrapper<>(terminationTime);
+        this.gvents = new ObservableListWrapperA<>(gvents);
+        this.growingIssues = new ObservableListWrapperA<>(growingIssues);
+        this.growingObservations = new ObservableListWrapperA<>(growingObservations);
+        this.tasks = new ObservableListWrapperA<>(tasks);
     }
     
     public PlantValueWrapper(Plants plant) {
         
+        super(plant);        
         ProjectManager pm = ProjectManager.getInstance();
         PlantSubGroup ps = pm.<PlantSubGroup>getItem(plant.getPlantSubGroupId());
         plantSubGroupValueWrapper = new ValueWrapper<>(ps);

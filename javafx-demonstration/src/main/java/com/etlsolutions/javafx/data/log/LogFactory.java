@@ -1,34 +1,39 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.gvent.CustomGvent;
 import com.etlsolutions.javafx.data.log.gvent.CustomGventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
-import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGventValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
-import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGventValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.task.CustomTask;
-import com.etlsolutions.javafx.data.log.task.CustomTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.CustomTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.FertilisationTask;
-import com.etlsolutions.javafx.data.log.task.FertilisationTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.FertilisationTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.HarvestingTask;
-import com.etlsolutions.javafx.data.log.task.HarvestingTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.HarvestingTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
-import com.etlsolutions.javafx.data.log.task.PlantThinningTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.PlantThinningTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.PruningTask;
-import com.etlsolutions.javafx.data.log.task.PruningTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.PruningTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.Task;
-import com.etlsolutions.javafx.data.log.task.TaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.TaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.Tasks;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
-import com.etlsolutions.javafx.data.log.task.TransplantTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.TransplantTasklValueWrapper;
+import com.etlsolutions.javafx.data.log.task.WaterType;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
-import com.etlsolutions.javafx.data.log.task.WateringTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.WateringTaskValueWrapper;
+import com.etlsolutions.javafx.data.log.task.WateringType;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
+import com.etlsolutions.javafx.system.ProjectManager;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -99,12 +104,12 @@ public class LogFactory {
     }
 
     public Gvent createGvent(DataUnitValueWrapper valueWrapper, GventDetailValueWrapper detailValueWrapper) {
-        
+
         switch (detailValueWrapper.getType()) {
             case FLOWERING:
-                return new FloweringGvent(valueWrapper, (FloweringGventDetailValueWrapper) detailValueWrapper);
+                return new FloweringGvent(valueWrapper, (FloweringGventValueWrapper) detailValueWrapper);
             case FRUITING:
-                return new FruitingGvent(valueWrapper, (FruitingGventDetailValueWrapper) detailValueWrapper);
+                return new FruitingGvent(valueWrapper, (FruitingGventValueWrapper) detailValueWrapper);
             case CUSTOM:
                 return new CustomGvent(valueWrapper, (CustomGventDetailValueWrapper) detailValueWrapper);
             default:
@@ -112,14 +117,31 @@ public class LogFactory {
         }
     }
 
-    public GrowingIssue createGrowingIssue(DataUnitValueWrapper valueWrapper, GrowingIssueValueWrapper growingIssueValueWrapper) {
+    public GrowingIssueValueWrapper createDefaultGrowingIssueValueWrapper() {
 
-        return new GrowingIssue(valueWrapper, growingIssueValueWrapper);
+        return new GrowingIssueValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), LocalDateTime.now(), "", "");
     }
 
-    public GrowingObservation createGrowingObservation(DataUnitValueWrapper valueWrapper, GrowingObservationValueWrapper govw) {
+    public GrowingIssue createGrowingIssue(GrowingIssueValueWrapper growingIssueValueWrapper) {
 
-        return new GrowingObservation(valueWrapper, govw);
+        return new GrowingIssue(growingIssueValueWrapper);
+    }
+
+    public GrowingObservationValueWrapper createDefaultGrowingObservationValueWrapper() {
+        return new GrowingObservationValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), LocalDateTime.now());
+    }
+
+    public GrowingObservation createGrowingObservation(GrowingObservationValueWrapper valueWrapper) {
+
+        return new GrowingObservation(valueWrapper);
+    }
+
+    public FloweringGventValueWrapper createDefaultFloweringGventValueWrapper() {
+        return new FloweringGventValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), LocalDateTime.now(), new ObservableListWrapperA<Notification>(), "Red", "Corymb", 0);
+    }
+
+    public FruitingGventValueWrapper createDefaultFruitingGventValueWrapper() {
+        return new FruitingGventValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), LocalDateTime.now(), new ObservableListWrapperA<Notification>(), true, 0, "Red", "Rounded", 0, 0, 0);
     }
 
     /**
@@ -176,33 +198,58 @@ public class LogFactory {
         return new ObservableListWrapperA<>(types);
     }
 
-    public PruningTaskDetailValueWrapper getDefaultPruningTaskDetail() {
-        return new PruningTaskDetailValueWrapper();
+    public CustomTaskValueWrapper getDefaultCustomTaskValueWrapper() {
+        return new CustomTaskValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), new ObservableListWrapperA<Notification>());
     }
 
-    public Task createTask(DataUnitValueWrapper commonValueWrapper, TaskDetailValueWrapper detailValueWrapper) {
+    public FertilisationTaskValueWrapper getDefaultFertilisationTaskValueWrapper() {
+        return new FertilisationTaskValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), 
+                new ObservableListWrapperA<Notification>(), null, 0, ProjectManager.getInstance().getContents().getFertiliserUoms().get(0));
+    }
+
+    public HarvestingTaskValueWrapper getDefaultHarvestingTaskValueWrapper() {
+        return new HarvestingTaskValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), new ObservableListWrapperA<Notification>(),
+                ProjectManager.getInstance().getContents().getHarvestingQualities().get(0), 0, ProjectManager.getInstance().getContents().getHarvestingUoms().get(0));
+    }
+
+    public PlantThinningTaskValueWrapper getDefaultPlantThinningTaskValueWrapper() {
+        return new PlantThinningTaskValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), new ObservableListWrapperA<Notification>(),
+                0, 0);
+    }
+
+    public PruningTaskValueWrapper getDefaultPruningTaskValueWrapper() {
+        return new PruningTaskValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), new ObservableListWrapperA<Notification>(), 0, 0);
+    }
+
+    public TransplantTasklValueWrapper getDefaultTransplantTasklValueWrapper() {
+        return new TransplantTasklValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), new ObservableListWrapperA<Notification>(), null, null);
+    }
+
+    public WateringTaskValueWrapper getDefaultWateringTaskValueWrapper() {
+        return new WateringTaskValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", LocalDateTime.now(), new ObservableListWrapperA<Notification>(), 
+                WateringType.USE_WATER_CAN, WaterType.RAIN_WATER,false, null, 0, ProjectManager.getInstance().getContents().getWateringAmountUoms().get(0),
+                3, ProjectManager.getInstance().getContents().getWateringFluxUoms().get(0), 0);
+    }
+
+    public Task createTask(DataUnitValueWrapper commonValueWrapper, TaskValueWrapper detailValueWrapper) {
         switch (detailValueWrapper.getType()) {
             case CUSTOM:
-                return new CustomTask(commonValueWrapper, (CustomTaskDetailValueWrapper) detailValueWrapper);
+                return new CustomTask(commonValueWrapper, (CustomTaskValueWrapper) detailValueWrapper);
             case FERTILZATION:
-                return new FertilisationTask(commonValueWrapper, (FertilisationTaskDetailValueWrapper) detailValueWrapper);
+                return new FertilisationTask(commonValueWrapper, (FertilisationTaskValueWrapper) detailValueWrapper);
             case HARVESTING:
-                return new HarvestingTask(commonValueWrapper, (HarvestingTaskDetailValueWrapper) detailValueWrapper);
+                return new HarvestingTask(commonValueWrapper, (HarvestingTaskValueWrapper) detailValueWrapper);
             case PLANT_THINNING:
-                return new PlantThinningTask(commonValueWrapper, (PlantThinningTaskDetailValueWrapper) detailValueWrapper);
+                return new PlantThinningTask(commonValueWrapper, (PlantThinningTaskValueWrapper) detailValueWrapper);
             case PRUNING:
-                return new PruningTask(commonValueWrapper, (PruningTaskDetailValueWrapper) detailValueWrapper);
+                return new PruningTask(commonValueWrapper, (PruningTaskValueWrapper) detailValueWrapper);
             case TRANSPLANTING:
-                return new TransplantTask(commonValueWrapper, (TransplantTaskDetailValueWrapper) detailValueWrapper);
+                return new TransplantTask(commonValueWrapper, (TransplantTasklValueWrapper) detailValueWrapper);
             case WATERING:
-                return new WateringTask(commonValueWrapper, (WateringTaskDetailValueWrapper) detailValueWrapper);
+                return new WateringTask(commonValueWrapper, (WateringTaskValueWrapper) detailValueWrapper);
             default:
                 throw new IllegalArgumentException("Invalid task type.");
         }
-    }
-
-    public WateringTaskDetailValueWrapper getDefaultWateringTaskDetail() {
-        return new WateringTaskDetailValueWrapper();
     }
 
     public ObservableListWrapperA<String> getDefaultWaterAmountUoms() {
@@ -211,5 +258,9 @@ public class LogFactory {
 
     public ObservableListWrapperA<String> getDefaultWaterFluxUoms() {
         return new ObservableListWrapperA<>("litre/minute", "gallon/minute");
+    }
+
+    public TaskValueWrapper getTaskValueWrapper(Task task) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

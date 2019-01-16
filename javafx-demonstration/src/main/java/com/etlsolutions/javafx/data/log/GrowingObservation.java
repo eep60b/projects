@@ -1,8 +1,5 @@
 package com.etlsolutions.javafx.data.log;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 
@@ -20,8 +17,8 @@ public class GrowingObservation extends Note {
     public GrowingObservation() {
     }
 
-    public GrowingObservation(DataUnitValueWrapper valueWrapper, GrowingObservationValueWrapper growingObservationValueWrapper) {
-        super(valueWrapper, growingObservationValueWrapper.getStartTimeValueWrapper().getValue());
+    public GrowingObservation(GrowingObservationValueWrapper growingObservationValueWrapper) {
+        super(growingObservationValueWrapper, growingObservationValueWrapper.getStartTimeValueWrapper().getValue());
         this.endTime = growingObservationValueWrapper.getEndTimeValueWrapper().getValue();
     }
 

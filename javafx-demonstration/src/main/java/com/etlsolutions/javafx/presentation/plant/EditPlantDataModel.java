@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.plant;
 
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.data.plant.PlantValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.Plants;
 
@@ -19,39 +20,24 @@ public class EditPlantDataModel extends AbstractPlantDataModel {
      * the plant group list.
      */
     public EditPlantDataModel(Plants plant) {
-        super(plant);
+        super(new PlantValueWrapper(plant));
     }
 
     public PlantGroup getPlantGroup() {
-        return plantValueWrapper.getPlantGroupValueWrapper().getValue();
+        return getValueWrapper().getPlantGroupValueWrapper().getValue();
     }
 
     public PlantSubGroup getPlantSubGroup() {
-        return plantValueWrapper.getPlantSubGroupValueWrapper().getValue();
+        return getValueWrapper().getPlantSubGroupValueWrapper().getValue();
     }
 
     public PlantVariety getPlantVariety() {
-        return plantValueWrapper.getPlantVarietyValueWrapper().getValue();
+        return getValueWrapper().getPlantVarietyValueWrapper().getValue();
     }
 
     @Override
     public void save() {
-        Plants dataUnit = get();
-        dataUnit.setCommonValues(getValueWrapper);        
-        dataUnit.setAlive(plantValueWrapper.getIsAliveValueWrapper().getValue());
-        dataUnit.setGrowingIssueIds(plantValueWrapper.getGrowingIssueIds());
-        dataUnit.setGrowingMediumId(plantValueWrapper.getGrowingMediumValueWrapper().getValue().getId());
-        dataUnit.setGrowingObservationIds(plantValueWrapper.getGrowingObservationIds());
-        dataUnit.setGrowingStartPoint(plantValueWrapper.getGrowingStartPointValueWrapper().getValue());
-        dataUnit.setGventIds(plantValueWrapper.getGventIds());
-        dataUnit.setLocationId(plantValueWrapper.getLocationValueWrapper().getValue().getId());
-        dataUnit.setPlantVarietyId(plantValueWrapper.getPlantVarietyValueWrapper().getValue().getId());
-        dataUnit.setQuantity(plantValueWrapper.getQuantityValueWrapper().getValue());
-        dataUnit.setQuantityType(plantValueWrapper.getQuantityTypeValueWrapper().getValue());
-        dataUnit.setStartTime(plantValueWrapper.getStartTime());
-        dataUnit.setTaskIds(plantValueWrapper.getTaskIds());
-        dataUnit.setTerminationReason(plantValueWrapper.getTerminationReasonValueWrapper().getValue());
-        dataUnit.setTerminationTime(plantValueWrapper.getTerminationTime());
+        get().setValues(getValueWrapper());        
     }
 
     @Override

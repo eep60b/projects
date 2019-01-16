@@ -15,7 +15,7 @@ public class EditGrowingObservationDataModel extends AbstractGrowingObservationD
     @Override
     public void save() {
         GrowingObservation dataUnit = get();
-        dataUnit.setCommonValues(getValueWrapper);
+        dataUnit.setCommonValues(getValueWrapper());
         dataUnit.setStartTime(getStartTimeValueWrapper().getValue());
         dataUnit.setEndTime(getEndTimeValueWrapper().getValue());
         support.firePropertyChange(LIST_CHANGE_PROPERTY, true, false);

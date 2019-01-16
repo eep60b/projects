@@ -18,6 +18,7 @@ public class CreatePlantSubGroupDataModel extends AbstractPlantSubGroupDataModel
     private final ValueWrapper<PlantGroup> selectedPlantGroupValueWrapper;
 
     public CreatePlantSubGroupDataModel() {
+        super(PlantsFactory.getInstance().creatDefaultPlantSubGroupValueWrapper(ProjectManager.getInstance().getContents().getPlantsGroupRoot().getPlantGroups().get(0)));
         plantGroups = new ObservableListWrapperA<>(manager.getContents().getPlantsGroupRoot().getPlantGroups());
         selectedPlantGroupValueWrapper = new ValueWrapper<>(plantGroups.get(0));
     }
@@ -34,8 +35,8 @@ public class CreatePlantSubGroupDataModel extends AbstractPlantSubGroupDataModel
     @Override
     public void save() {
 
-        set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper, selectedPlantGroupValueWrapper.getValue().getId(), getVarieties()));
-        selectedPlantGroupValueWrapper.getValue().getPlantsSubGroups().add(get());
+        set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper()));
+        selectedPlantGroupValueWrapper.getValue().getPlantSubGroups().add(get());
         manager.addItem(get());
     }
 

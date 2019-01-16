@@ -1,9 +1,9 @@
 package com.etlsolutions.javafx.data.other;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.TypedItem;
-import com.etlsolutions.javafx.data.log.task.CustomTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.CustomTaskValueWrapper;
 
 /**
  *
@@ -25,7 +25,7 @@ public class FertiliserFactory {
     }
     
     public FertiliserValueWrapper getDefaultFertiliserValueWrapper(FertiliserType fertiliserType) {
-        return new FertiliserValueWrapper(fertiliserType, "Unspecified", 0, "", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 0, 7.0, 7.0, 0, 0, 0, 0, 0, 0);
+        return new FertiliserValueWrapper("untitled", "", new ObservableListWrapperA<ImageLink>(), null, "",  fertiliserType, "Unspecified", 0, "", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 0, 7.0, 7.0, 0, 0, 0, 0, 0, 0);
     }
     
     public LiquidFertiliser getDefaultLiquidFertiliser() {
@@ -44,16 +44,12 @@ public class FertiliserFactory {
         return new SolidFertiliserSpecialValueWrapper(0, "g/ml");
     }
 
-    public Fertiliser createFertiliser(DataUnitValueWrapper commonValueWrapper, FertiliserValueWrapper valueWrapper, TypedItem itemPartValueWrapper) {
+    public Fertiliser createFertiliser(FertiliserValueWrapper valueWrapper, TypedItem itemPartValueWrapper) {
         return getDefaultFertiliser();
     }
 
     public ObservableListWrapperA<Fertiliser> getDefaultFertilisers() {
         return new ObservableListWrapperA<>(getDefaultFertiliser());
-    }
-
-    public CustomTaskDetailValueWrapper getDefaultCustomDetail() {
-        return new CustomTaskDetailValueWrapper();
     }
 
     public ObservableListWrapperA<LiquidFertiliser> getDefaultLiquidFertilisers() {

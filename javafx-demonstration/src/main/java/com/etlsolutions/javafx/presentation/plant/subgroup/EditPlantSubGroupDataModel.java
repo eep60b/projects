@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.plant.subgroup;
 
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.data.plant.PlantSubGroupValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
@@ -13,7 +14,7 @@ public class EditPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
     private final PlantGroup group;
     
     public EditPlantSubGroupDataModel(PlantSubGroup subGroup) {
-        super(subGroup);
+        super(new PlantSubGroupValueWrapper(subGroup));
         group = ProjectManager.getInstance().getItem(subGroup.getPlantGroupId());
     }
       
@@ -23,8 +24,7 @@ public class EditPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
     
     @Override
     public void save() {
-        get().setCommonValues(getValueWrapper);
-        get().setPlantVarieties(getVarieties());
+        get().setValues(getValueWrapper());
     }
 
     @Override

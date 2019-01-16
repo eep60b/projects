@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.TaskType;
+import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -35,7 +36,6 @@ public class SelectedTypePropertyAdapter implements PropertyChangeListener {
     public void process(ValueWrapper<TaskType> wrapper) throws IllegalArgumentException {
 
         TaskType type = wrapper.getValue(); 
-        model.setContentModel(model.getDetailDataModel(type));
         switch (type) {
             case CUSTOM:
                 mainTabPane.getTabs().remove(detailTab);
@@ -45,7 +45,8 @@ public class SelectedTypePropertyAdapter implements PropertyChangeListener {
                 if (!mainTabPane.getTabs().contains(detailTab)) {
                     mainTabPane.getTabs().add(1, detailTab);
                 }
-                detailTab.setContent(generator.getNode(type));
+                detailTab.setContent(generator.getNode(type).getNode());
+                model.setContentModel((FXMLActionDataModel)generator.getNode(type).getModel());
                 return;
             default:
                 throw new IllegalArgumentException("Ivalid gvent type.");

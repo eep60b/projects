@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.log.task;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.task.FertilisationTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.FertilisationTaskValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -12,14 +12,14 @@ import java.util.Objects;
  *
  * @author Zhipeng
  */
-public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<FertilisationTaskDetailValueWrapper> {
+public class FertilisationTaskDetailDataModel extends TaskDetailDataModel<FertilisationTaskValueWrapper> {
 
     public static final RemoveEventId FERTILISER_REMOVE_EVENT_ID = new RemoveEventId(AbstractTaskDataModel.class.getName() + "FERTILISER_REMOVE_EVENT_ID", "remove fertiliser");
 
     private final ObservableListWrapperA<Fertiliser> fertilisers;
     private final ObservableListWrapperA<String> uoms;
 
-    public FertilisationTaskDetailDataModel(FertilisationTaskDetailValueWrapper fertilisationTaskDetail) {
+    public FertilisationTaskDetailDataModel(FertilisationTaskValueWrapper fertilisationTaskDetail) {
 
         super(fertilisationTaskDetail);
         fertilisers = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFertilisers());

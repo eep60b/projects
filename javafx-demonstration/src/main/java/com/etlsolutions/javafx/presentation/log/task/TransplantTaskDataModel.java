@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
-import com.etlsolutions.javafx.data.log.task.TransplantTaskDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.task.TransplantTasklValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.system.ProjectManager;
 
@@ -14,7 +14,7 @@ import com.etlsolutions.javafx.system.ProjectManager;
  *
  * @author zc
  */
-public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskDetailValueWrapper> {
+public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTasklValueWrapper> {
 
     public static final RemoveEventId AREA_REMOVE_EVENT_ID = new RemoveEventId(TransplantTaskDataModel.class.getName() + "AREA_REMOVE_EVENT_ID", "remove area");
 
@@ -32,7 +32,7 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
 
     public TransplantTaskDataModel(int plantId, TransplantTask task) {
 
-        super(new TransplantTaskDetailValueWrapper(task));
+        super(new TransplantTasklValueWrapper(task));
 
         this.plantId = plantId;
         ProjectManager p = ProjectManager.getInstance();
@@ -49,10 +49,9 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
         toAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
     }
 
-    public TransplantTaskDataModel() {
+    public TransplantTaskDataModel(TransplantTasklValueWrapper wrapper) {
 
-        super(new TransplantTaskDetailValueWrapper());
-        this.plantId = plantId;
+        super(wrapper);
         fromAreas = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getAreaRoot().getAllAreas());
         selectedFromArea = new ValueWrapper<>(fromAreas.get(0));
         fromSubAreas = selectedFromArea.getValue().getAllSubAreas();
@@ -69,6 +68,10 @@ public class TransplantTaskDataModel extends TaskDetailDataModel<TransplantTaskD
 
     public int getPlantId() {
         return plantId;
+    }
+
+    public void setPlantId(int plantId) {
+        this.plantId = plantId;
     }
 
     public ObservableListWrapperA<Location> getFromLocations() {

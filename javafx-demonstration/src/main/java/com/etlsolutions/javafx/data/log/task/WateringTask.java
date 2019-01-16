@@ -21,7 +21,7 @@ public class WateringTask extends Task {
     public WateringTask() {
     }
 
-    public WateringTask(DataUnitValueWrapper valueWrapper, WateringTaskDetailValueWrapper detailValueWrapper) {
+    public WateringTask(DataUnitValueWrapper valueWrapper, WateringTaskValueWrapper detailValueWrapper) {
         super(valueWrapper, detailValueWrapper);
         wateringType = detailValueWrapper.getWateringTypeValueWrapper().getValue();
         waterType = detailValueWrapper.getWaterTypeValueWrapper().getValue();

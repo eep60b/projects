@@ -15,10 +15,10 @@ public class PlantThinningTask extends Task {
     public PlantThinningTask() {
     }
 
-    public PlantThinningTask(DataUnitValueWrapper valueWrapper, PlantThinningTaskDetailValueWrapper detailValueWrapper) {
+    public PlantThinningTask(DataUnitValueWrapper valueWrapper, PlantThinningTaskValueWrapper detailValueWrapper) {
         super(valueWrapper, detailValueWrapper);
-        totalPlants = detailValueWrapper.getTotalPlants().getValue();
-        thinningRatio = detailValueWrapper.getThinningRatio().getValue();
+        totalPlants = detailValueWrapper.getTotalPlantsValueWrapper().getValue();
+        thinningRatio = detailValueWrapper.getThinningRatioValueWrapper().getValue();
     }
 
     public int getTotalPlants() {

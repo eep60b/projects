@@ -31,7 +31,7 @@ public abstract class Task extends Log {
     public Task() {
     }
 
-    public Task(DataUnitValueWrapper valueWrapper, TaskDetailValueWrapper detailValueWrapper) {
+    public Task(DataUnitValueWrapper valueWrapper, TaskValueWrapper detailValueWrapper) {
         super(valueWrapper, detailValueWrapper.getStartTime());
         this.notifications = new ObservableListWrapperA<>(detailValueWrapper.getNotifications());
     }

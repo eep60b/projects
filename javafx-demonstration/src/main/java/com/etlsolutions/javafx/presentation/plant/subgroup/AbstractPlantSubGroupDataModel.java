@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.data.plant.PlantSubGroupValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.RemoveFromListUtil;
@@ -17,22 +18,18 @@ public abstract class AbstractPlantSubGroupDataModel extends DataUnitFXMLDataMod
     
     public static final RemoveEventId REMOVE_VARIETY_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.menu.add.planttype.AddPlantTypeDataModel.REMOVE_VARIETY_ID", "plant variety");
     
-    private final ObservableListWrapperA<PlantVariety> varieties;
+    private final PlantSubGroupValueWrapper valueWrapper;
     private final ValueWrapper<PlantVariety> selectedVarietyValueWrapper;
 
-    public AbstractPlantSubGroupDataModel() {
-        varieties = new ObservableListWrapperA<>();
-        selectedVarietyValueWrapper = new ValueWrapper<>(null);
+    public AbstractPlantSubGroupDataModel(PlantSubGroupValueWrapper valueWrapper) {
+        this.valueWrapper = valueWrapper;
+        ObservableListWrapperA<PlantVariety> varieties = valueWrapper.getPlantVarieties();
+        selectedVarietyValueWrapper =new ValueWrapper<>(varieties.isEmpty() ? null : varieties.get(0));
     }
 
-    public AbstractPlantSubGroupDataModel(PlantSubGroup subGroup) {
-        super(subGroup);
-        varieties = new ObservableListWrapperA<>(subGroup.getPlantVarieties());
-        selectedVarietyValueWrapper = new ValueWrapper<>(varieties.isEmpty() ? null : varieties.get(0));
-    }
 
     public ObservableListWrapperA<PlantVariety> getVarieties() {
-        return varieties;
+        return valueWrapper.getPlantVarieties();
     }
 
     public ValueWrapper<PlantVariety> getSelectedVarietyValueWrapper() {
@@ -43,9 +40,15 @@ public abstract class AbstractPlantSubGroupDataModel extends DataUnitFXMLDataMod
     public void remove(RemoveEventId id) {
         
         if(Objects.equals(id, REMOVE_VARIETY_ID)) {
-            RemoveFromListUtil.getInstance().remove(varieties, selectedVarietyValueWrapper);
+            RemoveFromListUtil.getInstance().remove(valueWrapper.getPlantVarieties(), selectedVarietyValueWrapper);
         }
         
         super.remove(id); 
+    }
+
+    @Override
+    protected final PlantSubGroupValueWrapper getValueWrapper() {
+        
+        return valueWrapper;
     }
 }

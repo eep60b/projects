@@ -14,9 +14,9 @@ public class PruningTask extends Task {
     public PruningTask() {
     }
 
-    public PruningTask(DataUnitValueWrapper valueWrapper, PruningTaskDetailValueWrapper detailValueWrapper) {
+    public PruningTask(DataUnitValueWrapper valueWrapper, PruningTaskValueWrapper detailValueWrapper) {
         super(valueWrapper, detailValueWrapper);
-        overallRemoved = detailValueWrapper.getOrverallRemoved();
+        overallRemoved = detailValueWrapper.getOverallRemoved();
         eachBranchRemoved = detailValueWrapper.getEachBranchRemoved();
     }
     

@@ -11,7 +11,7 @@ public class AddGrowingObservationDataModel extends AbstractGrowingObservationDa
 
     @Override
     public void save() {
-        set(LogFactory.getInstance().createGrowingObservation(getValueWrapper, growingObservationValueWrapper));
+        set(LogFactory.getInstance().createGrowingObservation(getValueWrapper()));
         ProjectManager.getInstance().getContents().getLogGroupRoot().getNotes().addLog(get());
     }
 }

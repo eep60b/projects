@@ -1,24 +1,29 @@
 package com.etlsolutions.javafx.data.log.task;
 
+import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.system.ProjectManager;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author zc
  */
-public class TransplantTaskDetailValueWrapper extends TaskDetailValueWrapper {
+public class TransplantTasklValueWrapper extends TaskValueWrapper {
 
     private final ValueWrapper<Location> fromLocationValueWrapper;
     private final ValueWrapper<Location> toLocationValueWrapper;
 
-    public TransplantTaskDetailValueWrapper() {
-        fromLocationValueWrapper = new ValueWrapper(null);
-        toLocationValueWrapper = new ValueWrapper(null);
+    public TransplantTasklValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath, LocalDateTime startTime, ObservableListWrapperA<Notification> notifications, Location fromLocation, Location toLocation) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, startTime, notifications);
+        fromLocationValueWrapper = new ValueWrapper(fromLocation);
+        toLocationValueWrapper = new ValueWrapper(toLocation);
     }
 
-    public TransplantTaskDetailValueWrapper(TransplantTask task) {
+    public TransplantTasklValueWrapper(TransplantTask task) {
         super(task);
         ProjectManager m = ProjectManager.getInstance();
         fromLocationValueWrapper = new ValueWrapper(m.getItem(task.getFromLocationId()));

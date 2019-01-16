@@ -2,19 +2,19 @@ package com.etlsolutions.javafx.presentation.log.gvent;
 
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGventValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 
 /**
  *
  * @author zc
  */
-public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingGventDetailValueWrapper> {
+public class FruitingGventDetailDataModel extends GventDetailDataModel<FruitingGventValueWrapper> {
 
     private final ObservableListWrapperA<String> fruitShapes;
     private final ObservableListWrapperA<String> fruitColors;
 
-    public FruitingGventDetailDataModel(FruitingGventDetailValueWrapper fruitingGventDetail) {
+    public FruitingGventDetailDataModel(FruitingGventValueWrapper fruitingGventDetail) {
         super(fruitingGventDetail);
         fruitShapes = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFruitShapes());
         fruitColors = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getFruitColors());

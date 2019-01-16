@@ -12,7 +12,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.area.MeasurementDataModel;
-import com.etlsolutions.javafx.presentation.area.DetailDataModelGenerator;
+import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import javafx.collections.ObservableList;
 
 /**

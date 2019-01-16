@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.presentation.plant.plantvariety;
 
+import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
+import com.etlsolutions.javafx.data.plant.PlantVarietyValueWrapper;
 
 /**
  *
@@ -9,13 +11,11 @@ import com.etlsolutions.javafx.data.plant.PlantVariety;
 public class EditVarietyDataModel extends AbstractVarietyDataModel {
 
     public EditVarietyDataModel(PlantVariety variety) {
-        super(variety);
+        super(new PlantVarietyValueWrapper(variety),  new ValueWrapper<>(variety.getAliases().isEmpty() ? "" : variety.getAliases().get(0)));
     }
 
     @Override
     public void save() {
-        get().setCommonValues(getValueWrapper);
-        get().setLatinName(latinNameValueWrapper.getValue());
-        get().setAliases(aliases);
+        get().setValues(getValueWrapper());
     }
 }

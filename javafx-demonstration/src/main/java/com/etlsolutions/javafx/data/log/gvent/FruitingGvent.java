@@ -18,7 +18,7 @@ public class FruitingGvent extends Gvent {
     public FruitingGvent() {
     }
 
-    public FruitingGvent(DataUnitValueWrapper valueWrapper, FruitingGventDetailValueWrapper fgdvw) {
+    public FruitingGvent(DataUnitValueWrapper valueWrapper, FruitingGventValueWrapper fgdvw) {
         super(valueWrapper, fgdvw);
         color = fgdvw.getColorValueWrapper().getValue();
         shape = fgdvw.getShapeValueWrapper().getValue();

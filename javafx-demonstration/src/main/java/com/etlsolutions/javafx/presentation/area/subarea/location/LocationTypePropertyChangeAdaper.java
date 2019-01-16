@@ -32,7 +32,7 @@ public class LocationTypePropertyChangeAdaper implements PropertyChangeListener 
         okButton.setDisable(model.isInvalid());
         errorMessageLabel.setDisable(model.isInvalid());
         errorMessageLabel.setText(model.getErrorMessage());
-        measurementTab.setContent(nodeGenerator.getNode(model.getContentModel().getTypeValueWrapper().getValue()));
+        measurementTab.setContent(nodeGenerator.getNode(model.getContentModel().getTypeValueWrapper().getValue()).getNode());
     }
 
 }

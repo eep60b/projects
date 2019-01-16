@@ -11,19 +11,17 @@ import com.etlsolutions.javafx.system.ProjectManager;
  * @author zc
  */
 public class CreateRootedPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
-
-    private final ProjectManager manager = ProjectManager.getInstance();
-
+    
     private final ObservableListWrapperA<PlantGroup> plantGroups;
-    private final ValueWrapper<PlantGroup> selectedPlantGroupValueWrapper;
-
+    
     public CreateRootedPlantSubGroupDataModel() {
-        plantGroups = new ObservableListWrapperA<>(manager.getContents().getPlantsGroupRoot().getPlantGroups());
-        selectedPlantGroupValueWrapper = new ValueWrapper<>(plantGroups.get(0));
+        
+        super(PlantsFactory.getInstance().creatDefaultPlantSubGroupValueWrapper(ProjectManager.getInstance().getContents().getPlantsGroupRoot().getPlantGroups().get(0)));
+        plantGroups = new ObservableListWrapperA<>(ProjectManager.getInstance().getContents().getPlantsGroupRoot().getPlantGroups());
     }
 
     public ValueWrapper<PlantGroup> getSelectedPlantGroupValueWrapper() {
-        return selectedPlantGroupValueWrapper;
+        return getValueWrapper().getPlantGroupValueWrapper();
     }
 
     public ObservableListWrapperA<PlantGroup> getPlantGroups() {
@@ -33,9 +31,9 @@ public class CreateRootedPlantSubGroupDataModel extends AbstractPlantSubGroupDat
     @Override
     public void save() {
 
-        set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper, selectedPlantGroupValueWrapper.getValue().getId(), getVarieties()));
-        selectedPlantGroupValueWrapper.getValue().getPlantsSubGroups().add(get());
-        manager.addItem(get());
+        set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper()));
+        getSelectedPlantGroupValueWrapper().getValue().getPlantSubGroups().add(get());
+        ProjectManager.getInstance().addItem(get());
     }
 
     @Override

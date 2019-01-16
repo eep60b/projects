@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.log.growingobservation;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.GrowingObservationValueWrapper;
+import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import java.time.LocalDateTime;
 
@@ -15,11 +16,11 @@ public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDa
     protected GrowingObservationValueWrapper growingObservationValueWrapper;
 
     public AbstractGrowingObservationDataModel() {
-        growingObservationValueWrapper = new GrowingObservationValueWrapper();
+        growingObservationValueWrapper = LogFactory.getInstance().createDefaultGrowingObservationValueWrapper();
     }
 
     public AbstractGrowingObservationDataModel(GrowingObservation growingObservation) {
-        super(growingObservation);
+        set(growingObservation);
         growingObservationValueWrapper = new GrowingObservationValueWrapper(growingObservation);
     }
 
@@ -35,4 +36,9 @@ public abstract class AbstractGrowingObservationDataModel extends DataUnitFXMLDa
     public String getFxmlPath() {
         return "/fxml/log/GrowingObservationFXML.fxml";
     }
+
+    @Override
+    protected GrowingObservationValueWrapper getValueWrapper() {
+        return growingObservationValueWrapper;
+    }    
 }

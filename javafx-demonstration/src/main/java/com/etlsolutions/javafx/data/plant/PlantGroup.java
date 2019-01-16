@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
@@ -14,21 +13,27 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
  */
 public class PlantGroup extends DataUnit {
 
-    private ObservableListWrapperA<PlantSubGroup> plantsSubGroups;
+    private ObservableListWrapperA<PlantSubGroup> plantSubGroups;
 
     public PlantGroup() {
     }
 
-    public PlantGroup(DataUnitValueWrapper valueWrapper, ObservableListWrapperA<PlantSubGroup> plantsSubGroups) {
+    public PlantGroup(PlantGroupValueWrapper valueWrapper) {
         super(valueWrapper);
-        this.plantsSubGroups = plantsSubGroups;
+        this.plantSubGroups = new ObservableListWrapperA<>(valueWrapper.getPlantsSubGroups());
     }
 
-    public ObservableListWrapperA<PlantSubGroup> getPlantsSubGroups() {
-        return plantsSubGroups;
+    public ObservableListWrapperA<PlantSubGroup> getPlantSubGroups() {
+        return plantSubGroups;
     }
 
-    public void setPlantsSubGroups(ObservableListWrapperA<PlantSubGroup> plantsSubGroups) {
-        this.plantsSubGroups = plantsSubGroups;
+    public void setPlantSubGroups(ObservableListWrapperA<PlantSubGroup> plantSubGroups) {
+        this.plantSubGroups = plantSubGroups;
+    }
+
+    public void setValue(PlantGroupValueWrapper valueWrapper) {
+        setCommonValues(valueWrapper);
+        plantSubGroups.clear();
+        plantSubGroups.addAll(valueWrapper.getPlantsSubGroups());
     }
 }

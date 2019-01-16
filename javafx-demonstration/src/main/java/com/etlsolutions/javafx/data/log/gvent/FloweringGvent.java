@@ -15,7 +15,7 @@ public class FloweringGvent extends Gvent {
     public FloweringGvent() {
     }
 
-    public FloweringGvent(DataUnitValueWrapper valueWrapper, FloweringGventDetailValueWrapper fgdvw) {
+    public FloweringGvent(DataUnitValueWrapper valueWrapper, FloweringGventValueWrapper fgdvw) {
         super(valueWrapper, fgdvw);
         flowerType = fgdvw.getFlowerTypeValueWrapper().getValue();
         count = fgdvw.getNumberPerPlantValueWrapper().getValue();

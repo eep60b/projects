@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.area;
+package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.area.measurement.BorderMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.CircleMeasurement;
@@ -18,12 +18,20 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.data.area.subarea.location.ContainterMeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationMeasurementType;
+import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
-import com.etlsolutions.javafx.data.log.gvent.FloweringGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FloweringGventValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
-import com.etlsolutions.javafx.data.log.gvent.FruitingGventDetailValueWrapper;
+import com.etlsolutions.javafx.data.log.gvent.FruitingGventValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
+import com.etlsolutions.javafx.data.log.task.TaskType;
+import com.etlsolutions.javafx.presentation.area.AreaValueDataModel;
+import com.etlsolutions.javafx.presentation.area.CircleDataModel;
+import com.etlsolutions.javafx.presentation.area.MeasurementDataModel;
+import com.etlsolutions.javafx.presentation.area.RectangleDataModel;
+import com.etlsolutions.javafx.presentation.area.SquareDataModel;
+import com.etlsolutions.javafx.presentation.area.TriangleDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.BorderMeasurementDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.BoxDataModel;
 import com.etlsolutions.javafx.presentation.area.subarea.CirclePondDataModel;
@@ -37,15 +45,23 @@ import com.etlsolutions.javafx.presentation.area.subarea.location.LocationMeasur
 import com.etlsolutions.javafx.presentation.log.gvent.FloweringGventDetailDataModel;
 import com.etlsolutions.javafx.presentation.log.gvent.FruitingGventDetailDataModel;
 import com.etlsolutions.javafx.presentation.log.gvent.GventDetailDataModel;
+import com.etlsolutions.javafx.presentation.log.task.CustomTaskDetailDataModel;
+import com.etlsolutions.javafx.presentation.log.task.FertilisationTaskDetailDataModel;
+import com.etlsolutions.javafx.presentation.log.task.HarvestingTaskDataModel;
+import com.etlsolutions.javafx.presentation.log.task.PlantThinningTaskDataModel;
+import com.etlsolutions.javafx.presentation.log.task.PruningTaskDataModel;
+import com.etlsolutions.javafx.presentation.log.task.TaskDetailDataModel;
+import com.etlsolutions.javafx.presentation.log.task.TransplantTaskDataModel;
+import com.etlsolutions.javafx.presentation.log.task.WateringTaskDataModel;
 
 /**
  *
  * @author zc
  */
 public class DetailDataModelGenerator {
-    
+
     private static final DetailDataModelGenerator INSTANCE = new DetailDataModelGenerator();
-    
+
     public static final DetailDataModelGenerator getInstance() {
         return INSTANCE;
     }
@@ -67,7 +83,6 @@ public class DetailDataModelGenerator {
         }
     }
 
-    
     public MeasurementDataModel getMeasurementDataModel(Measurement measurement) {
         switch (measurement.getType()) {
             case CIRCLE:
@@ -84,8 +99,7 @@ public class DetailDataModelGenerator {
                 throw new IllegalArgumentException("Invalid measurement type.");
         }
     }
-    
-    
+
     public MeasurementDataModel getMeasurementDataModel(SubAreaType type, Measurement measurement) {
 
         switch (type) {
@@ -111,7 +125,6 @@ public class DetailDataModelGenerator {
 
     }
 
-
     private MeasurementDataModel getDepthMeasurementDataModel(String title, Measurement measurement) {
         switch (measurement.getType()) {
             case CIRCLE:
@@ -129,7 +142,6 @@ public class DetailDataModelGenerator {
         }
     }
 
-    
     public final LocationMeasurementDataModel getMeasurementDataModel(LocationMeasurementType type) {
         switch (type) {
             case CONTAINER:
@@ -139,30 +151,49 @@ public class DetailDataModelGenerator {
             default:
                 throw new IllegalArgumentException("Invalid type");
         }
-    }    
-    
-    
+    }
 
     public final GventDetailDataModel getDetailDataModel(GventType type) {
         switch (type) {
             case FLOWERING:
-                return new FloweringGventDetailDataModel(new FloweringGventDetailValueWrapper());
+                return new FloweringGventDetailDataModel(LogFactory.getInstance().createDefaultFloweringGventValueWrapper());
             case FRUITING:
-                return new FruitingGventDetailDataModel(new FruitingGventDetailValueWrapper());
+                return new FruitingGventDetailDataModel(LogFactory.getInstance().createDefaultFruitingGventValueWrapper());
+            default:
+                return null;
+        }
+    }
+
+    public final TaskDetailDataModel getDetailDataModel(TaskType type) {
+        switch (type) {
+            case CUSTOM:
+                return new CustomTaskDetailDataModel(LogFactory.getInstance().getDefaultCustomTaskValueWrapper());
+            case FERTILZATION:
+                return new FertilisationTaskDetailDataModel(LogFactory.getInstance().getDefaultFertilisationTaskValueWrapper());
+            case HARVESTING:
+                return new HarvestingTaskDataModel(LogFactory.getInstance().getDefaultHarvestingTaskValueWrapper());
+            case PLANT_THINNING:
+                return new PlantThinningTaskDataModel(LogFactory.getInstance().getDefaultPlantThinningTaskValueWrapper());
+                case PRUNING:
+                    return new PruningTaskDataModel(LogFactory.getInstance().getDefaultPruningTaskValueWrapper());
+                case TRANSPLANTING:
+                    return new TransplantTaskDataModel(LogFactory.getInstance().getDefaultTransplantTasklValueWrapper());
+                    case WATERING:
+                        return new WateringTaskDataModel(LogFactory.getInstance().getDefaultWateringTaskValueWrapper());
             default:
                 return null;
         }
     }
 
     public GventDetailDataModel getDetailDataModel(Gvent gvent) {
-        
+
         switch (gvent.getType()) {
             case FLOWERING:
-                return new FloweringGventDetailDataModel(new FloweringGventDetailValueWrapper((FloweringGvent)gvent));
+                return new FloweringGventDetailDataModel(new FloweringGventValueWrapper((FloweringGvent) gvent));
             case FRUITING:
-                return new FruitingGventDetailDataModel(new FruitingGventDetailValueWrapper((FruitingGvent)gvent));
+                return new FruitingGventDetailDataModel(new FruitingGventValueWrapper((FruitingGvent) gvent));
             default:
                 return null;
         }
-    }    
+    }
 }

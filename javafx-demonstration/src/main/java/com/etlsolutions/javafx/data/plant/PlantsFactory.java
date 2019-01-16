@@ -1,12 +1,18 @@
 package com.etlsolutions.javafx.data.plant;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
+import com.etlsolutions.javafx.data.log.GrowingIssue;
+import com.etlsolutions.javafx.data.log.GrowingObservation;
+import com.etlsolutions.javafx.data.log.gvent.Gvent;
+import com.etlsolutions.javafx.data.log.task.Task;
+import com.etlsolutions.javafx.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectManager;
 
 import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_SEPARATER;
 import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 /**
@@ -33,16 +39,16 @@ public class PlantsFactory {
 
             PlantGroup group = createDefaultPlantGroup(title);
             if (title.equals("Annual Plants")) {
-                group.getPlantsSubGroups().add(createTitledEmptyPlantSubGroup(group.getId(), "Tomato"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Tomato"));
             }
             if (title.equals("Biennial Plants")) {
-                group.getPlantsSubGroups().add(createTitledEmptyPlantSubGroup(group.getId(), "Unset"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Unset"));
             }
             if (title.equals("Perennial Plants")) {
-                group.getPlantsSubGroups().add(createTitledEmptyPlantSubGroup(group.getId(), "Garlic Chive"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Garlic Chive"));
             }
             if (title.equals("Trees")) {
-                group.getPlantsSubGroups().add(createTitledEmptyPlantSubGroup(group.getId(), "Apple"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Apple"));
 
             }
             r.getPlantGroups().add(group);
@@ -52,10 +58,15 @@ public class PlantsFactory {
         return r;
     }
 
-    public PlantGroup createPlantGroup(DataUnitValueWrapper valueWrapper, ObservableListWrapperA<PlantSubGroup> plantsSubGroups) {
-        return new PlantGroup(valueWrapper, plantsSubGroups);
+    public PlantGroup createPlantGroup(PlantGroupValueWrapper valueWrapper) {
+        return new PlantGroup(valueWrapper);
     }
+    
+    public PlantGroupValueWrapper createDefaultPlantGroupValueWrapper() {
 
+        return new PlantGroupValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", new ObservableListWrapperA<PlantSubGroup>());
+    }
+    
     public PlantGroup createDefaultPlantGroup(String title) {
         PlantGroup g = new PlantGroup();
         g.setTitle(title);
@@ -63,31 +74,54 @@ public class PlantsFactory {
         g.setImageLinks(new ObservableListWrapperA<ImageLink>());
         g.setSelectedImgLinkIndex(0);
         g.setLogoPath("");
-        g.setPlantsSubGroups(new ObservableListWrapperA<PlantSubGroup>());
+        g.setPlantSubGroups(new ObservableListWrapperA<PlantSubGroup>());
         return g;
     }
 
-    public PlantSubGroup creatPlantSubGroup(DataUnitValueWrapper valueWrapper, int plantGroupId, ObservableListWrapperA<PlantVariety> plantVarieties) {
-        return new PlantSubGroup(valueWrapper, plantGroupId, new ObservableListWrapperA<Plants>(), plantVarieties);
+    public PlantSubGroup creatPlantSubGroup(PlantSubGroupValueWrapper valueWrapper) {
+        return new PlantSubGroup(valueWrapper);
     }
 
-    private PlantSubGroup createTitledEmptyPlantSubGroup(int groupId, String title) {
+    private PlantSubGroup createTitledEmptyPlantSubGroup(PlantGroup group, String title) {
 
-        DataUnitValueWrapper valueWrapper = new DataUnitValueWrapper(title, "", new ObservableListWrapperA<ImageLink>(), null, "");
-        return new PlantSubGroup(valueWrapper, groupId, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>());
+        PlantSubGroupValueWrapper valueWrapper = new PlantSubGroupValueWrapper(title, "", new ObservableListWrapperA<ImageLink>(), null, "", group, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>());
+        return new PlantSubGroup(valueWrapper);
     }
 
-    public Plants creatPlant(DataUnitValueWrapper valueWrapper, PlantValueWrapper plantValueWrapper) {
-        Plants plant = new Plants(valueWrapper, plantValueWrapper);
+    public PlantSubGroupValueWrapper creatDefaultPlantSubGroupValueWrapper(PlantGroup group) {
+        return new PlantSubGroupValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", group, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>());
+    }    
+    
+    public PlantValueWrapper createDefaultPlantWrapper() {
+        ProjectContents pc = ProjectManager.getInstance().getContents();
+        PlantGroup pg = pc.getPlantsGroupRoot().getPlantGroups().get(0);
+        PlantSubGroup sg = pg.getPlantSubGroups().get(0);
+        ObservableListWrapperA<PlantVariety> varieties = sg.getPlantVarieties();
+
+        return new PlantValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", pg, sg, null, true,
+                GrowingStartPoint.SEED, LocalDateTime.now(), pc.getGrowingMediums().get(0), varieties.isEmpty() ? null : varieties.get(0),
+                0, PlantsQuantity.Type.SINGLE, "", LocalDateTime.MAX, new ObservableListWrapperA<Gvent>(), new ObservableListWrapperA<GrowingIssue>(),
+                new ObservableListWrapperA<GrowingObservation>(), new ObservableListWrapperA<Task>());
+    }
+
+    public Plants creatPlant(PlantValueWrapper plantValueWrapper) {
+        Plants plant = new Plants(plantValueWrapper);
 
         Location location = plantValueWrapper.getLocationValueWrapper().getValue();
+
         if (location != null) {
             location.setPlantId(plant.getId());
         }
+        
         return plant;
+
     }
 
-    public PlantVariety createPlantVariety(DataUnitValueWrapper valueWrapper, int plantSubGroupId, String latinName, ObservableListWrapperA<String> aliases) {
-        return new PlantVariety(valueWrapper, plantSubGroupId, latinName, aliases);
+    public PlantVarietyValueWrapper createDefaultPlantVarietyValueWrapper(PlantSubGroup subGroup) {
+        return new PlantVarietyValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", new ObservableListWrapperA<String>(), "", subGroup);
+    }
+    
+    public PlantVariety createPlantVariety(PlantVarietyValueWrapper valueWrapper) {
+        return new PlantVariety(valueWrapper);
     }
 }

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.log.gvent;
 
-import com.etlsolutions.javafx.data.DoubleValueWrapper;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
@@ -10,10 +10,8 @@ import java.time.LocalDateTime;
  *
  * @author zc
  */
-public class FruitingGventDetailValueWrapper extends DoubleValueWrapper implements GventDetailValueWrapper {
+public class FruitingGventValueWrapper extends GventDetailValueWrapper {
 
-    private final ValueWrapper<LocalDateTime> startTimeValueWrapper;
-    private final ValueWrapper<LocalDateTime> endTimeValueWrapper;
     private final ValueWrapper<Boolean> countableValueWrapper;
     private final ValueWrapper<Integer> countValueWrapper;
     private final ValueWrapper<String> colorValueWrapper;
@@ -21,24 +19,20 @@ public class FruitingGventDetailValueWrapper extends DoubleValueWrapper implemen
     private final ValueWrapper<String> averageSizeValueWrapper;
     private final ValueWrapper<String> averageLengThValueWrapper;
     private final ValueWrapper<String> averageWeightValueWrapper;
-    private final ObservableListWrapperA<Notification> notifications;
 
-    public FruitingGventDetailValueWrapper() {
-        startTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
-        endTimeValueWrapper = new ValueWrapper<>(LocalDateTime.now());
-        countableValueWrapper = new ValueWrapper<>(true);
-        countValueWrapper = new ValueWrapper<>(1);
-        colorValueWrapper = new ValueWrapper<>("red");
-        shapeValueWrapper = new ValueWrapper<>("round");
-        averageSizeValueWrapper = getWrapper(0);
-        averageLengThValueWrapper = getWrapper(0);
-        this.averageWeightValueWrapper = getWrapper(0);
-        notifications = new ObservableListWrapperA<>();
+    public FruitingGventValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath, LocalDateTime startTime, LocalDateTime endTime, ObservableListWrapperA<Notification> notifications, boolean countable, int count, String color, String shape, double averageSize, double averageLength, double averageWeight) {
+        super(title, information, imageLinks, selectedImgLinkIndex, logoPath, startTime, endTime, notifications);
+        countableValueWrapper = new ValueWrapper<>(countable);
+        countValueWrapper = new ValueWrapper<>(count);
+        colorValueWrapper = new ValueWrapper<>(color);
+        shapeValueWrapper = new ValueWrapper<>(shape);
+        averageSizeValueWrapper = getWrapper(averageSize);
+        averageLengThValueWrapper = getWrapper(averageLength);
+        averageWeightValueWrapper = getWrapper(averageWeight);
     }
 
-    public FruitingGventDetailValueWrapper(FruitingGvent gvent) {
-        startTimeValueWrapper = new ValueWrapper<>(gvent.getStartTime());
-        endTimeValueWrapper = new ValueWrapper<>(gvent.getEndTime());
+    public FruitingGventValueWrapper(FruitingGvent gvent) {
+        super(gvent);
         countableValueWrapper = new ValueWrapper<>(gvent.getNumberPerPlant() >= 0);
         countValueWrapper = new ValueWrapper<>(gvent.getNumberPerPlant());
         colorValueWrapper = new ValueWrapper<>(gvent.getColor());
@@ -46,17 +40,6 @@ public class FruitingGventDetailValueWrapper extends DoubleValueWrapper implemen
         averageSizeValueWrapper = getWrapper(gvent.getAverageSize());
         averageLengThValueWrapper = getWrapper(gvent.getAverageSize());        
         averageWeightValueWrapper = getWrapper(gvent.getAverageWeight());
-        notifications = new ObservableListWrapperA<>(gvent.getNotifications());
-    }
-
-    @Override
-    public ValueWrapper<LocalDateTime> getStartTimeValueWrapper() {
-        return startTimeValueWrapper;
-    }
-
-    @Override
-    public ValueWrapper<LocalDateTime> getEndTimeValueWrapper() {
-        return endTimeValueWrapper;
     }
 
     public ValueWrapper<Boolean> getCountableValueWrapper() {
@@ -89,11 +72,6 @@ public class FruitingGventDetailValueWrapper extends DoubleValueWrapper implemen
 
     public double getAverageWeight() {
         return getValue(averageWeightValueWrapper);
-    }
-
-    @Override
-    public ObservableListWrapperA<Notification> getNotifications() {
-        return notifications;
     }
 
     @Override

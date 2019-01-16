@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 
 /**
@@ -14,7 +13,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 public class PlantSubGroup extends DataUnit {
     
     private int plantGroupId;
-    private ObservableListWrapperA<Plants> plantsList;
+    private ObservableListWrapperA<Plants> plants;
 
     //This property will not be shown in the tree.  
     private ObservableListWrapperA<PlantVariety> plantVarieties;
@@ -22,11 +21,11 @@ public class PlantSubGroup extends DataUnit {
     public PlantSubGroup() {
     }
 
-    public PlantSubGroup(DataUnitValueWrapper valueWrapper, int plantGroupId, ObservableListWrapperA<Plants> plantsList, ObservableListWrapperA<PlantVariety> plantVarieties) {
+    public PlantSubGroup(PlantSubGroupValueWrapper valueWrapper) {
         super(valueWrapper);
-        this.plantGroupId = plantGroupId;
-        this.plantsList = plantsList;
-        this.plantVarieties = plantVarieties;
+        this.plantGroupId = valueWrapper.getPlantGroupValueWrapper().getValue().getId();
+        this.plants = new ObservableListWrapperA<>(valueWrapper.getPlants());
+        this.plantVarieties = new ObservableListWrapperA<>(valueWrapper.getPlantVarieties());
     }
     
     public int getPlantGroupId() {
@@ -37,12 +36,12 @@ public class PlantSubGroup extends DataUnit {
         this.plantGroupId = plantGroupId;
     }
 
-    public ObservableListWrapperA<Plants> getPlantsList() {
-        return plantsList;
+    public ObservableListWrapperA<Plants> getPlants() {
+        return plants;
     }
 
-    public void setPlantsList(ObservableListWrapperA<Plants> plantsList) {
-        this.plantsList = plantsList;
+    public void setPlants(ObservableListWrapperA<Plants> plants) {
+        this.plants = plants;
     }
 
     public ObservableListWrapperA<PlantVariety> getPlantVarieties() {
@@ -52,4 +51,11 @@ public class PlantSubGroup extends DataUnit {
     public void setPlantVarieties(ObservableListWrapperA<PlantVariety> plantVarieties) {
         this.plantVarieties = plantVarieties;
     }   
+    
+    public void setValues(PlantSubGroupValueWrapper valueWrapper) {
+        
+        setCommonValues(valueWrapper);   
+        plantVarieties = new ObservableListWrapperA<>(valueWrapper.getPlantVarieties());
+        plants = new ObservableListWrapperA<>(valueWrapper.getPlants());
+    }
 }

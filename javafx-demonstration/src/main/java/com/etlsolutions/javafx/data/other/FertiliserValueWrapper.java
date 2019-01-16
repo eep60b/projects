@@ -71,10 +71,25 @@ public class FertiliserValueWrapper extends DataUnitValueWrapper {
         suggestedUsageAmount = getWrapper(fertiliser.getSuggestedUsageAmount());
         usageUom = new ValueWrapper<>(fertiliser.getUsageUom());
         ph = getWrapper(fertiliser.getPh());
-        , fertiliser.getAluminium(), fertiliser.getBoron(), fertiliser.getCalcium(), fertiliser.getChlorine(),
-                fertiliser.getCobalt(), fertiliser.getCopper(), fertiliser.getIron(), fertiliser.getMagnesium(), fertiliser.getManganese(),
-                fertiliser.getMolybdenum(), fertiliser.getNitrogen(), fertiliser.getNickel(), fertiliser.getPhosphorus(), fertiliser.getPotassium(),
-                fertiliser.getSelenium(), fertiliser.getSodium(), fertiliser.getSulphur(), fertiliser.getVanadium(), fertiliser.getZinc());
+        aluminium = getWrapper(fertiliser.getAluminium());
+        boron = getWrapper(fertiliser.getBoron());
+        calcium = getWrapper(fertiliser.getCalcium());
+        chlorine = getWrapper(fertiliser.getChlorine());
+        cobalt = getWrapper(fertiliser.getCobalt());
+        copper = getWrapper(fertiliser.getCopper());
+        iron = getWrapper(fertiliser.getIron());
+        magnesium = getWrapper(fertiliser.getMagnesium());
+        manganese = getWrapper(fertiliser.getManganese());
+        molybdenum = getWrapper(fertiliser.getMolybdenum());
+        nitrogen = getWrapper(fertiliser.getNitrogen());
+        nickel = getWrapper(fertiliser.getNickel());
+        phosphorus = getWrapper(fertiliser.getPhosphorus());
+        potassium = getWrapper(fertiliser.getPotassium());
+        selenium = getWrapper(fertiliser.getSelenium());
+        sodium = getWrapper(fertiliser.getSodium());
+        sulphur = getWrapper(fertiliser.getSulphur());
+        vanadium = getWrapper(fertiliser.getVanadium());
+        zinc = getWrapper(fertiliser.getZinc());
     }
 
     public ValueWrapper<FertiliserType> getType() {
