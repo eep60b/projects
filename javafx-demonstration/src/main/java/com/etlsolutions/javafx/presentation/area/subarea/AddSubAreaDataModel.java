@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaValueWrapper;
 public class AddSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
 
     public AddSubAreaDataModel(Area area) {
-        super(area.getSubAreas().isEmpty() ? SubAreaFactory.getInstance().getDefaultSubAreaValueWrapper() : new SubAreaValueWrapper(area.getSubAreas().get(0)), area);
+        super(SubAreaFactory.getInstance().getDefaultSubAreaValueWrapper(area), area);
     }
 
     @Override

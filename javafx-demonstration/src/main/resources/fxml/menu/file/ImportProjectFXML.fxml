@@ -9,11 +9,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="465.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.file.NewProjectDialigFXMLController">
-  <stylesheets>
-    <URL value="@/styles/menu/file/newprojectdialigfxml.css" />
-  </stylesheets>
-   <children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.file.ImportProjectFXMLController">
+    <stylesheets>
+        <URL value="@@/styles/menu/file/importprojectfxml.css"/>
+    </stylesheets>
+     <children>
       <VBox layoutX="43.0" layoutY="74.0" prefHeight="180.0" prefWidth="369.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox>

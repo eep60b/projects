@@ -41,7 +41,7 @@ public class ImagePropertyChangeAdapter implements PropertyChangeListener {
         String link = wrapper.getValue(); 
         boolean invalid = link == null || !new File(link).isFile();
         okButton.setDisable(invalid);
-        errorMessageLabel.setVisible(!invalid);
+        errorMessageLabel.setVisible(invalid);
         errorMessageLabel.setText(invalid ? "Invalid image path." : "");
 
         if (!invalid) {

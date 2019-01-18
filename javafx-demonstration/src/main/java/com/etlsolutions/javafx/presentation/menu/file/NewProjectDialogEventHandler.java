@@ -24,6 +24,7 @@ public class NewProjectDialogEventHandler extends FXMLActionEventHandler<NewProj
 
         if (c != null && c.getModified().getValue()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save change for the current project?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+            alert.showAndWait();
             ButtonType result = alert.getResult();
             if (result == ButtonType.YES) {
                 ProjectManager.getInstance().saveProject();

@@ -14,5 +14,4 @@ public class SaveProjectEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         ProjectManager.getInstance().saveProject();
     }
-
 }

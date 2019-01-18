@@ -3,11 +3,13 @@ package com.etlsolutions.javafx.data.area.subarea;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.measurement.BorderMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.ContainerSetMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;
+import com.etlsolutions.javafx.data.area.subarea.location.Location;
 
 /**
  *
@@ -55,7 +57,7 @@ public class SubAreaFactory {
         }
     }
 
-    public SubAreaValueWrapper getDefaultSubAreaValueWrapper() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public SubAreaValueWrapper getDefaultSubAreaValueWrapper(Area area) {
+        return new SubAreaValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", new ObservableListWrapperA<Location>(), area);
     }
 }

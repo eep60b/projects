@@ -27,7 +27,7 @@ public class OpenProjectDataModel implements Validatable, Savable, FXMLActionDat
     @Override
     public boolean isInvalid() {
         String path = pathValueWrapper.getValue();
-        return path == null || path.trim().isEmpty() || !new File(path).exists();
+        return !ProjectManager.getInstance().isValidProject(path) ;
     }
 
     @Override
@@ -42,6 +42,10 @@ public class OpenProjectDataModel implements Validatable, Savable, FXMLActionDat
 
         if (!new File(path).isDirectory()) {
             return "The location has already been used.";
+        }
+        
+        if(!ProjectManager.getInstance().isValidProject(path)) {
+            return "This is not a valid gardenwise project.";
         }
 
         return "";

@@ -12,7 +12,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 public class CreateSubAreaDataModel extends AbstractSubAreaDataModel {
 
     public CreateSubAreaDataModel(SubAreaType[] subAreaTypes) {
-        super(SubAreaFactory.getInstance().getDefaultSubAreaValueWrapper(), subAreaTypes);
+        super(SubAreaFactory.getInstance().getDefaultSubAreaValueWrapper(null), subAreaTypes);
     }
 
     @Override

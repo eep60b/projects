@@ -11,8 +11,8 @@ import java.util.Objects;
  */
 public class ProjectConfiguration {
 
-    private final String name;
-    private final String parentPath;
+    private String name;
+    private String parentPath;
     private final ValueWrapper<Boolean> modified = new ValueWrapper<>(true);
     private final ValueWrapper<Boolean> encrypted = new ValueWrapper<>(true);
 
@@ -20,15 +20,25 @@ public class ProjectConfiguration {
         this.name = name;
         this.parentPath = parentPath;
     }
-       
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        modified.setValue(true);
     }
 
     public String getParentPath() {
         return parentPath;
     }
 
+    public void setParentPath(String parentPath) {
+        this.parentPath = parentPath;
+        modified.setValue(true);        
+    }
+       
     public ValueWrapper<Boolean> getModified() {
         return modified;
     }

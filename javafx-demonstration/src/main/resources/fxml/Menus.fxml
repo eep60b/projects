@@ -25,6 +25,9 @@
                         <MenuItem fx:id="closeProjectMenuItem" mnemonicParsing="false" text="Close Project" />
                         <MenuItem fx:id="deleteProjectMenuItem" mnemonicParsing="false" text="Delete Project" />
                         <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="importProjectMenuItem" mnemonicParsing="false" text="Import Project" />
+                        <MenuItem fx:id="exportProjectMenuItem" mnemonicParsing="false" text="Export Project" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="saveProjectMenuItem" mnemonicParsing="false" text="Save" />
                         <MenuItem fx:id="saveAsProjectMenuItem" mnemonicParsing="false" text="Save as..." />
                         <SeparatorMenuItem mnemonicParsing="false" />
@@ -62,15 +65,26 @@
                         <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" text="Delete" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="selectAllMenuItem" mnemonicParsing="false" text="Select All" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="findSelectionMenuItem" mnemonicParsing="false" text="Find Selection" />
+                        <MenuItem fx:id="findNextMenuItem" mnemonicParsing="false" text="Find Next" />
+                        <MenuItem fx:id="findPreviousMenuItem" mnemonicParsing="false" text="Find Previous" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="findMenuItem" mnemonicParsing="false" text="Find..." />
+                        <MenuItem fx:id="findMenuItem1" mnemonicParsing="false" text="Replace..." />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="View">
                      <items>
                         <MenuItem fx:id="zoomInMenuItem" mnemonicParsing="false" text="Zoom in" />
                         <MenuItem fx:id="zoomOutMenuItem" mnemonicParsing="false" text="Zoom out" />
+                        <MenuItem fx:id="rotateRightMenuItem" mnemonicParsing="false" text="Rotate Right" />
+                        <MenuItem fx:id="rotateRightMenuItem1" mnemonicParsing="false" text="Rotate Left" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="resetMenuItem" mnemonicParsing="false" text="Reset" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="hideTooBarMenuItem" mnemonicParsing="false" text="Hide toolbar" />
+                        <MenuItem fx:id="hideTooBarMenuItem1" mnemonicParsing="false" text="Hide Status Bar" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Tools">

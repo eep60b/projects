@@ -90,13 +90,21 @@ public final class ProjectManager {
         contentsValueWrapper.setValue(contents);
     }
 
+    public boolean isValidProject(String path) {
+
+        File file = new File(path);
+        ProjectConfiguration cf = new ProjectConfiguration(file.getName(), file.getParent());
+        File contentsFile = new File(cf.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE_EXTENSION);
+        return contentsFile.isFile();
+    }
+
     public boolean loadProject(String projectPath) {
 
         try {
             File file = new File(projectPath);
             configuration = new ProjectConfiguration(file.getName(), file.getParent());
 
-            File contentsFile = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);
+            File contentsFile = new File(configuration.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE_EXTENSION);
 
             if (contentsFile.isFile()) {
                 contentsValueWrapper.setValue(mapper.readValue(contentsFile, ProjectContents.class));

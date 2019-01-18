@@ -1,0 +1,11 @@
+1. Install the application.
+2. Start the application.
+3. Trees:
+    Nothing.
+4. Disabled menu items:
+    File Menu: Save, Save As, Import Project, Export Project, Print, Close. 
+    Add Menu: All
+    Edit Menu: All
+    View Menu: All
+
+5. Disabled toolbar buttons:
