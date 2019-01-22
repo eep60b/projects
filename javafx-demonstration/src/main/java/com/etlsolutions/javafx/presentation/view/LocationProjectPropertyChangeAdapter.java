@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.view;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.AreaRoot;
-import com.etlsolutions.javafx.presentation.tree.area.AreaRootTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.area.AreaRootTreeItem;
 import com.etlsolutions.javafx.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

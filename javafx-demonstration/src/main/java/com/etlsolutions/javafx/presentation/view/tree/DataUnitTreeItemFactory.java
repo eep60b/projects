@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.tree;
+package com.etlsolutions.javafx.presentation.view.tree;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.area.Area;
@@ -11,16 +11,16 @@ import com.etlsolutions.javafx.data.log.LogYear;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.Plants;
-import com.etlsolutions.javafx.presentation.tree.area.AreaTreeItem;
-import com.etlsolutions.javafx.presentation.tree.area.LocationTreeItem;
-import com.etlsolutions.javafx.presentation.tree.area.SubAreaTreeItem;
-import com.etlsolutions.javafx.presentation.tree.log.LogGroupTreeItem;
-import com.etlsolutions.javafx.presentation.tree.log.LogMonthTreeItem;
-import com.etlsolutions.javafx.presentation.tree.log.LogTreeItem;
-import com.etlsolutions.javafx.presentation.tree.log.LogYearTreeItem;
-import com.etlsolutions.javafx.presentation.tree.plant.PlantSubGroupTreeItem;
-import com.etlsolutions.javafx.presentation.tree.plant.PlantGroupItem;
-import com.etlsolutions.javafx.presentation.tree.plant.PlantsTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.area.AreaTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.area.LocationTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.area.SubAreaTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.log.LogGroupTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.log.LogMonthTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.log.LogTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.log.LogYearTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.plant.PlantSubGroupTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.plant.PlantGroupItem;
+import com.etlsolutions.javafx.presentation.view.tree.plant.PlantsTreeItem;
 
 /**
  *
@@ -37,6 +37,7 @@ public class DataUnitTreeItemFactory {
         return INSTANCE;
     }
     
+    @SuppressWarnings("null")
     public MenuedTreeItem getTreeItem(DataUnit unit) {
         
         if(unit instanceof PlantGroup) {

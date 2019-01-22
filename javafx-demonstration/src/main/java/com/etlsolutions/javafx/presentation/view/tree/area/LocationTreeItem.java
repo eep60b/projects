@@ -1,7 +1,7 @@
-package com.etlsolutions.javafx.presentation.tree.area;
+package com.etlsolutions.javafx.presentation.view.tree.area;
 
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
 
 /**
  *

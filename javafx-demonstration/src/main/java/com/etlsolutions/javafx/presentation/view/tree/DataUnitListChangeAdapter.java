@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.tree;
+package com.etlsolutions.javafx.presentation.view.tree;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import java.util.List;

@@ -1,11 +1,11 @@
-package com.etlsolutions.javafx.presentation.tree.log;
+package com.etlsolutions.javafx.presentation.view.tree.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.LogGroup;
 import com.etlsolutions.javafx.data.log.LogYear;
-import com.etlsolutions.javafx.presentation.tree.DataUnitListChangeAdapter;
-import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.DataUnitListChangeAdapter;
+import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
 import java.util.List;
 import javafx.scene.control.TreeItem;
 

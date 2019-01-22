@@ -1,7 +1,7 @@
-package com.etlsolutions.javafx.presentation.tree.plant;
+package com.etlsolutions.javafx.presentation.view.tree.plant;
 
 import com.etlsolutions.javafx.data.plant.Plants;
-import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
 
 /**
  *

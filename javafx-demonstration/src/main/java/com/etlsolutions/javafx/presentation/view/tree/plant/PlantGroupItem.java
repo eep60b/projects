@@ -1,11 +1,11 @@
-package com.etlsolutions.javafx.presentation.tree.plant;
+package com.etlsolutions.javafx.presentation.view.tree.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
-import com.etlsolutions.javafx.presentation.tree.DataUnitListChangeAdapter;
-import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.DataUnitListChangeAdapter;
+import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
 import java.util.List;
 import javafx.scene.control.TreeItem;
 

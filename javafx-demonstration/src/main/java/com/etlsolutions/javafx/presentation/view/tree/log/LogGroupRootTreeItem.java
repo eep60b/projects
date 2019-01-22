@@ -1,8 +1,8 @@
-package com.etlsolutions.javafx.presentation.tree.log;
+package com.etlsolutions.javafx.presentation.view.tree.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
-import com.etlsolutions.javafx.presentation.tree.MenuedTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
 import java.util.List;
 import javafx.scene.control.TreeItem;
 

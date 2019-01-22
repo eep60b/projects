@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.view;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
-import com.etlsolutions.javafx.presentation.tree.log.LogGroupRootTreeItem;
+import com.etlsolutions.javafx.presentation.view.tree.log.LogGroupRootTreeItem;
 import com.etlsolutions.javafx.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
