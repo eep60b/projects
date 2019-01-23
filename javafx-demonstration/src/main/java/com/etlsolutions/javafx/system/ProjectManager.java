@@ -39,7 +39,8 @@ public final class ProjectManager {
     private final ValueWrapper<ProjectContents> contentsValueWrapper = new ValueWrapper<>(null);
     private final Map<Integer, DataUnit> dataMap = new HashMap<>();
     private final Properties properties = GwiseRepository.getInstance().getProperties();
-
+    private final ValueWrapper<DataUnit> selectedDataUnit = new ValueWrapper<>(null);
+    
     private ProjectManager() {
     }
 
@@ -88,6 +89,7 @@ public final class ProjectManager {
         contents.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
         contents.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
         contentsValueWrapper.setValue(contents);
+        selectedDataUnit.setValue(contents.getPlantsGroupRoot());
     }
 
     public boolean isValidProject(String path) {
@@ -231,5 +233,9 @@ public final class ProjectManager {
         if (!success) {
             throw new CustomLevelWarningRuntimeExceiption("Failed to delete " + file.getAbsolutePath());
         }
+    }
+
+    public ValueWrapper<DataUnit> getSelectedDataUnitValueWrapper() {
+        return selectedDataUnit;
     }
 }

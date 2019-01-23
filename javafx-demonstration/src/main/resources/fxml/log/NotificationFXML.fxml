@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.NotificationFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.dialog.log.NotificationFXMLController">
     <stylesheets>
         <URL value="@/styles/log/notificationfxml.css" />
     </stylesheets>

@@ -7,14 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="857.0" prefWidth="335.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.ViewTabsController" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane id="AnchorPane" prefHeight="857.0" prefWidth="335.0" styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.view.ViewTabsController">
   <stylesheets>
     <URL value="@/styles/viewtabs.css" />
   </stylesheets>
    <children>
-      <TabPane layoutX="-121.0" layoutY="-93.0" prefHeight="857.0" prefWidth="335.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane fx:id="viewTabsTabPane" layoutX="-121.0" layoutY="-93.0" prefHeight="857.0" prefWidth="335.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Plants">
+          <Tab fx:id="plantsViewTab" text="Plants">
             <content>
                   <AnchorPane prefHeight="821.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -23,7 +23,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Locations">
+          <Tab fx:id="locationsViewTab" text="Locations">
             <content>
                   <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -32,7 +32,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Diary">
+            <Tab fx:id="diaryViewTab" text="Diary">
                <content>
                   <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>

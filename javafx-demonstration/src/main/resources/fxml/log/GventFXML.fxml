@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.log.gvent.GventFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.dialog.log.gvent.GventFXMLController">
     <stylesheets>
         <URL value="@/styles/log/gventfxml.css" />
     </stylesheets>

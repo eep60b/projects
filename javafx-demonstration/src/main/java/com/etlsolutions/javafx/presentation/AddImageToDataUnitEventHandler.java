@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation;
 
-import com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.AddImageDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

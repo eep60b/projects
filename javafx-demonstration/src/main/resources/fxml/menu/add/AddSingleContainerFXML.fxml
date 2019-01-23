@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.singlecontainer.AddSingleContainerFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.dialog.subarea.singlecontainer.AddSingleContainerFXMLController">
     <stylesheets>
         <URL value="@/styles/menu/add/addsinglecontainerfxml.css"/>
     </stylesheets>

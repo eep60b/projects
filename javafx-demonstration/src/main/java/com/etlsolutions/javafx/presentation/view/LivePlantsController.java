@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TreeView;
 
 /**
- * FXML Controller class
+ * The LivePlantsController class is an FXML Controller class which controls the plants tree view.
  *
  * @author zc
  */
@@ -20,10 +20,12 @@ public class LivePlantsController extends AbstractFXMLController {
 
     @Override
     public void initializeComponents() {
-        
+
         ValueWrapper<ProjectContents> projectContentsValueWrapper = ProjectManager.getInstance().getContentsValueWrapper();        
         LivePlantProjectPropertyChangeAdapter livePlantProjectPropertyChangeAdapter = new LivePlantProjectPropertyChangeAdapter(livePlantsTreeView);
         livePlantProjectPropertyChangeAdapter.process(projectContentsValueWrapper.getValue());
         projectContentsValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, livePlantProjectPropertyChangeAdapter);
+        
+        ViewTabsManager.getInstance().getTreeViewMap().put("plantsViewTab", livePlantsTreeView);
     }
 }

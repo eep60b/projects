@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.plantgroup.AddPlantGroupDataModel;
+import com.etlsolutions.javafx.presentation.dialog.plantgroup.AddPlantGroupDataModel;
 import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
 import com.etlsolutions.javafx.presentation.view.tree.TreeCellFactory;
 import com.etlsolutions.javafx.presentation.view.tree.plant.PlantsGroupRootTreeItem;

@@ -43,6 +43,11 @@ public final class DataUnitChangeSupport {
         return false;
     }    
     
+    public synchronized void removeListeners() {
+
+        map.clear();
+    }   
+    
     public synchronized void fireChange(String property) {
 
         Set<DataUnitChangeListener> listeners = map.get(property);

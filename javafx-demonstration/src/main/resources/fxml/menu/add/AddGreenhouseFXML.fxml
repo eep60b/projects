@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.greenhouse.AddGreenhouseFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.etlsolutions.javafx.presentation.dialog.subarea.greenhouse.AddGreenhouseFXMLController">
     <stylesheets>
         <URL value="@/styles/menu/add/addgreenhousefxml.css" />
     </stylesheets>

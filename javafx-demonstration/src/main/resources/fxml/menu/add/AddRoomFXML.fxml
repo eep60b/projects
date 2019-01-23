@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.*?>
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.menu.add.subarea.room.AddRoomFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.dialog.subarea.room.AddRoomFXMLController">
     <stylesheets>
         <URL value="@/styles/menu/add/addroomfxml.css"/>
     </stylesheets>

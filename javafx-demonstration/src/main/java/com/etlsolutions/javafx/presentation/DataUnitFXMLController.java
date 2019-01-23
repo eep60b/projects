@@ -1,18 +1,18 @@
 package com.etlsolutions.javafx.presentation;
 
-import com.etlsolutions.javafx.presentation.adapter.ImageSelectionChangeAdapter;
-import com.etlsolutions.javafx.presentation.adapter.ValidationPropertyChangeAdapter;
+import com.etlsolutions.javafx.presentation.dialog.adapter.ImageSelectionChangeAdapter;
+import com.etlsolutions.javafx.presentation.dialog.adapter.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import static com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel.*;
-import com.etlsolutions.javafx.presentation.area.subarea.location.EditAreaForLocationEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToBeginEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToEndEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToLeftEventHandler;
-import com.etlsolutions.javafx.presentation.imagelink.MoveImageLinkToRightEventHandler;
-import com.etlsolutions.javafx.presentation.log.gvent.ValueChangeAdapter;
+import com.etlsolutions.javafx.presentation.dialog.area.subarea.location.EditAreaForLocationEventHandler;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.EditImageInformationDataModel;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToBeginEventHandler;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToEndEventHandler;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToLeftEventHandler;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToRightEventHandler;
+import com.etlsolutions.javafx.presentation.dialog.log.gvent.ValueChangeAdapter;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -45,7 +45,7 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
         moveToRightImageButton.setDisable(model.getSelectedImgLinkIndex() < 1 || model.getSelectedImgLinkIndex() == model.getImageLinks().size() - 1);
   
         for (ImageLink link : model.getImageLinks()) {
-            imageTilePane.getChildren().addAll(new ImageView(new Image(link.getLink())));
+            imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
         }
         
         errorMessageLabel.setText(model.getErrorMessage());

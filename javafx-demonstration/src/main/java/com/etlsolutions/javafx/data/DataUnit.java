@@ -11,9 +11,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public abstract class DataUnit {
 
     @JsonIgnore
-    public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.IMG_TITLE_PROPERTY";
+    public static final String TITLE_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.TITLE_PROPERTY";
     @JsonIgnore
-    public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.IMG_INFORMATION_PROPERTY";
+    public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.INFORMATION_PROPERTY";
+    @JsonIgnore
+    public static final String DESCRIPTION_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.DESCRIPTION_PROPERTY";
     @JsonIgnore
     public static final String SELECTED_ING_LINK_INDEX_PROPERTY = "com.etlsolutions.javafx.data.DataUnit.SELECTED_ING_LINK_INDEX_PROPERTY";
     @JsonIgnore
@@ -90,6 +92,7 @@ public abstract class DataUnit {
         String oldTitle = this.title;
         this.title = title;
         fireChange(TITLE_PROPERTY, oldTitle, this.title);
+        fireChange(DESCRIPTION_PROPERTY, oldTitle, this.title);
     }
 
     /**
@@ -110,6 +113,7 @@ public abstract class DataUnit {
         String olveValue = this.information;
         this.information = information;
         fireChange(INFORMATION_PROPERTY, olveValue, this.information);
+        fireChange(DESCRIPTION_PROPERTY, olveValue, this.information);
     }
 
     public ObservableListWrapperA<ImageLink> getImageLinks() {
@@ -158,6 +162,10 @@ public abstract class DataUnit {
         return support.removeListener(property, listener);
     }
 
+    public void removeListeners() {
+        support.removeListeners();
+    }
+   
     public void fireChange(String property, Object oldVaue, Object newValue) {
         support.fireChange(property, oldVaue, newValue);
     }

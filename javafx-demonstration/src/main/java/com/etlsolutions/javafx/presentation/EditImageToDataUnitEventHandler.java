@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.presentation.imagelink.AddImageDataModel;
-import com.etlsolutions.javafx.presentation.imagelink.EditImageInformationDataModel;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.AddImageDataModel;
+import com.etlsolutions.javafx.presentation.dialog.imagelink.EditImageInformationDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

@@ -27,5 +27,6 @@ public class LogsController extends AbstractFXMLController {
         logProjectPropertyChangeAdapter.process(projectContentsValueWrapper.getValue());
         projectContentsValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, logProjectPropertyChangeAdapter);
 
+        ViewTabsManager.getInstance().getTreeViewMap().put("diaryViewTab", logsTreeView);        
     }
 }

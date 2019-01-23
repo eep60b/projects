@@ -26,5 +26,6 @@ public class LocationsController extends AbstractFXMLController {
         locationProjectPropertyChangeAdapter.process(projectContentsValueWrapper.getValue());
         projectContentsValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, locationProjectPropertyChangeAdapter);
 
+        ViewTabsManager.getInstance().getTreeViewMap().put("locationsViewTab", locationsTreeView);        
     }
 }

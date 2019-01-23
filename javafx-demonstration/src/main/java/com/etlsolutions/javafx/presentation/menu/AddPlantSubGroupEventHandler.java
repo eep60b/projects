@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu;
 
 import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.presentation.plant.subgroup.CreateRootedPlantSubGroupDataModel;
+import com.etlsolutions.javafx.presentation.dialog.plantsubgroup.CreateRootedPlantSubGroupDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
