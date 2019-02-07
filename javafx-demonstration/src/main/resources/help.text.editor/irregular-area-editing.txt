@@ -1,0 +1,5 @@
+1. Choose the graphic tab, the central pane should be empty with grey background colour. In the property panel, you can drag and drop any shape in the property panel.
+You can also drawing in the pane. 
+
+2. Click the area auto fill button in the property pane
+ 

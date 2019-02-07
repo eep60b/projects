@@ -1,16 +1,53 @@
 1 Menu bar
     1.1 File Menu
-        1.1.1 New Project: Done
+        1.1.1 New Project
+            1.1.1.1 File browser should be modal.
         1.1.2 Open Project: Not tested.
         1.1.3 Close Project: Done. 
         1.1.4 Save Project: Done.
-        1.1.5 Save as: TODO.
+        1.1.5 Save as: TODO
+        1.1.6
+
+    1.2 Edit TODO
+
+    1.3 View
+
+    1.4 Windows
+
+    1.5 Tools
+
+    1.6 Help
 
 2 Tool bar:
-
+    2.1 New Project
+    2.2 Open Project
+    2.3 Save project
+    2.4 Print Current in editor
+    2.5 Delete the current focus
+    2.6 Cut
+    2.7 Copy
+    2.8 Paste
+    2.9 Redo
+    2.10 Percentage chooser
+    2.11 Enlarge
+    2.12 Reduce
 3 Views
     3.1 Plants View: TODO
     3.2 Location View: TODO
     3.3 Diary View: TODO
 
-4 Editor: TODO
+4 Editor: 
+    4.1 Information tab:
+        4.1.1 Show correct information (title + information + ... fore each and edit button)
+    4.2 Image tab
+        4.1.1 Add, Edit, Remove button.
+    4.3 Design tab for area / sub area and location/plant logo.
+        4.3.1 Questions
+            4.3.1.1 It is should be called map or drawing?
+
+5 Template Panel
+    5.1 border line chooser
+    5.2 shape chooser
+    5.3 colour chooser
+    
+

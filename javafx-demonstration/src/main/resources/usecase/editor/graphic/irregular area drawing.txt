@@ -1,0 +1,17 @@
+1. The user should be able drag and drop a shape into the graphic.
+    1.1 The user should be able enlarge or reduce the size by dragging.
+        1.1.1 The polygon should only be dragged on lines. The dragging point will become a new node.
+        1.1.1 The eclipse and circle should only be gragged on the line. The reference will change against the 
+    1.4 The shape should be able to move by dragging its central.
+    1.8 The shape should be transparent to allow user to see the grid.
+    1.16 The shape will be materialized to the graphic after the user click the OK button.
+
+4. The automatic filling
+    2.1 remove the tangled lines. A point has only one neighbour should be removed then check its neighbour.
+    2.2 From top left to bottom right, fill in any line between two points has the same x values. Any used point should not be used.
+    2.3 Remove the vertical lines (Not thickness area) apart from its ends.
+    2.4 fill the remaining points.
+
+8. The area calculation:
+    8.1 Calculate the points with the UOM used.
+    

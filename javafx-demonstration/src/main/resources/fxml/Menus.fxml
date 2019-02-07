@@ -83,8 +83,11 @@
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="resetMenuItem" mnemonicParsing="false" text="Reset" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="hideTooBarMenuItem" mnemonicParsing="false" text="Hide toolbar" />
-                        <MenuItem fx:id="hideTooBarMenuItem1" mnemonicParsing="false" text="Hide Status Bar" />
+                        <MenuItem fx:id="ShowRulerMenuItem" mnemonicParsing="false" text="Show Ruler" />
+                        <MenuItem fx:id="ShowGridlinesMenuItem" mnemonicParsing="false" text="Show Gridlines" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="hideToolBarMenuItem" mnemonicParsing="false" text="Hide toolbar" />
+                        <MenuItem fx:id="hideStatusBarMenuItem" mnemonicParsing="false" text="Hide Status Bar" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Tools">
