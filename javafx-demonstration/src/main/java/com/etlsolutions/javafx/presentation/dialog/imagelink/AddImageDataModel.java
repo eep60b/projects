@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.imagelink;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.javafx.data.ImageLinkGenerator;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
@@ -31,7 +31,7 @@ public class AddImageDataModel implements InformationDataModel, FXMLActionDataMo
     public ValueWrapper<String> getImageFileLinkValueWrapper() {
         return imageFileLinkValueWrapper;
     }
-
+    
     @Override
     public ValueWrapper<String> getInformationValueWrapper() {
         return informationValueWrapper;
@@ -44,7 +44,7 @@ public class AddImageDataModel implements InformationDataModel, FXMLActionDataMo
 
     @Override
     public void save() {
-        parentModel.getImageLinks().add(new ImageLink(imageFileLinkValueWrapper.getValue(), informationValueWrapper.getValue()));
+        parentModel.getImageLinks().add(ImageLinkGenerator.getInstance().generateImageLink(imageFileLinkValueWrapper.getValue(), informationValueWrapper.getValue()));
     }
 
     @Override

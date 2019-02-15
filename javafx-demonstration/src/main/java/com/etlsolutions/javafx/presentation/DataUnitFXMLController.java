@@ -6,8 +6,6 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import static com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel.*;
-import com.etlsolutions.javafx.presentation.dialog.area.subarea.location.EditAreaForLocationEventHandler;
-import com.etlsolutions.javafx.presentation.dialog.imagelink.EditImageInformationDataModel;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToBeginEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToEndEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToLeftEventHandler;

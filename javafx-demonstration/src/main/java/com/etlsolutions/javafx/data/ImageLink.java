@@ -17,6 +17,7 @@ public class ImageLink {
 
     private String link;
     private String information;
+    private String path;
 
     public ImageLink() {
     }
@@ -49,6 +50,14 @@ public class ImageLink {
         support.fireChange(INFORMATION_PROPERTY, oldValue, this.information);
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+  
     public void addListener(String property, DataUnitChangeListener listener) {
         support.addListener(property, listener);
     }

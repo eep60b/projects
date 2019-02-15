@@ -1,0 +1,18 @@
+Overall: The colours are fixed and unchangeable.
+
+
+10. The background colour is light grey.
+
+20. The grid is shown as broken line in a dark grey colour.
+
+30. The occupied area is in light green colour.
+
+40. The border is in black colour.
+
+50. The vegetation is in dark green colour.
+
+60. The followers and fruits are in yellow, red.
+
+70. The fence is in brown colour.
+
+80. The brick is in red colour.

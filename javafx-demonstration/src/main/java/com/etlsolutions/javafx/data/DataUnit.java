@@ -144,6 +144,11 @@ public abstract class DataUnit {
         fireChange(LOGO_PATH_PROPERTY, oldValue, this.logoPath);
     }
 
+    public String displayMessage() {
+
+        return title + "\n" + information;
+    }
+        
     public void setCommonValues(DataUnitValueWrapper commonValueWrapper) {
 
         title = commonValueWrapper.getTitle();
