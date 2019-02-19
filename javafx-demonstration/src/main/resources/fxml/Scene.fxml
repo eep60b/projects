@@ -13,7 +13,7 @@
          <items>
             <fx:include source="ViewTabs.fxml" />
             <fx:include source="Editor.fxml" />
-            <fx:include source="Property.fxml" />
+            <fx:include source="Palette.fxml" />
          </items>
       </SplitPane>
       <fx:include source="Footer.fxml" />

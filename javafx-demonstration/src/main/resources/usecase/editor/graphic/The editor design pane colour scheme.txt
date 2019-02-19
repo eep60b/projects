@@ -1,18 +1,24 @@
 Overall: The colours are fixed and unchangeable.
 
 
-10. The background colour is light grey.
+100. The background (any unoccupied area) colour is in black.
 
-20. The grid is shown as broken line in a dark grey colour.
+110. The area colour is in light grey if not editable. It is in white if it is editable.
 
-30. The occupied area is in light green colour.
+120. The sub-area will be shown by a frame (its border) with thin solid line as the border.
 
-40. The border is in black colour.
+130. The location will be shown as light green colour if it is editable.
 
-50. The vegetation is in dark green colour.
+200. The grid is shown as broken line in a dark grey colour.
 
-60. The followers and fruits are in yellow, red.
+300. The occupied area (location) is in light green colour.
 
-70. The fence is in brown colour.
+400. The border is in black colour.
 
-80. The brick is in red colour.
+500. The vegetation is in dark green colour.
+
+600. The followers and fruits are in yellow, red.
+
+700. The fence is in brown colour.
+
+800. The brick is in red colour.

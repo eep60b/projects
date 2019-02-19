@@ -1,0 +1,6 @@
+
+U100 The graphic ONLY shows the area for an area, a sub-area and a location according to the tree selection.
+
+U200 See the file "The editor design pane colour scheme.txt" file for colour definition.
+
+U300 When it represents an sub-area, the sub-area is editable and in white colour. The rest of the area will be coloured as light grey. 
