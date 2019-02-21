@@ -16,6 +16,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeView;
 
 /**
+ * The LivePlantProjectPropertyChangeAdapter class is a property change listener
+ * which listens to the change of project itself. When the project changes, the
+ * ProjectContents object changes.
  *
  * @author zc
  */
@@ -31,9 +34,10 @@ public class LivePlantProjectPropertyChangeAdapter implements PropertyChangeList
 
         if (contents == null) {
             livePlantsTreeView.setRoot(null);
+            livePlantsTreeView.getSelectionModel().clearSelection();
             return;
         }
-        
+
         MenuItem plantGroupMenuItem = new MenuItem("New plant group");
         ContextMenu plantGroupContextMenu = new ContextMenu(plantGroupMenuItem);
 //        livePlantsTreeView.setContextMenu(new ContextMenu(plantGroupMenuItem));
@@ -46,6 +50,7 @@ public class LivePlantProjectPropertyChangeAdapter implements PropertyChangeList
         PlantGroupRoot plantGroupRoot = contents.getPlantsGroupRoot();
         MenuedTreeItem plantGroupRootTreeItem = new PlantsGroupRootTreeItem(plantGroupContextMenu, plantGroupRoot);
         livePlantsTreeView.setRoot(plantGroupRootTreeItem);
+        livePlantsTreeView.getSelectionModel().select(plantGroupRootTreeItem);
     }
 
     @Override

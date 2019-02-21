@@ -6,6 +6,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeView;
 
 /**
@@ -21,11 +22,13 @@ public class LocationsController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
+        locationsTreeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        
         ValueWrapper<ProjectContents> projectContentsValueWrapper = ProjectManager.getInstance().getContentsValueWrapper();
         LocationProjectPropertyChangeAdapter locationProjectPropertyChangeAdapter = new LocationProjectPropertyChangeAdapter(locationsTreeView);
         locationProjectPropertyChangeAdapter.process(projectContentsValueWrapper.getValue());
         projectContentsValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, locationProjectPropertyChangeAdapter);
 
-        ViewTabsManager.getInstance().getTreeViewMap().put("locationsViewTab", locationsTreeView);        
+        locationsTreeView.getSelectionModel().selectedItemProperty().addListener(new SelectedItemChangeAdapter());
     }
 }

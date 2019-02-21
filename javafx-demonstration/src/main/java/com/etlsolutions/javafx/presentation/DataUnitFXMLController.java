@@ -52,7 +52,7 @@ public abstract class DataUnitFXMLController<D extends DataUnit, T extends DataU
         titleTextField.textProperty().addListener(new ValueChangeAdapter<>(model.getTitleValueWrapper()));
         informationTextArea.textProperty().addListener(new ValueChangeAdapter<>(model.getInformationValueWrapper()));
 
-        addImageButton.setOnAction(new AddImageToDataUnitEventHandler(model));
+        addImageButton.setOnAction(new AddImageToDataUnitFXMLDataModelEventHandler(model));
         removeImageButton.setOnAction(new RemoveEventHandler(model, SELECTED_IMAGE_LINK_REMOVE_EVENT_ID));
         moveToBeginImageButton.setOnAction(new MoveImageLinkToBeginEventHandler(model));
         moveToLeftImageButton.setOnAction(new MoveImageLinkToLeftEventHandler(model));

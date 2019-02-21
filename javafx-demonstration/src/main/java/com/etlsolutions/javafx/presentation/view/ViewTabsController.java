@@ -15,18 +15,9 @@ public class ViewTabsController extends AbstractFXMLController {
     @FXML
     private TabPane viewTabsTabPane;
 
-    @FXML
-    private Tab plantsViewTab;
-
-    @FXML
-    private Tab locationsViewTab;
-
-    @FXML
-    private Tab diaryViewTab;
-
     @Override
     public void initializeComponents() {
-
+      
         viewTabsTabPane.getSelectionModel().selectedItemProperty().addListener(new ViewTabChangeAdapter());
     }
 }

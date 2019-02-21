@@ -2,8 +2,11 @@ package com.etlsolutions.javafx.data;
 
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javafx.beans.Observable;
+import javafx.collections.ListChangeListener;
 import javafx.util.Callback;
 
 /**
@@ -13,6 +16,8 @@ import javafx.util.Callback;
  */
 public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
 
+    private final Map<String, ListChangeListener<? super E>> classListenerMap = new HashMap<>();
+    
     /**
      * This constructor is necessary for JSON to de-serialise object which
      * contains list.
@@ -49,6 +54,19 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
         remove(e);
         index = index == size() ? index - 1 : index;
         
-        wrapper.setValue(index == -1 ? null : get(index));        
+        wrapper.setValue(index == -1 ? null : get(index));
+    }
+    
+    public void replaceListenerForClass(String className, ListChangeListener<? super E> listener) {
+        
+        synchronized(classListenerMap){
+            
+            ListChangeListener<? super E> l = classListenerMap.get(className);
+            if(l != null) {
+                removeListener(l);
+            }
+            addListener(listener);
+            classListenerMap.put(className, listener);
+        }
     }
 }

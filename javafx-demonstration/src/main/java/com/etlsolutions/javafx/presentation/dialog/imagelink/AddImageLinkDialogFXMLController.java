@@ -16,7 +16,7 @@ import javafx.scene.layout.HBox;
  *
  * @author zc
  */
-public class AddImageLinkDialogFXMLController extends AbstractComponentStageFXMLController<AddImageDataModel>{
+public class AddImageLinkDialogFXMLController extends AbstractComponentStageFXMLController<AddImageToFXMLDataModel>{
 
     @FXML
     private Button selectImageButton;

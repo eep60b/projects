@@ -6,6 +6,7 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeView;
 
 /**
@@ -22,11 +23,15 @@ public class LogsController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
+        logsTreeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+                  
         ValueWrapper<ProjectContents> projectContentsValueWrapper = ProjectManager.getInstance().getContentsValueWrapper();
         LogProjectPropertyChangeAdapter logProjectPropertyChangeAdapter = new LogProjectPropertyChangeAdapter(logsTreeView);
         logProjectPropertyChangeAdapter.process(projectContentsValueWrapper.getValue());
-        projectContentsValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, logProjectPropertyChangeAdapter);
 
-        ViewTabsManager.getInstance().getTreeViewMap().put("diaryViewTab", logsTreeView);        
+        projectContentsValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, logProjectPropertyChangeAdapter);
+        
+        //This listener is added so when the selection is changed in the tree view, the editon can change accordingly.
+        logsTreeView.getSelectionModel().selectedItemProperty().addListener(new SelectedItemChangeAdapter());
     }
 }

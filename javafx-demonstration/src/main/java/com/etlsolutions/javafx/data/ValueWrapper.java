@@ -4,9 +4,11 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 /**
+ * The ValueWrapper class wraps an value. If the value has been changed, the
+ * third party will be notified via property change listeners.
  *
  * @author zc
- * @param <T>
+ * @param <T> - The value type.
  */
 public class ValueWrapper<T> {
 

@@ -170,6 +170,10 @@ public abstract class DataUnit {
     public void removeListeners() {
         support.removeListeners();
     }
+
+    public void replaceListener(String property, DataUnitChangeListener listener) {
+        support.replaceListener(property, listener);
+    }
    
     public void fireChange(String property, Object oldVaue, Object newValue) {
         support.fireChange(property, oldVaue, newValue);

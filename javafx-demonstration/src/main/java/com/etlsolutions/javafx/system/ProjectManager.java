@@ -88,8 +88,10 @@ public final class ProjectManager {
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
         contents.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
         contents.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
+        contentsValueWrapper.removePropertyChangeListeners();
         contentsValueWrapper.setValue(contents);
-        selectedDataUnit.setValue(contents.getPlantsGroupRoot());
+        selectedDataUnit.removePropertyChangeListeners();
+        selectedDataUnit.setValue(contents.getAreaRoot());
     }
 
     public boolean isValidProject(String path) {

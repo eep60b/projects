@@ -1,11 +1,14 @@
 package com.etlsolutions.javafx.presentation.editor;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import static com.etlsolutions.javafx.presentation.editor.EditorController.EDITOR_VALUE_PROPERTY;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 
 /**
@@ -24,11 +27,21 @@ public class EditorPropertyChangeAdapter implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        
-        ValueWrapper<DataUnit> wrapper = (ValueWrapper<DataUnit>)evt.getSource();        
-        DataUnit data = wrapper.getValue();        
-        data.addListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));
+
+        ValueWrapper<DataUnit> wrapper = (ValueWrapper<DataUnit>) evt.getSource();
+        DataUnit data = wrapper.getValue();
+
+        informationTextArea.setText(data.displayMessage());
+        for (ImageLink link : data.getImageLinks()) {
+            imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
+        }
+
+        Button addImageButton = new Button("+");
+        addImageButton.setOnAction(new AddImageToDataUnitEventHandler());
+        imageTilePane.getChildren().clear();
+        imageTilePane.getChildren().add(addImageButton);
+
+        data.replaceListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));
         data.getImageLinks().addListener(new EditorImageLinksAdapter(data, imageTilePane));
     }
-
 }

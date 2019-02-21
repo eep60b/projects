@@ -6,10 +6,12 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeView;
 
 /**
- * The LivePlantsController class is an FXML Controller class which controls the plants tree view.
+ * The LivePlantsController class is an FXML Controller class which controls the
+ * plants tree view.
  *
  * @author zc
  */
@@ -21,11 +23,13 @@ public class LivePlantsController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
-        ValueWrapper<ProjectContents> projectContentsValueWrapper = ProjectManager.getInstance().getContentsValueWrapper();        
+        livePlantsTreeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        
+        ValueWrapper<ProjectContents> projectContentsValueWrapper = ProjectManager.getInstance().getContentsValueWrapper();
         LivePlantProjectPropertyChangeAdapter livePlantProjectPropertyChangeAdapter = new LivePlantProjectPropertyChangeAdapter(livePlantsTreeView);
         livePlantProjectPropertyChangeAdapter.process(projectContentsValueWrapper.getValue());
         projectContentsValueWrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, livePlantProjectPropertyChangeAdapter);
-        
-        ViewTabsManager.getInstance().getTreeViewMap().put("plantsViewTab", livePlantsTreeView);
+
+        livePlantsTreeView.getSelectionModel().selectedItemProperty().addListener(new SelectedItemChangeAdapter());
     }
 }

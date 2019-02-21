@@ -1,10 +1,11 @@
 package com.etlsolutions.javafx.presentation.editor;
 
+import com.etlsolutions.javafx.presentation.palette.PlantSubGroupImageViewDragDoneEventHandler;
+import com.etlsolutions.javafx.presentation.palette.PlantSubGroupImageViewDragDetectedEventHandler;
 import com.etlsolutions.javafx.AbstractFXMLController;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.presentation.AddImageToDataUnitEventHandler;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -54,10 +55,16 @@ public class EditorController extends AbstractFXMLController {
         }
         
         Button addImageButton = new Button("+");
-        addImageButton.setOnAction(new AddImageToDataUnitEventHandler(null));  //TODO:
+        addImageButton.setOnAction(new AddImageToDataUnitEventHandler());
         imageTilePane.getChildren().add(addImageButton);
         
         Canvas canvas = new Canvas(1000, 1000);
+        
+        canvas.setOnDragDropped(new CanvasDrapDroppedEventHandler());
+        canvas.setOnDragEntered(new CanvasDragEnteredEventHandler());
+        canvas.setOnDragExited(new CanvasDragExitedEventHandler());
+        canvas.setOnDragOver(new CanvasDragOverEventHandler());
+        
         AnchorPane.setTopAnchor(canvas, 0d);
         AnchorPane.setLeftAnchor(canvas, 0d);
         AnchorPane.setBottomAnchor(canvas, 0d);
