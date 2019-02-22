@@ -20,6 +20,8 @@ public class SettingConstants {
     public static final String DEFAULT_DATAUNIT_TITLE_BUNDLE_KEY = "com.etlsolutions.javafx.data.common.untitled";
 
     public static final String CURRENT_RPOJECT_PATH_KEY = "current.project.path";
+    
+    public static final String OPEN_IMAGE_DIRECTORY_NAME_KEY = "open.image.directory.name";
 
     /**
      * **************************** Constants ************************************
@@ -91,6 +93,15 @@ public class SettingConstants {
     
     public static final String DEFALUT_SUPPORT_INFORMATION_DIRECTORY = "src/main/resources/support/data/" + LANGUAGE + "/information";
     
+    
+    public static final int DEFAULT_IMG_WIDTH = 100;
+    
+    public static final int DEFAULT_IMG_HEIGHT = 100;  
+    
+    
+    public static final String IMAGE_DIRECTORY_PREFIX = "gwiseimage";
+    
+    public static final int IMAGE_DIRECTORY_SIZE = 500;    
     
     /**
      * ********************************* Other constants *************************

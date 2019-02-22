@@ -16,6 +16,9 @@ import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.FileOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -40,7 +43,7 @@ public final class ProjectManager {
     private final Map<Integer, DataUnit> dataMap = new HashMap<>();
     private final Properties properties = GwiseRepository.getInstance().getProperties();
     private final ValueWrapper<DataUnit> selectedDataUnit = new ValueWrapper<>(null);
-    
+
     private ProjectManager() {
     }
 
@@ -61,10 +64,9 @@ public final class ProjectManager {
             }
         } else {
 
-            configuration = new ProjectConfiguration(null, null);
+            configuration = new ProjectConfiguration(null, null, null);
             initContents();
         }
-
     }
 
     private void initContents() throws IOException {
@@ -97,7 +99,12 @@ public final class ProjectManager {
     public boolean isValidProject(String path) {
 
         File file = new File(path);
-        ProjectConfiguration cf = new ProjectConfiguration(file.getName(), file.getParent());
+
+        if (!file.isDirectory()) {
+            return false;
+        }
+
+        ProjectConfiguration cf = new ProjectConfiguration(file.getName(), file.getParent(), null);
         File contentsFile = new File(cf.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE_EXTENSION);
         return contentsFile.isFile();
     }
@@ -106,7 +113,10 @@ public final class ProjectManager {
 
         try {
             File file = new File(projectPath);
-            configuration = new ProjectConfiguration(file.getName(), file.getParent());
+
+            File[] imageDirectories = new File(file.getAbsolutePath() + File.separator + "image").listFiles();
+
+            configuration = new ProjectConfiguration(file.getName(), file.getParent(), getOpenImageDirectoryName(imageDirectories));
 
             File contentsFile = new File(configuration.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE_EXTENSION);
 
@@ -121,19 +131,44 @@ public final class ProjectManager {
         }
     }
 
+    private String getOpenImageDirectoryName(File[] existingDirectories) {
+
+        if (existingDirectories != null) {
+
+            for (File directory : existingDirectories) {
+
+                String name = directory.getName();
+                if (directory.isDirectory() && name.startsWith(IMAGE_DIRECTORY_PREFIX) && directory.list().length <= IMAGE_DIRECTORY_SIZE) {
+                    return name;
+                }
+            }
+        }
+        
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("yyyyMMdd");
+
+        return IMAGE_DIRECTORY_PREFIX + format.format(date);
+    }
+
     public void createProject(String parentPath, String name) {
 
-        configuration = new ProjectConfiguration(name, parentPath);
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("yyyyMMdd");
+
+        String openImageDirectoryName = IMAGE_DIRECTORY_PREFIX + format.format(date);
+
+        configuration = new ProjectConfiguration(name, parentPath, openImageDirectoryName);
         String path = configuration.getProjectPath();
         File file = new File(path);
 
-        boolean success = file.mkdirs();
+        boolean success = file.mkdirs() && new File(configuration.getOpenImageDirectoryPath()).mkdirs();
 
         if (!success) {
             throw new CustomLevelErrorRuntimeExceiption("Failed to create folder: " + file.getAbsolutePath() + ".\n Make sure the location is clear or change to another location.");
         }
         try {
             properties.setProperty(CURRENT_RPOJECT_PATH_KEY, path);
+            properties.setProperty(OPEN_IMAGE_DIRECTORY_NAME_KEY, openImageDirectoryName);
             saveProperties(properties, "");
             initContents();
         } catch (IOException ex) {

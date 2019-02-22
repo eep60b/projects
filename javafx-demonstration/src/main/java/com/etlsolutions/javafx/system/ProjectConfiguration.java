@@ -2,6 +2,9 @@ package com.etlsolutions.javafx.system;
 
 import com.etlsolutions.javafx.data.ValueWrapper;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -13,12 +16,14 @@ public class ProjectConfiguration {
 
     private String name;
     private String parentPath;
+    private String openImageDirectoryName;
     private final ValueWrapper<Boolean> modified = new ValueWrapper<>(true);
     private final ValueWrapper<Boolean> encrypted = new ValueWrapper<>(true);
 
-    public ProjectConfiguration(String name, String parentPath) {
+    public ProjectConfiguration(String name, String parentPath, String openImageDirectoryName) {
         this.name = name;
         this.parentPath = parentPath;
+        this.openImageDirectoryName = openImageDirectoryName;
     }
 
     public String getName() {
@@ -38,7 +43,22 @@ public class ProjectConfiguration {
         this.parentPath = parentPath;
         modified.setValue(true);        
     }
+
+    public String getOpenImageDirectoryName() {
+        return openImageDirectoryName;
+    }
+
+    public void setOpenImageDirectoryName(String openImageDirectoryName) {
+        this.openImageDirectoryName = openImageDirectoryName;
+    }
        
+    private void generateNewOpenImageDirectoryName() {
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("yyyyMMdd");
+        
+        openImageDirectoryName = SettingConstants.IMAGE_DIRECTORY_PREFIX + format.format(date);
+    }
+    
     public ValueWrapper<Boolean> getModified() {
         return modified;
     }
@@ -63,6 +83,16 @@ public class ProjectConfiguration {
         return projectPath == null ? null : getProjectPath() + File.separator + "data" + File.separator + "json";
     }
     
+    public String getOpenImageDirectoryPath() {
+        
+        String projectPath = getProjectPath();
+        
+        if(new File(getProjectPath() + File.separator + "image" + File.separator + openImageDirectoryName).list().length >= SettingConstants.IMAGE_DIRECTORY_SIZE) {
+            generateNewOpenImageDirectoryName();
+        }
+        
+        return projectPath == null ? null : getProjectPath() + File.separator + "image" + File.separator + openImageDirectoryName;        
+    }
     
     @Override
     public int hashCode() {

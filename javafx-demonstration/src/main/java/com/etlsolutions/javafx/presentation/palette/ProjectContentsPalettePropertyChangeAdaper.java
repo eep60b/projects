@@ -58,5 +58,4 @@ public class ProjectContentsPalettePropertyChangeAdaper implements PropertyChang
         }
 
     }
-
 }
