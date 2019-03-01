@@ -49,11 +49,11 @@ public class ProjectContentsPalettePropertyChangeAdaper implements PropertyChang
             Collections.sort(subgroups, new DataUnitTitleComparator());
 
             for (PlantSubGroup subGroup : subgroups) {
-//                ImageView view = new ImageView(new Image(subGroup.getLogoPath()));
-//                view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
-//                view.setOnDragDetected(new PlantSubGroupImageViewDragDetectedEventHandler());
-//                view.setOnDragDone(new PlantSubGroupImageViewDragDoneEventHandler());
-//                plantsTilePane.getChildren().add(view);
+                ImageView view = new ImageView(new Image(subGroup.getLogoPath()));
+                view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
+                view.setOnDragDetected(new PlantSubGroupImageViewDragDetectedEventHandler());
+                view.setOnDragDone(new PlantSubGroupImageViewDragDoneEventHandler());
+                plantsTilePane.getChildren().add(view);
             }
         }
 

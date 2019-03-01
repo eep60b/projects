@@ -39,16 +39,16 @@ public class PlantsFactory {
 
             PlantGroup group = createDefaultPlantGroup(title);
             if (title.equals("Annual Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Tomato"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Tomato", "data/logo/grouproot/plantgroup/subplantgroup/tomato.jpg"));
             }
             if (title.equals("Biennial Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Unset"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Primula", "data/logo/grouproot/plantgroup/subplantgroup/primula.png"));
             }
             if (title.equals("Perennial Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Garlic Chive"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Garlic Chive", "data/logo/grouproot/plantgroup/subplantgroup/garlic chive.png"));
             }
             if (title.equals("Trees")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Apple"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Apple", "data/logo/grouproot/plantgroup/subplantgroup/apple.jpg"));
 
             }
             r.getPlantGroups().add(group);
@@ -82,9 +82,9 @@ public class PlantsFactory {
         return new PlantSubGroup(valueWrapper);
     }
 
-    private PlantSubGroup createTitledEmptyPlantSubGroup(PlantGroup group, String title) {
+    private PlantSubGroup createTitledEmptyPlantSubGroup(PlantGroup group, String title, String logoPath) {
 
-        PlantSubGroupValueWrapper valueWrapper = new PlantSubGroupValueWrapper(title, "", new ObservableListWrapperA<ImageLink>(), null, "", group, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>());
+        PlantSubGroupValueWrapper valueWrapper = new PlantSubGroupValueWrapper(title, "", new ObservableListWrapperA<ImageLink>(), null, logoPath, group, new ObservableListWrapperA<Plants>(), new ObservableListWrapperA<PlantVariety>());
         return new PlantSubGroup(valueWrapper);
     }
 
