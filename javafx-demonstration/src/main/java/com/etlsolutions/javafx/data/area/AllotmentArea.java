@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.data.area;
 
-import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;

@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.editor;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.presentation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

@@ -115,4 +115,17 @@ public abstract class Area extends DataUnit {
     public void setSubAreas(ObservableListWrapperA<SubArea> subAreas) {
         this.subAreas = subAreas;
     }    
+
+    @Override
+    public String displayMessage() {
+        
+        StringBuilder builder = new StringBuilder(getTitle());
+        builder.append("\n");
+        builder.append(getType().getTitle()).append("   ");
+        builder.append("longitute: ").append(getLongitude() == 0 ? "Not specified" : getLongitude());
+        builder.append("latitute: ").append(getLatitude() == 0 ? "Not specified" : getLatitude());
+        builder.append("\n");
+        builder.append(getInformation());
+        return new String(builder);
+    }
 }

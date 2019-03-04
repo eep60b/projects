@@ -61,7 +61,7 @@ public class EditorController extends AbstractFXMLController {
         Canvas canvas = new Canvas(1000, 1000);
         
         canvas.setOnDragDropped(new CanvasDrapDroppedEventHandler());
-        canvas.setOnDragEntered(new CanvasDragEnteredEventHandler());
+        canvas.setOnDragEntered(new CanvasDragEnteredEventHandler(canvas));
         canvas.setOnDragExited(new CanvasDragExitedEventHandler());
         canvas.setOnDragOver(new CanvasDragOverEventHandler());
         

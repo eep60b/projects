@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor;
 
 import javafx.event.EventHandler;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.input.DragEvent;
 
 /**
@@ -9,12 +10,17 @@ import javafx.scene.input.DragEvent;
  */
 public class CanvasDragEnteredEventHandler implements EventHandler<DragEvent> {
 
-    public CanvasDragEnteredEventHandler() {
+    private final Canvas canvas;
+    
+    public CanvasDragEnteredEventHandler(Canvas canvas) {
+        this.canvas = canvas;
     }
 
     @Override
     public void handle(DragEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+  
+        event.consume();
     }
     
 }
