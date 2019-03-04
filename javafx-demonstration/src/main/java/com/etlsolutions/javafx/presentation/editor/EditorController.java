@@ -1,7 +1,9 @@
 package com.etlsolutions.javafx.presentation.editor;
 
-import com.etlsolutions.javafx.presentation.palette.PlantSubGroupImageViewDragDoneEventHandler;
-import com.etlsolutions.javafx.presentation.palette.PlantSubGroupImageViewDragDetectedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDrapDroppedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragExitedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragEnteredEventHandler;
+import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragOverEventHandler;
 import com.etlsolutions.javafx.AbstractFXMLController;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
@@ -58,21 +60,23 @@ public class EditorController extends AbstractFXMLController {
         addImageButton.setOnAction(new AddImageToDataUnitEventHandler());
         imageTilePane.getChildren().add(addImageButton);
         
-        Canvas canvas = new Canvas(1000, 1000);
+        Canvas areaCanvas = new Canvas(1000, 1000);
+        Canvas backgroundCanvas = new Canvas(1000, 1000);
+        Canvas plantCanvas = new Canvas(1000, 1000);
         
-        canvas.setOnDragDropped(new CanvasDrapDroppedEventHandler());
-        canvas.setOnDragEntered(new CanvasDragEnteredEventHandler(canvas));
-        canvas.setOnDragExited(new CanvasDragExitedEventHandler());
-        canvas.setOnDragOver(new CanvasDragOverEventHandler());
+        areaCanvas.setOnDragDropped(new CanvasDrapDroppedEventHandler());
+        areaCanvas.setOnDragEntered(new CanvasDragEnteredEventHandler(areaCanvas));
+        areaCanvas.setOnDragExited(new CanvasDragExitedEventHandler());
+        areaCanvas.setOnDragOver(new CanvasDragOverEventHandler());
         
-        AnchorPane.setTopAnchor(canvas, 0d);
-        AnchorPane.setLeftAnchor(canvas, 0d);
-        AnchorPane.setBottomAnchor(canvas, 0d);
-        AnchorPane.setRightAnchor(canvas, 0d);
-        final GraphicsContext gc = canvas.getGraphicsContext2D();
+        AnchorPane.setTopAnchor(areaCanvas, 0d);
+        AnchorPane.setLeftAnchor(areaCanvas, 0d);
+        AnchorPane.setBottomAnchor(areaCanvas, 0d);
+        AnchorPane.setRightAnchor(areaCanvas, 0d);
+        final GraphicsContext gc = areaCanvas.getGraphicsContext2D();
         gc.setFill(Color.LIGHTGRAY);
-        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        designPane.getChildren().add(canvas);
+        gc.fillRect(0, 0, areaCanvas.getWidth(), areaCanvas.getHeight());
+        designPane.getChildren().add(areaCanvas);
 
         data.addListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));
         data.getImageLinks().addListener(new EditorImageLinksAdapter(data, imageTilePane));

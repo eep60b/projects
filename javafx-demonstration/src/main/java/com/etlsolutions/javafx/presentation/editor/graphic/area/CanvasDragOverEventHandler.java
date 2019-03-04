@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.editor;
+package com.etlsolutions.javafx.presentation.editor.graphic.area;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
@@ -7,9 +7,9 @@ import javafx.scene.input.DragEvent;
  *
  * @author zc
  */
-public class CanvasDragExitedEventHandler implements EventHandler<DragEvent> {
+public class CanvasDragOverEventHandler implements EventHandler<DragEvent> {
 
-    public CanvasDragExitedEventHandler() {
+    public CanvasDragOverEventHandler() {
     }
 
     @Override

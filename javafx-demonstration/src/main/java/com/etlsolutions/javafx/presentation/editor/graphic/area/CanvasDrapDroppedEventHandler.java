@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.editor;
+package com.etlsolutions.javafx.presentation.editor.graphic.area;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
