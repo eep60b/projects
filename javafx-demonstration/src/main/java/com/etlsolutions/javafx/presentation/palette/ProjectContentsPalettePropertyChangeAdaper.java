@@ -4,15 +4,19 @@ import com.etlsolutions.javafx.data.DataUnitTitleComparator;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import com.etlsolutions.javafx.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -49,11 +53,16 @@ public class ProjectContentsPalettePropertyChangeAdaper implements PropertyChang
             Collections.sort(subgroups, new DataUnitTitleComparator());
 
             for (PlantSubGroup subGroup : subgroups) {
-                ImageView view = new ImageView(new Image(subGroup.getLogoPath()));
-                view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
-                view.setOnDragDetected(new PlantSubGroupImageViewDragDetectedEventHandler());
-                view.setOnDragDone(new PlantSubGroupImageViewDragDoneEventHandler());
-                plantsTilePane.getChildren().add(view);
+                try {
+                    ImageView view = new ImageView(new Image(new File(subGroup.getLogoPath()).toURI().toURL().toString()));
+                    view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
+                    view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
+                    view.setOnDragDone(new PlantSubGroupImageViewDragDoneEventHandler());
+                    plantsTilePane.getChildren().add(view);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(getClass()).error(ex);
+                    throw new CustomLevelErrorRuntimeExceiption(ex);
+                }
             }
         }
 

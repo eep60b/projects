@@ -3,11 +3,11 @@ package com.etlsolutions.javafx.data.area.subarea;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.BorderMeasurement;
-import com.etlsolutions.javafx.data.area.subarea.location.BorderLocation;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 
 /**
+ * The border will be only created by right click a subarea. It will be changed when the subarea changed.
  *
  * @author zc
  */
@@ -20,7 +20,6 @@ public class Border extends SubArea {
         super(measurement, valueWrapper);
         this.locations = new ObservableListWrapperA<>();
     }
-
 
     @Override
     public ObservableListWrapperA<Location> getAllLocations() {
@@ -36,7 +35,7 @@ public class Border extends SubArea {
 
     @Override
     public ObservableListWrapperA<Location> getLocations(LocationType type) {
-        
+
         ObservableListWrapperA<Location> list = new ObservableListWrapperA<>();
         switch (type) {
             case BORDER_LOCATION:

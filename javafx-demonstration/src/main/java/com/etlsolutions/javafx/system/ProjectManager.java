@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -171,6 +172,7 @@ public final class ProjectManager {
             properties.setProperty(OPEN_IMAGE_DIRECTORY_NAME_KEY, openImageDirectoryName);
             saveProperties(properties, "");
             initContents();
+            FileUtils.copyDirectory(new File(SettingConstants.REPOSITORY_LOCATION_DATA), new File(configuration.getProjectPath() + File.separator + SettingConstants.RELATIVE_DATA_DIRECTORY));
         } catch (IOException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }

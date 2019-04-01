@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.data;
 
+import com.etlsolutions.javafx.system.SettingConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.File;
 
 /**
  * The DataUnit class represents objects which are data units. Keep the
@@ -134,8 +136,8 @@ public abstract class DataUnit {
         fireChange(SELECTED_ING_LINK_INDEX_PROPERTY, oldValue, this.selectedImgLinkIndex);
     }
 
-    public String getLogoPath() {
-        return logoPath;
+    public String getLogoPath() {        
+        return (logoPath == null || logoPath.trim().isEmpty()) ? SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/no-image.png" : logoPath;
     }
 
     public void setLogoPath(String logoPath) {

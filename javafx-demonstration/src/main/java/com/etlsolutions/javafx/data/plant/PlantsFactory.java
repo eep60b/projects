@@ -9,9 +9,11 @@ import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.javafx.system.SettingConstants;
 
 import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_SEPARATER;
 import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -39,16 +41,16 @@ public class PlantsFactory {
 
             PlantGroup group = createDefaultPlantGroup(title);
             if (title.equals("Annual Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Tomato", "data/logo/grouproot/plantgroup/subplantgroup/tomato.jpg"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Tomato", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/tomato.jpg"));
             }
             if (title.equals("Biennial Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Primula", "data/logo/grouproot/plantgroup/subplantgroup/primula.png"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Primula", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/primula.png"));
             }
             if (title.equals("Perennial Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Garlic Chive", "data/logo/grouproot/plantgroup/subplantgroup/garlic chive.png"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Garlic Chive", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/garlic chive.png"));
             }
             if (title.equals("Trees")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Apple", "data/logo/grouproot/plantgroup/subplantgroup/apple.jpg"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Apple", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/apple.jpg"));
 
             }
             r.getPlantGroups().add(group);

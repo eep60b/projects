@@ -89,10 +89,29 @@ public class SettingConstants {
     
     public static final String LANGUAGE = Locale.getDefault().getLanguage();
     
-    public static final String DEFAULT_DATA_DIRECTORY = "src/main/resources/data/json/" + LANGUAGE;
+    public static final String DEFAULT_DATA_DIRECTORY = "src/main/resources/data/json/" + LANGUAGE;     //This needs to be changed to use relative directories.
     
-    public static final String DEFALUT_SUPPORT_INFORMATION_DIRECTORY = "src/main/resources/support/data/" + LANGUAGE + "/information";
+    public static final String DEFALUT_SUPPORT_INFORMATION_DIRECTORY = "src/main/resources/support/data/" + LANGUAGE + "/information";    //This needs to be changed.
     
+    public static final String RELATIVE_DATA_DIRECTORY = "data";
+    
+    public static final String REPOSITORY_LOCATION_DATA = REPOSITORY_LOCATION + File.separator + RELATIVE_DATA_DIRECTORY;
+    
+    public static final String RELATIVE_JSON_DIRECTORY = RELATIVE_DATA_DIRECTORY + File.separator + "json" + File.separator + LANGUAGE;
+    
+    private static final String RELATIVE_LOGO_DIRECTORY = RELATIVE_DATA_DIRECTORY + File.separator + "logo";
+    
+    public static final String RELATIVE_PLANT_BED_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "plant-bed";
+    
+    public static final String RELATIVE_RAISED_PLANT_BED_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "raised_plant-bed";    
+
+    public static final String RELATIVE_LAWN_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "lawn"; 
+
+    public static final String RELATIVE_POND_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "pond"; 
+    
+    public static final String RELATIVE_GREENHOUSE_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "greenhouse";    
+
+    public static final String RELATIVE_ROOM_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "room";
     
     public static final int DEFAULT_IMG_WIDTH = 100;
     

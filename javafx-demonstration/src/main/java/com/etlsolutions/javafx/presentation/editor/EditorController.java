@@ -17,6 +17,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 
@@ -33,14 +35,14 @@ public class EditorController extends AbstractFXMLController {
     private AnchorPane editorPane;
 
     @FXML
-    private AnchorPane designPane;
+    private StackPane designPane;
 
     @FXML
     private TextArea informationTextArea;
 
     @FXML
     private TilePane imageTilePane;
-    
+
     @FXML
     private Button editInformationButton;
 
@@ -55,20 +57,19 @@ public class EditorController extends AbstractFXMLController {
         for (ImageLink link : data.getImageLinks()) {
             imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
         }
-        
+
         Button addImageButton = new Button("+");
         addImageButton.setOnAction(new AddImageToDataUnitEventHandler());
         imageTilePane.getChildren().add(addImageButton);
-        
-        Canvas areaCanvas = new Canvas(1000, 1000);
-        Canvas backgroundCanvas = new Canvas(1000, 1000);
-        Canvas plantCanvas = new Canvas(1000, 1000);
-        
+
+        Canvas backgroundCanvas = new Canvas(1000, 1000);   //Background Canvas is created for ruler and grids     
+        Canvas areaCanvas = new Canvas(1000, 1000);    //Area Canvas is created for area to accept drawing and to accept drag and drop.
+
         areaCanvas.setOnDragDropped(new CanvasDrapDroppedEventHandler());
         areaCanvas.setOnDragEntered(new CanvasDragEnteredEventHandler(areaCanvas));
         areaCanvas.setOnDragExited(new CanvasDragExitedEventHandler());
         areaCanvas.setOnDragOver(new CanvasDragOverEventHandler());
-        
+
         AnchorPane.setTopAnchor(areaCanvas, 0d);
         AnchorPane.setLeftAnchor(areaCanvas, 0d);
         AnchorPane.setBottomAnchor(areaCanvas, 0d);
@@ -76,7 +77,12 @@ public class EditorController extends AbstractFXMLController {
         final GraphicsContext gc = areaCanvas.getGraphicsContext2D();
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, areaCanvas.getWidth(), areaCanvas.getHeight());
-        designPane.getChildren().add(areaCanvas);
+
+
+        Pane plantCanvas = new Pane();
+        plantCanvas.setPrefSize(1000, 1000);
+
+        designPane.getChildren().addAll(backgroundCanvas, areaCanvas, plantCanvas);
 
         data.addListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));
         data.getImageLinks().addListener(new EditorImageLinksAdapter(data, imageTilePane));

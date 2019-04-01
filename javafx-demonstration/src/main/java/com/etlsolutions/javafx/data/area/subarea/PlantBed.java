@@ -5,7 +5,6 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
-import com.etlsolutions.javafx.data.area.subarea.location.PlantBedLocation;
 
 /**
  *
