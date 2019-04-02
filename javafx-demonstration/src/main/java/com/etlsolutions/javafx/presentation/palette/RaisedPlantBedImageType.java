@@ -10,14 +10,14 @@ import java.io.File;
  *
  * @author zc
  */
-public enum PlantBedImageType implements ImageType {
+public enum RaisedPlantBedImageType implements ImageType {
 
-    RECTANGLE("plant-bed-rectangle.png", MeasurementType.RECTANGLE);
+    RECTANGLE("raised-plant-bed-rectangle.png", MeasurementType.RECTANGLE);
 
     private final String fileName;
     private final MeasurementType measurementType;
 
-    private PlantBedImageType(String fileName, MeasurementType measurementType) {
+    private RaisedPlantBedImageType(String fileName, MeasurementType measurementType) {
 
         this.fileName = fileName;
         this.measurementType = measurementType;
@@ -25,8 +25,7 @@ public enum PlantBedImageType implements ImageType {
 
     @Override
     public String getFilePath() {
-       
-        return SettingConstants.RELATIVE_PLANT_BED_LOGO_DIRECTORY + File.separator + fileName;
+        return SettingConstants.RELATIVE_RAISED_PLANT_BED_LOGO_DIRECTORY + File.separator + fileName;
     }
 
     @Override

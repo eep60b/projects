@@ -87,7 +87,9 @@ public class ProjectConfiguration {
         
         String projectPath = getProjectPath();
         
-        if(new File(getProjectPath() + File.separator + "image" + File.separator + openImageDirectoryName).list().length >= SettingConstants.IMAGE_DIRECTORY_SIZE) {
+        File imageDirectory = new File(getProjectPath() + File.separator + "image" + File.separator + openImageDirectoryName);
+        
+        if(imageDirectory.isDirectory() && imageDirectory.list().length >= SettingConstants.IMAGE_DIRECTORY_SIZE) {
             generateNewOpenImageDirectoryName();
         }
         
@@ -96,6 +98,7 @@ public class ProjectConfiguration {
     
     @Override
     public int hashCode() {
+        
         int hash = 5;
         hash = 89 * hash + Objects.hashCode(this.name);
         hash = 89 * hash + Objects.hashCode(this.parentPath);
@@ -104,19 +107,24 @@ public class ProjectConfiguration {
 
     @Override
     public boolean equals(Object obj) {
+        
         if (this == obj) {
             return true;
         }
+        
         if (obj == null) {
             return false;
         }
+        
         if (getClass() != obj.getClass()) {
             return false;
         }
+        
         final ProjectConfiguration other = (ProjectConfiguration) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        
         return Objects.equals(this.parentPath, other.parentPath);
     }
 }

@@ -42,7 +42,7 @@ public class PaletteSubGroupListChangeAdapter implements ListChangeListener<Plan
             ImageView view = new ImageView(new Image(subGroup.getLogoPath()));
             view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
             view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-            view.setOnDragDone(new PlantSubGroupImageViewDragDoneEventHandler());
+            view.setOnDragDone(new ImageViewDragDoneEventHandler());
             plantsTilePane.getChildren().add(view);
         }
     }

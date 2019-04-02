@@ -99,19 +99,19 @@ public class SettingConstants {
     
     public static final String RELATIVE_JSON_DIRECTORY = RELATIVE_DATA_DIRECTORY + File.separator + "json" + File.separator + LANGUAGE;
     
-    private static final String RELATIVE_LOGO_DIRECTORY = RELATIVE_DATA_DIRECTORY + File.separator + "logo";
+    private static final String RELATIVE_LOGO_DIRECTORY = REPOSITORY_LOCATION_DATA + File.separator + "logo";
     
-    public static final String RELATIVE_PLANT_BED_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "plant-bed";
+    public static final String RELATIVE_PLANT_BED_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "plant-bed";
     
-    public static final String RELATIVE_RAISED_PLANT_BED_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "raised_plant-bed";    
+    public static final String RELATIVE_RAISED_PLANT_BED_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "raised-plant-bed";    
 
-    public static final String RELATIVE_LAWN_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "lawn"; 
+    public static final String RELATIVE_LAWN_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "lawn"; 
 
-    public static final String RELATIVE_POND_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "pond"; 
+    public static final String RELATIVE_POND_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "pond"; 
     
-    public static final String RELATIVE_GREENHOUSE_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "greenhouse";    
+    public static final String RELATIVE_GREENHOUSE_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "greenhouse";    
 
-    public static final String RELATIVE_ROOM_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "room";
+    public static final String RELATIVE_ROOM_LOGO_DIRECTORY = RELATIVE_LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "room";
     
     public static final int DEFAULT_IMG_WIDTH = 100;
     

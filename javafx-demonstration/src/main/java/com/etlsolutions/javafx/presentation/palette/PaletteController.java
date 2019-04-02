@@ -1,10 +1,7 @@
 package com.etlsolutions.javafx.presentation.palette;
 
 import com.etlsolutions.javafx.AbstractFXMLController;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.ValueWrapper;
-import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
-import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.presentation.editor.DesignTabStatusManager;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
@@ -67,34 +64,27 @@ public class PaletteController extends AbstractFXMLController {
             adapter.process(cvalue);
             cwrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, adapter);
 
-            List<Node> plantBedLogos = plantBedHbox.getChildren();
-
-            plantBedLogos.add(new ParameterisedImageView(new Image(new FileInputStream(new File("C:\\Users\\zc\\.gardenwise\\data\\logo\\area\\subarea\\plant-bed\\plant-bed-rectangle.png"))), SubAreaType.PLANT_BED, MeasurementType.RECTANGLE));
-
+            addImageView(plantBedHbox, PlantBedImageType.values());
+            addImageView(raisedPlantBedHbox, RaisedPlantBedImageType.values());
+            addImageView(lawnHbox, LawnImageType.values());            
+            addImageView(pondHbox, PondImageType.values());
+            addImageView(greenhouseAndContainterHbox, GreenhouseImageType.values());    
+            addImageView(roomHbox, RoomImageType.values());
+            
         } catch (FileNotFoundException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }
-
     }
 
-    private ObservableListWrapperA<ImageView> getImageView(String path) {
-
-        ObservableListWrapperA<ImageView> list = new ObservableListWrapperA<>();
-
-        for (File file : new File(path).listFiles()) {
-
-            try {
-
-                ImageView view = new ImageView(new Image(new FileInputStream(file)));
-
-                view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-                view.setOnDragDone(new PlantSubGroupImageViewDragDoneEventHandler());
-                list.add(view);
-            } catch (FileNotFoundException ex) {
-                throw new CustomLevelErrorRuntimeExceiption(ex);
-            }
+    private void addImageView(HBox box, ImageType[] types) throws FileNotFoundException {
+        
+        List<Node> logos = box.getChildren();
+        
+        for (ImageType type : types) {            
+            ImageView view = new ParameterisedImageView(new Image(new FileInputStream(new File(type.getFilePath()))), type.getSubAreaType(), type.getSubAreaType());
+            view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
+            view.setOnDragDone(new ImageViewDragDoneEventHandler());
+            logos.add(view);
         }
-
-        return list;
     }
 }

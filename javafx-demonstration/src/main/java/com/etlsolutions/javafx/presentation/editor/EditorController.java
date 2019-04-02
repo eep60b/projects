@@ -51,8 +51,14 @@ public class EditorController extends AbstractFXMLController {
 
         ValueWrapper<DataUnit> wrapper = ProjectManager.getInstance().getSelectedDataUnitValueWrapper();
 
-        informationTextArea.setDisable(true);
+
         DataUnit data = wrapper.getValue();
+        
+        if(data == null) {
+            return;
+        }
+      
+        informationTextArea.setDisable(true);        
         informationTextArea.setText(data.displayMessage());
         for (ImageLink link : data.getImageLinks()) {
             imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
