@@ -8,6 +8,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.AnchorPane;
 
@@ -25,7 +26,10 @@ public class ViewTabChangeAdapter implements ChangeListener<Tab> {
     public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
 
         TreeView<DataUnit> view = getTreeView(newValue.getContent());
-        dataUnitValueWrapper.setValue(view.getSelectionModel().getSelectedItem().getValue());
+        
+        TreeItem<DataUnit> item = view.getSelectionModel().getSelectedItem();
+
+        dataUnitValueWrapper.setValue(item == null ? null : item.getValue());
     }
     
     private TreeView<DataUnit> getTreeView(Node node) {

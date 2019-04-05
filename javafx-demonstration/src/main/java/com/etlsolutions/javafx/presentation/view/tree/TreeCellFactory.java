@@ -13,7 +13,10 @@ import javafx.util.Callback;
 public class TreeCellFactory implements Callback<TreeView<DataUnit>, TreeCell<DataUnit>> {
 
     @Override
-    public TreeCell<DataUnit> call(TreeView<DataUnit> p) {
-        return new TreeCellImpl();
+    public TreeCellImpl call(TreeView<DataUnit> p) {
+        
+        TreeCellImpl cell = new TreeCellImpl();
+        cell.setOnDragDetected(new TreeCellDragDetectedEventHandler());
+        return cell;
     }
 }

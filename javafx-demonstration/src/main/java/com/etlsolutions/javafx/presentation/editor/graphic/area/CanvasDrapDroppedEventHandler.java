@@ -1,7 +1,11 @@
 package com.etlsolutions.javafx.presentation.editor.graphic.area;
 
+import com.etlsolutions.javafx.data.plant.PlantSubGroup;
+import com.etlsolutions.javafx.presentation.ParameterisedImageView;
 import javafx.event.EventHandler;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.TransferMode;
 
 /**
  * TODO:
@@ -21,7 +25,7 @@ import javafx.scene.input.DragEvent;
  * 4. If the object is a set of container, pop a dialog to ask user how many
  * containers.
  *
- * 5. If the object is a plant, create a default location in the subarea. If no
+ * 5. If the object is a PlantSubGroup, create a default location in the subarea. If no
  * subarea is selected, create a default plant bed with border. 
  *
  * @author zc
@@ -33,7 +37,29 @@ public class CanvasDrapDroppedEventHandler implements EventHandler<DragEvent> {
 
     @Override
     public void handle(DragEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
+        //Not sure if we need this.
+        event.acceptTransferModes(TransferMode.ANY);
+        
+        // get the current mouse coordinates according to the scene.
+        double mouseX = event.getSceneX();
+        double mouseY = event.getSceneY();
+        
+        Canvas canvas = (Canvas)event.getSource();
+        
+        canvas.getParent();
+        
+        ParameterisedImageView view = (ParameterisedImageView) event.getGestureSource();
+        Object[] parameters = view.getParameters();
+        
+        if(parameters == null || parameters.length == 0) {
+            return;
+        }
+        
+        if(parameters[0] instanceof PlantSubGroup) {
+            PlantSubGroup subGroup = (PlantSubGroup) parameters[0];
+            
+        }
     }
 
 }

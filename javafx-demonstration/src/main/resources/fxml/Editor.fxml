@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -15,41 +16,46 @@
    <children>
       <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Information">
+          <Tab fx:id="informationTab" text="Information">
                <content>
-                  <ScrollPane>
-                    <content>
-                        <AnchorPane prefHeight="367.0" prefWidth="589.0">
+                  <VBox fx:id="informationVbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox>
                            <children>
-                              <VBox>
-                                 <children>
-                                    <HBox>
-                                       <children>
-                                          <Region HBox.hgrow="ALWAYS" />
-                                          <Button fx:id="editInformationButton" mnemonicParsing="false" text="Edit">
-                                             <HBox.margin>
-                                                <Insets right="10.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                    <TextArea fx:id="informationTextArea" prefHeight="367.0" prefWidth="589.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </VBox>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="editInformationButton" mnemonicParsing="false" text="Edit">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Button>
                            </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
+                        </HBox>
+                        <ScrollPane prefViewportHeight="346.0" prefViewportWidth="600.0">
+                           <content>
+                              <TextArea fx:id="informationTextArea" prefHeight="367.0" prefWidth="589.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
                </content>
           </Tab>
           <Tab text="Images">
                <content>
-                  <TilePane fx:id="imageTilePane" prefHeight="200.0" prefWidth="200.0" />
+                  <TilePane fx:id="imageTilePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </content>
           </Tab>
-            <Tab text="Design">
+            <Tab fx:id="designTab" text="Design">
                <content>
-                  <StackPane fx:id="designPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ScrollPane fx:id="designScrollPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <StackPane fx:id="designPane">
+                           <children>
+                              <Canvas fx:id="backgroundCanvas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Canvas fx:id="irregularAreaCanvas" layoutX="310.0" layoutY="196.0" />
+                           </children>
+                        </StackPane>
+                     </content>
+                  </ScrollPane>
                </content>
             </Tab>
         </tabs>

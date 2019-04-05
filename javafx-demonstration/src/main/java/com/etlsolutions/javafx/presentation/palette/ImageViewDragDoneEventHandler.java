@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.palette;
 
 import javafx.event.EventHandler;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 
 /**
@@ -14,7 +15,11 @@ public class ImageViewDragDoneEventHandler implements EventHandler<DragEvent> {
 
     @Override
     public void handle(DragEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        //TODO: Recover the image colour.
+        ImageView v = (ImageView) event.getSource();
+
+        event.consume();
     }
-    
+
 }

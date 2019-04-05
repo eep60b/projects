@@ -28,9 +28,17 @@ public class EditorPropertyChangeAdapter implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
+        imageTilePane.getChildren().clear();
+        
         ValueWrapper<DataUnit> wrapper = (ValueWrapper<DataUnit>) evt.getSource();
         DataUnit data = wrapper.getValue();
 
+        if(data == null) {
+            informationTextArea.setText("");
+            
+            return;
+        }
+        
         informationTextArea.setText(data.displayMessage());
         for (ImageLink link : data.getImageLinks()) {
             imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
@@ -38,7 +46,7 @@ public class EditorPropertyChangeAdapter implements PropertyChangeListener {
 
         Button addImageButton = new Button("+");
         addImageButton.setOnAction(new AddImageToDataUnitEventHandler());
-        imageTilePane.getChildren().clear();
+
         imageTilePane.getChildren().add(addImageButton);
 
         data.replaceListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));

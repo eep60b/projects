@@ -9,7 +9,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
  * is not restrictively used by shops and gardeners. Examples: Strawberry,
  * Squash, Bean, Pea etc.
  *
- * The title of plant sub group must be unique.
+ * The title of plant sub group must be unique. And it con only belong to a single group.
  * 
  * @author zc
  */

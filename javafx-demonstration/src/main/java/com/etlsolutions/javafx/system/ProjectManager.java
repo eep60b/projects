@@ -43,7 +43,12 @@ public final class ProjectManager {
     private final ValueWrapper<ProjectContents> contentsValueWrapper = new ValueWrapper<>(null);
     private final Map<Integer, DataUnit> dataMap = new HashMap<>();
     private final Properties properties = GwiseRepository.getInstance().getProperties();
-    private final ValueWrapper<DataUnit> selectedDataUnit = new ValueWrapper<>(null);
+
+    /**
+     * The ValueWrapper for the selected DataUnit is used to synchronise the
+     * selection among view, editor and pallette.
+     */
+    private final ValueWrapper<DataUnit> selectedDataUnitValueWrapper = new ValueWrapper<>(null);
 
     private ProjectManager() {
     }
@@ -91,10 +96,10 @@ public final class ProjectManager {
         contents.setAreaRoot(AreaFactory.getInstance().createAreaRoot());
         contents.setPlantsGroupRoot(PlantsFactory.getInstance().createPlantsGroupRoot());
         contents.setLogGroupRoot(LogFactory.getInstance().createLogGroupRoot());
-        contentsValueWrapper.removePropertyChangeListeners();
+  //      contentsValueWrapper.removePropertyChangeListeners();
         contentsValueWrapper.setValue(contents);
-        selectedDataUnit.removePropertyChangeListeners();
-        selectedDataUnit.setValue(contents.getAreaRoot());
+   //     selectedDataUnitValueWrapper.removePropertyChangeListeners();
+        selectedDataUnitValueWrapper.setValue(contents.getAreaRoot());
     }
 
     public boolean isValidProject(String path) {
@@ -144,7 +149,7 @@ public final class ProjectManager {
                 }
             }
         }
-        
+
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("yyyyMMdd");
 
@@ -172,6 +177,12 @@ public final class ProjectManager {
             properties.setProperty(OPEN_IMAGE_DIRECTORY_NAME_KEY, openImageDirectoryName);
             saveProperties(properties, "");
             initContents();
+
+            File contentsFile = new File(configuration.getJsonDataPath() + File.separator + "project_contents" + JSON_FILE_EXTENSION);            
+            contentsFile.getParentFile().mkdirs();
+            contentsFile.createNewFile();            
+            mapper.writer().writeValue(contentsFile, contentsValueWrapper.getValue());
+
             FileUtils.copyDirectory(new File(SettingConstants.REPOSITORY_LOCATION_DATA), new File(configuration.getProjectPath() + File.separator + SettingConstants.RELATIVE_DATA_DIRECTORY));
         } catch (IOException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
@@ -275,6 +286,6 @@ public final class ProjectManager {
     }
 
     public ValueWrapper<DataUnit> getSelectedDataUnitValueWrapper() {
-        return selectedDataUnit;
+        return selectedDataUnitValueWrapper;
     }
 }

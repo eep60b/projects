@@ -11,16 +11,17 @@ import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class for the editor.
@@ -34,8 +35,31 @@ public class EditorController extends AbstractFXMLController {
     @FXML
     private AnchorPane editorPane;
 
+
+    @FXML
+    private Tab informationTab; 
+    
+    @FXML
+    private VBox informationVbox;
+    
+    
+    @FXML
+    private Tab designTab;
+    
     @FXML
     private StackPane designPane;
+
+    /**
+     * The Canvas will be used to draw ruler and grid.
+     */
+    @FXML
+    private Canvas backgroundCanvas;
+
+    /**
+     * The canvas will be used tor draw irregular shape of subarea.
+     */
+    @FXML
+    private Canvas irregularAreaCanvas;
 
     @FXML
     private TextArea informationTextArea;
@@ -49,49 +73,37 @@ public class EditorController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
+        informationTextArea.setPrefSize(informationTab.getTabPane().getWidth(), informationTab.getTabPane().getHeight());
+        informationTextArea.setBorder(Border.EMPTY);
+        informationTextArea.setDisable(true);
+        designPane.setPrefSize(designTab.getTabPane().getWidth(), designTab.getTabPane().getHeight());
+
         ValueWrapper<DataUnit> wrapper = ProjectManager.getInstance().getSelectedDataUnitValueWrapper();
 
-
         DataUnit data = wrapper.getValue();
+
+        if (data != null) {
+
+            informationTextArea.setText(data.displayMessage());
+            for (ImageLink link : data.getImageLinks()) {
+                imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
+            }
+
+            Button addImageButton = new Button("+");
+            addImageButton.setOnAction(new AddImageToDataUnitEventHandler());
+            imageTilePane.getChildren().add(addImageButton);
+            data.addListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));
+            data.getImageLinks().addListener(new EditorImageLinksAdapter(data, imageTilePane));
+        }
         
-        if(data == null) {
-            return;
-        }
-      
-        informationTextArea.setDisable(true);        
-        informationTextArea.setText(data.displayMessage());
-        for (ImageLink link : data.getImageLinks()) {
-            imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
-        }
+        designPane.setOnDragDropped(new CanvasDrapDroppedEventHandler());
+        designPane.setOnDragEntered(new CanvasDragEnteredEventHandler());
+        designPane.setOnDragExited(new CanvasDragExitedEventHandler());
+        designPane.setOnDragOver(new CanvasDragOverEventHandler());
 
-        Button addImageButton = new Button("+");
-        addImageButton.setOnAction(new AddImageToDataUnitEventHandler());
-        imageTilePane.getChildren().add(addImageButton);
+        designPane.heightProperty().addListener(new DesignPaneHeightChangeAdapter());
+        designPane.widthProperty().addListener(new DesignPaneWidthChangeAdapter());
 
-        Canvas backgroundCanvas = new Canvas(1000, 1000);   //Background Canvas is created for ruler and grids     
-        Canvas areaCanvas = new Canvas(1000, 1000);    //Area Canvas is created for area to accept drawing and to accept drag and drop.
-
-        areaCanvas.setOnDragDropped(new CanvasDrapDroppedEventHandler());
-        areaCanvas.setOnDragEntered(new CanvasDragEnteredEventHandler(areaCanvas));
-        areaCanvas.setOnDragExited(new CanvasDragExitedEventHandler());
-        areaCanvas.setOnDragOver(new CanvasDragOverEventHandler());
-
-        AnchorPane.setTopAnchor(areaCanvas, 0d);
-        AnchorPane.setLeftAnchor(areaCanvas, 0d);
-        AnchorPane.setBottomAnchor(areaCanvas, 0d);
-        AnchorPane.setRightAnchor(areaCanvas, 0d);
-        final GraphicsContext gc = areaCanvas.getGraphicsContext2D();
-        gc.setFill(Color.LIGHTGRAY);
-        gc.fillRect(0, 0, areaCanvas.getWidth(), areaCanvas.getHeight());
-
-
-        Pane plantCanvas = new Pane();
-        plantCanvas.setPrefSize(1000, 1000);
-
-        designPane.getChildren().addAll(backgroundCanvas, areaCanvas, plantCanvas);
-
-        data.addListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));
-        data.getImageLinks().addListener(new EditorImageLinksAdapter(data, imageTilePane));
         wrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new EditorPropertyChangeAdapter(informationTextArea, imageTilePane));
     }
 }
