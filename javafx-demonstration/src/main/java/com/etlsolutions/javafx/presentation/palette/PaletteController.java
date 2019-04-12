@@ -80,7 +80,8 @@ public class PaletteController extends AbstractFXMLController {
         
         List<Node> logos = box.getChildren();
         
-        for (ImageType type : types) {            
+        for (ImageType type : types) {
+            
             ImageView view = new ParameterisedImageView(new Image(new FileInputStream(new File(type.getFilePath()))), type.getSubAreaType(), type.getSubAreaType());
             
             view.setOnMousePressed(new MouseDragEventHandler());

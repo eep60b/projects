@@ -79,7 +79,9 @@ public class SettingConstants {
     /**
      * This extension is used for all JSON file in this application. The system should NOT de-serialise any file without this extension.
      */
-    public static final String PROJECT_CONTENTS_JSON_FILE_EXTENSION = "project_contents.json";    
+    public static final String PROJECT_CONTENTS_JSON_FILE_EXTENSION = "project_contents.json";   
+    
+    
     /**
      * ********************************* Default values *************************
      *
@@ -120,11 +122,14 @@ public class SettingConstants {
     
     public static final String IMAGE_DIRECTORY_PREFIX = "gwiseimage";
     
-    public static final int IMAGE_DIRECTORY_SIZE = 500;    
+    public static final int IMAGE_DIRECTORY_SIZE = 500; 
     
     /**
-     * ********************************* Other constants *************************
+     * ********************************* Fixed values and other constants *************************
      */
     
     public static final double PI = 3.14159265;
+    
+    
+    public static final double ANCHOR_POINT_DIAMETER = 10;
 }

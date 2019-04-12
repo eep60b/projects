@@ -2,6 +2,11 @@ package com.etlsolutions.javafx.presentation.editor;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -9,11 +14,15 @@ import javafx.beans.value.ObservableValue;
  */
 public class DesignPaneWidthChangeAdapter implements ChangeListener<Number> {
 
+    DesignPaneWidthChangeAdapter(VBox informationVbox, ScrollPane informationScrollPane, TextArea informationTextArea, TilePane imageTilePane, StackPane designPane) {
+        //TODO:
+    }
+
 
 
     @Override
     public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //TODO:
     }
     
 }

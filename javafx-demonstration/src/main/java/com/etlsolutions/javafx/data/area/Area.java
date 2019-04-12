@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(name = "IndoorArea", value = IndoorArea.class),
     @JsonSubTypes.Type(name = "PatioArea", value = PatioArea.class)
 })
-public abstract class Area extends DataUnit {
+public abstract class Area extends DataUnit implements Movable {
 
     @JsonIgnore
     public static final String LONGGITUDE_PROPERTY = "com.etlsolutions.javafx.data.area.Area.LONGGITUDE_PROPERTY";
@@ -39,6 +39,10 @@ public abstract class Area extends DataUnit {
 
     private double longitude;
     private double latitude;
+    private double centerX;
+    private double centerY;
+    private double ocuppiedWidth;
+    private double occuppiedHeight;
     private Measurement measurement;
     private AreaShape shape;
     private ObservableListWrapperA<SubArea> subAreas;    
@@ -89,6 +93,46 @@ public abstract class Area extends DataUnit {
         fireChange(LATITUTE_PROPERTY, oldValue, this.latitude);
     }
 
+    @Override
+    public double getCenterX() {
+        return centerX;
+    }
+
+    @Override
+    public void setCenterX(double centerX) {
+        this.centerX = centerX;
+    }
+
+    @Override
+    public double getCenterY() {
+        return centerY;
+    }
+
+    @Override
+    public void setCenterY(double centerY) {
+        this.centerY = centerY;
+    }
+
+    @Override
+    public double getOcuppiedWidth() {
+        return ocuppiedWidth;
+    }
+
+    @Override
+    public void setOcuppiedWidth(double ocuppiedWidth) {
+        this.ocuppiedWidth = ocuppiedWidth;
+    }
+
+    @Override
+    public double getOccuppiedHeight() {
+        return occuppiedHeight;
+    }
+
+    @Override
+    public void setOccuppiedHeight(double occuppiedHeight) {
+        this.occuppiedHeight = occuppiedHeight;
+    }
+    
     public Measurement getMeasurement() {
         return measurement;
     }

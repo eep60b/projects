@@ -14,7 +14,7 @@
     <URL value="@/styles/editor.css" />
   </stylesheets>
    <children>
-      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane fx:id="editorTabPane" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab fx:id="informationTab" text="Information">
                <content>
@@ -30,7 +30,7 @@
                               </Button>
                            </children>
                         </HBox>
-                        <ScrollPane prefViewportHeight="346.0" prefViewportWidth="600.0">
+                        <ScrollPane fx:id="informationScrollPane" prefViewportHeight="346.0" prefViewportWidth="600.0">
                            <content>
                               <TextArea fx:id="informationTextArea" prefHeight="367.0" prefWidth="589.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </content>

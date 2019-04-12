@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.data.area.subarea;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.area.Movable;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
@@ -31,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @Type(name = "Room", value = Room.class),
     @Type(name = "SingleContainer", value = SingleContainer.class)
 })
-public abstract class SubArea extends DataUnit {
+public abstract class SubArea extends DataUnit implements Movable {
 
     @JsonIgnore
     public static final String MEASUREMENT_PROPERTY = "com.etlsolutions.javafx.data.area.subarea.SubArea.MEASUREMENT_PROPERTY";
@@ -41,8 +42,13 @@ public abstract class SubArea extends DataUnit {
     protected ObservableListWrapperA<Location> locations;
     protected Measurement measurement;
     protected SubAreaShape shape;
+    
     private int parentId;
-
+    private double centerX;
+    private double centerY;
+    private double ocuppiedWidth;
+    private double occuppiedHeight;
+    
     public SubArea() {
 
     }
@@ -97,4 +103,44 @@ public abstract class SubArea extends DataUnit {
     public void setParentId(int parentId) {
         this.parentId = parentId;
     }
+
+    @Override
+    public double getCenterX() {
+        return centerX;
+    }
+
+    @Override
+    public void setCenterX(double centerX) {
+        this.centerX = centerX;
+    }
+
+    @Override
+    public double getCenterY() {
+        return centerY;
+    }
+
+    @Override
+    public void setCenterY(double centerY) {
+        this.centerY = centerY;
+    }
+
+    @Override
+    public double getOcuppiedWidth() {
+        return ocuppiedWidth;
+    }
+
+    @Override
+    public void setOcuppiedWidth(double ocuppiedWidth) {
+        this.ocuppiedWidth = ocuppiedWidth;
+    }
+
+    @Override
+    public double getOccuppiedHeight() {
+        return occuppiedHeight;
+    }
+
+    @Override
+    public void setOccuppiedHeight(double occuppiedHeight) {
+        this.occuppiedHeight = occuppiedHeight;
+    }    
 }
