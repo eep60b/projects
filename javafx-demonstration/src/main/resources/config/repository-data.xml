@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <logo>
+        <area>
+            <subarea>
+                <greenhouse>greenhouse-rectangle.png</greenhouse>
+                <greenhouse>greenhouse-sqare.png</greenhouse>
+                <lawn>lawn-circle.png</lawn>
+                <lawn>lawn-irregular.png</lawn>
+                <lawn>lawn-rectangle.png</lawn>
+                <lawn>lawn-sqare.png</lawn>
+                <lawn>lawn-triangle.png</lawn>
+                <plant-bed>plant-bed-circle.png</plant-bed>                
+                <plant-bed>plant-bed-irregular.png</plant-bed>                  
+                <plant-bed>plant-bed-rectangle.png</plant-bed>                  
+                <plant-bed>plant-bed-sqare.png</plant-bed>                  
+                <plant-bed>plant-bed-triangle.png</plant-bed>                  
+                <pond>pond-circle.png</pond>                
+                <pond>pond-irregular.png</pond>                  
+                <pond>pond-rectangle.png</pond>                  
+                <pond>pond-sqare.png</pond>                  
+                <pond>pond-triangle.png</pond> 
+                <raised-plant-bed>raised-plant-bed-circle.png</raised-plant-bed>                
+                <raised-plant-bed>raised-plant-bed-irregular.png</raised-plant-bed>                  
+                <raised-plant-bed>raised-plant-bed-rectangle.png</raised-plant-bed>                  
+                <raised-plant-bed>raised-plant-bed-sqare.png</raised-plant-bed>                  
+                <raised-plant-bed>raised-plant-bed-triangle.png</raised-plant-bed> 
+                <room>room-circle.png</room>                
+                <room>room-rectangle.png</room>                  
+                <room>room-sqare.png</room>                 
+            </subarea>
+        </area>
+        <plantroot>
+            <plantgroup>
+                <subplantgroup>apple.jpg</subplantgroup>
+                <subplantgroup>aubergine.jpg</subplantgroup>
+                <subplantgroup>bell pepper.png</subplantgroup>
+                <subplantgroup>cherry.jpg</subplantgroup>
+                <subplantgroup>garlic chive.png</subplantgroup>
+                <subplantgroup>pak choi.jpg</subplantgroup>
+                <subplantgroup>primula.png</subplantgroup>
+                <subplantgroup>red chilly pepper.jpg</subplantgroup>
+                <subplantgroup>strawberry.jpg</subplantgroup>
+                <subplantgroup>tomato.jpg</subplantgroup>
+            </plantgroup>
+        </plantroot>
+    </logo>
+</data>

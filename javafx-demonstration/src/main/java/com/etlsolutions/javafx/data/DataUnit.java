@@ -137,7 +137,7 @@ public abstract class DataUnit {
     }
 
     public String getLogoPath() {        
-        return (logoPath == null || logoPath.trim().isEmpty()) ? SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/no-image.png" : logoPath;
+        return (logoPath == null || logoPath.trim().isEmpty()) ? SettingConstants.REPOSITORY_DATA_DIRECTORY + File.separator + "logo/no-image.png" : logoPath;
     }
 
     public void setLogoPath(String logoPath) {

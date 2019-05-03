@@ -41,16 +41,16 @@ public class PlantsFactory {
 
             PlantGroup group = createDefaultPlantGroup(title);
             if (title.equals("Annual Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Tomato", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/tomato.jpg"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Tomato", SettingConstants.REPOSITORY_DATA_DIRECTORY + File.separator + "logo/grouproot/plantgroup/subplantgroup/tomato.jpg"));
             }
             if (title.equals("Biennial Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Primula", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/primula.png"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Primula", SettingConstants.REPOSITORY_DATA_DIRECTORY + File.separator + "logo/grouproot/plantgroup/subplantgroup/primula.png"));
             }
             if (title.equals("Perennial Plants")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Garlic Chive", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/garlic chive.png"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Garlic Chive", SettingConstants.REPOSITORY_DATA_DIRECTORY + File.separator + "logo/grouproot/plantgroup/subplantgroup/garlic chive.png"));
             }
             if (title.equals("Trees")) {
-                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Apple", SettingConstants.REPOSITORY_LOCATION_DATA + File.separator + "logo/grouproot/plantgroup/subplantgroup/apple.jpg"));
+                group.getPlantSubGroups().add(createTitledEmptyPlantSubGroup(group, "Apple", SettingConstants.REPOSITORY_DATA_DIRECTORY + File.separator + "logo/grouproot/plantgroup/subplantgroup/apple.jpg"));
 
             }
             r.getPlantGroups().add(group);

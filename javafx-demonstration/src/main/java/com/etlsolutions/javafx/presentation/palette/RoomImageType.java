@@ -2,7 +2,6 @@ package com.etlsolutions.javafx.presentation.palette;
 
 import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import com.etlsolutions.javafx.system.ProjectManager;
 import com.etlsolutions.javafx.system.SettingConstants;
 import java.io.File;
 
@@ -25,7 +24,7 @@ public enum RoomImageType implements ImageType {
 
     @Override
     public String getFilePath() {
-        return SettingConstants.RELATIVE_ROOM_LOGO_DIRECTORY + File.separator + fileName;
+        return SettingConstants.ROOM_LOGO_DIRECTORY + File.separator + fileName;
     }
 
     @Override

@@ -68,8 +68,6 @@ public class EditorController extends AbstractFXMLController {
     @FXML
     private Button editInformationButton;
 
-
-
     @Override
     public void initializeComponents() {
 
@@ -101,5 +99,4 @@ public class EditorController extends AbstractFXMLController {
         
         wrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, editorPropertyChangeAdapter);
     }
-
 }

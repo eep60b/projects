@@ -111,7 +111,7 @@ public final class ProjectManager {
         }
 
         ProjectConfiguration cf = new ProjectConfiguration(file.getName(), file.getParent(), null);
-        File contentsFile = new File(cf.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE_EXTENSION);
+        File contentsFile = new File(cf.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE);
         return contentsFile.isFile();
     }
 
@@ -124,7 +124,7 @@ public final class ProjectManager {
 
             configuration = new ProjectConfiguration(file.getName(), file.getParent(), getOpenImageDirectoryName(imageDirectories));
 
-            File contentsFile = new File(configuration.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE_EXTENSION);
+            File contentsFile = new File(configuration.getJsonDataPath() + File.separator + PROJECT_CONTENTS_JSON_FILE);
 
             if (contentsFile.isFile()) {
                 contentsValueWrapper.setValue(mapper.readValue(contentsFile, ProjectContents.class));
@@ -183,7 +183,7 @@ public final class ProjectManager {
             contentsFile.createNewFile();            
             mapper.writer().writeValue(contentsFile, contentsValueWrapper.getValue());
 
-            FileUtils.copyDirectory(new File(SettingConstants.REPOSITORY_LOCATION_DATA), new File(configuration.getProjectPath() + File.separator + SettingConstants.RELATIVE_DATA_DIRECTORY));
+            FileUtils.copyDirectory(new File(SettingConstants.REPOSITORY_DATA_DIRECTORY), new File(configuration.getProjectPath() + File.separator + SettingConstants.RELATIVE_DATA_DIRECTORY));
         } catch (IOException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }
