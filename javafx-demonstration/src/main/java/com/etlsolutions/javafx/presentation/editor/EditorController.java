@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor;
 
-import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDrapDroppedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.model.DesignPaneDataModel;
+import com.etlsolutions.javafx.presentation.editor.graphic.area.DesignPaneDrapDroppedEventHandler;
 import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragExitedEventHandler;
 import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragEnteredEventHandler;
 import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragOverEventHandler;
@@ -71,7 +72,7 @@ public class EditorController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
-        EditorDataModel model = new EditorDataModel();
+        DesignPaneDataModel model = new DesignPaneDataModel();
         
         TabPane firstTabPane = informationTab.getTabPane();
         
@@ -92,7 +93,7 @@ public class EditorController extends AbstractFXMLController {
         firstTabPane.heightProperty().addListener(new DesignPaneHeightChangeAdapter(informationVbox, informationScrollPane, informationTextArea, imageTilePane, designPane));
         firstTabPane.widthProperty().addListener(new DesignPaneWidthChangeAdapter(informationVbox, informationScrollPane, informationTextArea, imageTilePane, designPane));
         
-        designPane.setOnDragDropped(new CanvasDrapDroppedEventHandler());
+        designPane.setOnDragDropped(new DesignPaneDrapDroppedEventHandler(model));
         designPane.setOnDragEntered(new CanvasDragEnteredEventHandler());
         designPane.setOnDragExited(new CanvasDragExitedEventHandler());
         designPane.setOnDragOver(new CanvasDragOverEventHandler());

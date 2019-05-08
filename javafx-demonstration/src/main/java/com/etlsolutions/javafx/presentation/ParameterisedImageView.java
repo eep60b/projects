@@ -4,6 +4,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
+ * The ParameterisedImageView class is designed to represent an icon in the
+ * pallette. The parameter can be a sub-area type/shape or a plant group.
  *
  * @author zc
  */

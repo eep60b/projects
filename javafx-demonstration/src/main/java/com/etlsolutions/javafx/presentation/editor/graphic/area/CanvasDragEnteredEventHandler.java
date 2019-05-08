@@ -17,7 +17,7 @@ public class CanvasDragEnteredEventHandler implements EventHandler<DragEvent> {
      *
      * 1. detect the location.
      *
-     * 2, Calculate if the object can be dropped.
+     * 2. Calculate if the object can be dropped.
      *
      * 3. Display the correct culsor.
      *

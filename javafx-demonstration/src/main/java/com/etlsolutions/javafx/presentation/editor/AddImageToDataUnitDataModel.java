@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.editor;
 
-import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.*;
 import com.etlsolutions.javafx.data.ImageLinkGenerator;
 import com.etlsolutions.javafx.system.ProjectManager;

@@ -1,9 +1,11 @@
 package com.etlsolutions.javafx.presentation.editor;
 
+import com.etlsolutions.javafx.presentation.editor.model.DesignPaneDataModel;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
+import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.area.measurement.CircleMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.PolygonMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
@@ -20,12 +22,12 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 /**
  * EditorPropertyChangeAdapter instances listen to the change to the current
@@ -35,21 +37,25 @@ import javafx.scene.shape.Shape;
  */
 public class EditorPropertyChangeAdapter implements PropertyChangeListener {
 
-    private final EditorDataModel model;
+    private final DesignPaneDataModel model;
     private final ObservableList<Tab> tabs;
     private final TextArea informationTextArea;
     private final TilePane imageTilePane;
     private final Tab designTab;
+    private final Tab areaRootTab = new Tab();
     private final StackPane designPane;
     private final ProjectManager manager = ProjectManager.getInstance();
 
-    public EditorPropertyChangeAdapter(EditorDataModel model, TabPane editorTabPane, TextArea informationTextArea, TilePane imageTilePane, Tab designTab, StackPane designPane) {
+    public EditorPropertyChangeAdapter(DesignPaneDataModel model, TabPane editorTabPane, TextArea informationTextArea, TilePane imageTilePane, Tab designTab, StackPane designPane) {
 
         this.model = model;
         tabs = editorTabPane.getTabs();
         this.informationTextArea = informationTextArea;
         this.imageTilePane = imageTilePane;
         this.designTab = designTab;
+        Pane areaRootPane = new Pane();
+        areaRootPane.getChildren().add(new Button("Add an area"));
+        areaRootTab.setContent(areaRootPane);
         this.designPane = designPane;
     }
 
@@ -67,7 +73,7 @@ public class EditorPropertyChangeAdapter implements PropertyChangeListener {
         DataUnit data = wrapper.getValue();
 
         if (data == null) {
-            informationTextArea.setText("");
+            tabs.clear();
             return;
         }
 
@@ -82,8 +88,17 @@ public class EditorPropertyChangeAdapter implements PropertyChangeListener {
         imageTilePane.getChildren().add(addImageButton);
         data.addListener(DataUnit.DESCRIPTION_PROPERTY, new EditorDescriptionChangeAdapter(data, informationTextArea));
         data.getImageLinks().addListener(new EditorImageLinksAdapter(data, imageTilePane));
-
-        if (data instanceof Area) {
+        
+        if(data instanceof AreaRoot) {
+            
+            if(tabs.size() == 1 && tabs.contains(areaRootTab)){
+                return;
+            }
+            
+            tabs.clear();
+            tabs.add(areaRootTab);
+        }
+        else if (data instanceof Area) {
             drawArea((Area) data);
         } else if (data instanceof SubArea) {
             drawSubArea((SubArea) data);
