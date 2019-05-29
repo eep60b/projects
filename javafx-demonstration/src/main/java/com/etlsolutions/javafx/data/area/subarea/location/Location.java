@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Movable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,6 +24,7 @@ public abstract class Location extends DataUnit implements Movable {
     private double centerY;
     private double ocuppiedWidth;
     private double occuppiedHeight;
+    private double[] points;    
 
     public Location() {
     }
@@ -95,4 +97,12 @@ public abstract class Location extends DataUnit implements Movable {
     public void setOccuppiedHeight(double occuppiedHeight) {
         this.occuppiedHeight = occuppiedHeight;
     }
+
+    public double[] getPoints() {
+        return points;
+    }
+
+    public void setPoints(double[] points) {
+        this.points = points;
+    }    
 }

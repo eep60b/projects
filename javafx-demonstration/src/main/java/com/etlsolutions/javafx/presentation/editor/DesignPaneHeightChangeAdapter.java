@@ -3,6 +3,7 @@ package com.etlsolutions.javafx.presentation.editor;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
@@ -21,7 +22,7 @@ public class DesignPaneHeightChangeAdapter implements ChangeListener<Number> {
     private final TilePane imageTilePane;
     private final StackPane designPane;
     
-    public DesignPaneHeightChangeAdapter(VBox informationVbox, ScrollPane informationScrollPane, TextArea informationTextArea, TilePane imageTilePane, StackPane designPane) {
+    public DesignPaneHeightChangeAdapter(VBox informationVbox, ScrollPane informationScrollPane, TextArea informationTextArea, TilePane imageTilePane, StackPane designPane, LineChart backgroudLineChart) {
         this.informationVbox = informationVbox;
         this.informationScrollPane = informationScrollPane;
         this.informationTextArea = informationTextArea;

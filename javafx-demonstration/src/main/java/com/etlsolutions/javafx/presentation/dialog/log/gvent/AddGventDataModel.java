@@ -12,6 +12,6 @@ public class AddGventDataModel extends AbstractGventDataModel {
     @Override
     public void save() {
         set(LogFactory.getInstance().createGvent(getValueWrapper(), detailDataModel.getDetail()));
-        ProjectManager.getInstance().getContents().getLogGroupRoot().getGvents().addLog(get());
+        ProjectManager.getInstance().getContents().getLogGroupRoot().getGvents().addLog(getItem());
     }
 }

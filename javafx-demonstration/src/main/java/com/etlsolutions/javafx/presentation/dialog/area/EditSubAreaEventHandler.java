@@ -20,7 +20,7 @@ public class EditSubAreaEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         
-        EditSubAreaDataModel editModel = new EditSubAreaDataModel(model.get(), model.getSelectedSubArea().getValue());
+        EditSubAreaDataModel editModel = new EditSubAreaDataModel(model.getItem(), model.getSelectedSubArea().getValue());
         new FXMLActionEventHandler<>(editModel).handle(event);
     }
 }

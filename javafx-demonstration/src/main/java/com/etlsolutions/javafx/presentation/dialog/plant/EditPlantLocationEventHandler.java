@@ -35,11 +35,11 @@ public class EditPlantLocationEventHandler implements EventHandler<ActionEvent> 
 
         if (location == null) {
 
-            AddLocationDataModel addLocationDataModel = new AddLocationDataModel(model.get() == null ? 0 : model.get().getId());
+            AddLocationDataModel addLocationDataModel = new AddLocationDataModel(model.getItem() == null ? 0 : model.getItem().getId());
             FXMLActionEventHandler<AddLocationDataModel> eventHandler = new FXMLActionEventHandler<>(addLocationDataModel);
             eventHandler.handle(event);
-            if (addLocationDataModel.get() != null) {
-                model.getLocationValueWrapper().setValue(addLocationDataModel.get());
+            if (addLocationDataModel.getItem() != null) {
+                model.getLocationValueWrapper().setValue(addLocationDataModel.getItem());
             }
             return;
         }

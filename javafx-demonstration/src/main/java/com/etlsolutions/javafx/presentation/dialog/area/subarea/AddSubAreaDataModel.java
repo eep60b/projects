@@ -17,6 +17,6 @@ public class AddSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
     @Override
     public void save() {
         set(SubAreaFactory.getInstance().createSubArea(selectedSubAreaTypeValueWrapper.getValue(), getValueWrapper(), measurementDataModel.getMeasurementValueWrapper().getMeasurement()));
-        area.getSubAreas().add(get());
+        area.getSubAreas().add(getItem());
     }
 }

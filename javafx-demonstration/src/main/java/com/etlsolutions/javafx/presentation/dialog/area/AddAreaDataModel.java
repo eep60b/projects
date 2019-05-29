@@ -20,6 +20,6 @@ public class AddAreaDataModel extends AbstractAreaDataModel {
     @Override
     public void save() {
         set(AreaFactory.getInstance().createArea(selectedAreaTypeValueWrapper.getValue(), getValueWrapper(), measurementDataModel.getMeasurementValueWrapper(), subAreas));
-        ProjectManager.getInstance().getContents().getAreaRoot().add(get());
+        ProjectManager.getInstance().getContents().getAreaRoot().add(getItem());
     }
 }

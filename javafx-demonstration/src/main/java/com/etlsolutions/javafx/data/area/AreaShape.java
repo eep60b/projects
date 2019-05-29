@@ -6,6 +6,8 @@ package com.etlsolutions.javafx.data.area;
  */
 public enum AreaShape {
 
+    POLYGON("Polygon"),
+    
     RECTANGLE("Rectangle"), 
     
     SQURE ("Squre"), 

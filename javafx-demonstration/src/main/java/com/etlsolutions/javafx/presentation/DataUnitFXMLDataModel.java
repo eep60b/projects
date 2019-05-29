@@ -24,7 +24,7 @@ import java.util.Objects;
  * @author zc
  * @param <D>
  */
-public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable, Getable<D> {
+public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements TitleDataModel, InformationDataModel, Savable, FXMLActionDataModel, Validatable, Removable, Itemable<D> {
 
     public static final String LIST_CHANGE_PROPERTY = DataUnitFXMLDataModel.class.getName() + "LIST_CHANGE_PROPERTY ";
     public static final RemoveEventId SELECTED_IMAGE_LINK_REMOVE_EVENT_ID = new RemoveEventId("com.etlsolutions.javafx.presentation.selectedImageLink", "Selected Image");
@@ -89,7 +89,7 @@ public abstract class DataUnitFXMLDataModel<D extends DataUnit> implements Title
     }
 
     @Override
-    public final D get() {
+    public final D getItem() {
         return dataUnit;
     }
 

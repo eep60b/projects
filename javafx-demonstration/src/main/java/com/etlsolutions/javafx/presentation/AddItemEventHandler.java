@@ -27,7 +27,7 @@ public class AddItemEventHandler<D extends DataUnit> implements EventHandler<Act
     public void handle(ActionEvent event) {
 
         new FXMLActionEventHandler<>(model).handle(event);
-        D t = model.get();
+        D t = model.getItem();
         if (t != null) {
             list.add(t);
             item.setValue(t);

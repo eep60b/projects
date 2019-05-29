@@ -24,7 +24,7 @@ public class EditPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
     
     @Override
     public void save() {
-        get().setValues(getValueWrapper());
+        getItem().setValues(getValueWrapper());
     }
 
     @Override

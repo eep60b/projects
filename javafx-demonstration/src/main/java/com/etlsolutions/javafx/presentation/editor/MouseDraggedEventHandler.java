@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor;
 
-import com.etlsolutions.javafx.presentation.editor.model.DesignPaneDataModel;
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.input.MouseEvent;

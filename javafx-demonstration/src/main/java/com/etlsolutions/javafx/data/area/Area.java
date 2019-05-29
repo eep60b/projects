@@ -45,8 +45,10 @@ public abstract class Area extends DataUnit implements Movable {
     private double occuppiedHeight;
     private Measurement measurement;
     private AreaShape shape;
-    private ObservableListWrapperA<SubArea> subAreas;    
+    private ObservableListWrapperA<SubArea> subAreas;
 
+    private double[] points;
+    
     public Area() {
     }
 
@@ -160,6 +162,14 @@ public abstract class Area extends DataUnit implements Movable {
         this.subAreas = subAreas;
     }    
 
+    public double[] getPoints() {
+        return points;
+    }
+
+    public void setPoints(double[] points) {
+        this.points = points;
+    }
+    
     @Override
     public String displayMessage() {
         

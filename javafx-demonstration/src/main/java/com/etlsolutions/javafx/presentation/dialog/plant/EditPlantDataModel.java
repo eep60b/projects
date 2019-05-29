@@ -37,7 +37,7 @@ public class EditPlantDataModel extends AbstractPlantDataModel {
 
     @Override
     public void save() {
-        get().setValues(getValueWrapper());        
+        getItem().setValues(getValueWrapper());        
     }
 
     @Override

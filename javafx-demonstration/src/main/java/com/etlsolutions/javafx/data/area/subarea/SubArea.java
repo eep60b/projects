@@ -48,6 +48,7 @@ public abstract class SubArea extends DataUnit implements Movable {
     private double centerY;
     private double ocuppiedWidth;
     private double occuppiedHeight;
+    private double[] points;
     
     public SubArea() {
 
@@ -142,5 +143,13 @@ public abstract class SubArea extends DataUnit implements Movable {
     @Override
     public void setOccuppiedHeight(double occuppiedHeight) {
         this.occuppiedHeight = occuppiedHeight;
+    }    
+
+    public double[] getPoints() {
+        return points;
+    }
+
+    public void setPoints(double[] points) {
+        this.points = points;
     }    
 }

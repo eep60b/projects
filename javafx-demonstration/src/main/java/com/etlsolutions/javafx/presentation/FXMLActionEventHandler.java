@@ -43,6 +43,10 @@ public class FXMLActionEventHandler<T extends FXMLActionDataModel> implements Ev
 
     @Override
     public void handle(ActionEvent event) {
+        handle();
+    }
+
+    public void handle() {
         Logger logger = Logger.getLogger(getClass());
         String message = "Message has NOT been loaded from the bundle.";
         try {

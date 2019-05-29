@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -48,12 +49,7 @@
                <content>
                   <ScrollPane fx:id="designScrollPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <StackPane fx:id="designPane">
-                           <children>
-                              <Canvas fx:id="backgroundCanvas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Canvas fx:id="irregularAreaCanvas" layoutX="310.0" layoutY="196.0" />
-                           </children>
-                        </StackPane>
+                        <StackPane fx:id="designPane" />
                      </content>
                   </ScrollPane>
                </content>

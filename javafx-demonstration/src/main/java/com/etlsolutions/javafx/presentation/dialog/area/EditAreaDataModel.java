@@ -15,7 +15,7 @@ public class EditAreaDataModel extends AbstractAreaDataModel {
     
     @Override
     public void save() {    
-        Area dataUnit = get();
+        Area dataUnit = getItem();
         dataUnit.setTitle(getTitleValueWrapper().getValue());
         dataUnit.setInformation(getInformationValueWrapper().getValue());
         dataUnit.getImageLinks().clear();

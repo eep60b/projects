@@ -18,7 +18,7 @@ public class AnchorPoint extends Circle {
     private final DoubleProperty x;
     private final DoubleProperty y;
 
-    AnchorPoint(Color color, DoubleProperty x, DoubleProperty y) {
+    public AnchorPoint(Color color, DoubleProperty x, DoubleProperty y) {
         super(x.get(), y.get(), ANCHOR_POINT_DIAMETER);
         setFill(color.deriveColor(1, 1, 1, 0.5));
         setStroke(color);

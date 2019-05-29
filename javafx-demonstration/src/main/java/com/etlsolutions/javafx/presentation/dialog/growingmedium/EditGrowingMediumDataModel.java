@@ -16,6 +16,6 @@ public class EditGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
 
     @Override
     public void save() {        
-        get().setValues(getValueWrapper());
+        getItem().setValues(getValueWrapper());
     }
 }

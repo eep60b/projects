@@ -20,6 +20,6 @@ public class AddVarietyDataModel extends AbstractVarietyDataModel {
     @Override
     public void save() {
         set(PlantsFactory.getInstance().createPlantVariety(getValueWrapper()));
-        plantSubGroup.getPlantVarieties().add(get());
+        plantSubGroup.getPlantVarieties().add(getItem());
     }
 }

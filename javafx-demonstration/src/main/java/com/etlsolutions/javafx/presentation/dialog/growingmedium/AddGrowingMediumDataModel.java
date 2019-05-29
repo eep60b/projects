@@ -20,6 +20,6 @@ public class AddGrowingMediumDataModel extends AbstractGrowingMediumDataModel {
     public void save() {
         
         set(GrowingMediumFactory.getInstance().createGrowingMedium(specialValueWrapper));
-        ProjectManager.getInstance().getContents().getGrowingMediums().add(get());
+        ProjectManager.getInstance().getContents().getGrowingMediums().add(getItem());
     }
 }

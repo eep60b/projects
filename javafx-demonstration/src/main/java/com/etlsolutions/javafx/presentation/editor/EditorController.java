@@ -1,16 +1,17 @@
 package com.etlsolutions.javafx.presentation.editor;
 
-import com.etlsolutions.javafx.presentation.editor.model.DesignPaneDataModel;
-import com.etlsolutions.javafx.presentation.editor.graphic.area.DesignPaneDrapDroppedEventHandler;
-import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragExitedEventHandler;
-import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragEnteredEventHandler;
-import com.etlsolutions.javafx.presentation.editor.graphic.area.CanvasDragOverEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
+import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDrapDroppedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDragExitedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDragEnteredEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDragOverEventHandler;
 import com.etlsolutions.javafx.AbstractFXMLController;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -38,7 +39,7 @@ public class EditorController extends AbstractFXMLController {
 
     @FXML
     private VBox informationVbox;
-    
+
     @FXML
     private ScrollPane informationScrollPane;
 
@@ -47,18 +48,6 @@ public class EditorController extends AbstractFXMLController {
 
     @FXML
     private StackPane designPane;
-
-    /**
-     * The Canvas will be used to draw ruler and grid.
-     */
-    @FXML
-    private Canvas backgroundCanvas;
-
-    /**
-     * The canvas will be used tor draw irregular shape of subarea.
-     */
-    @FXML
-    private Canvas irregularAreaCanvas;
 
     @FXML
     private TextArea informationTextArea;
@@ -72,32 +61,39 @@ public class EditorController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
-        DesignPaneDataModel model = new DesignPaneDataModel();
-        
+        DesignPaneDataModel designPaneDataModel = new DesignPaneDataModel();
+
         TabPane firstTabPane = informationTab.getTabPane();
-        
+
         informationVbox.setPrefSize(firstTabPane.getWidth(), firstTabPane.getHeight());
         informationScrollPane.setPrefSize(firstTabPane.getWidth(), firstTabPane.getHeight());
         informationTextArea.setPrefWidth(firstTabPane.getWidth());
         informationTextArea.setBorder(Border.EMPTY);
         informationTextArea.setDisable(true);
-        
+
         imageTilePane.setPrefSize(firstTabPane.getWidth(), firstTabPane.getHeight());
-        
+
         designPane.setPrefSize(firstTabPane.getWidth(), firstTabPane.getHeight());
-        
+        LineChart backgroudLineChart = new LineChart(new NumberAxis(0, 100, 1), new NumberAxis(0, 100, 1));
+        backgroudLineChart.setPrefSize(firstTabPane.getWidth(), firstTabPane.getHeight());
+
         ValueWrapper<DataUnit> wrapper = ProjectManager.getInstance().getSelectedDataUnitValueWrapper();
-        EditorPropertyChangeAdapter editorPropertyChangeAdapter = new EditorPropertyChangeAdapter(model, editorTabPane, informationTextArea, imageTilePane, designTab, designPane);        
+        EditorPropertyChangeAdapter editorPropertyChangeAdapter = new EditorPropertyChangeAdapter(designPaneDataModel, editorTabPane, informationTextArea, imageTilePane, designTab, designPane);
         editorPropertyChangeAdapter.process(wrapper);
 
-        firstTabPane.heightProperty().addListener(new DesignPaneHeightChangeAdapter(informationVbox, informationScrollPane, informationTextArea, imageTilePane, designPane));
-        firstTabPane.widthProperty().addListener(new DesignPaneWidthChangeAdapter(informationVbox, informationScrollPane, informationTextArea, imageTilePane, designPane));
-        
-        designPane.setOnDragDropped(new DesignPaneDrapDroppedEventHandler(model));
-        designPane.setOnDragEntered(new CanvasDragEnteredEventHandler());
-        designPane.setOnDragExited(new CanvasDragExitedEventHandler());
-        designPane.setOnDragOver(new CanvasDragOverEventHandler());
-        
+        firstTabPane.heightProperty().addListener(new DesignPaneHeightChangeAdapter(informationVbox, informationScrollPane, informationTextArea,
+                imageTilePane, designPane, backgroudLineChart));
+        firstTabPane.widthProperty().addListener(new DesignPaneWidthChangeAdapter(informationVbox, informationScrollPane, informationTextArea,
+                imageTilePane, designPane, backgroudLineChart));
+
+        designPane.getChildren().add(backgroudLineChart);
+
+        backgroudLineChart.setOnDragDropped(new DesignPaneDrapDroppedEventHandler(designPaneDataModel));
+        backgroudLineChart.setOnDragEntered(new DesignPaneDragEnteredEventHandler(designPane));
+        backgroudLineChart.setOnDragExited(new DesignPaneDragExitedEventHandler(designPane));
+        backgroudLineChart.setOnDragOver(new DesignPaneDragOverEventHandler());
+
         wrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, editorPropertyChangeAdapter);
+        designPaneDataModel.addPropertyChangeListener(DesignPaneDataModel.AREA_DROPPED_PROPERTY, new DesignPaneAreaDroppedPropertyChangeAdapter(designPane));
     }
 }

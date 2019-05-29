@@ -19,7 +19,7 @@ public class EditSubAreaDataModel extends AbstractAreaDefinedSubAreaDataModel {
     @Override
     public void save() {
 
-        SubArea dataUnit = get();
+        SubArea dataUnit = getItem();
         dataUnit.setCommonValues(getValueWrapper());
         dataUnit.setMeasurement(measurementDataModel.getMeasurementValueWrapper().getMeasurement());
     }

@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
+import com.etlsolutions.javafx.data.area.measurement.PolygonMeasurementWrapper;
 import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
@@ -49,7 +50,7 @@ public final class AreaFactory {
     }
 
     public AreaValueWrapper getDefaultAreaValueWrapper() {
-        return new AreaValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        return new AreaValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.POLYGON);
     }
     
     public Area createArea(AreaType type, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
@@ -72,5 +73,9 @@ public final class AreaFactory {
             default:
                 throw new IllegalArgumentException("Invalid area type.");
         }
+    }
+
+    public Area createTypedArea(AreaType type) {
+        return createArea(type, getDefaultAreaValueWrapper(), new PolygonMeasurementWrapper(), new ObservableListWrapperA<SubArea>());
     }
 }

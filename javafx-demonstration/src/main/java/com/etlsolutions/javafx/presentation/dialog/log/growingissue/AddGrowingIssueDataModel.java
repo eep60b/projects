@@ -12,6 +12,6 @@ public class AddGrowingIssueDataModel extends AbstractGrowingIssueDataModel {
     @Override
     public void save() {
        set(LogFactory.getInstance().createGrowingIssue(getValueWrapper()));
-       ProjectManager.getInstance().getContents().getLogGroupRoot().getIssues().addLog(get());
+       ProjectManager.getInstance().getContents().getLogGroupRoot().getIssues().addLog(getItem());
     }
 }

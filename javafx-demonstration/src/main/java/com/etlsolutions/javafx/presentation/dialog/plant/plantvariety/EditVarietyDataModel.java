@@ -16,6 +16,6 @@ public class EditVarietyDataModel extends AbstractVarietyDataModel {
 
     @Override
     public void save() {
-        get().setValues(getValueWrapper());
+        getItem().setValues(getValueWrapper());
     }
 }

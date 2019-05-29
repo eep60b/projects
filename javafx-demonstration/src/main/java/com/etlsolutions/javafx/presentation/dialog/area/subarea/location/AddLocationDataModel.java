@@ -20,7 +20,7 @@ public class AddLocationDataModel extends AbstractLocationDataModel {
     @Override
     public void save() {
         set(LocationFactory.getInstance().createLocation(getValueWrapper(),measurementDataModel.getMeasurement()));
-        selectedSubAreaValueWrapper.getValue().getLocations().add(get());
+        selectedSubAreaValueWrapper.getValue().getLocations().add(getItem());
     }
 
     @Override

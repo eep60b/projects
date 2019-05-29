@@ -15,7 +15,7 @@ public class EditFertiliserDataModel  extends AbstractFertiliserDataModel {
 
     @Override
     public void save() {
-        Fertiliser dataUnit = get();
+        Fertiliser dataUnit = getItem();
         dataUnit.setCommonValues(getValueWrapper());
         dataUnit.setAluminium(Double.parseDouble(valueWrapper.getAluminium().getValue()));
     }

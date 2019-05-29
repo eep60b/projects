@@ -25,8 +25,8 @@ public class AddPlantSubGroupDataModel extends AbstractPlantSubGroupDataModel {
     public void save() {
 
         set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper()));
-        group.getPlantSubGroups().add(get());
-        ProjectManager.getInstance().addItem(get());
+        group.getPlantSubGroups().add(getItem());
+        ProjectManager.getInstance().addItem(getItem());
     }
 
     @Override

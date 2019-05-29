@@ -32,8 +32,8 @@ public class CreateRootedPlantSubGroupDataModel extends AbstractPlantSubGroupDat
     public void save() {
 
         set(PlantsFactory.getInstance().creatPlantSubGroup(getValueWrapper()));
-        getSelectedPlantGroupValueWrapper().getValue().getPlantSubGroups().add(get());
-        ProjectManager.getInstance().addItem(get());
+        getSelectedPlantGroupValueWrapper().getValue().getPlantSubGroups().add(getItem());
+        ProjectManager.getInstance().addItem(getItem());
     }
 
     @Override

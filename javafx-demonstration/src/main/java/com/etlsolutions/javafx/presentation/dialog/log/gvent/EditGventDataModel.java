@@ -16,7 +16,7 @@ public class EditGventDataModel extends AbstractGventDataModel {
     @Override
     public void save() {
        
-        Gvent gvent = get();
+        Gvent gvent = getItem();
         gvent.setCommonValues(getValueWrapper());
         gvent.setEndTime(getEndTimeValueWrapper().getValue());
         gvent.setModifiedTime(LocalDateTime.now());

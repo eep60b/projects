@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.presentation.editor;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
@@ -14,7 +15,7 @@ import javafx.scene.layout.VBox;
  */
 public class DesignPaneWidthChangeAdapter implements ChangeListener<Number> {
 
-    DesignPaneWidthChangeAdapter(VBox informationVbox, ScrollPane informationScrollPane, TextArea informationTextArea, TilePane imageTilePane, StackPane designPane) {
+    DesignPaneWidthChangeAdapter(VBox informationVbox, ScrollPane informationScrollPane, TextArea informationTextArea, TilePane imageTilePane, StackPane designPane, LineChart backgroudLineChart) {
         //TODO:
     }
 
