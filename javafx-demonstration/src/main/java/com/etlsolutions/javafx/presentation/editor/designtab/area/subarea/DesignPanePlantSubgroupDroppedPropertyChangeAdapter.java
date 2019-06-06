@@ -74,7 +74,6 @@ public class DesignPanePlantSubgroupDroppedPropertyChangeAdapter implements Prop
         maskView.setImage(new ImagePattern(new Image("url"), 0, 0, maxX-minX, maxY-minY, true).getImage());
         Polygon p = new Polygon(points);
         maskView.setClip(p);
-        
         return maskView;
     }
 }

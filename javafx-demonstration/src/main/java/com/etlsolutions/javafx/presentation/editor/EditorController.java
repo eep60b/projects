@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.presentation.editor;
 
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
-import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDrapDroppedEventHandler;
-import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDragExitedEventHandler;
-import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDragEnteredEventHandler;
-import com.etlsolutions.javafx.presentation.editor.designptab.DesignPaneDragOverEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDrapDroppedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDragExitedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDragEnteredEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDragOverEventHandler;
 import com.etlsolutions.javafx.AbstractFXMLController;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ValueWrapper;
@@ -89,7 +89,7 @@ public class EditorController extends AbstractFXMLController {
         designPane.getChildren().add(backgroudLineChart);
 
         backgroudLineChart.setOnDragDropped(new DesignPaneDrapDroppedEventHandler(designPaneDataModel));
-        backgroudLineChart.setOnDragEntered(new DesignPaneDragEnteredEventHandler(designPane));
+        backgroudLineChart.setOnDragEntered(new DesignPaneDragEnteredEventHandler(designPane, designPaneDataModel));
         backgroudLineChart.setOnDragExited(new DesignPaneDragExitedEventHandler(designPane));
         backgroudLineChart.setOnDragOver(new DesignPaneDragOverEventHandler());
 

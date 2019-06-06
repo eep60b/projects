@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.editor.designptab;
+package com.etlsolutions.javafx.presentation.editor.designtab;
 
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.ParameterisedImageView;

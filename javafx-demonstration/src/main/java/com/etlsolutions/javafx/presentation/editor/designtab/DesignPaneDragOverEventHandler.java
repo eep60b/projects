@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.editor.designptab;
+package com.etlsolutions.javafx.presentation.editor.designtab;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;

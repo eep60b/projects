@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 /**
  *
@@ -169,6 +171,13 @@ public abstract class Area extends DataUnit implements Movable {
     public void setPoints(double[] points) {
         this.points = points;
     }
+    
+    public Shape shape() {
+        
+        //TODO:
+        return new Rectangle();
+    }
+    
     
     @Override
     public String displayMessage() {
