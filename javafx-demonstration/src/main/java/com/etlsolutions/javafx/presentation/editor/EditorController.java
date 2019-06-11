@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor;
 
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneCancelAreaEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.AddItemToDesignPaneEventHandler;
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDrapDroppedEventHandler;
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDragExitedEventHandler;
@@ -48,6 +50,12 @@ public class EditorController extends AbstractFXMLController {
 
     @FXML
     private StackPane designPane;
+    
+    @FXML
+    private Button addAreaButton;
+    
+    @FXML
+    private Button cancelAreaButton;    
 
     @FXML
     private TextArea informationTextArea;
@@ -61,6 +69,11 @@ public class EditorController extends AbstractFXMLController {
     @Override
     public void initializeComponents() {
 
+        addAreaButton.setVisible(false);
+        addAreaButton.setDisable(true);
+        cancelAreaButton.setVisible(false);
+        cancelAreaButton.setDisable(true);
+        
         DesignPaneDataModel designPaneDataModel = new DesignPaneDataModel();
 
         TabPane firstTabPane = informationTab.getTabPane();
@@ -89,11 +102,13 @@ public class EditorController extends AbstractFXMLController {
         designPane.getChildren().add(backgroudLineChart);
 
         backgroudLineChart.setOnDragDropped(new DesignPaneDrapDroppedEventHandler(designPaneDataModel));
-        backgroudLineChart.setOnDragEntered(new DesignPaneDragEnteredEventHandler(designPane, designPaneDataModel));
+        backgroudLineChart.setOnDragEntered(new DesignPaneDragEnteredEventHandler(designPane, addAreaButton, cancelAreaButton, designPaneDataModel));
         backgroudLineChart.setOnDragExited(new DesignPaneDragExitedEventHandler(designPane));
         backgroudLineChart.setOnDragOver(new DesignPaneDragOverEventHandler());
 
         wrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, editorPropertyChangeAdapter);
+        addAreaButton.setOnAction(new AddItemToDesignPaneEventHandler(designPane));
+        cancelAreaButton.setOnAction(new DesignPaneCancelAreaEventHandler(designPane));
         designPaneDataModel.addPropertyChangeListener(DesignPaneDataModel.AREA_DROPPED_PROPERTY, new DesignPaneAreaDroppedPropertyChangeAdapter(designPane));
     }
 }

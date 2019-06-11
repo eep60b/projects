@@ -1,6 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor.designtab;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Point2D;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -12,11 +13,15 @@ import javafx.scene.input.MouseEvent;
  */
 public class AreaShapeMouseDraggedEventHandler implements EventHandler<MouseEvent> {
 
-    public AreaShapeMouseDraggedEventHandler() {
+    private final AreaShapeDataModel model;
+
+    public AreaShapeMouseDraggedEventHandler(AreaShapeDataModel model) {
+        this.model = model;
     }
 
     @Override
     public void handle(MouseEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        model.getMouseDraggedPosition().setValue(new Point2D(event.getX(), event.getY()));        
     }
 }
