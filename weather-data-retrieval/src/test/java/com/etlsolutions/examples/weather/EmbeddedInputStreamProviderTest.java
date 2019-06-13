@@ -36,7 +36,7 @@ public final class EmbeddedInputStreamProviderTest {
 
         InputStream result = instance.getInputStream(EMBEDDED_REQUEST_LOCATIONS_FILE_PATH);
         
-        assertEquals(916994, result.available());
+        assertEquals(922999, result.available());
         
         instance.getInputStream(EMBEDDED_REQUEST_LOCATIONS_FILE_PATH).read(b);
         

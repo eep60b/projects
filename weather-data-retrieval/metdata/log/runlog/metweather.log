@@ -1,0 +1,861 @@
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+Totally 37 lines has been removed from the file fcs3h-Bangor (Gwynedd)-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Bangor Youth Hostel-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Branksome-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Broadstone-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Capel Curig-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Menai Bridge-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Rhyl-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Valley-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Wallisdown-2019.dat.
+
+
+Start to load the configurations...
+Thu Apr 11 13:22:41 BST 2019
+
+Try to load the configuration parameters from src/test/resources/props/config.properties.
+The configuration parameters have been successfully loaded.
+
+Try to load request locations from src/test/resources/metdata/locations/request-locations.xml.
+The request locations has been successfully loaded from src/test/resources/metdata/locations/request-locations.xml.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+
+9 sets of request configurations have been loaded successfully.
+
+Configurations:
+Configuration file =           C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\config.properties
+Request configs =              [RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350235, name=Bangor Youth Hostel}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350235?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350232, name=Bangor (Gwynedd)}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350232?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3305?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=352608, name=Menai Bridge}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352608?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3313?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3302?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3305?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3313?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}]
+Data file directory =          C:\tmp\metdata
+Addtional data directory =     [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+Base data directory =          C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows
+Data encoding  =               ASCII
+Data file extension  =         .dat
+Interval in minutes  =         1
+Date time format =             MM/dd/yyyy HH:mm:ss
+Delimiter =                    [,]
+Use FTPS service =             false
+
+Thu Apr 11 13:22:41 BST 2019:  Start the metd service.
+Thu Apr 11 13:22:41 BST 2019:  The metd service has been successfully started.
+
+Start to retrieve data...
+
+No.1
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor Youth Hostel-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor (Gwynedd)-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Menai Bridge-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Valley-2019.dat has been copied.
+Data successfully recorded at Thu Apr 11 13:22:41 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+No.2
+Data successfully recorded at Thu Apr 11 13:23:43 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+
+Thu Apr 11 13:24:41 BST 2019:  Stop the metd service.
+Thu Apr 11 13:24:42 BST 2019:  The metd service has been successfully stopped.
+The metd service thread has been destroyed.
+
+Verify the file: fcs3h-Bangor (Gwynedd)-2019.dat
+fcs3h-Bangor (Gwynedd)-2019.dat is OK.
+
+Verify the file: fcs3h-Bangor Youth Hostel-2019.dat
+fcs3h-Bangor Youth Hostel-2019.dat is OK.
+
+Verify the file: fcs3h-Branksome-2019.dat
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+Totally 37 lines has been removed from the file fcs3h-Bangor (Gwynedd)-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Bangor Youth Hostel-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Branksome-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Broadstone-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Capel Curig-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Menai Bridge-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Rhyl-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Valley-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Wallisdown-2019.dat.
+
+
+Start to load the configurations...
+Thu Apr 11 13:35:02 BST 2019
+
+Try to load the configuration parameters from src/test/resources/props/config.properties.
+The configuration parameters have been successfully loaded.
+
+Try to load request locations from src/test/resources/metdata/locations/request-locations.xml.
+The request locations has been successfully loaded from src/test/resources/metdata/locations/request-locations.xml.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+
+16 sets of request configurations have been loaded successfully.
+
+Configurations:
+Configuration file =           C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\config.properties
+Request configs =              [RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350235, name=Bangor Youth Hostel}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350235?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350232, name=Bangor (Gwynedd)}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350232?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350573, name=Branksome}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350573?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3305?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=352608, name=Menai Bridge}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352608?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3313?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350627, name=Broadstone}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350627?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3302?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=354062, name=Wallisdown}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/354062?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3862, name=Bournemouth Airport}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3862?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3305?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3749, name=Middle Wallop}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3749?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3313?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3853, name=Yeovilton}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3853?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}]
+Data file directory =          C:\tmp\metdata
+Addtional data directory =     [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+Base data directory =          C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows
+Data encoding  =               ASCII
+Data file extension  =         .dat
+Interval in minutes  =         1
+Date time format =             MM/dd/yyyy HH:mm:ss
+Delimiter =                    [,]
+Use FTPS service =             false
+
+Thu Apr 11 13:35:02 BST 2019:  Start the metd service.
+Thu Apr 11 13:35:02 BST 2019:  The metd service has been successfully started.
+
+Start to retrieve data...
+
+No.1
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor Youth Hostel-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor (Gwynedd)-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Branksome-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Menai Bridge-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Broadstone-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Wallisdown-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Bournemouth Airport-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Middle Wallop-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Yeovilton-2019.dat has been copied.
+Data successfully recorded at Thu Apr 11 13:35:02 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+No.2
+Data successfully recorded at Thu Apr 11 13:36:07 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+
+Thu Apr 11 13:37:02 BST 2019:  Stop the metd service.
+Thu Apr 11 13:37:03 BST 2019:  The metd service has been successfully stopped.
+The metd service thread has been destroyed.
+
+Verify the file: fcs3h-Bangor (Gwynedd)-2019.dat
+fcs3h-Bangor (Gwynedd)-2019.dat is OK.
+
+Verify the file: fcs3h-Bangor Youth Hostel-2019.dat
+fcs3h-Bangor Youth Hostel-2019.dat is OK.
+
+Verify the file: fcs3h-Branksome-2019.dat
+fcs3h-Branksome-2019.dat is OK.
+
+Verify the file: fcs3h-Broadstone-2019.dat
+fcs3h-Broadstone-2019.dat is OK.
+
+Verify the file: fcs3h-Capel Curig-2019.dat
+fcs3h-Capel Curig-2019.dat is OK.
+
+Verify the file: fcs3h-Menai Bridge-2019.dat
+fcs3h-Menai Bridge-2019.dat is OK.
+
+Verify the file: fcs3h-Rhyl-2019.dat
+fcs3h-Rhyl-2019.dat is OK.
+
+Verify the file: fcs3h-Valley-2019.dat
+fcs3h-Valley-2019.dat is OK.
+
+Verify the file: fcs3h-Wallisdown-2019.dat
+fcs3h-Wallisdown-2019.dat is OK.
+
+Verify the file: obs1h-Bournemouth Airport-2019.dat
+obs1h-Bournemouth Airport-2019.dat is OK.
+
+Verify the file: obs1h-Capel Curig-2019.dat
+obs1h-Capel Curig-2019.dat is OK.
+
+Verify the file: obs1h-Middle Wallop-2019.dat
+obs1h-Middle Wallop-2019.dat is OK.
+
+Verify the file: obs1h-Rhyl-2019.dat
+obs1h-Rhyl-2019.dat is OK.
+
+Verify the file: obs1h-Valley-2019.dat
+obs1h-Valley-2019.dat is OK.
+
+Verify the file: obs1h-Yeovilton-2019.dat
+obs1h-Yeovilton-2019.dat is OK.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+Totally 37 lines has been removed from the file fcs3h-Bangor (Gwynedd)-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Bangor Youth Hostel-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Branksome-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Broadstone-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Capel Curig-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Menai Bridge-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Rhyl-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Valley-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Wallisdown-2019.dat.
+
+
+Start to load the configurations...
+Thu Apr 11 13:37:29 BST 2019
+
+Try to load the configuration parameters from src/test/resources/props/config.properties.
+The configuration parameters have been successfully loaded.
+
+Try to load request locations from src/test/resources/metdata/locations/request-locations.xml.
+The request locations has been successfully loaded from src/test/resources/metdata/locations/request-locations.xml.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+
+16 sets of request configurations have been loaded successfully.
+
+Configurations:
+Configuration file =           C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\config.properties
+Request configs =              [RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350235, name=Bangor Youth Hostel}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350235?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350232, name=Bangor (Gwynedd)}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350232?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350573, name=Branksome}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350573?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3305?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=352608, name=Menai Bridge}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352608?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3313?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350627, name=Broadstone}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350627?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3302?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=354062, name=Wallisdown}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/354062?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3862, name=Bournemouth Airport}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3862?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3305?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3749, name=Middle Wallop}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3749?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3313?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3853, name=Yeovilton}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3853?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}]
+Data file directory =          C:\tmp\metdata
+Addtional data directory =     [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+Base data directory =          C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows
+Data encoding  =               ASCII
+Data file extension  =         .dat
+Interval in minutes  =         1
+Date time format =             MM/dd/yyyy HH:mm:ss
+Delimiter =                    [,]
+Use FTPS service =             false
+
+Thu Apr 11 13:37:29 BST 2019:  Start the metd service.
+Thu Apr 11 13:37:29 BST 2019:  The metd service has been successfully started.
+
+Start to retrieve data...
+
+No.1
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor Youth Hostel-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor (Gwynedd)-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Branksome-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Menai Bridge-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Broadstone-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Wallisdown-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Bournemouth Airport-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Middle Wallop-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Yeovilton-2019.dat has been copied.
+Data successfully recorded at Thu Apr 11 13:37:29 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+No.2
+Data successfully recorded at Thu Apr 11 13:38:32 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+
+Thu Apr 11 13:39:29 BST 2019:  Stop the metd service.
+Thu Apr 11 13:39:30 BST 2019:  The metd service has been successfully stopped.
+The metd service thread has been destroyed.
+
+Verify the file: fcs3h-Bangor (Gwynedd)-2019.dat
+fcs3h-Bangor (Gwynedd)-2019.dat is OK.
+
+Verify the file: fcs3h-Bangor Youth Hostel-2019.dat
+fcs3h-Bangor Youth Hostel-2019.dat is OK.
+
+Verify the file: fcs3h-Branksome-2019.dat
+fcs3h-Branksome-2019.dat is OK.
+
+Verify the file: fcs3h-Broadstone-2019.dat
+fcs3h-Broadstone-2019.dat is OK.
+
+Verify the file: fcs3h-Capel Curig-2019.dat
+fcs3h-Capel Curig-2019.dat is OK.
+
+Verify the file: fcs3h-Menai Bridge-2019.dat
+fcs3h-Menai Bridge-2019.dat is OK.
+
+Verify the file: fcs3h-Rhyl-2019.dat
+fcs3h-Rhyl-2019.dat is OK.
+
+Verify the file: fcs3h-Valley-2019.dat
+fcs3h-Valley-2019.dat is OK.
+
+Verify the file: fcs3h-Wallisdown-2019.dat
+fcs3h-Wallisdown-2019.dat is OK.
+
+Verify the file: obs1h-Bournemouth Airport-2019.dat
+obs1h-Bournemouth Airport-2019.dat is OK.
+
+Verify the file: obs1h-Capel Curig-2019.dat
+obs1h-Capel Curig-2019.dat is OK.
+
+Verify the file: obs1h-Middle Wallop-2019.dat
+obs1h-Middle Wallop-2019.dat is OK.
+
+Verify the file: obs1h-Rhyl-2019.dat
+obs1h-Rhyl-2019.dat is OK.
+
+Verify the file: obs1h-Valley-2019.dat
+obs1h-Valley-2019.dat is OK.
+
+Verify the file: obs1h-Yeovilton-2019.dat
+obs1h-Yeovilton-2019.dat is OK.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+Totally 37 lines has been removed from the file fcs3h-Bangor (Gwynedd)-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Bangor Youth Hostel-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Branksome-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Broadstone-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Capel Curig-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Menai Bridge-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Rhyl-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Valley-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Wallisdown-2019.dat.
+
+
+Start to load the configurations...
+Thu Apr 11 13:39:31 BST 2019
+
+Try to load the configuration parameters from src/test/resources/props/config.properties.
+The configuration parameters have been successfully loaded.
+
+Try to load request locations from src/test/resources/metdata/locations/request-locations.xml.
+The request locations has been successfully loaded from src/test/resources/metdata/locations/request-locations.xml.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+
+16 sets of request configurations have been loaded successfully.
+
+Configurations:
+Configuration file =           C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\config.properties
+Request configs =              [RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350235, name=Bangor Youth Hostel}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350235?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350232, name=Bangor (Gwynedd)}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350232?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350573, name=Branksome}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350573?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3305?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=352608, name=Menai Bridge}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352608?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3313?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350627, name=Broadstone}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350627?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3302?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=354062, name=Wallisdown}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/354062?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3862, name=Bournemouth Airport}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3862?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3305?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3749, name=Middle Wallop}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3749?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3313?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3853, name=Yeovilton}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3853?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}]
+Data file directory =          C:\tmp\metdata
+Addtional data directory =     [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+Base data directory =          C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows
+Data encoding  =               ASCII
+Data file extension  =         .dat
+Interval in minutes  =         1
+Date time format =             MM/dd/yyyy HH:mm:ss
+Delimiter =                    [,]
+Use FTPS service =             false
+
+Thu Apr 11 13:39:31 BST 2019:  Start the metd service.
+Thu Apr 11 13:39:31 BST 2019:  The metd service has been successfully started.
+
+Start to retrieve data...
+
+No.1
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor Youth Hostel-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor (Gwynedd)-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Branksome-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Menai Bridge-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Broadstone-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Wallisdown-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Bournemouth Airport-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Middle Wallop-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Yeovilton-2019.dat has been copied.
+Data successfully recorded at Thu Apr 11 13:39:31 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+No.2
+Data successfully recorded at Thu Apr 11 13:40:34 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+
+Thu Apr 11 13:41:31 BST 2019:  Stop the metd service.
+Thu Apr 11 13:41:32 BST 2019:  The metd service has been successfully stopped.
+The metd service thread has been destroyed.
+
+Verify the file: fcs3h-Bangor (Gwynedd)-2019.dat
+fcs3h-Bangor (Gwynedd)-2019.dat is OK.
+
+Verify the file: fcs3h-Bangor Youth Hostel-2019.dat
+fcs3h-Bangor Youth Hostel-2019.dat is OK.
+
+Verify the file: fcs3h-Branksome-2019.dat
+fcs3h-Branksome-2019.dat is OK.
+
+Verify the file: fcs3h-Broadstone-2019.dat
+fcs3h-Broadstone-2019.dat is OK.
+
+Verify the file: fcs3h-Capel Curig-2019.dat
+fcs3h-Capel Curig-2019.dat is OK.
+
+Verify the file: fcs3h-Menai Bridge-2019.dat
+fcs3h-Menai Bridge-2019.dat is OK.
+
+Verify the file: fcs3h-Rhyl-2019.dat
+fcs3h-Rhyl-2019.dat is OK.
+
+Verify the file: fcs3h-Valley-2019.dat
+fcs3h-Valley-2019.dat is OK.
+
+Verify the file: fcs3h-Wallisdown-2019.dat
+fcs3h-Wallisdown-2019.dat is OK.
+
+Verify the file: obs1h-Bournemouth Airport-2019.dat
+obs1h-Bournemouth Airport-2019.dat is OK.
+
+Verify the file: obs1h-Capel Curig-2019.dat
+obs1h-Capel Curig-2019.dat is OK.
+
+Verify the file: obs1h-Middle Wallop-2019.dat
+obs1h-Middle Wallop-2019.dat is OK.
+
+Verify the file: obs1h-Rhyl-2019.dat
+obs1h-Rhyl-2019.dat is OK.
+
+Verify the file: obs1h-Valley-2019.dat
+obs1h-Valley-2019.dat is OK.
+
+Verify the file: obs1h-Yeovilton-2019.dat
+obs1h-Yeovilton-2019.dat is OK.
+\tmp\metdata has been cleaned.
+\tmp\metdata is clean.
+Copy the sample files from OneDrive to C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\metdata\2019
+The source file has been updated.
+Remove lines which are still changable during the forecast.
+Totally 37 lines has been removed from the file fcs3h-Bangor (Gwynedd)-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Bangor Youth Hostel-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Branksome-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Broadstone-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Capel Curig-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Menai Bridge-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Rhyl-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Valley-2019.dat.
+Totally 37 lines has been removed from the file fcs3h-Wallisdown-2019.dat.
+
+
+Start to load the configurations...
+Thu Apr 11 13:41:32 BST 2019
+
+Try to load the configuration parameters from src/test/resources/props/config.properties.
+The configuration parameters have been successfully loaded.
+
+Try to load request locations from src/test/resources/metdata/locations/request-locations.xml.
+The request locations has been successfully loaded from src/test/resources/metdata/locations/request-locations.xml.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor-youth-hostel.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-bangor.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-branksome.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-menai-bridge.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-rossmore.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxfcs3hourly-wallisdown.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-bournemouth airport.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-capel-curig.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-isle of portland.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-middle wallop.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-rhyl.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-valley.properties.
+
+Try to load request configurations from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+The request configurations have been loaded successfully from C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\resources\wxobshourly-yeovilton.properties.
+
+16 sets of request configurations have been loaded successfully.
+
+Configurations:
+Configuration file =           C:\Users\ZhipengChang\Documents\NetBeansProjects\eep60b\weather-data-retrieval\src\test\resources\props\config.properties
+Request configs =              [RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350235, name=Bangor Youth Hostel}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350235?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350232, name=Bangor (Gwynedd)}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350232?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350573, name=Branksome}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350573?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3305?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=352608, name=Menai Bridge}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352608?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3313?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=350627, name=Broadstone}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/350627?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3302?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=3 hourly forecase, location=RequestLocation{id=354062, name=Wallisdown}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/354062?res=3hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3862, name=Bournemouth Airport}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3862?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3305, name=Capel Curig}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3305?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3749, name=Middle Wallop}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3749?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3313, name=Rhyl}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3313?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3302, name=Valley}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3302?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, RequesConfig{method=Hourly observation, location=RequestLocation{id=3853, name=Yeovilton}, user token=RequestToken{value=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}, url=http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3853?res=hourly&key=8412a27d-b855-4b0c-8b2d-b8b8f5285ae8}]
+Data file directory =          C:\tmp\metdata
+Addtional data directory =     [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+Base data directory =          C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows
+Data encoding  =               ASCII
+Data file extension  =         .dat
+Interval in minutes  =         1
+Date time format =             MM/dd/yyyy HH:mm:ss
+Delimiter =                    [,]
+Use FTPS service =             true
+FTPS Server name =             dev.etlsolutions.com
+FTPS Username =                zc
+FTPS Remote Source Directory = /tmp/metdata
+FTPS Local Target Direcotry =  [C:\tmp\metdata\ftps]
+
+Thu Apr 11 13:41:32 BST 2019:  Start the metd service.
+Thu Apr 11 13:41:32 BST 2019:  The metd service has been successfully started.
+
+
+Start to use FTPS to copy data from the linux server dev.etlsolutions.com
+
+Start to retrieve data...
+
+No.3
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor Youth Hostel-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Bangor (Gwynedd)-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Branksome-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Menai Bridge-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Broadstone-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\fcs3h-Wallisdown-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Bournemouth Airport-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Capel Curig-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Valley-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Middle Wallop-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Rhyl-2019.dat has been copied.
+The base file: C:\Users\ZhipengChang\OneDrive\metdata\metdata-windows\obs1h-Yeovilton-2019.dat has been copied.
+Data successfully recorded at Thu Apr 11 13:41:32 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+No.4
+Data successfully recorded at Thu Apr 11 13:41:39 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+Start to copy data from Linux server: dev.etlsolutions.com
+FTPS service: copied file from /tmp/metdata/fcs3h-Bangor Youth Hostel-2019.dat to C:\tmp\metdata\ftps\fcs3h-Bangor Youth Hostel-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Bangor (Gwynedd)-2019.dat to C:\tmp\metdata\ftps\fcs3h-Bangor (Gwynedd)-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Branksome-2019.dat to C:\tmp\metdata\ftps\fcs3h-Branksome-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Capel Curig-2019.dat to C:\tmp\metdata\ftps\fcs3h-Capel Curig-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Menai Bridge-2019.dat to C:\tmp\metdata\ftps\fcs3h-Menai Bridge-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Rhyl-2019.dat to C:\tmp\metdata\ftps\fcs3h-Rhyl-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Broadstone-2019.dat to C:\tmp\metdata\ftps\fcs3h-Broadstone-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Valley-2019.dat to C:\tmp\metdata\ftps\fcs3h-Valley-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Wallisdown-2019.dat to C:\tmp\metdata\ftps\fcs3h-Wallisdown-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Bournemouth Airport-2019.dat to C:\tmp\metdata\ftps\obs1h-Bournemouth Airport-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Capel Curig-2019.dat to C:\tmp\metdata\ftps\obs1h-Capel Curig-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Valley-2019.dat to C:\tmp\metdata\ftps\obs1h-Valley-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Middle Wallop-2019.dat to C:\tmp\metdata\ftps\obs1h-Middle Wallop-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Rhyl-2019.dat to C:\tmp\metdata\ftps\obs1h-Rhyl-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Valley-2019.dat to C:\tmp\metdata\ftps\obs1h-Valley-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Yeovilton-2019.dat to C:\tmp\metdata\ftps\obs1h-Yeovilton-2019.dat.txt
+Data files successfully copied from the linux server.
+Copied file location:            [C:\tmp\metdata\ftps]
+
+No.5
+Data successfully recorded at Thu Apr 11 13:42:35 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+No.6
+FTPS service: copied file from /tmp/metdata/fcs3h-Bangor Youth Hostel-2019.dat to C:\tmp\metdata\ftps\fcs3h-Bangor Youth Hostel-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Bangor (Gwynedd)-2019.dat to C:\tmp\metdata\ftps\fcs3h-Bangor (Gwynedd)-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Branksome-2019.dat to C:\tmp\metdata\ftps\fcs3h-Branksome-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Capel Curig-2019.dat to C:\tmp\metdata\ftps\fcs3h-Capel Curig-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Menai Bridge-2019.dat to C:\tmp\metdata\ftps\fcs3h-Menai Bridge-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Rhyl-2019.dat to C:\tmp\metdata\ftps\fcs3h-Rhyl-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Broadstone-2019.dat to C:\tmp\metdata\ftps\fcs3h-Broadstone-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Valley-2019.dat to C:\tmp\metdata\ftps\fcs3h-Valley-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/fcs3h-Wallisdown-2019.dat to C:\tmp\metdata\ftps\fcs3h-Wallisdown-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Bournemouth Airport-2019.dat to C:\tmp\metdata\ftps\obs1h-Bournemouth Airport-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Capel Curig-2019.dat to C:\tmp\metdata\ftps\obs1h-Capel Curig-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Valley-2019.dat to C:\tmp\metdata\ftps\obs1h-Valley-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Middle Wallop-2019.dat to C:\tmp\metdata\ftps\obs1h-Middle Wallop-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Rhyl-2019.dat to C:\tmp\metdata\ftps\obs1h-Rhyl-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Valley-2019.dat to C:\tmp\metdata\ftps\obs1h-Valley-2019.dat.txt
+FTPS service: copied file from /tmp/metdata/obs1h-Yeovilton-2019.dat to C:\tmp\metdata\ftps\obs1h-Yeovilton-2019.dat.txt
+Data files successfully copied from the linux server.
+Copied file location:            [C:\tmp\metdata\ftps]
+Data successfully recorded at Thu Apr 11 13:42:41 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+
+No.7
+
+
+Thu Apr 11 13:43:42 BST 2019:  Stop the metd service.
+Data successfully recorded at Thu Apr 11 13:43:39 BST 2019
+Data location:            C:\tmp\metdata
+Data additional location: [C:\tmp\metdata\additionalData1, C:\tmp\metdata\additionalData2]
+Thu Apr 11 13:43:43 BST 2019:  The metd service has been successfully stopped.
+The metd service thread has been destroyed.
+
+Verify the file: fcs3h-Bangor (Gwynedd)-2019.dat
+fcs3h-Bangor (Gwynedd)-2019.dat is OK.
+
+Verify the file: fcs3h-Bangor Youth Hostel-2019.dat
+fcs3h-Bangor Youth Hostel-2019.dat is OK.
+
+Verify the file: fcs3h-Branksome-2019.dat
+fcs3h-Branksome-2019.dat is OK.
+
+Verify the file: fcs3h-Broadstone-2019.dat
+fcs3h-Broadstone-2019.dat is OK.
+
+Verify the file: fcs3h-Capel Curig-2019.dat
+fcs3h-Capel Curig-2019.dat is OK.
+
+Verify the file: fcs3h-Menai Bridge-2019.dat
+fcs3h-Menai Bridge-2019.dat is OK.
+
+Verify the file: fcs3h-Rhyl-2019.dat
+fcs3h-Rhyl-2019.dat is OK.
+
+Verify the file: fcs3h-Valley-2019.dat
+fcs3h-Valley-2019.dat is OK.
+
+Verify the file: fcs3h-Wallisdown-2019.dat
+fcs3h-Wallisdown-2019.dat is OK.
+
+Verify the file: obs1h-Bournemouth Airport-2019.dat
+obs1h-Bournemouth Airport-2019.dat is OK.
+
+Verify the file: obs1h-Capel Curig-2019.dat
+obs1h-Capel Curig-2019.dat is OK.
+
+Verify the file: obs1h-Middle Wallop-2019.dat
+obs1h-Middle Wallop-2019.dat is OK.
+
+Verify the file: obs1h-Rhyl-2019.dat
+obs1h-Rhyl-2019.dat is OK.
+
+Verify the file: obs1h-Valley-2019.dat
+obs1h-Valley-2019.dat is OK.
+
+Verify the file: obs1h-Yeovilton-2019.dat
+obs1h-Yeovilton-2019.dat is OK.
+\tmp\metdata has been cleaned.

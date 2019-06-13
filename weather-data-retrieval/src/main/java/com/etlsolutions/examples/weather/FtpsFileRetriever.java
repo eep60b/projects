@@ -44,15 +44,20 @@ public final class FtpsFileRetriever {
         Calendar calendar = Calendar.getInstance();
         try {
             for (RequestConfig requestConfig : parameters.getRequestConfigs()) {
-                String filename =  requestConfig.getRequestMethod().getAbbreviation() + DATA_FILENAME_SEPARATOR + requestConfig.getRequestLocation().getName() + DATA_FILENAME_SEPARATOR + calendar.get(Calendar.YEAR) + parameters.getDataFileExtension();                
+                String filename = requestConfig.getRequestMethod().getAbbreviation() + DATA_FILENAME_SEPARATOR + requestConfig.getRequestLocation().getName() + DATA_FILENAME_SEPARATOR + calendar.get(Calendar.YEAR) + parameters.getDataFileExtension();
                 String inputFilePath = parameters.getFtpsRemoteSourceDirectory() + "/" + filename;
 
                 //Make an extra copy which can be picked up by the text editor in mobile devices.
                 for (String directoryPath : parameters.getFtpsLocalTargetDirecotries()) {
                     InputStream inputStream = sftpChannel.get(inputFilePath);
-                    File file = new File(directoryPath + File.separator + filename + TEXT_FILE_EXTENSION);
+                    File file = new File(directoryPath + File.separator + filename);
                     FileUtils.copyInputStreamToFile(inputStream, file);
-                    Logger.getLogger(getClass()).info("FTPS service: copied file from " + inputFilePath + " to " + file.getAbsolutePath() );
+                    Logger.getLogger(getClass()).info("FTPS service: copied file from " + inputFilePath + " to " + file.getAbsolutePath());
+
+                    InputStream txtInputStream = sftpChannel.get(inputFilePath);
+                    File txtFile = new File(directoryPath + File.separator + filename + TEXT_FILE_EXTENSION);
+                    FileUtils.copyInputStreamToFile(txtInputStream, txtFile);
+                    Logger.getLogger(getClass()).info("FTPS service: copied file from " + inputFilePath + " to " + txtFile.getAbsolutePath());
                 }
 
             }

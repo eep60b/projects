@@ -53,6 +53,11 @@ public final class FtpsFileRetrieverTest {
     private final File localFile2 = Mockito.mock(File.class);
     private final File localFile3 = Mockito.mock(File.class);
     private final File localFile4 = Mockito.mock(File.class);
+    private final File localFile5 = Mockito.mock(File.class);
+    private final File localFile6 = Mockito.mock(File.class);
+    private final File localFile7 = Mockito.mock(File.class);
+    private final File localFile8 = Mockito.mock(File.class);
+
     
     private final InOrder inOrder = Mockito.inOrder(logger, session, sftpChannel);
 
@@ -92,11 +97,15 @@ public final class FtpsFileRetrieverTest {
         Mockito.when(requestMethod2.getAbbreviation()).thenReturn("obs1h");        
         Mockito.when(requestLocation1.getName()).thenReturn("ffalafd");
         Mockito.when(requestLocation2.getName()).thenReturn("cuiafffuxc");
-        PowerMockito.whenNew(File.class).withArguments("lloooou local" + File.separator + "fcs3h-ffalafd-2020.dat.txt").thenReturn(localFile1);
-        PowerMockito.whenNew(File.class).withArguments("lloooou local" + File.separator + "obs1h-cuiafffuxc-2020.dat.txt").thenReturn(localFile2);
-        PowerMockito.whenNew(File.class).withArguments("ssss" + File.separator + "fcs3h-ffalafd-2020.dat.txt").thenReturn(localFile3);
-        PowerMockito.whenNew(File.class).withArguments("ssss" + File.separator + "obs1h-cuiafffuxc-2020.dat.txt").thenReturn(localFile4);
-        
+        PowerMockito.whenNew(File.class).withArguments("lloooou local" + File.separator + "fcs3h-ffalafd-2020.dat").thenReturn(localFile1);
+        PowerMockito.whenNew(File.class).withArguments("lloooou local" + File.separator + "obs1h-cuiafffuxc-2020.dat").thenReturn(localFile2);
+        PowerMockito.whenNew(File.class).withArguments("ssss" + File.separator + "fcs3h-ffalafd-2020.dat").thenReturn(localFile3);
+        PowerMockito.whenNew(File.class).withArguments("ssss" + File.separator + "obs1h-cuiafffuxc-2020.dat").thenReturn(localFile4);
+
+        PowerMockito.whenNew(File.class).withArguments("lloooou local" + File.separator + "fcs3h-ffalafd-2020.dat.txt").thenReturn(localFile5);        
+        PowerMockito.whenNew(File.class).withArguments("lloooou local" + File.separator + "obs1h-cuiafffuxc-2020.dat.txt").thenReturn(localFile6);
+        PowerMockito.whenNew(File.class).withArguments("ssss" + File.separator + "fcs3h-ffalafd-2020.dat.txt").thenReturn(localFile7);
+        PowerMockito.whenNew(File.class).withArguments("ssss" + File.separator + "obs1h-cuiafffuxc-2020.dat.txt").thenReturn(localFile8);        
         PowerMockito.mockStatic(FileUtils.class);
 
         instance = new FtpsFileRetriever();
@@ -129,7 +138,13 @@ public final class FtpsFileRetrieverTest {
         FileUtils.copyInputStreamToFile(inputStream2, localFile2);    
         
         PowerMockito.verifyStatic();
-        FileUtils.copyInputStreamToFile(inputStream2, localFile4);        
+        FileUtils.copyInputStreamToFile(inputStream2, localFile4);           
+        
+        PowerMockito.verifyStatic();
+        FileUtils.copyInputStreamToFile(inputStream2, localFile6);    
+        
+        PowerMockito.verifyStatic();
+        FileUtils.copyInputStreamToFile(inputStream2, localFile8);        
     }
 
     /**
