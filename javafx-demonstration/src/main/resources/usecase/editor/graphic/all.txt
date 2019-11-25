@@ -1,0 +1,86 @@
+1. Installation
+    1.1 Download gwise.exe from www.
+    1.2 double click gwise.exe and follow the instruction.
+
+2. Project 
+    2.1 Project Creation
+    2.1.1 Start gwise by clicking the gwise icon.
+    2.11.2 Select the File menu / new project
+        2.1.2.1 enter the project name and where the project locates.
+    
+    2.4 Project Deletion
+    2.5 Save Projects
+    
+3. View
+    3.1 Area View
+
+    3.2 Plant View
+        3.2.1 Live Plant View
+        3.2.2 Achieved Plant View
+
+    3.3 Diary View
+
+4. Editor
+    4.1 Area editor
+        4.1.1 Create an area
+            4.1.1.1 The create area button should be large in the centre. Once it is clicked, a new area dialog should appear.
+            4.1.1.2 The newly created area should be shown fully in the editor.
+        4.1.2 Dragging a subarea into an area will create a floating subarea on top of the area. 
+              4.1.2.1 The modal floating subarea sits on top a rectangle transparent image which have a default size of 10 m X 10 m or as much as
+                      possible if the area is smaller than 10 m X 10 m. 
+              4.1.2.2 The float area should be calculated against the underlying area. Any overlapped subarea is not allowed.
+                4.1.2.2.1 The calculation of overlapped area:
+                    method 1: Make the whole graph as an 100 m X 100 m area with 1000 X 1000 points. when a subarea is added, 
+                              delete those points in the subarea. The rest is empty points. pro: simple, few mistakes can be made. con: a lot of points initially.
+                    method 2: Make existing subarea points. These in total are occupied points and should be avoid. pro: easy to start, graph not limited. con: can be slow if too many subareas.
+                    method 3: Make all polygons to multiple triangles. (Used)
+                4.1.2.2.2 Identification of convex polygon
+                    1. create lines between one points to other points apart from its neighbours. If there is one line has interception from any polygon side,  
+                    
+
+
+        4.1.3 Dragging a plant icon over an subarea will automatically create a location with rectangle shape. The location will 
+              fill the subarea as much as possible. 
+              This shaped subarea and its contents should be kept float until the confirm button is clicked.
+              
+    4.2 Text editor
+
+5. Menus
+    5.1 The File Menu
+    5.2 The Add Menu
+    5.3 The Edit Menu
+    5.4 The View Menu
+    5.5 The Tools Menu
+    5.6 The Help Menu
+    
+6. Pallette 
+    The Pallette can be divided by several section. The whole pallette will be disabled if no area is in the editor
+    6.1 Tools
+        6.1.1 Pencil 
+        6.1.2 Rubber
+        6.1.3 Brush
+        6.1.4 Filling basket
+        6.1.5 Text input
+        6.1.6 Magnifier
+
+    6.1 The Shaped area (subarea objects) section.
+        The default area shape is rectangle.
+        6.1.1 The rectangle shape
+        6.1.2 The polygon shape
+        6.1.3 The circle shape
+        6.1.4 The irregular shape
+        6.1.5 
+    
+    6.2 The Plant Section
+        The plant section contains all plant subgroups added to this project. 
+        It should be able dynamically changed when new subgroup is added.
+
+    6.8 The drag and drop
+        6.8.1 The drag can be accepted anytime.
+
+    6.9 The Other Objects Section.
+7. Exit
+
+8. Toolbar
+
+9. Dialogues

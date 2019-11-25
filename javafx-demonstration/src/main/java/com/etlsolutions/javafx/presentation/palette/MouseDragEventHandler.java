@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 /**
- *
+ * The MouseDragEventHandler class handles the event when an object is dragged. 
  * @author zc
  */
 public class MouseDragEventHandler implements EventHandler<MouseEvent> {
@@ -15,8 +15,9 @@ public class MouseDragEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        
-        ImageView v = (ImageView) event.getSource();        
+
+        event.setDragDetect(false);
+        ImageView v = (ImageView) event.getSource();
         v.setMouseTransparent(true);
-    }   
+    }
 }

@@ -5,7 +5,9 @@ import javafx.scene.image.ImageView;
 
 /**
  * The ParameterisedImageView class is designed to represent an icon in the
- * pallette. The parameter can be a sub-area type/shape or a plant group.
+ * pallette. The parameter can be a sub-area type/shape or a plant group. When
+ * an object is dragged, the parameters is saved in the event object which can
+ * be transferred to the target.
  *
  * @author zc
  */

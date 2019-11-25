@@ -2,6 +2,7 @@ package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.javafx.data.basicshape.GwisePoint;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
@@ -49,7 +50,7 @@ public abstract class Area extends DataUnit implements Movable {
     private AreaShape shape;
     private ObservableListWrapperA<SubArea> subAreas;
 
-    private double[] points;
+    private ObservableListWrapperA<GwisePoint> points;
     
     public Area() {
     }
@@ -164,11 +165,11 @@ public abstract class Area extends DataUnit implements Movable {
         this.subAreas = subAreas;
     }    
 
-    public double[] getPoints() {
+    public ObservableListWrapperA<GwisePoint> getPoints() {
         return points;
     }
 
-    public void setPoints(double[] points) {
+    public void setPoints(ObservableListWrapperA<GwisePoint> points) {
         this.points = points;
     }
     

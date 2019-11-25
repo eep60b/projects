@@ -9,16 +9,14 @@ import javafx.scene.input.MouseEvent;
  */
 public class AreaShapeMouseClickedEventHandler implements EventHandler<MouseEvent> {
 
-    public AreaShapeMouseClickedEventHandler() {
-    }
+    private final AreaShapeDataModel shapeDataModel;
 
-    AreaShapeMouseClickedEventHandler(AreaShapeDataModel shapeDataModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AreaShapeMouseClickedEventHandler(AreaShapeDataModel shapeDataModel) {
+        this.shapeDataModel = shapeDataModel;
     }
 
     @Override
     public void handle(MouseEvent event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }

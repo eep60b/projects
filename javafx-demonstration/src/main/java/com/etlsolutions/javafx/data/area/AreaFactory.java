@@ -9,6 +9,8 @@ import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurementValueWr
 import com.etlsolutions.javafx.data.area.subarea.PlantBed;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaFactory;
+import javafx.collections.ObservableList;
+import javafx.scene.shape.PathElement;
 
 /**
  *
@@ -77,5 +79,21 @@ public final class AreaFactory {
 
     public Area createTypedArea(AreaType type) {
         return createArea(type, getDefaultAreaValueWrapper(), new PolygonMeasurementWrapper(), new ObservableListWrapperA<SubArea>());
+    }
+
+    public Area createPolygonArea(AreaType areaType, ObservableList<Double> points) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Area createRectangleArea(AreaType type, AreaShape areaShape, double x, double y, double width, double height) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Area createCircleArea(AreaType type, double centerX, double centerY, double radius) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Area createIrregularArea(AreaType type, ObservableList<PathElement> elements) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.editor;
+package com.etlsolutions.javafx.presentation.editor.designtab.anchor;
 
 import static com.etlsolutions.javafx.system.SettingConstants.*;
 import javafx.beans.property.DoubleProperty;

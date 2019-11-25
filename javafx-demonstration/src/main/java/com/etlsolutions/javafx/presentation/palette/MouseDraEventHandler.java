@@ -4,6 +4,8 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 /**
+ * The MouseDraEventHandler class handles the drag event after the user push
+ * down the mouse click.
  *
  * @author zc
  */
@@ -14,6 +16,6 @@ public class MouseDraEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        event.setDragDetect(false);
-    }    
+       
+    }
 }

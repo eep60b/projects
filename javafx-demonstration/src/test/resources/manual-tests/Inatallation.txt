@@ -9,3 +9,7 @@
     View Menu: All
 
 5. Disabled toolbar buttons:
+
+6. The editor pane:
+    Nothing.
+    

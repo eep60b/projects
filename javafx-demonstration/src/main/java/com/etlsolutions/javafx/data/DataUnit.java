@@ -34,11 +34,10 @@ public abstract class DataUnit {
     protected final DataUnitChangeSupport support = new DataUnitChangeSupport();
 
     /**
-     * The default constructor.
+     * The default constructor. Reserved for being a proper java bean.
      */
     public DataUnit() {
     }
-
 
     protected DataUnit(String title) {
         this.id = DataUnitIdRegistry.getInstance().createNewId();
@@ -46,7 +45,6 @@ public abstract class DataUnit {
         this.information = "";
         this.imageLinks = new ObservableListWrapperA<>();
     }
-
 
     public DataUnit(DataUnitValueWrapper valueWrapper) {
         this(valueWrapper.getTitle());

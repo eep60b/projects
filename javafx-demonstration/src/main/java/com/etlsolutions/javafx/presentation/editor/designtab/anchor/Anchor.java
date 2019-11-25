@@ -1,6 +1,5 @@
-package com.etlsolutions.javafx.presentation.editor;
+package com.etlsolutions.javafx.presentation.editor.designtab.anchor;
 
-import javafx.beans.property.DoubleProperty;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseEvent;
@@ -14,21 +13,25 @@ import javafx.scene.shape.StrokeType;
  */
 public class Anchor extends Circle {
 
-    private final DoubleProperty x, y;
+    private final AnchorDoubleProperty xProperty;
+    private final AnchorDoubleProperty yProperty;
 
-    Anchor(Color color, DoubleProperty x, DoubleProperty y) {
-        super(x.get(), y.get(), 10);
+    public Anchor() {
+      
+        Color color = Color.GOLD;
+        
         setFill(color.deriveColor(1, 1, 1, 0.5));
         setStroke(color);
         setStrokeWidth(2);
         setStrokeType(StrokeType.OUTSIDE);
 
-        this.x = x;
-        this.y = y;
+        xProperty = new AnchorDoubleProperty(this, "x");
+        yProperty = new AnchorDoubleProperty(this, "y");
 
-        x.bind(centerXProperty());
-        y.bind(centerYProperty());
+        xProperty.bind(centerXProperty());
+        xProperty.bind(centerYProperty());
         enableDrag();
+        
     }
 
     // make a node movable by dragging it around with the mouse.
@@ -49,6 +52,7 @@ public class Anchor extends Circle {
                 getScene().setCursor(Cursor.HAND);
             }
         });
+        
         setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -78,9 +82,16 @@ public class Anchor extends Circle {
                 }
             }
         });
-
     }
 
+    public AnchorDoubleProperty getXProperty() {
+        return xProperty;
+    }
+
+    public AnchorDoubleProperty getYProperty() {
+        return yProperty;
+    }   
+    
     // records relative x and y co-ordinates.
     private class Delta {
         double x, y;

@@ -60,6 +60,7 @@ public class ProjectContentsPalettePropertyChangeAdaper implements PropertyChang
                     view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
                     view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
                     view.setOnDragDone(new ImageViewDragDoneEventHandler());
+                    view.setOnMouseEntered(new PlantSubCroupMouseEnterEventHandler(subGroup));
                     plantsTilePane.getChildren().add(view);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(getClass()).error(ex);

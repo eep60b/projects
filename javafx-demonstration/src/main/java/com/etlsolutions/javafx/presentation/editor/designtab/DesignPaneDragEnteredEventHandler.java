@@ -75,7 +75,8 @@ public class DesignPaneDragEnteredEventHandler implements EventHandler<DragEvent
                 shape.setFill(intersect ? Color.RED : Color.GREEN);
                 addAreaButton.setDisable(intersect);
 
-                AreaShapeDataModel shapeDataModel = new AreaShapeDataModel();
+                AreaShapeDataModel shapeDataModel = new AreaShapeDataModel(areaShape);
+                
                 shape.setOnMouseClicked(new AreaShapeMouseClickedEventHandler(shapeDataModel));
                 shape.setOnMousePressed(new AreaShapeMousePressedEventHandler(shapeDataModel));
                 shape.setOnMouseReleased(new AreaShapeMouseReleasedEventHandler(shapeDataModel));

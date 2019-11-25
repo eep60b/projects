@@ -15,8 +15,23 @@ public class ImageLink {
     @JsonIgnore
     public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.INFORMATION._PROPERTY";
 
+    /**
+     * The link is the string path which points to the original location of the
+     * image. After loading, the original image should be copied and modified to
+     * suit the purpose of this application. The copied image will be saved to
+     * the path location. The link then will only provide a reference. It later
+     * can be used to compare the origin of two images.
+     */
     private String link;
+
+    /**
+     * Any additional information is saved here as a text.
+     */
     private String information;
+
+    /**
+     * The path is the location of current image.
+     */
     private String path;
 
     public ImageLink() {
@@ -26,10 +41,16 @@ public class ImageLink {
         this.link = link;
         this.information = information;
     }
-        
+
     @JsonIgnore
     private final DataUnitChangeSupport support = new DataUnitChangeSupport();
 
+    /**
+     * Get the original link of this image. It can be a URL or a path in local
+     * physical disk. The link is not always valid.
+     *
+     * @return the original link.
+     */
     public String getLink() {
         return link;
     }
@@ -39,7 +60,7 @@ public class ImageLink {
         this.link = link;
         support.fireChange(LINK_PROPERTY, oldValue, this.link);
     }
-    
+
     public String getInformation() {
         return information;
     }
@@ -57,7 +78,7 @@ public class ImageLink {
     public void setPath(String path) {
         this.path = path;
     }
-  
+
     public void addListener(String property, DataUnitChangeListener listener) {
         support.addListener(property, listener);
     }

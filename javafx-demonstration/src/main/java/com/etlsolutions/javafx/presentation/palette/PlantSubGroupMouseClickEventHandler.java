@@ -20,7 +20,10 @@ public class PlantSubGroupMouseClickEventHandler implements EventHandler<MouseEv
 
     @Override
     public void handle(MouseEvent event) {
-       new FXMLActionEventHandler<>(new EditPlantSubGroupDataModel(subGroup)).handle(null);
+
+        if (event.getClickCount() > 1) {
+            new FXMLActionEventHandler<>(new EditPlantSubGroupDataModel(subGroup)).handle(null);
+        }
     }
-    
+
 }
