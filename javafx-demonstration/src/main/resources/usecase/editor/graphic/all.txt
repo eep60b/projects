@@ -181,7 +181,8 @@
         6.1.4 Brush
         6.1.5 Filling basket
         6.1.6 Text input
-        6.1.7 Magnifier
+        6.1.7 Magnifier (+, zoom in)
+        6.1.8 Reducer (-, zoom out)
 
     6.1 The Shaped area (subarea objects) section.
         6.1.1 Plant bed / Raised plant bed
