@@ -4,24 +4,24 @@ package com.etlsolutions.javafx.data.area;
  *
  * @author zc
  */
-public enum AreaShape {
+public enum GwiseShapeType {
 
     POLYGON("Polygon"),
     
     RECTANGLE("Rectangle"), 
     
-    SQURE ("Squre"), 
+    SQURE ("Squre"), //This is probably not needed.
     
     CIRCLE ("Circle"), 
     
     TRIANGLE("Triangle"), 
     
-    IRREGULAR("Irregular");
+    IRREGULAR("Irregular");     //This is probably not needed.
     
     
     private final String title;
 
-    private AreaShape(String title) {
+    private GwiseShapeType(String title) {
         this.title = title;
     }
 

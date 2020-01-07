@@ -1,6 +1,8 @@
 package com.etlsolutions.javafx.data.basicshape;
 
 import static com.etlsolutions.javafx.system.SettingConstants.PI;
+import java.math.BigDecimal;
+import javafx.scene.shape.Circle;
 
 /**
  *
@@ -19,6 +21,10 @@ public class GwiseCircle implements GwiseShape {
         this.radius = radius;
     }
 
+    public GwiseCircle(Circle circle) {
+        this (new GwisePoint(circle.getCenterX(), circle.getCenterY()), circle.getRadius());
+    }
+  
     public GwisePoint getCenter() {
         return center;
     }
@@ -36,12 +42,12 @@ public class GwiseCircle implements GwiseShape {
     }    
 
     @Override
-    public double getArea() {
-        return PI * radius * radius;
+    public double area() {
+        return new BigDecimal(PI * radius * radius).setScale(2).doubleValue();
     }
 
     @Override
-    public double getPerimeter() {
-        return 2 * PI * radius;
+    public double perimeter() {
+        return new BigDecimal(2 * PI * radius).setScale(2).doubleValue();
     }
 }

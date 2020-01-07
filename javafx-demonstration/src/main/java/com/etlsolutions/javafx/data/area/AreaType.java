@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
-import static com.etlsolutions.javafx.data.area.AreaShape.*;
+import static com.etlsolutions.javafx.data.area.GwiseShapeType.*;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
 
@@ -10,28 +10,28 @@ import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.*;
  */
 public enum AreaType {
 
-    GARDEN("Garden", new AreaShape[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, new SubAreaType[]{PLANT_BED, RAISED_PLANT_BED, LAWN, BORDER, GREEN_HOUSE, CONTAINTER_SET, SINGLE_CONTAINTER, POND, SubAreaType.CUSTOM}), 
+    GARDEN("Garden", new GwiseShapeType[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, new SubAreaType[]{PLANT_BED, RAISED_PLANT_BED, LAWN, BORDER, GREEN_HOUSE, CONTAINTER_SET, SINGLE_CONTAINTER, POND, SubAreaType.CUSTOM}), 
     
-    INDOOR("Indoor Area", new AreaShape[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, new SubAreaType[]{CONTAINTER_SET, SINGLE_CONTAINTER, ROOM, SubAreaType.CUSTOM}), 
+    INDOOR("Indoor Area", new GwiseShapeType[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, new SubAreaType[]{CONTAINTER_SET, SINGLE_CONTAINTER, ROOM, SubAreaType.CUSTOM}), 
     
-    PATIO("Patio", new AreaShape[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, new SubAreaType[]{RAISED_PLANT_BED, GREEN_HOUSE, CONTAINTER_SET, SINGLE_CONTAINTER, SubAreaType.CUSTOM}),
+    PATIO("Patio", new GwiseShapeType[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, new SubAreaType[]{RAISED_PLANT_BED, GREEN_HOUSE, CONTAINTER_SET, SINGLE_CONTAINTER, SubAreaType.CUSTOM}),
 
     /**
      *
      */
-    BALCONY("Balcony", new AreaShape[]{RECTANGLE, SQURE, IRREGULAR}, new SubAreaType[]{CONTAINTER_SET, SINGLE_CONTAINTER, SubAreaType.CUSTOM}), 
+    BALCONY("Balcony", new GwiseShapeType[]{RECTANGLE, SQURE, IRREGULAR}, new SubAreaType[]{CONTAINTER_SET, SINGLE_CONTAINTER, SubAreaType.CUSTOM}), 
     
-    ALLOTMENT("Allotment", new AreaShape[]{RECTANGLE, SQURE}, new SubAreaType[]{PLANT_BED, RAISED_PLANT_BED, BORDER, GREEN_HOUSE, SubAreaType.CUSTOM}), 
+    ALLOTMENT("Allotment", new GwiseShapeType[]{RECTANGLE, SQURE}, new SubAreaType[]{PLANT_BED, RAISED_PLANT_BED, BORDER, GREEN_HOUSE, SubAreaType.CUSTOM}), 
     
-    FARM("Farm", new AreaShape[]{RECTANGLE, SQURE, IRREGULAR}, new SubAreaType[]{}), 
+    FARM("Farm", new GwiseShapeType[]{RECTANGLE, SQURE, IRREGULAR}, new SubAreaType[]{}), 
     
-    CUSTOM("Custom Area", new AreaShape[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, SubAreaType.values());
+    CUSTOM("Custom Area", new GwiseShapeType[]{RECTANGLE, SQURE, CIRCLE, TRIANGLE, IRREGULAR}, SubAreaType.values());
 
     private final String title;
-    private final AreaShape[] shapes;    
+    private final GwiseShapeType[] shapes;    
     private final SubAreaType[] subAreaTypes;
 
-    private AreaType(String title, AreaShape[] shapes, SubAreaType[] subAreaTypes) {
+    private AreaType(String title, GwiseShapeType[] shapes, SubAreaType[] subAreaTypes) {
         this.title = title;
         this.shapes = shapes;        
         this.subAreaTypes = subAreaTypes;
@@ -41,7 +41,7 @@ public enum AreaType {
         return title;
     }
 
-    public AreaShape[] getShapes() {
+    public GwiseShapeType[] getShapes() {
         return shapes;
     }
 

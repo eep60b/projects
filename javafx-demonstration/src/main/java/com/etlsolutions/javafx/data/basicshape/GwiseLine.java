@@ -38,12 +38,12 @@ public class GwiseLine implements GwiseShape {
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return 0;
     }
  
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return Math.sqrt(getLengthSquare());
     }
 }

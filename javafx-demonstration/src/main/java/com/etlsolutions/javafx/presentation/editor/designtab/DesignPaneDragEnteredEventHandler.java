@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor.designtab;
 
 import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.data.area.AreaShape;
+import com.etlsolutions.javafx.data.area.GwiseShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -10,9 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.input.DragEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
+ * The DesignPaneDragEnteredEventHandler class handles the event when the mouse
+ * cursor entered into the design pane.
  *
  * @author zc
  */
@@ -31,7 +36,8 @@ public class DesignPaneDragEnteredEventHandler implements EventHandler<DragEvent
     }
 
     /**
-     *
+     * When the moused entered into the design pane, a shape with the default
+     * size is created.
      *
      * TODO: shade the area occupied. (Add a shape same as the source object)
      *
@@ -52,7 +58,7 @@ public class DesignPaneDragEnteredEventHandler implements EventHandler<DragEvent
                 cancelAreaButton.setVisible(true);
                 cancelAreaButton.setDisable(false);
 
-                AreaShape areaShape = (AreaShape) parameters[1];
+                GwiseShapeType areaShape = (GwiseShapeType) parameters[1];
 
                 double x = event.getSceneX();
                 double y = event.getSceneY();
@@ -75,23 +81,35 @@ public class DesignPaneDragEnteredEventHandler implements EventHandler<DragEvent
                 shape.setFill(intersect ? Color.RED : Color.GREEN);
                 addAreaButton.setDisable(intersect);
 
-                AreaShapeDataModel shapeDataModel = new AreaShapeDataModel(areaShape);
-                
+                AreaShapeDataModel shapeDataModel = new AreaShapeDataModel(areaShape, x, y);
+
                 shape.setOnMouseClicked(new AreaShapeMouseClickedEventHandler(shapeDataModel));
                 shape.setOnMousePressed(new AreaShapeMousePressedEventHandler(shapeDataModel));
                 shape.setOnMouseReleased(new AreaShapeMouseReleasedEventHandler(shapeDataModel));
                 shape.setOnMouseDragged(new AreaShapeMouseDraggedEventHandler(shapeDataModel));
-                
+
                 designPane.getChildren().add(shape);
-                
+
                 shapeDataModel.getMouseDraggedPosition().addListener(new AreaShapeMouseDraggedPositionChangeAdapter(shape, addAreaButton));
-                
-                
             }
         }
     }
 
-    private Shape getShape(double x, double y, AreaShape areaShape) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private Shape getShape(double x, double y, GwiseShapeType areaShape) {
+
+        switch (areaShape) {
+
+            case CIRCLE:
+                return new Circle(x, y, 100);
+            case RECTANGLE:
+                return new Rectangle(x, y, 100, 100);
+            case POLYGON:
+                return new Polygon(x, y, x + 100, y + 100, x + 100, y + 100, x + 100, y + 100, x + 500, y + 500);
+            case TRIANGLE:
+                return new Polygon(x, y, x + 100, y + 100, x + 100, y + 100, x + 100, y + 100, x + 500, y + 500);
+            default:
+                throw new IllegalArgumentException("Invalid shape type");
+        }
+
     }
 }

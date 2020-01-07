@@ -13,7 +13,31 @@
     
 3. View
     3.1 Area View
+        3.0 The ground (AreaRoot) is not displayed.
+            3.0.1 There will be a default garden area when the project starts.
+            3.0.2 The ground (AreaRoot) cannot be selected.
+            3.0.3 Area can be added from the menu or by right click the empty space in the view windows and select "Add garden area" etc. After that follow the "Add area" dialog.
 
+        3.1.1 Garden Area
+            3.1.1.1 The garden area can contain plant bed, raised plant bed, greenhouse, boarder, containers.
+            3.1.1.2 The garden area can be any shape.
+            3.1.1.3 There will be a default garden area when the project starts.
+            3.1.1.4 The default area contains one plant bed.
+        3.1.2 Patio Area
+            3.1.2.1 The patio area can contain raised plant bed, greenhouse and containers.
+            3.1.2.2 The patio area can be any shape.
+        3.1.3 Balcony Area
+            3.1.3.1 The balcony area can contain containers only.
+            3.1.3.2 The shape of balcony area can be rectangle, square and the combination of string line and arc line.
+        3.1.4 Indoor Area (House)
+            3.1.4.1 The indoor area can only contain containers.
+            3.1.4.2 The shape of indoor area can only be rectangle and square.
+        3.1.5 Allotment Area
+            3.1.5.1 The allotment area can contain plant bed, raised plant bed, greenhouse, boarder, containers.
+            3.1.5.2 The allotment area can only be rectangle.
+        3.1.6 Farm Area
+            3.1.6.1 The farm area can contain plant bed, raised plant bed, greenhouse and boarder.
+            3.1.6.2 The farm area can be any shape.
     3.2 Plant View
         3.2.1 Live Plant View
         3.2.2 Achieved Plant View
@@ -21,56 +45,169 @@
     3.3 Diary View
 
 4. Editor
-    4.1 Area editor
-        4.1.1 Create an area
-            4.1.1.1 The create area button should be large in the centre. Once it is clicked, a new area dialog should appear.
-            4.1.1.2 The newly created area should be shown fully in the editor.
-        4.1.2 Dragging a subarea into an area will create a floating subarea on top of the area. 
-              4.1.2.1 The modal floating subarea sits on top a rectangle transparent image which have a default size of 10 m X 10 m or as much as
-                      possible if the area is smaller than 10 m X 10 m. 
-              4.1.2.2 The float area should be calculated against the underlying area. Any overlapped subarea is not allowed.
-                4.1.2.2.1 The calculation of overlapped area:
-                    method 1: Make the whole graph as an 100 m X 100 m area with 1000 X 1000 points. when a subarea is added, 
-                              delete those points in the subarea. The rest is empty points. pro: simple, few mistakes can be made. con: a lot of points initially.
-                    method 2: Make existing subarea points. These in total are occupied points and should be avoid. pro: easy to start, graph not limited. con: can be slow if too many subareas.
-                    method 3: Make all polygons to multiple triangles. (Used)
-                4.1.2.2.2 Identification of convex polygon
-                    1. create lines between one points to other points apart from its neighbours. If there is one line has interception from any polygon side,  
-                    
+    4.1 Ground (AreaRoot)
+        4.1.1 There is only one ground which will be will be 10000 cm X 6000 cm with 1000 pixel X 600 pixel as default.
+        4.1.2 The ground colour is always grey.
+        4.1.3 When the enlarge button is hit, it increases the pixels.
+    4.2 Area        
+        4.2.1 The added area will be filled in brown colour (garden, allotment and farm) or white (indoor, balcony and patio).  
+        4.2.2 After an area added
+            4.2.2.1 The default area should appear with its anchors visible.
+            4.2.2.2 The anchors disappear when the mouse clicks (single click) somewhere not on the area edges.
+            4.2.2.3 The anchors appear when the mouse clicks on the area.
+            4.2.2.4 Drag the area to change shape
+                4.2.2.4.1 A floating shape with broken line as boarder will be created. This floating shape will be used to calculate intersection with other areas
+                          on the ground. If an intersection occurs, the floating shape will be painted red and the area cannot be added. This floating shape
+                          will be materialized to the ground instantly.
+                4.2.2.4.2 The rectangle: the side can only move left/right or up/down. drag the side to move side. drag a vertex to move to sides.
+                4.2.2.4.3 The square: the side can only move left/right or up/down. 
+                4.2.2.4.4 The circle: any point is the same.
+                4.2.2.4.5 The triangle: The vertices can move to any direction.
+                4.2.2.4.6 The polygon: The vertices can move to any direction. Double click the side to add or remove(when the vertex is on the line) more vertices.
 
+        4.2.3 Double click the area will result in an editor dialog which can modify the information of the area.
 
-        4.1.3 Dragging a plant icon over an subarea will automatically create a location with rectangle shape. The location will 
-              fill the subarea as much as possible. 
-              This shaped subarea and its contents should be kept float until the confirm button is clicked.
-              
-    4.2 Text editor
+        4.2.4 Drawing an area 
+            4.2.4.1 The first click on the ground will generate a polyline object. It will generate a sticky line with one end move with the mouse.
+                    The line will be solidified when the mouse click to the next time. The double click will finished the drawing and a polygon 
+                    will be created using the polyline's trace.
+ 
+                      
+    4.3 Subarea
+        4.3.1 Subarea can only be created by dragging a subarea icon (plant bed/greenhouse etc.) into an area.
+        4.3.2 Before the subarea icon enters an area, it icon remain its logo and size. After it enters the area (Not ground), 
+              a shape will be created on top of the ground.
+        4.3.3 The default size of the shape will be 1/4 of the area if the area is empty. 
+              If the area contains other subareas, the default size will be the largest available rectangle.
+        4.3.4 The shape will be in the red colour if it intercepts with other subarea or the area boarder.
+        4.3.5 The subarea is filled with green colour (apart from pool in blue colour).
+        4.3.6 Drawing a subarea on areas is similar to the drawing an area on the ground.  
+               
+    4.4 Plant
+        4.4.1 Dragging a plant subgroup icon over an subarea will automatically create a rectangle shape if the subarea is empty. 
+        4.4.2 The rectangle will be transparent and cover all the subarea. The rectangle then can be reduced in size.
+        4.4.3 The plant inside the subarea will be shown in its original colour. The plant outside the subarea will be shown in dark grey colour.
+        4.4.4 If the confirm button (or double click?) is pressed, those plant inside the subarea will be added.  
+        4.4.5 Dragging one plant icon over an occupied subarea will only add one plant at a time.
+        4.4.6 If the plant is added on top of another plant. It is automatically transferred to an available space.
+        4.4.7 If no space is available, nothing will be added.
+        4.4.8 Click a single plant will get the plant selected. 
+        4.4.9 Press inside the subarea then drag will create a rectangle shape with the press point and the current point as its vetice. select those plants covered by the rectangle
 
+        4.1.4 Drawing a area/subarea will add a Polyline object to the design pane. The rest is treated the same as Polygon. The minimum Polyline interval will be set to 5 pixels 
+              no matter how much distance it represents. When the cursor is dragging in the screen, the distance between the current position and the last point will be constantly calculated. 
+                Once the minimum distance reaches, a new point is added. A broken line will be presented which constantly linked to the first point. Once the cursor is close to the first point,
+                the line will change to solid.   
+    
+    4.5 Text editor
+        4.5.1 There will be no text editor for area and plants in the design pane. Any text change will be done in dialogs.
+        4.5.2 Note:
+            4.5.2.1
 5. Menus
     5.1 The File Menu
+        5.1.1 New Project
+            5.1.1.1 The operation will create a new project, save it onto the disk. 
+            5.1.1.2 Option: A default garden area with size of 10 m X 20 m will be automatically created.
+            5.1.1.3 The directory name will be the same as the project name. If there is already an existing directory, an error message will appear.
+        5.1.2 Open Project
+        5.1.3 Close Project
+        5.1.4 Delete Project
+        5.1.5 Import Project
+        5.1.7 Export Project
+        5.1.8 Save
+        5.1.9 Save as
+        5.1.10 Print
+        5.1.12 Exit
+
+        
     5.2 The Add Menu
+        Perform the add area operation. It is a dialog.
+        5.2.1 Add a garden
+            Garden will be added as an area.
+            5.2.1.1 If there is already a garden area, A warning dialog should be presented (???).
+            5.2.1.2 The title is compulsory. The maximum length is 300 characters.  
+            5.2.1.3 The description is optional.
+            5.2.1.4 The shape can be rectangle, square, circle, triangle, polygon.               
+            5.2.1.5 The logo is a default image which can be changed via double click.
+            5.2.1.6 After the OK button is clicked. An area with default size will be created.
+                5.2.1.6.1 The default size is 1/4 of the total size (50 m X 30 m) if no area is in the ground (The area group).
+                5.2.1.6.2 The default area will occupy any available area if there are areas in the ground (The area group).
+                5.2.1.6.3 The default area will be in the centre if possible.
+            After these steps, the control will be passed to the design pane in editor. The focus will be on the newly created area. 
+        5.2.2 Add a patio
+            A Patio is added as an area.
+        5.2.3 Add a balcony
+            A balcony is added as an area.
+        5.2.4 Add an indoor room
+        5.2.5 Add a farm
+        5.2.6 Add an allotment
+        ****There will be no "Add Subarea".****
+        5.2.7 Add a plant type
+        5.2.8 Add fertilizer
+        5.2.9 Add growing medium.
+        *****There will be no "Add plants", plants will be dragged to designer.
+        5.2.10 Add an event
+        5.2.11 Add a 
     5.3 The Edit Menu
+        5.3.1 Undo  ctrl-Z
+        5.3.2 Redo  ctrl-Y
+        *************************
+        5.3.3 cut
+        5.3.4 copy
+        5.3.5 paste
+        5.3.6 delete
+        ***************************
+        5.3.7 Select
+        5.3.8 Find
+        5.3.9 Replace
+ 
     5.4 The View Menu
+        5.4.1 Zoom in
+        5.4.2 Zoom out
+        100% display
+        Rulers
+        Grid Lines
+        Status Bar
     5.5 The Tools Menu
     5.6 The Help Menu
     
 6. Pallette 
     The Pallette can be divided by several section. The whole pallette will be disabled if no area is in the editor
     6.1 Tools
-        6.1.1 Pencil 
-        6.1.2 Rubber
-        6.1.3 Brush
-        6.1.4 Filling basket
-        6.1.5 Text input
-        6.1.6 Magnifier
+        The tool is available if the floating panel appears and no shape area is selected.
+        6.1.1 Point
+        6.1.2 Pencil (draw poly lines).
+        6.1.3 Rubber (Do not implemented)
+        6.1.4 Brush
+        6.1.5 Filling basket
+        6.1.6 Text input
+        6.1.7 Magnifier
 
     6.1 The Shaped area (subarea objects) section.
-        The default area shape is rectangle.
-        6.1.1 The rectangle shape
-        6.1.2 The polygon shape
-        6.1.3 The circle shape
-        6.1.4 The irregular shape
-        6.1.5 
+        6.1.1 Plant bed / Raised plant bed
+            6.1.1.1 The default area shape is rectangle. Once a shape is selected, the floating panel appears. 
+                The floating panel will be enlarged to the default size after the mouse enters into the editor.
+            6.1.1.2 The rectangle shape
+            6.1.1.3 The polygon shape
+            6.1.1.4 The circle shape
+            6.1.1.7 The triangle shape
+        6.1.2 Raised Plant bed
+            6.2.2.1 The default area shape is rectangle. Once a shape is selected, the floating panel appears 
+            6.2.2.2 The rectangle shape
+            6.2.2.3 The polygon shape
+            6.2.2.4 The circle shape
+            6.2.2.7 The triangle shape
     
+        6.1.3 Greenhouse
+            6.1.3.1 The only shape is rectangle. Once a shape is selected, the floating panel appears 
+            6.1.3.2 The rectangle shape
+
+        6.1.4 container/container sets
+            6.1.4.1 The default area shape is rectangle. Once a shape is selected, the floating panel appears 
+            6.1.4.2 The rectangle shape
+            6.1.4.3 The square shape
+            6.1.4.3 The circle shape
+            
     6.2 The Plant Section
         The plant section contains all plant subgroups added to this project. 
         It should be able dynamically changed when new subgroup is added.
@@ -79,8 +216,15 @@
         6.8.1 The drag can be accepted anytime.
 
     6.9 The Other Objects Section.
+
+
 7. Exit
 
 8. Toolbar
 
 9. Dialogues
+    
+    9.1 Add area dialog
+        9.1.1 The add area contains fields for the title, the description and the shape selection if it is not from the drag-and-drop.
+        9.1.2 The default logo should be changeable. (more picture can be added as a list.)
+        9.1.3 To keep it simple, the size will not be specified in the dialog.

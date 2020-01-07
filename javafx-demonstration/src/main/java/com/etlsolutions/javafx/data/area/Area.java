@@ -47,7 +47,7 @@ public abstract class Area extends DataUnit implements Movable {
     private double ocuppiedWidth;
     private double occuppiedHeight;
     private Measurement measurement;
-    private AreaShape shape;
+    private GwiseShapeType shape;
     private ObservableListWrapperA<SubArea> subAreas;
 
     private ObservableListWrapperA<GwisePoint> points;
@@ -147,12 +147,12 @@ public abstract class Area extends DataUnit implements Movable {
         fireChange(MEASUREMENT_PROPERTY);
     }
 
-    public AreaShape getShape() {
+    public GwiseShapeType getShape() {
         return shape;
     }
 
-    public void setShape(AreaShape shape) {
-        AreaShape oldValue = this.shape;
+    public void setShape(GwiseShapeType shape) {
+        GwiseShapeType oldValue = this.shape;
         this.shape = shape;
         fireChange(SHAPE_PROPERTY, oldValue, this.shape);
     }

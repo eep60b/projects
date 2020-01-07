@@ -23,12 +23,14 @@ public class GwiseRectangle extends GwisePolygon {
     }
 
     public GwiseRectangle(double x, double y, double width, double height) {
-        ObservableListWrapperA<GwisePoint> list = new ObservableListWrapperA<>();
-        list.add(new GwisePoint(x, y));
-        list.add(new GwisePoint(x + width, y));
-        list.add(new GwisePoint(x + width, y + height));
-        list.add(new GwisePoint(x, y + height));
-        load(list);
+
+        GwisePoint A = new GwisePoint(x, y);
+        GwisePoint B = new GwisePoint(x + width, y);
+        GwisePoint C = new GwisePoint(x + width, y + height);
+        GwisePoint D = new GwisePoint(x, y + height);
+        points = new ObservableListWrapperA<>(A, B, C, D);
+        lines = new ObservableListWrapperA<>(new GwiseLine(A, B), new GwiseLine(B, C), new GwiseLine(C, D), new GwiseLine(D, A));
+        triangles = new ObservableListWrapperA<>(new GwiseTriangle(A, D, C), new GwiseTriangle(A, C, B));
     }
 
     public double getX() {
@@ -40,20 +42,20 @@ public class GwiseRectangle extends GwisePolygon {
     }
 
     public double getHeight() {
-        return getLines().get(1).getPerimeter();
+        return getLines().get(1).perimeter();
     }
 
     public double getWidth() {
-        return getLines().get(0).getPerimeter();
+        return getLines().get(0).perimeter();
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return (getHeight() + getWidth()) * 2;
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return getHeight() * getWidth();
     }
 }

@@ -9,7 +9,7 @@ public class GwisePoint implements GwiseShape {
 
     private double x;
     private double y;
-    private boolean real;
+    private boolean jointPoint;
 
     public GwisePoint() {
     }
@@ -17,7 +17,6 @@ public class GwisePoint implements GwiseShape {
     public GwisePoint(double x, double y) {
         this.x = x;
         this.y = y;
-        real = Double.isFinite(x) && Double.isFinite(y);
     }
 
     public double getX() {
@@ -35,9 +34,13 @@ public class GwisePoint implements GwiseShape {
     public void setY(double y) {
         this.y = y;
     }
+    
+    public boolean isJointPoint() {
+        return jointPoint;
+    }
 
-    public boolean isReal() {
-        return real;
+    public void setJointPoint(boolean jointPoint) {
+        this.jointPoint = jointPoint;
     }
     
     public double getDistance(GwisePoint point) {
@@ -95,12 +98,12 @@ public class GwisePoint implements GwiseShape {
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return 0;
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return 0;
     }
 }

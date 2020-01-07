@@ -6,8 +6,8 @@ package com.etlsolutions.javafx.data.basicshape;
  */
 public interface GwiseShape {
 
-    double getArea();
-
-    double getPerimeter();
+    double area();
     
+    double perimeter();
+      
 }

@@ -1,0 +1,8 @@
+
+Design pane (Ground, Level 1) -- The pane which other objects are added. 
+                        The ground is the whole design pane area which has a fixed dimension of 100 m X 100 m.
+                        It is implemented as a StackPane
+
+The back ground chart (Level 2) can be used add ruler and grid (implemented as Line Chart)
+
+Area (Level 2) -- Garden Area, Farm Area, Patio Area, Indoor Area, Balcony Area, Customer Area

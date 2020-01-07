@@ -27,7 +27,7 @@ public final class AreaFactory {
     public AreaRoot createAreaRoot() {
 
         PlantBed plantBed = SubAreaFactory.getInstance().createDefaultPlantBed();
-        AreaValueWrapper areaValueWrapper = new AreaValueWrapper("My Garden", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        AreaValueWrapper areaValueWrapper = new AreaValueWrapper("My Garden", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, GwiseShapeType.RECTANGLE);
 
         ObservableListWrapperA<SubArea> subAreas = new ObservableListWrapperA<>();
         RectangleMeasurementValueWrapper measurementValueWrapper = new RectangleMeasurementValueWrapper();
@@ -38,13 +38,13 @@ public final class AreaFactory {
         AreaRoot root = new AreaRoot("All Areas");
         root.getAreas().add(gardenArea);
 
-        AreaValueWrapper bedRoomDataUnitValueWrapper = new AreaValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        AreaValueWrapper bedRoomDataUnitValueWrapper = new AreaValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, GwiseShapeType.RECTANGLE);
         IndoorArea bedRoom = new IndoorArea(bedRoomDataUnitValueWrapper, subAreas, new RectangleMeasurementValueWrapper());
 
-        AreaValueWrapper livingRoomDataUnitValueWrapper = new AreaValueWrapper("Living Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        AreaValueWrapper livingRoomDataUnitValueWrapper = new AreaValueWrapper("Living Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, GwiseShapeType.RECTANGLE);
         IndoorArea livingRoom = new IndoorArea(livingRoomDataUnitValueWrapper, subAreas, new RectangleMeasurementValueWrapper());
 
-        AreaValueWrapper kitchenRoomDataUnitValueWrapper = new AreaValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.RECTANGLE);
+        AreaValueWrapper kitchenRoomDataUnitValueWrapper = new AreaValueWrapper("Bed Room", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, GwiseShapeType.RECTANGLE);
         IndoorArea kitchen = new IndoorArea(kitchenRoomDataUnitValueWrapper, subAreas, new RectangleMeasurementValueWrapper());
 
         root.getAreas().addAll(bedRoom, livingRoom, kitchen);
@@ -52,7 +52,7 @@ public final class AreaFactory {
     }
 
     public AreaValueWrapper getDefaultAreaValueWrapper() {
-        return new AreaValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, AreaShape.POLYGON);
+        return new AreaValueWrapper("Untitled", "", new ObservableListWrapperA<ImageLink>(), null, "", 0, 0, GwiseShapeType.POLYGON);
     }
     
     public Area createArea(AreaType type, AreaValueWrapper areaValueWrapper, MeasurementValueWrapper measurementValueWrapper, ObservableListWrapperA<SubArea> subAreas) {
@@ -85,7 +85,7 @@ public final class AreaFactory {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Area createRectangleArea(AreaType type, AreaShape areaShape, double x, double y, double width, double height) {
+    public Area createRectangleArea(AreaType type, GwiseShapeType areaShape, double x, double y, double width, double height) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

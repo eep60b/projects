@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.log.reference;
 
-import com.etlsolutions.javafx.data.area.AreaShape;
+import com.etlsolutions.javafx.data.area.GwiseShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +32,7 @@ public class AddReferenceFXMLController implements Initializable {
     private TextArea informationTextArea;
 
     @FXML
-    private ComboBox<AreaShape> shapeTypeComboBox;
+    private ComboBox<GwiseShapeType> shapeTypeComboBox;
 
     @FXML
     private HBox areaShapeContentHbox;

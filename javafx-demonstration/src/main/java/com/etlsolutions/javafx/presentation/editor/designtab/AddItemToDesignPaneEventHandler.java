@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.editor.designtab;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaFactory;
-import com.etlsolutions.javafx.data.area.AreaShape;
+import com.etlsolutions.javafx.data.area.GwiseShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -66,7 +66,7 @@ public class AddItemToDesignPaneEventHandler implements EventHandler<ActionEvent
 
                         Rectangle r = (Rectangle) sh;
 
-                        area = af.createRectangleArea(type, AreaShape.RECTANGLE, r.getX(), r.getY(), r.getWidth(), r.getHeight());
+                        area = af.createRectangleArea(type, GwiseShapeType.RECTANGLE, r.getX(), r.getY(), r.getWidth(), r.getHeight());
                     } else if (sh instanceof Circle) {
                         Circle c = (Circle) sh;
                         area = af.createCircleArea(type, c.getCenterX(), c.getCenterY(), c.getRadius());

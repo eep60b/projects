@@ -4,6 +4,7 @@ import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Polyline;
 
 /**
  * The GwisePolygon class represent a simple polygon (lines are not intersect
@@ -16,11 +17,24 @@ import javafx.scene.shape.Polygon;
  */
 public class GwisePolygon implements GwiseShape {
 
-    private ObservableListWrapperA<GwisePoint> points;
-    private ObservableListWrapperA<GwiseLine> lines;
-    private List<GwiseTriangle> triangles;
+    protected ObservableListWrapperA<GwisePoint> points;
+    protected ObservableListWrapperA<GwiseLine> lines;
+    protected List<GwiseTriangle> triangles;
 
     public GwisePolygon() {
+    }
+    
+    public GwisePolygon(Polyline l) {
+        List<Double> v = l.getPoints();
+
+        List<GwisePoint> originalPointList = new ArrayList<>();
+
+        for (int i = 0; i <= v.size() - 2; i = i + 2) {
+            originalPointList.add(new GwisePoint(v.get(i), v.get(i + 1)));
+        }
+
+        load(originalPointList);
+
     }
 
     public GwisePolygon(Polygon p) {
@@ -41,13 +55,13 @@ public class GwisePolygon implements GwiseShape {
         load(originalPointList);
     }
 
-    protected final void load(List<GwisePoint> originalPointList) {
-        points = createPoints(originalPointList);
+    private void load(List<GwisePoint> originalPointList) {
+        points = arrangePoints(originalPointList);
         lines = createLines(points);
-        triangles = getTriangles(new ArrayList<>(points));
+        triangles = createTriangles(new ArrayList<>(points));
     }
 
-    private ObservableListWrapperA<GwisePoint> createPoints(List<GwisePoint> originalPointList) {
+    protected final ObservableListWrapperA<GwisePoint> arrangePoints(List<GwisePoint> originalPointList) {
 
         GwisePoint f = originalPointList.get(0);
         int index = 0;
@@ -81,13 +95,13 @@ public class GwisePolygon implements GwiseShape {
         //Add the first point to the back to make a circuit.
         ps.add(points.get(0));
 
-        for (int i = 0; i < ps.size() - 2; i++) {
+        for (int i = 0; i < ps.size() - 1; i++) {
             list.add(new GwiseLine(ps.get(i), ps.get(i + 1)));
         }
         return list;
     }
 
-    private List<GwiseTriangle> getTriangles(List<GwisePoint> points) {
+    private List<GwiseTriangle> createTriangles(List<GwisePoint> points) {
 
         List<GwiseTriangle> list = new ArrayList<>();
 
@@ -157,23 +171,35 @@ public class GwisePolygon implements GwiseShape {
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         double area = 0;
         for (GwiseTriangle triangle : triangles) {
-            area = area + triangle.getArea();
+            area = area + triangle.area();
         }
 
         return area;
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         double perimeter = 0;
 
         for (GwiseLine line : lines) {
-            perimeter = perimeter + line.getPerimeter();
+            perimeter = perimeter + line.perimeter();
         }
 
         return perimeter;
+    }
+    
+    public double[] pointArray() {
+        double[] array = new double[points.size() * 2];
+
+        for (int i = 0; i < points.size(); i++) {
+
+            GwisePoint p = points.get(i);
+            array[2 * i] = p.getX();
+            array[2 * i + 1] = p.getX();
+        }
+        return array;
     }
 }

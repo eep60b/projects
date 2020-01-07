@@ -1,53 +1,90 @@
 package com.etlsolutions.javafx.data.basicshape;
 
+import com.etlsolutions.javafx.data.ObservableListWrapperA;
+
 /**
  *
  * @author ZhipengChang
  */
-public class GwiseTriangle implements GwiseShape {
+public class GwiseTriangle extends GwisePolygon {
 
-    private final GwisePoint pointA;
-    private final GwisePoint pointB;
-    private final GwisePoint pointC;
+    private GwisePoint pointA;
+    private GwisePoint pointB;
+    private GwisePoint pointC;
 
-    private final GwiseLine sideA;
-    private final GwiseLine sideB;
-    private final GwiseLine sideC;
+    private GwiseLine sideA;
+    private GwiseLine sideB;
+    private GwiseLine sideC;
+
+    public GwiseTriangle() {
+    }
 
     public GwiseTriangle(GwisePoint p1, GwisePoint p2, GwisePoint p3) {
-        pointA = p1;
-        pointB = p2;
-        pointC = p3;
+        
+        GwisePoint p = p1.getX() < p2.getX() || (p1.getX() == p2.getX() && p1.getY() < p2.getY()) ? p1 : p2;
+        
+        pointA = p.getX() < p3.getX() || (p.getX() == p3.getX() && p.getY() < p3.getY()) ? p : p3;
+        pointB = pointA == p1 ? p2 : pointA == p2 ? p3 : p1;
+        pointC = pointA == p1 ? p3 : pointA == p2 ? p1 : p2;
 
         sideA = new GwiseLine(pointB, pointC);
         sideB = new GwiseLine(pointC, pointA);
         sideC = new GwiseLine(pointA, pointB);
+        
+        points = new ObservableListWrapperA<>(pointA, pointB, pointC);
+        lines = new ObservableListWrapperA<>(sideC, sideA, sideB);
+        triangles = new ObservableListWrapperA<>(this);
     }
 
     public GwisePoint getPointA() {
         return pointA;
     }
 
+    public void setPointA(GwisePoint pointA) {
+        this.pointA = pointA;
+    }
+
     public GwisePoint getPointB() {
         return pointB;
+    }
+
+    public void setPointB(GwisePoint pointB) {
+        this.pointB = pointB;
     }
 
     public GwisePoint getPointC() {
         return pointC;
     }
 
+    public void setPointC(GwisePoint pointC) {
+        this.pointC = pointC;
+    }
+
     public GwiseLine getSideA() {
         return sideA;
+    }
+
+    public void setSideA(GwiseLine sideA) {
+        this.sideA = sideA;
     }
 
     public GwiseLine getSideB() {
         return sideB;
     }
 
+    public void setSideB(GwiseLine sideB) {
+        this.sideB = sideB;
+    }
+
     public GwiseLine getSideC() {
         return sideC;
     }
 
+    public void setSideC(GwiseLine sideC) {
+        this.sideC = sideC;
+    }
+
+ 
     public boolean isOnLeftOf(GwisePoint point) {
         return pointA.isOnLeftOf(point) && pointB.isOnLeftOf(point) && pointC.isOnLeftOf(point);
     }
@@ -115,6 +152,7 @@ public class GwiseTriangle implements GwiseShape {
      * @param triangle - The specified triangle.
      * @return true if there is overlapping otherwise return false.
      */
+    @Override
     public boolean isOverlapping(GwiseTriangle triangle) {
 
         boolean a = this.contains(triangle.pointA) || this.contains(triangle.pointB) || this.contains(triangle.pointC);
@@ -132,21 +170,40 @@ public class GwiseTriangle implements GwiseShape {
             return true;
         }
         
-        return p.getDistanceSquare(pointA) <= diaSquare || p.getDistanceSquare(pointB) <= diaSquare ||p.getDistanceSquare(pointC) <= diaSquare;
+        return getPointToLineSegmentDistance(circle.getCenter(), sideA) <= diaSquare || getPointToLineSegmentDistance(circle.getCenter(), sideB) <= diaSquare || getPointToLineSegmentDistance(circle.getCenter(), sideC) <= diaSquare;
     }
     
     @Override
-    public double getArea() {
+    public double area() {
         
-        double p = getPerimeter();
+        double p = perimeter();
         
-        double s = p * (p - sideA.getPerimeter())* (p - sideB.getPerimeter())* (p - sideC.getPerimeter());
+        double s = p * (p - sideA.perimeter())* (p - sideB.perimeter())* (p - sideC.perimeter());
         
         return Math.sqrt(s)/2;
     }
     
     @Override
-    public double getPerimeter() {
-        return sideA.getPerimeter() + sideB.getPerimeter() + sideC.getPerimeter();
+    public double perimeter() {
+        return sideA.perimeter() + sideB.perimeter() + sideC.perimeter();
     }
+    
+    private double getPointToLineSegmentDistance(GwisePoint point, GwiseLine line) {
+        
+        double a = point.getX() - line.getStartPoint().getX();  // position of point rel one end of line segment
+        double b = point.getY() - line.getStartPoint().getY();  // vector along line
+        double c = line.getStartPoint().getX() - line.getEndPoint().getX();
+        double d = line.getStartPoint().getY() - line.getEndPoint().getY();
+        double e = - d;
+        double f = c;
+        
+        double dot = a*e + b*f; // orthogonal vector
+        double len_sq = e*e + f*f;
+        
+        double m1 = dot / len_sq;  //The sqare of the distance between the point and the infinite line.
+        
+        double m2 = Double.min(point.getDistanceSquare(line.getStartPoint()), point.getDistanceSquare(line.getEndPoint()));
+        
+        return Math.sqrt(Double.min(m1, m2));
+    }    
 }

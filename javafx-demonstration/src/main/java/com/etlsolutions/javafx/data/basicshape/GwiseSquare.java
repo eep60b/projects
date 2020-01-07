@@ -22,12 +22,12 @@ public class GwiseSquare extends GwiseRectangle {
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return getSide() * getSide(); 
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return 4 * getSide();
     }
 }

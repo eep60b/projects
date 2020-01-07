@@ -13,7 +13,7 @@ public class AreaValueWrapper extends DataUnitValueWrapper {
 
     private final ValueWrapper<String> longitudeValueWrapper;
     private final ValueWrapper<String> latitudeValueWrapper;
-    private final ValueWrapper<AreaShape> shapeValueWrapper;
+    private final ValueWrapper<GwiseShapeType> shapeValueWrapper;
     
     public AreaValueWrapper(Area area) {
         super(area);
@@ -23,11 +23,11 @@ public class AreaValueWrapper extends DataUnitValueWrapper {
         
     }
 
-    public AreaValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath, double longitude, double latitude, AreaShape shape) {
+    public AreaValueWrapper(String title, String information, ObservableListWrapperA<ImageLink> imageLinks, ImageLink selectedImgLinkIndex, String logoPath, double longitude, double latitude, GwiseShapeType shape) {
         super(title, information, imageLinks, selectedImgLinkIndex, logoPath);
         longitudeValueWrapper = getWrapper(latitude);
         latitudeValueWrapper = getWrapper(longitude);
-        shapeValueWrapper = new ValueWrapper<>(AreaShape.RECTANGLE);  
+        shapeValueWrapper = new ValueWrapper<>(GwiseShapeType.RECTANGLE);  
     }
 
     public ValueWrapper<String> getLongitudeValueWrapper() {
@@ -38,7 +38,7 @@ public class AreaValueWrapper extends DataUnitValueWrapper {
         return latitudeValueWrapper;
     }
 
-    public ValueWrapper<AreaShape> getShapeValueWrapper() {
+    public ValueWrapper<GwiseShapeType> getShapeValueWrapper() {
         return shapeValueWrapper;
     }
     
@@ -50,7 +50,7 @@ public class AreaValueWrapper extends DataUnitValueWrapper {
         return getValue(latitudeValueWrapper);
     }
 
-    public AreaShape getShape() {
+    public GwiseShapeType getShape() {
         return shapeValueWrapper.getValue();
     }    
 }
