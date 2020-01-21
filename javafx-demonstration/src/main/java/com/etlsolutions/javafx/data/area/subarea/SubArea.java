@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({
     @Type(name = "Border", value = Border.class),
-    @Type(name = "ContainerSet", value = ContainerSet.class),
+    @Type(name = "ContainerSubarea", value = ContainerSet.class),
     @Type(name = "CustomSubArea", value = CustomSubArea.class),
     @Type(name = "Greenhouse", value = Greenhouse.class),
     @Type(name = "Lawn", value = Lawn.class),

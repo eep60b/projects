@@ -36,7 +36,7 @@ public class DesignPaneAreaDroppedPropertyChangeAdapter implements PropertyChang
 
         Shape areaShape;
 
-        switch (area.getShape()) {
+        switch (area.getShapeType()) {
             case POLYGON:
 
                 ObservableListWrapperA<GwisePoint> sps = area.getPoints();

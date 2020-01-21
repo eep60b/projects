@@ -8,6 +8,7 @@ import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
+import com.etlsolutions.javafx.data.basicshape.GwiseShape;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -16,7 +17,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
- *
+ * The Area class is a super class for all area.
  * @author zc
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -47,10 +48,12 @@ public abstract class Area extends DataUnit implements Movable {
     private double ocuppiedWidth;
     private double occuppiedHeight;
     private Measurement measurement;
-    private GwiseShapeType shape;
+    private GwiseShapeType shapeType;
     private ObservableListWrapperA<SubArea> subAreas;
 
     private ObservableListWrapperA<GwisePoint> points;
+    
+    private GwiseShape shape;
     
     public Area() {
     }
@@ -147,14 +150,25 @@ public abstract class Area extends DataUnit implements Movable {
         fireChange(MEASUREMENT_PROPERTY);
     }
 
-    public GwiseShapeType getShape() {
+    public GwiseShapeType getShapeType() {
+        return shapeType;
+    }
+
+    public void setShapeType(GwiseShapeType shapeType) {
+        GwiseShapeType oldValue = this.shapeType;
+        this.shapeType = shapeType;
+        fireChange(SHAPE_PROPERTY, oldValue, this.shapeType);
+    }
+
+    public GwiseShape getShape() {
         return shape;
     }
 
-    public void setShape(GwiseShapeType shape) {
-        GwiseShapeType oldValue = this.shape;
+    public void setShape(GwiseShape shape) {
+        
+        GwiseShape oldValue = this.shape;
         this.shape = shape;
-        fireChange(SHAPE_PROPERTY, oldValue, this.shape);
+        fireChange(SHAPE_PROPERTY, oldValue, this.shape);        
     }
     
     public ObservableListWrapperA<SubArea> getSubAreas() {

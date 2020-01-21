@@ -19,7 +19,7 @@ public class AreaValueWrapper extends DataUnitValueWrapper {
         super(area);
         longitudeValueWrapper = getWrapper(area.getLongitude());
         latitudeValueWrapper = getWrapper(area.getLatitude());
-        shapeValueWrapper = new ValueWrapper<>(area.getShape());
+        shapeValueWrapper = new ValueWrapper<>(area.getShapeType());
         
     }
 

@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 
 /**
- *
+ * The ContainerSet c
  * @author zc
  */
 public class ContainerSet extends SubArea {

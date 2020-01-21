@@ -34,7 +34,7 @@ public final class GwiseRepository {
         return INSTANCE;
     }
 
-    public void initRepository(String... args) throws IOException {
+    public void initRepository() throws IOException {
 
         File repositoryDirectory = new File(SettingConstants.REPOSITORY_LOCATION);
 

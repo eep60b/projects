@@ -1,7 +1,6 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Movable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
