@@ -2,13 +2,13 @@ package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.basicshape.GwisePoint;
+import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import com.etlsolutions.javafx.data.basicshape.GwiseShape;
+import com.etlsolutions.gwise.data.basicshape.GwiseShape;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;

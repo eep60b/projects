@@ -117,10 +117,9 @@
         E4.3.3 The default size of the shape will be 1/4 of the area if the area is empty. 
               If the area contains other subareas, the default size will be the largest available rectangle (No larger than 1/4 of the area).
         E4.3.4 The shape will be in the red colour if it intercepts with other subarea or the area boarder.
-        E4.3.5 The subarea is filled with green colour (apart from pool in blue colour).
+        E4.3.5 The subarea is filled with green colour for plant bed, 3d green colour for raised plant bed, blue for pool, light green for lawn, light green with a house symbol for green house, grey for room and light brawn for container subarea.
         E4.3.6 Drawing a subarea on areas is similar to the drawing an area on the ground.  
-        E4.3.7 The container set and single container subareas can ONLY be drawn in rectangle shape. 
-                They will be represented in broken line during the drawing and become visible after the drawing finished. 
+        E4.3.7 They will be represented in broken line during the drawing and become visible after the drawing finished. 
                
     E4.4 Plants (Locations and Location)
         E4.4.1 Dragging a plant subgroup icon over an subarea will automatically create a rectangle shape.
@@ -296,7 +295,7 @@ D1. Area Root (Ground)
 
     D1.1 Keep this object as simple as possible. Area Root is not created by users.
     D1.2 Top level items: title ("All Area") and logo for view(Fixed logo???)
-    D1.3 Items NOT included: Description, pictures
+    D1.3 Items NOT included: Description, pictures, reference point
 
     D1.4 Area (Child)
         
@@ -305,40 +304,57 @@ D1. Area Root (Ground)
         D1.4.3 Items NOT included:
         D1.4.4 Type
             1.4.4.1 Garden Area
+            1.4.4.2 Allotment Area
 
         1.4.5 Subarea (Child)
             
-            D1.4.5.1 The subarea
+            D1.4.5.1 The subarea represents an area which has a shape that can be defined clearly.
             D1.4.5.2 Top level items: title, logo for view, description, pictures, type (area shape will be inside this object), reference point, width (???), height (???).
             D1.4.5.3 Item NOT included:
             D1.4.5.4 Type
                 D1.4.5.4.1 Container Subarea
-                    D1.4.5.4.1.1 This object is used when an area has containers. It is Automatically generated 
-                    D1.4.5.4.1.2 Top Level Item: Area (its shape is ONLY rectangle, see E4.3.7), Reference point, width and length are all derived from Area. 
-                    D1.4.5.4.1.3 Item NOT included: pictures. locations.
-                    D1.4.5.4.1.4 Children: Containers.
+                    D1.4.5.4.1.1 This object is used when an area has only containers. It should be automatically 
+                        generated when a container created inside an Area but outside any other subareas.
+                        Any containers created afterwards inside the Area
+                    D1.4.5.4.1.2 Top Level Item: Area, title (will be always named as "Containers")  
+                    D1.4.5.4.1.3 Item NOT included: description, logo, images, reference point (The size of a container subarea is always the same as its parent.).
+                    D1.4.5.4.1.4 Plant Subgroup Container Set (Children)
+                        D1.4.5.4.1.4.4 Container Set (Children)
+                            D1.4.5.1.4.4.4 Container (Children)
+                                D1.4.5.1.4.4.4.2 Top level items: plant, parent ID, reference point, width, length, height, shape type. The size can be derived from the width and length.
                 D1.4.5.4.2 Plant Bed
                 D1.4.5.4.3 Raised Plant Bed
                 D1.4.5.4.4 Greenhouse
+                    D1.4.5.4.4.4 Plant Subgroup Location Set (Children)
+                    D1.4.5.4.4.5 Container Set (Children)
                 D1.4.5.4.5 Room
                 D1.4.5.4.6 Lawn
                 D1.4.5.4.7 Pond
                 D1.4.5.4.8 Border
-            D1.4.5.5 Locations (Children)
+                    D1.4.5.4.8.1 The border can only have three shapes: polygon, double circle or double arc.
+                    D1.4.5.4.8.2 Top Level Item: Area, title, description, logo, images, reference point, shape.
+                    D1.4.5.4.8.3
+                    D1.4.5.4.8.4
 
-                D1.4.5.5.1 The Locations object is created for the view to show one type of plants in a subarea. This object should be kept simple as possible.
-                D1.4.5.5.2 Top level items: plants (the plants title, description and logo can be used). reference point, width, height are derived from its parent subarea.
-                D1.4.5.5.3 Item NOT included: type, shape.
-                D1.4.5.5.4 Location (Children)
-                        D1.4.5.5.4.1 The location object is only used by editor, NOT used by a view. If the plants are counted, each Location object represents a single plant. Otherwise, it is symbolic.
-                        D1.4.5.5.4.2 Top level item: title, logo, description, pictures, reference point, boolean auto-filled.
-                        D1.4.5.5.4.3 Item NOT included: logo, type, width and height.
-                        D1.4.5.5.4.4 No children.
-                        D1.4.5.5.4.5 Each location can only contain one plant.
+            D1.4.5.5 Plant Subgroup Location Set (Children)                
+                D1.4.5.5.1 Plant subgroup location sets (PlantSubgroupLocationSet objects) represent one type of all plants in one subarea. This object should be kept simple as possible.
+                D1.4.5.5.2 Top level items: plant subgroup id, reference point, width, height are derived from its parent subarea.
+                D1.4.5.5.3 Item NOT included: title, description, logo, images, type, shape.
+                D1.4.5.5.4 Location Set (Children)
+                    D1.4.5.5.4.1 Location sets (LocationSet objects) are created for the view to show one type of plants in a specified shape area in a subarea.
+                    D1.4.5.5.4.2 Top level items: plants (the plants title, description and logo can be used), reference point, width, height, shape.
+                    D1.4.5.5.4.3 Item NOT included: images, type
+                    D1.4.5.5.4.4 Location (Children)
+                        D1.4.5.5.4.4.1 The location object is only used by editor, NOT used by a view. 
+                              If the plants are counted, each Location object represents a single plant. Otherwise, it is symbolic.
+                        D1.4.5.5.4.4.2 Top level item: plant id (title, logo, description, pictures are derived from plant), reference point, boolean auto-filled (Not sure if this field is need. In the event when the plants are counted, probably it is good to have).
+                        D1.4.5.5.4.4.3 Item NOT included: logo, type, width and height.
+                        D1.4.5.5.4.4.4 No children.
+                        D1.4.5.5.4.4.5 Each location can only contain one plant.
                 
                 D1.4.5.5.5 One subarea can have several Locations objects if it has different plant types. 
 
-            D1.4.5.6 Containers (Children)
+            D1.4.5.6 Plant Subgroup Container Set (Children)
                 D1.4.5.6.1
                 D1.4.5.6.2 Top level items: plants (the plants title, description and logo can be used).
                 D1.4.5.6.3 Item NOT included: type, shape. reference point, width, height are derived from its parent subarea.
@@ -349,12 +365,26 @@ D1. Area Root (Ground)
                         D1.4.5.6.4.4 No children.
                         D1.4.5.6.4.5 The plant number in a container will NOT be counted and identified. 
                 
-D2. Plant Group
-    D2.1
-    D2.4    Plant Subgroup (Children)
-        D2.4.1
-        D2.4.4 Plants (Children)
-            D2.4.4.1
-            D2.4.4.4 Plant (Children)
+D2 Plant Group Root
+    D2.1 The plant group root is the root of the tree which contains all the plants.
+    
+    D2.4 Plant Group
+        D2.4.1 The plant group represents a root item in the plants view. The set of groups contains only five categories: trees and shrubs, annual plants, biennial plants, perennial plants and others.
+    
         
+    D2.4.4.1 Plant Subgroup (Children)
+        D2.4.1 The plant subgroup represents a plant type. The plant type is loosely associated with the plant species.
+        D2.4.2 Top level items: title, description, pictures.
+        D2.4.3 Item NOT included: type, 
+        D2.4.4 SubareaPlantSet (Children)
+            D2.4.4.1 The SubareaPlantSet object represents a set of plants which are same plant type (plant subgroup) in one subarea.
+            D2.4.4.2 Top level items: PlantSubgroupLocationSet Id
+            D2.4.4.3 Item NOT included: 
+            D2.4.4.4 Plant (Children)
+                D2.4.4.4.1 The Plant object represents a single plant on the pitch. This does not necessarily need to be the same icon displayed on the screen. 
+                           An icon on the screen can represent several plants of same a type depending on the availability of space. 
+                D2.4.4.4.2 Top lever items: title, description, pictures, location id. parent id.
+                D2.4.4.4.3 Item NOT included: type.
+                D2.4.4.4.4 No children.
+        D2.4.5 Plant Variety (Children)
 3. Log Group

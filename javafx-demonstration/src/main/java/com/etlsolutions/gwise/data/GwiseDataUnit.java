@@ -1,140 +1,92 @@
 package com.etlsolutions.gwise.data;
 
-import com.etlsolutions.javafx.data.DataUnitIdRegistry;
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import java.util.ArrayList;
+import com.etlsolutions.javafx.data.*;
 import java.util.List;
 
 /**
- * The DataUnit class represents objects which are data units. Keep the
- * implementation as simple as possible so they can be serialised easily.
+ * The GwiseDataUnit class represents areas, subareas, plant etc which will be
+ * serialised to disk. Keep the implementation as simple as possible so they can
+ * be serialised easily.
  *
  * @author zc
  */
-public abstract class GwiseDataUnit {
+public abstract class GwiseDataUnit extends DoubleValueWrapper {
 
-    private int id = 0;
-    private String title = "";
-    private String information = "";
-    private List<ImageLink> imageLinks = new ArrayList<>();
-    private int selectedImgLinkIndex = 0;
-    private String logoPath = "";
+    private final int id;
+    private final ValueWrapper<String> titleWrapper;
+    private final ValueWrapper<String> informationWrapper;
+    private final ObservableListWrapperA<ImageLink> imageLinks;
+    private final ValueWrapper<Integer> selectedImageLinkIndexWrapper;
+    private final ValueWrapper<String> logoPathWrapper;
 
-    /**
-     * The default constructor. Reserved for being a proper java bean.
-     */
-    public GwiseDataUnit() {
+    public GwiseDataUnit(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+
+        this.id = id;
+        titleWrapper = new ValueWrapper<>(title);
+        informationWrapper = new ValueWrapper<>(information);
+        this.imageLinks = new ObservableListWrapperA<>(imageLinks);
+        selectedImageLinkIndexWrapper = new ValueWrapper<>(selectedImgLinkIndex);
+        logoPathWrapper = new ValueWrapper<>(logoPath);
     }
 
-    protected GwiseDataUnit(String title) {
-        this.id = DataUnitIdRegistry.getInstance().createNewId();
-        this.title = title;
-        this.information = "";
-        this.imageLinks = new ObservableListWrapperA<>();
-    }
-
-    public GwiseDataUnit(GwiseDataUnitWrapper valueWrapper) {
-        setDataUnitValues(valueWrapper);
+    public GwiseDataUnit(GwiseDataUnitBean bean) {
+        this(bean.getId(), bean.getTitle(), bean.getInformation(), bean.getImageLinks(), bean.getSelectedImgLinkIndex(), bean.getLogoPath());
     }
 
     /**
-     * Get the ID for this data unit.
-     *
-     * @return the ID number.
-     * @throws IllegalStateException if the ID has not been set.
+     * Get the bean from this item.
+     * @return the bean.
      */
-    public final int getId() {
+    public abstract GwiseDataUnitBean getBean();
+
+    public int getId() {
         return id;
     }
-
-    /**
-     * Set the ID for this data unit. The ID can ONLY be set once. This method
-     * can ONLY be called once.
-     *
-     * @param id - The ID number.
-     */
-    public final void setId(int id) {
-        this.id = id;
+        
+    public ValueWrapper<String> getTitleWrapper() {
+        return titleWrapper;
     }
 
-    /**
-     * Get the title of this data unit.
-     *
-     * @return the item title.
-     */
     public String getTitle() {
-        return title;
+        return titleWrapper.getValue();
     }
 
-    /**
-     * Set the title of this data unit.
-     *
-     * @param title - The new data unit title.
-     */
-    public void setTitle(String title) {
-        this.title = title;
+    public ValueWrapper<String> getInformationWrapper() {
+        return informationWrapper;
     }
 
-    /**
-     * Get the information for this data unit.
-     *
-     * @return the information string.
-     */
     public String getInformation() {
-        return information;
+        return informationWrapper.getValue();
     }
 
-    /**
-     * The the information for this data unit.
-     *
-     * @param information - The new information.
-     */
-    public void setInformation(String information) {
-        this.information = information;
-    }
-
-    public List<ImageLink> getImageLinks() {
+    public ObservableListWrapperA<ImageLink> getImageLinks() {
         return imageLinks;
     }
 
-    public void setImageLinks(List<ImageLink> imageLinks) {
-        this.imageLinks = new ArrayList<>(imageLinks);
+    public ValueWrapper<Integer> getSelectedImageLinkIndexWrapper() {
+        return selectedImageLinkIndexWrapper;
     }
 
-    public int getSelectedImgLinkIndex() {
-        return selectedImgLinkIndex;
+    public ImageLink getSelectedImageLink() {
+        return imageLinks.isEmpty() ? null : imageLinks.get(selectedImageLinkIndexWrapper.getValue());
     }
 
-    public void setSelectedImgLinkIndex(int selectedImgLinkIndex) {
-        this.selectedImgLinkIndex = selectedImgLinkIndex;
+    public ValueWrapper<String> getLogoPathWrapper() {
+        return logoPathWrapper;
     }
 
     public String getLogoPath() {
-        return logoPath;
+        return logoPathWrapper.getValue();
     }
 
-    public void setLogoPath(String logoPath) {
-        this.logoPath = logoPath;
-    }
-
-    public void setValues(GwiseDataUnitWrapper commonValueWrapper) {
-
-        setDataUnitValues(commonValueWrapper);
-    }    
-    
-    private void setDataUnitValues(GwiseDataUnitWrapper commonValueWrapper) {
-        setTitle(commonValueWrapper.getTitle());
-        setInformation(commonValueWrapper.getInformation());
-        setImageLinks(commonValueWrapper.getImageLinks());
-        setSelectedImgLinkIndex(commonValueWrapper.getSelectedImgLinkIndex());
-        setLogoPath(commonValueWrapper.getLogoPath());
+    public int getSelectedImgLinkIndex() {
+        return imageLinks.isEmpty() ? 0 : imageLinks.indexOf(getSelectedImageLink());
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.id;
+        hash = 29 * hash + this.id;
         return hash;
     }
 
@@ -150,12 +102,7 @@ public abstract class GwiseDataUnit {
             return false;
         }
         final GwiseDataUnit other = (GwiseDataUnit) obj;
-
+        
         return this.id == other.id;
-    }
-
-    @Override
-    public String toString() {
-        return getTitle();
-    }
+    } 
 }

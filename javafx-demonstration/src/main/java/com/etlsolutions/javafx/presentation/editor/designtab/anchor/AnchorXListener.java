@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor.designtab.anchor;
 
-import com.etlsolutions.javafx.data.basicshape.GwisePoint;
+import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 

@@ -1,5 +1,8 @@
 package com.etlsolutions.javafx.data.basicshape;
 
+import com.etlsolutions.gwise.data.basicshape.GwisePoint;
+import com.etlsolutions.gwise.data.basicshape.ShapeUtils;
+import com.etlsolutions.gwise.data.basicshape.GwiseLine;
 import org.junit.*;
 import static org.junit.Assert.*;
 

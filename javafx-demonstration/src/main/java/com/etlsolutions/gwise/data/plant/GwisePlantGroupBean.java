@@ -1,0 +1,29 @@
+package com.etlsolutions.gwise.data.plant;
+
+import com.etlsolutions.gwise.data.GwiseDataUnitBean;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author ZhipengChang
+ */
+public class GwisePlantGroupBean extends GwiseDataUnitBean {
+
+    private List<GwisePlantSubgroupBean> plantSubgroupBeans;
+    
+    public GwisePlantGroupBean() {
+    }
+
+    public GwisePlantGroupBean(GwisePlantGroup group) {
+        super(group);
+        plantSubgroupBeans = new ArrayList<>();
+        for(GwisePlantSubgroup subgroup : group.getPlantSubgroups()) {
+            plantSubgroupBeans.add(new GwisePlantSubgroupBean(subgroup));
+        }
+    }
+
+    public List<GwisePlantSubgroupBean> getPlantSubgroupBeans() {
+        return plantSubgroupBeans;
+    }
+}

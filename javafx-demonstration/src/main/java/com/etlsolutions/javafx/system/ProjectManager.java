@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.system;
 
+import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.javafx.MainApp;
 import static com.etlsolutions.javafx.system.SettingConstants.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,6 +44,8 @@ public final class ProjectManager {
     private final ValueWrapper<ProjectContents> contentsValueWrapper = new ValueWrapper<>(null);
     private final Map<Integer, DataUnit> dataMap = new HashMap<>();
     private final Properties properties = GwiseRepository.getInstance().getProperties();
+    
+    private final Map<Integer, GwiseDataUnit> gwiseDataMap = new HashMap<>();
 
     /**
      * The ValueWrapper for the selected DataUnit is used to synchronise the
@@ -274,6 +277,18 @@ public final class ProjectManager {
         dataMap.remove(unit.getId(), unit);
     }
 
+    public <T extends GwiseDataUnit> T getGwiseItem(int id) {
+        return (T) gwiseDataMap.get(id);
+    }
+
+    public void addItem(GwiseDataUnit unit) {
+        gwiseDataMap.put(unit.getId(), unit);
+    }
+
+    public void removeItem(GwiseDataUnit unit) {
+        gwiseDataMap.remove(unit.getId(), unit);
+    }
+    
     public void deleteProject() {
 
         File file = new File(configuration.getProjectPath());
