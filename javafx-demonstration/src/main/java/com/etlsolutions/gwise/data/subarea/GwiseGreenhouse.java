@@ -9,7 +9,7 @@ import com.etlsolutions.gwise.data.locations.GwiseContainerSetBean;
 import com.etlsolutions.gwise.data.locations.GwisePlantSubgroupLocationSet;
 import com.etlsolutions.gwise.data.locations.GwisePlantSubgroupLocationSetBean;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import java.util.List;
 
 /**

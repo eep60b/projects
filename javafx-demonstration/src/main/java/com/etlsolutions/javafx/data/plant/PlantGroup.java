@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 
 /**
  * The PlantGroup class represents a child of root item. Because the root item

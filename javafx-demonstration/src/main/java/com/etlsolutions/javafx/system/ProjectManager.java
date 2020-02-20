@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
@@ -52,7 +52,8 @@ public final class ProjectManager {
      * selection among view, editor and pallette.
      */
     private final ValueWrapper<DataUnit> selectedDataUnitValueWrapper = new ValueWrapper<>(null);
-
+    private final ValueWrapper<GwiseDataUnit> selectedGwiseDataUnitValueWrapper = new ValueWrapper<>(null);
+    
     private ProjectManager() {
     }
 
@@ -302,5 +303,9 @@ public final class ProjectManager {
 
     public ValueWrapper<DataUnit> getSelectedDataUnitValueWrapper() {
         return selectedDataUnitValueWrapper;
+    }
+
+    public ValueWrapper<GwiseDataUnit> getSelectedGwiseDataUnitValueWrapper() {
+        return selectedGwiseDataUnitValueWrapper;
     }
 }

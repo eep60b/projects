@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

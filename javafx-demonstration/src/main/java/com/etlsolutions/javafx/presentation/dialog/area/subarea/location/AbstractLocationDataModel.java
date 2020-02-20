@@ -1,15 +1,15 @@
 package com.etlsolutions.javafx.presentation.dialog.area.subarea.location;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationType;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import com.etlsolutions.javafx.system.ProjectManager;

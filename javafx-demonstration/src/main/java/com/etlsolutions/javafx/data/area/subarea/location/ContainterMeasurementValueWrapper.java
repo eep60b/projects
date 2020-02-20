@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea.location;
 
 import com.etlsolutions.javafx.data.DoubleValueWrapper;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 
 /**
  *

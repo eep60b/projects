@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.imagelink;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

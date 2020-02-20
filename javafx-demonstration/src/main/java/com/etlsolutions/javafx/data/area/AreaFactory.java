@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.PolygonMeasurementWrapper;

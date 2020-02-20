@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.palette;
 
-import com.etlsolutions.javafx.AbstractFXMLController;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.AbstractFXMLController;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.presentation.editor.DesignTabStatusManager;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;

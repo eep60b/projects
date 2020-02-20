@@ -3,7 +3,7 @@ package com.etlsolutions.gwise.data.area;
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.data.GwiseDataUnitBean;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import java.util.List;
 
 /**

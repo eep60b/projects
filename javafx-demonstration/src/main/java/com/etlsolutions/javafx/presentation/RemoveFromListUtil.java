@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 
 /**
  *

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.plantsubgroup;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
 import com.etlsolutions.javafx.presentation.EditItemEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.adapter.EditListViewPropertyChangeAdapter;

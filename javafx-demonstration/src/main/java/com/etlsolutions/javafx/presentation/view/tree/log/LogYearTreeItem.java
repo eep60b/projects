@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.view.tree.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.LogMonth;
 import com.etlsolutions.javafx.data.log.LogYear;
 import com.etlsolutions.javafx.presentation.view.tree.DataUnitListChangeAdapter;

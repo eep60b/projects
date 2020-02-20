@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.AddImageToFXMLDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

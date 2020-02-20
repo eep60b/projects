@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.palette;
 
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
-import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.plantsubgroup.EditPlantSubGroupDataModel;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

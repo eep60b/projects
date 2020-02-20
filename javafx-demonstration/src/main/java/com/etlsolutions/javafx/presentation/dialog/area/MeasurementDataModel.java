@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.area;
 
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
-import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 
 /**
  *

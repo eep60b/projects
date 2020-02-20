@@ -24,7 +24,7 @@ public class EditorImageLinksAdapter implements ListChangeListener<ImageLink> {
 
     @Override
     public void onChanged(Change<? extends ImageLink> c) {
-        for (ImageLink link : data.getImageLinks()) {
+        for (ImageLink link : c.getAddedSubList()) {
             imageTilePane.getChildren().add(new ImageView(new Image(link.getLink())));
         }
     }

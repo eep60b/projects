@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.area;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.Area;
 
 /**

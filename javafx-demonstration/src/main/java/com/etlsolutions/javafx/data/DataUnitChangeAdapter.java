@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data;
 
+import com.etlsolutions.gwise.data.DataUnitChangeListener;
 import java.util.Objects;
 
 /**

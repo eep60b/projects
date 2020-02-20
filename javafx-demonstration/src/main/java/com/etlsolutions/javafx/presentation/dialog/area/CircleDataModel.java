@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.area;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.CircleMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.CircleMeasurementValueWrapper;
 

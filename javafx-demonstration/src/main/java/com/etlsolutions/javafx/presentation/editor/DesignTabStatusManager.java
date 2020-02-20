@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import javafx.scene.control.Tab;
 
 /**

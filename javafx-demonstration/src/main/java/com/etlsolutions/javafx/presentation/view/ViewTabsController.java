@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.view;
 
-import com.etlsolutions.javafx.AbstractFXMLController;
+import com.etlsolutions.gwise.AbstractFXMLController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;

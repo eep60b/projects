@@ -1,7 +1,8 @@
-package com.etlsolutions.javafx.data;
+package com.etlsolutions.gwise.data;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Objects;
 
 /**
  * The ValueWrapper class wraps an value. If the value has been changed, the
@@ -58,5 +59,37 @@ public class ValueWrapper<T> {
         for (int i = listeners.length - 1; i >= 0; i--) {
             support.removePropertyChangeListener(listeners[i]);
         }
+    }
+
+    public void addNonDuplicatedDataUnitPropertyChangeAdapter(String propertyName, GwiseDataUnitPropertyChangeAdapter adapter) {
+        
+        for(PropertyChangeListener listener : support.getPropertyChangeListeners(propertyName)) {
+            
+            if(listener instanceof GwiseDataUnitPropertyChangeAdapter) {
+                
+                GwiseDataUnitPropertyChangeAdapter a = (GwiseDataUnitPropertyChangeAdapter) listener;
+                if(Objects.equals(adapter, a)) {
+                    return;
+                }
+            }            
+        }
+        
+        support.addPropertyChangeListener(propertyName, adapter);
+    }
+    
+    public void addNonDuplicatedDataUnitPropertyChangeAdapter(GwiseDataUnitPropertyChangeAdapter adapter) {
+        
+        for(PropertyChangeListener listener : support.getPropertyChangeListeners()) {
+            
+            if(listener instanceof GwiseDataUnitPropertyChangeAdapter) {
+                
+                GwiseDataUnitPropertyChangeAdapter a = (GwiseDataUnitPropertyChangeAdapter) listener;
+                if(Objects.equals(adapter, a)) {
+                    return;
+                }
+            }            
+        }
+        
+        support.addPropertyChangeListener(adapter);
     }
 }

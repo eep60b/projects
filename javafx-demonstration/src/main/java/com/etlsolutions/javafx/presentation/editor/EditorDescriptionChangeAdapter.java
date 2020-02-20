@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.DataUnitChangeListener;
+import com.etlsolutions.gwise.data.DataUnitChangeListener;
 import javafx.scene.control.TextArea;
 
 /**

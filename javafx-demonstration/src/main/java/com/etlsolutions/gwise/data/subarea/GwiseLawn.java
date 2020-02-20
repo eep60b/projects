@@ -6,7 +6,7 @@ import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import com.etlsolutions.gwise.data.basicshape.GwiseShape;
 import com.etlsolutions.gwise.data.basicshape.ShapeUtils;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import java.util.List;
 
 /**

@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.gvent.CustomGvent;
 import com.etlsolutions.javafx.data.log.gvent.CustomGventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;

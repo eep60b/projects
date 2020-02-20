@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.log.task;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.task.Task;
@@ -9,8 +9,8 @@ import com.etlsolutions.javafx.data.log.task.TaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
-import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
-import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.dialog.log.Notifiable;
 import java.time.LocalDateTime;

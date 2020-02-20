@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area.measurement;
 
 import com.etlsolutions.javafx.data.DoubleValueWrapper;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 
 /**
  *

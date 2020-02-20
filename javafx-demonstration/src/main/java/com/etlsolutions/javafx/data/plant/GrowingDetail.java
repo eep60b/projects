@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.DataUnitPart;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;

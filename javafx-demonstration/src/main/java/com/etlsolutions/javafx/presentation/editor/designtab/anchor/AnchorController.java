@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor.designtab.anchor;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Shape;

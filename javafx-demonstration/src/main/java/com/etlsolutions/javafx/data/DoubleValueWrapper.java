@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.data;
 
+import com.etlsolutions.gwise.data.ValueWrapper;
+
 /**
  * The DoubleValueWrapper class is a super class for all data unit value
  * wrappers.

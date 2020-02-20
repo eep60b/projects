@@ -1,15 +1,17 @@
 package com.etlsolutions.javafx.presentation.editor;
 
+import com.etlsolutions.gwise.presentation.editor.DesignPaneHeightChangeAdapter;
+import com.etlsolutions.gwise.presentation.editor.DesignPaneWidthChangeAdapter;
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneCancelAreaEventHandler;
 import com.etlsolutions.javafx.presentation.editor.designtab.AddItemToDesignPaneEventHandler;
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
-import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDrapDroppedEventHandler;
-import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDragExitedEventHandler;
-import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDragEnteredEventHandler;
-import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDragOverEventHandler;
-import com.etlsolutions.javafx.AbstractFXMLController;
+import com.etlsolutions.gwise.presentation.editor.designtab.DesignPaneDrapDroppedEventHandler;
+import com.etlsolutions.gwise.presentation.editor.designtab.DesignPaneDragExitedEventHandler;
+import com.etlsolutions.gwise.presentation.editor.designtab.DesignPaneDragEnteredEventHandler;
+import com.etlsolutions.gwise.presentation.editor.designtab.DesignPaneDragOverEventHandler;
+import com.etlsolutions.gwise.AbstractFXMLController;
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;

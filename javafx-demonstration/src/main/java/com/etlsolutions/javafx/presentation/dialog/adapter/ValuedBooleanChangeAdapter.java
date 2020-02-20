@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.adapter;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <fx:include source="Menus.fxml" />
+      <SplitPane dividerPositions="0.2509090909090909, 0.8812121212121212" prefHeight="554.0" prefWidth="827.0" VBox.vgrow="ALWAYS">
+         <items>
+            <fx:include source="GwiseViewTabs.fxml" />
+            <fx:include source="GwiseEditor.fxml" />
+            <fx:include source="GwisePalette.fxml" />
+         </items>
+      </SplitPane>
+      <fx:include source="GwiseFooter.fxml" />
+   </children>
+</VBox>

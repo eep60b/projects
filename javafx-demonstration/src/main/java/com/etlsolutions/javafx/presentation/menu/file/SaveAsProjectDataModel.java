@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.file;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.Closable;
-import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
 import com.etlsolutions.javafx.system.ProjectConfiguration;

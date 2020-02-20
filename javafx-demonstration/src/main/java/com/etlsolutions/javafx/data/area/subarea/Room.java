@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.area.subarea;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import static com.etlsolutions.javafx.data.area.subarea.SubAreaType.ROOM;
 import com.etlsolutions.javafx.data.area.subarea.location.Container;

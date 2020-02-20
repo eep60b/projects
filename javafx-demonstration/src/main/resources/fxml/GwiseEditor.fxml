@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="editorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.gwise.presentation.editor.GwiseEditorController">
+  <stylesheets>
+    <URL value="@/styles/editor.css" />
+  </stylesheets>
+   <children>
+      <TabPane fx:id="editorTabPane" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="informationTab" text="Information">
+               <content>
+                  <VBox fx:id="informationVbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="editInformationButton" mnemonicParsing="false" text="Edit">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <ScrollPane fx:id="informationScrollPane" prefViewportHeight="346.0" prefViewportWidth="600.0">
+                           <content>
+                              <TextArea fx:id="informationTextArea" prefHeight="367.0" prefWidth="589.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab text="Images">
+               <content>
+                  <TilePane fx:id="imageTilePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </content>
+          </Tab>
+            <Tab fx:id="designTab" text="Design">
+               <content>
+                  <ScrollPane fx:id="designScrollPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <StackPane fx:id="designPane" />
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="addAreaButton" mnemonicParsing="false" text="Add" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="3.0" />
+      <Button fx:id="cancelAreaButton" layoutX="552.0" layoutY="15.0" mnemonicParsing="false" text="Cancel" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="3.0" />
+   </children>
+</AnchorPane>

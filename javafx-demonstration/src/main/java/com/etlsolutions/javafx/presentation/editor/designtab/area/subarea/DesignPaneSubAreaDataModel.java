@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor.designtab.area.subarea;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.PlantValueWrapper;

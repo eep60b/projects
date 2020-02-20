@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.presentation.dialog.adapter.ImageSelectionChangeA
 import com.etlsolutions.javafx.presentation.dialog.adapter.ValidationPropertyChangeAdapter;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import static com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel.*;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToBeginEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.MoveImageLinkToEndEventHandler;

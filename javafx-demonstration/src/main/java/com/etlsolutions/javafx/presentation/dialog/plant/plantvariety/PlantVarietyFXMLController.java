@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.dialog.plant.plantvariety;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.plant.PlantVariety;
-import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.RemoveEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.adapter.ValueChangeButtonPropertyChangeAdapter;

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.file;
 
-import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.system.ProjectConfiguration;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.event.ActionEvent;

@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 
 /**
  * The PlantSubGroup class represents a group of plant with a distinguished

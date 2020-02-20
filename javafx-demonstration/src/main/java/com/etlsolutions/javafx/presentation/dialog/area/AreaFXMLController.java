@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.area;
 
 import com.etlsolutions.javafx.presentation.dialog.adapter.ValueChangeButtonPropertyChangeAdapter;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementType;

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.file;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 import com.etlsolutions.javafx.presentation.CancelEventHandler;
 import com.etlsolutions.javafx.presentation.SaveExitEventHandler;

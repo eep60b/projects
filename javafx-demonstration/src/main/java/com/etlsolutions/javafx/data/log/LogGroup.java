@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.log;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**

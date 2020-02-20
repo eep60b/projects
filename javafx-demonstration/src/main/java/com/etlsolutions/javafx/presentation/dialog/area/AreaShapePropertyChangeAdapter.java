@@ -1,9 +1,9 @@
 package com.etlsolutions.javafx.presentation.dialog.area;
 
 import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
-import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.plant;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

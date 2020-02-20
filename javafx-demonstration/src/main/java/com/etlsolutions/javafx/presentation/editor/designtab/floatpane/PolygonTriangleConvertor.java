@@ -5,7 +5,7 @@
  */
 package com.etlsolutions.javafx.presentation.editor.designtab.floatpane;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import com.etlsolutions.gwise.data.basicshape.GwisePolygon;
 import com.etlsolutions.gwise.data.basicshape.GwiseTriangle;

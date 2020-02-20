@@ -1,5 +1,6 @@
-package com.etlsolutions.javafx.presentation;
+package com.etlsolutions.gwise.presentation;
 
+import com.etlsolutions.javafx.presentation.AbstractComponentStageFXMLController;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import static com.etlsolutions.javafx.system.SettingConstants.*;
 import java.util.ResourceBundle;

@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation;
+package com.etlsolutions.gwise.presentation;
 
 /**
  *

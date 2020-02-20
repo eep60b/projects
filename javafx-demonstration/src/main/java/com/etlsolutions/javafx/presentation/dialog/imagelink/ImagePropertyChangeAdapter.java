@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.imagelink;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

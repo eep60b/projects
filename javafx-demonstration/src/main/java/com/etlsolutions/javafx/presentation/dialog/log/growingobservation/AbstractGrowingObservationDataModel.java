@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.log.growingobservation;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.GrowingObservationValueWrapper;
 import com.etlsolutions.javafx.data.log.LogFactory;

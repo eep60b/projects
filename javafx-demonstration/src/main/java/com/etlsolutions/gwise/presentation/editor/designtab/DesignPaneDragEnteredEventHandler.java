@@ -1,9 +1,16 @@
-package com.etlsolutions.javafx.presentation.editor.designtab;
+package com.etlsolutions.gwise.presentation.editor.designtab;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.GwiseShapeType;
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.ParameterisedImageView;
+import com.etlsolutions.javafx.presentation.editor.designtab.AreaShapeDataModel;
+import com.etlsolutions.javafx.presentation.editor.designtab.AreaShapeMouseClickedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.AreaShapeMouseDraggedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.AreaShapeMouseDraggedPositionChangeAdapter;
+import com.etlsolutions.javafx.presentation.editor.designtab.AreaShapeMousePressedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.AreaShapeMouseReleasedEventHandler;
+import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

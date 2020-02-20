@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.log.task;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.WaterType;
 import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.log.task.WateringTaskValueWrapper;

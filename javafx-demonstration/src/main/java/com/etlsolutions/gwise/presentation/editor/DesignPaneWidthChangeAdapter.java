@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.presentation.editor;
+package com.etlsolutions.gwise.presentation.editor;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
  */
 public class DesignPaneWidthChangeAdapter implements ChangeListener<Number> {
 
-    DesignPaneWidthChangeAdapter(VBox informationVbox, ScrollPane informationScrollPane, TextArea informationTextArea, TilePane imageTilePane, StackPane designPane, LineChart backgroudLineChart) {
+    public DesignPaneWidthChangeAdapter(VBox informationVbox, ScrollPane informationScrollPane, TextArea informationTextArea, TilePane imageTilePane, StackPane designPane, LineChart backgroudLineChart) {
         //TODO:
     }
 

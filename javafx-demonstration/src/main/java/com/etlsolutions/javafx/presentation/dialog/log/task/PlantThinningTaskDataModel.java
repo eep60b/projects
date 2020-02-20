@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.log.task;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTask;
 import com.etlsolutions.javafx.data.log.task.PlantThinningTaskValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;

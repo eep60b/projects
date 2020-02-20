@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.other;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 
 /**
  *

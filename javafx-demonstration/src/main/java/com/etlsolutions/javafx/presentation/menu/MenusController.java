@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.menu;
 
-import com.etlsolutions.javafx.AbstractFXMLController;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.AbstractFXMLController;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.menu.file.CloseProjectEventHnadler;
 import com.etlsolutions.javafx.presentation.menu.file.DeleteProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.ExitApplicationEventHandler;

@@ -1,14 +1,14 @@
 package com.etlsolutions.javafx.presentation.dialog.log.gvent;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
-import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import com.etlsolutions.javafx.presentation.dialog.log.Notifiable;

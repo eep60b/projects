@@ -1,4 +1,6 @@
-package com.etlsolutions.javafx.presentation;
+package com.etlsolutions.gwise.presentation;
+
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 
 /**
  *

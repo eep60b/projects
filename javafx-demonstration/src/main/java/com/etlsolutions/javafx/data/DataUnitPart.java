@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data;
 
+import com.etlsolutions.gwise.data.DataUnitChangeListener;
 import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ResourceBundle;

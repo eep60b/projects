@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.plantgroup;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantGroupValueWrapper;

@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.presentation.dialog.log.gvent;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
-import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Tab;

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.palette;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Tab;

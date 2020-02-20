@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.log.task;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.log.task.TaskType;

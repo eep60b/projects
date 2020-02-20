@@ -1,5 +1,5 @@
 
-package com.etlsolutions.javafx.presentation.editor;
+package com.etlsolutions.gwise.presentation.editor;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

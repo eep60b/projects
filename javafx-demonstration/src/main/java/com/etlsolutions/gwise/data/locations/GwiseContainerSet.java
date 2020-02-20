@@ -4,7 +4,7 @@ import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.data.plant.GwisePlantSubgroup;
 import com.etlsolutions.gwise.data.subarea.GwiseSubarea;
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.util.List;
 

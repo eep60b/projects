@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.system;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

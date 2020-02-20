@@ -1,8 +1,9 @@
 package com.etlsolutions.javafx.presentation;
 
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

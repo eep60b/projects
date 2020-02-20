@@ -1,8 +1,7 @@
-package com.etlsolutions.javafx.presentation.editor.designtab;
+package com.etlsolutions.gwise.presentation.editor.designtab;
 
 import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.ParameterisedImageView;
-import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
@@ -15,11 +14,11 @@ import javafx.scene.input.TransferMode;
  *
  * @author zc
  */
-public class DesignPaneDrapDroppedEventHandler implements EventHandler<DragEvent> {
+public class GwiseDesignPaneDrapDroppedEventHandler implements EventHandler<DragEvent> {
 
-    private final DesignPaneDataModel model;
+    private final GwiseDesignPaneDataModel model;
 
-    public DesignPaneDrapDroppedEventHandler(DesignPaneDataModel model) {
+    public GwiseDesignPaneDrapDroppedEventHandler(GwiseDesignPaneDataModel model) {
         this.model = model;
     }
 
@@ -37,6 +36,6 @@ public class DesignPaneDrapDroppedEventHandler implements EventHandler<DragEvent
         }
 
         AreaType type = (AreaType) parameters[0];
-        model.drop(type);
+  
     }
 }

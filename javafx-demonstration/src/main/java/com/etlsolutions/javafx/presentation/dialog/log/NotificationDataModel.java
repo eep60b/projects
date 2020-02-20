@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.presentation.dialog.log;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.log.NotificationTimeUnit;
-import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 
 /**

@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.data.basicshape;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 
 /**
  * The GwisePoint class represents a single point in an area or subarea.

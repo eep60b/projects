@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.adapter;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.ComboBox;
 

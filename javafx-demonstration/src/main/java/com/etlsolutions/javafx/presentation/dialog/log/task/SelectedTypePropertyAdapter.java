@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.dialog.log.task;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.TaskType;
-import com.etlsolutions.javafx.presentation.FXMLActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

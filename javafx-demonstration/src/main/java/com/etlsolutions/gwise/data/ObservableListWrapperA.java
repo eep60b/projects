@@ -1,10 +1,12 @@
-package com.etlsolutions.javafx.data;
+package com.etlsolutions.gwise.data;
 
 import com.sun.javafx.collections.ObservableListWrapper;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import javafx.beans.Observable;
 import javafx.collections.ListChangeListener;
 import javafx.util.Callback;
@@ -17,6 +19,8 @@ import javafx.util.Callback;
 public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
 
     private final Map<String, ListChangeListener<? super E>> classListenerMap = new HashMap<>();
+    
+    private final Set<GwiseDataUnitListChangeAdapter> dataUnitlisteners = new HashSet<>(); 
     
     /**
      * This constructor is necessary for JSON to de-serialise object which
@@ -68,5 +72,15 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
             addListener(listener);
             classListenerMap.put(className, listener);
         }
+    }
+    
+    public void addNonDuplicatedAdapter(GwiseDataUnitListChangeAdapter<? super E> adapter) {
+        
+        if(dataUnitlisteners.contains(adapter)) {
+            return;
+        }
+        
+        dataUnitlisteners.add(adapter);        
+        addListener(adapter);
     }
 }

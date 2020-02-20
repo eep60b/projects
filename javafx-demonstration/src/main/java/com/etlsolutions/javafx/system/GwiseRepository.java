@@ -17,6 +17,8 @@ import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 /**
+ * The GwiseRepository class controls all the information related to the
+ * application repository.
  *
  * @author zc
  */
@@ -56,7 +58,6 @@ public final class GwiseRepository {
         }
 
 //TODO: If the files are already there, No need to copy them.
-
         InputStream in = loader.getResourceAsStream(REPOSITORY_DATA_CONFIG_FILE_PATH);
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -71,7 +72,7 @@ public final class GwiseRepository {
         } catch (ParserConfigurationException | SAXException ex) {
             throw new SystemRuntimeExceiption(ex);
         }
-        
+
         ProjectManager.getInstance().init();
     }
 
@@ -81,15 +82,15 @@ public final class GwiseRepository {
 
             Node item = list.item(i);
 
-            if(item == null) {
+            if (item == null) {
                 continue;
             }
-            
+
             if (item instanceof Text) {
                 Text text = (Text) item;
                 String content = text.getTextContent();
                 if (content != null && !content.trim().isEmpty()) {
-                    String filePath =  path + "/" + content;
+                    String filePath = path + "/" + content;
                     FileUtils.copyToFile(loader.getResourceAsStream(filePath), new File(SettingConstants.REPOSITORY_LOCATION + File.separator + filePath));
                 }
                 continue;
@@ -103,7 +104,7 @@ public final class GwiseRepository {
             processNodeList(children, newPath);
         }
     }
-    
+
     public Properties getProperties() {
         return properties;
     }

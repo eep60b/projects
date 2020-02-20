@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.system;
 import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.other.GrowingMediumSpecialValueWrapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;

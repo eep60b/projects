@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.growingmedium;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.other.GrowingMediumSpecialValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;

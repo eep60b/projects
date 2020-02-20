@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx;
+package com.etlsolutions.gwise;
 
 import com.etlsolutions.javafx.system.ThrowableHandler;
 import java.net.URL;

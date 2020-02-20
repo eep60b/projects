@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.palette;
 import com.etlsolutions.javafx.data.DataUnitTitleComparator;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
-import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.plantsubgroup.EditPlantSubGroupDataModel;
 import com.etlsolutions.javafx.system.ProjectManager;
 import java.util.ArrayList;

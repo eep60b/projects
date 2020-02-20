@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.plant.plantvariety;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 
 /**
  *

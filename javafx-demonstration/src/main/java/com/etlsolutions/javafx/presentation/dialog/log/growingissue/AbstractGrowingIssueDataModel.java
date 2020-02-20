@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.log.growingissue;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingIssueValueWrapper;
 import com.etlsolutions.javafx.data.log.LogFactory;

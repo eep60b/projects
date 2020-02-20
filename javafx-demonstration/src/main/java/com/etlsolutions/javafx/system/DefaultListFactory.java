@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.system;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 
 /**
  *

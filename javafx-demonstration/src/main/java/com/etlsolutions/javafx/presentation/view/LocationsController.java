@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.view;
 
-import com.etlsolutions.javafx.AbstractFXMLController;
+import com.etlsolutions.gwise.AbstractFXMLController;
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
 import javafx.fxml.FXML;

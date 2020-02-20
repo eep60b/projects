@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data;
 
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
 import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.other.GrowingMediumSpecialValueWrapper;

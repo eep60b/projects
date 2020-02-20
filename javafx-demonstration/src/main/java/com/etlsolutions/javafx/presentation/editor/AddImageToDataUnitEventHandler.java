@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor;
 
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

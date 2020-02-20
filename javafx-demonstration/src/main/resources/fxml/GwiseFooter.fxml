@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.FooterController">
+  <stylesheets>
+    <URL value="@/styles/footer.css" />
+  </stylesheets>
+  <children>
+    <Pane HBox.hgrow="ALWAYS" />
+    <Label prefHeight="34.0" prefWidth="600.0" text="Powered by ETL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+  </children>
+</AnchorPane>

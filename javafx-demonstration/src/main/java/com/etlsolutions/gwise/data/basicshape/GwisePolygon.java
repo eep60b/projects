@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.data.basicshape;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.shape.Polygon;

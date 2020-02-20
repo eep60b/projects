@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.log.task;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.Notification;
 import java.time.LocalDateTime;
 

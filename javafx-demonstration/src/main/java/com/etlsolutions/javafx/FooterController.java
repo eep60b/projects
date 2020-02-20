@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx;
 
+import com.etlsolutions.gwise.AbstractFXMLController;
+
 /**
  * FXML Controller class
  *

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.area.subarea.location;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.ContainterMeasurementValueWrapper;
 
 /**

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.other;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import java.util.List;
 import java.util.Objects;
 

@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.data.basicshape;
 
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 
 /**
  *

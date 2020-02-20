@@ -4,7 +4,7 @@ package com.etlsolutions.javafx.system;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.data.log.LogGroupRoot;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.data.plant.PlantGroupRoot;

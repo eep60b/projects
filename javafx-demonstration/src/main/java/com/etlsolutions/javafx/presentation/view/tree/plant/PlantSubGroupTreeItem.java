@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.view.tree.plant;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.plant.Plants;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.presentation.view.tree.DataUnitListChangeAdapter;

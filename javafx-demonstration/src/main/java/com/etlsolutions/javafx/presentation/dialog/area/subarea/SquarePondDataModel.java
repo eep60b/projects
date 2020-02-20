@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.area.subarea;
 
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.SquareMeasurement;
 import com.etlsolutions.javafx.data.area.measurement.SquareMeasurementValueWrapper;
 import com.etlsolutions.javafx.presentation.dialog.area.MeasurementDataModel;

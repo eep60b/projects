@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.data;
+package com.etlsolutions.gwise.data;
 
 import static com.etlsolutions.javafx.system.SettingConstants.*;
 import java.util.TreeSet;

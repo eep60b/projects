@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.dialog.plant;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.area.subarea.location.AddLocationDataModel;
 import com.etlsolutions.javafx.presentation.dialog.area.subarea.location.EditLocationDataModel;
 import com.etlsolutions.javafx.system.ProjectManager;

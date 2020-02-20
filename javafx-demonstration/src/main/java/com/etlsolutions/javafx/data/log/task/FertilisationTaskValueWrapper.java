@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.data.log.task;
 
 import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.Notification;
 import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.system.ProjectManager;

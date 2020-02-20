@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.dialog.fertiliser;
 
 import com.etlsolutions.javafx.presentation.dialog.adapter.BooleanValueNodeChangeAdapter;
 import com.etlsolutions.javafx.presentation.PartDataModel;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.data.other.FertiliserType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;

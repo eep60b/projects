@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.dialog.area.subarea;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ObservableListWrapperA;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementFactory;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
@@ -10,7 +10,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaValueWrapper;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
-import com.etlsolutions.javafx.presentation.FXMLContentActionDataModel;
+import com.etlsolutions.gwise.presentation.FXMLContentActionDataModel;
 import com.etlsolutions.javafx.presentation.dialog.area.MeasurementDataModel;
 import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import javafx.collections.ObservableList;

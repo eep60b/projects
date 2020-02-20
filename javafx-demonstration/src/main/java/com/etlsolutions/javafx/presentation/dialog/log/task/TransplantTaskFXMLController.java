@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.dialog.log.task;
 import com.etlsolutions.javafx.presentation.dialog.adapter.ComboBoxListChangeAdapter;
 import com.etlsolutions.javafx.presentation.EditItemEventHandler;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
-import com.etlsolutions.javafx.data.ValueWrapper;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;

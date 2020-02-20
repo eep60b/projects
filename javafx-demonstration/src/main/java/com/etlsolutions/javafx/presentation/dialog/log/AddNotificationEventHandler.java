@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.log;
 
-import com.etlsolutions.javafx.presentation.FXMLActionEventHandler;
+import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.log.Notifiable;
 import com.etlsolutions.javafx.presentation.dialog.log.NotificationDataModel;
 import javafx.event.ActionEvent;
