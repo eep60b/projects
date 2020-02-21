@@ -1,7 +1,8 @@
 package com.etlsolutions.gwise.data.other;
 
-import com.etlsolutions.gwise.data.GwiseDataUnitBean;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,25 +11,30 @@ import java.util.List;
  */
 public class GwiseSolidFertiliser extends GwiseFertiliser {
 
-    private double density;
+    private final ValueWrapper<Double> densityWrapper;
     private String densityUom;
 
-    public GwiseSolidFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public GwiseSolidFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, String manufacturer, String shop, double price, Date datePurchased, double suggestedUsageAmount, String usageUom, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc, double density, String densityUom) {
+        super(manufacturer, shop, price, datePurchased, suggestedUsageAmount, usageUom, aluminium, boron, calcium, chlorine, cobalt, copper, iron, magnesium, manganese, molybdenum, nitrogen, nickel, phosphorus, potassium, selenium, sodium, sulphur, vanadium, zinc, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        densityWrapper = new ValueWrapper<>(density);
+        this.densityUom = densityUom;
     }
-
-    public GwiseSolidFertiliser(GwiseDataUnitBean bean) {
-        super(bean);
-    }
-
     
+    public GwiseSolidFertiliser(GwiseSolidFertiliserBean bean) {
+        super(bean);
+        densityWrapper = new ValueWrapper<>(bean.getDensity());
+    }
+
+    public ValueWrapper<Double> getDensityWrapper() {
+        return densityWrapper;
+    }
     
     public double getDensity() {
-        return density;
+        return densityWrapper.getValue();
     }
 
     public void setDensity(double density) {
-        this.density = density;
+        densityWrapper.setValue(density);
     }
 
     public String getDensityUom() {
@@ -45,7 +51,7 @@ public class GwiseSolidFertiliser extends GwiseFertiliser {
     }
 
     @Override
-    public GwiseDataUnitBean getBean() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public GwiseSolidFertiliserBean getBean() {
+        return new GwiseSolidFertiliserBean(this);
     }
 }

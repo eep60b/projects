@@ -1,46 +1,80 @@
 package com.etlsolutions.javafx.system;
 
-
 import com.etlsolutions.gwise.data.area.GwiseAreaRootBean;
 import com.etlsolutions.gwise.data.log.GwiseLogGroupRootBean;
+import com.etlsolutions.gwise.data.other.GwiseFertiliser;
 import com.etlsolutions.gwise.data.other.GwiseFertiliserBean;
+import com.etlsolutions.gwise.data.other.GwiseGrowingMedium;
 import com.etlsolutions.gwise.data.other.GwiseGrowingMediumBean;
+import com.etlsolutions.gwise.data.other.GwiseLiquidFertiliser;
 import com.etlsolutions.gwise.data.other.GwiseLiquidFertiliserBean;
 import com.etlsolutions.gwise.data.plant.GwisePlantGroupRootBean;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The ProjectConfiguration class contains all the information about a project to run the application.
+ * The java bean class for the GwiseProjectContent class which contains all the
+ * contents of current project.
  *
  * @author zc
  */
 public class GwiseProjectContentsBean {
-    
+
     private GwiseAreaRootBean areaRoot;
     private GwisePlantGroupRootBean plantsGroupRoot;
     private GwiseLogGroupRootBean logGroupRoot;
     private List<GwiseGrowingMediumBean> growingMediums;
     private List<GwiseFertiliserBean> fertilisers;
     private List<GwiseLiquidFertiliserBean> liquidFertilisers;
-    
+
+    private List<String> fertiliserDelutionRatioUoms;
+    private List<String> fertiliserUoms;
     private List<String> flowerTypes;
     private List<String> flowerColors;
     private List<String> fruitShapes;
     private List<String> fruitColors;
-    private List<String> fertiliserUoms;
     private List<String> harvestingQualities;
-    private List<String> harvestingUoms;    
-    private List<String> wateringAmountUoms; 
-    private List<String> wateringFluxUoms;  
+    private List<String> harvestingUoms;
     private List<String> solidFertiliserDensityUoms;
-    private List<String> fertiliserDelutionRatioUoms;    
+    private List<String> wateringAmountUoms;
+    private List<String> wateringFluxUoms;
 
     public GwiseProjectContentsBean() {
     }
 
     public GwiseProjectContentsBean(GwiseProjectContents contents) {
+        areaRoot = contents.getAreaRoot().getBean();
+        plantsGroupRoot = contents.getPlantsGroupRoot().getBean();
+        logGroupRoot = contents.getLogGroupRoot().getBean();
+
+        growingMediums = new ArrayList<>();
+        for (GwiseGrowingMedium m : contents.getGrowingMediums()) {
+            growingMediums.add(m.getBean());
+        }
+
+        fertilisers = new ArrayList<>();
+        for (GwiseFertiliser f : contents.getFertilisers()) {
+            fertilisers.add(f.getBean());
+        }
+
+        liquidFertilisers = new ArrayList<>();
+        for (GwiseLiquidFertiliser l : contents.getLiquidFertilisers()) {
+            liquidFertilisers.add(new GwiseLiquidFertiliserBean(l));
+        }
+
+        fertiliserDelutionRatioUoms = new ArrayList<>(contents.getFertiliserDelutionRatioUoms());
+        fertiliserUoms = new ArrayList<>(contents.getFertiliserUoms());
+        flowerColors = new ArrayList<>(contents.getFlowerColors());
+        flowerTypes = new ArrayList<>(contents.getFlowerTypes());
+        fruitColors = new ArrayList<>(contents.getFruitColors());
+        fruitShapes = new ArrayList<>(contents.getFruitShapes());
+        harvestingQualities = new ArrayList<>(contents.getHarvestingQualities());
+        harvestingUoms = new ArrayList<>(contents.getHarvestingUoms());
+        solidFertiliserDensityUoms = new ArrayList<>(contents.getSolidFertiliserDensityUoms());
+        wateringAmountUoms = new ArrayList<>(contents.getWateringAmountUoms());
+        wateringFluxUoms = new ArrayList<>(contents.getWateringFluxUoms());
     }
-    
+
     public GwiseAreaRootBean getAreaRoot() {
         return areaRoot;
     }
@@ -176,6 +210,5 @@ public class GwiseProjectContentsBean {
     public void setFertiliserDelutionRatioUoms(List<String> fertiliserDelutionRatioUoms) {
         this.fertiliserDelutionRatioUoms = fertiliserDelutionRatioUoms;
     }
-    
 
 }

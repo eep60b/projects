@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.FooterController">
+<AnchorPane id="AnchorPane" maxHeight="34.0" minHeight="34.0" prefHeight="34.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.gwise.GwiseFooterController">
   <stylesheets>
     <URL value="@/styles/footer.css" />
   </stylesheets>

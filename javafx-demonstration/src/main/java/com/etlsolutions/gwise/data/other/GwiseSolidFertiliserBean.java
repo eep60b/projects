@@ -1,17 +1,23 @@
 package com.etlsolutions.gwise.data.other;
 
-import com.etlsolutions.gwise.data.other.FertiliserType;
-import com.etlsolutions.javafx.data.other.Fertiliser;
-
 /**
  *
  * @author zc
  */
-public class GwiseSolidFertiliserBean extends Fertiliser {
+public class GwiseSolidFertiliserBean extends GwiseFertiliserBean {
 
     private double density;
     private String densityUom;
 
+    public GwiseSolidFertiliserBean() {
+    }
+
+    public GwiseSolidFertiliserBean(GwiseSolidFertiliser unit) {
+        super(unit);
+    }
+
+    
+    
     public double getDensity() {
         return density;
     }

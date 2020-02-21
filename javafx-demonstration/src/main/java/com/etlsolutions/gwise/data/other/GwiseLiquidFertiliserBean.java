@@ -10,7 +10,12 @@ public class GwiseLiquidFertiliserBean extends GwiseFertiliserBean
     private double dilutionRatio;
     private String dilutionRatioUom;
 
-    
+    public GwiseLiquidFertiliserBean() {
+    }
+
+    public GwiseLiquidFertiliserBean(GwiseFertiliser lf) {
+        super(lf);
+    }
     
     public boolean isDiluted() {
         return diluted;

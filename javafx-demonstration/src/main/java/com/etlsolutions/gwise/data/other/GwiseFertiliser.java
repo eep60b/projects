@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.data.other;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.gwise.data.GwiseDataUnitBean;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import java.util.Date;
 import java.util.List;
@@ -12,259 +12,311 @@ import java.util.List;
  */
 public abstract class GwiseFertiliser extends GwiseDataUnit {
 
-  private String manufacturer = "Not specified";
-  private String shop = "Not specified";
-  private double price;
-  private String[] webLinks = {};
-  private Date datePurchased;
-  private double suggestedUsageAmount;
-  private String usageUom;
-  private double ph = 7.0;
-  private double aluminium;
-  private double boron;
-  private double calcium;
-  private double chlorine;
-  private double cobalt;
-  private double copper;
-  private double iron;
-  private double magnesium;
-  private double manganese;
-  private double molybdenum;
-  private double nitrogen;
-  private double nickel;
-  private double phosphorus;
-  private double potassium;
-  private double selenium;
-  private double sodium;
-  private double sulphur;
-  private double vanadium;
-  private double zinc;
+    private final ValueWrapper<String> manufacturerWrapper;
+    private final ValueWrapper<String> shopWrapper;
+    private final ValueWrapper<Double> priceWrapper;
+    private String[] webLinks = {};
+    private final ValueWrapper<Date> datePurchasedWrapper;
+    private final ValueWrapper<Double> suggestedUsageAmountWrapper;
+    private String usageUom;
+    private double ph = 7.0;
+    private double aluminium;
+    private double boron;
+    private double calcium;
+    private double chlorine;
+    private double cobalt;
+    private double copper;
+    private double iron;
+    private double magnesium;
+    private double manganese;
+    private double molybdenum;
+    private double nitrogen;
+    private double nickel;
+    private double phosphorus;
+    private double potassium;
+    private double selenium;
+    private double sodium;
+    private double sulphur;
+    private double vanadium;
+    private double zinc;
 
-    public GwiseFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public GwiseFertiliser(String manufaucturer, String shop, double price, Date datePurchased, double suggestedUsageAmount, String usageUom, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc, int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        manufacturerWrapper = new ValueWrapper<>(manufaucturer);
+        shopWrapper = new ValueWrapper<>(shop);
+        priceWrapper = new ValueWrapper<>(price);
+        datePurchasedWrapper = new ValueWrapper<>(datePurchased);
+        suggestedUsageAmountWrapper = new ValueWrapper<>(suggestedUsageAmount);
+        this.usageUom = usageUom;
+        this.aluminium = aluminium;
+        this.boron = boron;
+        this.calcium = calcium;
+        this.chlorine = chlorine;
+        this.cobalt = cobalt;
+        this.copper = copper;
+        this.iron = iron;
+        this.magnesium = magnesium;
+        this.manganese = manganese;
+        this.molybdenum = molybdenum;
+        this.nitrogen = nitrogen;
+        this.nickel = nickel;
+        this.phosphorus = phosphorus;
+        this.potassium = potassium;
+        this.selenium = selenium;
+        this.sodium = sodium;
+        this.sulphur = sulphur;
+        this.vanadium = vanadium;
+        this.zinc = zinc;
     }
 
-    public GwiseFertiliser(GwiseDataUnitBean bean) {
+    public GwiseFertiliser(GwiseFertiliserBean bean) {
         super(bean);
+        manufacturerWrapper = new ValueWrapper<>(bean.getManufacturer());
+        shopWrapper = new ValueWrapper<>(bean.getShop());
+        priceWrapper = new ValueWrapper<>(bean.getPrice());   
+        datePurchasedWrapper = new ValueWrapper<>(bean.getDatePurchased());        
+        suggestedUsageAmountWrapper = new ValueWrapper<>(bean.getSuggestedUsageAmount());        
     }
 
-  public abstract FertiliserType getType();
-  
-  public String getManufacturer() {
-    return manufacturer;
-  }
+    @Override
+    public abstract GwiseFertiliserBean getBean();
 
-  public void setManufacturer(String manufacturer) {
-    this.manufacturer = manufacturer;
-  }
+    public abstract FertiliserType getType();
 
-  public String getShop() {
-    return shop;
-  }
+    public ValueWrapper<String> getManufacturerWrapper() {
+        return manufacturerWrapper;
+    }
 
-  public void setShop(String shop) {
-    this.shop = shop;
-  }
+    public String getManufacturer() {
+        return manufacturerWrapper.getValue();
+    }
 
-  public double getPrice() {
-    return price;
-  }
+    public void setManufacturer(String manufacturer) {
+        manufacturerWrapper.setValue(manufacturer);
+    }
 
-  public void setPrice(double price) {
-    this.price = price;
-  }
+    public ValueWrapper<String> getShopWrapper() {
+        return shopWrapper;
+    }
 
-  public String[] getWebLinks() {
-    return webLinks;
-  }
+    public String getShop() {
+        return shopWrapper.getValue();
+    }
 
-  public void setWebLinks(String[] webLinks) {
-    this.webLinks = webLinks;
-  }
+    public void setShop(String shop) {
+        shopWrapper.setValue(shop);
+    }
 
-  public Date getDatePurchased() {
-    return datePurchased;
-  }
+    public ValueWrapper<Double> getPriceWrapper() {
+        return priceWrapper;
+    }
 
-  public void setDatePurchased(Date datePurchased) {
-    this.datePurchased = datePurchased;
-  }
+    public double getPrice() {
+        return priceWrapper.getValue();
+    }
 
-  public double getSuggestedUsageAmount() {
-    return suggestedUsageAmount;
-  }
+    public void setPrice(double price) {
+        priceWrapper.setValue(price);
+    }
 
-  public void setSuggestedUsageAmount(double suggestedUsageAmount) {
-    this.suggestedUsageAmount = suggestedUsageAmount;
-  }
+    public String[] getWebLinks() {
+        return webLinks;
+    }
 
-  public String getUsageUom() {
-    return usageUom;
-  }
+    public void setWebLinks(String[] webLinks) {
+        this.webLinks = webLinks;
+    }
 
-  public void setUsageUom(String usageUom) {
-    this.usageUom = usageUom;
-  }
+    public ValueWrapper<Date> getDatePurchasedWrapper() {
+        return datePurchasedWrapper;
+    }
 
-  public double getPh() {
-    return ph;
-  }
+    public Date getDatePurchased() {
+        return datePurchasedWrapper.getValue();
+    }
 
-  public void setPh(double ph) {
-    this.ph = ph;
-  }
+    public void setDatePurchased(Date datePurchased) {
+        datePurchasedWrapper.setValue(datePurchased);
+    }
 
-  public double getAluminium() {
-    return aluminium;
-  }
+    public ValueWrapper<Double> getSuggestedUsageAmountWrapper() {
+        return suggestedUsageAmountWrapper;
+    }
 
-  public void setAluminium(double aluminium) {
-    this.aluminium = aluminium;
-  }
+    public double getSuggestedUsageAmount() {
+        return suggestedUsageAmountWrapper.getValue();
+    }
 
-  public double getBoron() {
-    return boron;
-  }
+    public void setSuggestedUsageAmount(double suggestedUsageAmount) {
+        suggestedUsageAmountWrapper.setValue(suggestedUsageAmount);
+    }
 
-  public void setBoron(double boron) {
-    this.boron = boron;
-  }
+    public String getUsageUom() {
+        return usageUom;
+    }
 
-  public double getCalcium() {
-    return calcium;
-  }
+    public void setUsageUom(String usageUom) {
+        this.usageUom = usageUom;
+    }
 
-  public void setCalcium(double calcium) {
-    this.calcium = calcium;
-  }
+    public double getPh() {
+        return ph;
+    }
 
-  public double getChlorine() {
-    return chlorine;
-  }
+    public void setPh(double ph) {
+        this.ph = ph;
+    }
 
-  public void setChlorine(double chlorine) {
-    this.chlorine = chlorine;
-  }
+    public double getAluminium() {
+        return aluminium;
+    }
 
-  public double getCobalt() {
-    return cobalt;
-  }
+    public void setAluminium(double aluminium) {
+        this.aluminium = aluminium;
+    }
 
-  public void setCobalt(double cobalt) {
-    this.cobalt = cobalt;
-  }
+    public double getBoron() {
+        return boron;
+    }
 
-  public double getCopper() {
-    return copper;
-  }
+    public void setBoron(double boron) {
+        this.boron = boron;
+    }
 
-  public void setCopper(double copper) {
-    this.copper = copper;
-  }
+    public double getCalcium() {
+        return calcium;
+    }
 
-  public double getIron() {
-    return iron;
-  }
+    public void setCalcium(double calcium) {
+        this.calcium = calcium;
+    }
 
-  public void setIron(double iron) {
-    this.iron = iron;
-  }
+    public double getChlorine() {
+        return chlorine;
+    }
 
-  public double getMagnesium() {
-    return magnesium;
-  }
+    public void setChlorine(double chlorine) {
+        this.chlorine = chlorine;
+    }
 
-  public void setMagnesium(double magnesium) {
-    this.magnesium = magnesium;
-  }
+    public double getCobalt() {
+        return cobalt;
+    }
 
-  public double getManganese() {
-    return manganese;
-  }
+    public void setCobalt(double cobalt) {
+        this.cobalt = cobalt;
+    }
 
-  public void setManganese(double manganese) {
-    this.manganese = manganese;
-  }
+    public double getCopper() {
+        return copper;
+    }
 
-  public double getMolybdenum() {
-    return molybdenum;
-  }
+    public void setCopper(double copper) {
+        this.copper = copper;
+    }
 
-  public void setMolybdenum(double molybdenum) {
-    this.molybdenum = molybdenum;
-  }
+    public double getIron() {
+        return iron;
+    }
 
-  public double getNitrogen() {
-    return nitrogen;
-  }
+    public void setIron(double iron) {
+        this.iron = iron;
+    }
 
-  public void setNitrogen(double nitrogen) {
-    this.nitrogen = nitrogen;
-  }
+    public double getMagnesium() {
+        return magnesium;
+    }
 
-  public double getNickel() {
-    return nickel;
-  }
+    public void setMagnesium(double magnesium) {
+        this.magnesium = magnesium;
+    }
 
-  public void setNickel(double nickel) {
-    this.nickel = nickel;
-  }
+    public double getManganese() {
+        return manganese;
+    }
 
-  public double getPhosphorus() {
-    return phosphorus;
-  }
+    public void setManganese(double manganese) {
+        this.manganese = manganese;
+    }
 
-  public void setPhosphorus(double phosphorus) {
-    this.phosphorus = phosphorus;
-  }
+    public double getMolybdenum() {
+        return molybdenum;
+    }
 
-  public double getPotassium() {
-    return potassium;
-  }
+    public void setMolybdenum(double molybdenum) {
+        this.molybdenum = molybdenum;
+    }
 
-  public void setPotassium(double potassium) {
-    this.potassium = potassium;
-  }
+    public double getNitrogen() {
+        return nitrogen;
+    }
 
-  public double getSelenium() {
-    return selenium;
-  }
+    public void setNitrogen(double nitrogen) {
+        this.nitrogen = nitrogen;
+    }
 
-  public void setSelenium(double selenium) {
-    this.selenium = selenium;
-  }
+    public double getNickel() {
+        return nickel;
+    }
 
-  public double getSodium() {
-    return sodium;
-  }
+    public void setNickel(double nickel) {
+        this.nickel = nickel;
+    }
 
-  public void setSodium(double sodium) {
-    this.sodium = sodium;
-  }
+    public double getPhosphorus() {
+        return phosphorus;
+    }
 
-  public double getSulphur() {
-    return sulphur;
-  }
+    public void setPhosphorus(double phosphorus) {
+        this.phosphorus = phosphorus;
+    }
 
-  public void setSulphur(double sulphur) {
-    this.sulphur = sulphur;
-  }
+    public double getPotassium() {
+        return potassium;
+    }
 
-  public double getVanadium() {
-    return vanadium;
-  }
+    public void setPotassium(double potassium) {
+        this.potassium = potassium;
+    }
 
-  public void setVanadium(double vanadium) {
-    this.vanadium = vanadium;
-  }
+    public double getSelenium() {
+        return selenium;
+    }
 
-  public double getZinc() {
-    return zinc;
-  }
+    public void setSelenium(double selenium) {
+        this.selenium = selenium;
+    }
 
-  public void setZinc(double zinc) {
-    this.zinc = zinc;
-  }
-  
-  
+    public double getSodium() {
+        return sodium;
+    }
+
+    public void setSodium(double sodium) {
+        this.sodium = sodium;
+    }
+
+    public double getSulphur() {
+        return sulphur;
+    }
+
+    public void setSulphur(double sulphur) {
+        this.sulphur = sulphur;
+    }
+
+    public double getVanadium() {
+        return vanadium;
+    }
+
+    public void setVanadium(double vanadium) {
+        this.vanadium = vanadium;
+    }
+
+    public double getZinc() {
+        return zinc;
+    }
+
+    public void setZinc(double zinc) {
+        this.zinc = zinc;
+    }
+
 }

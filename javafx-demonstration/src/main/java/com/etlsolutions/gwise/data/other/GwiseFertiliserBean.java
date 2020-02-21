@@ -1,6 +1,7 @@
 package com.etlsolutions.gwise.data.other;
 
-import com.etlsolutions.javafx.data.DataUnit;
+import com.etlsolutions.gwise.data.GwiseDataUnit;
+import com.etlsolutions.gwise.data.GwiseDataUnitBean;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.data.other.SolidFertiliser;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,7 +20,7 @@ import java.util.Date;
     @JsonSubTypes.Type(name = "LiquidFertiliser", value = LiquidFertiliser.class),
     @JsonSubTypes.Type(name = "SolidFertiliser", value = SolidFertiliser.class)
 })
-public abstract class GwiseFertiliserBean extends DataUnit {
+public abstract class GwiseFertiliserBean extends GwiseDataUnitBean {
 
   private String manufacturer = "Not specified";
   private String shop = "Not specified";
@@ -48,6 +49,13 @@ public abstract class GwiseFertiliserBean extends DataUnit {
   private double sulphur;
   private double vanadium;
   private double zinc;
+
+    public GwiseFertiliserBean() {
+    }
+
+    public GwiseFertiliserBean(GwiseFertiliser unit) {
+        super(unit);
+    }
 
   @JsonIgnore
   public abstract FertiliserType getType();

@@ -1,8 +1,8 @@
 package com.etlsolutions.gwise.data.other;
 
-import com.etlsolutions.gwise.data.GwiseDataUnitBean;
-import com.etlsolutions.gwise.data.other.GwiseFertiliser;
+import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,42 +11,58 @@ import java.util.List;
  */
 public class GwiseLiquidFertiliser extends GwiseFertiliser
 {
-    private boolean diluted;
-    private double dilutionRatio;
-    private String dilutionRatioUom;
+    private final ValueWrapper<Boolean> dilutedWrapper;
+    private final ValueWrapper<Double> dilutionRatioWrapper;
+    private final ValueWrapper<String> dilutionRatioUomWrapper;
 
-    public GwiseLiquidFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
-        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public GwiseLiquidFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, String manufacturer, String shop, double price, Date datePurchased, double suggestedUsageAmount, String usageUom, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc, boolean diluted, double dilutionRatio, String dilutionRatioUom) {
+        super(manufacturer, shop, price, datePurchased, suggestedUsageAmount, usageUom, aluminium, boron, calcium, chlorine, cobalt, copper, iron, magnesium, manganese, molybdenum, nitrogen, nickel, phosphorus, potassium, selenium, sodium, sulphur, vanadium, zinc, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        dilutedWrapper = new ValueWrapper<>(diluted);
+        dilutionRatioWrapper = new ValueWrapper<>(dilutionRatio);
+        dilutionRatioUomWrapper = new ValueWrapper<>(dilutionRatioUom);
     }
 
-    public GwiseLiquidFertiliser(GwiseDataUnitBean bean) {
+    public GwiseLiquidFertiliser(GwiseLiquidFertiliserBean bean) {
         super(bean);
+        dilutedWrapper = new ValueWrapper<>(bean.isDiluted()); 
+        dilutionRatioWrapper = new ValueWrapper<>(bean.getDilutionRatio());        
+        dilutionRatioUomWrapper = new ValueWrapper<>(bean.getDilutionRatioUom());
     }
 
-    
+    public ValueWrapper<Boolean> getDilutedWrapper() {
+        return dilutedWrapper;
+    }
     
     public boolean isDiluted() {
-        return diluted;
+        return dilutedWrapper.getValue();
     }
 
     public void setDiluted(boolean diluted) {
-        this.diluted = diluted;
+        dilutedWrapper.setValue(diluted);
+    }
+
+    public ValueWrapper<Double> getDilutionRatioWrapper() {
+        return dilutionRatioWrapper;
     }
 
     public double getDilutionRatio() {
-        return dilutionRatio;
+        return dilutionRatioWrapper.getValue();
     }
 
     public void setDilutionRatio(double dilutionRatio) {
-        this.dilutionRatio = dilutionRatio;
+        dilutionRatioWrapper.setValue(dilutionRatio);
+    }
+
+    public ValueWrapper<String> getDilutionRatioUomWrapper() {
+        return dilutionRatioUomWrapper;
     }
 
     public String getDilutionRatioUom() {
-        return dilutionRatioUom;
+        return dilutionRatioUomWrapper.getValue();
     }
 
     public void setDilutionRatioUom(String dilutionRatioUom) {
-        this.dilutionRatioUom = dilutionRatioUom;
+        dilutionRatioUomWrapper.setValue(dilutionRatioUom);
     }
     
     @Override
@@ -55,7 +71,7 @@ public class GwiseLiquidFertiliser extends GwiseFertiliser
     }
 
     @Override
-    public GwiseDataUnitBean getBean() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public GwiseLiquidFertiliserBean getBean() {
+        return new GwiseLiquidFertiliserBean(this);
     }
 }

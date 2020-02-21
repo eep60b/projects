@@ -5,9 +5,12 @@ import com.etlsolutions.gwise.data.area.GwiseAreaRoot;
 import com.etlsolutions.gwise.data.plant.GwisePlantGroupRoot;
 import com.etlsolutions.gwise.data.log.GwiseLogGroupRoot;
 import com.etlsolutions.gwise.data.other.GwiseFertiliser;
+import com.etlsolutions.gwise.data.other.GwiseFertiliserBean;
+import com.etlsolutions.gwise.data.other.GwiseFertiliserFactory;
 import com.etlsolutions.gwise.data.other.GwiseGrowingMedium;
 import com.etlsolutions.gwise.data.other.GwiseGrowingMediumBean;
 import com.etlsolutions.gwise.data.other.GwiseLiquidFertiliser;
+import com.etlsolutions.gwise.data.other.GwiseLiquidFertiliserBean;
 
 /**
  * The GwiseProjectContent class contains all the contents of current project.
@@ -67,9 +70,14 @@ public class GwiseProjectContents {
         }
         
         fertilisers = new ObservableListWrapperA<>();
-        
+        for(GwiseFertiliserBean f : bean.getFertilisers()) {
+            fertilisers.add(GwiseFertiliserFactory.getInstance().getFertiliser(f));
+        }
         
         liquidFertilisers = new ObservableListWrapperA<>();
+        for(GwiseLiquidFertiliserBean l : bean.getLiquidFertilisers()) {
+            liquidFertilisers.add(new GwiseLiquidFertiliser(l));
+        }
 
         fertiliserUoms = new ObservableListWrapperA<>(bean.getFertiliserUoms());
         flowerColors = new ObservableListWrapperA<>(bean.getFlowerColors());

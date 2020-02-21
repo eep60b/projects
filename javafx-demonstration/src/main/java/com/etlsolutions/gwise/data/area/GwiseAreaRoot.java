@@ -45,7 +45,7 @@ public class GwiseAreaRoot extends GwiseDataUnit {
     }
 
     @Override
-    public GwiseDataUnitBean getBean() {
+    public GwiseAreaRootBean getBean() {
         return new GwiseAreaRootBean(this);
     }
 }

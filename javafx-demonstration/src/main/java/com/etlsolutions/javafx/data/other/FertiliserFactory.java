@@ -4,7 +4,6 @@ import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.TypedItem;
-import com.etlsolutions.javafx.data.log.task.CustomTaskValueWrapper;
 
 /**
  *
