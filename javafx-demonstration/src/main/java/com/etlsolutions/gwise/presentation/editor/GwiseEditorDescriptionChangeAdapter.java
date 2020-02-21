@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.presentation.editor;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.gwise.data.GwiseDataUnitPropertyChangeAdapter;
+import com.etlsolutions.gwise.data.PropertyChangeAdapter;
 import java.beans.PropertyChangeEvent;
 import javafx.scene.control.TextArea;
 
@@ -9,7 +9,7 @@ import javafx.scene.control.TextArea;
  *
  * @author zc
  */
-public class GwiseEditorDescriptionChangeAdapter extends GwiseDataUnitPropertyChangeAdapter {
+public class GwiseEditorDescriptionChangeAdapter extends PropertyChangeAdapter<GwiseDataUnit> {
 
     private final TextArea informationTextArea;
 
@@ -21,6 +21,6 @@ public class GwiseEditorDescriptionChangeAdapter extends GwiseDataUnitPropertyCh
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        informationTextArea.setText(unit.getInformation());
+        informationTextArea.setText(source.getInformation());
     }
 }

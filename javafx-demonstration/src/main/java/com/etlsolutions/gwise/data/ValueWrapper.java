@@ -61,35 +61,26 @@ public class ValueWrapper<T> {
         }
     }
 
-    public void addNonDuplicatedDataUnitPropertyChangeAdapter(String propertyName, GwiseDataUnitPropertyChangeAdapter adapter) {
-        
-        for(PropertyChangeListener listener : support.getPropertyChangeListeners(propertyName)) {
-            
-            if(listener instanceof GwiseDataUnitPropertyChangeAdapter) {
-                
-                GwiseDataUnitPropertyChangeAdapter a = (GwiseDataUnitPropertyChangeAdapter) listener;
-                if(Objects.equals(adapter, a)) {
-                    return;
-                }
-            }            
+    public void addNonDuplicatedDataUnitPropertyChangeAdapter(String propertyName, PropertyChangeListener adapter) {
+
+        for (PropertyChangeListener listener : support.getPropertyChangeListeners(propertyName)) {
+
+            if (Objects.equals(adapter, listener)) {
+                return;
+            }
+            support.addPropertyChangeListener(propertyName, adapter);
         }
-        
-        support.addPropertyChangeListener(propertyName, adapter);
     }
     
-    public void addNonDuplicatedDataUnitPropertyChangeAdapter(GwiseDataUnitPropertyChangeAdapter adapter) {
-        
-        for(PropertyChangeListener listener : support.getPropertyChangeListeners()) {
-            
-            if(listener instanceof GwiseDataUnitPropertyChangeAdapter) {
-                
-                GwiseDataUnitPropertyChangeAdapter a = (GwiseDataUnitPropertyChangeAdapter) listener;
-                if(Objects.equals(adapter, a)) {
-                    return;
-                }
-            }            
+
+    public void addNonDuplicatedDataUnitPropertyChangeAdapter(PropertyChangeAdapter adapter) {
+
+        for (PropertyChangeListener listener : support.getPropertyChangeListeners()) {
+
+            if (Objects.equals(adapter, listener)) {
+                return;
+            }
+            support.addPropertyChangeListener(adapter);
         }
-        
-        support.addPropertyChangeListener(adapter);
     }
 }

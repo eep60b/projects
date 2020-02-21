@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.presentation.editor;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.gwise.data.GwiseDataUnitPropertyChangeAdapter;
+import com.etlsolutions.gwise.data.PropertyChangeAdapter;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.presentation.editor.designtab.GwiseDesignPaneDataModel;
 import com.etlsolutions.javafx.data.ImageLink;
@@ -32,7 +32,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class GwiseEditorPropertyChangeAdapter extends GwiseDataUnitPropertyChangeAdapter {
+public class GwiseEditorPropertyChangeAdapter extends PropertyChangeAdapter {
 
     private final GwiseDesignPaneDataModel model;
     private final ObservableList<Tab> tabs;

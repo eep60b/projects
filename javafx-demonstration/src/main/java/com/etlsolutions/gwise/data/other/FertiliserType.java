@@ -1,4 +1,4 @@
-package com.etlsolutions.javafx.data.other;
+package com.etlsolutions.gwise.data.other;
 
 /**
  *
@@ -17,7 +17,5 @@ public enum FertiliserType {
     @Override
     public String toString() {
         return displayString;
-    }
-    
-    
+    }    
 }

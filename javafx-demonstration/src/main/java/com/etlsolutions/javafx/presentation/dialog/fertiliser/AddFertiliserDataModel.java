@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.fertiliser;
 
 import com.etlsolutions.javafx.data.other.FertiliserFactory;
-import com.etlsolutions.javafx.data.other.FertiliserType;
+import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.data.other.SolidFertiliser;
 import com.etlsolutions.javafx.system.ProjectManager;

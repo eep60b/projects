@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.log.task;
 
 import com.etlsolutions.javafx.data.other.Fertiliser;
-import com.etlsolutions.javafx.data.other.FertiliserType;
+import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.AddItemEventHandler;
 import com.etlsolutions.javafx.presentation.DigitalFilter;

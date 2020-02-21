@@ -1,24 +1,16 @@
-package com.etlsolutions.javafx.data.other;
+package com.etlsolutions.gwise.data.other;
 
-import com.etlsolutions.gwise.data.other.FertiliserType;
-import com.etlsolutions.javafx.data.DataUnit;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.etlsolutions.gwise.data.GwiseDataUnit;
+import com.etlsolutions.gwise.data.GwiseDataUnitBean;
+import com.etlsolutions.javafx.data.ImageLink;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author zc
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
-@JsonSubTypes({
-    @JsonSubTypes.Type(name = "LiquidFertiliser", value = LiquidFertiliser.class),
-    @JsonSubTypes.Type(name = "SolidFertiliser", value = SolidFertiliser.class)
-})
-public abstract class Fertiliser extends DataUnit {
+public abstract class GwiseFertiliser extends GwiseDataUnit {
 
   private String manufacturer = "Not specified";
   private String shop = "Not specified";
@@ -48,7 +40,14 @@ public abstract class Fertiliser extends DataUnit {
   private double vanadium;
   private double zinc;
 
-  @JsonIgnore
+    public GwiseFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    }
+
+    public GwiseFertiliser(GwiseDataUnitBean bean) {
+        super(bean);
+    }
+
   public abstract FertiliserType getType();
   
   public String getManufacturer() {

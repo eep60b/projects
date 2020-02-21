@@ -1,10 +1,22 @@
-package com.etlsolutions.javafx.presentation.palette;
+package com.etlsolutions.gwise.presentation.palette;
 
-import com.etlsolutions.gwise.presentation.palette.PalettePropertyChangeAdapter;
 import com.etlsolutions.gwise.AbstractFXMLController;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.presentation.editor.DesignTabStatusManager;
+import com.etlsolutions.javafx.presentation.palette.GreenhouseImageType;
+import com.etlsolutions.javafx.presentation.palette.ImageType;
+import com.etlsolutions.javafx.presentation.palette.ImageViewDragDetectedEventHandler;
+import com.etlsolutions.javafx.presentation.palette.ImageViewDragDoneEventHandler;
+import com.etlsolutions.javafx.presentation.palette.LawnImageType;
+import com.etlsolutions.javafx.presentation.palette.MouseDragEventHandler;
+import com.etlsolutions.javafx.presentation.palette.MousePressEventHandler;
+import com.etlsolutions.javafx.presentation.palette.MouseReleaseEventHandler;
+import com.etlsolutions.javafx.presentation.palette.PlantBedImageType;
+import com.etlsolutions.javafx.presentation.palette.PondImageType;
+import com.etlsolutions.javafx.presentation.palette.ProjectContentsPalettePropertyChangeAdaper;
+import com.etlsolutions.javafx.presentation.palette.RaisedPlantBedImageType;
+import com.etlsolutions.javafx.presentation.palette.RoomImageType;
 import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
 import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.javafx.system.ProjectManager;
@@ -26,7 +38,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class PaletteController extends AbstractFXMLController {
+public class GwisePaletteController extends AbstractFXMLController {
 
     @FXML
     private AnchorPane paletteAnchorPane;
@@ -57,7 +69,7 @@ public class PaletteController extends AbstractFXMLController {
         try {
             ValueWrapper<Tab> wrapper = DesignTabStatusManager.getInstance().getWrapper();
             paletteAnchorPane.setVisible(wrapper.getValue() != null);
-            wrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, new PalettePropertyChangeAdapter(paletteAnchorPane));
+            wrapper.addNonDuplicatedDataUnitPropertyChangeAdapter(ValueWrapper.VALUE_CHANGE, new PalettePropertyChangeAdapter(paletteAnchorPane));
 
             ValueWrapper<ProjectContents> cwrapper = ProjectManager.getInstance().getContentsValueWrapper();
             ProjectContents cvalue = cwrapper.getValue();

@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.other;
 
+import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.javafx.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;

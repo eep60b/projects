@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.fertiliser;
 
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.other.FertiliserType;
+import com.etlsolutions.gwise.data.other.FertiliserType;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Map;

@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.presentation.dialog.adapter.BooleanValueNodeChang
 import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;
-import com.etlsolutions.javafx.data.other.FertiliserType;
+import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.presentation.AbstractComponentsFXMLController;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLController;
 import com.etlsolutions.javafx.presentation.DigitalFilter;

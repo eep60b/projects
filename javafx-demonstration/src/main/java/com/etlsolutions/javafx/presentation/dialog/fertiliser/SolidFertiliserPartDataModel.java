@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.dialog.fertiliser;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.PartDataModel;
-import com.etlsolutions.javafx.data.other.FertiliserType;
+import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.data.other.SolidFertiliserSpecialValueWrapper;
 import com.etlsolutions.javafx.system.ProjectManager;
 

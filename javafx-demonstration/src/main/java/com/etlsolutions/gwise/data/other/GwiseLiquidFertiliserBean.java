@@ -1,17 +1,17 @@
-package com.etlsolutions.javafx.data.other;
-
-import com.etlsolutions.gwise.data.other.FertiliserType;
+package com.etlsolutions.gwise.data.other;
 
 /**
  *
  * @author zc
  */
-public class LiquidFertiliser extends Fertiliser
+public class GwiseLiquidFertiliserBean extends GwiseFertiliserBean
 {
     private boolean diluted;
     private double dilutionRatio;
     private String dilutionRatioUom;
 
+    
+    
     public boolean isDiluted() {
         return diluted;
     }
