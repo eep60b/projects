@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.data;
 
-import static com.etlsolutions.javafx.system.SettingConstants.*;
+import static com.etlsolutions.gwise.system.SettingConstants.*;
 import java.util.TreeSet;
 
 /**

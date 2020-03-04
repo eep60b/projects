@@ -1,24 +1,20 @@
 package com.etlsolutions.gwise.data.log;
 
-import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.gwise.data.GwiseDataUnitBean;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.log.gvent.GwiseGventsBean;
 import com.etlsolutions.javafx.data.log.Issues;
 import com.etlsolutions.javafx.data.log.Notes;
 import com.etlsolutions.javafx.data.log.References;
 import com.etlsolutions.javafx.data.log.Tests;
 import com.etlsolutions.javafx.data.log.task.Tasks;
-import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
-import java.util.List;
 
 /**
  *
  * @author zc
  */
-public class GwiseLogGroupRootBean extends GwiseDataUnitBean {
+public class GwiseLogGroupRootBean extends LogItemBean {
   
-   private Gvents events;
+   private GwiseGventsBean events;
    private Issues issues;
    private Notes notes;
    private References references;
@@ -26,15 +22,25 @@ public class GwiseLogGroupRootBean extends GwiseDataUnitBean {
    private Tests tests;
    private WeatherRecords weatherRecords;
 
+    public GwiseLogGroupRootBean() {
+    }
 
-   
-   
-   
-    public Gvents getGvents() {
+    public GwiseLogGroupRootBean(GwiseGventsBean events, Issues issues, Notes notes, References references, Tasks tasks, Tests tests, WeatherRecords weatherRecords, LogItem item) {
+        super(item);
+        this.events = events;
+        this.issues = issues;
+        this.notes = notes;
+        this.references = references;
+        this.tasks = tasks;
+        this.tests = tests;
+        this.weatherRecords = weatherRecords;
+    }
+
+    public GwiseGventsBean getEvents() {
         return events;
     }
 
-    public void setEvents(Gvents events) {
+    public void setEvents(GwiseGventsBean events) {
         this.events = events;
     }
 

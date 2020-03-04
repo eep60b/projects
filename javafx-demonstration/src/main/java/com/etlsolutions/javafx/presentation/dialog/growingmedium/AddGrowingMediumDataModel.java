@@ -1,10 +1,10 @@
 package com.etlsolutions.javafx.presentation.dialog.growingmedium;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.other.GrowingMediumFactory;
 import com.etlsolutions.javafx.data.other.GrowingMediumSpecialValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

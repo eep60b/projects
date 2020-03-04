@@ -1,6 +1,5 @@
 package com.etlsolutions.gwise.data.other;
 
-import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.data.GwiseDataUnitBean;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.data.other.SolidFertiliser;
@@ -8,7 +7,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -24,8 +25,8 @@ public abstract class GwiseFertiliserBean extends GwiseDataUnitBean {
 
   private String manufacturer = "Not specified";
   private String shop = "Not specified";
+  private List<String> webLinks;
   private double price;
-  private String[] webLinks = {};
   private Date datePurchased;
   private double suggestedUsageAmount;
   private String usageUom;
@@ -55,6 +56,33 @@ public abstract class GwiseFertiliserBean extends GwiseDataUnitBean {
 
     public GwiseFertiliserBean(GwiseFertiliser unit) {
         super(unit);
+        manufacturer = unit.getManufacturer();
+        shop = unit.getShop();
+        webLinks = new ArrayList<>(unit.getWebLinks());
+        price = unit.getPrice();
+        datePurchased = unit.getDatePurchased();
+        suggestedUsageAmount = unit.getSuggestedUsageAmount();
+        usageUom = unit.getUsageUom();
+        ph = unit.getPh();
+        aluminium = unit.getAluminium();
+        boron = unit.getBoron();
+        calcium = unit.getCalcium();
+        chlorine = unit.getChlorine();
+        cobalt = unit.getCobalt();
+        copper = unit.getCopper();
+        iron = unit.getIron();
+        magnesium = unit.getMagnesium();
+        manganese = unit.getManganese();
+        molybdenum = unit.getMolybdenum();
+        nitrogen = unit.getNitrogen();
+        nickel = unit.getNickel();
+        phosphorus = unit.getPhosphorus();
+        potassium = unit.getPotassium();
+        selenium = unit.getSelenium();
+        sodium = unit.getSodium();
+        sulphur = unit.getSulphur();
+        vanadium = unit.getVanadium();
+        zinc = unit.getZinc();
     }
 
   @JsonIgnore
@@ -84,11 +112,11 @@ public abstract class GwiseFertiliserBean extends GwiseDataUnitBean {
     this.price = price;
   }
 
-  public String[] getWebLinks() {
+  public List<String> getWebLinks() {
     return webLinks;
   }
 
-  public void setWebLinks(String[] webLinks) {
+  public void setWebLinks(List<String> webLinks) {
     this.webLinks = webLinks;
   }
 

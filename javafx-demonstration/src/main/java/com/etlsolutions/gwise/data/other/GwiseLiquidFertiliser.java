@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.data.other;
 
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import java.util.Date;
 import java.util.List;
 
@@ -15,8 +15,8 @@ public class GwiseLiquidFertiliser extends GwiseFertiliser
     private final ValueWrapper<Double> dilutionRatioWrapper;
     private final ValueWrapper<String> dilutionRatioUomWrapper;
 
-    public GwiseLiquidFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, String manufacturer, String shop, double price, Date datePurchased, double suggestedUsageAmount, String usageUom, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc, boolean diluted, double dilutionRatio, String dilutionRatioUom) {
-        super(manufacturer, shop, price, datePurchased, suggestedUsageAmount, usageUom, aluminium, boron, calcium, chlorine, cobalt, copper, iron, magnesium, manganese, molybdenum, nitrogen, nickel, phosphorus, potassium, selenium, sodium, sulphur, vanadium, zinc, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+    public GwiseLiquidFertiliser(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, String manufacturer, String shop, List<String> webLinks, double price, Date datePurchased, double suggestedUsageAmount, String usageUom, double ph, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc, boolean diluted, double dilutionRatio, String dilutionRatioUom) {
+        super(manufacturer, shop, webLinks, price, datePurchased, suggestedUsageAmount, usageUom, ph, aluminium, boron, calcium, chlorine, cobalt, copper, iron, magnesium, manganese, molybdenum, nitrogen, nickel, phosphorus, potassium, selenium, sodium, sulphur, vanadium, zinc, id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         dilutedWrapper = new ValueWrapper<>(diluted);
         dilutionRatioWrapper = new ValueWrapper<>(dilutionRatio);
         dilutionRatioUomWrapper = new ValueWrapper<>(dilutionRatioUom);

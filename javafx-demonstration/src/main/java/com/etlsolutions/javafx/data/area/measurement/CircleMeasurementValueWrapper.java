@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.data.area.measurement;
 
 import com.etlsolutions.javafx.data.DoubleValueWrapper;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import static com.etlsolutions.javafx.system.SettingConstants.PI;
+import static com.etlsolutions.gwise.system.SettingConstants.PI;
 
 /**
  *

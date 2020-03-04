@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.log.gvent;
 
+import com.etlsolutions.gwise.data.log.gvent.GventType;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 
 /**

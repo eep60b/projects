@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.presentation;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.javafx.presentation.dialog.imagelink.EditImageInformationDataModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

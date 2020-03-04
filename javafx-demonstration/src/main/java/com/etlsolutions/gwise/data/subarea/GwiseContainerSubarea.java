@@ -4,7 +4,7 @@ import com.etlsolutions.gwise.data.area.GwiseArea;
 import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import com.etlsolutions.gwise.data.locations.GwiseContainerSet;
 import com.etlsolutions.gwise.data.locations.GwiseContainerSetBean;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import java.util.List;
 

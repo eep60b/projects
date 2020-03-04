@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.menu.file;
 
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;

@@ -1,8 +1,8 @@
 package com.etlsolutions.gwise;
 
-import com.etlsolutions.javafx.system.CustomLevelWarningRuntimeExceiption;
-import com.etlsolutions.javafx.system.GwiseRepository;
-import com.etlsolutions.javafx.system.ThrowableHandler;
+import com.etlsolutions.gwise.system.CustomLevelWarningRuntimeExceiption;
+import com.etlsolutions.gwise.system.GwiseRepository;
+import com.etlsolutions.gwise.system.ThrowableHandler;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

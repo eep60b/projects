@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.task.TransplantTask;
 import com.etlsolutions.javafx.data.log.task.TransplantTasklValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

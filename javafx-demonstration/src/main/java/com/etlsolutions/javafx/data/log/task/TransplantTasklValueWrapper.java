@@ -1,11 +1,11 @@
 package com.etlsolutions.javafx.data.log.task;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
-import com.etlsolutions.javafx.data.log.Notification;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.data.log.Notification;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.time.LocalDateTime;
 
 /**

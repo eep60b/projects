@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.data.other;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import java.util.List;
 

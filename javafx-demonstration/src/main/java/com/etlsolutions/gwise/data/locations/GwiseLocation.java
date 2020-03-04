@@ -3,9 +3,9 @@ package com.etlsolutions.gwise.data.locations;
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import com.etlsolutions.gwise.data.plant.GwisePlant;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.util.List;
 
 /**

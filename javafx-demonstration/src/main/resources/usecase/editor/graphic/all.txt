@@ -12,6 +12,7 @@
     2.5 Save Projects
     
 3. View
+    V3.0 One item must be selected in the tree at all times.
     V3.1 Ground and Area View
         V3.0 The ground (AreaRoot) is displayed with the title "All Areas".
             V3.0.1 There will be a default garden area when the project starts. (See E4.2.1)              
@@ -224,12 +225,13 @@
     
     P6.0 The whole pallette will NOT be disabled if no area is in the editor. 
         6.0.1 The last area cannot be deleted from the ground.
-
+        6.0.2 The switch over to area tab in the editor is AUTOMATIC. i.e. When an item in the pallette is selected or clicked, the lasted area tab will
+        be shown in the editor.
     6.1 Tools
         The tool is available if the floating panel appears and no shape area is selected.
         6.1.1 Point
         6.1.2 Pencil (draw poly lines).
-        6.1.3 Rubber (Do not implemented)
+        6.1.3 Rubber/Eraser  (Do not implement for the first version)
         6.1.4 Brush
         6.1.5 Filling basket
         6.1.6 Text input

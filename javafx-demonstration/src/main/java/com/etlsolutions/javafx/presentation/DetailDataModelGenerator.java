@@ -24,7 +24,7 @@ import com.etlsolutions.javafx.data.log.gvent.FloweringGventValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
 import com.etlsolutions.javafx.data.log.gvent.FruitingGventValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
-import com.etlsolutions.javafx.data.log.gvent.GventType;
+import com.etlsolutions.gwise.data.log.gvent.GventType;
 import com.etlsolutions.javafx.data.log.task.TaskType;
 import com.etlsolutions.javafx.presentation.dialog.area.AreaValueDataModel;
 import com.etlsolutions.javafx.presentation.dialog.area.CircleDataModel;

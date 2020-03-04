@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.gwise.data.area.AreaType;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;

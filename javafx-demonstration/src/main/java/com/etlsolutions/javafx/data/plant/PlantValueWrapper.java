@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.data.plant;
 
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.data.log.Log;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.task.Task;
 import com.etlsolutions.javafx.data.other.GrowingMedium;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import static java.util.Calendar.*;

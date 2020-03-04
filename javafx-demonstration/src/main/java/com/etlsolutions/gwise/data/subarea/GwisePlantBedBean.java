@@ -9,8 +9,8 @@ public class GwisePlantBedBean extends GwiseSubareaBean {
     public GwisePlantBedBean() {
     }
 
-    public GwisePlantBedBean(GwiseSubarea subarea) {
-        super(subarea);
+    public GwisePlantBedBean(GwisePlantBed plantBed) {
+        super(plantBed);
     }
 
    

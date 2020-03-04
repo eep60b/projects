@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.log.weather;
 
 import com.etlsolutions.javafx.data.area.GwiseShapeType;
-import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.gwise.data.area.AreaType;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;

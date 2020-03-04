@@ -2,7 +2,7 @@ package com.etlsolutions.gwise.presentation;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.javafx.presentation.dialog.adapter.ValidationPropertyChangeAdapter;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.gwise.presentation.dialog.adapter.GwiseImageSelectionChangeAdapter;
 import com.etlsolutions.gwise.presentation.dialog.imagelink.GwiseMoveImageLinkToBeginEventHandler;

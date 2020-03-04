@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.palette;
 
 import com.etlsolutions.javafx.data.area.measurement.MeasurementType;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
-import com.etlsolutions.javafx.system.SettingConstants;
+import com.etlsolutions.gwise.system.SettingConstants;
 import java.io.File;
 
 /**

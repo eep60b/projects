@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.gwise.data.area.AreaType;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
-import static com.etlsolutions.javafx.data.area.AreaType.ALLOTMENT;
+import static com.etlsolutions.gwise.data.area.AreaType.ALLOTMENT;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.CustomSubArea;
 import com.etlsolutions.javafx.data.area.subarea.Greenhouse;

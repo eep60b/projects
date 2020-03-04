@@ -2,10 +2,10 @@ package com.etlsolutions.javafx.presentation.dialog.log.gvent;
 
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.gwise.data.log.Notification;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventDetailValueWrapper;
-import com.etlsolutions.javafx.data.log.gvent.GventType;
+import com.etlsolutions.gwise.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import com.etlsolutions.gwise.presentation.FXMLContentActionDataModel;

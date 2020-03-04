@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author zc
  */
-public abstract class GwiseDataUnit extends DoubleValueWrapper {
+public abstract class GwiseDataUnit extends DoubleValueWrapper implements LogoItem {
 
     private final int id;
     private final ValueWrapper<String> titleWrapper;
@@ -75,6 +75,7 @@ public abstract class GwiseDataUnit extends DoubleValueWrapper {
         return logoPathWrapper;
     }
 
+    @Override
     public String getLogoPath() {
         return logoPathWrapper.getValue();
     }

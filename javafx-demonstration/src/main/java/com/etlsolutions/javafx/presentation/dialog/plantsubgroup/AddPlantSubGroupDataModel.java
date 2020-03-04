@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.dialog.plantsubgroup;
 
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.data.other;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 
 /**

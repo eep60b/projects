@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.log;
 
-import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.gwise.data.log.Notification;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.ListView;
 

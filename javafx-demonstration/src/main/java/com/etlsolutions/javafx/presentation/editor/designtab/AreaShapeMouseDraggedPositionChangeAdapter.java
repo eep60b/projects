@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor.designtab;
 
 import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point2D;

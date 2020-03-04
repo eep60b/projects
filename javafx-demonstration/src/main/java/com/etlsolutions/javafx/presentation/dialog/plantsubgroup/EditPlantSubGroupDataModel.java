@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.dialog.plantsubgroup;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroupValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

@@ -6,10 +6,10 @@ import com.etlsolutions.gwise.data.basicshape.GwiseShape;
 import com.etlsolutions.gwise.data.basicshape.GwiseShapeBean;
 import com.etlsolutions.gwise.data.basicshape.ShapeUtils;
 import com.etlsolutions.gwise.data.plant.GwiseLocationPlantSet;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.util.List;
 
 /**

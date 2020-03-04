@@ -5,7 +5,7 @@ import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.presentation.PartDataModel;
 import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.data.other.SolidFertiliserSpecialValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

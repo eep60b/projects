@@ -1,7 +1,6 @@
 package com.etlsolutions.gwise.presentation.editor.designtab;
 
-import com.etlsolutions.javafx.data.area.AreaType;
-import com.etlsolutions.javafx.presentation.ParameterisedImageView;
+import com.etlsolutions.gwise.presentation.ParameterisedImageView;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
@@ -35,7 +34,7 @@ public class GwiseDesignPaneDrapDroppedEventHandler implements EventHandler<Drag
             return;
         }
 
-        AreaType type = (AreaType) parameters[0];
+   //     AreaType type = (AreaType) parameters[0];
   
     }
 }

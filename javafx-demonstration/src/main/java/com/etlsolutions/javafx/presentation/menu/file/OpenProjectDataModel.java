@@ -5,7 +5,7 @@ import com.etlsolutions.javafx.presentation.Closable;
 import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.Savable;
 import com.etlsolutions.javafx.presentation.Validatable;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.io.File;
 
 /**

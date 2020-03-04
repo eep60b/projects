@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.presentation.editor;
 
 import com.etlsolutions.gwise.data.GwiseDataUnitListChangeAdapter;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import java.util.List;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

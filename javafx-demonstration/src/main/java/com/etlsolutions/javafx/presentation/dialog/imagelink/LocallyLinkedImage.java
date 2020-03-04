@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.imagelink;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import javafx.scene.image.Image;
 
 /**

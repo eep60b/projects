@@ -1,5 +1,6 @@
 package com.etlsolutions.javafx.data.area;
 
+import com.etlsolutions.gwise.data.area.AreaType;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.basicshape.GwisePoint;

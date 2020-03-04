@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
 import com.etlsolutions.javafx.presentation.dialog.area.subarea.location.AddLocationDataModel;
 import com.etlsolutions.javafx.presentation.dialog.area.subarea.location.EditLocationDataModel;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;

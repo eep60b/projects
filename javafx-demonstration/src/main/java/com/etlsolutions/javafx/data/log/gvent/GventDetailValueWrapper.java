@@ -1,10 +1,11 @@
 package com.etlsolutions.javafx.data.log.gvent;
 
+import com.etlsolutions.gwise.data.log.gvent.GventType;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.gwise.data.log.Notification;
 import java.time.LocalDateTime;
 
 /**

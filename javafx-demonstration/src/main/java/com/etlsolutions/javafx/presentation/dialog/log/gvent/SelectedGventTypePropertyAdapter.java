@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.log.gvent;
 
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.gvent.GventType;
+import com.etlsolutions.gwise.data.log.gvent.GventType;
 import com.etlsolutions.javafx.presentation.NodeGenerator;
 import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import com.etlsolutions.gwise.presentation.FXMLActionDataModel;

@@ -1,18 +1,17 @@
 package com.etlsolutions.javafx.data.plant;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.task.Task;
-import com.etlsolutions.javafx.system.ProjectContents;
-import com.etlsolutions.javafx.system.ProjectManager;
-import com.etlsolutions.javafx.system.SettingConstants;
-
-import static com.etlsolutions.javafx.system.SettingConstants.BUNDLE_SEPARATER;
-import static com.etlsolutions.javafx.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
+import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.gwise.system.ProjectManager;
+import com.etlsolutions.gwise.system.SettingConstants;
+import static com.etlsolutions.gwise.system.SettingConstants.BUNDLE_SEPARATER;
+import static com.etlsolutions.gwise.system.SettingConstants.DATAUNIT_BUNDLE_PATH;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;

@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor.designtab;
 
-import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.gwise.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

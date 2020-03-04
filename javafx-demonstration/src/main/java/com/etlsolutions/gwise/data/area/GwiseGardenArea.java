@@ -1,8 +1,9 @@
 package com.etlsolutions.gwise.data.area;
 
-import com.etlsolutions.gwise.data.GwiseDataUnitBean;
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.subarea.GwisePlantBed;
+import com.etlsolutions.gwise.data.subarea.GwisePlantBedBean;
+import com.etlsolutions.gwise.data.ImageLink;
 import java.util.List;
 
 /**
@@ -11,23 +12,32 @@ import java.util.List;
  */
 public class GwiseGardenArea extends GwiseArea {
 
-    public GwiseGardenArea(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    private final ObservableListWrapperA <GwisePlantBed> plantBeds;
+    public GwiseGardenArea(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath,
+                List<GwisePlantBed> plantBeds) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.plantBeds = new ObservableListWrapperA<>(plantBeds);
     }
 
-    public GwiseGardenArea(GwiseGardenAreaBean dataUnit) {
-        super(dataUnit);
+    public GwiseGardenArea(GwiseGardenAreaBean bean) {
+        super(bean);
+        plantBeds = new ObservableListWrapperA<>();
+        for(GwisePlantBedBean p : bean.getPlantBeds()) {
+            plantBeds.add(new GwisePlantBed(p));
+        }
     }
 
-    
     @Override
     public AreaType getType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return AreaType.GARDEN;
     }
 
     @Override
-    public GwiseDataUnitBean getBean() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public GwiseGardenAreaBean getBean() {
+        return new GwiseGardenAreaBean(this);
     }
-    
+
+    public ObservableListWrapperA<GwisePlantBed> getPlantBeds() {
+        return plantBeds;
+    }   
 }

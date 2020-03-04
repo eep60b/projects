@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.imagelink;
 
-import com.etlsolutions.javafx.system.SettingConstants;
+import com.etlsolutions.gwise.system.SettingConstants;
 import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

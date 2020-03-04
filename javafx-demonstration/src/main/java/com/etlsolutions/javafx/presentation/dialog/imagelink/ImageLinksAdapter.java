@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.imagelink;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;

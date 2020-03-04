@@ -1,13 +1,16 @@
 package com.etlsolutions.javafx.presentation.palette;
 
+import com.etlsolutions.gwise.presentation.palette.MouseReleaseEventHandler;
+import com.etlsolutions.gwise.presentation.palette.MouseDragEventHandler;
+import com.etlsolutions.gwise.presentation.palette.MousePressEventHandler;
 import com.etlsolutions.gwise.presentation.palette.PalettePropertyChangeAdapter;
 import com.etlsolutions.gwise.AbstractFXMLController;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.presentation.ParameterisedImageView;
+import com.etlsolutions.gwise.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.presentation.editor.DesignTabStatusManager;
-import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
-import com.etlsolutions.javafx.system.ProjectContents;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
+import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.editor;
 
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaRoot;
@@ -12,7 +12,7 @@ import com.etlsolutions.javafx.data.area.measurement.RectangleMeasurement;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.data.area.subarea.location.Location;
 import com.etlsolutions.javafx.data.plant.Plants;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.collections.ObservableList;

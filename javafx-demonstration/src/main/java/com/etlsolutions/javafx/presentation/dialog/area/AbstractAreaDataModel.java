@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.presentation.DetailDataModelGenerator;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.gwise.data.area.AreaType;
 import com.etlsolutions.javafx.data.area.AreaValueWrapper;
 import com.etlsolutions.javafx.data.area.measurement.Measurement;
 import com.etlsolutions.javafx.data.area.measurement.MeasurementType;

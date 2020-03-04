@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation;
 
 import com.etlsolutions.gwise.presentation.FXMLContentActionDataModel;
-import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
+import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
 import java.util.Map;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

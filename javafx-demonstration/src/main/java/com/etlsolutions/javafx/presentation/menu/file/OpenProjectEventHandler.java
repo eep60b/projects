@@ -1,8 +1,8 @@
 package com.etlsolutions.javafx.presentation.menu.file;
 
 import com.etlsolutions.gwise.presentation.FXMLActionEventHandler;
-import com.etlsolutions.javafx.system.ProjectConfiguration;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectConfiguration;
+import com.etlsolutions.gwise.system.ProjectManager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

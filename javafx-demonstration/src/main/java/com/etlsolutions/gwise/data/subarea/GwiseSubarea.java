@@ -3,9 +3,9 @@ package com.etlsolutions.gwise.data.subarea;
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.data.area.GwiseArea;
 import com.etlsolutions.gwise.data.basicshape.GwisePoint;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.util.List;
 
 /**

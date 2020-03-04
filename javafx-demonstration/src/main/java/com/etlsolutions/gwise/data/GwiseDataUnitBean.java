@@ -1,6 +1,5 @@
 package com.etlsolutions.gwise.data;
 
-import com.etlsolutions.javafx.data.ImageLink;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,8 +1,9 @@
 package com.etlsolutions.javafx.data;
 
-import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
-import com.etlsolutions.javafx.system.ProjectManager;
-import com.etlsolutions.javafx.system.SettingConstants;
+import com.etlsolutions.gwise.data.ImageLink;
+import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
+import com.etlsolutions.gwise.system.ProjectManager;
+import com.etlsolutions.gwise.system.SettingConstants;
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;

@@ -13,7 +13,12 @@ public class GwisePlantSubgroupBean extends GwiseDataUnitBean {
      * The parent plant group id of this plant subgroup. This field can be used
      * to look up its parent when necessary.
      */
-    private int plantGroupId;
+    private int parentId;
+    
+    /**
+     * The plant type id fo this plant subgroup. 
+     */
+    private int plantTypeId;
 
     /**
      * All the plantSets belong to this plant sub group.
@@ -33,14 +38,24 @@ public class GwisePlantSubgroupBean extends GwiseDataUnitBean {
 
     public GwisePlantSubgroupBean(GwisePlantSubgroup subgroup) {
         super(subgroup);
+        parentId = subgroup.getParentId();
+        plantTypeId = subgroup.getPlantType().getId();
     }
 
-    public int getPlantGroupId() {
-        return plantGroupId;
+    public int getParentId() {
+        return parentId;
     }
 
-    public void setPlantGroupId(int plantGroupId) {
-        this.plantGroupId = plantGroupId;
+    public int getPlantTypeId() {
+        return plantTypeId;
+    }
+
+    public void setPlantTypeId(int plantTypeId) {
+        this.plantTypeId = plantTypeId;
+    }
+   
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
     public List<GwiseLocationPlantSet> getPlantSets() {

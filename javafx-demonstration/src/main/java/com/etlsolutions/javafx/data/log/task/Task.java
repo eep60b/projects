@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.data.log.task;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.Log;
-import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.gwise.data.log.Notification;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;

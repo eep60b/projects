@@ -1,8 +1,7 @@
 package com.etlsolutions.gwise.data.area;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
-import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.gwise.data.ImageLink;
 import java.util.List;
 
 /**

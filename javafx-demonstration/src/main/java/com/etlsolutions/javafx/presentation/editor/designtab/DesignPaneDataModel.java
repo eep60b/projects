@@ -2,9 +2,9 @@ package com.etlsolutions.javafx.presentation.editor.designtab;
 
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.data.area.AreaFactory;
-import com.etlsolutions.javafx.data.area.AreaType;
+import com.etlsolutions.gwise.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.editor.designtab.area.DesignPaneAreaDataModel;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import javafx.beans.property.ObjectProperty;

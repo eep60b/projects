@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation;
 import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import java.beans.PropertyChangeListener;

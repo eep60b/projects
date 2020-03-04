@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.dialog.log;
 
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.gwise.data.log.Notification;
 
 /**
  *

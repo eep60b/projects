@@ -2,7 +2,7 @@ package com.etlsolutions.gwise.presentation.dialog.adapter;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.presentation.GwiseDataUnitFXMLDataModel;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.Button;

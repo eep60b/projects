@@ -1,12 +1,16 @@
 package com.etlsolutions.javafx.system;
 
+import com.etlsolutions.gwise.system.SettingConstants;
+import com.etlsolutions.gwise.system.RepositoryManager;
+import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.gwise.system.DefaultListFactory;
 import com.etlsolutions.javafx.data.area.AreaFactory;
 import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.javafx.data.other.GrowingMediumGroup;
 import com.etlsolutions.javafx.data.plant.PlantsFactory;
-import static com.etlsolutions.javafx.system.SettingConstants.DEFAULT_DATA_DIRECTORY;
+import static com.etlsolutions.gwise.system.SettingConstants.DEFAULT_DATA_DIRECTORY;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;

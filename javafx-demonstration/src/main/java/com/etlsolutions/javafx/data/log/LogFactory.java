@@ -1,7 +1,8 @@
 package com.etlsolutions.javafx.data.log;
 
+import com.etlsolutions.gwise.data.log.Notification;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.javafx.data.log.gvent.CustomGvent;
 import com.etlsolutions.javafx.data.log.gvent.CustomGventDetailValueWrapper;
@@ -32,7 +33,7 @@ import com.etlsolutions.javafx.data.log.task.WateringTask;
 import com.etlsolutions.javafx.data.log.task.WateringTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.WateringType;
 import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.time.LocalDateTime;
 
 /**

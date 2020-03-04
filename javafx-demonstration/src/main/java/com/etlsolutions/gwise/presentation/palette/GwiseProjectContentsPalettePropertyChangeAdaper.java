@@ -1,19 +1,18 @@
 package com.etlsolutions.gwise.presentation.palette;
 
-import com.etlsolutions.javafx.data.DataUnitTitleComparator;
+import com.etlsolutions.gwise.data.GwiseDataUnitTitleComparator;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.PropertyChangeAdapter;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.plant.PlantGroup;
-import com.etlsolutions.javafx.data.plant.PlantSubGroup;
-import com.etlsolutions.javafx.presentation.ParameterisedImageView;
+import com.etlsolutions.gwise.data.plant.GwisePlantGroup;
+import com.etlsolutions.gwise.data.plant.PlantType;
+import com.etlsolutions.gwise.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.presentation.palette.ImageViewDragDetectedEventHandler;
 import com.etlsolutions.javafx.presentation.palette.ImageViewDragDoneEventHandler;
-import com.etlsolutions.javafx.presentation.palette.PaletteSubGroupListChangeAdapter;
 import com.etlsolutions.javafx.presentation.palette.PlantSubCroupMouseEnterEventHandler;
 import com.etlsolutions.javafx.presentation.palette.PlantSubGroupMouseClickEventHandler;
-import com.etlsolutions.javafx.system.CustomLevelErrorRuntimeExceiption;
-import com.etlsolutions.javafx.system.ProjectContents;
+import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
+import com.etlsolutions.gwise.system.GwiseProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -38,32 +37,33 @@ public class GwiseProjectContentsPalettePropertyChangeAdaper extends PropertyCha
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        ValueWrapper<ProjectContents> wrapper = (ValueWrapper<ProjectContents>) evt.getSource();
+        ValueWrapper<GwiseProjectContents> wrapper = (ValueWrapper<GwiseProjectContents>) evt.getSource();
         process(wrapper.getValue());
     }
 
-    public void process(ProjectContents pc) {
+    public void process(GwiseProjectContents pc) {
         
         source.getChildren().clear();
         if (pc != null) {
 
-            List<PlantSubGroup> subgroups = new ArrayList<>();
-            for (PlantGroup group : pc.getPlantsGroupRoot().getPlantGroups()) {
+            //Create this list to diaplay them in the pallette area.
+            List<PlantType> plantTypes = new ArrayList<>();
+            for (GwisePlantGroup group : pc.getPlantsGroupRoot().getPlantGroups()) {
 
-                ObservableListWrapperA<PlantSubGroup> sgps = group.getPlantSubGroups();
-                subgroups.addAll(sgps);
-                sgps.replaceListenerForClass(source.getClass().getName(), new PaletteSubGroupListChangeAdapter(source));
+                ObservableListWrapperA<PlantType> sgps = group.getPlantTypes();
+                plantTypes.addAll(sgps);
+                sgps.addListener(new PlantTypeListChangeAdapter(source));
             }
 
-            Collections.sort(subgroups, new DataUnitTitleComparator());
+            Collections.sort(plantTypes, new GwiseDataUnitTitleComparator());
 
-            for (PlantSubGroup subGroup : subgroups) {
+            for (PlantType plantType : plantTypes) {
                 try {
-                    ImageView view = new ParameterisedImageView(new Image(new File(subGroup.getLogoPath()).toURI().toURL().toString()), subGroup);
-                    view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
+                    ImageView view = new ParameterisedImageView(new Image(new File(plantType.getLogoPath()).toURI().toURL().toString()), plantType);
+                    view.setOnMouseClicked(new PlantTypeMouseClickEventHandler(plantType));
                     view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
                     view.setOnDragDone(new ImageViewDragDoneEventHandler());
-                    view.setOnMouseEntered(new PlantSubCroupMouseEnterEventHandler(subGroup));
+                    view.setOnMouseEntered(new PlantTypeMouseEnterEventHandler(plantType));
                     source.getChildren().add(view);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(getClass()).error(ex);

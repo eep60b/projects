@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.view;
 
 import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TreeItem;

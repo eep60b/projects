@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.presentation.editor.designtab;
 
-import com.etlsolutions.javafx.data.area.AreaType;
-import com.etlsolutions.javafx.presentation.ParameterisedImageView;
+import com.etlsolutions.gwise.data.area.AreaType;
+import com.etlsolutions.gwise.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.presentation.editor.designtab.DesignPaneDataModel;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;

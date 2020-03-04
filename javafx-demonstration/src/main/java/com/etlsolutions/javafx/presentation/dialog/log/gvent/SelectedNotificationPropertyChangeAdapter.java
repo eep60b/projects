@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.log.gvent;
 
-import com.etlsolutions.javafx.data.log.Notification;
+import com.etlsolutions.gwise.data.log.Notification;
 import com.etlsolutions.javafx.presentation.dialog.log.Notifiable;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

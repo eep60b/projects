@@ -1,8 +1,6 @@
 package com.etlsolutions.gwise.data.log;
 
-import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.gwise.data.GwiseDataUnitBean;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.javafx.data.log.Issues;
 import com.etlsolutions.javafx.data.log.Notes;
 import com.etlsolutions.javafx.data.log.References;
@@ -16,7 +14,7 @@ import java.util.List;
  *
  * @author zc
  */
-public class GwiseLogGroupRoot extends GwiseDataUnit {
+public class GwiseLogGroupRoot extends LogItem {
   
    private Gvents events;
    private Issues issues;
@@ -30,7 +28,7 @@ public class GwiseLogGroupRoot extends GwiseDataUnit {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
     }
 
-    public GwiseLogGroupRoot(GwiseDataUnitBean bean) {
+    public GwiseLogGroupRoot(GwiseLogGroupRootBean bean) {
         super(bean);
     }
 

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+    <area-root title="All Areas" logo="">
+        <area title="My Garden" type="GARDEN" logo="">
+            <subarea title="My Plant Bed" type="PLANT_BED" logo="" />
+        </area>
+    </area-root>
+    <plant-group-root title="All Plants" logo="">
+        <plant-group title="Annual" logo="">
+            <plant-type title="Artichoke" logo="">
+                <plant-variety title="" logo=""></plant-variety>
+            </plant-type>
+            <plant-type title="Aubergine" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Beans - Broad" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Beans - Frenc" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Beans - Runner" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Beetroot" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Broccoli" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Brussel Sprouts" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Butternut" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Cabbage" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Calabrese" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Cauliflower" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Celeriac" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Celery" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Coriander" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Courgette" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Cucumber" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Fennel - Commons" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Fennel - Florence" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Garlic" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+            <plant-type title="Kale" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Kohl Rabi" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Leek" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Lettuce" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+            <plant-type title="Marrow" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Melon" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Onions" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Parsnip" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+            <plant-type title="Pea" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Potato" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Punkin" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Radish" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+            <plant-type title="Shallot" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Spinach" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Squash" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Swede" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+            <plant-type title="Sweet Corn" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Sweet Pepper" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+            <plant-type title="Sweet Potato" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Tomato" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+            <plant-type title="Turnip" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+        </plant-group>
+        <plant-group title="Biennial" logo="">
+            <plant-type title="Carrot" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>           
+        </plant-group>
+        <plant-group title="Perennial" logo="">
+            <plant-type title="Asparagus" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Basil" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Chilli Pepper" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Chives" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="Garlic Chive" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>          
+        </plant-group>                
+        <plant-group title="Trees" logo="">
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>
+            <plant-type title="" logo="">                
+                <plant-variety title="" logo=""></plant-variety>            
+            </plant-type>            
+        </plant-group>        
+    </plant-group-root>
+    <log-group-root title="All" logo="">
+       
+    </log-group-root>
+    <growing-medium />
+        
+</contents>

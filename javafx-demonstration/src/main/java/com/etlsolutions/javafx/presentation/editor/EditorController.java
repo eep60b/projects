@@ -12,7 +12,7 @@ import com.etlsolutions.gwise.presentation.editor.designtab.DesignPaneDragOverEv
 import com.etlsolutions.gwise.AbstractFXMLController;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;

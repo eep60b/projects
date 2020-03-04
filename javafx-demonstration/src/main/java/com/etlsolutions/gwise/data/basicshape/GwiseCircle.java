@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.data.basicshape;
 
-import static com.etlsolutions.javafx.system.SettingConstants.PI;
+import static com.etlsolutions.gwise.system.SettingConstants.PI;
 import java.math.BigDecimal;
 import javafx.scene.shape.Circle;
 

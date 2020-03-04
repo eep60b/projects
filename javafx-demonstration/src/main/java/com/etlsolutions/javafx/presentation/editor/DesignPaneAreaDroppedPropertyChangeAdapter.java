@@ -5,7 +5,7 @@ import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import com.etlsolutions.javafx.presentation.editor.designtab.area.AreaDragDroppedEventHandler;
 import com.etlsolutions.javafx.data.area.Area;
 import com.etlsolutions.javafx.presentation.editor.designtab.area.DesignPaneAreaDataModel;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.layout.StackPane;

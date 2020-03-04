@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.other.FertiliserFactory;
 import com.etlsolutions.gwise.data.other.FertiliserType;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.data.other.SolidFertiliser;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

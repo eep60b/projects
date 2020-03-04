@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.dialog.log.gvent;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.FloweringGventValueWrapper;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

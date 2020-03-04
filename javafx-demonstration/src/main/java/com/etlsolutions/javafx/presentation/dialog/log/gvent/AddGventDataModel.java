@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.dialog.log.gvent;
 
 import com.etlsolutions.javafx.data.log.LogFactory;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

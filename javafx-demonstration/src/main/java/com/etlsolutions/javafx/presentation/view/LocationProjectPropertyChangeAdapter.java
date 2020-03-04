@@ -4,7 +4,7 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.AreaRoot;
 import com.etlsolutions.javafx.presentation.view.tree.area.AreaRootTreeItem;
-import com.etlsolutions.javafx.system.ProjectContents;
+import com.etlsolutions.gwise.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.TreeView;

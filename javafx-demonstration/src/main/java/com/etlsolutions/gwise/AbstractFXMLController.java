@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise;
 
-import com.etlsolutions.javafx.system.ThrowableHandler;
+import com.etlsolutions.gwise.system.ThrowableHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;

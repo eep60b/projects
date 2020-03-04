@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.dialog.log.task;
 
 import com.etlsolutions.javafx.data.log.LogFactory;
 import com.etlsolutions.javafx.data.log.task.Task;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

@@ -1,8 +1,9 @@
 package com.etlsolutions.gwise.data.plant;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.util.List;
 
 /**
@@ -15,7 +16,9 @@ public class GwisePlantSubgroup extends GwiseDataUnit {
      * The parent plant group id of this plant subgroup. This field can be used
      * to look up its parent when necessary.
      */
-    private final int plantGroupId;
+    private final int parentId;
+    
+    private final PlantType plantType;
 
     /**
      * All the plantSets belong to this plant sub group.
@@ -30,16 +33,17 @@ public class GwisePlantSubgroup extends GwiseDataUnit {
      */
     private final ObservableListWrapperA<GwisePlantVariety> plantVarieties;
 
-    public GwisePlantSubgroup(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, int plantGroupId, List<GwiseLocationPlantSet> plants, List<GwisePlantVariety> plantVarieties) {
+    public GwisePlantSubgroup(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, int parentId, int plantTypeId, List<GwiseLocationPlantSet> plants, List<GwisePlantVariety> plantVarieties) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
-        this.plantGroupId = plantGroupId;
+        this.parentId = parentId;
+        plantType = ProjectManager.getInstance().getGwiseItem(plantTypeId);
         this.plantSets = new ObservableListWrapperA<>(plants);
         this.plantVarieties = new ObservableListWrapperA<>(plantVarieties);
     }
 
     public GwisePlantSubgroup(GwisePlantSubgroupBean bean) {
         this(bean.getId(), bean.getTitle(), bean.getInformation(), bean.getImageLinks(), bean.getSelectedImgLinkIndex(), bean.getLogoPath(),
-                bean.getPlantGroupId(), bean.getPlantSets(), bean.getPlantVarieties());
+                bean.getParentId(), bean.getPlantTypeId(), bean.getPlantSets(), bean.getPlantVarieties());
     }
 
     @Override
@@ -47,10 +51,14 @@ public class GwisePlantSubgroup extends GwiseDataUnit {
         return new GwisePlantSubgroupBean(this);
     }
 
-    public int getPlantGroupId() {
-        return plantGroupId;
+    public int getParentId() {
+        return parentId;
     }
 
+    public PlantType getPlantType() {
+        return plantType;
+    }
+    
     public ObservableListWrapperA<GwiseLocationPlantSet> getPlantSets() {
         return plantSets;
     }

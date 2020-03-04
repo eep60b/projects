@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class GwisePlantGroupBean extends GwiseDataUnitBean {
 
+    private List<PlantTypeBean> plantTypeBeans;
     private List<GwisePlantSubgroupBean> plantSubgroupBeans;
     
     public GwisePlantGroupBean() {
@@ -23,7 +24,20 @@ public class GwisePlantGroupBean extends GwiseDataUnitBean {
         }
     }
 
+    public List<PlantTypeBean> getPlantTypeBeans() {
+        return plantTypeBeans;
+    }
+
+    public void setPlantTypeBeans(List<PlantTypeBean> plantTypeBeans) {
+        this.plantTypeBeans = plantTypeBeans;
+    }
+
     public List<GwisePlantSubgroupBean> getPlantSubgroupBeans() {
         return plantSubgroupBeans;
     }
+
+    public void setPlantSubgroupBeans(List<GwisePlantSubgroupBean> plantSubgroupBeans) {
+        this.plantSubgroupBeans = plantSubgroupBeans;
+    }
+
 }

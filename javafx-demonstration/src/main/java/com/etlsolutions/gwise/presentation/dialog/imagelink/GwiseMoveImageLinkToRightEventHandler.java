@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.presentation.dialog.imagelink;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.gwise.presentation.GwiseDataUnitFXMLDataModel;

@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="paletteAnchorPane" prefHeight="655.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.palette.PaletteController">
+<AnchorPane id="AnchorPane" fx:id="paletteAnchorPane" prefHeight="655.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.gwise.presentation.palette.GwisePaletteController">
   <stylesheets>
     <URL value="@/styles/palette.css" />
   </stylesheets>
@@ -29,19 +29,6 @@
                   <ToggleButton layoutX="106.0" layoutY="10.0" mnemonicParsing="false" text="Magnifier" />
                </children>
             </HBox>
-            <Label text="Plant">
-               <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </VBox.margin>
-            </Label>
-            <ScrollPane prefViewportHeight="144.0" prefViewportWidth="600.0">
-               <content>
-                  <TilePane fx:id="plantTilePane" layoutX="10.0" layoutY="27.0" />
-               </content>
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </VBox.margin>
-            </ScrollPane>
             <Label layoutX="10.0" layoutY="210.0" text="Plant Bed">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
@@ -78,6 +65,16 @@
                </VBox.margin>
             </Label>
             <HBox fx:id="roomHbox" layoutX="10.0" layoutY="530.0" prefHeight="50.0" prefWidth="600.0" />
+            <Label text="Plant">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ScrollPane prefViewportHeight="144.0" prefViewportWidth="600.0">
+               <content>
+                  <TilePane fx:id="plantTilePane" layoutX="10.0" layoutY="27.0" />
+               </content>
+            </ScrollPane>
          </children>
       </VBox>
    </children>

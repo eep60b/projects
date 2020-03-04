@@ -3,7 +3,7 @@ package com.etlsolutions.gwise.data.plant;
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.data.locations.GwiseLocation;
 import com.etlsolutions.gwise.data.other.GwiseGrowingMedium;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.GrowingIssue;

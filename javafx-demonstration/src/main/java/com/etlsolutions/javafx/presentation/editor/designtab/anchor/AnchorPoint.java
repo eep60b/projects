@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.editor.designtab.anchor;
 
-import static com.etlsolutions.javafx.system.SettingConstants.*;
+import static com.etlsolutions.gwise.system.SettingConstants.*;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;

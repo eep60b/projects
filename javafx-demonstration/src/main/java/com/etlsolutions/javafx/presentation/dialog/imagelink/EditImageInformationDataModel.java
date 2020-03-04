@@ -1,6 +1,6 @@
 package com.etlsolutions.javafx.presentation.dialog.imagelink;
 
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.gwise.presentation.FXMLActionDataModel;
 import com.etlsolutions.javafx.presentation.InformationDataModel;

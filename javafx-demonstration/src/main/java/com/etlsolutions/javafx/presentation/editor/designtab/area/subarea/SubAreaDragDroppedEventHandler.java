@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.editor.designtab.area.subarea;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
-import com.etlsolutions.javafx.presentation.ParameterisedImageView;
+import com.etlsolutions.gwise.presentation.ParameterisedImageView;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import javafx.scene.layout.StackPane;

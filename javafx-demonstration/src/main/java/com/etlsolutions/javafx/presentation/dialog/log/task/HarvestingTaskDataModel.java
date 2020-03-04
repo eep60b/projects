@@ -5,8 +5,8 @@ import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.HarvestingTask;
 import com.etlsolutions.javafx.data.log.task.HarvestingTaskValueWrapper;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.javafx.system.ProjectContents;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *

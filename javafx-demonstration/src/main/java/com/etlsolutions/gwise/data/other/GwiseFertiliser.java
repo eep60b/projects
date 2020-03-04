@@ -1,8 +1,9 @@
 package com.etlsolutions.gwise.data.other;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
+import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import java.util.Date;
 import java.util.List;
 
@@ -15,67 +16,95 @@ public abstract class GwiseFertiliser extends GwiseDataUnit {
     private final ValueWrapper<String> manufacturerWrapper;
     private final ValueWrapper<String> shopWrapper;
     private final ValueWrapper<Double> priceWrapper;
-    private String[] webLinks = {};
+    private final ObservableListWrapperA webLinks;
     private final ValueWrapper<Date> datePurchasedWrapper;
     private final ValueWrapper<Double> suggestedUsageAmountWrapper;
-    private String usageUom;
-    private double ph = 7.0;
-    private double aluminium;
-    private double boron;
-    private double calcium;
-    private double chlorine;
-    private double cobalt;
-    private double copper;
-    private double iron;
-    private double magnesium;
-    private double manganese;
-    private double molybdenum;
-    private double nitrogen;
-    private double nickel;
-    private double phosphorus;
-    private double potassium;
-    private double selenium;
-    private double sodium;
-    private double sulphur;
-    private double vanadium;
-    private double zinc;
+    private final ValueWrapper<String> usageUomWrapper;
+    private final ValueWrapper<Double> phWrapper;
+    private final ValueWrapper<Double> aluminiumWrapper;
+    private final ValueWrapper<Double> boronWrapper;
+    private final ValueWrapper<Double> calciumWrapper;
+    private final ValueWrapper<Double> chlorineWrapper;
+    private final ValueWrapper<Double> cobaltWrapper;
+    private final ValueWrapper<Double> copperWrapper;
+    private final ValueWrapper<Double> ironWrapper;
+    private final ValueWrapper<Double> magnesiumWrapper;
+    private final ValueWrapper<Double> manganeseWrapper;
+    private final ValueWrapper<Double> molybdenumWrapper;
+    private final ValueWrapper<Double> nitrogenWrapper;
+    private final ValueWrapper<Double> nickelWrapper;
+    private final ValueWrapper<Double> phosphorusWrapper;
+    private final ValueWrapper<Double> potassiumWrapper;
+    private final ValueWrapper<Double> seleniumWrapper;
+    private final ValueWrapper<Double> sodiumWrapper;
+    private final ValueWrapper<Double> sulphurWrapper;
+    private final ValueWrapper<Double> vanadiumWrapper;
+    private final ValueWrapper<Double> zincWrapper;
 
-    public GwiseFertiliser(String manufaucturer, String shop, double price, Date datePurchased, double suggestedUsageAmount, String usageUom, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc, int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    public GwiseFertiliser(String manufaucturer, String shop, List<String> webLinks, double price, Date datePurchased, double suggestedUsageAmount, String usageUom, double ph, double aluminium, double boron, double calcium, double chlorine, double cobalt, double copper, double iron, double magnesium, double manganese, double molybdenum, double nitrogen, double nickel, double phosphorus, double potassium, double selenium, double sodium, double sulphur, double vanadium, double zinc, int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+        
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         manufacturerWrapper = new ValueWrapper<>(manufaucturer);
         shopWrapper = new ValueWrapper<>(shop);
+        this.webLinks = new ObservableListWrapperA(webLinks);
         priceWrapper = new ValueWrapper<>(price);
         datePurchasedWrapper = new ValueWrapper<>(datePurchased);
         suggestedUsageAmountWrapper = new ValueWrapper<>(suggestedUsageAmount);
-        this.usageUom = usageUom;
-        this.aluminium = aluminium;
-        this.boron = boron;
-        this.calcium = calcium;
-        this.chlorine = chlorine;
-        this.cobalt = cobalt;
-        this.copper = copper;
-        this.iron = iron;
-        this.magnesium = magnesium;
-        this.manganese = manganese;
-        this.molybdenum = molybdenum;
-        this.nitrogen = nitrogen;
-        this.nickel = nickel;
-        this.phosphorus = phosphorus;
-        this.potassium = potassium;
-        this.selenium = selenium;
-        this.sodium = sodium;
-        this.sulphur = sulphur;
-        this.vanadium = vanadium;
-        this.zinc = zinc;
+        usageUomWrapper = new ValueWrapper<>(usageUom);
+        phWrapper = new ValueWrapper<>(ph);
+        aluminiumWrapper = new ValueWrapper<>(aluminium);
+        boronWrapper = new ValueWrapper<>(boron);
+        calciumWrapper = new ValueWrapper<>(calcium);
+        chlorineWrapper = new ValueWrapper<>(chlorine);
+        cobaltWrapper = new ValueWrapper<>(cobalt);
+        copperWrapper = new ValueWrapper<>(copper);
+        ironWrapper = new ValueWrapper<>(iron);
+        magnesiumWrapper = new ValueWrapper<>(magnesium);
+        manganeseWrapper = new ValueWrapper<>(manganese);
+        molybdenumWrapper = new ValueWrapper<>(molybdenum);
+        nitrogenWrapper = new ValueWrapper<>(nitrogen);
+        nickelWrapper = new ValueWrapper<>(nickel);
+        phosphorusWrapper = new ValueWrapper<>(phosphorus);
+        potassiumWrapper = new ValueWrapper<>(potassium);
+        seleniumWrapper = new ValueWrapper<>(selenium);
+        sodiumWrapper = new ValueWrapper<>(sodium);
+        sulphurWrapper = new ValueWrapper<>(sulphur);
+        vanadiumWrapper = new ValueWrapper<>(vanadium);
+        zincWrapper = new ValueWrapper<>(zinc);
     }
 
     public GwiseFertiliser(GwiseFertiliserBean bean) {
         super(bean);
         manufacturerWrapper = new ValueWrapper<>(bean.getManufacturer());
         shopWrapper = new ValueWrapper<>(bean.getShop());
-        priceWrapper = new ValueWrapper<>(bean.getPrice());   
-        datePurchasedWrapper = new ValueWrapper<>(bean.getDatePurchased());        
-        suggestedUsageAmountWrapper = new ValueWrapper<>(bean.getSuggestedUsageAmount());        
+        webLinks = new ObservableListWrapperA(); 
+        for(String webLink : bean.getWebLinks()) {
+          webLinks.add(webLink);
+        }
+        priceWrapper = new ValueWrapper<>(bean.getPrice());
+        datePurchasedWrapper = new ValueWrapper<>(bean.getDatePurchased());
+        suggestedUsageAmountWrapper = new ValueWrapper<>(bean.getSuggestedUsageAmount());
+        usageUomWrapper = new ValueWrapper<>(bean.getUsageUom());
+        phWrapper = new ValueWrapper<>(bean.getPh());
+        aluminiumWrapper = new ValueWrapper<>(bean.getAluminium());
+        boronWrapper = new ValueWrapper<>(bean.getBoron());
+        calciumWrapper = new ValueWrapper<>(bean.getCalcium());     
+        chlorineWrapper = new ValueWrapper<>(bean.getChlorine());
+        cobaltWrapper = new ValueWrapper<>(bean.getCobalt());
+        copperWrapper = new ValueWrapper<>(bean.getCopper());
+        ironWrapper = new ValueWrapper<>(bean.getIron());
+        magnesiumWrapper = new ValueWrapper<>(bean.getMagnesium());
+        manganeseWrapper = new ValueWrapper<>(bean.getManganese());
+        molybdenumWrapper = new ValueWrapper<>(bean.getMolybdenum());
+        nitrogenWrapper = new ValueWrapper<>(bean.getNitrogen());
+        nickelWrapper = new ValueWrapper<>(bean.getNickel());
+        phosphorusWrapper = new ValueWrapper<>(bean.getPhosphorus());
+        potassiumWrapper = new ValueWrapper<>(bean.getPotassium());
+        seleniumWrapper = new ValueWrapper<>(bean.getSelenium());
+        sodiumWrapper = new ValueWrapper<>(bean.getSodium());
+        sulphurWrapper = new ValueWrapper<>(bean.getSulphur());
+        vanadiumWrapper = new ValueWrapper<>(bean.getVanadium());
+        zincWrapper = new ValueWrapper<>(bean.getZinc());        
     }
 
     @Override
@@ -119,12 +148,8 @@ public abstract class GwiseFertiliser extends GwiseDataUnit {
         priceWrapper.setValue(price);
     }
 
-    public String[] getWebLinks() {
+    public ObservableListWrapperA<String> getWebLinks() {
         return webLinks;
-    }
-
-    public void setWebLinks(String[] webLinks) {
-        this.webLinks = webLinks;
     }
 
     public ValueWrapper<Date> getDatePurchasedWrapper() {
@@ -151,172 +176,256 @@ public abstract class GwiseFertiliser extends GwiseDataUnit {
         suggestedUsageAmountWrapper.setValue(suggestedUsageAmount);
     }
 
+    public ValueWrapper<String> getUsageUomWrapper() {
+        return usageUomWrapper;
+    }
+
     public String getUsageUom() {
-        return usageUom;
+        return usageUomWrapper.getValue();
     }
 
     public void setUsageUom(String usageUom) {
-        this.usageUom = usageUom;
+        usageUomWrapper.setValue(usageUom);
+    }
+
+    public ValueWrapper<Double> getPhWrapper() {
+        return phWrapper;
     }
 
     public double getPh() {
-        return ph;
+        return phWrapper.getValue();
     }
 
     public void setPh(double ph) {
-        this.ph = ph;
+        phWrapper.setValue(ph);
+    }
+
+    public ValueWrapper<Double> getAluminiumWrapper() {
+        return aluminiumWrapper;
     }
 
     public double getAluminium() {
-        return aluminium;
+        return aluminiumWrapper.getValue();
     }
 
     public void setAluminium(double aluminium) {
-        this.aluminium = aluminium;
+        aluminiumWrapper.setValue(aluminium);
+    }
+
+    public ValueWrapper<Double> getBoronWrapper() {
+        return boronWrapper;
     }
 
     public double getBoron() {
-        return boron;
+        return boronWrapper.getValue();
     }
 
     public void setBoron(double boron) {
-        this.boron = boron;
+        boronWrapper.setValue(boron);
+    }
+
+    public ValueWrapper<Double> getCalciumWrapper() {
+        return calciumWrapper;
     }
 
     public double getCalcium() {
-        return calcium;
+        return calciumWrapper.getValue();
     }
 
     public void setCalcium(double calcium) {
-        this.calcium = calcium;
+        calciumWrapper.setValue(calcium);
+    }
+
+    public ValueWrapper<Double> getChlorineWrapper() {
+        return chlorineWrapper;
     }
 
     public double getChlorine() {
-        return chlorine;
+        return chlorineWrapper.getValue();
     }
 
     public void setChlorine(double chlorine) {
-        this.chlorine = chlorine;
+        chlorineWrapper.setValue(chlorine);
+    }
+
+    public ValueWrapper<Double> getCobaltWrapper() {
+        return cobaltWrapper;
     }
 
     public double getCobalt() {
-        return cobalt;
+        return cobaltWrapper.getValue();
     }
 
     public void setCobalt(double cobalt) {
-        this.cobalt = cobalt;
+        cobaltWrapper.setValue(cobalt);
+    }
+
+    public ValueWrapper<Double> getCopperWrapper() {
+        return copperWrapper;
     }
 
     public double getCopper() {
-        return copper;
+        return copperWrapper.getValue();
     }
 
     public void setCopper(double copper) {
-        this.copper = copper;
+        copperWrapper.setValue(copper);
+    }
+
+    public ValueWrapper<Double> getIronWrapper() {
+        return ironWrapper;
     }
 
     public double getIron() {
-        return iron;
+        return ironWrapper.getValue();
     }
 
     public void setIron(double iron) {
-        this.iron = iron;
+        ironWrapper.setValue(iron);
+    }
+
+    public ValueWrapper<Double> getMagnesiumWrapper() {
+        return magnesiumWrapper;
     }
 
     public double getMagnesium() {
-        return magnesium;
+        return magnesiumWrapper.getValue();
     }
 
     public void setMagnesium(double magnesium) {
-        this.magnesium = magnesium;
+        magnesiumWrapper.setValue(magnesium);
+    }
+
+    public ValueWrapper<Double> getManganeseWrapper() {
+        return manganeseWrapper;
     }
 
     public double getManganese() {
-        return manganese;
+        return manganeseWrapper.getValue();
     }
 
     public void setManganese(double manganese) {
-        this.manganese = manganese;
+        manganeseWrapper.setValue(manganese);
+    }
+
+    public ValueWrapper<Double> getMolybdenumWrapper() {
+        return molybdenumWrapper;
     }
 
     public double getMolybdenum() {
-        return molybdenum;
+        return molybdenumWrapper.getValue();
     }
 
     public void setMolybdenum(double molybdenum) {
-        this.molybdenum = molybdenum;
+        molybdenumWrapper.setValue(molybdenum);
+    }
+
+    public ValueWrapper<Double> getNitrogenWrapper() {
+        return nitrogenWrapper;
     }
 
     public double getNitrogen() {
-        return nitrogen;
+        return nitrogenWrapper.getValue();
     }
 
     public void setNitrogen(double nitrogen) {
-        this.nitrogen = nitrogen;
+        nitrogenWrapper.setValue(nitrogen);
+    }
+
+    public ValueWrapper<Double> getNickelWrapper() {
+        return nickelWrapper;
     }
 
     public double getNickel() {
-        return nickel;
+        return nickelWrapper.getValue();
     }
 
     public void setNickel(double nickel) {
-        this.nickel = nickel;
+        nickelWrapper.setValue(nickel);
+    }
+
+    public ValueWrapper<Double> getPhosphorusWrapper() {
+        return phosphorusWrapper;
     }
 
     public double getPhosphorus() {
-        return phosphorus;
+        return phosphorusWrapper.getValue();
     }
 
     public void setPhosphorus(double phosphorus) {
-        this.phosphorus = phosphorus;
+        phosphorusWrapper.setValue(phosphorus);
+    }
+
+    public ValueWrapper<Double> getPotassiumWrapper() {
+        return potassiumWrapper;
     }
 
     public double getPotassium() {
-        return potassium;
+        return potassiumWrapper.getValue();
     }
 
     public void setPotassium(double potassium) {
-        this.potassium = potassium;
+        potassiumWrapper.setValue(potassium);
+    }
+
+    public ValueWrapper<Double> getSeleniumWrapper() {
+        return seleniumWrapper;
     }
 
     public double getSelenium() {
-        return selenium;
+        return seleniumWrapper.getValue();
     }
 
     public void setSelenium(double selenium) {
-        this.selenium = selenium;
+        seleniumWrapper.setValue(selenium);
+    }
+
+    public ValueWrapper<Double> getSodiumWrapper() {
+        return sodiumWrapper;
     }
 
     public double getSodium() {
-        return sodium;
+        return sodiumWrapper.getValue();
     }
 
     public void setSodium(double sodium) {
-        this.sodium = sodium;
+        sodiumWrapper.setValue(sodium);
+    }
+
+    public ValueWrapper<Double> getSulphurWrapper() {
+        return sulphurWrapper;
     }
 
     public double getSulphur() {
-        return sulphur;
+        return sulphurWrapper.getValue();
     }
 
     public void setSulphur(double sulphur) {
-        this.sulphur = sulphur;
+        sulphurWrapper.setValue(sulphur);
+    }
+
+    public ValueWrapper<Double> getVanadiumWrapper() {
+        return vanadiumWrapper;
     }
 
     public double getVanadium() {
-        return vanadium;
+        return vanadiumWrapper.getValue();
     }
 
     public void setVanadium(double vanadium) {
-        this.vanadium = vanadium;
+        vanadiumWrapper.setValue(vanadium);
+    }
+
+    public ValueWrapper<Double> getZincWrapper() {
+        return zincWrapper;
     }
 
     public double getZinc() {
-        return zinc;
+        return zincWrapper.getValue();
     }
 
     public void setZinc(double zinc) {
-        this.zinc = zinc;
+        zincWrapper.setValue(zinc);
     }
 
 }

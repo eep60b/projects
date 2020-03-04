@@ -1,10 +1,6 @@
 package com.etlsolutions.gwise.presentation.editor.designtab;
 
-import com.etlsolutions.javafx.data.area.Area;
-import com.etlsolutions.javafx.data.area.AreaFactory;
-import com.etlsolutions.javafx.data.area.AreaType;
 import com.etlsolutions.javafx.presentation.editor.designtab.area.DesignPaneAreaDataModel;
-import com.etlsolutions.javafx.system.ProjectManager;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import javafx.beans.property.ObjectProperty;
@@ -40,15 +36,6 @@ public class GwiseDesignPaneDataModel {
     }
 
     
-    public void drop(AreaType type) {
-        
-        Area area = AreaFactory.getInstance().createTypedArea(type);        
-        ProjectManager.getInstance().getContents().getAreaRoot().add(area);
-        ProjectManager.getInstance().addItem(area);
-        ProjectManager.getInstance().getSelectedDataUnitValueWrapper().setValue(area);        
-        support.firePropertyChange(AREA_DROPPED_PROPERTY, true, false);
-    }
-
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         support.addPropertyChangeListener(listener);
     }

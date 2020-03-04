@@ -5,7 +5,7 @@ import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.log.task.FertilisationTaskValueWrapper;
 import com.etlsolutions.javafx.data.other.Fertiliser;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.util.Objects;
 
 /**

@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.data.other;
 
 import com.etlsolutions.gwise.data.DataUnitIdRegistry;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,11 +28,11 @@ public class GwiseFertiliserFactory {
     public GwiseFertiliser getDefaultFertiliser(FertiliserType fertiliserType) {
         switch (fertiliserType) {
             case SOLID:
-                return new GwiseSolidFertiliser(DataUnitIdRegistry.getInstance().createNewId(), "untitled", "", new ArrayList<ImageLink>(), 0, "", "Not specified", "Not specified", 0, new Date(), 0, "", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 0, 7.0, 7.0, 0, 0, 0, 0, 0, 0, "g");
+                return new GwiseSolidFertiliser(DataUnitIdRegistry.getInstance().createNewId(), "untitled", "", new ArrayList<ImageLink>(), 0, "", "Not specified", "Not specified", new ArrayList<String>(), 0, new Date(), 0, "g", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "g");
             case LIQUID:
-                return new GwiseLiquidFertiliser(DataUnitIdRegistry.getInstance().createNewId(), "untitled", "", new ArrayList<ImageLink>(), 0, "", "Not specified", "Not specified", 0, new Date(), 0, "", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 0, 7.0, 7.0, 0, 0, 0, 0, 0, true, 0, "ml/L");
-                default:
-                    throw new IllegalStateException("Invalid fertiliser type: " + fertiliserType);
+                return new GwiseLiquidFertiliser(DataUnitIdRegistry.getInstance().createNewId(), "untitled", "", new ArrayList<ImageLink>(), 0, "", "Not specified", "Not specified", new ArrayList<String>(), 0, new Date(), 0, "ml", 7.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, true, 0, "ml/L");
+            default:
+                throw new IllegalStateException("Invalid fertiliser type: " + fertiliserType);
         }
     }
 

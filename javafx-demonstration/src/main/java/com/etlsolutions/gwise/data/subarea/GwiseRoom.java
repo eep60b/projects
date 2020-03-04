@@ -2,7 +2,7 @@ package com.etlsolutions.gwise.data.subarea;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.gwise.data.GwiseDataUnitBean;
-import com.etlsolutions.javafx.data.ImageLink;
+import com.etlsolutions.gwise.data.ImageLink;
 import java.util.List;
 
 /**

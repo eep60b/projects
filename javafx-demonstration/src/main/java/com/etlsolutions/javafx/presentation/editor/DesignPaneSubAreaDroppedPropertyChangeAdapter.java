@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.editor;
 import com.etlsolutions.javafx.data.area.subarea.SubArea;
 import com.etlsolutions.javafx.presentation.editor.designtab.area.subarea.DesignPaneSubAreaDataModel;
 import com.etlsolutions.javafx.presentation.editor.designtab.area.subarea.SubAreaDragDroppedEventHandler;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.layout.StackPane;

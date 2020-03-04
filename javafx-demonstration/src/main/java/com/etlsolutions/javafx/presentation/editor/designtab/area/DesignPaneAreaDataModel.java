@@ -6,7 +6,7 @@ import com.etlsolutions.javafx.data.area.subarea.SubAreaFactory;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaShape;
 import com.etlsolutions.javafx.data.area.subarea.SubAreaType;
 import com.etlsolutions.javafx.presentation.Itemable;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 

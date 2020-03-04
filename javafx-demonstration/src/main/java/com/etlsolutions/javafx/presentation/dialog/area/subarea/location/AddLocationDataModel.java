@@ -2,7 +2,7 @@ package com.etlsolutions.javafx.presentation.dialog.area.subarea.location;
 
 import com.etlsolutions.javafx.data.area.subarea.location.LocationFactory;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.javafx.system.ProjectManager;
+import com.etlsolutions.gwise.system.ProjectManager;
 
 /**
  *
