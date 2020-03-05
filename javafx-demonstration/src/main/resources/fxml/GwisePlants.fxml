@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.PlantsController">
+  <stylesheets>
+    <URL value="@/styles/plants.css" />
+  </stylesheets>
+   <children>
+      <SplitPane dividerPositions="0.7412060301507538" layoutX="97.0" orientation="VERTICAL" prefHeight="557.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <fx:include source="LivePlants.fxml" />
+            <fx:include source="AchievedPlants.fxml" />
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

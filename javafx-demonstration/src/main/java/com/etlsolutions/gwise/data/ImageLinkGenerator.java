@@ -1,6 +1,5 @@
-package com.etlsolutions.javafx.data;
+package com.etlsolutions.gwise.data;
 
-import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
 import com.etlsolutions.gwise.system.ProjectManager;
 import com.etlsolutions.gwise.system.SettingConstants;
@@ -31,6 +30,14 @@ public class ImageLinkGenerator {
         return INSTANCE;
     }
 
+    /**
+     * Use the given link to load the picture and change it to the standard size
+     * and format, then save it locally and create another link to point to it.
+     *
+     * @param link - the link where the image to be imported.
+     * @param information - the description of this image.
+     * @return the created ImageLink object.
+     */
     public ImageLink generateImageLink(String link, String information) {
 
         BufferedImage originalImage;
@@ -43,32 +50,32 @@ public class ImageLinkGenerator {
             Logger.getLogger(getClass()).error(ex);
             throw new CustomLevelErrorRuntimeExceiption("The image can not be read at " + link);
         }
-        
-        int type = originalImage.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : originalImage.getType();
-        
-        BufferedImage resizedImage = new BufferedImage(SettingConstants.DEFAULT_IMG_WIDTH, SettingConstants.DEFAULT_IMG_HEIGHT, type);
-	Graphics2D g = resizedImage.createGraphics();
-	g.drawImage(originalImage, 0, 0, SettingConstants.DEFAULT_IMG_WIDTH, SettingConstants.DEFAULT_IMG_HEIGHT, null);
-	g.dispose();	
-	g.setComposite(AlphaComposite.Src);
 
-	g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        
+        int type = originalImage.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : originalImage.getType();
+
+        BufferedImage resizedImage = new BufferedImage(SettingConstants.DEFAULT_IMG_WIDTH, SettingConstants.DEFAULT_IMG_HEIGHT, type);
+        Graphics2D g = resizedImage.createGraphics();
+        g.drawImage(originalImage, 0, 0, SettingConstants.DEFAULT_IMG_WIDTH, SettingConstants.DEFAULT_IMG_HEIGHT, null);
+        g.dispose();
+        g.setComposite(AlphaComposite.Src);
+
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
         String openImageDirectoryPath = ProjectManager.getInstance().getConfiguration().getOpenImageDirectoryPath();
-       
+
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("yyyyMMdd");
         String newPath = openImageDirectoryPath + File.separator + format.format(date) + ".jpg";
-        
-        try { 
+
+        try {
             ImageIO.write(resizedImage, "jpg", new File(newPath));
         } catch (IOException ex) {
             Logger.getLogger(getClass()).error(ex);
-            throw new CustomLevelErrorRuntimeExceiption("Failed to save the image at " + newPath);            
+            throw new CustomLevelErrorRuntimeExceiption("Failed to save the image at " + newPath);
         }
-        
-        return new ImageLink(newPath, information);
+
+        return new ImageLink(DataUnitIdRegistry.getInstance().createNewId(), newPath, information);
     }
 }

@@ -1,6 +1,10 @@
 package com.etlsolutions.gwise.data.area;
 
+import com.etlsolutions.gwise.data.DataUnitIdRegistry;
+import com.etlsolutions.gwise.data.subarea.GwisePlantBedBean;
+
 /**
+ * The AreaBeanFactory class is a factory class which create new objects for area related items.
  *
  * @author ZhipengChang
  */
@@ -15,26 +19,59 @@ public class AreaBeanFactory {
         return INSTANCE;
     }
 
+    public GwiseAreaRootBean createGwiseAreaRootBean() {
+        GwiseAreaRootBean bean = new GwiseAreaRootBean();
+        bean.setId(DataUnitIdRegistry.getInstance().createNewId());
+        bean.setTitle("All Areas");
+        return bean;
+    }
+
+    public GwiseGardenAreaBean createDefaultGardenAreaBean() {
+
+        GwiseGardenAreaBean bean = new GwiseGardenAreaBean();
+        bean.setTitle("My Garden");
+        bean.setId(DataUnitIdRegistry.getInstance().createNewId());
+        return bean;
+    }
+
+    public GwisePlantBedBean createDefaultPlantBedBean () {
+        GwisePlantBedBean bean = new GwisePlantBedBean();
+        bean.setTitle("My Plant Bed");
+        bean.setId(DataUnitIdRegistry.getInstance().createNewId());
+        return bean;        
+    }
+    
     public GwiseAreaBean getDefaultAreaBean(AreaType type) {
 
+        GwiseAreaBean bean;
         switch (type) {
             case ALLOTMENT:
-                return new GwiseAllotmentAreaBean();
+                bean = new GwiseAllotmentAreaBean();
+                break;
             case BALCONY:
-                return new GwiseBalconyAreaBean();
+                bean = new GwiseBalconyAreaBean();
+                break;
             case FARM:
-                return new GwiseFarmAreaBean();
+                bean = new GwiseFarmAreaBean();
+                break;
             case GARDEN:
-                return new GwiseGardenAreaBean();
+                bean = new GwiseGardenAreaBean();
+                bean.setTitle("My Garden");
+                break;
             case INDOOR:
-                return new GwiseIndoorAreaBean();
+                bean = new GwiseIndoorAreaBean();
+                break;
             case PATIO:
-                return new GwisePatioAreaBean();
+                bean = new GwisePatioAreaBean();
+                break;
             default:
                 throw new IllegalStateException("Invalid area type.");
         }
+
+        bean.setId(DataUnitIdRegistry.getInstance().createNewId());
+        return bean;
     }
-    
+
     public GwiseAreaBean getAreaBean(GwiseArea area) {
 
         switch (area.getType()) {
@@ -53,5 +90,5 @@ public class AreaBeanFactory {
             default:
                 throw new IllegalStateException("Invalid area type.");
         }
-    }    
+    }
 }

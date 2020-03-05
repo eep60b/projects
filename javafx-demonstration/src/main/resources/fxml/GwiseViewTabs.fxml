@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="857.0" prefWidth="335.0" styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.javafx.presentation.view.ViewTabsController">
+<AnchorPane id="AnchorPane" prefHeight="857.0" prefWidth="335.0" styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.etlsolutions.gwise.presentation.view.GwiseViewTabsController">
   <stylesheets>
     <URL value="@/styles/viewtabs.css" />
   </stylesheets>
@@ -18,7 +18,7 @@
             <content>
                   <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <fx:include source="Locations.fxml" />
+                        <fx:include source="GwiseLocations.fxml" />
                      </children>
                   </AnchorPane>
             </content>
@@ -27,7 +27,7 @@
             <content>
                   <AnchorPane prefHeight="821.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <fx:include source="Plants.fxml" />
+                        <fx:include source="GwisePlants.fxml" />
                      </children>
                   </AnchorPane>
             </content>
@@ -36,7 +36,7 @@
                <content>
                   <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <fx:include source="Logs.fxml" />
+                        <fx:include source="GwiseLogs.fxml" />
                      </children>
                   </AnchorPane>
                </content>

@@ -13,6 +13,7 @@ public class GwiseLocationPlantSetBean extends GwiseDataUnitBean {
     private List<GwisePlantBean> plants;
     private int subareaPlantSetId;    
     private int locationSetId;
+    private int plantTypeId;    
     
     public GwiseLocationPlantSetBean() {
     }
@@ -23,8 +24,9 @@ public class GwiseLocationPlantSetBean extends GwiseDataUnitBean {
         for(GwisePlant plant : set.getPlants()) {
             plants.add(new GwisePlantBean(plant));
         }
-        subareaPlantSetId = set.getSubareaPlantSetId();
+        subareaPlantSetId = set.getParentId();
         locationSetId = set.getLocationSetId();
+        plantTypeId = set.getPlantTypeId();
     }   
 
     public List<GwisePlantBean> getPlants() {
@@ -49,5 +51,13 @@ public class GwiseLocationPlantSetBean extends GwiseDataUnitBean {
 
     public void setLocationSetId(int locationSetId) {
         this.locationSetId = locationSetId;
+    }  
+
+    public int getPlantTypeId() {
+        return plantTypeId;
+    }
+
+    public void setPlantTypeId(int plantTypeId) {
+        this.plantTypeId = plantTypeId;
     }    
 }

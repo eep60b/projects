@@ -1,22 +1,14 @@
 package com.etlsolutions.gwise.data;
 
-import com.etlsolutions.gwise.data.DataUnitChangeListener;
-import com.etlsolutions.javafx.data.DataUnitChangeSupport;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.Objects;
-
 /**
  * The ImageLink class represents the path to a image on and its information.
  *
  * @author zc
  */
 public class ImageLink {
-
-    @JsonIgnore
-    public static final String LINK_PROPERTY = "com.etlsolutions.javafx.data.ImageLink.LINK_PROPERTY";
-    @JsonIgnore
-    public static final String INFORMATION_PROPERTY = "com.etlsolutions.javafx.data.INFORMATION._PROPERTY";
-
+    
+    private final int id;
+    
     /**
      * The link is the string path which points to the original location of the
      * image. After loading, the original image should be copied and modified to
@@ -24,29 +16,34 @@ public class ImageLink {
      * the path location. The link then will only provide a reference. It later
      * can be used to compare the origin of two images.
      */
-    private String link;
+    private final ValueWrapper<String> linkWrapper;
 
     /**
      * Any additional information is saved here as a text.
      */
-    private String information;
+    private final ValueWrapper<String> informationWrapper;
 
     /**
      * The path is the location of current image.
      */
     private String path;
 
-    public ImageLink() {
+    public ImageLink(int id, String link, String information) {
+        this.id = id;
+        linkWrapper = new ValueWrapper<>(link);
+        informationWrapper = new ValueWrapper<>(information);
+    }
+    
+    public ImageLink(ImageLinkBean bean) {
+        id = bean.getId();
+        linkWrapper = new ValueWrapper<>(bean.getLink());
+        informationWrapper = new ValueWrapper<>(bean.getInformation());
     }
 
-    public ImageLink(String link, String information) {
-        this.link = link;
-        this.information = information;
+    public int getId() {
+        return id;
     }
-
-    @JsonIgnore
-    private final DataUnitChangeSupport support = new DataUnitChangeSupport();
-
+    
     /**
      * Get the original link of this image. It can be a URL or a path in local
      * physical disk. The link is not always valid.
@@ -54,25 +51,29 @@ public class ImageLink {
      * @return the original link.
      */
     public String getLink() {
-        return link;
+        return linkWrapper.getValue();
     }
 
     public void setLink(String link) {
-        String oldValue = this.link;
-        this.link = link;
-        support.fireChange(LINK_PROPERTY, oldValue, this.link);
+        linkWrapper.setValue(link);
     }
 
+    public ValueWrapper<String> getLinkWrapper() {
+        return linkWrapper;
+    }
+    
     public String getInformation() {
-        return information;
+        return informationWrapper.getValue();
     }
 
     public void setInformation(String information) {
-        String oldValue = this.information;
-        this.information = information;
-        support.fireChange(INFORMATION_PROPERTY, oldValue, this.information);
+        informationWrapper.setValue(information);
     }
 
+    public ValueWrapper<String> getInformationWrapper() {
+        return informationWrapper;
+    }
+    
     public String getPath() {
         return path;
     }
@@ -80,16 +81,15 @@ public class ImageLink {
     public void setPath(String path) {
         this.path = path;
     }
-
-    public void addListener(String property, DataUnitChangeListener listener) {
-        support.addListener(property, listener);
+    
+    public ImageLinkBean getBean() {
+        return new ImageLinkBean(this);
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.link);
-        hash = 97 * hash + Objects.hashCode(this.information);
+        hash = 11 * hash + this.id;
         return hash;
     }
 
@@ -105,9 +105,6 @@ public class ImageLink {
             return false;
         }
         final ImageLink other = (ImageLink) obj;
-        if (!Objects.equals(this.link, other.link)) {
-            return false;
-        }
-        return Objects.equals(this.information, other.information);
+        return this.id == other.id;
     }
 }

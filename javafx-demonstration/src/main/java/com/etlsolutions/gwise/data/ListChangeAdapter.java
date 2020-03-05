@@ -8,11 +8,11 @@ import javafx.collections.ListChangeListener;
  * @author ZhipengChang
  * @param <E>
  */
-public abstract class GwiseDataUnitListChangeAdapter<E> implements ListChangeListener<E> {
+public abstract class ListChangeAdapter<E> implements ListChangeListener<E> {
 
     private final List<E> unit;
 
-    public GwiseDataUnitListChangeAdapter(List<E> list) {
+    public ListChangeAdapter(List<E> list) {
         this.unit = list;
     }
 
@@ -33,7 +33,7 @@ public abstract class GwiseDataUnitListChangeAdapter<E> implements ListChangeLis
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final GwiseDataUnitListChangeAdapter<?> other = (GwiseDataUnitListChangeAdapter<?>) obj;
+        final ListChangeAdapter<?> other = (ListChangeAdapter<?>) obj;
         
         return this.unit == other.unit;
     }

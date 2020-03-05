@@ -20,7 +20,7 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
 
     private final Map<String, ListChangeListener<? super E>> classListenerMap = new HashMap<>();
     
-    private final Set<GwiseDataUnitListChangeAdapter> dataUnitlisteners = new HashSet<>(); 
+    private final Set<ListChangeAdapter> dataUnitlisteners = new HashSet<>(); 
     
     /**
      * This constructor is necessary for JSON to de-serialise object which
@@ -74,7 +74,7 @@ public class ObservableListWrapperA<E> extends ObservableListWrapper<E> {
         }
     }
     
-    public void addNonDuplicatedAdapter(GwiseDataUnitListChangeAdapter<? super E> adapter) {
+    public void addNonDuplicatedAdapter(ListChangeAdapter<? super E> adapter) {
         
         if(dataUnitlisteners.contains(adapter)) {
             return;

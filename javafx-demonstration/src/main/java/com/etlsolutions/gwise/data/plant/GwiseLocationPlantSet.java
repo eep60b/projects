@@ -12,15 +12,17 @@ import java.util.List;
 public class GwiseLocationPlantSet extends GwiseDataUnit {
 
     private final ObservableListWrapperA<GwisePlant> plants;
-    private final int subareaPlantSetId;
+    private final int parentId;
     private final int locationSetId;
+    private final int plantTypeId;
     
     public GwiseLocationPlantSet(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath, 
-            List<GwisePlant> plants, int subareaPlantSetId, int locationSetId) {
+            List<GwisePlant> plants, int parentId, int locationSetId, int plantTypeId) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
         this.plants = new ObservableListWrapperA<>(plants);
-        this.subareaPlantSetId = subareaPlantSetId;
+        this.parentId = parentId;
         this.locationSetId = locationSetId;
+        this.plantTypeId = plantTypeId;
     }
 
     public GwiseLocationPlantSet(GwiseLocationPlantSetBean bean) {
@@ -29,8 +31,9 @@ public class GwiseLocationPlantSet extends GwiseDataUnit {
         for(GwisePlantBean plant : bean.getPlants()) {
             plants.add(new GwisePlant(plant));
         }
-        subareaPlantSetId = bean.getSubareaPlantSetId();
+        parentId = bean.getSubareaPlantSetId();
         locationSetId = bean.getLocationSetId();
+        plantTypeId = bean.getPlantTypeId();
     }
 
     @Override
@@ -43,11 +46,15 @@ public class GwiseLocationPlantSet extends GwiseDataUnit {
         return plants;
     }  
 
-    public int getSubareaPlantSetId() {
-        return subareaPlantSetId;
+    public int getParentId() {
+        return parentId;
     }
 
     public int getLocationSetId() {
         return locationSetId;
+    }
+
+    public int getPlantTypeId() {
+        return plantTypeId;
     }
 }

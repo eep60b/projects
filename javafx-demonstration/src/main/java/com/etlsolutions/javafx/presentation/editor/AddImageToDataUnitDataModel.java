@@ -1,7 +1,7 @@
 package com.etlsolutions.javafx.presentation.editor;
 
 import com.etlsolutions.javafx.presentation.dialog.imagelink.*;
-import com.etlsolutions.javafx.data.ImageLinkGenerator;
+import com.etlsolutions.gwise.data.ImageLinkGenerator;
 import com.etlsolutions.gwise.system.ProjectManager;
 
 /**

@@ -1,6 +1,6 @@
 package com.etlsolutions.gwise.presentation.editor;
 
-import com.etlsolutions.gwise.data.GwiseDataUnitListChangeAdapter;
+import com.etlsolutions.gwise.data.ListChangeAdapter;
 import com.etlsolutions.gwise.data.ImageLink;
 import java.util.List;
 import javafx.scene.image.Image;
@@ -11,7 +11,7 @@ import javafx.scene.layout.TilePane;
  *
  * @author zc
  */
-public class GwiseEditorImageLinksAdapter extends GwiseDataUnitListChangeAdapter<ImageLink> {
+public class GwiseEditorImageLinksAdapter extends ListChangeAdapter<ImageLink> {
 
     private final TilePane imageTilePane;
 
