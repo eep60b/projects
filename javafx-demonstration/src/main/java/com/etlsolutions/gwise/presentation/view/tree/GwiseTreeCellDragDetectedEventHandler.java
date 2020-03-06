@@ -1,7 +1,6 @@
-package com.etlsolutions.javafx.presentation.view.tree;
+package com.etlsolutions.gwise.presentation.view.tree;
 
 import com.etlsolutions.gwise.presentation.ExtendedDataFormat;
-import com.etlsolutions.gwise.presentation.view.tree.GwiseTreeCellImpl;
 import javafx.event.EventHandler;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.MouseEvent;
@@ -11,9 +10,9 @@ import javafx.scene.input.TransferMode;
  *
  * @author zc
  */
-public class TreeCellDragDetectedEventHandler implements EventHandler<MouseEvent> {
+public class GwiseTreeCellDragDetectedEventHandler implements EventHandler<MouseEvent> {
 
-    public TreeCellDragDetectedEventHandler() {
+    public GwiseTreeCellDragDetectedEventHandler() {
     }
 
     @Override
