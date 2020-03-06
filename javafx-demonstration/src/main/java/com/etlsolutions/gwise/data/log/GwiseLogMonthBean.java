@@ -25,7 +25,7 @@ public class GwiseLogMonthBean extends GwiseDataUnitBean {
     protected GwiseLogMonthBean(GwiseLogMonth month) {
         super(month);
         for(GwiseLog log : month.getLogs()) {
-            logs.add(GwiseLogFactory.getInstance().createLogBean(log));
+            logs.add(GwiseLogBeanFactory.getInstance().createLogBean(log));
         }
     }
 

@@ -5,6 +5,7 @@ import com.etlsolutions.javafx.data.log.*;
 import com.etlsolutions.javafx.data.DataUnitValueWrapper;
 import com.etlsolutions.gwise.data.ImageLink;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
+import com.etlsolutions.gwise.data.log.gvent.GwiseGventsBean;
 import com.etlsolutions.javafx.data.log.gvent.CustomGvent;
 import com.etlsolutions.javafx.data.log.gvent.CustomGventDetailValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.FloweringGvent;
@@ -13,7 +14,6 @@ import com.etlsolutions.javafx.data.log.gvent.FruitingGvent;
 import com.etlsolutions.javafx.data.log.gvent.FruitingGventValueWrapper;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.gvent.GventDetailValueWrapper;
-import com.etlsolutions.javafx.data.log.gvent.Gvents;
 import com.etlsolutions.javafx.data.log.task.CustomTask;
 import com.etlsolutions.javafx.data.log.task.CustomTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.FertilisationTask;
@@ -41,11 +41,11 @@ import java.time.LocalDateTime;
  *
  * @author zc
  */
-public class GwiseLogFactory {
+public class GwiseLogBeanFactory {
 
-    private static final GwiseLogFactory INSTANCE = new GwiseLogFactory();
+    private static final GwiseLogBeanFactory INSTANCE = new GwiseLogBeanFactory();
 
-    public static GwiseLogFactory getInstance() {
+    public static GwiseLogBeanFactory getInstance() {
         return INSTANCE;
     }
 
@@ -54,29 +54,21 @@ public class GwiseLogFactory {
         return new Notification(30, NotificationTimeUnit.MINUTS, 1);
     }
 
-    public GwiseLogGroupRoot createLogGroupRoot() {
+    public GwiseLogGroupRootBean createLogGroupRootBean() {
 
-        GwiseLogGroupRoot l = new GwiseLogGroupRoot(DataUnitIdRegistry.getInstance().createNewId(),"All Records", "", new ObservableListWrapperA<ImageLink>(), 0, "");
-   
-        l.setEvents(createEvents());
-        l.setIssues(createIssues());
-        l.setNotes(createNotes());
-        l.setReferences(createReferences());
-        l.setTasks(createTasks());
-        l.setTests(createTests());
-        l.setWeatherRecords(createWeatherRecords());
+        GwiseLogGroupRootBean l = new GwiseLogGroupRootBean();
+        l.setId(DataUnitIdRegistry.getInstance().createNewId());
         return l;
     }
 
-    public Gvents createEvents() {
+    public GwiseGventsBean createEvents() {
 
-        return new Gvents("Events");
+        return new GwiseGventsBean();
 
     }
 
     public Issues createIssues() {
         return new Issues("Issues");
-
     }
 
     public Notes createNotes() {

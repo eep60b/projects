@@ -1,9 +1,8 @@
 package com.etlsolutions.gwise.presentation.view.tree.log;
 
-import com.etlsolutions.javafx.data.DataUnit;
-import com.etlsolutions.javafx.data.log.LogGroupRoot;
-import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
-import com.etlsolutions.javafx.presentation.view.tree.log.LogGroupTreeItem;
+import com.etlsolutions.gwise.data.GwiseDataUnit;
+import com.etlsolutions.gwise.data.log.GwiseLogGroupRoot;
+import com.etlsolutions.gwise.presentation.view.tree.GwiseMenuedTreeItem;
 import java.util.List;
 import javafx.scene.control.TreeItem;
 
@@ -11,17 +10,17 @@ import javafx.scene.control.TreeItem;
  *
  * @author zc
  */
-public class GwiseLogGroupRootTreeItem extends MenuedTreeItem {
+public class GwiseLogGroupRootTreeItem extends GwiseMenuedTreeItem {
 
-    public GwiseLogGroupRootTreeItem(LogGroupRoot model) {
+    public GwiseLogGroupRootTreeItem(GwiseLogGroupRoot model) {
         super(model);
-        List<TreeItem<DataUnit>> children = getChildren();
-        children.add(new LogGroupTreeItem(model.getGvents()));
-        children.add(new LogGroupTreeItem(model.getIssues()));
-        children.add(new LogGroupTreeItem(model.getNotes()));
-        children.add(new LogGroupTreeItem(model.getTasks()));
-        children.add(new LogGroupTreeItem(model.getTests()));
-        children.add(new LogGroupTreeItem(model.getWeatherRecords()));
+        List<TreeItem<GwiseDataUnit>> children = getChildren();
+        children.add(new GwiseLogGroupTreeItem(model.getGvents()));
+        children.add(new GwiseLogGroupTreeItem(model.getIssues()));
+        children.add(new GwiseLogGroupTreeItem(model.getNotes()));
+        children.add(new GwiseLogGroupTreeItem(model.getTasks()));
+        children.add(new GwiseLogGroupTreeItem(model.getTests()));
+        children.add(new GwiseLogGroupTreeItem(model.getWeatherRecords()));
 
     }
 }

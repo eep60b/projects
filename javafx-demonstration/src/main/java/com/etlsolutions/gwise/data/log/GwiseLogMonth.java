@@ -27,7 +27,7 @@ public class GwiseLogMonth extends GwiseDataUnit {
         monthWrapper = new ValueWrapper<>(bean.getMonth());
         logs = new ObservableListWrapperA<>();
         for (GwiseLogBean log : bean.getLogs()) {
-            logs.add(GwiseLogFactory.getInstance().createLog(log));
+            logs.add(GwiseLogBeanFactory.getInstance().createLog(log));
         }
     }
 

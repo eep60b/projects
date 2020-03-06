@@ -1,7 +1,5 @@
 package com.etlsolutions.gwise.data.log.gvent;
 
-import com.etlsolutions.gwise.data.GwiseDataUnitBean;
-import com.etlsolutions.gwise.data.area.GwiseAllotmentAreaBean;
 import com.etlsolutions.gwise.data.log.GwiseLogGroup;
 import com.etlsolutions.gwise.data.log.GwiseLogGroupBean;
 import com.etlsolutions.gwise.data.log.GwiseLogYear;

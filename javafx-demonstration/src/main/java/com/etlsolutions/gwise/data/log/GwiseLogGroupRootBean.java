@@ -1,12 +1,8 @@
 package com.etlsolutions.gwise.data.log;
 
 import com.etlsolutions.gwise.data.log.gvent.GwiseGventsBean;
-import com.etlsolutions.javafx.data.log.Issues;
-import com.etlsolutions.javafx.data.log.Notes;
-import com.etlsolutions.javafx.data.log.References;
-import com.etlsolutions.javafx.data.log.Tests;
-import com.etlsolutions.javafx.data.log.task.Tasks;
-import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
+import com.etlsolutions.gwise.data.log.task.GwiseTasksBean;
+import com.etlsolutions.gwise.data.log.weather.GwiseWeatherRecordsBean;
 
 /**
  *
@@ -15,25 +11,25 @@ import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
 public class GwiseLogGroupRootBean extends LogItemBean {
   
    private GwiseGventsBean events;
-   private Issues issues;
-   private Notes notes;
-   private References references;
-   private Tasks tasks;
-   private Tests tests;
-   private WeatherRecords weatherRecords;
+   private GwiseIssuesBean issues;
+   private GwiseNotesBean notes;
+   private GwiseReferencesBean references;
+   private GwiseTasksBean tasks;
+   private GwiseTestsBean tests;
+   private GwiseWeatherRecordsBean weatherRecords;
 
     public GwiseLogGroupRootBean() {
     }
 
-    public GwiseLogGroupRootBean(GwiseGventsBean events, Issues issues, Notes notes, References references, Tasks tasks, Tests tests, WeatherRecords weatherRecords, LogItem item) {
-        super(item);
-        this.events = events;
-        this.issues = issues;
-        this.notes = notes;
-        this.references = references;
-        this.tasks = tasks;
-        this.tests = tests;
-        this.weatherRecords = weatherRecords;
+    public GwiseLogGroupRootBean(GwiseLogGroupRoot root) {
+        super(root);
+        events = new GwiseGventsBean(root.getGvents());
+        issues = new GwiseIssuesBean(root.getIssues());
+        notes = new GwiseNotesBean(root.getNotes());
+        references = new GwiseReferencesBean(root.getReferences());
+        tasks = new GwiseTasksBean(root.getTasks());
+        tests = new GwiseTestsBean(root.getTests());
+        weatherRecords = new GwiseWeatherRecordsBean(root.getWeatherRecords());
     }
 
     public GwiseGventsBean getEvents() {
@@ -44,51 +40,51 @@ public class GwiseLogGroupRootBean extends LogItemBean {
         this.events = events;
     }
 
-    public Issues getIssues() {
+    public GwiseIssuesBean getIssues() {
         return issues;
     }
 
-    public void setIssues(Issues issues) {
+    public void setIssues(GwiseIssuesBean issues) {
         this.issues = issues;
     }
 
-    public Notes getNotes() {
+    public GwiseNotesBean getNotes() {
         return notes;
     }
 
-    public void setNotes(Notes notes) {
+    public void setNotes(GwiseNotesBean notes) {
         this.notes = notes;
     }
 
-    public References getReferences() {
+    public GwiseReferencesBean getReferences() {
         return references;
     }
 
-    public void setReferences(References references) {
+    public void setReferences(GwiseReferencesBean references) {
         this.references = references;
     }
 
-    public Tasks getTasks() {
+    public GwiseTasksBean getTasks() {
         return tasks;
     }
 
-    public void setTasks(Tasks tasks) {
+    public void setTasks(GwiseTasksBean tasks) {
         this.tasks = tasks;
     }
 
-    public Tests getTests() {
+    public GwiseTestsBean getTests() {
         return tests;
     }
 
-    public void setTests(Tests tests) {
+    public void setTests(GwiseTestsBean tests) {
         this.tests = tests;
     }
 
-    public WeatherRecords getWeatherRecords() {
+    public GwiseWeatherRecordsBean getWeatherRecords() {
         return weatherRecords;
     }
 
-    public void setWeatherRecords(WeatherRecords weatherRecords) {
+    public void setWeatherRecords(GwiseWeatherRecordsBean weatherRecords) {
         this.weatherRecords = weatherRecords;
     }
 }

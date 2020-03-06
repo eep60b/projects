@@ -1,13 +1,9 @@
 package com.etlsolutions.gwise.data.log;
 
 import com.etlsolutions.gwise.data.ImageLink;
-import com.etlsolutions.javafx.data.log.Issues;
-import com.etlsolutions.javafx.data.log.Notes;
-import com.etlsolutions.javafx.data.log.References;
-import com.etlsolutions.javafx.data.log.Tests;
-import com.etlsolutions.javafx.data.log.task.Tasks;
-import com.etlsolutions.javafx.data.log.gvent.Gvents;
-import com.etlsolutions.javafx.data.log.weather.WeatherRecords;
+import com.etlsolutions.gwise.data.log.gvent.GwiseGvents;
+import com.etlsolutions.gwise.data.log.task.GwiseTasks;
+import com.etlsolutions.gwise.data.log.weather.GwiseWeatherRecords;
 import java.util.List;
 
 /**
@@ -16,13 +12,13 @@ import java.util.List;
  */
 public class GwiseLogGroupRoot extends LogItem {
   
-   private Gvents events;
-   private Issues issues;
-   private Notes notes;
-   private References references;
-   private Tasks tasks;
-   private Tests tests;
-   private WeatherRecords weatherRecords;
+   private GwiseGvents events;
+   private GwiseIssues issues;
+   private GwiseNotes notes;
+   private GwiseReferences references;
+   private GwiseTasks tasks;
+   private GwiseTests tests;
+   private GwiseWeatherRecords weatherRecords;
 
     public GwiseLogGroupRoot(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
@@ -32,67 +28,64 @@ public class GwiseLogGroupRoot extends LogItem {
         super(bean);
     }
 
-   
-   
-   
-    public Gvents getGvents() {
+    public GwiseGvents getGvents() {
         return events;
     }
 
-    public void setEvents(Gvents events) {
+    public void setEvents(GwiseGvents events) {
         this.events = events;
     }
 
-    public Issues getIssues() {
+    public GwiseIssues getIssues() {
         return issues;
     }
 
-    public void setIssues(Issues issues) {
+    public void setIssues(GwiseIssues issues) {
         this.issues = issues;
     }
 
-    public Notes getNotes() {
+    public GwiseNotes getNotes() {
         return notes;
     }
 
-    public void setNotes(Notes notes) {
+    public void setNotes(GwiseNotes notes) {
         this.notes = notes;
     }
 
-    public References getReferences() {
+    public GwiseReferences getReferences() {
         return references;
     }
 
-    public void setReferences(References references) {
+    public void setReferences(GwiseReferences references) {
         this.references = references;
     }
 
-    public Tasks getTasks() {
+    public GwiseTasks getTasks() {
         return tasks;
     }
 
-    public void setTasks(Tasks tasks) {
+    public void setTasks(GwiseTasks tasks) {
         this.tasks = tasks;
     }
 
-    public Tests getTests() {
+    public GwiseTests getTests() {
         return tests;
     }
 
-    public void setTests(Tests tests) {
+    public void setTests(GwiseTests tests) {
         this.tests = tests;
     }
 
-    public WeatherRecords getWeatherRecords() {
+    public GwiseWeatherRecords getWeatherRecords() {
         return weatherRecords;
     }
 
-    public void setWeatherRecords(WeatherRecords weatherRecords) {
+    public void setWeatherRecords(GwiseWeatherRecords weatherRecords) {
         this.weatherRecords = weatherRecords;
     }
 
     @Override
     public GwiseLogGroupRootBean getBean() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new GwiseLogGroupRootBean(this);
     }
 }
