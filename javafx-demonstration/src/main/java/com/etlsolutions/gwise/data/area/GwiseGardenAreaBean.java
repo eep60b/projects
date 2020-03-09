@@ -18,12 +18,12 @@ public class GwiseGardenAreaBean extends GwiseAreaBean {
 
     public GwiseGardenAreaBean(GwiseGardenArea area) {
         super(area);
-        for(GwisePlantBed bean : area.getPlantBeds()) {
-            plantBeds.add(new GwisePlantBedBean(bean));
-        }
+//        for(GwisePlantBed bean : area.getPlantBeds()) {
+//            plantBeds.add(new GwisePlantBedBean(bean));
+//        }
     }
 
-    @Override
+  //  @Override
     public AreaType type() {
         return AreaType.GARDEN;
     }

@@ -11,16 +11,15 @@ import java.util.List;
  */
 public class GwiseAreaRootBean extends GwiseDataUnitBean {
 
-    private List<GwiseAreaBean> areas;    
+    private List<GwiseAreaBean> areas = new ArrayList<>();   
 
     public GwiseAreaRootBean() {
     }
         
     public GwiseAreaRootBean(GwiseAreaRoot r) {
-        super(r);
-        areas = new ArrayList<>();
+        super(r);        
         for(GwiseArea a : r.getAreas()) {
-            areas.add(AreaBeanFactory.getInstance().getAreaBean(a));
+            areas.add(a.getBean());
         }
     }
 

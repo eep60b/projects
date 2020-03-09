@@ -7,6 +7,8 @@ import javafx.collections.ListChangeListener;
 import javafx.scene.control.TreeItem;
 
 /**
+ * The GwiseDataUnitTreeItemListChangeAdapter class listens to the children list
+ * of a item and update the tree accordingly.
  *
  * @author zc
  * @param <T>
@@ -22,7 +24,7 @@ public class GwiseDataUnitTreeItemListChangeAdapter<T extends GwiseDataUnit> imp
     @Override
     public void onChanged(Change<? extends T> c) {
 
-        while(c.next()) {
+        while (c.next()) {
             for (T item : c.getAddedSubList()) {
                 children.add(GwiseDataUnitTreeItemFactory.getInstance().getTreeItem(item));
             }

@@ -6,9 +6,9 @@ package com.etlsolutions.gwise.data;
  * @author zc
  */
 public class ImageLink {
-    
+
     private final int id;
-    
+
     /**
      * The link is the string path which points to the original location of the
      * image. After loading, the original image should be copied and modified to
@@ -33,7 +33,7 @@ public class ImageLink {
         linkWrapper = new ValueWrapper<>(link);
         informationWrapper = new ValueWrapper<>(information);
     }
-    
+
     public ImageLink(ImageLinkBean bean) {
         id = bean.getId();
         linkWrapper = new ValueWrapper<>(bean.getLink());
@@ -43,7 +43,7 @@ public class ImageLink {
     public int getId() {
         return id;
     }
-    
+
     /**
      * Get the original link of this image. It can be a URL or a path in local
      * physical disk. The link is not always valid.
@@ -61,7 +61,7 @@ public class ImageLink {
     public ValueWrapper<String> getLinkWrapper() {
         return linkWrapper;
     }
-    
+
     public String getInformation() {
         return informationWrapper.getValue();
     }
@@ -73,7 +73,7 @@ public class ImageLink {
     public ValueWrapper<String> getInformationWrapper() {
         return informationWrapper;
     }
-    
+
     public String getPath() {
         return path;
     }
@@ -81,7 +81,7 @@ public class ImageLink {
     public void setPath(String path) {
         this.path = path;
     }
-    
+
     public ImageLinkBean getBean() {
         return new ImageLinkBean(this);
     }

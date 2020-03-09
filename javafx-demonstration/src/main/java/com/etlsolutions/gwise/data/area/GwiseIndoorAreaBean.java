@@ -15,7 +15,7 @@ public class GwiseIndoorAreaBean extends GwiseAreaBean {
 
 
 
-    @Override
+  //  @Override
     public AreaType type() {
         return AreaType.INDOOR;
     }

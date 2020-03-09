@@ -2,7 +2,7 @@
 <contents>
     <area-root title="All Areas" logo="">
         <area title="My Garden" type="GARDEN" logo="">
-            <subarea title="My Plant Bed" type="PLANT_BED" logo="" />
+            <subarea title="My Plant Bed" type="PLANT_BED" logo="" />            
         </area>
     </area-root>
     <plant-group-root title="All Plants" logo="">
@@ -192,7 +192,7 @@
             </plant-type>            
         </plant-group>        
     </plant-group-root>
-    <log-group-root title="All" logo="">
+    <log-group-root title="All Records" logo="">
        
     </log-group-root>
     <growing-medium />

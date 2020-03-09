@@ -72,23 +72,27 @@ public class AreaBeanFactory {
         return bean;
     }
 
-    public GwiseAreaBean getAreaBean(GwiseArea area) {
-
-        switch (area.getType()) {
-            case ALLOTMENT:
-                return new GwiseAllotmentAreaBean((GwiseAllotmentArea) area);
-            case BALCONY:
-                return new GwiseBalconyAreaBean((GwiseBalconyArea) area);
-            case FARM:
-                return new GwiseFarmAreaBean((GwiseFarmArea) area);
-            case GARDEN:
-                return new GwiseGardenAreaBean((GwiseGardenArea) area);
-            case INDOOR:
-                return new GwiseIndoorAreaBean((GwiseIndoorArea) area);
-            case PATIO:
-                return new GwisePatioAreaBean((GwisePatioArea) area);
-            default:
-                throw new IllegalStateException("Invalid area type.");
-        }
-    }
+//    public GwiseArea getAreaBean(GwiseAreaBean area) {
+//
+//        switch (area.type()) {
+//            case ALLOTMENT:
+//                return new GwiseAllotmentArea((GwiseAllotmentAreaBean) area);
+//            case BALCONY:
+//                return new GwiseBalconyArea((GwiseBalconyAreaBean) area);
+//            case FARM:
+//                return new GwiseFarmArea((GwiseFarmAreaBean) area);
+//            case GARDEN:
+//                return new GwiseGardenArea((GwiseGardenAreaBean) area);
+//            case INDOOR:
+//                return new GwiseIndoorArea((GwiseIndoorAreaBean) area);
+//            case PATIO:
+//                return new GwisePatioArea((GwisePatioAreaBean) area);
+//            default:
+//                throw new IllegalStateException("Invalid area type.");
+//        }
+//    }
+//    
+//    public GwiseSubarea getSubarea(GwiseSubareaBean bean) {
+//        
+//    }
 }

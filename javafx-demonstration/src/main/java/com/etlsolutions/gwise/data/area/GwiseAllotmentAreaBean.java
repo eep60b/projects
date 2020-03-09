@@ -13,7 +13,7 @@ public class GwiseAllotmentAreaBean extends GwiseAreaBean {
         super(area);
     }
  
-    @Override
+ //   @Override
     public AreaType type() {
         return AreaType.ALLOTMENT;
     }

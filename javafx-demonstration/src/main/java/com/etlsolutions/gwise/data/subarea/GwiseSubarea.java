@@ -1,6 +1,7 @@
 package com.etlsolutions.gwise.data.subarea;
 
 import com.etlsolutions.gwise.data.GwiseDataUnit;
+import com.etlsolutions.gwise.data.GwiseDataUnitBean;
 import com.etlsolutions.gwise.data.area.GwiseArea;
 import com.etlsolutions.gwise.data.basicshape.GwisePoint;
 import com.etlsolutions.gwise.data.ImageLink;
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author ZhipengChang
  */
-public abstract class GwiseSubarea extends GwiseDataUnit {
+public class GwiseSubarea extends GwiseDataUnit {
 
     private final GwiseArea parent;
     private final ValueWrapper<GwisePoint> referencePointWrapper;
@@ -51,5 +52,10 @@ public abstract class GwiseSubarea extends GwiseDataUnit {
 
     public ObservableListWrapperA<GwiseLocationSet> getLocationSets() {
         return locationSets;
+    }
+
+    @Override
+    public GwiseDataUnitBean getBean() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

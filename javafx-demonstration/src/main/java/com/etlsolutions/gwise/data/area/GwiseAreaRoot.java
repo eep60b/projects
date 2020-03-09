@@ -32,11 +32,7 @@ public class GwiseAreaRoot extends GwiseDataUnit {
         super(bean);
         areas = new ObservableListWrapperA<>();
         for (GwiseAreaBean a : bean.getAreas()) {
-
-            switch (a.type()) {
-                case ALLOTMENT:
-                    areas.add(new GwiseAllotmentArea((GwiseAllotmentAreaBean) a));
-            }
+            areas.add(new GwiseArea(a));
         }
     }
 
