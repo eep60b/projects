@@ -51,12 +51,11 @@ public class GwisePaletteController extends AbstractFXMLController {
     private HBox roomHbox;
 
     @FXML
-    private TilePane plantTilePane;    
-    
+    private TilePane plantTilePane;
+
     @Override
     public void initializeComponents() {
-        
-        
+
         try {
 
             ValueWrapper<GwiseProjectContents> cwrapper = ProjectManager.getInstance().getGwiseProjectContentsWrapper();
@@ -67,32 +66,35 @@ public class GwisePaletteController extends AbstractFXMLController {
 
             addImageView(plantBedHbox, GwiseSubAreaType.PLANT_BED, projectContents);
             addImageView(raisedPlantBedHbox, GwiseSubAreaType.RAISED_PLANT_BED, projectContents);
-            addImageView(lawnHbox, GwiseSubAreaType.LAWN, projectContents);            
+            addImageView(lawnHbox, GwiseSubAreaType.LAWN, projectContents);
             addImageView(pondHbox, GwiseSubAreaType.POND, projectContents);
-            addImageView(greenhouseAndContainterHbox, GwiseSubAreaType.GREEN_HOUSE, projectContents); 
+            addImageView(greenhouseAndContainterHbox, GwiseSubAreaType.GREEN_HOUSE, projectContents);
             addImageView(roomHbox, GwiseSubAreaType.ROOM, projectContents);
-            
+
         } catch (FileNotFoundException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }
     }
 
     private void addImageView(HBox box, GwiseSubAreaType subAreaType, GwiseProjectContents projectContents) throws FileNotFoundException {
-        
+
         List<Node> logos = box.getChildren();
-        
+
         List<SubareaLogoItem> logoItems = projectContents.getSubareaLogoItems().get(subAreaType);
-                
-        for (SubareaLogoItem item : logoItems) {
-            
-            ImageView view = new ParameterisedImageView(new Image(new FileInputStream(new File(item.getLogoPath()))), item);
-            
-            view.setOnMousePressed(new MousePressEventHandler());
-            view.setOnMouseReleased(new MouseReleaseEventHandler());
-            view.setOnMouseDragged(new MouseDragEventHandler());
-            view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-            view.setOnDragDone(new ImageViewDragDoneEventHandler());
-            logos.add(view);
+
+        if (logoItems != null) {
+
+            for (SubareaLogoItem item : logoItems) {
+
+                ImageView view = new ParameterisedImageView(new Image(new FileInputStream(new File(item.getLogoPath()))), item);
+
+                view.setOnMousePressed(new MousePressEventHandler());
+                view.setOnMouseReleased(new MouseReleaseEventHandler());
+                view.setOnMouseDragged(new MouseDragEventHandler());
+                view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
+                view.setOnDragDone(new ImageViewDragDoneEventHandler());
+                logos.add(view);
+            }
         }
     }
 }

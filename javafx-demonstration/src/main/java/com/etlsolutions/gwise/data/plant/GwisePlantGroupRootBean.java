@@ -1,6 +1,7 @@
 package com.etlsolutions.gwise.data.plant;
 
 import com.etlsolutions.gwise.data.GwiseDataUnitBean;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class GwisePlantGroupRootBean extends GwiseDataUnitBean {
 
-    private List<GwisePlantGroupBean> plantGroups;
+    private List<GwisePlantGroupBean> plantGroups = new ArrayList<>();
 
     public GwisePlantGroupRootBean() {
     }

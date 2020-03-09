@@ -8,11 +8,16 @@ import java.io.File;
 import java.io.IOException;
 import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.gwise.data.ValueWrapper;
-import com.etlsolutions.gwise.data.area.GwiseAreaBean;
 import com.etlsolutions.gwise.data.area.GwiseAreaRootBean;
 import com.etlsolutions.gwise.data.area.GwiseGardenAreaBean;
 import com.etlsolutions.gwise.data.basicshape.GwiseShapeType;
+import com.etlsolutions.gwise.data.log.GwiseIssuesBean;
 import com.etlsolutions.gwise.data.log.GwiseLogGroupRootBean;
+import com.etlsolutions.gwise.data.log.GwiseNotesBean;
+import com.etlsolutions.gwise.data.log.GwiseTestsBean;
+import com.etlsolutions.gwise.data.log.gvent.GwiseGventsBean;
+import com.etlsolutions.gwise.data.log.task.GwiseTasksBean;
+import com.etlsolutions.gwise.data.log.weather.GwiseWeatherRecordsBean;
 import com.etlsolutions.gwise.data.other.GwiseGrowingMediumBean;
 import com.etlsolutions.gwise.data.plant.GwisePlantGroupBean;
 import com.etlsolutions.gwise.data.plant.GwisePlantGroupRootBean;
@@ -386,10 +391,10 @@ public final class ProjectManager {
     private void initGwiseProjectContents() throws IOException {
 
         File file = new File("");
-        
+
         GwiseProjectContentsBean p = file.isFile() ? mapper.readValue(file, GwiseProjectContentsBean.class) : null;
-  //      RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class
-  //              .getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GwiseProjectContents.class);
+        //      RepositoryManager.getInstance().loadDefaultData(DEFAULT_DATA_DIRECTORY + File.separator + GrowingMediumGroup.class
+        //              .getSimpleName() + SettingConstants.JSON_FILE_EXTENSION, GwiseProjectContents.class);
 
         if (p == null) {
             p = new GwiseProjectContentsBean();
@@ -408,23 +413,31 @@ public final class ProjectManager {
                             case "area-root":
                                 GwiseAreaRootBean areaRootBean = new GwiseAreaRootBean();
                                 p.setAreaRoot(areaRootBean);
-                                areaRootBean.setAreas(new ArrayList<GwiseAreaBean>());
-                                NodeList n2List = n1.getChildNodes();
-                                for (int j = 0; j < n2List.getLength(); j++) {
+                                areaRootBean.setTitle(n1.getAttributes().getNamedItem("title").getNodeValue());
+                                NodeList areaNodeList = n1.getChildNodes();
+                                for (int j = 0; j < areaNodeList.getLength(); j++) {
 
-                                    Node n2 = n2List.item(j);
-                                    String n2Name = n2.getNodeName();
+                                    Node aeaNodeName = areaNodeList.item(j);
+                                    String n2Name = aeaNodeName.getNodeName();
                                     if (n2Name != null && n2Name.equals("area")) {
                                         GwiseGardenAreaBean gardenAreaBean = new GwiseGardenAreaBean();
+                                        gardenAreaBean.setTitle(aeaNodeName.getAttributes().getNamedItem("title").getNodeValue());
                                         areaRootBean.getAreas().add(gardenAreaBean);
-                                        NodeList n3List = n2.getChildNodes();
+                                        NodeList n3List = aeaNodeName.getChildNodes();
                                         for (int k = 0; k < n3List.getLength(); k++) {
-                                            Node n3 = n3List.item(k);
-                                            String n3Name = n3.getNodeName();
+                                            Node subareaNode = n3List.item(k);
+                                            String subareaNodeName = subareaNode.getNodeName();
+                                            if (subareaNodeName != null && subareaNodeName.equals("subarea")) {
 
-                                            if (n3Name != null && n3Name.equals("subarea")) {
-                                                GwisePlantBedBean plantBedBean = new GwisePlantBedBean();
-                                                gardenAreaBean.getPlantBeds().add(plantBedBean);
+                                                String type = subareaNode.getAttributes().getNamedItem("type").getNodeValue();
+                                                switch (type) {
+                                                    case "PLANT_BED":
+                                                        GwisePlantBedBean plantBedBean = new GwisePlantBedBean();
+                                                        plantBedBean.setTitle(subareaNode.getAttributes().getNamedItem("title").getNodeValue());
+                                                        gardenAreaBean.getPlantBeds().add(plantBedBean);
+                                                        break;
+                                                }
+
                                             }
 
                                         }
@@ -436,14 +449,15 @@ public final class ProjectManager {
                             case "plant-group-root":
                                 GwisePlantGroupRootBean plantGroupRootBean = new GwisePlantGroupRootBean();
                                 p.setPlantGroupRoot(plantGroupRootBean);
-                                plantGroupRootBean.setPlantGroups(new ArrayList<GwisePlantGroupBean>());
-                                NodeList n3List = n1.getChildNodes();
-                                for (int j = 0; j < n3List.getLength(); j++) {
+                                plantGroupRootBean.setTitle(n1.getAttributes().getNamedItem("title").getNodeValue());
+                                NodeList plantGroupList = n1.getChildNodes();
+                                for (int j = 0; j < plantGroupList.getLength(); j++) {
 
-                                    Node plantGroupNode = n3List.item(j);
-                                    String n3Name = plantGroupNode.getNodeName();
-                                    if (n3Name != null && n3Name.equals("area")) {
+                                    Node plantGroupNode = plantGroupList.item(j);
+                                    String plantGroupNodeName = plantGroupNode.getNodeName();
+                                    if (plantGroupNodeName != null && plantGroupNodeName.equals("area")) {
                                         GwisePlantGroupBean plantGroup = new GwisePlantGroupBean();
+                                        plantGroup.setTitle(plantGroupNode.getAttributes().getNamedItem("title").getNodeValue());
                                         plantGroup.setPlantTypeBeans(new ArrayList<PlantTypeBean>());
                                         plantGroupRootBean.getPlantGroups().add(plantGroup);
                                         NodeList plantTypeNodeList = plantGroupNode.getChildNodes();
@@ -453,6 +467,7 @@ public final class ProjectManager {
 
                                             if (plantTypeNodeName != null && plantTypeNodeName.equals("plant-type")) {
                                                 PlantTypeBean plantTypeBean = new PlantTypeBean();
+                                                plantTypeBean.setTitle(plantTypeNode.getAttributes().getNamedItem("title").getNodeValue());
                                                 plantGroup.getPlantTypeBeans().add(plantTypeBean);
 
                                                 NodeList plantVarietiesNodeList = plantTypeNode.getChildNodes();
@@ -472,9 +487,50 @@ public final class ProjectManager {
                                     }
                                 }
                                 break;
+
                             case "log-group-root":
                                 GwiseLogGroupRootBean logGroupRootBean = new GwiseLogGroupRootBean();
+                                logGroupRootBean.setTitle(n1.getAttributes().getNamedItem("title").getNodeValue());
                                 p.setLogGroupRoot(logGroupRootBean);
+
+                                NodeList logGroupNodeList = n1.getChildNodes();
+                                for (int j = 0; j < logGroupNodeList.getLength(); j++) {
+                                    Node logGroupNode = logGroupNodeList.item(j);
+                                    String logGroupNodeName = logGroupNode.getNodeName();
+                                    switch (logGroupNodeName) {
+                                        case "events":
+                                            GwiseGventsBean gvents = new GwiseGventsBean();
+                                            gvents.setTitle(logGroupNode.getAttributes().getNamedItem("title").getNodeValue());
+                                            logGroupRootBean.setEvents(gvents);
+                                            break;
+                                        case "issues":
+                                            GwiseIssuesBean issues = new GwiseIssuesBean();
+                                            issues.setTitle(logGroupNode.getAttributes().getNamedItem("title").getNodeValue());
+                                            logGroupRootBean.setIssues(issues);
+                                            break;
+                                        case "notes":
+                                            GwiseNotesBean notes = new GwiseNotesBean();
+                                            notes.setTitle(logGroupNode.getAttributes().getNamedItem("title").getNodeValue());
+                                            logGroupRootBean.setNotes(notes);
+                                            break;
+                                        case "tasks":
+                                            GwiseTasksBean tasks = new GwiseTasksBean();
+                                            tasks.setTitle(logGroupNode.getAttributes().getNamedItem("title").getNodeValue());
+                                            logGroupRootBean.setTasks(tasks);
+                                            break;
+                                        case "tests":
+                                            GwiseTestsBean tests = new GwiseTestsBean();
+                                            tests.setTitle(logGroupNode.getAttributes().getNamedItem("title").getNodeValue());
+                                            logGroupRootBean.setTests(tests);
+                                            break;
+                                        case "weather-records":
+                                            GwiseWeatherRecordsBean records = new GwiseWeatherRecordsBean();
+                                            records.setTitle(logGroupNode.getAttributes().getNamedItem("title").getNodeValue());
+                                            logGroupRootBean.setWeatherRecords(records);
+                                            break;
+                                    }
+                                }
+
                                 break;
                             case "growing-medium":
                                 GwiseGrowingMediumBean bean = new GwiseGrowingMediumBean();

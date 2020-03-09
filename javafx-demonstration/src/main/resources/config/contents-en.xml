@@ -193,7 +193,13 @@
         </plant-group>        
     </plant-group-root>
     <log-group-root title="All Records" logo="">
-       
+       <events title="Events" logo=""/>
+       <issues title="Issues" logo=""/>
+       <notes  title="Notes"  logo=""/>
+       <references title="References" log=""/>
+       <tasks  title="Tasks"  logo=""/>
+       <tests title="Tests" logo=""/>
+       <weather-records title="Weather" logo=""/>                            
     </log-group-root>
     <growing-medium />
         

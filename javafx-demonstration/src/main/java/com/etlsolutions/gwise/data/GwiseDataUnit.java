@@ -35,6 +35,7 @@ public abstract class GwiseDataUnit extends DoubleValueWrapper implements LogoIt
 
     /**
      * Get the bean from this item.
+     *
      * @return the bean.
      */
     public abstract GwiseDataUnitBean getBean();
@@ -42,7 +43,7 @@ public abstract class GwiseDataUnit extends DoubleValueWrapper implements LogoIt
     public int getId() {
         return id;
     }
-        
+
     public ValueWrapper<String> getTitleWrapper() {
         return titleWrapper;
     }
@@ -103,7 +104,12 @@ public abstract class GwiseDataUnit extends DoubleValueWrapper implements LogoIt
             return false;
         }
         final GwiseDataUnit other = (GwiseDataUnit) obj;
-        
+
         return this.id == other.id;
-    } 
+    }
+
+    @Override
+    public String toString() {
+        return titleWrapper.getValue();
+    }
 }

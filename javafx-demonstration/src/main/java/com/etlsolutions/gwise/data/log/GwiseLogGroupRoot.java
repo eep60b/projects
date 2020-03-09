@@ -11,77 +11,65 @@ import java.util.List;
  * @author zc
  */
 public class GwiseLogGroupRoot extends LogItem {
-  
-   private GwiseGvents events;
-   private GwiseIssues issues;
-   private GwiseNotes notes;
-   private GwiseReferences references;
-   private GwiseTasks tasks;
-   private GwiseTests tests;
-   private GwiseWeatherRecords weatherRecords;
-
-    public GwiseLogGroupRoot(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath) {
+    
+    private final GwiseGvents events;
+    private final GwiseIssues issues;
+    private final GwiseNotes notes;
+    private final GwiseReferences references;
+    private final GwiseTasks tasks;
+    private final GwiseTests tests;
+    private final GwiseWeatherRecords weatherRecords;
+    
+    public GwiseLogGroupRoot(int id, String title, String information, List<ImageLink> imageLinks, int selectedImgLinkIndex, String logoPath,
+            GwiseGvents events, GwiseIssues issues, GwiseNotes notes, GwiseReferences references, GwiseTasks tasks, GwiseTests tests, GwiseWeatherRecords weatherRecords) {
+        
         super(id, title, information, imageLinks, selectedImgLinkIndex, logoPath);
+        this.events = events;
+        this.issues = issues;
+        this.notes = notes;
+        this.references = references;
+        this.tasks = tasks;
+        this.tests = tests;
+        this.weatherRecords = weatherRecords;
     }
-
+    
     public GwiseLogGroupRoot(GwiseLogGroupRootBean bean) {
         super(bean);
+        events = new GwiseGvents(bean.getEvents());
+        issues = new GwiseIssues(bean.getIssues());
+        notes = new GwiseNotes(bean.getNotes());
+        references = new GwiseReferences(bean.getReferences());
+        tasks = new GwiseTasks(bean.getTasks());
+        tests = new GwiseTests(bean.getTests());
+        weatherRecords = new GwiseWeatherRecords(bean.getWeatherRecords());
     }
-
+    
     public GwiseGvents getGvents() {
         return events;
     }
-
-    public void setEvents(GwiseGvents events) {
-        this.events = events;
-    }
-
+    
     public GwiseIssues getIssues() {
         return issues;
     }
-
-    public void setIssues(GwiseIssues issues) {
-        this.issues = issues;
-    }
-
+    
     public GwiseNotes getNotes() {
         return notes;
     }
-
-    public void setNotes(GwiseNotes notes) {
-        this.notes = notes;
-    }
-
+    
     public GwiseReferences getReferences() {
         return references;
     }
-
-    public void setReferences(GwiseReferences references) {
-        this.references = references;
-    }
-
+    
     public GwiseTasks getTasks() {
         return tasks;
     }
-
-    public void setTasks(GwiseTasks tasks) {
-        this.tasks = tasks;
-    }
-
+    
     public GwiseTests getTests() {
         return tests;
     }
-
-    public void setTests(GwiseTests tests) {
-        this.tests = tests;
-    }
-
+    
     public GwiseWeatherRecords getWeatherRecords() {
         return weatherRecords;
-    }
-
-    public void setWeatherRecords(GwiseWeatherRecords weatherRecords) {
-        this.weatherRecords = weatherRecords;
     }
 
     @Override

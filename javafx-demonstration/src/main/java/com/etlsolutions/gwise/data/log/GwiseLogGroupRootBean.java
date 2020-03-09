@@ -10,13 +10,13 @@ import com.etlsolutions.gwise.data.log.weather.GwiseWeatherRecordsBean;
  */
 public class GwiseLogGroupRootBean extends LogItemBean {
   
-   private GwiseGventsBean events;
-   private GwiseIssuesBean issues;
-   private GwiseNotesBean notes;
-   private GwiseReferencesBean references;
-   private GwiseTasksBean tasks;
-   private GwiseTestsBean tests;
-   private GwiseWeatherRecordsBean weatherRecords;
+   private GwiseGventsBean events = new GwiseGventsBean();
+   private GwiseIssuesBean issues = new GwiseIssuesBean();
+   private GwiseNotesBean notes = new GwiseNotesBean();
+   private GwiseReferencesBean references = new GwiseReferencesBean();
+   private GwiseTasksBean tasks = new GwiseTasksBean();
+   private GwiseTestsBean tests = new GwiseTestsBean();
+   private GwiseWeatherRecordsBean weatherRecords = new GwiseWeatherRecordsBean();
 
     public GwiseLogGroupRootBean() {
     }
