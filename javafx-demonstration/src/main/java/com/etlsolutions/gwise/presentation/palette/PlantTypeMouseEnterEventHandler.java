@@ -1,6 +1,5 @@
 package com.etlsolutions.gwise.presentation.palette;
 
-import com.etlsolutions.gwise.data.plant.PlantType;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -9,9 +8,6 @@ import javafx.scene.input.MouseEvent;
  * @author ZhipengChang
  */
 public class PlantTypeMouseEnterEventHandler implements EventHandler<MouseEvent> {
-
-    public PlantTypeMouseEnterEventHandler(PlantType plantType) {
-    }
 
     @Override
     public void handle(MouseEvent event) {

@@ -6,11 +6,6 @@ import com.etlsolutions.gwise.data.PropertyChangeAdapter;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.gwise.data.plant.GwisePlantGroup;
 import com.etlsolutions.gwise.data.plant.PlantType;
-import com.etlsolutions.gwise.presentation.ParameterisedImageView;
-import com.etlsolutions.javafx.presentation.palette.ImageViewDragDetectedEventHandler;
-import com.etlsolutions.javafx.presentation.palette.ImageViewDragDoneEventHandler;
-import com.etlsolutions.javafx.presentation.palette.PlantSubCroupMouseEnterEventHandler;
-import com.etlsolutions.javafx.presentation.palette.PlantSubGroupMouseClickEventHandler;
 import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
 import com.etlsolutions.gwise.system.GwiseProjectContents;
 import java.beans.PropertyChangeEvent;
@@ -52,6 +47,7 @@ public class GwiseProjectContentsPalettePropertyChangeAdaper extends PropertyCha
 
                 ObservableListWrapperA<PlantType> sgps = group.getPlantTypes();
                 plantTypes.addAll(sgps);
+                //Add a listener to listen to the change of plant type of this plant group. This is done only when the project is changed or created.
                 sgps.addListener(new PlantTypeListChangeAdapter(source));
             }
 
@@ -59,11 +55,11 @@ public class GwiseProjectContentsPalettePropertyChangeAdaper extends PropertyCha
 
             for (PlantType plantType : plantTypes) {
                 try {
-                    ImageView view = new ParameterisedImageView(new Image(new File(plantType.getLogoPath()).toURI().toURL().toString()), plantType);
-                    view.setOnMouseClicked(new PlantTypeMouseClickEventHandler(plantType));
-                    view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-                    view.setOnDragDone(new ImageViewDragDoneEventHandler());
-                    view.setOnMouseEntered(new PlantTypeMouseEnterEventHandler(plantType));
+                    ImageView view = new PlantTypeImageView(plantType, new Image(new File(plantType.getLogoPath()).toURI().toURL().toString()));
+                    view.setOnMouseClicked(new PlantTypeMouseClickEventHandler());
+                    view.setOnDragDetected(new DragDetectedEventHandler());
+                    view.setOnDragDone(new DragDoneEventHandler());
+                    view.setOnMouseEntered(new PlantTypeMouseEnterEventHandler());
                     source.getChildren().add(view);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(getClass()).error(ex);
@@ -71,6 +67,5 @@ public class GwiseProjectContentsPalettePropertyChangeAdaper extends PropertyCha
                 }
             }
         }
-
     }
 }

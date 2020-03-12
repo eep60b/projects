@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.presentation.palette;
 
+import com.etlsolutions.gwise.presentation.palette.DragDoneEventHandler;
+import com.etlsolutions.gwise.presentation.palette.DragDetectedEventHandler;
 import com.etlsolutions.javafx.data.DataUnitTitleComparator;
 import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
@@ -39,8 +41,8 @@ public class PaletteSubGroupListChangeAdapter implements ListChangeListener<Plan
         for(PlantSubGroup subGroup : subgroups) {            
             ImageView view = new ImageView(new Image(subGroup.getLogoPath()));
             view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
-            view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-            view.setOnDragDone(new ImageViewDragDoneEventHandler());
+            view.setOnDragDetected(new DragDetectedEventHandler());
+            view.setOnDragDone(new DragDoneEventHandler());
             plantsTilePane.getChildren().add(view);
         }
     }

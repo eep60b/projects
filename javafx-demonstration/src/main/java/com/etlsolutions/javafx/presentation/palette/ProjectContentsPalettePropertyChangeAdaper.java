@@ -1,5 +1,7 @@
 package com.etlsolutions.javafx.presentation.palette;
 
+import com.etlsolutions.gwise.presentation.palette.DragDoneEventHandler;
+import com.etlsolutions.gwise.presentation.palette.DragDetectedEventHandler;
 import com.etlsolutions.javafx.data.DataUnitTitleComparator;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
@@ -58,9 +60,9 @@ public class ProjectContentsPalettePropertyChangeAdaper implements PropertyChang
                 try {
                     ImageView view = new ParameterisedImageView(new Image(new File(subGroup.getLogoPath()).toURI().toURL().toString()), subGroup);
                     view.setOnMouseClicked(new PlantSubGroupMouseClickEventHandler(subGroup));
-                    view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-                    view.setOnDragDone(new ImageViewDragDoneEventHandler());
-                    view.setOnMouseEntered(new PlantSubCroupMouseEnterEventHandler(subGroup));
+                    view.setOnDragDetected(new DragDetectedEventHandler());
+                    view.setOnDragDone(new DragDoneEventHandler());
+ //                   view.setOnMouseEntered(new GwiseSubareaMouseEnterEventHandler(subGroup));
                     plantsTilePane.getChildren().add(view);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(getClass()).error(ex);

@@ -32,16 +32,16 @@
         </area>
         <plantroot>
             <plantgroup>
-                <subplantgroup>apple.jpg</subplantgroup>
-                <subplantgroup>aubergine.jpg</subplantgroup>
-                <subplantgroup>bell pepper.png</subplantgroup>
-                <subplantgroup>cherry.jpg</subplantgroup>
-                <subplantgroup>garlic chive.png</subplantgroup>
-                <subplantgroup>pak choi.jpg</subplantgroup>
-                <subplantgroup>primula.png</subplantgroup>
-                <subplantgroup>red chilly pepper.jpg</subplantgroup>
-                <subplantgroup>strawberry.jpg</subplantgroup>
-                <subplantgroup>tomato.jpg</subplantgroup>
+                <planttype>apple.jpg</planttype>
+                <planttype>aubergine.jpg</planttype>
+                <planttype>bell pepper.png</planttype>
+                <planttype>cherry.jpg</planttype>
+                <planttype>garlic chive.png</planttype>
+                <planttype>pak choi.jpg</planttype>
+                <planttype>primula.png</planttype>
+                <planttype>red chilly pepper.jpg</planttype>
+                <planttype>strawberry.jpg</planttype>
+                <planttype>tomato.jpg</planttype>
             </plantgroup>
         </plantroot>
     </logo>

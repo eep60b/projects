@@ -1,7 +1,7 @@
 package com.etlsolutions.gwise.presentation.palette;
 
 import javafx.event.EventHandler;
-import javafx.scene.image.ImageView;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -10,12 +10,9 @@ import javafx.scene.input.MouseEvent;
  */
 public class MouseReleaseEventHandler implements EventHandler<MouseEvent> {
 
-    public MouseReleaseEventHandler() {
-    }
-
     @Override
     public void handle(MouseEvent event) {
-        ImageView v = (ImageView) event.getSource();        
-        v.setMouseTransparent(false);
+        Node source = (Node) event.getSource();        
+        source.setMouseTransparent(false);
     }    
 }

@@ -10,6 +10,7 @@ import com.etlsolutions.javafx.data.DataUnit;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.gwise.data.area.GwiseAreaRootBean;
 import com.etlsolutions.gwise.data.area.GwiseGardenAreaBean;
+import com.etlsolutions.gwise.data.basicshape.GwiseLineShapeType;
 import com.etlsolutions.gwise.data.basicshape.GwiseShapeType;
 import com.etlsolutions.gwise.data.log.GwiseIssuesBean;
 import com.etlsolutions.gwise.data.log.GwiseLogGroupRootBean;
@@ -547,6 +548,34 @@ public final class ProjectManager {
                 throw new CustomLevelErrorRuntimeExceiption(ex);
             }
         }
-        gwiseProjectContentsWrapper.setValue(new GwiseProjectContents(p));
+
+        Map<GwiseSubAreaType, List<SubareaLogoItem>> m = getSubareaLogoItemMap();
+
+        gwiseProjectContentsWrapper.setValue(new GwiseProjectContents(p, m));
+    }
+
+    private Map<GwiseSubAreaType, List<SubareaLogoItem>> getSubareaLogoItemMap() {
+        
+        Map<GwiseSubAreaType, List<SubareaLogoItem>> m = new HashMap<>();
+        for (GwiseSubAreaType type : GwiseSubAreaType.values()) {
+            switch (type) {
+                
+                case BORDER:
+                    List<SubareaLogoItem> list = new ArrayList<>();
+                    for(GwiseLineShapeType shapeType : GwiseLineShapeType.values()) {
+                    list.add(new SubareaLogoItem(type, shapeType, ""));
+                    }
+                    m.put(type, list);
+                    break;
+                case GREEN_HOUSE:
+                case LAWN:
+                case PLANT_BED:
+                case POND:
+                case RAISED_PLANT_BED:
+                case ROOM:
+                default:
+            }
+        }
+        return m;
     }
 }

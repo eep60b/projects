@@ -1,6 +1,5 @@
 package com.etlsolutions.javafx.presentation.palette;
 
-import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -9,9 +8,10 @@ import javafx.scene.input.MouseEvent;
  *
  * @author ZhipengChang
  */
-public class PlantSubCroupMouseEnterEventHandler implements EventHandler<MouseEvent> {
+public class GwiseSubareaMouseEnterEventHandler implements EventHandler<MouseEvent> {
 
-    public PlantSubCroupMouseEnterEventHandler(PlantSubGroup subGroup) {
+    public GwiseSubareaMouseEnterEventHandler() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

@@ -13,7 +13,7 @@ import com.etlsolutions.gwise.data.other.GwiseLiquidFertiliser;
 import com.etlsolutions.gwise.data.other.GwiseLiquidFertiliserBean;
 import com.etlsolutions.gwise.data.subarea.GwiseSubAreaType;
 import com.etlsolutions.gwise.data.subarea.SubareaLogoItem;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -43,10 +43,10 @@ public class GwiseProjectContents {
     private final ObservableListWrapperA<String> solidFertiliserDensityUoms;
     private final ObservableListWrapperA<String> fertiliserDelutionRatioUoms;
     
-    //TODO: make this unmodifiable: Collections.unmodifiableMap(new LinkedHashMap<>(realMap));
-    private final Map<GwiseSubAreaType, List<SubareaLogoItem>> subareaLogoItems = new HashMap<>();
+    //TODO: make this unmodifiable: 
+    private final Map<GwiseSubAreaType, List<SubareaLogoItem>> subareaLogoItems;
 
-    public GwiseProjectContents(GwiseAreaRoot areaRoot, GwisePlantGroupRoot plantsGroupRoot, GwiseLogGroupRoot logGroupRoot) {
+    public GwiseProjectContents(GwiseAreaRoot areaRoot, GwisePlantGroupRoot plantsGroupRoot, GwiseLogGroupRoot logGroupRoot, Map<GwiseSubAreaType, List<SubareaLogoItem>> subareaLogoItems) {
         this.areaRoot = areaRoot;
         this.plantsGroupRoot = plantsGroupRoot;
         this.logGroupRoot = logGroupRoot;
@@ -64,9 +64,10 @@ public class GwiseProjectContents {
         wateringFluxUoms = new ObservableListWrapperA<>();
         solidFertiliserDensityUoms = new ObservableListWrapperA<>();
         fertiliserDelutionRatioUoms = new ObservableListWrapperA<>();
+        this.subareaLogoItems = Collections.unmodifiableMap(subareaLogoItems);
     }
 
-    public GwiseProjectContents(GwiseProjectContentsBean bean) {
+    public GwiseProjectContents(GwiseProjectContentsBean bean, Map<GwiseSubAreaType, List<SubareaLogoItem>> subareaLogoItems) {
 
         areaRoot = new GwiseAreaRoot(bean.getAreaRoot());
         plantsGroupRoot = new GwisePlantGroupRoot(bean.getPlantGroupRoot());
@@ -98,7 +99,7 @@ public class GwiseProjectContents {
         wateringFluxUoms = new ObservableListWrapperA<>(bean.getWateringFluxUoms());
         solidFertiliserDensityUoms = new ObservableListWrapperA<>(bean.getSolidFertiliserDensityUoms());
         fertiliserDelutionRatioUoms = new ObservableListWrapperA<>(bean.getFertiliserDelutionRatioUoms());
-
+        this.subareaLogoItems = Collections.unmodifiableMap(subareaLogoItems);
     }
 
     public GwiseAreaRoot getAreaRoot() {

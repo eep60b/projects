@@ -4,8 +4,6 @@ import com.etlsolutions.gwise.data.GwiseDataUnitTitleComparator;
 import com.etlsolutions.gwise.data.plant.GwisePlantGroup;
 import com.etlsolutions.gwise.data.plant.PlantType;
 import com.etlsolutions.gwise.system.ProjectManager;
-import com.etlsolutions.javafx.presentation.palette.ImageViewDragDetectedEventHandler;
-import com.etlsolutions.javafx.presentation.palette.ImageViewDragDoneEventHandler;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 
 /**
- *
+ * The PlantTypeListChangeAdapter class listens to the change of the list of 
  * @author zc
  */
 public class PlantTypeListChangeAdapter implements ListChangeListener<PlantType> {
@@ -38,11 +36,11 @@ public class PlantTypeListChangeAdapter implements ListChangeListener<PlantType>
 
         Collections.sort(plantTypes, new GwiseDataUnitTitleComparator());
         
-        for(PlantType subGroup : plantTypes) {            
-            ImageView view = new ImageView(new Image(subGroup.getLogoPath()));
-            view.setOnMouseClicked(new PlantTypeMouseClickEventHandler(subGroup));
-            view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-            view.setOnDragDone(new ImageViewDragDoneEventHandler());
+        for(PlantType type : plantTypes) {            
+            ImageView view = new ImageView(new Image(type.getLogoPath()));
+            view.setOnMouseClicked(new PlantTypeMouseClickEventHandler());
+            view.setOnDragDetected(new DragDetectedEventHandler());
+            view.setOnDragDone(new DragDoneEventHandler());
             plantsTilePane.getChildren().add(view);
         }
     }

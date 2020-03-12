@@ -1,7 +1,9 @@
 package com.etlsolutions.javafx.presentation.palette;
 
+import com.etlsolutions.gwise.presentation.palette.DragDoneEventHandler;
+import com.etlsolutions.gwise.presentation.palette.DragDetectedEventHandler;
 import com.etlsolutions.gwise.presentation.palette.MouseReleaseEventHandler;
-import com.etlsolutions.gwise.presentation.palette.MouseDragEventHandler;
+import com.etlsolutions.gwise.presentation.palette.PlantTypeMouseDragEventHandler;
 import com.etlsolutions.gwise.presentation.palette.MousePressEventHandler;
 import com.etlsolutions.gwise.presentation.palette.PalettePropertyChangeAdapter;
 import com.etlsolutions.gwise.AbstractFXMLController;
@@ -35,9 +37,6 @@ public class PaletteController extends AbstractFXMLController {
     private AnchorPane paletteAnchorPane;
 
     @FXML
-    private TilePane plantTilePane;
-
-    @FXML
     private HBox plantBedHbox; //Add different shape images
 
     @FXML
@@ -55,6 +54,10 @@ public class PaletteController extends AbstractFXMLController {
     @FXML
     private HBox roomHbox;
 
+
+    @FXML
+    private TilePane plantTilePane;
+    
     @Override
     public void initializeComponents() {
         try {
@@ -75,6 +78,10 @@ public class PaletteController extends AbstractFXMLController {
             addImageView(greenhouseAndContainterHbox, GreenhouseImageType.values());    
             addImageView(roomHbox, RoomImageType.values());
             
+            
+            
+            
+            
         } catch (FileNotFoundException ex) {
             throw new CustomLevelErrorRuntimeExceiption(ex);
         }
@@ -90,9 +97,9 @@ public class PaletteController extends AbstractFXMLController {
             
             view.setOnMousePressed(new MousePressEventHandler());
             view.setOnMouseReleased(new MouseReleaseEventHandler());
-            view.setOnMouseDragged(new MouseDragEventHandler());
-            view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-            view.setOnDragDone(new ImageViewDragDoneEventHandler());
+//            view.setOnMouseDragged(new PlantTypeMouseDragEventHandler());
+            view.setOnDragDetected(new DragDetectedEventHandler());
+            view.setOnDragDone(new DragDoneEventHandler());
             logos.add(view);
         }
     }

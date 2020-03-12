@@ -10,12 +10,14 @@ import javafx.scene.input.MouseEvent;
  */
 public class PlantTypeMouseClickEventHandler implements EventHandler<MouseEvent> {
 
-    public PlantTypeMouseClickEventHandler(PlantType plantType) {
-    }
 
     @Override
     public void handle(MouseEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        PlantTypeImageView view = (PlantTypeImageView) event.getSource();        
+        PlantType type = view.getType();
+        
+        //display a dialog
     }
     
 }

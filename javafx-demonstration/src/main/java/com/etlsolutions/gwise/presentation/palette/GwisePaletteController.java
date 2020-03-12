@@ -2,11 +2,10 @@ package com.etlsolutions.gwise.presentation.palette;
 
 import com.etlsolutions.gwise.AbstractFXMLController;
 import com.etlsolutions.gwise.data.ValueWrapper;
+import com.etlsolutions.gwise.data.basicshape.GwiseShapeType;
 import com.etlsolutions.gwise.data.subarea.GwiseSubAreaType;
 import com.etlsolutions.gwise.data.subarea.SubareaLogoItem;
 import com.etlsolutions.gwise.presentation.ParameterisedImageView;
-import com.etlsolutions.javafx.presentation.palette.ImageViewDragDetectedEventHandler;
-import com.etlsolutions.javafx.presentation.palette.ImageViewDragDoneEventHandler;
 import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
 import com.etlsolutions.gwise.system.GwiseProjectContents;
 import com.etlsolutions.gwise.system.ProjectManager;
@@ -65,6 +64,13 @@ public class GwisePaletteController extends AbstractFXMLController {
             cwrapper.addPropertyChangeListener(ValueWrapper.VALUE_CHANGE, adapter);
 
             addImageView(plantBedHbox, GwiseSubAreaType.PLANT_BED, projectContents);
+            //          Node rectangle = GlyphsDude.createIcon(GwiseFontAwesomeIcon.WHITE_RECTANGLE, "40px");
+            Node rectangle = new GwiseSubareaImageView(GwiseSubAreaType.PLANT_BED, GwiseShapeType.RECTANGLE);
+            rectangle.setOnMouseDragged(new MouseDragEventHandler());
+            rectangle.setOnMousePressed(new MousePressEventHandler());
+            rectangle.setOnMouseDragReleased(new MouseReleaseEventHandler());
+            
+            plantBedHbox.getChildren().addAll(rectangle);
             addImageView(raisedPlantBedHbox, GwiseSubAreaType.RAISED_PLANT_BED, projectContents);
             addImageView(lawnHbox, GwiseSubAreaType.LAWN, projectContents);
             addImageView(pondHbox, GwiseSubAreaType.POND, projectContents);
@@ -90,9 +96,9 @@ public class GwisePaletteController extends AbstractFXMLController {
 
                 view.setOnMousePressed(new MousePressEventHandler());
                 view.setOnMouseReleased(new MouseReleaseEventHandler());
-                view.setOnMouseDragged(new MouseDragEventHandler());
-                view.setOnDragDetected(new ImageViewDragDetectedEventHandler());
-                view.setOnDragDone(new ImageViewDragDoneEventHandler());
+//                view.setOnMouseDragged(new PlantTypeMouseDragEventHandler());
+                view.setOnDragDetected(new DragDetectedEventHandler());
+                view.setOnDragDone(new DragDoneEventHandler());
                 logos.add(view);
             }
         }
