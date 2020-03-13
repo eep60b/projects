@@ -24,7 +24,7 @@ public enum RoomImageType implements ImageType {
 
     @Override
     public String getFilePath() {
-        return SettingConstants.ROOM_LOGO_DIRECTORY + File.separator + fileName;
+        return SettingConstants.LOGO_DIRECTORY_ROOM + File.separator + fileName;
     }
 
     @Override

@@ -25,7 +25,7 @@ public enum PlantBedImageType implements ImageType {
     @Override
     public String getFilePath() {
        
-        return SettingConstants.PLANT_BED_LOGO_DIRECTORY + File.separator + fileName;
+        return SettingConstants.LOGO_DIRECTORY_PLANT_BED + File.separator + fileName;
     }
 
     @Override

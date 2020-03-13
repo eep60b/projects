@@ -10,8 +10,7 @@ import java.util.Locale;
 public class SettingConstants {
 
     /**
-     * **************************** Keys
-     * *****************************************
+     ************************** Keys *****************************************
      */
     /**
      * Find the next item ID. An item ID is a unique number. It is sequentially
@@ -26,8 +25,7 @@ public class SettingConstants {
     public static final String OPEN_IMAGE_DIRECTORY_NAME_KEY = "open.image.directory.name";
 
     /**
-     * **************************** Constants
-     * ************************************
+     *************************** Constants ***********************************
      */
     /**
      * The user home.
@@ -110,19 +108,10 @@ public class SettingConstants {
 
     public static final String REPOSITORY_JSON_DIRCTORY = REPOSITORY_LOCATION + File.separator + RELATIVE_JSON_DIRECTORY;
 
+    /**
+     * Logos and Images
+     */
     private static final String LOGO_DIRECTORY = REPOSITORY_LOCATION_DATA + File.separator + "logo";
-
-    public static final String PLANT_BED_LOGO_DIRECTORY = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "plant-bed";
-
-    public static final String RAISED_PLANT_BED_LOGO_DIRECTORY = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "raised-plant-bed";
-
-    public static final String LAWN_LOGO_DIRECTORY = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "lawn";
-
-    public static final String POND_LOGO_DIRECTORY = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "pond";
-
-    public static final String GREENHOUSE_LOGO_DIRECTORY = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "greenhouse";
-
-    public static final String ROOM_LOGO_DIRECTORY = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "room";
 
     public static final int DEFAULT_IMG_WIDTH = 100;
 
@@ -132,6 +121,48 @@ public class SettingConstants {
 
     public static final int IMAGE_DIRECTORY_SIZE = 500;
 
+    public static final String LOGO_DIRECTORY_BORDER = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "border";
+    public static final String LOGOPATH_BORDER_ARC = LOGO_DIRECTORY_BORDER + File.separator + "border-arc.png";
+    public static final String LOGOPATH_BORDER_CIRCLE = LOGO_DIRECTORY_BORDER + File.separator + "border-circle.png";
+    public static final String LOGOPATH_BORDER_LINE = LOGO_DIRECTORY_BORDER + File.separator + "border-line.png";
+    public static final String LOGOPATH_BORDER_POLYLINE = LOGO_DIRECTORY_BORDER + File.separator + "border-ployline.png";
+
+    public static final String LOGO_DIRECTORY_GREENHOUSE = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "greenhouse";
+    public static final String LOGOPATH_GREENHOUSE_RECTANGLE = LOGO_DIRECTORY_GREENHOUSE + File.separator + "greenhouse-rectangle.png";
+    public static final String LOGOPATH_GREENHOUSE_SQUARE = LOGO_DIRECTORY_GREENHOUSE + File.separator + "greenhouse-square.png";
+
+    public static final String LOGO_DIRECTORY_LAWN = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "lawn";
+    public static final String LOGOPATH_LAWN_CIRCLE = LOGO_DIRECTORY_LAWN + File.separator + "lawn-circle.png";
+    public static final String LOGOPATH_LAWN_POLYGON = LOGO_DIRECTORY_LAWN + File.separator + "lawn-polygon.png";
+    public static final String LOGOPATH_LAWN_RECTANGLE = LOGO_DIRECTORY_LAWN + File.separator + "lawn-rectangle.png";
+    public static final String LOGOPATH_LAWN_SQUARE = LOGO_DIRECTORY_LAWN + File.separator + "lawn-circle.png";
+    public static final String LOGOPATH_LAWN_TRIANGLE = LOGO_DIRECTORY_LAWN + File.separator + "lawn-triangle.png";
+
+    public static final String LOGO_DIRECTORY_PLANT_BED = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "plant-bed";
+    public static final String LOGOPATH_PLANT_BED_CIRCLE = LOGO_DIRECTORY_PLANT_BED + File.separator + "plant-bed-circle.png";
+    public static final String LOGOPATH_PLANT_BED_POLYGON = LOGO_DIRECTORY_PLANT_BED + File.separator + "plant-bed-polygon.png";
+    public static final String LOGOPATH_PLANT_BED_RECTANGLE = LOGO_DIRECTORY_PLANT_BED + File.separator + "plant-bed-rectangle.png";
+    public static final String LOGOPATH_PLANT_BED_SQUARE = LOGO_DIRECTORY_PLANT_BED + File.separator + "plant-bed-square.png";
+    public static final String LOGOPATH_PLANT_BED_TRIANGLE = LOGO_DIRECTORY_PLANT_BED + File.separator + "plant-bed-triangle.png";
+
+    public static final String LOGO_DIRECTORY_POND = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "pond";
+    public static final String LOGOPATH_POND_CIRCLE = LOGO_DIRECTORY_POND + File.separator + "pond-circle.png";
+    public static final String LOGOPATH_POND_POLYGON = LOGO_DIRECTORY_POND + File.separator + "pond-polygon.png";
+    public static final String LOGOPATH_POND_RECTANGLE = LOGO_DIRECTORY_POND + File.separator + "pond-rectangle.png";
+    public static final String LOGOPATH_POND_SQUARE = LOGO_DIRECTORY_POND + File.separator + "pond-square.png";
+    public static final String LOGOPATH_POND_TRIANGLE = LOGO_DIRECTORY_POND + File.separator + "pond-triangle.png";
+
+    public static final String LOGO_DIRECTORY_RAISED_PLANT_BED = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "raised-plant-bed";
+    public static final String LOGOPATH_RAISED_PLANT_BED_CIRCLE = LOGO_DIRECTORY_RAISED_PLANT_BED + File.separator + "raised-plant-bed-circle.png";
+    public static final String LOGOPATH_RAISED_PLANT_BED_POLYGON = LOGO_DIRECTORY_RAISED_PLANT_BED + File.separator + "raised-plant-bed-polygon.png";
+    public static final String LOGOPATH_RAISED_PLANT_BED_RECTANGLE = LOGO_DIRECTORY_RAISED_PLANT_BED + File.separator + "raised-plant-bed-rectangle.png";
+    public static final String LOGOPATH_RAISED_PLANT_BED_SQUARE = LOGO_DIRECTORY_RAISED_PLANT_BED + File.separator + "raised-plant-bed-square.png";
+    public static final String LOGOPATH_RAISED_PLANT_BED_TRIANGLE = LOGO_DIRECTORY_RAISED_PLANT_BED + File.separator + "raised-plant-bed-triangle.png";
+
+    public static final String LOGO_DIRECTORY_ROOM = LOGO_DIRECTORY + File.separator + "area" + File.separator + "subarea" + File.separator + "room";
+    public static final String LOGOPATH_ROOM_CIRCLE = LOGO_DIRECTORY_ROOM + File.separator + "room-circle.png";
+    public static final String LOGOPATH_ROOM_RECTANGLE = LOGO_DIRECTORY_ROOM + File.separator + "room-rectangle.png";
+    public static final String LOGOPATH_ROOM_SQUARE = LOGO_DIRECTORY_ROOM + File.separator + "room-square.png";
     /**
      * ********************************* Fixed values and other constants
      * *************************

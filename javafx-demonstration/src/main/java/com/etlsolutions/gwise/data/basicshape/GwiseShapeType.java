@@ -8,20 +8,9 @@ import com.etlsolutions.gwise.data.ShapeType;
  */
 public enum GwiseShapeType implements ShapeType {
 
-    CIRCLE(""),
-    POLYGON(""),
-    RECTANGLE(""),
-    SQUARE(""),
-    TRIANGLE("");
-
-    private final String logoPath;
-
-    private GwiseShapeType(String logoPath) {
-        this.logoPath = logoPath;
-    }
-
-    @Override
-    public String getLogoPath() {
-        return logoPath;
-    }
+    CIRCLE,
+    POLYGON,
+    RECTANGLE,
+    SQUARE,
+    TRIANGLE;
 }

@@ -24,7 +24,7 @@ public enum PondImageType implements ImageType {
 
     @Override
     public String getFilePath() {
-        return SettingConstants.POND_LOGO_DIRECTORY + File.separator + fileName;
+        return SettingConstants.LOGO_DIRECTORY_POND + File.separator + fileName;
     }
 
     @Override

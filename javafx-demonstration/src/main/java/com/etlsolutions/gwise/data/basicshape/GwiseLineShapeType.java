@@ -8,19 +8,8 @@ import com.etlsolutions.gwise.data.ShapeType;
  */
 public enum GwiseLineShapeType implements ShapeType {
     
-    ARC(""), 
-    CIRCLE(""), 
-    LINE(""), 
-    POLYLINE("");
-    
-    private final String logoPath;
-
-    private GwiseLineShapeType(String logoPath) {
-        this.logoPath = logoPath;
-    }
-
-    @Override
-    public String getLogoPath() {
-        return logoPath;
-    } 
+    ARC, 
+    CIRCLE, 
+    LINE, 
+    POLYLINE;
 }

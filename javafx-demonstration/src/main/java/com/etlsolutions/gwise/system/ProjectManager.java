@@ -555,24 +555,70 @@ public final class ProjectManager {
     }
 
     private Map<GwiseSubAreaType, List<SubareaLogoItem>> getSubareaLogoItemMap() {
-        
+
         Map<GwiseSubAreaType, List<SubareaLogoItem>> m = new HashMap<>();
         for (GwiseSubAreaType type : GwiseSubAreaType.values()) {
             switch (type) {
-                
+
                 case BORDER:
-                    List<SubareaLogoItem> list = new ArrayList<>();
-                    for(GwiseLineShapeType shapeType : GwiseLineShapeType.values()) {
-                    list.add(new SubareaLogoItem(type, shapeType, ""));
-                    }
-                    m.put(type, list);
+                    List<SubareaLogoItem> borderlist = new ArrayList<>();
+                    borderlist.add(new SubareaLogoItem(type, GwiseLineShapeType.ARC, LOGOPATH_BORDER_ARC));
+                    borderlist.add(new SubareaLogoItem(type, GwiseLineShapeType.CIRCLE, LOGOPATH_BORDER_CIRCLE));
+                    borderlist.add(new SubareaLogoItem(type, GwiseLineShapeType.LINE, LOGOPATH_BORDER_LINE));
+                    borderlist.add(new SubareaLogoItem(type, GwiseLineShapeType.POLYLINE, LOGOPATH_BORDER_POLYLINE));
+                    m.put(type, borderlist);
                     break;
+
                 case GREEN_HOUSE:
+                    List<SubareaLogoItem> greenhouseList = new ArrayList<>();
+                    greenhouseList.add(new SubareaLogoItem(type, GwiseShapeType.RECTANGLE, LOGOPATH_GREENHOUSE_RECTANGLE));
+                    greenhouseList.add(new SubareaLogoItem(type, GwiseShapeType.SQUARE, LOGOPATH_GREENHOUSE_SQUARE));
+                    m.put(type, greenhouseList);
+                    break;
+
                 case LAWN:
+                    List<SubareaLogoItem> lawnList = new ArrayList<>();
+                    lawnList.add(new SubareaLogoItem(type, GwiseShapeType.CIRCLE, LOGOPATH_LAWN_CIRCLE));
+                    lawnList.add(new SubareaLogoItem(type, GwiseShapeType.POLYGON, LOGOPATH_LAWN_POLYGON));
+                    lawnList.add(new SubareaLogoItem(type, GwiseShapeType.RECTANGLE, LOGOPATH_LAWN_RECTANGLE));
+                    lawnList.add(new SubareaLogoItem(type, GwiseShapeType.SQUARE, LOGOPATH_LAWN_SQUARE));
+                    lawnList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_LAWN_TRIANGLE));
+                    m.put(type, lawnList);
+                    break;
                 case PLANT_BED:
+                    List<SubareaLogoItem> plantBedList = new ArrayList<>();
+                    plantBedList.add(new SubareaLogoItem(type, GwiseShapeType.CIRCLE, LOGOPATH_PLANT_BED_CIRCLE));
+                    plantBedList.add(new SubareaLogoItem(type, GwiseShapeType.POLYGON, LOGOPATH_PLANT_BED_POLYGON));
+                    plantBedList.add(new SubareaLogoItem(type, GwiseShapeType.RECTANGLE, LOGOPATH_PLANT_BED_RECTANGLE));
+                    plantBedList.add(new SubareaLogoItem(type, GwiseShapeType.SQUARE, LOGOPATH_PLANT_BED_SQUARE));
+                    plantBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_PLANT_BED_TRIANGLE));
+                    m.put(type, plantBedList);
+                    break;
                 case POND:
+                    List<SubareaLogoItem> pondList = new ArrayList<>();
+                    pondList.add(new SubareaLogoItem(type, GwiseShapeType.CIRCLE, LOGOPATH_POND_CIRCLE));
+                    pondList.add(new SubareaLogoItem(type, GwiseShapeType.POLYGON, LOGOPATH_POND_POLYGON));
+                    pondList.add(new SubareaLogoItem(type, GwiseShapeType.RECTANGLE, LOGOPATH_POND_RECTANGLE));
+                    pondList.add(new SubareaLogoItem(type, GwiseShapeType.SQUARE, LOGOPATH_POND_SQUARE));
+                    pondList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_POND_TRIANGLE));
+                    m.put(type, pondList);
+                    break;
                 case RAISED_PLANT_BED:
+                    List<SubareaLogoItem> raisedPlantBedList = new ArrayList<>();
+                    raisedPlantBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_RAISED_PLANT_BED_CIRCLE));
+                    raisedPlantBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_RAISED_PLANT_BED_POLYGON));
+                    raisedPlantBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_RAISED_PLANT_BED_RECTANGLE));
+                    raisedPlantBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_RAISED_PLANT_BED_SQUARE));
+                    raisedPlantBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_RAISED_PLANT_BED_TRIANGLE));
+                    m.put(type, raisedPlantBedList);
+                    break;
                 case ROOM:
+                    List<SubareaLogoItem> roomBedList = new ArrayList<>();
+                    roomBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_ROOM_CIRCLE));
+                    roomBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_ROOM_RECTANGLE));
+                    roomBedList.add(new SubareaLogoItem(type, GwiseShapeType.TRIANGLE, LOGOPATH_ROOM_SQUARE));
+                    m.put(type, roomBedList);
+                    break;
                 default:
             }
         }

@@ -24,7 +24,7 @@ public enum GreenhouseImageType implements ImageType {
 
     @Override
     public String getFilePath() {
-        return SettingConstants.GREENHOUSE_LOGO_DIRECTORY + File.separator + fileName;
+        return SettingConstants.LOGO_DIRECTORY_GREENHOUSE + File.separator + fileName;
     }
 
     @Override

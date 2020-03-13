@@ -24,7 +24,7 @@ public enum LawnImageType implements ImageType {
 
     @Override
     public String getFilePath() {
-        return SettingConstants.LAWN_LOGO_DIRECTORY + File.separator + fileName;
+        return SettingConstants.LOGO_DIRECTORY_LAWN + File.separator + fileName;
     }
 
     @Override

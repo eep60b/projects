@@ -4,30 +4,30 @@
         <area>
             <subarea>
                 <greenhouse>greenhouse-rectangle.png</greenhouse>
-                <greenhouse>greenhouse-sqare.png</greenhouse>
+                <greenhouse>greenhouse-square.png</greenhouse>
                 <lawn>lawn-circle.png</lawn>
-                <lawn>lawn-irregular.png</lawn>
+                <lawn>lawn-polygon.png</lawn>
                 <lawn>lawn-rectangle.png</lawn>
-                <lawn>lawn-sqare.png</lawn>
+                <lawn>lawn-square.png</lawn>
                 <lawn>lawn-triangle.png</lawn>
                 <plant-bed>plant-bed-circle.png</plant-bed>                
-                <plant-bed>plant-bed-irregular.png</plant-bed>                  
+                <plant-bed>plant-bed-polygon.png</plant-bed>                  
                 <plant-bed>plant-bed-rectangle.png</plant-bed>                  
-                <plant-bed>plant-bed-sqare.png</plant-bed>                  
+                <plant-bed>plant-bed-square.png</plant-bed>                  
                 <plant-bed>plant-bed-triangle.png</plant-bed>                  
                 <pond>pond-circle.png</pond>                
-                <pond>pond-irregular.png</pond>                  
+                <pond>pond-polygon.png</pond>                  
                 <pond>pond-rectangle.png</pond>                  
-                <pond>pond-sqare.png</pond>                  
+                <pond>pond-square.png</pond>                  
                 <pond>pond-triangle.png</pond> 
                 <raised-plant-bed>raised-plant-bed-circle.png</raised-plant-bed>                
-                <raised-plant-bed>raised-plant-bed-irregular.png</raised-plant-bed>                  
+                <raised-plant-bed>raised-plant-bed-polygon.png</raised-plant-bed>                  
                 <raised-plant-bed>raised-plant-bed-rectangle.png</raised-plant-bed>                  
-                <raised-plant-bed>raised-plant-bed-sqare.png</raised-plant-bed>                  
+                <raised-plant-bed>raised-plant-bed-square.png</raised-plant-bed>                  
                 <raised-plant-bed>raised-plant-bed-triangle.png</raised-plant-bed> 
                 <room>room-circle.png</room>                
                 <room>room-rectangle.png</room>                  
-                <room>room-sqare.png</room>                 
+                <room>room-square.png</room>                 
             </subarea>
         </area>
         <plantroot>
