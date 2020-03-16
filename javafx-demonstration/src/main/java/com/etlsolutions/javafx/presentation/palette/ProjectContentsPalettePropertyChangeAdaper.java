@@ -9,7 +9,7 @@ import com.etlsolutions.javafx.data.plant.PlantGroup;
 import com.etlsolutions.javafx.data.plant.PlantSubGroup;
 import com.etlsolutions.gwise.presentation.ParameterisedImageView;
 import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;

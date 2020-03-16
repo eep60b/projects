@@ -1,5 +1,6 @@
 package com.etlsolutions.gwise.system;
 
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.gwise.data.GwiseDataUnit;
 import com.etlsolutions.javafx.MainApp;
 import static com.etlsolutions.gwise.system.SettingConstants.*;

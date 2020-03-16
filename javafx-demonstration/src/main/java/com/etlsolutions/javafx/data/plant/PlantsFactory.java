@@ -7,7 +7,7 @@ import com.etlsolutions.javafx.data.log.GrowingIssue;
 import com.etlsolutions.javafx.data.log.GrowingObservation;
 import com.etlsolutions.javafx.data.log.gvent.Gvent;
 import com.etlsolutions.javafx.data.log.task.Task;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.gwise.system.ProjectManager;
 import com.etlsolutions.gwise.system.SettingConstants;
 import static com.etlsolutions.gwise.system.SettingConstants.BUNDLE_SEPARATER;

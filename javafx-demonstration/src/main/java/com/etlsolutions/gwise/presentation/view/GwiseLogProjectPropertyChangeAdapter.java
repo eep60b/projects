@@ -5,7 +5,7 @@ import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.gwise.data.log.GwiseLogGroupRoot;
 import com.etlsolutions.gwise.presentation.view.tree.log.GwiseLogGroupRootTreeItem;
 import com.etlsolutions.gwise.system.GwiseProjectContents;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.TreeView;

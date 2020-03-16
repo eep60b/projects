@@ -1,4 +1,4 @@
-package com.etlsolutions.gwise.system;
+package com.etlsolutions.javafx.system;
 
 
 import com.etlsolutions.javafx.data.area.AreaRoot;

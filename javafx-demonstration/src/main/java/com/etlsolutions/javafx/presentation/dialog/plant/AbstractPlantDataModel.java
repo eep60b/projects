@@ -15,7 +15,7 @@ import com.etlsolutions.javafx.data.plant.PlantsQuantity.Type;
 import com.etlsolutions.javafx.presentation.DataUnitFXMLDataModel;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
 import com.etlsolutions.javafx.presentation.RemoveFromListUtil;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.gwise.system.ProjectManager;
 import java.time.LocalDateTime;
 

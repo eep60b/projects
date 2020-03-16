@@ -11,7 +11,7 @@ import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.gwise.presentation.ParameterisedImageView;
 import com.etlsolutions.javafx.presentation.editor.DesignTabStatusManager;
 import com.etlsolutions.gwise.system.CustomLevelErrorRuntimeExceiption;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.gwise.system.ProjectManager;
 import java.io.File;
 import java.io.FileInputStream;

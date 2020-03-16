@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.data.log.task.WateringTaskValueWrapper;
 import com.etlsolutions.javafx.data.log.task.WateringType;
 import com.etlsolutions.javafx.data.other.LiquidFertiliser;
 import com.etlsolutions.javafx.presentation.RemoveEventId;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.gwise.system.ProjectManager;
 
 /**

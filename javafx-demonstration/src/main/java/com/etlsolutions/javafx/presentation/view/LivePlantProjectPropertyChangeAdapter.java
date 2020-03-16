@@ -8,7 +8,7 @@ import com.etlsolutions.javafx.presentation.dialog.plantgroup.AddPlantGroupDataM
 import com.etlsolutions.javafx.presentation.view.tree.MenuedTreeItem;
 import com.etlsolutions.javafx.presentation.view.tree.TreeCellFactory;
 import com.etlsolutions.javafx.presentation.view.tree.plant.PlantsGroupRootTreeItem;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javafx.scene.control.ContextMenu;

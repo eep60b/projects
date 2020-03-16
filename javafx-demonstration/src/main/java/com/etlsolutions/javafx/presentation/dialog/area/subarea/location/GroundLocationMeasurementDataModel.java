@@ -3,7 +3,7 @@ package com.etlsolutions.javafx.presentation.dialog.area.subarea.location;
 import com.etlsolutions.gwise.data.ObservableListWrapperA;
 import com.etlsolutions.gwise.data.ValueWrapper;
 import com.etlsolutions.javafx.data.area.subarea.location.GroundLocationMeasurementValueWrapper;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.gwise.system.ProjectManager;
 
 /**

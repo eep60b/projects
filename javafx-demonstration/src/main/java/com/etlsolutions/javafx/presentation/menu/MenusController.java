@@ -11,7 +11,7 @@ import com.etlsolutions.javafx.presentation.menu.file.OpenProjectDataModel;
 import com.etlsolutions.javafx.presentation.menu.file.OpenProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveAsProjectEventHandler;
 import com.etlsolutions.javafx.presentation.menu.file.SaveProjectEventHandler;
-import com.etlsolutions.gwise.system.ProjectContents;
+import com.etlsolutions.javafx.system.ProjectContents;
 import com.etlsolutions.gwise.system.ProjectManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
