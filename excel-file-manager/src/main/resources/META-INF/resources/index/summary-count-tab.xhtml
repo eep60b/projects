@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <p:tab id="summary-count-tab" title="SUMMARY COUNT">
+        <p:panelGrid columns="1" class="summary-count-panelgrid">    
+            <p:dataTable tableStyleClass="summary-count-table" style="margin-bottom:20px"   var="summaryCountRow" value="#{summaryCountController.dataModel}" id="summaryCountTable" paginator="true" rows="50" scrollable="true"
+                         paginatorTemplate="{Calendar} {RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink} {Exporters}"
+                         rowsPerPageTemplate="10,20,50,100" resizableColumns="true" liveResize="true" paginatorPosition="top" lazy="true"
+                         widgetVar="summaryCountTableVar" filteredValue="#{summaryCountController.filteredRows}"> 
+                <p:ajax event="page" onsuccess="resetTimer()"/>
+                <p:ajax event="sort" onsuccess="resetTimer()"/>
+                <p:ajax event="filter" onsuccess="resetTimer()" update="main-page-tabForm:main-page-tabView:counts-barChart,main-page-tabForm:main-page-tabView:percent-barChart"/> 
+                <f:facet name="{Calendar}">
+                    <p:outputLabel styleClass="calendar-label" value="From:"/>
+                    <p:calendar id="fromDate" styleClass="header-calendar" value="#{summaryCountController.fromDate}" pattern="dd MMM yyyy"  >
+                        <p:ajax event="dateSelect" oncomplete="PF('summaryCountTableVar').filter();resetTimer();" update="main-page-tabForm:main-page-tabView:counts-barChart,main-page-tabForm:main-page-tabView:percent-barChart"/>
+                    </p:calendar>
+                    <p:outputLabel styleClass="calendar-label" value="To:"/>
+                    <p:calendar id="toDate" styleClass="header-calendar" value="#{summaryCountController.toDate}" pattern="dd MMM yyyy"  >
+                        <p:ajax event="dateSelect" oncomplete="PF('summaryCountTableVar').filter();resetTimer();" update="main-page-tabForm:main-page-tabView:counts-barChart,main-page-tabForm:main-page-tabView:percent-barChart"/>
+                    </p:calendar>  
+                </f:facet>
+
+                <f:facet name="{Exporters}">
+                    <h:commandLink value="Export" style="font-size:small;font-family:'JLREmericWeb-ExtraLight';padding-right:5px;float:right">
+                        <pe:exporter type="xlsx" target="summaryCountTable" fileName="DQSummary"/>  
+                    </h:commandLink>
+                </f:facet>
+
+                <p:columnGroup type="header">
+                    <p:row>
+                        <p:column rowspan="2" headerText="MARKET" sortBy="#{summaryCountRow.countryCode}" filterBy="#{summaryCountRow.countryCode}" filterMatchMode="in" styleClass="maket-column">
+                            <f:facet name="filter" >
+                                <p:selectCheckboxMenu label="No Filters" styleClass="custom-filter" updateLabel="true">
+                                    <f:selectItems value="#{filterController.allMarkets}" />
+                                    <p:ajax process="@form" event="change" oncomplete="PF('summaryCountTableVar').filter();resetTimer();"/> 
+                                    <p:ajax process="@form" event="toggleSelect" oncomplete="PF('summaryCountTableVar').filter();resetTimer();"/> 
+                                </p:selectCheckboxMenu>
+                            </f:facet>
+                        </p:column>
+                        <p:column rowspan="2" headerText="RETAILER" sortBy="#{summaryCountRow.dealerCode}" filterBy="#{summaryCountRow.dealerCode}" filterMatchMode="in" styleClass="retailer-column">
+                            <f:facet name="filter">
+                                <p:selectCheckboxMenu label="No Filters" styleClass="custom-filter" updateLabel="true">
+                                    <f:selectItems value="#{filterController.allRetailers}" />
+                                    <p:ajax process="@form" event="change" oncomplete="PF('summaryCountTableVar').filter();resetTimer();"/> 
+                                    <p:ajax process="@form" event="toggleSelect" oncomplete="PF('summaryCountTableVar').filter();resetTimer();"/> 
+                                </p:selectCheckboxMenu>
+                            </f:facet>
+                        </p:column>
+                        <p:column rowspan="2" headerText="BRAND" sortBy="#{summaryCountRow.manufacturer}" filterBy="#{summaryCountRow.manufacturer}" filterMatchMode="in" styleClass="brand-column">
+                            <f:facet name="filter">
+                                <p:selectCheckboxMenu label="No Filters" styleClass="custom-filter" updateLabel="true">
+                                    <f:selectItems value="#{filterController.allBrands}"  />
+                                    <p:ajax process="@form" event="change" oncomplete="PF('summaryCountTableVar').filter();resetTimer();"/> 
+                                    <p:ajax process="@form" event="toggleSelect" oncomplete="PF('summaryCountTableVar').filter();resetTimer();"/> 
+                                </p:selectCheckboxMenu>
+                            </f:facet>
+                        </p:column>
+                        <p:column rowspan="2" headerText="TOTAL" sortBy="#{summaryCountRow.totalCount}" />
+                        <p:column colspan="2" headerText="VIP"/>
+                        <p:column colspan="2" headerText="FIRST NAME" />
+                        <p:column colspan="2" headerText="LAST NAME" />
+                        <p:column colspan="2" headerText="HOME PHONE" />
+                        <p:column colspan="2" headerText="WORK PHONE" />
+                        <p:column colspan="2" headerText="MOBILE PHONE" />
+                        <p:column colspan="2" headerText="EMAIL" />
+                        <p:column colspan="2" headerText="SUPPRESSION" />
+                    </p:row>
+                    <p:row>
+                        <p:column headerText="" sortBy="#{summaryCountRow.vipCount}"/>
+                        <p:column headerText="" sortBy="#{summaryCountRow.vipCountPercentage}"/>
+                        <p:column headerText="" sortBy="#{summaryCountRow.firstNameCount}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.firstNameCountPercentage}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.lastNameCount}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.lastNameCountPercentage}" /> 
+                        <p:column headerText="" sortBy="#{summaryCountRow.phoneCount}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.phoneCountPercentage}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.workPhoneCount}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.workPhoneCountPercentage}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.mobileCount}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.mobileCountPercentage}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.emailCount}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.emailCountPercentage}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.suppressionCount}" />
+                        <p:column headerText="" sortBy="#{summaryCountRow.suppressionCountPercentage}" />
+                    </p:row>
+                </p:columnGroup>        
+
+                <p:column >
+                    <h:outputText value="#{summaryCountRow.countryCode}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText id="summary-dealercode-outputText" value="#{summaryCountRow.dealerCode}" title="#{summaryCountRow.dealerCode}"/>
+                    <p:tooltip rendered="true" for="summary-dealercode-outputText" showEffect="clip" position="top"/>          
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.manufacturer}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.totalCountString}" />
+                </p:column>        
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.vipCountString}" />
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.vipCountPercentageString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.firstNameCountString}" />
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.firstNameCountPercentageString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.lastNameCountString}" />
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.lastNameCountPercentageString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.phoneCountString}" />
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.phoneCountPercentageString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.workPhoneCountString}" />
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.workPhoneCountPercentageString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.mobileCountString}" />
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.mobileCountPercentageString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.emailCountString}" />
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.emailCountPercentageString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.suppressionCountString}" />
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{summaryCountRow.suppressionCountPercentageString}" />
+                </p:column>        
+            </p:dataTable>
+        </p:panelGrid>
+
+        <p:panelGrid columns="1" class="summary-count-panelgrid">
+            <p:panelGrid columns="1" class="summary-count-panelgrid">
+                <p:outputLabel value="Counts per Retailer" class="chartTitle"/>
+                <p:chart id="counts-barChart" type="bar" model="#{summaryCountController.countsBarChartModel}" style="width:1600px;height:300px" />
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" class="summary-count-panelgrid">
+                <p:outputLabel value="% per Retailer" class="chartTitle"/>
+                <p:chart id="percent-barChart" type="bar" model="#{summaryCountController.percentagesBarChartModel}" style="width:1600px;height:300px" />
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" class="summary-count-panelgrid">
+                <p:outputLabel value="Trend" class="chartTitle"/>
+                <p:chart id="trend-lineChart" type="line" model="#{summaryCountController.trendLineChartModel}" style="width:1600px;height:300px" />
+            </p:panelGrid>
+        </p:panelGrid>
+    </p:tab>
+</ui:composition>

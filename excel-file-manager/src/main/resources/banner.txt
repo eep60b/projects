@@ -1,0 +1,7 @@
+          ,--.   ,--. 
+ ,---.  ,-'  '-. |  | 
+| .-. : '-.  .-' |  | 
+\   --.   |  |   |  | 
+ `----'   `--'   `--' 
+${Ansi.DEFAULT} ${application.title} ${application.formatted-version} ${Ansi.DEFAULT}
+${Ansi.DEFAULT} :: Spring Boot${spring-boot.formatted-version} :: ${Ansi.DEFAULT}

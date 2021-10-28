@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"       
+      xmlns:p="http://primefaces.org/ui">
+
+  <h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h:outputScript library="js" name="view-data.js" />    
+    <h:outputScript library="js" name="progress.js" target="head"/> 
+    <h:outputScript library="jquery-3.3.1.min.js"></h:outputScript>
+    <p:ajaxStatus onstart="on_start()" oncomplete="on_complete()"/> 
+    <f:loadBundle basename="com.etlsolutions.jlrmena.dq.General" var="generalMsg"/>      
+    <f:loadBundle basename="com.etlsolutions.jlrmena.dq.Index" var="indexMsg"/>          
+    <f:facet name="last">
+      <h:outputStylesheet name="css/jlrmena.css"/>
+    </f:facet>    
+    <title>#{indexMsg.TITLE}</title>
+  </h:head>
+  <h:body>
+    <div class="wrapper">
+      <p:panelGrid columns="3"  styleClass="headerPanel" >
+        <p:column >
+          <p:graphicImage name="img/JLR_Logo_Lockup_Horiz_90mm_CMYK.jpg" alt="#{generalMsg.JLR_LOGO_ALT}" class="logo"/>
+        </p:column>
+        <p:panelGrid columns="1" styleClass="headerPanel">
+          <h:form id="logout-header-form" >
+                <p:linkButton id="logoutButton" value="Logout" href="logout" icon="fa fa-power-off" class="logout-button"/>
+          </h:form>  
+        </p:panelGrid>
+      </p:panelGrid>
+      <h:form id="main-page-tabForm">
+        <p:tabView id="main-page-tabView" styleClass="tab-view" dynamic="true" cache="false" onTabChange="resetTimer()"  >
+          <ui:include src="./index/summary-count-tab.xhtml" />                  
+        </p:tabView>
+      </h:form>
+    </div>
+  </h:body>
+</html>
+

@@ -1,0 +1,491 @@
+.wrapper {
+  /*  max-width: 1240px;
+    margin: auto;*/
+}
+
+/*------------------------------------------------------------------ FONTS ----*/
+
+@font-face {
+  font-family: "JLREmericWeb-ExtraLight";
+
+  src: url("#{resource['css:JLREmericWeb-ExtraLight.eot']}");
+  src: url("#{resource['css:JLREmericWeb-ExtraLight.woff']}") format('woff'),
+    url("#{resource['css:JLREmericWeb-ExtraLight.eot#iefix']}") format('embedded-opentype'),
+    url("#{resource['css:JLREmericWeb-ExtraLight.svg#JLREmericWeb-ExtraLight']}") format('svg');
+}
+
+@font-face {
+  font-family: "JLREmericWeb-Regular";
+
+  src: url("#{resource['css:JLREmericWeb-Regular.eot']}");
+  src: url("#{resource['css:JLREmericWeb-Regular.woff']}") format('woff'),
+    url("#{resource['css:JLREmericWeb-Regular.eot#iefix']}") format('embedded-opentype'),
+    url("#{resource['css:JLREmericWeb-Regular.svg#JLREmericWeb-Regular']}") format('svg');
+}
+
+@font-face {
+  font-family: "JLREmericWeb-SemiBold";
+
+  src: url("#{resource['css:JLREmericWeb-SemiBold.eot']}");
+  src: url("#{resource['css:JLREmericWeb-SemiBold.woff']}") format('woff'),
+    url("#{resource['css:JLREmericWeb-SemiBold.eot#iefix']}") format('embedded-opentype'),
+    url("#{resource['css:JLREmericWeb-SemiBold.svg#JLREmericWeb-SemiBold']}") format('svg');
+}
+
+/* For Paginator */
+.ui-datatable .ui-paginator .ui-paginator-first, 
+.ui-datatable .ui-paginator .ui-paginator-prev, 
+.ui-datatable .ui-paginator .ui-paginator-pages .ui-paginator-page, 
+.ui-datatable .ui-paginator .ui-paginator-next, 
+.ui-datatable .ui-paginator .ui-paginator-last, 
+.ui-datatable .ui-paginator .ui-paginator-rpp-options {
+  font-size:small;
+  font-family: 'JLREmericWeb-ExtraLight';
+}
+
+.ui-datatable .ui-paginator .ui-paginator-current {
+  font-size:small;
+  font-family: 'JLREmericWeb-ExtraLight';   }
+
+.ui-paginator a {
+  /*  margin-right: 5px;*/
+}
+
+/*------------ commons ----------------------*/
+
+.page-title {
+  font-size: x-large;
+  font-family: 'JLREmericWeb-Regular';  
+}
+
+.logo-panelGrid { 
+  width: 120px;
+} 
+
+.page-title-panelGrid {
+  width: 300px;
+} 
+
+/*------------------------------------------------------------------ Login page ----*/
+.login-error-message{
+  color: red;
+}
+.login-button.ui-button {
+  font-size:small;
+  font-family: 'JLREmericWeb-ExtraLight';
+  background-color: white!important;
+  color: #1E1E1E!important;
+  border-color: #eee!important;
+  border-width: thin ! important;
+}
+
+.login-button.ui-button:hover
+{
+  background-color: #eee!important;
+  border-color: #C4C4C4!important;
+}
+
+.login-input-text.ui-inputfield{
+  font-size:small;
+  font-family: 'JLREmericWeb-ExtraLight';
+}
+
+.loginPanel td
+{
+  vertical-align: middle;
+  alignment-adjust: auto;
+}
+
+.loginPanel.ui-panelgrid>*>tr,
+.loginPanel.ui-panelgrid .ui-panelgrid-cell
+{
+  border:none;
+}
+
+.loginPanel{
+  /* width: 100%;*/
+}
+
+.login-label.ui-outputlabel {
+
+  font-size: small;
+  font-family: 'JLREmericWeb-ExtraLight';
+  width:130px !important;
+}
+
+/*------------------------------------------------------------------ HEADER PANEL ----*/
+.logo{
+  width: 100px;
+  padding:10px;
+}
+
+.logout-button.ui-button {
+  font-size:small;
+  font-family: 'JLREmericWeb-ExtraLight';
+  float:right;
+  background-color: white!important;
+  color: #1E1E1E!important; 
+  border-color: #eee!important;
+  border-width: thin ! important;
+
+}
+
+.logout-button.ui-button:hover
+{
+  border-color: #C4C4C4!important;
+  background-color: #eee!important;
+}
+
+.ui-tabs .ui-tabs-nav{
+  font-size: small;
+  font-family: 'JLREmericWeb-ExtraLight';
+}
+
+.headerPanel 
+{
+  width:100%;
+}
+
+.headerPanel td
+{
+  vertical-align: top;
+
+}
+
+.headerPanel.ui-panelgrid>*>tr,
+.headerPanel.ui-panelgrid .ui-panelgrid-cell
+{
+  border:none;
+}
+
+.header-calendar{
+  font-size: small !important;
+  font-family: 'JLREmericWeb-ExtraLight'!important; 
+}
+
+.ui-datepicker
+{
+  font-size: small !important;
+  font-family: 'JLREmericWeb-ExtraLight' !important;
+}
+
+.calendar-label.ui-outputlabel
+{
+  font-size: small !important;
+  font-family: 'JLREmericWeb-ExtraLight' !important;
+  padding-right: 5px !important;
+  padding-left: 15px !important;
+}
+
+.ui-selectonemenu,
+.ui-selectonemenu-panel .ui-selectonemenu-list-item,
+.ui-selectonemenu-label,
+.filterDropDown,
+.filterDropDown.ui-selectonemenu-panel.ui-selectonemenu-list-item
+{
+  font-size: small !important;
+  font-family: 'JLREmericWeb-ExtraLight'!important;
+  /* width:35px ! important;*/
+}
+
+.ui.selectcheckboxmenu,
+.ui-selectcheckboxmenu-label{
+  font-size: small !important;
+  font-family: 'JLREmericWeb-ExtraLight'!important;
+}
+.ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-list-item
+{
+  font-size: small !important;
+  font-family: 'JLREmericWeb-ExtraLight'!important;
+  width:175px ! important;
+}
+
+.chartTitle
+{
+  font-size:x-small;
+  font-family: 'JLREmericWeb-ExtraLight';
+  color: #1E1E1E;
+}
+
+/*------------------------------------------------------------------ DOWNLOAD BUTTON ----*/
+.download-button.ui-button:hover
+{
+  border-color: #C4C4C4!important;
+  background-color: #eee!important;
+  float:right;
+}
+
+.download-button.ui-button{
+  background:white;
+  background-color: white!important;
+  color: #1E1E1E!important;
+  border-color: #eee!important;
+  height:40px !important;
+  width:40px !important;
+  margin :0;
+}
+
+.ui-icon-myDownload {
+  background-image: url("#{resource['img/download34.png']}") !important;
+  height:34px !important;
+  width:34px !important;
+  background-position: -10px -10px;
+}
+
+/*---- summary-count tab ----*/
+.summary-count-panelgrid.ui-panelgrid>*>tr,
+.summary-count-panelgrid.ui-panelgrid .ui-panelgrid-cell {
+  border: none;
+  vertical-align: top;
+  padding-left:0px;
+  padding-right:0px;
+}
+
+/*---- customer tab ----*/
+.customer-panelgrid.ui-panelgrid>*>tr,
+.customer-panelgrid.ui-panelgrid .ui-panelgrid-cell {
+  border: none;
+  vertical-align: top;
+  padding-left:0px;
+  padding-right:0px;
+  min-width: 2750px;
+}
+
+/*---- vehicle tab ----*/
+.vehicle-panelgrid.ui-panelgrid>*>tr,
+.vehicle-panelgrid.ui-panelgrid .ui-panelgrid-cell {
+  border: none;
+  vertical-align: top;
+  padding-left:0px;
+  padding-right:0px;
+  min-width: 2000px;  
+}
+
+/*---- invoice tab ----*/
+.invoice-panelgrid.ui-panelgrid>*>tr,
+.invoice-panelgrid.ui-panelgrid .ui-panelgrid-cell {
+  border: none;
+  vertical-align: top;
+  padding-left:0px;
+  padding-right:0px;
+  min-width: 2500px;  
+}
+
+/* do we want the headers different font, size, etc - see the guidelines - see for all tables- add a specific class rather than having to use important?*/
+.summary-count-table{
+  font-size: small;
+  font-family: 'JLREmericWeb-ExtraLight';
+}
+
+.customer-table{
+  font-size: small;
+  font-family: 'JLREmericWeb-ExtraLight';
+}
+
+/* columns - we keep the style same for columns with the same name.*/
+
+/* common columns*/
+.maket-column {
+  width: 90px;
+}
+
+.retailer-column {
+  width: 90px;
+}
+
+.brand-column {
+  width: 90px;
+}
+
+.invoice-date-column {
+  width: 100px;
+}
+
+/* columns in the customer tab */
+.title-column {
+  min-width: 30px;
+}
+
+.title-status-column {
+  min-width: 60px;
+}
+
+.first-name-column {
+  min-width: 95px;
+}
+
+.first-name-status-column {
+  min-width: 60px;
+}
+
+.last-name-column {
+  min-width: 90px;
+}
+
+.last-name-status-column {
+  max-width: 60px;
+}
+
+.vin-flag-column {
+  width: 30px;
+}
+
+.vin-flag-status-column {
+  max-width: 60px;
+}
+
+.address1-column {
+  max-width: 60px;
+}
+
+.address1-status-column {
+  max-width: 60px;
+}
+
+.address2-column {
+  max-width: 60px;
+}
+
+.address2-staus-column {
+  max-width: 60px;
+}
+
+.address3-column {
+  max-width: 90px;
+}
+
+.address3-status-column {
+  max-width: 60px;
+}
+
+.address4-column {
+  max-width: 90px;
+}
+
+.address4-status-column {
+  max-width: 60px;
+}
+
+.address-towncity-column {
+  max-width: 140px;
+}
+
+.address-towncity-status-column {
+  max-width: 60px;
+}
+
+.address-postcode-column {
+  max-width: 135px;
+}
+
+.address-postcode-status-column {
+  width: 60px;
+}
+
+.home-phone-column {
+  max-width: 95px;
+}
+
+.home-phone-status-column {
+  max-width: 60px;
+}
+
+.bussiness-phone-column {
+  max-width: 95px;
+}
+
+.bussiness-phone-status-column {
+  width: 60px;
+}
+
+.mobile-phone-column {
+  max-width: 95px;
+}
+
+.mobile-phone-status-column {
+  max-width: 60px;
+}
+
+.email-address1-column {
+  max-width: 115px;
+}
+
+.email-address1-status-column {
+  max-width: 60px;
+}
+
+.complete-supression-column {
+  width: 30px;
+}
+
+.complete-suppression-status-column {
+  min-width: 60px;
+}
+
+/* columns in the vehicle tab*/
+
+.vehicle-vin-column {
+  min-width: 130px;
+  width: 130px;
+}
+.vehicle-vin-status-column {
+  width: 80px;
+  max-width: 80px;
+}
+
+.vehicle-reg-num-column {
+  max-width: 80px;
+  width: 80px;
+}
+
+.vehicle-reg-num-status-column {
+  width: 120px;
+}
+
+.vehicle-model-column {
+  width: 100px;
+}
+
+.vehicle-model-status-column {
+  width: 100px;
+}
+
+.vehicle-model-year-column {
+  width: 100px;
+}
+
+.vehicle-model-year-status-column {
+  width: 135px;
+}
+
+.vehicle-mileage-column {
+  width: 80px;
+}
+
+.vehicle-mileage-status-column {
+  width: 120px;
+}
+
+.vehicle-next-service-date-column {
+  width: 140px;
+  max-width: 140px;
+}
+.vehicle-next-service-status-column {
+  width: 150px;
+  max-width: 150px;  
+}
+
+.vehicle-next-service-mileage-column {
+  width: 160px;
+  max-width: 160px;   
+}
+
+.vehicle-next-service-mileage-status-column {
+  min-width: 200px;
+}
+
+/*columns in the invoice (Repair order) tab */
+
+.invoice-collection-clock-date-column {
+  width: 160px;
+}

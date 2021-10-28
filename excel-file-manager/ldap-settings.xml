@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+<entry key="URL">ldap://jlrmena-dev.etlsolutions.com:389</entry>
+<entry key="USER_SEARCH_BASE">ou=People,o=JLR,ou=Projects,o=ETL</entry>
+<entry key="USER_SEARCH_FILTER">(&amp;(objectClass=posixAccount)(uid={0})(memberof=cn=Manufacturer,ou=Groups,o=JLR,ou=Projects,o=ETL))</entry>
+<entry key="GROUP_SEARCH_BASE">ou=Groups,o=JLR,ou=Projects,o=ETL</entry>
+</properties>
