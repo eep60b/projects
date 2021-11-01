@@ -22,16 +22,6 @@
   </h:head>
   <h:body>
     <div class="wrapper">
-      <p:panelGrid columns="3"  styleClass="headerPanel" >
-        <p:column >
-          <p:graphicImage name="img/JLR_Logo_Lockup_Horiz_90mm_CMYK.jpg" alt="#{generalMsg.JLR_LOGO_ALT}" class="logo"/>
-        </p:column>
-        <p:panelGrid columns="1" styleClass="headerPanel">
-          <h:form id="logout-header-form" >
-                <p:linkButton id="logoutButton" value="Logout" href="logout" icon="fa fa-power-off" class="logout-button"/>
-          </h:form>  
-        </p:panelGrid>
-      </p:panelGrid>
       <h:form id="main-page-tabForm">
         <p:tabView id="main-page-tabView" styleClass="tab-view" dynamic="true" cache="false" onTabChange="resetTimer()"  >
           <ui:include src="./index/summary-count-tab.xhtml" />                  

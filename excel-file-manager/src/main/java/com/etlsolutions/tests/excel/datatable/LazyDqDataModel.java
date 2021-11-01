@@ -1,6 +1,6 @@
 package com.etlsolutions.tests.excel.datatable;
 
-import com.etlsolutions.excel.cache.AbstractCache;
+import com.etlsolutions.jlrmena.tests.excel.DataRow;
 import java.lang.reflect.Field;
 import java.util.*;
 import org.apache.log4j.Logger;
@@ -9,15 +9,22 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
 
-public class LazyDqDataModel<T extends IdentifiableRow> extends LazyDataModel<T> {
+public class LazyDqDataModel extends LazyDataModel<DataRow> {
 
     private static final long serialVersionUID = 886732626550437281L;
 
-    private List<T> rows;
+    private List<DataRow> rows;
 
+    public LazyDqDataModel() {
+    }
+    
+    public LazyDqDataModel(List<DataRow> rows) {
+        this.rows = new ArrayList<>(rows);
+    }
+    
     @Override
-    public T getRowData(String rowKey) {
-        for (T row : rows) {
+    public DataRow getRowData(String rowKey) {
+        for (DataRow row : rows) {
             if (row.getId().equals(rowKey)) {
                 return row;
             }
@@ -27,7 +34,7 @@ public class LazyDqDataModel<T extends IdentifiableRow> extends LazyDataModel<T>
     }
 
     @Override
-    public String getRowKey(T row) {
+    public String getRowKey(DataRow row) {
 
         if (rows.contains(row)) {
             return row.getId();
@@ -37,10 +44,10 @@ public class LazyDqDataModel<T extends IdentifiableRow> extends LazyDataModel<T>
     }
 
     @Override
-    public List<T> load(int first, int pageSize, List<SortMeta> multiSortMeta, Map<String, Object> filters) {
+    public List<DataRow> load(int first, int pageSize, List<SortMeta> multiSortMeta, Map<String, Object> filters) {
         try {
             //filter
-            List<T> data = filter(filters);
+            List<DataRow> data = filter(filters);
 
             //sort
             if (multiSortMeta != null) {
@@ -62,10 +69,10 @@ public class LazyDqDataModel<T extends IdentifiableRow> extends LazyDataModel<T>
     }
 
     @Override
-    public List<T> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters) {
+    public List<DataRow> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters) {
         try {
             //filter
-            List<T> data = filter(filters);
+            List<DataRow> data = filter(filters);
 
             //sort
             if (sortField != null) {
@@ -85,9 +92,9 @@ public class LazyDqDataModel<T extends IdentifiableRow> extends LazyDataModel<T>
         }
     }
 
-    private List<T> filter(Map<String, Object> filters) {
-        List<T> data = new ArrayList<>();
-        for (T row : rows) {
+    private List<DataRow> filter(Map<String, Object> filters) {
+        List<DataRow> data = new ArrayList<>();
+        for (DataRow row : rows) {
             boolean match = true;
 
             if (filters != null) {
@@ -117,7 +124,7 @@ public class LazyDqDataModel<T extends IdentifiableRow> extends LazyDataModel<T>
         return data;
     }
 
-    private List<T> paginate(int dataSize, int pageSize, List<T> data, int first) {
+    private List<DataRow> paginate(int dataSize, int pageSize, List<DataRow> data, int first) {
 
         if (dataSize <= pageSize) {
             return data;

@@ -1,6 +1,6 @@
 package com.etlsolutions.excel.cache;
 
-import com.etlsolutions.tests.excel.datatable.IdentifiableRow;
+import com.etlsolutions.jlrmena.tests.excel.DataRow;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @param <T> - The row type.
  */
-public abstract class AbstractCache<T extends IdentifiableRow> {
+public abstract class AbstractCache<T extends DataRow> {
 
 
   public abstract void updateChartModels(List<T> filteredRows);
