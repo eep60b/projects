@@ -4,7 +4,7 @@ import com.etlsolutions.jlrmena.tests.excel.DataRow;
 import com.etlsolutions.jlrmena.tests.excel.ExcelUtils;
 import com.etlsolutions.tests.excel.datatable.LazyDqDataModel;
 import java.io.Serializable;
-import java.util.List;
+import java.util.*;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -16,6 +16,7 @@ public class SummaryCountController implements Serializable {
 
     private static final long serialVersionUID = 676202916465527901L;
 
+    private List<DataRow> rows;
     private LazyDqDataModel dataModel;
 
     /**
@@ -30,32 +31,54 @@ public class SummaryCountController implements Serializable {
 
     @PostConstruct
     public void init() {
-        dataModel = new LazyDqDataModel(ExcelUtils.getInstance().loadData());
+        rows = ExcelUtils.getInstance().loadData();
+        dataModel = new LazyDqDataModel(rows);
     }
 
-    public LazyDqDataModel getDataModel() {
-        return dataModel;
+    public List<DataRow> getDataModel() {
+        return rows;
     }
-    
-  /**
-   * Get the rows for filter. This method is required by the Primefaces table
-   * model to filter the table.
-   *
-   * @return the row list.
-   */
-  public List<DataRow> getFilteredRows() {
-    return filteredRows;
-  }
 
-  /**
-   * Set the filtered rows. This method is required by the Primefaces table
-   * model to filter the table.
-   *
-   * @param filteredRows - The row list.
-   */
-  public void setFilteredRows(List<DataRow> filteredRows) {
-    this.filteredRows = filteredRows;
-  }
-    
+//    public LazyDqDataModel getDataModel() {
+//        return dataModel;
+//    }
+    /**
+     * Get the rows for filter. This method is required by the Primefaces table
+     * model to filter the table.
+     *
+     * @return the row list.
+     */
+    public List<DataRow> getFilteredRows() {
+        return filteredRows;
+    }
 
+    /**
+     * Set the filtered rows. This method is required by the Primefaces table
+     * model to filter the table.
+     *
+     * @param filteredRows - The row list.
+     */
+    public void setFilteredRows(List<DataRow> filteredRows) {
+        this.filteredRows = filteredRows;
+    }
+
+    public Date getFromDate() {
+        return new Date();
+    }
+
+    public void setFromDate(Date fromDate) {
+
+    }
+
+    public Date getToDate() {
+        return new Date();
+    }
+
+    public void setToDate(Date fromDate) {
+
+    }
+
+    public List<String> getAllMarkets() {
+        return Arrays.asList("");
+    }
 }

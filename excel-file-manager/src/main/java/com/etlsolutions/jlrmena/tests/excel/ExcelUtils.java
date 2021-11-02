@@ -3,6 +3,7 @@ package com.etlsolutions.jlrmena.tests.excel;
 import java.io.*;
 import java.util.*;
 import org.apache.poi.ss.usermodel.*;
+import static org.apache.poi.ss.usermodel.Cell.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtils {
@@ -91,24 +92,24 @@ public class ExcelUtils {
 
     private String getStringCellValue(Cell cell) {
 
-        CellType type = cell.getCellType();
+        int type = cell.getCellType();
 
         switch (type) {
 
-            case BLANK:
+            case CELL_TYPE_BLANK:
                 return "";
-            case BOOLEAN:
+            case CELL_TYPE_BOOLEAN:
                 return String.valueOf(cell.getBooleanCellValue());
-            case ERROR:
+            case CELL_TYPE_ERROR:
                 throw new IllegalStateException("Invalid cell.");
-            case FORMULA:
+            case CELL_TYPE_FORMULA:
                 return cell.getCellFormula();
-            case NUMERIC:
+            case CELL_TYPE_NUMERIC:
                 return String.valueOf(cell.getNumericCellValue());
-            case STRING:
+            case CELL_TYPE_STRING:
                 return cell.getStringCellValue();
-            case _NONE:
-                return "NONE";
+//            case CELL_TYPE_NONE:
+//                return "NONE";
 
             default:
                 throw new IllegalStateException("Invalid cell type.");

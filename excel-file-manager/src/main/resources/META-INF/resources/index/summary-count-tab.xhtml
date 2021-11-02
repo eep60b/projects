@@ -9,43 +9,46 @@
     xmlns:pe="http://primefaces.org/ui/extensions"
     xmlns:f="http://xmlns.jcp.org/jsf/core">
     <p:tab id="summary-count-tab" title="Project Allocation">
-        <p:panelGrid columns="1" class="summary-count-panelgrid">    
-            <p:dataTable tableStyleClass="summary-count-table" style="margin-bottom:20px"   var="summaryCountRow" value="#{summaryCountController.dataModel}" id="summaryCountTable" paginator="true" rows="50" scrollable="true"
-                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink} {Exporters}"
-                         rowsPerPageTemplate="50,100" resizableColumns="true" liveResize="true" paginatorPosition="top" lazy="true"
-                         widgetVar="summaryCountTableVar" filteredValue="#{summaryCountController.filteredRows}"> 
 
-                <f:facet name="{Exporters}">
-                    <h:commandLink value="Export" style="font-size:small;font-family:'JLREmericWeb-ExtraLight';padding-right:5px;float:right">
-                        <pe:exporter type="xlsx" target="summaryCountTable" fileName="DQSummary"/>  
-                    </h:commandLink>
-                </f:facet>
+        <p:dataTable tableStyleClass="summary-count-table" style="margin-bottom:20px"   var="summaryCountRow" value="#{summaryCountController.dataModel}" id="summaryCountTable" paginator="true" rows="50" scrollable="true"
+                     paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink} {Exporters}"
+                     rowsPerPageTemplate="50,100" resizableColumns="true" liveResize="true" paginatorPosition="top" lazy="true"
+                     widgetVar="summaryCountTableVar" filteredValue="#{summaryCountController.filteredRows}"> 
 
-                <p:column headerText="BID" sortBy="#{summaryCountRow.id}" filterBy="#{summaryCountRow.id}" filterMatchMode="in" styleClass="maket-column" >
-                    <h:outputText value="#{summaryCountRow.id}" />
-                </p:column>
+            <p:ajax event="page"/>
+            <p:ajax event="sort"/>
+            <p:ajax event="filter"/> 
 
-                <p:column headerText="Name" sortBy="#{summaryCountRow.studentName}" filterBy="#{summaryCountRow.studentName}" filterMatchMode="in" styleClass="retailer-column">
-                    <h:outputText value="#{summaryCountRow.studentName}" />
-                </p:column>  
+            <f:facet name="{Exporters}">
+                <h:commandLink value="Export" style="font-size:small;font-family:'JLREmericWeb-ExtraLight';padding-right:5px;float:right">
+                    <pe:exporter type="xlsx" target="summaryCountTable" fileName="DQSummary"/>  
+                </h:commandLink>
+            </f:facet>
 
-                <p:column headerText="Course" sortBy="#{summaryCountRow.courseName}" filterBy="#{summaryCountRow.courseName}" filterMatchMode="in" styleClass="brand-column">
-                    <h:outputText value="#{summaryCountRow.courseName}" />
-                </p:column> 
+            <p:column headerText="BID" sortBy="#{summaryCountRow.id}" filterBy="#{summaryCountRow.id}" filterMatchMode="in" styleClass="maket-column" >
+                <h:outputText value="#{summaryCountRow.id}" />
+            </p:column>
 
-                <p:column headerText="Email" sortBy="#{summaryCountRow.emailAddress}" filterBy="#{summaryCountRow.emailAddress}" filterMatchMode="in" styleClass="brand-column">
-                    <h:outputText value="#{summaryCountRow.emailAddress}" />
-                </p:column>
+            <p:column headerText="Name" sortBy="#{summaryCountRow.studentName}" filterBy="#{summaryCountRow.studentName}" filterMatchMode="in" styleClass="retailer-column">
+                <h:outputText value="#{summaryCountRow.studentName}" />
+            </p:column>  
 
-                <p:column headerText="Supervisor" sortBy="#{summaryCountRow.supervisorName}" filterBy="#{summaryCountRow.supervisorName}"  filterMatchMode="in" styleClass="brand-column">
-                    <h:outputText value="#{summaryCountRow.supervisorName}" />
-                </p:column>
+            <p:column headerText="Course" sortBy="#{summaryCountRow.courseName}" filterBy="#{summaryCountRow.courseName}" filterMatchMode="in" styleClass="brand-column">
+                <h:outputText value="#{summaryCountRow.courseName}" />
+            </p:column> 
 
-                <p:column headerText="2nd Marker" sortBy="#{summaryCountRow.secondMarkerName}" filterBy="#{summaryCountRow.secondMarkerName}"  filterMatchMode="in" styleClass="brand-column">
-                    <h:outputText value="#{summaryCountRow.secondMarkerName}" />
-                </p:column>    
-            </p:dataTable>
-        </p:panelGrid>
+            <p:column headerText="Email" sortBy="#{summaryCountRow.emailAddress}" filterBy="#{summaryCountRow.emailAddress}" filterMatchMode="in" styleClass="brand-column">
+                <h:outputText value="#{summaryCountRow.emailAddress}" />
+            </p:column>
+
+            <p:column headerText="Supervisor" sortBy="#{summaryCountRow.supervisorName}" filterBy="#{summaryCountRow.supervisorName}"  filterMatchMode="in" styleClass="brand-column">
+                <h:outputText value="#{summaryCountRow.supervisorName}" />
+            </p:column>
+
+            <p:column headerText="2nd Marker" sortBy="#{summaryCountRow.secondMarkerName}" filterBy="#{summaryCountRow.secondMarkerName}"  filterMatchMode="in" styleClass="brand-column">
+                <h:outputText value="#{summaryCountRow.secondMarkerName}" />
+            </p:column>    
+        </p:dataTable>
 
     </p:tab>
 </ui:composition>
