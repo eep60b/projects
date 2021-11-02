@@ -12,7 +12,7 @@
 
         <p:dataTable tableStyleClass="summary-count-table" style="margin-bottom:20px"   var="summaryCountRow" value="#{summaryCountController.dataModel}" id="summaryCountTable" paginator="true" rows="50" scrollable="true"
                      paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink} {Exporters}"
-                     rowsPerPageTemplate="50,100" resizableColumns="true" liveResize="true" paginatorPosition="top" lazy="true"
+                     rowsPerPageTemplate="10,20,50,100,200" resizableColumns="true" liveResize="true" paginatorPosition="top" lazy="true"
                      widgetVar="summaryCountTableVar" filteredValue="#{summaryCountController.filteredRows}"> 
 
             <p:ajax event="page"/>
@@ -21,31 +21,51 @@
 
             <f:facet name="{Exporters}">
                 <h:commandLink value="Export" style="font-size:small;font-family:'JLREmericWeb-ExtraLight';padding-right:5px;float:right">
-                    <pe:exporter type="xlsx" target="summaryCountTable" fileName="DQSummary"/>  
+                    <pe:exporter type="xlsx" target="summaryCountTable" fileName="Project allocation"/>  
                 </h:commandLink>
             </f:facet>
 
-            <p:column headerText="BID" sortBy="#{summaryCountRow.id}" filterBy="#{summaryCountRow.id}" filterMatchMode="in" styleClass="maket-column" >
+            <p:column sortBy="#{summaryCountRow.id}" filterBy="#{summaryCountRow.id}" filterMatchMode="in" styleClass="maket-column" >
+                <f:facet name="header">
+                    <h:outputText value="BID"/>
+                </f:facet>
                 <h:outputText value="#{summaryCountRow.id}" />
             </p:column>
 
-            <p:column headerText="Name" sortBy="#{summaryCountRow.studentName}" filterBy="#{summaryCountRow.studentName}" filterMatchMode="in" styleClass="retailer-column">
+            <p:column sortBy="#{summaryCountRow.studentName}" filterBy="#{summaryCountRow.studentName}" filterMatchMode="in" styleClass="retailer-column">
+                <f:facet name="header">
+                    <h:outputText value="Name"/>
+                </f:facet>
                 <h:outputText value="#{summaryCountRow.studentName}" />
             </p:column>  
 
-            <p:column headerText="Course" sortBy="#{summaryCountRow.courseName}" filterBy="#{summaryCountRow.courseName}" filterMatchMode="in" styleClass="brand-column">
+            <p:column sortBy="#{summaryCountRow.courseName}" filterBy="#{summaryCountRow.courseName}" filterMatchMode="in" styleClass="brand-column">
+                <f:facet name="header">
+                    <h:outputText value="Course"/>
+                </f:facet>
+
                 <h:outputText value="#{summaryCountRow.courseName}" />
             </p:column> 
 
             <p:column headerText="Email" sortBy="#{summaryCountRow.emailAddress}" filterBy="#{summaryCountRow.emailAddress}" filterMatchMode="in" styleClass="brand-column">
+                
+                <f:facet name="header">
+                    <h:outputText value="Email"/>
+                </f:facet>
                 <h:outputText value="#{summaryCountRow.emailAddress}" />
             </p:column>
 
-            <p:column headerText="Supervisor" sortBy="#{summaryCountRow.supervisorName}" filterBy="#{summaryCountRow.supervisorName}"  filterMatchMode="in" styleClass="brand-column">
+            <p:column sortBy="#{summaryCountRow.supervisorName}" filterBy="#{summaryCountRow.supervisorName}"  filterMatchMode="in" styleClass="brand-column">
+                <f:facet name="header">
+                    <h:outputText value="Supervisor"/>
+                </f:facet>
                 <h:outputText value="#{summaryCountRow.supervisorName}" />
             </p:column>
 
-            <p:column headerText="2nd Marker" sortBy="#{summaryCountRow.secondMarkerName}" filterBy="#{summaryCountRow.secondMarkerName}"  filterMatchMode="in" styleClass="brand-column">
+            <p:column sortBy="#{summaryCountRow.secondMarkerName}" filterBy="#{summaryCountRow.secondMarkerName}"  filterMatchMode="in" styleClass="brand-column">
+                <f:facet name="header">
+                    <h:outputText value="2nd Marker"/>
+                </f:facet>
                 <h:outputText value="#{summaryCountRow.secondMarkerName}" />
             </p:column>    
         </p:dataTable>

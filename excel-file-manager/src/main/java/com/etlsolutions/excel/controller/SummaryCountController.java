@@ -35,13 +35,13 @@ public class SummaryCountController implements Serializable {
         dataModel = new LazyDqDataModel(rows);
     }
 
-    public List<DataRow> getDataModel() {
-        return rows;
-    }
-
-//    public LazyDqDataModel getDataModel() {
-//        return dataModel;
+//    public List<DataRow> getDataModel() {
+//        return rows;
 //    }
+
+    public LazyDqDataModel getDataModel() {
+        return dataModel;
+    }
     /**
      * Get the rows for filter. This method is required by the Primefaces table
      * model to filter the table.

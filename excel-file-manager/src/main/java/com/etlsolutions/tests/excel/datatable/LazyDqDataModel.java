@@ -101,7 +101,15 @@ public class LazyDqDataModel extends LazyDataModel<DataRow> {
                 for (Iterator<String> it = filters.keySet().iterator(); it.hasNext();) {
                     try {
                         String filterProperty = it.next();
-                        String[] filterValue = (String[]) filters.get(filterProperty);
+                        
+                        Object f = filters.get(filterProperty);
+                        String[] filterValue;
+                        if(f instanceof String) {
+                            filterValue = new String[]{(String)f};
+                        } else {
+                            filterValue = (String[]) f;
+                        }
+ 
                         Field field = row.getClass().getDeclaredField(filterProperty);
                         field.setAccessible(true);
                         String fieldValue = String.valueOf(field.get(row));

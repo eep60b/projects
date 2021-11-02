@@ -105,9 +105,9 @@ public class ExcelUtils {
             case CELL_TYPE_FORMULA:
                 return cell.getCellFormula();
             case CELL_TYPE_NUMERIC:
-                return String.valueOf(cell.getNumericCellValue());
+                return String.valueOf((int)cell.getNumericCellValue()).trim();
             case CELL_TYPE_STRING:
-                return cell.getStringCellValue();
+                return cell.getStringCellValue().trim();
 //            case CELL_TYPE_NONE:
 //                return "NONE";
 
