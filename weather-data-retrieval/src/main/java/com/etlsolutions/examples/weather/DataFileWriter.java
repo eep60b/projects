@@ -58,7 +58,7 @@ public final class DataFileWriter {
             builder.append(data.getOutputString(parameters.getDatetimeFormat(), parameters.getDelimiter())).append("\n");
         }
 
-        String content = new String(builder).substring(0, builder.length() - 1);
+        String content = builder.length() == 0 ? "" : new String(builder).substring(0, builder.length() - 1);
 
         String dataEncoding = parameters.getDataEncoding();
         FileUtils.writeStringToFile(file, content, dataEncoding, false);
